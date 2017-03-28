@@ -61,7 +61,8 @@
         "sebastian/phpcpd": "2.0.0"
     },
     "config": {
-        "use-include-path": true
+        "use-include-path": true,
+        "disable-tls": true
     },
     "autoload": {
         "psr-4": {
