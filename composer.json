@@ -49,7 +49,7 @@
         "oander/module-paypal": "1.0.0",
         "oander/module-pos-locations": "1.0.7",
         "oander/module-wonder-widget": "1.0.1",
-        "oander/theme-hodor": "1.0.2"
+        "oander/theme-hodor": "1.1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
