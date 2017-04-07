@@ -62,20 +62,9 @@
     @include button-outline-variant($btn-primary-bg);
   }
   &.showcart {
-    @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+    color: #fff;
+    //@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
 
-    &:hover {
-      background: $btn-primary-bg;
-    }
-    &:active,
-    &.active {
-      background: $gray-dark;
-      border-color: $gray-dark;
-
-      .counter-number {
-        color: $gray-dark;
-      }
-    }
   }
   &.back {
     color: $gray-dark;

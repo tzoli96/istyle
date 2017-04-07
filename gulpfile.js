@@ -20,7 +20,7 @@ gulp.task('sass', function() {
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass({
-      outputStyle: 'expanded'
+      outputStyle: 'compressed'
     })).on('error', notify.onError(function (error) {
       return error.message;
     }))

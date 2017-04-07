@@ -1,0 +1,30 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/* @var $block \Magento\Wishlist\Block\Link */
+?>
+<div class="wishlist-link hidden-sm-down" data-bind="scope: 'wishlist'">
+    <a <?php /* @escapeNotVerified */ echo $block->getLinkAttributes() ?>
+        title="<?php echo $block->escapeHtml($block->getLabel()) ?>" class="action wishlist primary">
+        <i class="icon icon-heart"></i> <span class="text"><?php /* @escapeNotVerified */ echo __('My wishlist'); ?></span>
+    </a>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "wishlist": {
+                        "component": "Magento_Wishlist/js/view/wishlist"
+                    }
+                }
+            }
+        }
+    }
+
+</script>
