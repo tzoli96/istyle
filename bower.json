@@ -1,0 +1,20 @@
+{
+  "name": "istyle-magento2",
+  "description": "iStyle Magento 2 - 2017",
+  "main": "",
+  "authors": [
+    "Oander Media"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/oandermedia/project-istyle-M2",
+  "private": true,
+  "devDependencies": {
+    "bootstrap": "v4.0.0-alpha.6",
+    "tether": "^1.4.0",
+    "slick-carousel": "^1.6.0",
+    "photoswipe": "^4.1.1",
+    "lightgallery": "^1.3.9",
+    "lg-zoom": "^1.0.4",
+    "lg-video": "^1.0.1"
+  }
+}
