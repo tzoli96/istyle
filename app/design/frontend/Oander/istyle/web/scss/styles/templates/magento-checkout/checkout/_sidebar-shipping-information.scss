@@ -1,0 +1,38 @@
+//
+//  Variables
+//  _____________________________________________
+
+$checkout-sidebar-shipping-information__padding: $grid-gutter-width-base;
+
+//
+//  Shipping Information
+//  _____________________________________________
+
+.opc-block-shipping-information {
+  //padding: 0 $checkout-sidebar-shipping-information__padding;
+
+  .shipping-information-title {
+    border-bottom: $checkout-step-title__border;
+    margin: 0 0 20px;
+    position: relative;
+
+    .action-edit {
+      top: 2px;
+      margin: 0;
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  .shipping-information-content {
+    line-height: 27px;
+    .actions-toolbar {
+      margin-left: 0;
+    }
+  }
+
+  .ship-to,
+  .ship-via {
+    margin: 0 0 20px;
+  }
+}

@@ -1,0 +1,274 @@
+.wonder-widget-blocks {
+  margin-left: -$grid-gutter-width-base;
+  margin-right: -$grid-gutter-width-base;
+}
+.wonder-widget-usps {
+  margin-left: -$grid-gutter-width-base/2;
+  margin-right: -$grid-gutter-width-base/2;
+  margin-bottom: 30px;
+  background: $body-bg;
+  text-align: left;
+}
+
+.oander-wonder-widget-basic {
+  padding: 0 map_get($grid-gutter-widths, xs)/2;
+
+  .content {
+    position: relative;
+    margin-bottom: $grid-gutter-width-base;
+
+    &:hover {
+      .widget-title,
+      .widget-title-link {
+        color: $brand-primary;
+      }
+    }
+  }
+  .caption {
+    padding: 15px 20px;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    background: #fff;
+  }
+  .image-wrapper {
+    overflow: hidden;
+
+    img {
+      width: auto;
+      max-width: 100%;
+    }
+  }
+  .image {
+    display: none;
+  }
+  .widget-title {
+    display: block;
+    margin: 0;
+    font-size: 14px;
+    font-weight: $font-weight-base;
+    color: $gray-dark;
+    transition: color ease 0.3s;
+
+    .widget-title-link {
+      color: $gray-dark;
+      display: block;
+      padding-right: 40px;
+      position: relative;
+
+      .icon {
+        position: absolute;
+        right: 0;
+        top: 1px;
+        color: $brand-primary;
+      }
+    }
+  }
+  .link {
+    margin-top: 10px;
+    a {
+      display: block;
+      position: relative;
+      padding-right: 40px;
+      font-weight: $font-weight-semibold;
+    }
+
+    .icon {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+  }
+}
+.oander-wonder-widget-usp {
+  width: 100%;
+  .row {
+    margin: 0;
+  }
+  .image-wrapper {
+    background: none !important;
+    padding-right: 15px;
+  }
+  .content {
+    display: table;
+    margin: 0 auto;
+    padding: 15px;
+
+    .image-wrapper,
+    .caption {
+      display: table-cell;
+      vertical-align: middle;
+
+    }
+    .widget-title {
+      margin: 0;
+      font-size: 14px;
+      line-height: 22px;
+      font-weight: $font-weight-semibold;
+
+      &,
+      .widget-title-link {
+        color: $gray-dark;
+      }
+      .icon {
+        display: none;
+      }
+    }
+  }
+  .description,
+  .link {
+    display: none;
+  }
+}
+.oander-wonder-widget-video {
+  .image-wrapper {
+    position: relative;
+  }
+  .content-block {
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .wonder-widget-video-link {
+    display: inline-block;
+  }
+  .icon-play {
+    font-size: 24px;
+  }
+  img {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .oander-wonder-widget-basic {
+    .image-wrapper {
+      background: none !important;
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .oander-wonder-widget-basic {
+    flex: 0 0 50%;
+    max-width: 50%;
+
+    &:nth-child(2n+1) {
+      clear: left;
+    }
+    .content {
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+
+      &:hover {
+        .image-wrapper {
+          transform: scale(1.03);
+        }
+      }
+
+    }
+    .image-wrapper {
+      height: 200px;
+      position: relative;
+      transition: all ease 0.3s;
+
+      .link-overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+      }
+      img {
+        display: none;
+      }
+    }
+    .caption {
+      right: auto;
+      max-width: 300px;
+    }
+  }
+}
+@include media-breakpoint-up(lg) {
+  .wonder-widget-usps {
+    > .row {
+      justify-content: space-between;
+      flex-wrap: nowrap;
+    }
+  }
+  .oander-wonder-widget-basic {
+    .content {
+      height: 280px;
+    }
+    .image-wrapper {
+      height: 280px;
+      background-size: cover;
+      background-position: center center;
+
+      &:hover {
+
+      }
+    }
+    .caption {
+      &.has-description {
+        .widget-title {
+          margin: 0 0 10px;
+
+          .icon {
+            display: none;
+          }
+        }
+      }
+
+      padding-top: 20px;
+      padding-bottom: 20px;
+      max-width: 330px;
+    }
+    .widget-title {
+      font-size: 16px;
+      font-weight: $font-weight-semibold;
+    }
+  }
+  .oander-wonder-widget-usp {
+    & + .oander-wonder-widget-usp {
+      border-top: 0;
+      border-left: 1px solid #ccc;
+    }
+    .content {
+      padding: 30px;
+    }
+  }
+  .oander-wonder-widget-video {
+    &:hover {
+      img {
+        transform: scale(1.15) rotate(2deg);
+        opacity: 0.7;
+      }
+    }
+
+    .content-block {
+      font-size: 24px;
+    }
+    .icon-play {
+      font-size: 36px;
+    }
+    .image-wrapper {
+      overflow: hidden;
+    }
+    img {
+      transition: all ease 0.4s;
+      -webkit-backface-visibility: hidden;
+    }
+  }
+}

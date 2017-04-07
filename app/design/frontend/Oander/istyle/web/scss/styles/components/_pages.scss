@@ -1,0 +1,52 @@
+.pages {
+  .items {
+    display: inline-block;
+    font-size: 0;
+  }
+
+  .item {
+    display: inline-block;
+    line-height: 1rem;
+    margin: 0 5px;
+    font-size: 1rem;
+
+    .action {
+      display: inline-block;
+      height: 30px;
+      padding: 5px 10px;
+      font-size: 17px;
+      color: $gray;
+    }
+  }
+
+  .label {
+    display: none;
+  }
+
+  .page {
+    display: inline-block;
+    margin: 0;
+    height: 30px;
+    padding: 6px 10px;
+    border: 1px solid $gray-light;
+    color: #000;
+    font-size: 1rem;
+    line-height: 1rem;
+    vertical-align: middle;
+    transition: all .35s linear;
+
+    &:hover,
+    &:active {
+      text-decoration: none;
+      border-color: $gray-dark;
+      background-color: $gray-dark;
+      color: #fff;
+    }
+  }
+
+  .current .page {
+    border-color: $gray-dark;
+    background-color: $gray-dark;
+    color: #fff;
+  }
+}

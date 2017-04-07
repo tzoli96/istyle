@@ -1,0 +1,90 @@
+.field {
+  &.choice {
+    .field-tooltip {
+      display: inline-block;
+      margin-left: 10px;
+      position: relative;
+      top: -3px;
+    }
+
+    .field-tooltip-action {
+      line-height: $checkout-tooltip-icon__font-size;
+    }
+  }
+  &._required {
+    > label {
+      &:after {
+        content: '*';
+        color: $brand-danger;
+      }
+    }
+  }
+  &._error {
+    .control {
+      input,
+      select,
+      textarea {
+        border-color: $brand-danger;
+        background: rgba($brand-primary, 0.05);
+      }
+    }
+  }
+  .mage-error {
+    color: $brand-danger;
+    margin: 5px 0 0;
+    font-size: 12px;
+  }
+  .control {
+    &._with-tooltip {
+      position: relative;
+    }
+  }
+  .input-text.form-control {
+    &.mage-error {
+      border-color: $brand-danger;
+      background: rgba($brand-primary, 0.05);
+    }
+  }
+}
+.opc-wrapper {
+  .fieldset {
+    & > .field {
+      & > .label {
+        font-weight: $font-weight-normal;
+      }
+    }
+  }
+  .wrapper-dpd-pickup-info-box {
+    padding: 15px;
+    background: #f7f7f7;
+    border: 1px solid #e7e7e7;
+    font-size: 13px;
+    color: #555;
+
+    p {
+      margin: 0 0 5px;
+    }
+  }
+}
+.dpd-select {
+  margin-bottom: 10px;
+}
+
+@include media-breakpoint-up(lg) {
+  .opc-wrapper {
+    .fieldset {
+      @include clearfix;
+
+      & > .field {
+        &.required,
+        &._required {
+          position: relative;
+
+          > label {
+            padding-right: 25px;
+          }
+        }
+      }
+    }
+  }
+}

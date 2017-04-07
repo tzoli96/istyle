@@ -1,0 +1,125 @@
+.bundle-options-container {
+  clear: both;
+  margin-bottom: 40px;
+
+  .legend.title {
+    color: $headings-color;
+    font-size: $font-size-h4;
+  }
+
+  .product-add-form {
+    display: none;
+  }
+
+  .input-text.qty {
+    @extend .abs-input-qty;
+  }
+
+  .product-options-wrapper {
+    margin-bottom: $grid-gutter-width-base;
+  }
+
+  .action.back {
+    margin-bottom: $grid-gutter-width-base;
+  }
+
+  .price-box {
+    .price {
+      font-size: $font-size-lg;
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  .price-notice {
+    @extend .abs-adjustment-incl-excl-tax;
+  }
+
+  .block-bundle-summary {
+    background: $gray-lighter;
+    padding: 10px 20px;
+
+    > .title > strong {
+      color: $headings-color;
+      font-size: $font-size-h3;
+    }
+
+    .bundle-summary {
+      margin-top: $grid-gutter-width-base;
+
+      &.empty {
+        display: none;
+      }
+
+      > .subtitle {
+        color: $headings-color;
+        font-size: $font-size-h3;
+        display: block;
+      }
+    }
+
+    .bundle.items {
+      @extend .abs-reset-list;
+
+      > li {
+        margin-bottom: 10px;
+      }
+    }
+
+    .box-tocart {
+      .actions {
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .nested {
+    .field.qty {
+      .label {
+        margin: 0 0 5px;
+        display: inline-block;
+      }
+      margin-top: 20px;
+    }
+  }
+
+  p.required {
+    color: $form-field-label-asterisk__color;
+  }
+
+  .product-options-bottom {
+    clear: left;
+  }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@include media-breakpoint-up(md) {
+  .bundle-options-container {
+    .legend.title {
+      @extend .abs-reset-left-margin-desktop;
+    }
+
+    .bundle-options-wrapper,
+    .product-options-wrapper {
+      float: left;
+      width: 57%;
+    }
+
+    .block-bundle-summary {
+      float: right;
+      position: relative;
+      width: 40%;
+    }
+
+    .bundle-options-wrapper,
+    .block-bundle-summary {
+      .page-layout-2columns-left &,
+      .page-layout-2columns-right &,
+      .page-layout-3columns & {
+        width: 48%;
+      }
+    }
+  }
+}

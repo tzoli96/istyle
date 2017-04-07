@@ -1,0 +1,96 @@
+// Add base font size to HTML
+// After this, the body font size inherits this value (1rem)
+html {
+  font-size: 14px;
+
+  &.nav-open,
+  &.sidebar-opened {
+    body {
+      position: fixed;
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+    }
+  }
+}
+
+strong,
+b {
+  font-weight: $font-weight-semibold;
+}
+
+* {
+  outline: 0;
+}
+body {
+
+  *::selection {
+    background: $brand-selected-bg;
+    color: $brand-selected-text;
+  }
+  *::-moz-selection {
+    background: $brand-selected-bg;
+    color: $brand-selected-text;
+  }
+
+  &.customer-account-login,
+  &.catalog-category-view,
+  &[class^="checkout-"],
+  &.catalog-product-view,
+  &.catalogsearch-result-index,
+  &.locations-index-index,
+  &.locations-shop-view {
+    .page-main {
+      .wrapper {
+        background-color: transparent;
+        padding: 0;
+      }
+    }
+  }
+  .page-main {
+    .wrapper {
+      background-color: #fff;
+      padding: $grid-gutter-width-base/2;
+    }
+  }
+}
+.page-wrapper {
+  position: relative;
+  transition: left cubic-bezier(0.5, 0.25, 0, 1) 0.4s;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+}
+.page-main {
+  > .page-title-wrapper {
+    .page-title + .action {
+      margin-top: $grid-gutter-width-base;
+    }
+  }
+}
+
+.no-display {
+  display: none;
+}
+
+table,
+.table {
+  .col {
+    display: table-cell;
+    width: auto;
+  }
+}
+.cms-index-index {
+  .page-wrapper {
+    background: #fff;
+  }
+  .page-title-wrapper {
+    display: none;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  body{
+    -webkit-text-size-adjust: none;
+  }
+}

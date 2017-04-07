@@ -1,0 +1,11 @@
+@include media-breakpoint-up(lg) {
+  .opc-sidebar {
+    width: calc(30% - 10px);
+    float: right;
+  }
+}
+@include media-breakpoint-up(xl) {
+  .opc-sidebar {
+    width: calc(33.3333% - 15px); // col-xl-4
+  }
+}

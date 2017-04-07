@@ -1,0 +1,52 @@
+//
+//  Variables
+//  _____________________________________________
+
+$popup-marker__size: 7px;
+
+//
+//  Common
+//  _____________________________________________
+
+//  Popup working with dropdown dialog
+.ui-dialog {
+  &.popup {
+    .action {
+      &.close {
+        bottom: $popup-button-close__position-bottom;
+        left: $popup-button-close__position-left;
+        position: $popup-button-close__position;
+        height: 40px;
+        right: 0;
+        top: 0;
+        width: 40px;
+        z-index: 1001;
+      }
+    }
+  }
+}
+
+.popup-pointer {
+  @include lib-pointer(
+  $_size: $popup-marker__size,
+  $_background-color: $popup__background,
+  $_border-color: $popup__border-color,
+  $_position__vertical__value: 2px,
+  $_position__horizontal__value: 2px
+  );
+  margin-left: -$popup-marker__size * 2;
+  position: absolute;
+  top: -$popup-marker__size * 2;
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@include media-breakpoint-up(sm) {
+  .ui-dialog {
+    &.popup {
+      width: 420px;
+    }
+  }
+}

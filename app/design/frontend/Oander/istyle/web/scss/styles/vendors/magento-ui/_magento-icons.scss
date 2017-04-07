@@ -1,0 +1,28 @@
+
+$icon__position: before;
+$icon__text-hide: inherit;
+$icon__height: 26px;
+$icon__width: 26px;
+$icon__margin: inherit;
+$icon__vertical-align: middle;
+
+$icon-image__position-x: 0;
+$icon-image__position-y: 0;
+
+$icon-sprite__position-x: 0;
+$icon-sprite__position-y: 0;
+$icon-sprite__grid: 26px;
+
+$icon-font: $icon-font-family;
+$icon-font__position: $icon__position;
+$icon-font__text-hide: $icon__text-hide;
+$icon-font__margin: $icon__margin;
+$icon-font__size: inherit;
+$icon-font__line-height: $icon-font__size;
+$icon-font__color: inherit;
+$icon-font__color-hover: inherit;
+$icon-font__color-active: inherit;
+$icon-font__vertical-align: $icon__vertical-align;
+$icon-font__display: inline-block;
+
+$icon-calendar__font-size: 40px;

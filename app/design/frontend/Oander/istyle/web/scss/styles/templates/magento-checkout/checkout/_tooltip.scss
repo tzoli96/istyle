@@ -1,0 +1,66 @@
+.field-tooltip {
+  cursor: pointer;
+  position: absolute;
+  right: 2px;
+  top: 0px;
+
+  &._active {
+    z-index: 100;
+
+    .field-tooltip-content {
+      display: block;
+    }
+    .field-tooltip-action {
+      &:before {
+        color: $brand-primary;
+      }
+    }
+  }
+  .field-tooltip-action {
+    &:before {
+      content: $icon-question-circle;
+      margin-right: 4px;
+      transition: color ease 0.3s;
+      font-family: $icon-font-family;
+      font-size: 22px;
+      line-height: 40px;
+      color: #ccc;
+    }
+  }
+  .field-tooltip-content {
+    background: #78797c;
+    font-size: 14px;
+    padding: 5px 10px;
+    width: auto;
+    display: none;
+    color: #fff;
+    position: absolute;
+    top: -32px;
+    left: -10px;
+    text-transform: none;
+    word-wrap: break-word;
+    z-index: 2;
+    white-space: nowrap;
+
+    &:before,
+    &:after {
+      @include lib-arrow(
+      $_position: down,
+      $_size: 5px,
+      $_color: #78797c
+      );
+      left: 20px;
+      top: 30px;
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 3;
+      transform: scaleX(-1);
+      border-right-color: #78797c;
+    }
+    &:after {
+      width: 1px;
+      z-index: 4;
+    }
+  }
+}

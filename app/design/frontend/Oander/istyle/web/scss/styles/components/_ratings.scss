@@ -1,0 +1,44 @@
+// Rating variables
+$rating-icon-count: 5;
+$rating-icon-size: 18px;
+$rating-icon-content: $icon-star;
+$rating-star-color: #818a91;
+
+
+@mixin rating-icons-generator() {
+  $icon-content-result: $icon-star;
+  @for $_index from $rating-icon-count to 1 {
+    $icon-content-result: $icon-content-result + $icon-star;
+  }
+
+  &:before {
+    content: $icon-content-result;
+    font-family: $icon-font-family;
+    width: $rating-icon-count * $rating-icon-size;
+    height: $rating-icon-size;
+    line-height: $rating-icon-size;
+    font-size: $rating-icon-size;
+  }
+}
+
+@mixin rating-iteration() {
+  $count: 1;
+
+  @for $index from $rating-icon-count to 0 {
+    $icon-content-result: '';
+
+    .rating-#{$index} {
+      $counter: $rating-icon-count - $index;
+
+      z-index: $rating-icon-count - ($index - 2);
+
+      &:before {
+        @for $index from ($rating-icon-count) to $counter {
+          $icon-content-result: $icon-content-result + $icon-star;
+        }
+        content: $icon-content-result;
+      }
+    }
+  }
+}
+

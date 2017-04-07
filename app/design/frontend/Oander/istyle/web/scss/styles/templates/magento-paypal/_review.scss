@@ -1,0 +1,107 @@
+//  PayPal Review Order page
+.paypal-review {
+  .paypal-review-title {
+    & > strong {
+      color: $headings-color;
+      font-size: $font-size-h3;
+      display: inline-block;
+    }
+  }
+
+  .items-qty {
+
+    @extend .abs-reset-list;
+
+    .item {
+      white-space: nowrap;
+    }
+
+    .title {
+      &:after {
+        content: ': ';
+      }
+    }
+  }
+
+  .paypal-review-title {
+    & > strong {
+      color: $headings-color;
+      font-size: $font-size-h3;
+      display: inline-block;
+    }
+  }
+
+  .actions-toolbar {
+    margin-top: 10px;
+  }
+
+  .item-options {
+    dt {
+      display: inline-block;
+      &:after {
+        content: ': ';
+      }
+    }
+
+    dd {
+      margin: 0;
+    }
+  }
+}
+
+//  Discounts
+.paypal-review-discount {
+  border-bottom: 1px solid $gray-lighter;
+  margin: 20px 0;
+
+  .block {
+
+    @extend .abs-discount-block;
+    margin-bottom: 0;
+
+    .fieldset {
+      padding: 10px 0 20px;
+    }
+  }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@include media-breakpoint-up(md) {
+  .paypal-review {
+    .paypal-review-title {
+      border-bottom: 1px solid $gray-lighter;
+    }
+
+    .block-content {
+
+      @extend .abs-add-clearfix-desktop;
+      .box-order-shipping-address,
+      .box-order-shipping-method,
+      .box-order-shipping-method + .box-order-billing-address {
+        float: left;
+        width: 33%;
+      }
+
+      .box-order-shipping-address {
+        padding: 0 5%;
+        width: 34%;
+      }
+    }
+
+    .column.main & {
+      .actions-toolbar {
+
+        @extend .abs-reset-left-margin-desktop;
+      }
+    }
+
+    .col.subtotal,
+    .mark,
+    .amount {
+      text-align: right;
+    }
+  }
+}

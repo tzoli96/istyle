@@ -1,0 +1,77 @@
+body.customer-account-login {
+  .page-title-wrapper {
+    display: none;
+  }
+}
+.login-container {
+  > .col-box {
+    margin-bottom: $grid-gutter-width-base;
+
+    > div {
+      background-color: #fff;
+      padding: $grid-gutter-width-base/2;
+    }
+
+    p {
+      font-size: 12px;
+    }
+  }
+  .block-title {
+    font-size: 15px;
+    color: $brand-primary;
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+  .action.remind {
+    color: #676767;
+    text-decoration: underline;
+    transition: color .3s ease;
+    font-size: 10px;
+    display: block;
+
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+  .action.primary {
+    display: block;
+    width: 100%;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .login-container {
+    .block-title {
+      margin-bottom: 15px;
+    }
+
+    a.action.remind {
+      display: inline-block;
+      font-size: 12px;
+    }
+
+    .action.primary {
+      display: inline-block;
+      width: auto;
+    }
+  }
+}
+@include media-breakpoint-up(lg) {
+  .login-container {
+    overflow: hidden;
+
+    .col-box {
+      min-height: 100px;
+
+      > div {
+        height: 100%;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
+    .block-title {
+      font-size: 18px;
+    }
+  }
+}

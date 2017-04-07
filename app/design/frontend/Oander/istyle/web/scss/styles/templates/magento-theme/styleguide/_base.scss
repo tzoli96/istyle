@@ -1,0 +1,84 @@
+&  {
+  position: relative;
+  padding: 20px;
+
+  .header {
+    position: relative;
+    margin-bottom: 50px;
+
+    & > .title {
+      margin: 0;
+      font-size: 50px;
+      font-weight: 700;
+      color: $brand-primary;
+
+      small {
+        font-size: 20px;
+        color: $brand-secondary;
+      }
+    }
+    & > .desc {
+      margin: 0;
+    }
+  }
+
+  .section {
+    position: relative;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: lighten($brand-primary, 40%);
+    }
+
+    h2.title {
+      margin-bottom: 30px;
+      font-size: 30px;
+      font-weight: 500;
+      color: $brand-secondary;
+    }
+
+    h3.title {
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    &.col-margin-bottom {
+      [class*="col-"] {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  // Colors
+  .color-wrap {
+    position: relative;
+    text-align: center;
+    margin-bottom: 30px;
+
+    .color {
+      position: relative;
+      margin: 0 auto;
+      width: 80px;
+      height: 80px;
+      overflow: hidden;
+      border-radius: 100%;
+      box-shadow: 0 0 15px -4px darken($brand-primary, 40%);
+    }
+
+    .color-name {
+      width: 100%;
+      margin: 10px 0 0;
+      font-size: 12px;
+    }
+    .color-code {
+      font-weight: bold;
+    }
+  }
+}

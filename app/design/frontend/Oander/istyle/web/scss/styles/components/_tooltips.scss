@@ -1,0 +1,47 @@
+.tooltip.wrapper {
+  .tooltip.content {
+    dl {
+      margin-bottom: 0;
+    }
+
+    dd {
+      white-space: normal;
+    }
+
+    .subtitle {
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    .label {
+      margin-top: 10px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    .values {
+      margin: 0;
+    }
+  }
+}
+
+.ui-tooltip {
+  position: absolute;
+  z-index: 9999;
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+@include media-breakpoint-down(xs) {
+  .tooltip.wrapper {
+    .tooltip.content {
+      min-width: 10rem;
+    }
+  }
+}

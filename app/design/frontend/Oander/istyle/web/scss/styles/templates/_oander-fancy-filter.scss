@@ -1,0 +1,35 @@
+.price-range-slider {
+  $size: 16px;
+
+  .text-range {
+    margin-bottom: $size;
+  }
+  .ui-slider-horizontal {
+    height: $size/2;
+    margin-bottom: $size;
+  }
+  .ui-slider {
+    .ui-slider-handle {
+
+      width: $size;
+      height: $size;
+      margin-top: -$size/4;
+    }
+  }
+  .ui-slider-horizontal {
+    .ui-slider-handle {
+      margin-left: -$size/2;
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .price-range-slider {
+    .max {
+      label {
+        text-align: right;
+        display: block;
+      }
+    }
+  }
+}

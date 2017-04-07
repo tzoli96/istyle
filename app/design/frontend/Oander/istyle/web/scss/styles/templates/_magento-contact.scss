@@ -1,0 +1,34 @@
+body.contact-index-index {
+  .page-title-wrapper {
+    text-align: center;
+  }
+
+  .page-title {
+    font-size: 26px;
+    margin-bottom: 15px;
+    color: #373a3c;
+    padding-top: 15px;
+  }
+
+  .form {
+    margin-bottom: 20px;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  body.contact-index-index {
+    .page-title {
+      font-size: 30px;
+      margin-bottom: 40px;
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  body.contact-index-index {
+    .page-title {
+      font-size: 30px;
+      margin-bottom: 60px;
+    }
+  }
+}

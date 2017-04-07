@@ -1,0 +1,62 @@
+.sidebar {
+  .block-addbysku {
+    .fieldset {
+      margin: 0;
+      .fields {
+        position: relative;
+        .field {
+          display: inline-block;
+          margin-bottom: 10px;
+          vertical-align: top;
+          &.sku {
+            margin-right: -85px;
+            padding-right: 90px;
+            width: 100%;
+          }
+          &.qty {
+            .qty {
+              + .mage-error {
+                width: 80px;
+              }
+            }
+          }
+        }
+        .actions-toolbar {
+          position: absolute;
+          right: 0;
+          top: 6px;
+        }
+      }
+    }
+    .form-addbysku {
+      .actions-toolbar {
+        margin-bottom: 20px;
+        .primary {
+          text-align: left;
+          .action {
+            width: auto;
+          }
+        }
+        .secondary {
+          float: none;
+          text-align: left;
+        }
+      }
+    }
+    .action {
+      &.add {
+        line-height: normal;
+        padding: 2px 0;
+        width: auto;
+      }
+      &.links {
+        display: inline-block;
+        margin: 20px 0 0;
+      }
+      &.reset {
+        display: block;
+        margin: 10px 0;
+      }
+    }
+  }
+}

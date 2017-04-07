@@ -1,0 +1,262 @@
+.category-view-inner {
+  position: relative;
+  margin-bottom: 20px;
+
+  .page-title {
+    font-size: 36px;
+    line-height: 1.4em;
+    font-weight: normal;
+  }
+}
+.category-view-inner.has-img {
+  background-color: #fff;
+  height: 80px;
+  margin-bottom: 25px;
+
+  .page-title-wrapper {
+    position: absolute;
+    top: 27px;
+    left: 18px;
+    z-index: 2;
+
+    .page-title {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1em;
+    }
+  }
+  .category-image {
+    position: absolute;
+    width: 50vw;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    margin: 0;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      right: 0;
+      bottom: 0;
+    }
+  }
+  .category-description {
+    display: none;
+    margin: 0;
+
+    p {
+      margin: 0;
+    }
+  }
+}
+.products {
+  &.product-items {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+  }
+}
+.list.product-items {
+  .product-item-info {
+    background-color: #fff;
+    color: $gray-dark;
+    padding: $grid-gutter-width-base/3;
+    margin-bottom: 30px;
+    height: calc(100% - 30px);
+    position: relative;
+    transition: all ease .35s;
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      transition: all .3s ease;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      z-index: -1;
+    }
+
+    .product-image-container {
+      margin-bottom: 10px;
+    }
+    .product-image-wrapper {
+      max-width: 100%;
+    }
+    .product-item-name,
+    .price-box {
+      display: block;
+      position: relative;
+      margin-bottom: 8px;
+    }
+    .product-item-name {
+      a {
+        display: block;
+        color: $gray-dark;
+        text-decoration: none;
+        font-size: 1rem;
+        min-height: 4.8rem;
+      }
+    }
+    .price-box {
+      min-height: 3rem; // to match price height when special price is set
+
+      .price-final_price {
+        font-size: 1.1428rem;
+        font-weight: 500;
+      }
+
+      .old-price {
+        display: block;
+        line-height: 1em;
+        padding: 0;
+
+        .price {
+          font-size: 0.75em;
+
+        }
+      }
+    }
+
+    .actions-primary {
+      display: inline-block;
+      width: 80%;
+
+      .action.tocart {
+        width: 100%;
+        padding: 10px 20px;
+      }
+    }
+    .actions-secondary {
+      display: inline-block;
+      position: absolute;
+      width: 20%;
+      right: 0;
+
+      top: 0;
+      .action.towishlist {
+        padding: 10px;
+      }
+    }
+
+    .product-item-actions {
+      position: relative;
+    }
+    .product-item-inner {
+      padding: 5px 0;
+    }
+
+    // Hide unused elements
+    .product-reviews-summary,
+    .action.tocompare {
+      display: none;
+    }
+
+    .swatch-option {
+      $size: 18px;
+
+      width: $size;
+      height: $size;
+
+      &.text {
+        line-height: $size;
+        padding: 0 $size/2;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .category-view-inner.has-img {
+    position: relative;
+    height: 200px;
+
+    .page-title-wrapper {
+      top: 23px;
+      left: 27px;
+
+      .page-title {
+        font-size: 42px;
+      }
+    }
+    .category-image {
+      width: 100%;
+
+      img {
+        width: 66%;
+      }
+    }
+    .category-description {
+      display: inline-block;
+      font-size: 14px;
+      position: absolute;
+      top: 90px;
+      left: 27px;
+      width: 200px;
+    }
+  }
+}
+@include media-breakpoint-up(lg) {
+  .category-view-inner {
+    .page-title {
+      font-size: 42px;
+    }
+  }
+  .list.product-items {
+    .product-item-info {
+      &:hover {
+        transform: translateY(-10px);
+        z-index: 99;
+
+        &:before {
+          height: calc(100% + 50px);
+          box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+        }
+
+        .product-item-actions {
+          bottom: -38px;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+      .product-image-container {
+        //height: 160px;
+      }
+      .product-item-actions {
+        background: transparent;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        opacity: 0;
+        visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        -webkit-transform: translate3d(0,0,0);
+        transition: all .25s ease-in;
+
+        &.visible {
+          position: static;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+
+
+    }
+  }
+}
+@include media-breakpoint-up(xl) {
+  .list.product-items {
+    .product-item-info {
+      .product-image-container {
+        height: 220px;
+      }
+    }
+  }
+}

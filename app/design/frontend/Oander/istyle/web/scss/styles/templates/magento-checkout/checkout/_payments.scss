@@ -1,0 +1,152 @@
+.checkout-payment-method {
+  .step-title {
+    margin-bottom: 0;
+  }
+  .payment-method {
+    &:first-child {
+      .payment-method-title {
+        border-top: 0;
+      }
+    }
+    &._active {
+      .payment-method-content {
+        display: block;
+        @include clearfix;
+      }
+    }
+  }
+  .payment-method-title {
+    padding: 15px 0;
+    margin: 0;
+
+    .payment-icon {
+      display: inline-block;
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+    .action-help {
+      display: inline-block;
+      margin-left: 5px;
+    }
+    label {
+      margin-bottom: 0;
+    }
+  }
+  .payment-method-content {
+    display: none;
+    padding: 0 0 20px 20px;
+
+    .fieldset {
+      &:not(:last-child) {
+        margin: 0 0 20px;
+      }
+    }
+  }
+  .billing-address-same-as-shipping-block {
+    margin: 0 0 10px;
+  }
+  .payment-method-billing-address {
+    margin: 0 0 20px;
+
+    .primary {
+      .action-update {
+        margin-right: 0;
+      }
+    }
+    .billing-address-details {
+      line-height: 27px;
+      padding:  0 0 0 20px;
+    }
+  }
+  .payment-method-note {
+    & + .payment-method-billing-address {
+      margin-top: 20px;
+    }
+  }
+  .field-select-billing {
+    & > .label {
+      @extend .abs-visually-hidden;
+    }
+  }
+  .payment-method-iframe {
+    background-color: transparent;
+    display: none;
+    width: 100%;
+  }
+  .no-payments-block {
+    margin: 20px 0;
+  }
+  .payments {
+    .legend {
+      display: none;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .checkout-payment-method {
+    .payment-methods {
+      margin: 0 -15px;
+    }
+
+    .payment-method-title {
+      padding: 15px;
+    }
+
+    .payment-method-content {
+      padding: 0 15px 20px;
+    }
+
+    .payment-method-billing-address {
+      .action-cancel {
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@include media-breakpoint-up(md) {
+  .checkout-payment-method {
+    .payment-methods {
+      .actions-toolbar {
+        .primary {
+          float: right;
+          margin: 0;
+        }
+      }
+    }
+
+    .fieldset {
+      & > .field-select-billing {
+        & > .control {
+          float: none;
+          width: 100%;
+        }
+      }
+    }
+
+    .payment-method-content {
+      .fieldset {
+        & > .field {
+          margin: 0 0 20px;
+
+          &.type {
+            .control {
+              margin-left: 25.8%;
+            }
+
+            &.no-detection {
+              .control {
+                margin-left: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

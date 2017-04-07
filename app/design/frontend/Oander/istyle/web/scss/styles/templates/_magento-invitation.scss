@@ -1,0 +1,39 @@
+.form-add-invitations {
+  @extend .abs-add-fields;
+  .action {
+    &.add {
+      line-height: normal;
+      padding: 2px 0;
+      width: auto;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .form-add-invitations {
+    .additional,
+    .field.text {
+      margin-top: 20px
+    }
+  }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@include media-breakpoint-up(md) {
+  .form-add-invitations {
+    @extend .abs-add-fields-desktop;
+    .additional,
+    .field.text {
+      margin-top: 20px;
+    }
+  }
+
+  .table-invitations {
+    .col {
+      width: 50%;
+    }
+  }
+}

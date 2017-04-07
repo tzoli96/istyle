@@ -1,0 +1,317 @@
+$block-auth__or-label__size: 50px;
+
+.authentication-dropdown {
+  width: 300px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+
+  .modal-inner-wrap {
+    padding: $grid-gutter-width-base;
+  }
+  .modal-content {
+    border: 0;
+  }
+  .fieldset.form-group {
+    margin-bottom: 30px;
+  }
+}
+.authentication-wrapper {
+  float: right;
+  margin-top: -75px;
+  max-width: 50%;
+  position: relative;
+  z-index: 1;
+
+  ._has-auth-shown & {
+    z-index: 900;
+  }
+}
+.block-authentication {
+  .block-title {
+    font-size: $font-size-h3;
+    margin-bottom: 20px;
+
+    strong {
+      font-weight: 300;
+    }
+  }
+
+  .field {
+    .label {
+      font-weight: $font-weight-normal;
+    }
+  }
+
+  .actions-toolbar {
+    margin-bottom: 5px;
+
+    & > .secondary {
+      padding-top: $grid-gutter-width-base;
+      text-align: left;
+    }
+  }
+  .block[class] {
+    margin: 0;
+
+    ul {
+      list-style: none;
+    }
+
+    .field {
+      .control,
+      .label {
+        float: none;
+        width: auto;
+      }
+    }
+
+    & + .block {
+      border-top: 1px solid $gray-light;
+      margin-top: 40px;
+      padding-top: 40px;
+      position: relative;
+
+      &::before {
+        height: $block-auth__or-label__size;
+        line-height: $block-auth__or-label__size - 2px;
+        margin: 0 0 0 (-$block-auth__or-label__size / 2);
+        min-width: $block-auth__or-label__size;
+        background: #fff;
+        border: 1px solid $gray-light;
+        border-radius: 50%;
+        color: $gray-light;
+        content: attr(data-label);
+        display: inline-block;
+        left: 50%;
+        letter-spacing: normal;
+        padding: 0 0.2rem;
+        position: absolute;
+        text-align: center;
+        text-transform: uppercase;
+        top: 0;
+      }
+    }
+  }
+}
+.popup-authentication {
+  &.modal-popup {
+    .modal-content {
+      padding-top: 0;
+    }
+    .block-authentication {
+      text-align: left;
+    }
+    .block-title {
+      color: $brand-primary;
+      font-size: 18px;
+      margin-top: 0;
+
+      strong {
+        font-weight: 600;
+      }
+    }
+    .block[class] {
+      & + .block::before {
+        display: none;
+      }
+    }
+    .block-new-customer-heading-text {
+      font-weight: 600;
+    }
+    .block-new-customer-heading-list {
+      padding-left: 0;
+
+      li {
+        position: relative;
+        padding-left: 30px;
+
+        + li {
+          margin-top: 20px;
+        }
+        &:before {
+          content: $icon-check;
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          left: 0;
+          top: 2px;
+          border: 2px solid #7fbc00;
+          border-radius: 20px;
+          font-family: $icon-font-family;
+          font-size: 7px;
+          color: #7fbc00;
+          line-height: 16px;
+          text-align: center;
+        }
+      }
+    }
+    .actions-toolbar {
+      @include clearfix;
+
+      .primary {
+        float: left;
+      }
+      > .secondary {
+        float: left;
+        padding-top: 0;
+
+        .action {
+          color: $btn-secondary-bg;
+          padding-left: 0;
+          padding-right: 0;
+          font-size: 12px;
+          text-transform: none;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .authentication-dropdown {
+    width: auto;
+    height: auto;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+    &.custom-slide {
+
+      .modal-inner-wrap {
+        min-height: 0;
+
+        .modal-header {
+          position: relative;
+
+          .action-close {
+            padding-left: 0;
+            padding-right: 0;
+          }
+        }
+      }
+      .actions-toolbar {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .authentication-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 600px;
+    background-color: #fff;
+    text-align: left;
+    transform: scale(1, 0);
+    transform-origin: 0 0;
+    transition: all ease 0.15s;
+    visibility: hidden;
+
+    &._show {
+      z-index: 100;
+      transform: scale(1, 1);
+      transition: all ease 0.15s;
+      visibility: visible;
+    }
+  }
+  .authentication-wrapper {
+    text-align: right;
+    margin-top: -80px;
+  }
+  .block-authentication {
+    .block-title {
+      font-size: 20px;
+    }
+  }
+  .popup-authentication {
+    .modal-inner-wrap {
+      width: 60%;
+    }
+
+    .block-authentication {
+      display: flex;
+      flex-direction: row;
+      border-top: 1px solid $gray-lighter;
+    }
+
+    .block[class],
+    .form-login,
+    .fieldset,
+    .block-content {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .block[class] {
+      float: left;
+      padding: 10px $grid-gutter-width-base 0 0;
+      width: 50%;
+
+      & + .block {
+        border-left: 1px solid $gray-lighter;
+        border-top: 0;
+        margin: 0;
+        padding: 10px 0 0 40px;
+
+        &::before {
+          left: 0;
+          top: 40px;
+          color: $brand-primary;
+          border-color: $gray-lighter;
+          font-size: 14px;
+        }
+      }
+    }
+    .actions-toolbar {
+      margin-bottom: 0;
+      margin-top: auto;
+    }
+
+    &.modal-popup {
+      .block-authentication {
+        text-align: left;
+
+        .block-title {
+          margin-top: 10px;
+        }
+        .block[class] {
+          & + .block::before {
+            display: block;
+          }
+        }
+        .block.block-new-customer {
+          width: 45%;
+        }
+        .block.block-customer-login {
+          width: 55%;
+        }
+        .actions-toolbar {
+          margin-top: 10px;
+        }
+      ;
+      }
+    }
+  }
+}
+@include media-breakpoint-up(lg) {
+  .authentication-wrapper {
+    margin-top: -90px;
+  }
+}
+@include media-breakpoint-up(xl) {
+  .popup-authentication {
+    &.modal-popup {
+      .block-authentication {
+        .actions-toolbar {
+          > .secondary {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}

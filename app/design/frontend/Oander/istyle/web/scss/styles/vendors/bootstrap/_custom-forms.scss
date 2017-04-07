@@ -1,0 +1,23 @@
+
+.custom-checkbox {
+  .custom-control-indicator {
+    line-height: 10px;
+    text-align: center;
+
+    &:before {
+      font-family: $icon-font-family;
+      font-size: 8px;
+      content: $icon-check;
+      color: $custom-control-indicator-bg;
+    }
+  }
+  .custom-control-input:checked {
+    & ~ .custom-control-indicator {
+      background-image: none;
+
+      &:before {
+        color: #fff;
+      }
+    }
+  }
+}

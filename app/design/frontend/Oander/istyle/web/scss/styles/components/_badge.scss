@@ -1,0 +1,32 @@
+.oander-category-badge-image-container {
+  position: relative;
+  display: block;
+}
+.badge-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+.badge-item {
+  display: inline-block;
+  vertical-align: top;
+
+  & + .badge-item {
+    margin-left: 5px;
+  }
+}
+.badge-label {
+  display: inline-block;
+  background-color: $brand-primary;
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 2px;
+  padding: 6px 12px;
+}
+.badge-box {
+  img {
+    max-height: 40px;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,122 @@
+$progress-bar-items-count: 3;
+$progress-circle-size: 30px;
+
+.opc-progress-bar {
+  counter-reset: i;
+  position: relative;
+  margin: 20px 35px;
+
+  &.success {
+    .opc-progress-bar-item {
+      &,
+      &._active,
+      &._complete {
+        &:hover {
+          cursor: default;
+        }
+      }
+    }
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #c9c9cb;
+    top: 15px;
+    left: 0;
+  }
+}
+.opc-progress-bar-item {
+  width: 100% / $progress-bar-items-count;
+  float: left;
+  position: relative;
+  text-align: center;
+  color: #78797c;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #c9c9cb;
+    top: 15px;
+    left: 0;
+  }
+  &:first-child {
+    text-align: left;
+
+    .opc-progress-bar-item-circle {
+      margin: 0 0 5px;
+    }
+  }
+  &._last {
+    text-align: right;
+    @include clearfix;
+
+    .opc-progress-bar-item-circle {
+      float: right;
+    }
+  }
+  &._active,
+  &._complete {
+    color: $brand-primary;
+
+    .opc-progress-bar-item-circle {
+      background: $brand-primary;
+    }
+  }
+  &._complete {
+    cursor: pointer;
+
+    &:before {
+      background: $brand-primary;
+    }
+    & + ._active:not(._last) {
+      &:before {
+        background: $brand-primary;
+        width: 50%;
+      }
+    }
+    .opc-progress-bar-item-circle {
+      &:before {
+        content: $icon-check;
+        font-family: $icon-font-family;
+        font-size: 10px;
+      }
+    }
+  }
+}
+.opc-progress-bar-item-circle {
+  position: relative;
+  z-index: 10;
+  display: block;
+  margin: 0 auto 5px;
+  background: #a7a9ab;
+  border-radius: $progress-circle-size;
+  text-align: center;
+
+  &,
+  &:before {
+    width: $progress-circle-size;
+    height: $progress-circle-size;
+  }
+  &:before {
+    content: counter(i);
+    counter-increment: i;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: bold;
+    line-height: $progress-circle-size;
+    color: #fff;
+  }
+}
+.opc-progress-bar-item-text {
+  clear: both;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: lowercase;
+}

@@ -1,0 +1,105 @@
+// Accordion - mobile
+@include media-breakpoint-down(sm) {
+  .data.items {
+    margin: 20px 0 0;
+    padding: 0;
+
+    .data.item {
+      display: block;
+    }
+    > .item.title {
+      float: none;
+      width: 100%;
+
+      & > .switch {
+        display: block;
+        background: #fff;
+        height: auto;
+        padding: 15px 20px;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        color: #000;
+        text-decoration: none;
+      }
+      &:not(.disabled) > .switch:focus,
+      &:not(.disabled) > .switch:hover {
+        // add style
+      }
+      &:not(.disabled) > .switch:active,
+      &.active > .switch,
+      &.active > .switch:focus,
+      &.active > .switch:hover {
+        border-top: 1px solid $nav-tabs-active-border-color;
+      }
+    }
+    > .item.content {
+      @include clearfix;
+      display: block;
+      float: none;
+      background: #fff;
+      border: 0;
+      margin: 0;
+      padding: 20px;
+      border-bottom: 1px solid #eee;
+
+      &.active {
+        display: block;
+      }
+    }
+  }
+}
+
+// Tabs - Desktop
+@include media-breakpoint-up(md) {
+  .data.items {
+
+    @include clearfix;
+    position: relative;
+    z-index: 1;
+    margin-top: 20px;
+
+    > .item.title {
+      margin: 0 10px 0 0;
+      float: left;
+      width: auto;
+
+      & > .switch {
+        display: block;
+        height: 50px;
+        padding: 13px 50px;
+        position: relative;
+        z-index: 2;
+        color: #000;
+        border-top: 2px solid #fff;
+        background: #fff;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: border ease 0.3s;
+      }
+      &:not(.disabled) > .switch:focus,
+      &:not(.disabled) > .switch:hover {
+        // add style
+      }
+      &:not(.disabled) > .switch:active,
+      &.active > .switch,
+      &.active > .switch:focus,
+      &.active > .switch:hover {
+        border-color: $nav-tabs-active-border-color;
+      }
+    }
+    > .item.content {
+      @include clearfix;
+      width: 100%;
+      float: right;
+      margin-top: 50px;
+      margin-left: -100%;
+      background: #fff;
+      padding: 20px;
+
+      &.active {
+        display: block;
+      }
+
+    }
+  }
+}

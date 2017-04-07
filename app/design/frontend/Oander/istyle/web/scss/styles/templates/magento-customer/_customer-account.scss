@@ -1,0 +1,210 @@
+body.account {
+  .page-main {
+    > .wrapper {
+      padding-top: 30px;
+    }
+  }
+  .main {
+
+    // Sidebar trigger
+    .sidebar-collapse-trigger {
+      margin-bottom: 25px;
+    }
+
+    // Page title
+    .page-title {
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    // Blocks
+    .block {
+      margin-bottom: 25px;
+
+      &.block-order-details-view {
+        margin-bottom: 60px;
+      }
+    }
+
+    // Blocks titles
+    .block-title {
+      font-size: 18px;
+      font-weight: bold;
+      line-height: 1em;
+      padding-bottom: 15px;
+      border-bottom: 1px solid $body-bg;
+      margin-bottom: 15px;
+    }
+
+    // Edit links
+    .action.edit,
+    .action.change-password {
+      padding: 0;
+      text-transform: uppercase;
+      text-decoration: underline;
+    }
+
+    .action.change-password {
+      display: inline-block;
+      margin-left: 8px;
+      text-align: left;
+      border-left: 1px solid $gray-lighter;
+      padding-left: 10px;
+    }
+
+    // Links in block/box titles
+    .block-title,
+    .box-title {
+      .action {
+        display: inline-block;
+        text-decoration: underline;
+        text-transform: none;
+        color: #000;
+        font-size: 12px;
+        padding: 0;
+        margin-left: 20px;
+      }
+    }
+
+    // Back buttons
+    .action.back {
+      display: inline-block;
+      padding-left: 0;
+      margin-top: 10px;
+    }
+  }
+  .form-group {
+    .nested {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.account-nav {
+  margin-bottom: 20px;
+
+  .title {
+    display: none;
+  }
+  .nav.item {
+    padding: 0 15px;
+    position: relative;
+    margin-bottom: 15px;
+
+    &.current {
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background-color: $brand-primary;
+      }
+    }
+  }
+  a {
+    color: #000;
+
+    .current &,
+    &:hover {
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+}
+.block-compare,
+.block-reorder,
+.block-wishlist {
+  margin-bottom: 20px;
+
+  .block-title {
+    margin-bottom: 15px;
+
+    > strong {
+      text-transform: uppercase;
+      font-size: 16px;
+    }
+  }
+}
+.block-reorder {
+  .product-items {
+    padding-left: 0;
+    list-style: none;
+  }
+}
+.block.block-dashboard-addresses {
+  .block-title {
+    .action.edit {
+      color: #777;
+    }
+  }
+}
+
+#my-orders-table {
+  color: #000;
+
+  thead {
+    th {
+      background: $gray-lightest;
+    }
+  }
+  th, td {
+    border: 0;
+  }
+  th {
+    font-size: $font-size-root;
+    font-weight: bold;
+  }
+  a.action {
+    padding: 0;
+    font-size: 10px;
+    color: #000;
+    text-transform: uppercase;
+    text-decoration: underline;
+
+    &.order {
+      display: inline-block;
+      margin-left: 20px;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  body.account {
+    .wrapper {
+      margin-top: 15px;
+    }
+    .block.account-nav {
+      padding: 18px;
+
+      .nav.item {
+        padding: 0;
+
+        &.current {
+          padding-left: 10px;
+        }
+      }
+    }
+  }
+}
+@include media-breakpoint-down(xs) {
+  .block.block-dashboard-info {
+    .box-newsletter {
+      margin-top: 10px;
+    }
+  }
+}
+
+@include media-breakpoint-only(sm) {
+  body.account {
+    .main {
+      .action.change-password {
+        display: block;
+        margin: 5px 0 0;
+        padding-left: 0;
+        border: 0;
+      }
+    }
+  }
+}

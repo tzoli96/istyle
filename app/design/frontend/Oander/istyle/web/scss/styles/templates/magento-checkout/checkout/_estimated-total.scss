@@ -1,0 +1,44 @@
+//
+//  Checkout Estimated Total
+//  _____________________________________________
+
+.opc-estimated-wrapper {
+  @extend .abs-add-clearfix;
+  @extend .abs-no-display-desktop;
+  border-bottom: 1px solid $gray-light;
+  margin: 0 0 15px;
+  padding: 18px 15px;
+
+  .estimated-block {
+    font-size: 18px;
+    font-weight: $font-weight-bold;
+    float: left;
+
+    .estimated-label {
+      display: block;
+      margin: 0 0 5px;
+    }
+  }
+
+  .minicart-wrapper {
+    display: none;
+
+    .action {
+      &.showcart {
+        &:before {
+          color: $gray-dark;
+        }
+      }
+    }
+  }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@include media-breakpoint-up(md) {
+  .opc-estimated-wrapper {
+    display: none;
+  }
+}

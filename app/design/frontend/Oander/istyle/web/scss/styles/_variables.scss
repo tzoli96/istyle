@@ -1,0 +1,8 @@
+// Override boostrap variables
+@import '../variables/custom';
+
+// Bootstrap core variables
+@import '../../vendor/bootstrap/scss/variables';
+
+// Magento 2 core variables
+@import 'variables/core';

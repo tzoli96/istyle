@@ -1,0 +1,25 @@
+//
+//  Widgets
+//  ---------------------------------------------
+
+.sidebar {
+  .widget.block:not(:last-child),
+  .widget:not(:last-child) {
+    @extend .abs-margin-for-blocks-and-widgets;
+  }
+}
+
+.widget {
+  clear: both;
+
+  .block-title {
+    //@extend .abs-block-title;
+  }
+}
+
+.page-header,
+.page-footer {
+  .widget.block {
+    margin: 20px 0;
+  }
+}

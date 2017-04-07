@@ -1,0 +1,44 @@
+//  PayPal checkout button
+.paypal {
+  &.after {
+    &:before {
+      content: '- ' attr(data-label) ' -';
+      display: block;
+      margin: 5px 5px 10px;
+      text-transform: uppercase;
+    }
+  }
+
+  &.before {
+    &:before {
+      content: '- ' attr(data-label) ' -';
+      display: block;
+      margin: 10px 5px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  &.acceptance {
+    display: block;
+    margin: 0 0 20px;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+.box-tocart,
+.block-minicart {
+  .paypal img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.paypal-button-widget {
+  .paypal-button {
+    // add style
+  }
+}

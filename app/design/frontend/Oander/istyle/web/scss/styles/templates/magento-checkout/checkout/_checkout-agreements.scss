@@ -1,0 +1,26 @@
+.checkout-agreements-block {
+  margin-bottom: 20px;
+
+  .action-show {
+    vertical-align: baseline;
+  }
+}
+
+//  Checkout Agreements in popup
+.checkout-agreements-items {
+  @extend .abs-reset-list;
+  padding-bottom: $grid-gutter-width-base;
+
+  .checkout-agreements-item {
+    margin-bottom: 20px;
+  }
+
+  .checkout-agreements-item-title {
+    border-bottom: 0;
+  }
+}
+
+//  Checkout Agreements
+.checkout-agreement-item-content {
+  overflow: auto;
+}

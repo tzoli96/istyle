@@ -1,0 +1,52 @@
+.message.global {
+  p {
+    margin: 0;
+  }
+
+  &.noscript,
+  &.cookie {
+    margin: 0;
+  }
+
+  &.cookie {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    z-index: 3;
+
+    .actions {
+      margin-top: 10px;
+    }
+  }
+
+  &.demo {
+    margin-bottom: 0;
+    text-align: center;
+  }
+}
+
+.messages {
+  .message {
+    padding: $alert-padding-y $alert-padding-x;
+    margin-bottom: $spacer-y;
+    border: $alert-border-width solid transparent;
+    @include border-radius($alert-border-radius);
+  }
+  .message.success {
+    @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
+  }
+
+  .message.notice,
+  .message.info {
+    @include alert-variant($alert-info-bg, $alert-info-border, $alert-info-text);
+  }
+
+  .message.warning {
+    @include alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
+  }
+
+  .message.error {
+    @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+  }
+}

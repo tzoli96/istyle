@@ -1,0 +1,36 @@
+.breadcrumbs {
+  margin: $spacer auto;
+  .items {
+    font-size: $font-size-sm;
+    color: $gray;
+    & > li {
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+
+  .item {
+    margin: 0;
+  }
+
+  a {
+    color: $gray-dark;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      color: $gray-dark;
+    }
+
+    &:after {
+      display: inline-block;
+      content: '>';
+      padding: 0 6px;
+    }
+  }
+
+  strong {
+    font-weight: 400;
+  }
+
+}

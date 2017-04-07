@@ -1,0 +1,202 @@
+// scss-lint:disable QualifyingElement
+
+//
+// Base styles
+//
+
+.action {
+  display: inline-block;
+  font-weight: $btn-font-weight;
+  line-height: $btn-line-height;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: $input-btn-border-width solid transparent;
+
+  @include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-border-radius);
+  @include transition(all .2s ease-in-out);
+
+  @include hover-focus {
+    text-decoration: none;
+  }
+  &.focus {
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+    outline: 0;
+  }
+
+  &.disabled,
+  &:disabled {
+    cursor: $cursor-disabled;
+    opacity: .65;
+  }
+}
+
+.action,
+.btn {
+  box-shadow: none !important;
+  text-transform: uppercase;
+
+  &.has-icon {
+    .icon {
+      display: inline-block;
+      margin-right: 8px;
+    }
+  }
+}
+
+//@include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-border-radius);
+
+// Future-proof disabling of clicks on `<a>` elements
+a.btn.disabled,
+fieldset[disabled] a.btn {
+  pointer-events: none;
+}
+
+//
+// Alternate buttons
+//
+
+.action.primary {
+  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}
+
+.action.secondary {
+  @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+}
+
+.action.info {
+  @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
+}
+
+.action.success {
+  @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
+}
+
+.action.warning {
+  @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
+}
+
+.action.btn-danger {
+  @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
+}
+
+// Remove all backgrounds
+.action.outline-primary {
+  @include button-outline-variant($btn-primary-bg);
+  color: #000;
+}
+
+.action.outline-secondary {
+  @include button-outline-variant($btn-secondary-border);
+}
+
+.action.outline-info {
+  @include button-outline-variant($btn-info-bg);
+}
+
+.action.outline-success {
+  @include button-outline-variant($btn-success-bg);
+}
+
+.action.outline-warning {
+  @include button-outline-variant($btn-warning-bg);
+}
+
+.action.outline-danger {
+  @include button-outline-variant($btn-danger-bg);
+}
+
+//
+// Link buttons
+//
+
+// Make a button look and behave like a link
+.action.link {
+  font-weight: normal;
+  color: $link-color;
+  border-radius: 0;
+
+  &,
+  &:active,
+  &.active,
+  &:disabled {
+    background-color: transparent;
+    @include box-shadow(none);
+  }
+  &,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+  @include hover {
+    border-color: transparent;
+  }
+  @include hover-focus {
+    color: $link-hover-color;
+    text-decoration: $link-hover-decoration;
+    background-color: transparent;
+  }
+  &:disabled {
+    @include hover-focus {
+      color: $btn-link-disabled-color;
+      text-decoration: none;
+    }
+  }
+}
+
+//
+// Button Sizes
+//
+
+.action.action-lg {
+  // line-height: ensure even-numbered height of button next to large input
+  @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $font-size-lg, $btn-border-radius-lg);
+}
+
+.action.action-sm {
+  // line-height: ensure proper height of button next to small input
+  @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-sm, $btn-border-radius-sm);
+}
+
+//
+// Block button
+//
+.action-block,
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+// Vertically space out multiple block buttons
+.action-block + .action-block,
+.btn-block + .btn-block {
+  margin-top: $btn-block-spacing-y;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+// Button
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
+// Override outline buttons
+.btn-outline-primary {
+  color: #000;
+}

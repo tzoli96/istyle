@@ -1,0 +1,336 @@
+.order-links {
+  border-bottom: 1px solid $gray-lighter;
+  margin-bottom: 10px;
+
+  .item {
+    display: inline-block;
+    margin-right: 20px;
+  }
+}
+.order-actions-toolbar {
+  .action {
+    margin: 0 20px 0 0;
+  }
+}
+.block-order-details-toolbar {
+  position: absolute;
+  bottom: 10px;
+  left: $grid-gutter-width-base/2;
+  right: $grid-gutter-width-base/2;
+}
+.order-details-items {
+  .order-title {
+    > strong {
+      color: $headings-color;
+      font-size: $font-size-h3;
+      display: inline-block;
+    }
+  }
+  .items-qty {
+    @extend .abs-reset-list;
+
+    .item {
+      white-space: nowrap;
+    }
+
+    .title {
+      &:after {
+        content: ': ';
+      }
+    }
+  }
+  .table-order-items {
+    .product-item-name {
+      margin-top: 0;
+    }
+    tbody + tbody {
+      border-top: 1px solid $gray-lighter;
+    }
+    tfoot {
+      border-top: 1px solid $gray-lighter;
+      background: $gray-lighter;
+
+      .page-print & {
+        background: #fff;
+      }
+    }
+  }
+  .item-options {
+    dt {
+      margin: 0;
+    }
+
+    dd {
+      margin: 0 0 15px;
+    }
+
+    &.links {
+      dt {
+        display: inline-block;
+
+        &:after {
+          content: ': ';
+        }
+      }
+
+      dd {
+        margin: 0;
+      }
+    }
+  }
+}
+.order-actions-toolbar {
+  .action {
+    margin-right: 30px;
+
+    &.print {
+      margin: 0;
+    }
+  }
+}
+.order-status {
+  @extend .abs-status;
+}
+.page-title-wrapper {
+  .order-date {
+    margin: 0 0 20px;
+  }
+}
+.account,
+[class^='sales-guest-'],
+.sales-guest-view {
+  .page-title-wrapper {
+    .page-title {
+      margin-right: $grid-gutter-width-base;
+    }
+  }
+}
+.form-orders-search {
+  .field {
+    &.email,
+    &.zip {
+      margin-bottom: 0;
+    }
+  }
+}
+.block-reorder {
+  .block-title {
+    //@extend .abs-block-title;
+  }
+
+  .product-item {
+    .checkbox {
+      position: relative;
+      top: 2px;
+      vertical-align: baseline;
+    }
+
+    .label {
+      @extend .abs-visually-hidden;
+    }
+
+    .field.item {
+      display: inline-block;
+    }
+  }
+
+  .product-item-name {
+    display: inline-block;
+    font-size: $font-size-root;
+  }
+
+  .product-item-link {
+    color: #000;
+    text-decoration: none;
+    > span {
+      color: #000;
+    }
+  }
+
+  .actions-toolbar {
+    margin: 17px 0;
+    max-width: 178px;
+  }
+
+  .sidebar-main & .subtitle,
+  .sidebar-additional & .subtitle {
+    @extend .abs-no-display;
+  }
+}
+.block-order-details {
+  &-comments {
+    margin: 0 0 40px;
+
+    .comment-date {
+      font-weight: $font-weight-semibold;
+    }
+
+    .comment-content {
+      line-height: 1.6;
+      margin: 0 0 20px;
+    }
+  }
+
+  &-view {
+    .box-content {
+      .payment-method {
+        .title {
+          font-weight: $font-weight-normal;
+        }
+
+        .content {
+          margin: 0;
+
+          > strong {
+            font-weight: $font-weight-normal;
+
+            &:after {
+              content: ': ';
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.order-tracking {
+  border-bottom: 1px solid $gray-lighter;
+  margin: 0;
+  padding: 20px 0;
+
+  .tracking-title {
+    display: inline-block;
+  }
+
+  .tracking-content {
+    display: inline-block;
+    margin: 0 0 0 5px;
+  }
+}
+[class^='sales-guest-'],
+.sales-guest-view {
+  .column.main {
+    .block:not(.widget) {
+      @extend .abs-account-blocks;
+    }
+  }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+@include media-breakpoint-down(xs) {
+  .account {
+    .order-details-items {
+      .table-order-items {
+        .product-item-name,
+        .price-including-tax,
+        .price-excluding-tax,
+        .items-qty {
+          display: inline-block;
+          vertical-align: top;
+        }
+      }
+      .table-order-items {
+        thead,
+        tfoot th {
+          display: none;
+        }
+        tfoot,
+        tbody {
+          display: block;
+          tr,
+          td {
+            display: block;
+
+            strong {
+              font-weight: 400;
+            }
+          }
+          td {
+            padding: 0.5rem $table-cell-padding;
+
+            &:before {
+              content: attr(data-th);
+              display: block;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+    .toolbar {
+      @extend .abs-add-clearfix-mobile;
+
+      .pages {
+        float: right;
+      }
+
+      .limiter {
+        clear: both;
+      }
+    }
+  }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@include media-breakpoint-up(md) {
+  .table-order-items {
+    .subtotal,
+    .amount {
+      text-align: right;
+    }
+
+    &.creditmemo {
+      .col {
+        &.qty,
+        &.discount,
+        &.subtotal {
+          text-align: center;
+        }
+
+        &.total {
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .order-actions-toolbar {
+    .action.print {
+      display: block;
+      float: right;
+    }
+  }
+
+  .page-title-wrapper {
+    .order-date {
+      $order-status-indent: ceil($h1__margin-bottom__desktop / 2);
+      margin-top: -$order-status-indent;
+    }
+  }
+
+  //
+  //  Guest order view page
+  //  ---------------------------------------------
+
+  [class^='sales-guest-'],
+  .sales-guest-view {
+    .column.main {
+      .block:not(.widget) {
+        .block-content {
+          @extend .abs-add-clearfix-desktop;
+
+          .box {
+            @extend .abs-blocks-2columns;
+            margin-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}

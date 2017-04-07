@@ -1,0 +1,395 @@
+.multicheckout {
+  .title {
+    margin-bottom: $grid-gutter-width-base;
+
+    strong {
+      font-weight: $font-weight-normal;
+    }
+  }
+
+  .table-wrapper {
+    margin-bottom: 0;
+
+    .action.delete {
+      display: inline-block;
+    }
+
+    .col {
+      .qty {
+        display: inline-block;
+
+        .input-text {
+          @extend .abs-input-qty;
+        }
+      }
+
+      .label {
+        @extend .abs-visually-hidden;
+      }
+
+      &.item {
+        .action.edit {
+          font-weight: $font-weight-normal;
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+
+  &:not(.address) {
+    .table-wrapper {
+      .product-item-name {
+        margin: 0;
+      }
+    }
+  }
+
+  & > .actions-toolbar {
+    margin-top: 40px;
+  }
+
+  .actions-toolbar {
+    & > .secondary {
+      display: block;
+
+      .action {
+        margin-bottom: $grid-gutter-width-base;
+
+        &.back {
+          display: block;
+          margin-left: 0;
+        }
+      }
+    }
+
+    & > .primary {
+      margin-right: 10px;
+    }
+  }
+
+  .item-options {
+    @extend .abs-product-options-list;
+    @extend .abs-add-clearfix;
+    margin: 10px 0 0;
+  }
+
+  @extend .abs-account-blocks;
+
+  .block {
+    @extend .abs-add-clearfix;
+
+    .methods-shipping {
+      .item-content {
+        .fieldset {
+          & > .legend {
+            @extend .abs-visually-hidden;
+          }
+
+          & > .legend + br {
+            @extend .abs-no-display;
+          }
+
+          & > .field {
+            &:before {
+              display: none;
+            }
+
+            .control {
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .block-title,
+  .block-content .title {
+    border-bottom: 1px solid $gray-lighter;
+    padding-bottom: 10px;
+
+    strong {
+      font-weight: $font-weight-normal;
+
+      span {
+        color: lighten($gray-dark, 45%);
+      }
+    }
+  }
+
+  .block-content {
+    @extend .abs-add-clearfix;
+    .title {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  &.order-review {
+    .block-title > strong {
+      font-size: 24px;
+    }
+
+    .block-shipping {
+      .block-content:not(:last-child) {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  .box-title {
+    span {
+      margin-right: 10px;
+    }
+
+    & > .action {
+      margin: 0;
+    }
+  }
+
+  .box-shipping-method {
+    .price {
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  .box-billing-method {
+    .fieldset {
+      margin: 0;
+
+      .legend.box-title {
+        margin: 0 0 5px;
+      }
+    }
+  }
+
+  .hidden {
+    @extend .abs-no-display;
+  }
+
+  .checkout-review .grand.totals {
+    font-size: $font-size-h4;
+    margin-bottom: 40px;
+
+    .mark {
+      font-weight: $font-weight-normal;
+    }
+  }
+}
+
+[class^='multishipping-'] {
+  .nav-sections,
+  .nav-toggle {
+    @extend .abs-no-display;
+  }
+
+  .logo {
+    margin-left: 0;
+  }
+}
+
+.multishipping-checkout-success {
+  .nav-sections {
+    display: block;
+  }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+@include media-breakpoint-down(xs) {
+  .multicheckout {
+    .data.table {
+      .address {
+        &:before {
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    .product-item-name,
+    .price-including-tax,
+    .price-excluding-tax {
+      display: inline-block;
+    }
+
+    .block-content .box {
+      &:not(:last-child) {
+        margin-bottom: 40px;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &.order-review {
+      .box-items {
+        .data.table {
+          thead {
+            display: block;
+
+            tr {
+              display: block;
+            }
+
+            .col.item {
+              display: block;
+              padding: 0;
+            }
+          }
+        }
+      }
+
+      .data.table {
+        @extend .abs-checkout-order-review;
+      }
+    }
+
+    .actions-toolbar {
+      .action {
+        margin-bottom: $grid-gutter-width-base;
+      }
+
+      & > .primary {
+        margin-bottom: $grid-gutter-width-base;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  .multicheckout {
+    .actions-toolbar {
+      .column:not(.sidebar-main) & {
+        @extend .abs-reset-left-margin-desktop-s;
+      }
+
+      .secondary {
+        float: none;
+        margin-top: 11px;
+        text-align: right;
+
+        .action {
+          margin-left: 10px;
+
+          &.back {
+            display: block;
+            float: left;
+          }
+        }
+      }
+    }
+
+    .item-options {
+      margin: 20px 0 0;
+    }
+
+    .block-content .box {
+      margin-bottom: 0;
+    }
+
+    .block-shipping {
+      .box {
+        float: left;
+        width: 25%;
+      }
+
+      .box-shipping-method {
+        padding-left: $grid-gutter-width-base;
+        padding-right: $grid-gutter-width-base;
+        width: 50%;
+
+        .fieldset {
+          .legend {
+            @extend .abs-reset-left-margin-desktop-s;
+          }
+
+          .field {
+            &:before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .block-billing {
+      @extend .abs-add-clearfix-desktop-s;
+      .box-billing-address {
+        float: left;
+        width: 25%;
+      }
+
+      .box-billing-method {
+        float: left;
+        padding-left: $grid-gutter-width-base;
+        width: 50%;
+      }
+    }
+
+    &.form.address {
+      .table-wrapper {
+        .applicable {
+          margin: 7px 0 0;
+        }
+      }
+    }
+
+    &.order-review {
+      .box-items {
+        clear: left;
+        float: none;
+        padding-top: 40px;
+        width: auto;
+      }
+
+      .col.item {
+        width: 75%;
+      }
+    }
+
+    //  Payment methods
+    .methods-payment {
+      .item-content > .fieldset {
+        width: auto;
+
+        .field {
+          &.cvv {
+            display: inline-block;
+            width: auto;
+          }
+        }
+      }
+
+      .fieldset > .field:not(.choice) {
+        & > .label {
+          float: none;
+          margin-bottom: 8px;
+          text-align: left;
+          width: auto;
+        }
+
+        &:not(.cvv) {
+          .control {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .multishipping-checkout-success {
+    .nav-toggle {
+      display: block;
+    }
+
+    .logo {
+      margin-left: 40px;
+    }
+  }
+}

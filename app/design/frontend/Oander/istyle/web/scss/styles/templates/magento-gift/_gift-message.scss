@@ -1,0 +1,313 @@
+//
+//  Variables
+//  _____________________________________________
+
+$gift-message-field-label__color: $gray-dark;
+$gift-item-block__border-color: $gray-light;
+$gift-item-block__border-width: 1px;
+
+//
+//  Common
+//  _____________________________________________
+
+.gift-message {
+  .field {
+    .label {
+      color: $gift-message-field-label__color;
+      font-weight: $font-weight-normal;
+    }
+  }
+}
+
+.gift-options {
+  @include clearfix;
+
+  .actions-toolbar {
+    .action-cancel {
+      display: none;
+    }
+  }
+}
+
+.gift-options-title {
+  margin: 0 0 20px;
+}
+
+.gift-options-content {
+  .fieldset {
+    margin: 0 0 20px;
+  }
+}
+
+.gift-summary {
+  .actions-toolbar {
+    & > .secondary {
+      float: none;
+
+      .action {
+        margin: 10px 20px 0 0;
+      }
+    }
+  }
+}
+
+//
+//  In-table block
+//  ---------------------------------------------
+
+.cart.table-wrapper {
+  .gift-content {
+    clear: left;
+    display: none;
+    float: left;
+    margin: 20px 0;
+    text-align: left;
+    width: 100%;
+
+    &._active {
+      display: table;
+      table-layout: fixed;
+    }
+  }
+
+  .action-gift {
+    margin-bottom: 10px;
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+//
+//  Collapsible block
+//  ---------------------------------------------
+
+.gift-item-block {
+  margin: 0;
+  &._active {
+    .title {
+      @include lib-icon-font-symbol(
+          $icon-chevron-up,
+      $_icon-font-position: after
+      );
+    }
+  }
+
+  .title {
+    border-radius: 3px;
+    @include lib-button(
+    $_button-margin: 20px 0 0,
+    $_button-padding: 7px 15px,
+    $_button-icon-use: true,
+    $_button-font-content: $icon-chevron-down,
+    $_button-icon-font: $button-icon__font,
+    $_button-icon-font-size: 32px,
+    $_button-icon-font-line-height: 16px,
+    $_button-icon-font-position: after
+    );
+    font-weight: $font-weight-bold;
+
+    &:active {
+      box-shadow: $button__shadow;
+    }
+  }
+
+  .content {
+    @extend .abs-add-clearfix;
+    border-bottom: $gift-item-block__border-width solid $gift-item-block__border-color;
+    padding: 10px 10px 20px;
+    position: relative;
+  }
+}
+
+//
+//  Account order gift message
+//  ---------------------------------------------
+
+.order-details-items {
+  .order-gift-message,
+  .block-order-details-gift-message {
+    .item-options {
+      dt {
+        font-weight: $font-weight-normal;
+        margin: 10px 0;
+      }
+    }
+
+    @extend .abs-add-clearfix;
+
+    dt {
+      &:after {
+        content: '';
+      }
+    }
+
+    .label {
+      &:after {
+        content: ': ';
+      }
+    }
+
+    .item-message {
+      clear: left;
+    }
+  }
+}
+
+.order-details-items .order-items {
+  .order-gift-message {
+    &:not(.expanded-content) {
+      @extend .abs-hidden;
+    }
+
+    .action.close {
+      @extend .abs-no-display;
+    }
+  }
+
+  .action.show {
+    @include lib-icon-font(
+    $_icon-font-content: $icon-chevron-down,
+    $_icon-font-size: 22px,
+    $_icon-font-text-hide: false,
+    $_icon-font-position: after,
+    $_icon-font-display: inline-block
+    );
+    padding-right: 20px;
+    position: relative;
+
+    &:after {
+      position: absolute;
+      right: 0;
+      top: -4px;
+    }
+
+    &.expanded {
+      @include lib-icon-font-symbol(
+      $_icon-font-content: $icon-chevron-up,
+      $_icon-font-position: after
+      );
+    }
+  }
+}
+
+.block-order-details-gift-message {
+  border-top: 1px solid $gray-lighter;
+  padding-top: 10px;
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+@include media-breakpoint-down(sm) {
+  .gift-options {
+    .actions-toolbar {
+      .action-update {
+        font-size: 20px;
+        padding: 15px;
+        width: 100%;
+      }
+    }
+  }
+
+  .gift-item-block {
+    border-bottom: 0;
+    border-top: $gift-item-block__border-width solid $gift-item-block__border-color;
+  }
+
+  .cart.table-wrapper {
+    .gift-content {
+      margin-right: -10px;
+    }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .cart.table-wrapper {
+    .gift-content {
+      border-bottom: 1px solid $gray-lighter;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@include media-breakpoint-up(md) {
+  .gift-message {
+    .field {
+      @include clearfix;
+      @include lib-form-field-type-revert(
+      $_type: inline,
+      $_type-inline-label-align: left
+      );
+    }
+  }
+
+  .gift-options {
+    position: relative;
+    z-index: 1;
+
+    .actions-toolbar {
+      clear: both;
+      float: right;
+      position: static;
+
+      .secondary {
+        float: right;
+
+        .action {
+          float: right;
+          margin-left: 20px;
+        }
+
+        .action-cancel {
+          display: block;
+          float: left;
+          margin-top: 6px;
+        }
+      }
+
+      &:nth-child(3) {
+        &:before {
+          border-left: 1px solid $gift-item-block__border-color;
+          bottom: 5rem;
+          content: '';
+          display: block;
+          left: 50%;
+          overflow: hidden;
+          position: absolute;
+          top: 0;
+          width: 0;
+        }
+      }
+    }
+  }
+
+  .gift-options-title {
+    font-weight: 300;
+    font-size: 18px;
+  }
+
+  .gift-summary,
+  .cart.table-wrapper .gift-summary {
+    .actions-toolbar {
+      @extend .abs-reset-left-margin-desktop;
+    }
+  }
+
+  //
+  //  In-table block
+  //  ---------------------------------------------
+
+  .cart.table-wrapper {
+    .action-gift {
+      float: left;
+    }
+  }
+}

@@ -1,0 +1,83 @@
+.btn,
+.action {
+  text-transform: uppercase;
+  box-shadow: none !important; // temp solution
+
+  &.has-icon {
+    .icon {
+      display: inline-block;
+      margin-right: 8px;
+    }
+  }
+}
+.btn {
+  &.btn-outline-primary {
+    &:not(:hover) {
+      color: #000;
+    }
+  }
+}
+
+.action {
+  @extend .btn;
+
+  // tocart, showcart, viewcart, checkout, wishlist, towishlist, apply, cancel
+  &.primary:not(.showcart):not(.viewcart):not(.wishlist):not(.apply):not(.cancel) {
+    @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  }
+  &.apply,
+  &.secondary {
+    @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+  }
+  &.towishlist {
+    @include button-variant($gray-dark, transparent, transparent);
+
+    &:hover {
+      .icon-heart {
+        color: $brand-primary;
+      }
+    }
+    &.product-view {
+      color: #7f7f7f;
+
+      &:hover {
+        .icon-heart {
+          color: #7f7f7f;
+        }
+      }
+    }
+
+    .icon-heart {
+      font-size: 14px;
+    }
+  }
+  &.wishlist {
+    @include button-outline-variant($btn-primary-bg);
+
+    &:not(:hover) {
+      color: #000;
+    }
+  }
+  &.viewcart {
+    @include button-outline-variant($btn-primary-bg);
+  }
+  &.showcart {
+    @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+
+    &:hover {
+      background: $btn-primary-bg;
+    }
+    &:active,
+    &.active {
+      background: $gray-dark;
+      border-color: $gray-dark;
+
+      .counter-number {
+        color: $gray-dark;
+      }
+    }
+  }
+  &.back {
+    color: $gray-dark;
+  }
+}
