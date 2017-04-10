@@ -104,21 +104,6 @@ $minicart-qty__height: 24px;
     &.close {
       display: none;
     }
-    &.showcart {
-      height: 40px;
-
-      .counter.qty {
-        &.empty {
-          display: none;
-        }
-
-        .loader {
-          > img {
-            max-width: $minicart-qty__height;
-          }
-        }
-      }
-    }
   }
   .price-wrapper {
     &.price-excluding-tax {
@@ -262,6 +247,8 @@ $minicart-qty__height: 24px;
   }
 }
 .action.showcart {
+  height: 40px;
+
   .counter-label {
     display: none;
   }
@@ -282,6 +269,16 @@ $minicart-qty__height: 24px;
     line-height: $size;
     font-weight: bold;
     transition: all ease 0.3s;
+  }
+  .counter.qty {
+    &.empty {
+      display: none;
+    }
+    .loader {
+      > img {
+        max-width: $minicart-qty__height;
+      }
+    }
   }
   .icon {
     font-size: 18px;

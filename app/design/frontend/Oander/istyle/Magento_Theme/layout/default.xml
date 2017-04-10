@@ -9,6 +9,35 @@
     <body>
 
         <!--<referenceBlock name="header.panel.wrapper" remove="true" />-->
+        <!--<referenceContainer name="header-wrapper" htmlClass="header content container" />-->
+
+        <referenceContainer name="header-wrapper" htmlClass="d-lg-flex container">
+            <container name="page-header-right" htmlTag="div" htmlClass="page-header-right" before="-">
+
+            </container>
+
+            <!--<container name="header-wrapper" htmlTag="div" htmlClass="header content right"></container>-->
+
+            <block class="Magento\Framework\View\Element\Template" name="header_user_wrapper"
+                   template="Magento_Theme::html/header-user-wrapper.phtml" />
+        </referenceContainer>
+        <!--<referenceContainer name="header.panel" htmlClass="container" />-->
+        <!--<referenceContainer name="header-wrapper" htmlClass="container" />-->
+
+
+        <referenceBlock class="Magento\Framework\View\Element\Html\Links" name="top.links">
+            <arguments>
+                <argument name="css_class" xsi:type="string">header links right</argument>
+            </arguments>
+        </referenceBlock>
+
+
+        <!-- Remove elements -->
+        <referenceContainer name="header.panel.wrapper" remove="true" />
+
+        <!-- Move elements -->
+        <move element="top.links" destination="page-header-right" before="topSearch" />
+        <move element="header_user_wrapper" destination="page-header-right" before="top.links" />
 
     </body>
 </page>
