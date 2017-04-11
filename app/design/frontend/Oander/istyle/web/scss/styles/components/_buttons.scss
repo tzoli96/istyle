@@ -70,3 +70,13 @@
     color: $gray-dark;
   }
 }
+
+@include media-breakpoint-up(lg) {
+  .action {
+    &.showcart {
+      height: $header-lg-height;
+      line-height: $header-lg-height;
+      padding: 0 1rem;
+    }
+  }
+}

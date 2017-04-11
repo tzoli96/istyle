@@ -7,8 +7,9 @@ $minicart-qty__height: 24px;
   position: absolute;
   right: 0;
   z-index: 100;
-  border: 1px solid #818a91;
+  border: 1px solid #ddd;
   background: #fff;
+  border-radius: 0 0 5px 5px;
 
   &:after {
     left: auto;
@@ -18,6 +19,7 @@ $minicart-qty__height: 24px;
     left: auto;
     right: 26px;
   }
+
   .block-title {
     display: none;
   }
@@ -86,7 +88,6 @@ $minicart-qty__height: 24px;
   }
 }
 .minicart-wrapper {
-  float: right;
   position: relative;
   margin-left: 13px;
 
@@ -247,30 +248,25 @@ $minicart-qty__height: 24px;
   }
 }
 .action.showcart {
-  height: 40px;
+  position: relative;
 
-  .counter-label {
-    display: none;
-  }
-  .counter-number {
+  .counter.qty {
     $size: 20px;
 
-    display: inline-block;
-    min-width: $size;
+    min-width: $size*1.5;
     height: $size;
-    margin-left: 5px;
-    vertical-align: top;
-    position: relative;
-    top: -1px;
-    background: #fff;
-    border-radius: 50%;
-    color: $brand-primary;
-    font-size: 11px;
+    margin-top: -10px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    border-radius: $size/2;
+    background: $brand-secondary;
+    color: #fff;
+    font-size: 12px;
+    font-weight: $font-weight-medium;
     line-height: $size;
-    font-weight: bold;
     transition: all ease 0.3s;
-  }
-  .counter.qty {
+
     &.empty {
       display: none;
     }
@@ -281,8 +277,8 @@ $minicart-qty__height: 24px;
     }
   }
   .icon {
-    font-size: 18px;
-    margin: -3px 0 0;
+    padding: 9px;
+    font-size: 16px;
   }
 }
 
