@@ -89,7 +89,6 @@ $minicart-qty__height: 24px;
 }
 .minicart-wrapper {
   position: relative;
-  margin-left: 13px;
 
   .product {
     .actions {
@@ -185,7 +184,7 @@ $minicart-qty__height: 24px;
     }
   }
   .product-item-name {
-    font-weight: bold;
+    font-weight: $font-weight-medium;
     font-size: 12px;
     margin: 0 0 10px;
     display: block;
@@ -255,10 +254,11 @@ $minicart-qty__height: 24px;
 
     min-width: $size*1.5;
     height: $size;
-    margin-top: -10px;
+    margin-top: -12px;
+    padding: 0 5px;
     position: absolute;
     top: 50%;
-    right: 0;
+    left: $size*2;
     border-radius: $size/2;
     background: $brand-secondary;
     color: #fff;

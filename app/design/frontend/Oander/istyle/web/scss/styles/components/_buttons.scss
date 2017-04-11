@@ -10,14 +10,6 @@
     }
   }
 }
-.btn {
-  &.btn-outline-primary {
-    &:not(:hover) {
-      color: #000;
-    }
-  }
-}
-
 .action {
   @extend .btn;
 
@@ -63,8 +55,9 @@
   }
   &.showcart {
     color: #fff;
-    //@include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
-
+  }
+  &.checkout {
+    font-weight: $font-weight-medium;
   }
   &.back {
     color: $gray-dark;

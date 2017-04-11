@@ -29,7 +29,7 @@ body.account {
     // Blocks titles
     .block-title {
       font-size: 18px;
-      font-weight: bold;
+      font-weight: $font-weight-medium;
       line-height: 1em;
       padding-bottom: 15px;
       border-bottom: 1px solid $body-bg;
@@ -108,7 +108,7 @@ body.account {
 
     .current &,
     &:hover {
-      font-weight: bold;
+      font-weight: $font-weight-medium;
       text-decoration: none;
     }
   }
@@ -154,7 +154,7 @@ body.account {
   }
   th {
     font-size: $font-size-root;
-    font-weight: bold;
+    font-weight: $font-weight-medium;
   }
   a.action {
     padding: 0;

@@ -108,7 +108,7 @@ $progress-circle-size: 30px;
     position: absolute;
     left: 0;
     top: 0;
-    font-weight: bold;
+    font-weight: $font-weight-medium;
     line-height: $progress-circle-size;
     color: #fff;
   }
@@ -117,6 +117,6 @@ $progress-circle-size: 30px;
   clear: both;
   display: block;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: $font-weight-medium;
   text-transform: lowercase;
 }

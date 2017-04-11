@@ -1,5 +1,8 @@
 // Add base font size to HTML
 // After this, the body font size inherits this value (1rem)
+* {
+  outline: 0;
+}
 html {
   font-size: 14px;
 
@@ -13,14 +16,12 @@ html {
     }
   }
 }
-
 strong,
 b {
-  font-weight: $font-weight-semibold;
+  font-weight: $font-weight-medium;
 }
-
-* {
-  outline: 0;
+img {
+  max-width: 100%;
 }
 body {
 

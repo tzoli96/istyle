@@ -1,10 +1,10 @@
 .navigation {
   a {
     text-decoration: none;
-    color: #000;
+    color: #5a5a5a;
 
     &:hover {
-      color: $brand-primary;
+      color: #fff;
     }
   }
 }
@@ -162,8 +162,10 @@
 }
 @include media-breakpoint-up(lg) {
 
+  .sections.nav-sections {
+    width: 50%;
+  }
   .navigation {
-    text-transform: uppercase;
     height: 50px;
 
     > ul {
@@ -178,21 +180,9 @@
     }
     li.level0 {
       list-style: none;
-      position: relative;
       white-space: nowrap;
       width: 100%;
 
-      & + li {
-        &:before {
-          content: '';
-          border-left: 1px solid $brand-primary;
-          position: absolute;
-          left: 0;
-          top: 50%;
-          margin-top: -4px;
-          height: 8px;
-        }
-      }
       &.parent {
         &:hover {
           > ul.level0 {
@@ -232,9 +222,9 @@
         position: absolute;
         opacity: 0;
         visibility: hidden;
-        top: 50px;
+        top: 100%;
         left: 0;
-        min-width: 250px;
+        right: 0;
         transition: all ease 0.3s;
         text-align: left;
         padding: 15px 0;
@@ -242,48 +232,98 @@
         list-style: none;
         background: #fff;
         border: 1px solid #d8d8d8;
+        color: $gray-dark;
         border-top: 0;
         z-index: 100;
-        transform: translateY(-10px) scale(0.98);
+        transform: scale(0.98);
 
         &.level0.block-added {
           @include clearfix();
-          display: flex;
           width: auto;
-          padding: 20px 15px 30px;
+          white-space: normal;
+          padding: 20px 30px 30px;
 
           > li {
             width: auto;
 
             &.sub-category {
-              order: 1;
+              margin: 0 300px 0 0;
               padding: 0;
+
+              .inner {
+                margin: 30px -10px 0;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+
+                > li {
+                  width: 25%;
+                  margin-bottom: 10px;
+                  padding: 0 5px;
+
+                  > a {
+                    display: block;
+                    padding: 8px 5px;
+                    border: 1px solid #787878;
+                    border-radius: $border-radius;
+                    transition: all ease 0.3s;
+                    text-align: center;
+                    color: #787878;
+
+                    &:hover {
+                      color: #fff;
+                      background: #787878;
+                    }
+                  }
+                }
+              }
             }
-            &:not(.sub-category) {
-              order: 2;
+            &.promo-image {
+              width: 250px;
+              position: absolute;
+              right: 30px;
+              top: 20px;
+              bottom: 30px;
+              padding: 0;
+
+              .promo-image-link {
+                text-align: right;
+                height: 100%;
+                padding: 0;
+              }
+              img {
+                max-width: 100%;
+                max-height: 100%;
+              }
             }
             &.wonder-widget {
               display: flex;
-              padding: 10px 0;
-              border: 1px solid $gray-lighter;
+              margin: 0 300px 0 0;
+              padding: 0 0 30px;
+              border-bottom: 1px solid $gray-lighter;
 
               > p { // temp
                 display: none;
               }
               .widget-block {
-                min-width: 150px;
+                width: 20%;
                 padding: 0 10px;
               }
-              .widget-title {
-                text-transform: none;
-                font-size: 14px;
-                font-weight: 400;
-                line-height: 20px;
+              .title {
+                order: 1;
+                text-align: center;
+              }
+              .content {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                color: #5a5a5a;
               }
               .widget-title-link {
                 white-space: normal;
                 padding: 0;
               }
+
               .image-wrapper {
                 background: none !important;
 
@@ -377,6 +417,12 @@
             padding: 3px 0;
           }
         }
+        a {
+          color: $gray-dark;
+          &:hover {
+            color: #000;
+          }
+        }
       }
     }
     .oander-wonder-widget-basic {
@@ -404,12 +450,6 @@
         }
       }
     }
-  }
-
-  .nav-sections {
-    background: #fff;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid #d8d8d8;
   }
   .nav-sections-item-title,
   .nav-sections .header.links,

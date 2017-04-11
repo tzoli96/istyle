@@ -254,7 +254,7 @@
             &:before {
               content: attr(data-th);
               display: block;
-              font-weight: bold;
+              font-weight: $font-weight-medium;
             }
           }
         }
