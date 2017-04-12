@@ -39,7 +39,7 @@ define([
       _.generateNavigationIcons();
       _.initMobileNavigation();
       _.submenuPositionWatcher();
-      _.toggleHeaderAccount();
+      //_.toggleHeaderAccount();
 
     },
 

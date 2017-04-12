@@ -1,0 +1,15 @@
+<div class="header-account" id="header-account">
+    <a href="#" class="header-account-toggle skip-link" id="header-account-toggle"><i class="icon icon-user"></i></a>
+    <div class="dropdown switcher-dropdown"
+         data-mage-init='{"dropdownDialog":{
+                "triggerTarget":".header-account-toggle",
+                "appendTo":"#header-account",
+                "timeout": "0",
+                "closeOnMouseLeave": false,
+                "closeOnEscape": true,
+                "triggerClass":"active",
+                "parentClass":"active",
+                "buttons":[]}}'>
+        <?php echo $this->getChildHtml('top.links') ?>
+    </div>
+</div>

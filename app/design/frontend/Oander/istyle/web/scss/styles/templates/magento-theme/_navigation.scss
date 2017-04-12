@@ -1,7 +1,7 @@
 .navigation {
   a {
     text-decoration: none;
-    color: #5a5a5a;
+    color: #fff;
 
     &:hover {
       color: #fff;
@@ -9,7 +9,6 @@
   }
 }
 
-// Tablet - mobile
 @include media-breakpoint-down(md) {
 
   .nav-open {
@@ -157,18 +156,16 @@
   }
 }
 
-// Desktop
-@include media-breakpoint-up(md) {
-}
 @include media-breakpoint-up(lg) {
 
   .sections.nav-sections {
     width: 50%;
   }
   .navigation {
-    height: 50px;
+    height: $header-lg-height;
 
     > ul {
+      height: $header-lg-height;
       margin: 0;
       padding: 0;
       display: flex;
@@ -183,6 +180,14 @@
       white-space: nowrap;
       width: 100%;
 
+      &:hover {
+        > a {
+          &:before {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+      }
       &.parent {
         &:hover {
           > ul.level0 {
@@ -198,21 +203,25 @@
           right: 0;
         }
       }
-      &:first-child {
-        > a {
-          padding-left: 0;
-        }
-      }
-      &:last-child {
-        > a {
-          padding-right: 0;
-        }
-      }
 
       > a {
         display: block;
+        position: relative;
         padding: 15px 10px;
 
+        &:before {
+          content: '';
+          height: 6px;
+          width: 36px;
+          margin-left: -18px;
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          background: $brand-secondary;
+          visibility: hidden;
+          opacity: 0;
+          transition: all ease 0.3s;
+        }
         > .icon {
           display: none;
         }

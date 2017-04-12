@@ -1,0 +1,43 @@
+.header-account-toggle {
+  &,
+  &:focus,
+  &:hover {
+    color: #fff;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .header-account {
+    &.active {
+      .header-account-dropdown {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+  .header-account-dropdown {
+    opacity: 0;
+    visibility: hidden;
+    width: 300px;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    position: absolute;
+    top: $header-lg-height;
+    right: 0;
+    z-index: 100;
+    list-style: none;
+    border-radius: 0 0 5px 5px;
+    text-align: right;
+    transition: all ease 0.3s;
+
+    li {
+      & + li {
+        margin-top: 10px;
+      }
+    }
+    a {
+      color: $gray-dark;
+    }
+  }
+}
