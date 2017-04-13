@@ -55,6 +55,7 @@
   }
   &.showcart {
     color: #fff;
+    border: 0;
   }
   &.checkout {
     font-weight: $font-weight-medium;
@@ -64,11 +65,4 @@
   }
 }
 
-@include media-breakpoint-up(lg) {
-  .action {
-    &.showcart {
-      height: $header-lg-height;
-      line-height: $header-lg-height;
-    }
-  }
-}
+@include media-breakpoint-up(lg) {  }

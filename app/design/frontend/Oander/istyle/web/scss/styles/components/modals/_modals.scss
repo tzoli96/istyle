@@ -186,6 +186,11 @@ body {
   }
 }
 
+@include media-breakpoint-down(md) {
+  .modal-backdrop {
+    top: $header-height;
+  }
+}
 @include media-breakpoint-down(sm) {
   .modal-popup {
     &.modal-slide {

@@ -39,7 +39,6 @@ define([
       _.generateNavigationIcons();
       _.initMobileNavigation();
       _.submenuPositionWatcher();
-      //_.toggleHeaderAccount();
 
     },
 
@@ -114,7 +113,16 @@ define([
       var parent = $('.navigation .parent');
 
       // Open mobile navigation
-      $('.action.nav-toggle').on('click', this.showMobileNavigation);
+      //$('.action.nav-toggle').on('click', this.showMobileNavigation);
+      $('.action.nav-toggle').on('click', function() {
+
+        if($('html').hasClass('nav-open')) {
+          _.hideMobileNavigation();
+        } else {
+          _.showMobileNavigation();
+        }
+
+      });
 
       if(_.options.categoryAllLink === true) {
         _.generateCategoryLinks();
@@ -218,19 +226,6 @@ define([
       classManager();
 
       window.addEventListener('resize', classManager);
-
-    },
-
-    toggleHeaderAccount: function() {
-
-      var _ = this;
-
-      jQuery(_.selectors.accountToggle).on('click', function() {
-        jQuery(this).toggleClass('active');
-        jQuery(_.selectors.headerAccount).toggleClass('active');
-      });
-
-
 
     }
   });

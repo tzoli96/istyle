@@ -24,24 +24,13 @@
             <div id="<?php echo $sliderId; ?>">
                 <?php foreach ($items as $item) : ?>
                     <div class="multislider-item">
-                        <div class="hidden-md-up"><a href="<?php echo $item->getLink() ?>" class="slider-link"><img src="<?php echo $mediaUrl . $item->getImageMobile() ?>" alt="<?php echo $item->getName(); ?>" /></a></div>
-                        <a href="<?php echo $item->getLink() ?>" class="slider-link">
-                            <div class="image-container hidden-sm-down"
-                                 style="background-image: url(<?php echo $mediaUrl . $item->getImage(); ?>)"></div></a>
-                        <div class="slider-caption">
-                            <div class="row">
-                                <div class="text-box col-12">
-                                    <p class="slider-caption-inner">
-                                        <span class="slider-title"><?php echo $item->getName(); ?></span>
-                                        <span class="slider-text"><?php echo $item->getText() ?></span>
-                                    </p>
-                                    <a href="<?php echo $item->getLink() ?>" class="btn btn-outline-primary text-uppercase">Megnézem</a>
-
-                                    <a href="#" class="slick-prev btn btn-link slick-arrow"><i class="icon icon-chevron-left"></i></a>
-                                    <a href="#" class="slick-next btn btn-link slick-arrow"><i class="icon icon-chevron-right"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                        <img src="<?php echo $mediaUrl . $item->getImageMobile() ?>" class="hidden-lg-up" />
+                        <img src="<?php echo $mediaUrl . $item->getImage() ?>" class="hidden-md-down" />
+                        <?php //echo $item->getLink() ?>
+                        <?php //echo $item->getName(); ?>
+                        <?php //echo $item->getText() ?>
+                        <?php //echo $mediaUrl . $item->getImage(); ?>
+                        <?php //echo $mediaUrl . $item->getImageMobile() ?>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -64,19 +53,19 @@
                 autoplay: false,
                 autoplaySpeed: 5000,
                 slidesToShow: 1,
-                arrows: false
-                //prevArrow: '<a href="#" class="slick-prev btn btn-link"><i class="icon icon-chevron-left"></i></a>',
-                //nextArrow: '<a href="#" class="slick-next btn btn-link"><i class="icon icon-chevron-right"></i></a>'
-            });
-
-            $('.oander-multislider .slick-prev').click(function(e){
-                e.preventDefault();
-                homeSlider.slick('slickPrev');
-            });
-            $('.oander-multislider .slick-next').click(function(e){
-                e.preventDefault();
-                homeSlider.slick('slickNext');
+                prevArrow: '<a href="#" class="slick-prev btn btn-link"><i class="icon icon-chevron-left"></i></a>',
+                nextArrow: '<a href="#" class="slick-next btn btn-link"><i class="icon icon-chevron-right"></i></a>'
             });
         });
     });
 </script>
+
+
+
+
+
+<!--<img width="350" height="460" src="http://royalszalon.hu/wp-content/uploads/5172-front-350x460.jpg"-->
+<!--     class="attachment-shop_catalog size-shop_catalog wp-post-image"-->
+<!--     alt="5172-front" title="5172-front"-->
+<!--     srcset="http://royalszalon.hu/wp-content/uploads/5172-front-350x460.jpg 350w,-->
+<!--     http://royalszalon.hu/wp-content/uploads/5172-front-440x580.jpg 440w" sizes="(max-width: 350px) 100vw, 350px">-->

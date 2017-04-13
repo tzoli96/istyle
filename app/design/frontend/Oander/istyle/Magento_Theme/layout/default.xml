@@ -8,8 +8,8 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
 
-        <referenceContainer name="header-wrapper" htmlClass="d-lg-flex container page-header-wrapper">
-            <container name="page-header-right" htmlTag="div" htmlClass="header-right d-lg-flex" after="-">
+        <referenceContainer name="header-wrapper" htmlClass="d-flex container page-header-wrapper">
+            <container name="page-header-right" htmlTag="div" htmlClass="header-right d-flex" after="-">
                 <block class="Magento\Framework\View\Element\Template" name="header-account"
                        template="Magento_Theme::html/header/header-account.phtml">
                     <block class="Magento\Framework\View\Element\Html\Links" name="top.links">
