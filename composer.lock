@@ -4,8 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+
     "hash": "53da08c947698c59228e45b203278683",
-    "content-hash": "b7b791907ffde27750f88d12ebe2dfa4",
+    "content-hash": "77c2dca1016425541dc597af0ad66f48",
     "packages": [
         {
             "name": "braintree/braintree_php",
@@ -6791,16 +6792,16 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "e6faf3f33933ae546be45c46025e3b218b772d7d"
+                "reference": "812e76fa2afa604768b7cb36a18fd68e96ae65dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/e6faf3f33933ae546be45c46025e3b218b772d7d",
-                "reference": "e6faf3f33933ae546be45c46025e3b218b772d7d",
+                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/812e76fa2afa604768b7cb36a18fd68e96ae65dc",
+                "reference": "812e76fa2afa604768b7cb36a18fd68e96ae65dc",
                 "shasum": ""
             },
             "require": {
@@ -6823,10 +6824,12 @@
             ],
             "description": "Warehouse Manager",
             "support": {
-                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.0.6",
+                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.0.7",
                 "issues": "https://github.com/oandermedia/oander-warehouse-manager/issues"
             },
-            "time": "2017-04-13 08:23:09"
+
+            "time": "2017-04-13T11:22:20+00:00"
+
         },
         {
             "name": "oander/module-wonder-widget",
