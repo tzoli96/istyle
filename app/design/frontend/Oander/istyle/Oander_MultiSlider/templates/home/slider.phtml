@@ -24,13 +24,8 @@
             <div id="<?php echo $sliderId; ?>">
                 <?php foreach ($items as $item) : ?>
                     <div class="multislider-item">
-                        <img src="<?php echo $mediaUrl . $item->getImageMobile() ?>" class="hidden-lg-up" />
-                        <img src="<?php echo $mediaUrl . $item->getImage() ?>" class="hidden-md-down" />
-                        <?php //echo $item->getLink() ?>
-                        <?php //echo $item->getName(); ?>
-                        <?php //echo $item->getText() ?>
-                        <?php //echo $mediaUrl . $item->getImage(); ?>
-                        <?php //echo $mediaUrl . $item->getImageMobile() ?>
+                        <img src="<?php echo $mediaUrl . $item->getImageMobile() ?>" class="hidden-lg-up" alt="<?php echo $item->getName() ?>" />
+                        <img src="<?php echo $mediaUrl . $item->getImage() ?>" class="hidden-md-down" alt="<?php echo $item->getName() ?>" />
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -49,10 +44,10 @@
             });
             homeSlider.slick({
                 speed: 300,
+                dots: true,
                 fade: false,
                 autoplay: false,
                 autoplaySpeed: 5000,
-                slidesToShow: 1,
                 prevArrow: '<a href="#" class="slick-prev btn btn-link"><i class="icon icon-chevron-left"></i></a>',
                 nextArrow: '<a href="#" class="slick-next btn btn-link"><i class="icon icon-chevron-right"></i></a>'
             });

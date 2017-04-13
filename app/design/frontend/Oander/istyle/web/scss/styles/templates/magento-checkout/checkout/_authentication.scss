@@ -106,7 +106,7 @@ $block-auth__or-label__size: 50px;
       margin-top: 0;
 
       strong {
-        font-weight: 600;
+        font-weight: $font-weight-medium;
       }
     }
     .block[class] {
@@ -115,7 +115,7 @@ $block-auth__or-label__size: 50px;
       }
     }
     .block-new-customer-heading-text {
-      font-weight: 600;
+      font-weight: $font-weight-medium;
     }
     .block-new-customer-heading-list {
       padding-left: 0;
