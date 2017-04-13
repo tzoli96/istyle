@@ -6,6 +6,26 @@
     &:hover {
       color: #fff;
     }
+    &.promotion {
+      font-weight: $font-weight-medium;
+
+      .percentage {
+        $size: 15px;
+        width: $size;
+        height: $size;
+        display: inline-block;
+        vertical-align: top;
+        margin-top: -4px;
+        padding: 3px;
+        background: $brand-secondary;
+        border-radius: $size;
+        text-align: left;
+        line-height: 1;
+        color: #fff;
+        font-size: 10px;
+        font-weight: 400;
+      }
+    }
   }
 }
 
@@ -101,7 +121,6 @@
     }
   }
   .nav-sections {
-    width: 80%; // for old browsers
     width: calc(100% - 60px);
     position: fixed;
     top: 0;
@@ -157,9 +176,9 @@
 }
 
 @include media-breakpoint-up(lg) {
-
   .sections.nav-sections {
-    width: 50%;
+    flex: 1;
+    display: flex;
   }
   .navigation {
     height: $header-lg-height;
@@ -192,6 +211,7 @@
       list-style: none;
       white-space: nowrap;
       width: 100%;
+      padding: 0 5px;
 
       &:hover {
         > a {
@@ -216,12 +236,28 @@
           right: 0;
         }
       }
+      &.nav-bordered {
+        position: relative;
+        padding-left: 20px;
+        margin-left: 15px;
+
+        &:before {
+          content: '';
+          width: 1px;
+          height: 30px;
+          margin-top: -15px;
+          position: absolute;
+          left: 0;
+          top: 50%;
+          background: #5a5a5a;
+        }
+      }
 
       > a {
         display: block;
         position: relative;
         padding: 15px 10px;
-        transition: color ease 0.4s;
+        transition: color ease 0.2s;
 
         &:before {
           content: '';
@@ -234,7 +270,7 @@
           background: $brand-secondary;
           visibility: hidden;
           opacity: 0;
-          transition: all ease 0.4s;
+          transition: all ease 0.2s;
         }
         > .icon {
           display: none;
@@ -248,7 +284,7 @@
         top: 100%;
         left: 0;
         right: 0;
-        transition: all ease 0.4s;
+        transition: all ease 0.2s;
         text-align: left;
         padding: 15px 0;
         margin: 0;
@@ -478,5 +514,17 @@
   .nav-sections .header.links,
   .action.nav-toggle {
     display: none;
+  }
+}
+@include media-breakpoint-up(xl) {
+  .navigation {
+    li.level0 {
+      padding: 0 12px;
+
+      &.nav-bordered {
+        padding-left: 50px;
+        margin-left: 35px;
+      }
+    }
   }
 }

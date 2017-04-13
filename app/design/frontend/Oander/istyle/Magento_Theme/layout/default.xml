@@ -21,12 +21,18 @@
             </container>
         </referenceContainer>
 
+
+        <!--<referenceBlock name="top.search">-->
+            <!--<block class="Magento\Framework\View\Element\Template" name="advanced-search-link" template="Magento_CatalogSearch::advanced/link.phtml" />-->
+        <!--</referenceBlock>-->
+
         <!-- Remove elements -->
         <referenceContainer name="header.panel.wrapper" remove="true" />
 
         <!-- Move elements -->
         <move element="navigation.sections" destination="header-wrapper" after="logo" />
         <move element="minicart" destination="page-header-right" after="-" />
+        <move element="top.search" destination="page-header-right" before="header-account" />
 
     </body>
 </page>

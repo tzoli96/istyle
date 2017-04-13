@@ -11,12 +11,12 @@
 /** @var $helper \Magento\Search\Helper\Data */
 $helper = $this->helper('Magento\Search\Helper\Data');
 ?>
-<div class="header-search hidden-xs-up">
+<div class="header-search">
     <div class="block block-title"><strong><?php /* @escapeNotVerified */ echo __('Search'); ?></strong></div>
     <div class="block block-content">
         <form class="form minisearch" id="search_mini_form" action="<?php /* @escapeNotVerified */ echo $helper->getResultUrl() ?>" method="get">
             <div class="field search">
-                <label class="label toggle-search hidden-lg-up" for="search" data-role="minisearch-label">
+                <label class="label toggle-search skip-link" for="search" data-role="minisearch-label">
                     <span><i class="icon icon-search "></i></span>
                 </label>
                 <div class="control">
