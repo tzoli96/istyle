@@ -128,6 +128,7 @@ return array (
     'Oander_Base' => 1,
     'Oander_CategoryBadge' => 1,
     'Oander_CategoryDropdown' => 1,
+    'Oander_Checkout' => 1,
     'Oander_CoreBugFix' => 1,
     'Oander_CurrencyManager' => 1,
     'Oander_DiscountBadge' => 1,
@@ -142,6 +143,8 @@ return array (
     'Oander_OrderComment' => 1,
     'Oander_PayPal' => 1,
     'Oander_PosLocations' => 1,
+    'Oander_Shipping' => 1,
+    'Oander_WarehouseManager' => 1,
     'Oander_WonderWidget' => 1,
   ),
 );
