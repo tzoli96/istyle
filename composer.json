@@ -34,6 +34,7 @@
         "oander/module-base": "1.2.4",
         "oander/module-category-badge": "2.2.0",
         "oander/module-category-dropdown": "1.0.4",
+        "oander/module-checkout": "1.0.0",
         "oander/module-core-bug-fix": "1.0.1",
         "oander/module-currency-manager": "1.1.0",
         "oander/module-discount-badge": "1.0.2",
@@ -48,6 +49,8 @@
         "oander/module-order-comment": "1.0.1",
         "oander/module-paypal": "1.0.0",
         "oander/module-pos-locations": "1.0.7",
+        "oander/module-shipping": "1.0.1",
+        "oander/module-warehouse-manager": "1.0.6",
         "oander/module-wonder-widget": "1.0.1",
         "oander/theme-hodor": "1.1.0"
     },
@@ -111,6 +114,10 @@
         },
         {
             "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-checkout.git"
+        },
+        {
+            "type": "vcs",
             "url": "git@github.com:oandermedia/oander-core-bug-fix.git"
         },
         {
@@ -168,6 +175,14 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/oander-pos-locations.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-shipping.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-warehouse-manager.git"
         },
         {
             "type": "vcs",
