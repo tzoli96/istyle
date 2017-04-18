@@ -105,13 +105,9 @@
   }
 }
 
-@include media-breakpoint-down(md) {
+@include media-breakpoint-down(xs) {
   .oander-multislider {
     padding: 0;
-
-    .slick-arrow {
-      visibility: hidden;
-    }
   }
 }
 

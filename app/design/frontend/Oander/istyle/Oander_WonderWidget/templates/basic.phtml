@@ -1,0 +1,44 @@
+<?php
+/**
+ * Oander_WonderWidget
+ *
+ * @author  David Belicza <david.belicza@oander.hu>
+ * @license Oander Media Kft. (http://www.oander.hu)
+ */
+?>
+<?php /** @var $this \Oander\WonderWidget\Block\Basic */?>
+
+<div class="widget-block block oander-wonder-widget-basic">
+    <div class="content">
+        <?php if ($this->getImage()): ?>
+            <div class="image-wrapper" style="background-image: url('<?php echo $this->getImage(); ?>'); background-repeat: no-repeat;">
+                <?php if ($this->getLink()): ?>
+                    <a href="<?php echo $this->getLink(); ?>" class="link-overlay">
+                        <img src="<?php echo $this->getImage(); ?>" class="hidden-md-up" />
+                    </a>
+                <?php else: ?>
+                    <img src="<?php echo $this->getImage(); ?>" alt="<?php echo $this->getTitle() ?>" class="image hidden-md-up" />
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
+
+        <div class="caption">
+            <?php if ($this->getTitle()): ?>
+                <h2 class="widget-title">
+                    <?php if ($this->getLink()): ?>
+                        <a href="<?php echo $this->getLink(); ?>" class="widget-title-link"><?php echo $this->getTitle(); ?></a>
+                    <?php else: ?>
+                        <?php echo $this->getTitle(); ?>
+                    <?php endif; ?>
+                </h2>
+            <?php endif; ?>
+
+            <?php if ($this->getDescription()): ?>
+                <div class="widget-description">
+                    <?php echo $this->getDescription(); ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+
