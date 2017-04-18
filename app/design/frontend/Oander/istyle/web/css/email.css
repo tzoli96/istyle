@@ -1,3 +1,273 @@
-@import url("https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i&subset=latin-ext");body{margin:0;padding:0}img{border:0;height:auto;line-height:100%;outline:none;text-decoration:none}table{border-collapse:collapse}table td{vertical-align:top}body{font-family:"Rubik",sans-serif;font-weight:normal;text-align:left}th,td{font-family:"Rubik",sans-serif}a{color:#007aff;text-decoration:none}html,body{background-color:#e4e4e5}h1,h2,h3,h4,h5,h6{color:#007aff}.wrapper{margin:0 auto}.wrapper-inner{padding-bottom:30px;width:100%;border-radius:8px}.main{margin:20px auto;text-align:left;width:675px}.header{padding:25px 40px;background:#fff;border-bottom:1px solid #007aff}.header .table-header{width:100%}.header .header-logo,.header .header-url{vertical-align:middle}.header .header-logo{width:200px;text-align:left}.header .header-logo .logo img{width:98px;height:auto}.header .header-url{text-align:right}.header .header-url a{color:#282828;text-transform:uppercase;text-decoration:none}.main-content{background-color:#fff;padding:20px}.footer{padding:20px;background:#0062cc;text-align:center;color:#fff;vertical-align:middle;font-size:12px}.footer .footer-store-url{color:#fff;text-decoration:underline}.footer p{margin:0}.greeting{font-size:24px;color:#007aff;margin-bottom:20px}.email-summary h1{font-size:16px;margin-bottom:15px;padding-bottom:15px;border-bottom:1px solid #c9c9cb;text-transform:uppercase}.email-summary h1 span{color:#999}.email-summary p{margin-top:15px}.order-details{width:100%;table-layout:fixed;border-spacing:0;border-collapse:collapse;font-size:12px}.order-details>tr>td{border:1px solid #f1f1f2}.order-details>tr>td>h3{background:#f1f1f2;color:#007aff;margin:0 0 20px;font-weight:bold;font-size:12px;padding:10px}.order-details>tr>td>*{font-size:12px;padding:10px}.email-items{width:100%;border:1px solid #f1f1f2}.email-items thead th{background:#f1f1f2;color:#007aff;font-weight:bold;font-size:12px;padding:10px}.email-items tbody td{padding:10px}.email-items tfoot .grand_total th{color:#007aff}.email-items tfoot th,.email-items tfoot td{background:#f1f1f2;padding:10px;text-align:right}.email-items .item-qty,.email-items .item-price{font-weight:bold}.email-items .item-qty{text-align:center}.email-items .item-price{text-align:right;white-space:nowrap}.email-items .product-name{font-weight:bold}.button>tr>td{padding-bottom:10px}.button .inner-wrapper td{background-color:#007aff}.button .inner-wrapper td a{border:1px solid #007aff;color:#fff;display:inline-block;font-size:16px;padding:10px;text-decoration:none}.message-info,.message-gift{width:100%}.message-info td,.message-gift td{background-color:#fff;border:1px solid #f1f1f2;color:#282828;margin:0;padding:20px}.message-info td a,.message-gift td a{color:#007aff}.message-info td h1,.message-info td h2,.message-info td h3,.message-info td h4,.message-info td h5,.message-info td h6,.message-gift td h1,.message-gift td h2,.message-gift td h3,.message-gift td h4,.message-gift td h5,.message-gift td h6{margin-top:0}
+/* Email */
+@import url("https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i&subset=latin-ext");
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  border: 0;
+  height: auto;
+  line-height: 100%;
+  outline: none;
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table td {
+  vertical-align: top;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  font-weight: normal;
+  text-align: left;
+}
+
+th,
+td {
+  font-family: "Rubik", sans-serif;
+}
+
+a {
+  color: #007aff;
+  text-decoration: none;
+}
+
+html,
+body {
+  background-color: #e4e4e5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #007aff;
+}
+
+.wrapper {
+  margin: 0 auto;
+}
+
+.wrapper-inner {
+  padding-bottom: 30px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.main {
+  margin: 20px auto;
+  text-align: left;
+  width: 675px;
+}
+
+.header {
+  padding: 25px 40px;
+  background: #fff;
+  border-bottom: 1px solid #007aff;
+}
+
+.header .table-header {
+  width: 100%;
+}
+
+.header .header-logo,
+.header .header-url {
+  vertical-align: middle;
+}
+
+.header .header-logo {
+  width: 200px;
+  text-align: left;
+}
+
+.header .header-logo .logo img {
+  width: 98px;
+  height: auto;
+}
+
+.header .header-url {
+  text-align: right;
+}
+
+.header .header-url a {
+  color: #282828;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.main-content {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.footer {
+  padding: 20px;
+  background: #0062cc;
+  text-align: center;
+  color: #fff;
+  vertical-align: middle;
+  font-size: 12px;
+}
+
+.footer .footer-store-url {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer p {
+  margin: 0;
+}
+
+.greeting {
+  font-size: 24px;
+  color: #007aff;
+  margin-bottom: 20px;
+}
+
+.email-summary h1 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #c9c9cb;
+  text-transform: uppercase;
+}
+
+.email-summary h1 span {
+  color: #999;
+}
+
+.email-summary p {
+  margin-top: 15px;
+}
+
+.order-details {
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 0;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.order-details > tr > td {
+  border: 1px solid #f1f1f2;
+}
+
+.order-details > tr > td > h3 {
+  background: #f1f1f2;
+  color: #007aff;
+  margin: 0 0 20px;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 10px;
+}
+
+.order-details > tr > td > * {
+  font-size: 12px;
+  padding: 10px;
+}
+
+.email-items {
+  width: 100%;
+  border: 1px solid #f1f1f2;
+}
+
+.email-items thead th {
+  background: #f1f1f2;
+  color: #007aff;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 10px;
+}
+
+.email-items tbody td {
+  padding: 10px;
+}
+
+.email-items tfoot .grand_total th {
+  color: #007aff;
+}
+
+.email-items tfoot th,
+.email-items tfoot td {
+  background: #f1f1f2;
+  padding: 10px;
+  text-align: right;
+}
+
+.email-items .item-qty,
+.email-items .item-price {
+  font-weight: bold;
+}
+
+.email-items .item-qty {
+  text-align: center;
+}
+
+.email-items .item-price {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.email-items .product-name {
+  font-weight: bold;
+}
+
+.button > tr > td {
+  padding-bottom: 10px;
+}
+
+.button .inner-wrapper td {
+  background-color: #007aff;
+}
+
+.button .inner-wrapper td a {
+  border: 1px solid #007aff;
+  color: #fff;
+  display: inline-block;
+  font-size: 16px;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.message-info,
+.message-gift {
+  width: 100%;
+}
+
+.message-info td,
+.message-gift td {
+  background-color: #fff;
+  border: 1px solid #f1f1f2;
+  color: #282828;
+  margin: 0;
+  padding: 20px;
+}
+
+.message-info td a,
+.message-gift td a {
+  color: #007aff;
+}
+
+.message-info td h1,
+.message-info td h2,
+.message-info td h3,
+.message-info td h4,
+.message-info td h5,
+.message-info td h6,
+.message-gift td h1,
+.message-gift td h2,
+.message-gift td h3,
+.message-gift td h4,
+.message-gift td h5,
+.message-gift td h6 {
+  margin-top: 0;
+}
 
 /*# sourceMappingURL=email.css.map */
