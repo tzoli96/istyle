@@ -355,6 +355,7 @@
             }
             &.wonder-widget {
               display: flex;
+              flex-wrap: wrap;
               margin: 0 300px 0 0;
               padding: 0 0 30px;
               border-bottom: 1px solid $gray-lighter;
@@ -365,6 +366,7 @@
               .widget-block {
                 width: 20%;
                 padding: 0 10px;
+                flex: 0 0 20%;
               }
               .title {
                 order: 1;

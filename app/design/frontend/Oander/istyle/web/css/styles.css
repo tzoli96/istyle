@@ -19037,6 +19037,10 @@ table .col,
   }
 }
 
+.page-header .block-search {
+  display: none;
+}
+
 .page-header .switcher,
 .page-footer .switcher {
   margin-right: 10px;
@@ -19632,6 +19636,9 @@ table .col,
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
     margin: 0 300px 0 0;
     padding: 0 0 30px;
     border-bottom: 1px solid #eceeef;
@@ -19642,6 +19649,10 @@ table .col,
   .navigation li.level0 > .submenu.level0.block-added > li.wonder-widget .widget-block {
     width: 20%;
     padding: 0 10px;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 20%;
+        -ms-flex: 0 0 20%;
+            flex: 0 0 20%;
   }
   .navigation li.level0 > .submenu.level0.block-added > li.wonder-widget .title {
     -webkit-box-ordinal-group: 2;
@@ -20698,12 +20709,13 @@ body.contact-index-index .form {
   color: #5f5f5f;
 }
 
-.oander-wonder-widget-basic .widget-description {
+.oander-wonder-widget-basic .description {
   color: #8c8c8c;
 }
 
 .oander-wonder-widget-basic .link {
   margin-top: 10px;
+  display: none;
 }
 
 .oander-wonder-widget-basic .link a {
