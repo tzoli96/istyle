@@ -2,6 +2,7 @@
 return array (
   'modules' => 
   array (
+    'Algolia_AlgoliaSearch' => 1,
     'Magento_Store' => 1,
     'Magento_AdvancedPricingImportExport' => 1,
     'Magento_Directory' => 1,
