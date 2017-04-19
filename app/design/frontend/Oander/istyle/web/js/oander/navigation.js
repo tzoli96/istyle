@@ -20,7 +20,7 @@ define([
       breakpoint: '(max-width: 992px)'
     },
     selectors: {
-      navContainer: '.navigation.container',
+      navContainer: '[data-action="navigation"]',
       submenu: '.submenu',
       headerAccount: '.header-account',
       accountToggle: '#header-account-toggle'
@@ -39,6 +39,9 @@ define([
       _.generateNavigationIcons();
       _.initMobileNavigation();
       _.submenuPositionWatcher();
+
+      //
+      $('.header-account-dropdown').clone().appendTo('#store\\.links');
 
     },
 
@@ -71,7 +74,7 @@ define([
     showMobileNavigation: function() {
 
       $('html').addClass('nav-open');
-      $('body').append('<div class="modal-backdrop fade show" data-html-class="nav-open" data-action="modal-close" id="modal-backdrop"></div>');
+      //$('body').append('<div class="modal-backdrop fade show" data-html-class="nav-open" data-action="modal-close" id="modal-backdrop"></div>');
     },
 
 
@@ -82,7 +85,7 @@ define([
 
       $('.navigation').find('.parent').removeClass('active');
       $('html').removeClass('nav-open');
-      $('#modal-backdrop').remove();
+      //$('#modal-backdrop').remove();
     },
 
 

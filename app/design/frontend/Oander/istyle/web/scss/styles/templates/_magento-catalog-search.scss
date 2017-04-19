@@ -1,27 +1,3 @@
-.header-search {
-
-  .block-title {
-    display: none;
-  }
-  .block-content {
-    margin-bottom: 0;
-  }
-  .toggle-search {
-    .icon {
-      font-size: 16px;
-      color: #fff;
-    }
-  }
-  .action.search {
-    display: none;
-  }
-}
-.search-autocomplete {
-  display: none;
-}
-.form.minisearch {
-  position: relative;
-}
 .form.search.advanced {
   .fields.range {
     .field {
@@ -75,24 +51,4 @@
 }
 .search.summary {
   margin-bottom: 10px;
-}
-
-@include media-breakpoint-down(md) {
-  .header-search {
-    display: none;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .header-search {
-    .control {
-      display: none;
-    }
-    .actions {
-      display: none;
-    }
-  }
-}
-@include media-breakpoint-up(xl) {
-  .header-search {  }
 }
