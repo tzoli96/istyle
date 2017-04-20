@@ -3,17 +3,12 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
 
     <referenceBlock name="homepage_featured_products" remove="true" />
-    <!--homepage-products-container-->
 
     <referenceContainer name="page.bottom.container">
         <block class="Magento\Framework\View\Element\Template" name="homepage_products_container"
-               template="Magento_Theme::homepage/featured_products.phtml">
-            <!--<block class="Magento\Cms\Block\Block" name="homepage_featured_products">-->
-                <!--<arguments>-->
-                    <!--<argument name="block_id" xsi:type="string">homepage_featured_products</argument>-->
-                <!--</arguments>-->
-            <!--</block>-->
-        </block>
+               template="Magento_Theme::homepage/featured_products.phtml" />
+        <block class="Magento\Framework\View\Element\Template" name="homepage_recently_products"
+               template="Magento_Theme::homepage/recently-viewed-products.phtml" />
     </referenceContainer>
 
 </page>

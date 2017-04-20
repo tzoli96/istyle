@@ -182,7 +182,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #282828;
+  color: #323232;
   background-color: #fff;
 }
 
@@ -614,7 +614,7 @@ kbd {
   padding: 0.2rem 0.4rem;
   font-size: 90%;
   color: #fff;
-  background-color: #282828;
+  background-color: #323232;
   border-radius: 0;
 }
 
@@ -629,7 +629,7 @@ pre {
   margin-top: 0;
   margin-bottom: 1rem;
   font-size: 90%;
-  color: #282828;
+  color: #323232;
 }
 
 pre code {
@@ -2097,7 +2097,7 @@ pre code {
 
 .thead-inverse th {
   color: #fff;
-  background-color: #282828;
+  background-color: #323232;
 }
 
 .thead-default th {
@@ -2107,7 +2107,7 @@ pre code {
 
 .table-inverse {
   color: #fff;
-  background-color: #282828;
+  background-color: #323232;
 }
 
 .table-inverse th,
@@ -6567,11 +6567,11 @@ a.text-danger:focus, a.text-danger:hover {
 }
 
 .text-gray-dark {
-  color: #282828 !important;
+  color: #323232 !important;
 }
 
 a.text-gray-dark:focus, a.text-gray-dark:hover {
-  color: #0f0f0f !important;
+  color: #191919 !important;
 }
 
 .text-hide {

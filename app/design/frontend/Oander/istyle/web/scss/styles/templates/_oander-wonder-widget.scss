@@ -11,13 +11,6 @@
   .content {
     position: relative;
     margin-bottom: $grid-gutter-width-base;
-
-    &:hover {
-      .widget-title,
-      .widget-title-link {
-        color: $brand-primary;
-      }
-    }
   }
   .caption {
     background: $gray-lightest;
@@ -32,14 +25,17 @@
   }
   .widget-title {
     display: block;
-    margin: 0;
+    margin: 0 0 5px;
     font-size: 16px;
     font-weight: 400;
     transition: color ease 0.3s;
 
-    &,
     .widget-title-link {
       color: #5f5f5f;
+
+      &:hover {
+        color: $brand-primary;
+      }
     }
   }
   .description {
@@ -88,7 +84,7 @@
 
       &,
       .widget-title-link {
-        color: $gray-dark;
+        color: $gray-darker;
       }
       .icon {
         display: none;

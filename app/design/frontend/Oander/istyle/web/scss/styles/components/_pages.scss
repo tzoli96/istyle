@@ -38,15 +38,15 @@
     &:hover,
     &:active {
       text-decoration: none;
-      border-color: $gray-dark;
-      background-color: $gray-dark;
+      border-color: $gray-darker;
+      background-color: $gray-darker;
       color: #fff;
     }
   }
 
   .current .page {
-    border-color: $gray-dark;
-    background-color: $gray-dark;
+    border-color: $gray-darker;
+    background-color: $gray-darker;
     color: #fff;
   }
 }

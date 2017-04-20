@@ -27,13 +27,13 @@
     .item {
       font-size: 1rem;
       font-weight: 500;
-      color: $gray-dark;
+      color: $gray-darker;
       padding: 12px 0;
 
       .action {
         float: right;
         padding: 0;
-        color: $gray-dark;
+        color: $gray-darker;
         vertical-align: middle;
         font-size: 16px;
         line-height: 16px;
@@ -114,13 +114,13 @@
         display: block;
         font-size: 12px;
         padding: 3px 0;
-        color: $gray-dark;
+        color: $gray-darker;
 
         &:hover {
           color: $brand-primary;
         }
         .filter-count-label {
-          color: $gray-dark;
+          color: $gray-darker;
         }
         input[type="checkbox"] {
           vertical-align: middle;

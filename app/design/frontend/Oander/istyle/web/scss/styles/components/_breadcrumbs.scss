@@ -14,12 +14,12 @@
   }
 
   a {
-    color: $gray-dark;
+    color: $gray-darker;
     text-decoration: none;
 
     &:hover {
       text-decoration: underline;
-      color: $gray-dark;
+      color: $gray-darker;
     }
 
     &:after {

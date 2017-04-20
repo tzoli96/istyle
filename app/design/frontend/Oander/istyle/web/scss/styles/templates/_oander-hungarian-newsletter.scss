@@ -2,4 +2,14 @@
   .action.subscribe {
     width: 100%;
   }
+  .newsletter-terms {
+    font-size: 12px;
+    font-weight: $font-weight-medium;
+    color: $gray-darker;
+
+    a {
+      color: $gray-darker;
+      text-decoration: underline;
+    }
+  }
 }

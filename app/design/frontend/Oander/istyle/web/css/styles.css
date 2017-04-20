@@ -182,7 +182,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #282828;
+  color: #323232;
   background-color: #fff;
 }
 
@@ -614,7 +614,7 @@ kbd {
   padding: 0.2rem 0.4rem;
   font-size: 90%;
   color: #fff;
-  background-color: #282828;
+  background-color: #323232;
   border-radius: 0;
 }
 
@@ -629,7 +629,7 @@ pre {
   margin-top: 0;
   margin-bottom: 1rem;
   font-size: 90%;
-  color: #282828;
+  color: #323232;
 }
 
 pre code {
@@ -2097,7 +2097,7 @@ pre code {
 
 .thead-inverse th {
   color: #fff;
-  background-color: #282828;
+  background-color: #323232;
 }
 
 .thead-default th {
@@ -2107,7 +2107,7 @@ pre code {
 
 .table-inverse {
   color: #fff;
-  background-color: #282828;
+  background-color: #323232;
 }
 
 .table-inverse th,
@@ -6682,11 +6682,11 @@ a.text-danger:focus, a.text-danger:hover {
 }
 
 .text-gray-dark {
-  color: #282828 !important;
+  color: #323232 !important;
 }
 
 a.text-gray-dark:focus, a.text-gray-dark:hover {
-  color: #0f0f0f !important;
+  color: #191919 !important;
 }
 
 .text-hide {
@@ -9524,13 +9524,13 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 .action.towishlist {
-  color: #282828;
+  color: #323232;
   background-color: transparent;
   border-color: transparent;
 }
 
 .action.towishlist:hover {
-  color: #282828;
+  color: #323232;
   background-color: transparent;
   border-color: transparent;
 }
@@ -9547,7 +9547,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 
 .action.towishlist:active, .action.towishlist.active,
 .show > .action.towishlist.dropdown-toggle {
-  color: #282828;
+  color: #323232;
   background-color: transparent;
   background-image: none;
   border-color: transparent;
@@ -10275,7 +10275,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   -webkit-font-smoothing: antialiased;
   font-size: 29px;
   line-height: 24px;
-  color: #282828;
+  color: #323232;
   content: inherit;
   font-family: "icomoon";
   margin: inherit;
@@ -10573,7 +10573,7 @@ fieldset[disabled] .action.remove {
 }
 
 .abs-block-items-counter, .block-compare .counter {
-  color: #727272;
+  color: #7c7c7c;
   font-size: 12px;
   white-space: nowrap;
 }
@@ -11247,7 +11247,7 @@ body._has-modal {
 }
 
 .modals-overlay {
-  background-color: fade(#282828, 55%);
+  background-color: fade(#323232, 55%);
   bottom: 0;
   left: 0;
   position: fixed;
@@ -11323,7 +11323,7 @@ body._has-modal-custom .modal-custom-overlay {
     width: 100vw;
   }
   body._has-modal-custom .modal-custom-overlay {
-    background-color: fade(#282828, 55%);
+    background-color: fade(#323232, 55%);
   }
 }
 
@@ -12907,7 +12907,7 @@ body._has-modal-custom .modal-custom-overlay {
 }
 
 .sidebar .product-items .counter {
-  color: #727272;
+  color: #7c7c7c;
   font-size: 12px;
   white-space: nowrap;
 }
@@ -12949,7 +12949,7 @@ body._has-modal-custom .modal-custom-overlay {
 }
 
 .sidebar .action.primary:hover {
-  background-color: #424242;
+  background-color: #4c4c4c;
 }
 
 .sidebar .action.delete {
@@ -16669,7 +16669,7 @@ body.account .form-group .nested {
 }
 
 .filter-options .count {
-  color: #727272;
+  color: #7c7c7c;
 }
 
 .filter-options .count:before {
@@ -17039,7 +17039,7 @@ body.account .form-group .nested {
 
 .table-comparison .wishlist.split.button > .action.toggle:before,
 .product-items .wishlist.split.button > .action.toggle:before {
-  border-left: 1px solid #757575;
+  border-left: 1px solid #7f7f7f;
   content: '';
   float: left;
   height: 15px;
@@ -17166,7 +17166,7 @@ body.account .form-group .nested {
 }
 
 .block-wishlist-management .wishlist-notice {
-  color: #727272;
+  color: #7c7c7c;
   display: inline-block;
   margin-right: 20px;
 }
@@ -17459,7 +17459,7 @@ body.account .form-group .nested {
 
 .multicheckout .block-title strong span,
 .multicheckout .block-content .title strong span {
-  color: #9b9b9b;
+  color: #a5a5a5;
 }
 
 .multicheckout .block-content .title {
@@ -18824,6 +18824,38 @@ table .col,
   display: none;
 }
 
+.footer-content {
+  margin-top: 20px;
+  padding: 20px 0 10px;
+}
+
+.footer-content h2,
+.footer-content .footer-block-title {
+  color: #282828;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li + li {
+  margin-top: 5px;
+}
+
+.footer-links ul a:not(:hover) {
+  color: #8c8c8c;
+}
+
+@media (max-width: 767px) {
+  .footer-links ul {
+    margin-bottom: 40px;
+  }
+}
+
 .scroll-top {
   display: block;
   width: 40px;
@@ -18850,43 +18882,24 @@ table .col,
   font-size: 8px;
 }
 
+@media (max-width: 767px) {
+  .scroll-top {
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2;
+    float: none;
+    margin: 15px auto;
+  }
+}
+
 .page-footer {
   margin-top: auto;
   color: #8c8c8c;
 }
 
-.footer.content {
-  margin-top: 20px;
-  padding: 20px 0 10px;
-}
-
-.footer.bottom {
+.footer-bottom {
   padding: 20px 0;
-}
-
-.footer-bottom.right {
-  margin-top: 10px;
-}
-
-.footer-links h2,
-.footer-block-title {
-  color: #282828;
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 20px;
-}
-
-.footer-links ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-links ul li + li {
-  margin-top: 5px;
-}
-
-.footer-links ul a:not(:hover) {
-  color: #8c8c8c;
 }
 
 .footer-payments {
@@ -18903,23 +18916,22 @@ table .col,
 }
 
 .copyright {
-  font-size: 12px;
   margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #323232;
 }
 
-.site-author {
+.site-developer {
   color: #aaa;
 }
 
-.site-author img {
+.site-developer img {
   width: 54px;
   vertical-align: baseline;
 }
 
 @media (max-width: 767px) {
-  .footer-links ul {
-    margin-bottom: 40px;
-  }
   .footer-bottom.right {
     display: -webkit-box;
     display: -webkit-flex;
@@ -18937,28 +18949,11 @@ table .col,
         -ms-flex-order: 1;
             order: 1;
   }
-  .scroll-top {
-    -webkit-box-ordinal-group: 3;
-    -webkit-order: 2;
-        -ms-flex-order: 2;
-            order: 2;
-    float: none;
-    margin: 15px auto;
-  }
 }
 
 @media (min-width: 768px) {
-  .footer.bottom {
+  .footer-bottom {
     border-top: 1px solid #f2f2f2;
-  }
-}
-
-@media (min-width: 992px) {
-  .footer-bottom.right {
-    margin-top: 0;
-  }
-  .footer .newsletter-terms {
-    margin: 0.5rem 0 0;
   }
 }
 
@@ -20135,11 +20130,11 @@ table .col,
 }
 
 .styleguide .text-color {
-  background: #282828;
+  background: #323232;
 }
 
 .styleguide .text-color + .color-name .color-code:before {
-  content: "#282828";
+  content: "#323232";
 }
 
 .styleguide .brand-link {
@@ -20205,6 +20200,35 @@ table .col,
 .page-header .widget.block,
 .page-footer .widget.block {
   margin: 20px 0;
+}
+
+.block-placeholder {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  min-height: 80px;
+  margin: 20px 0;
+  padding: 0 20px;
+  background: #fafafa;
+  border: 1px solid #e1e1e1;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.block-placeholder-title {
+  display: inline;
+  margin: 0;
+  font-size: 18px;
 }
 
 .my-credit-cards .status {
@@ -20489,6 +20513,17 @@ body.contact-index-index .form {
 
 .block.block-newsletter .action.subscribe {
   width: 100%;
+}
+
+.block.block-newsletter .newsletter-terms {
+  font-size: 12px;
+  font-weight: 500;
+  color: #282828;
+}
+
+.block.block-newsletter .newsletter-terms a {
+  color: #282828;
+  text-decoration: underline;
 }
 
 .products.list .pageflipcard-link {
@@ -20787,11 +20822,6 @@ body.contact-index-index .form {
   margin-bottom: 20px;
 }
 
-.oander-wonder-widget-basic .content:hover .widget-title,
-.oander-wonder-widget-basic .content:hover .widget-title-link {
-  color: #007aff;
-}
-
 .oander-wonder-widget-basic .caption {
   background: #fafafa;
   padding: 20px;
@@ -20805,7 +20835,7 @@ body.contact-index-index .form {
 
 .oander-wonder-widget-basic .widget-title {
   display: block;
-  margin: 0;
+  margin: 0 0 5px;
   font-size: 16px;
   font-weight: 400;
   -webkit-transition: color ease 0.3s;
@@ -20813,9 +20843,12 @@ body.contact-index-index .form {
   transition: color ease 0.3s;
 }
 
-.oander-wonder-widget-basic .widget-title,
 .oander-wonder-widget-basic .widget-title .widget-title-link {
   color: #5f5f5f;
+}
+
+.oander-wonder-widget-basic .widget-title .widget-title-link:hover {
+  color: #007aff;
 }
 
 .oander-wonder-widget-basic .description {

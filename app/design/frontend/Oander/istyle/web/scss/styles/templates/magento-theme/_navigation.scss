@@ -271,7 +271,7 @@
         list-style: none;
         background: #fff;
         border: 1px solid #d8d8d8;
-        color: $gray-dark;
+        color: $gray-darker;
         border-top: 0;
         z-index: 100;
         transform: scale(0.98);
@@ -459,7 +459,7 @@
           }
         }
         a {
-          color: $gray-dark;
+          color: $gray-darker;
           &:hover {
             color: #000;
           }
