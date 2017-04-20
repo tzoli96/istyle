@@ -1,0 +1,19 @@
+<?php
+/**
+ * Footer Icons (SVG)
+ */
+$svgPath = 'svg/footer/';
+$footerIcons = array(
+    'visa' => $svgPath . 'visa.svg',
+    'mastercard' => $svgPath . 'mastercard.svg',
+    'maestro' => $svgPath . 'maestro.svg',
+    'american express' => $svgPath . 'american-express.svg'
+);
+?>
+<ul class="footer-payments list-inline text-center text-lg-right float-lg-right hidden-md-down">
+    <?php foreach ($footerIcons as $key => $footerIcon) : ?>
+        <li class="list-inline-item">
+            <img src="<?php echo $block->getViewFileUrl($footerIcon); ?>" alt="<?php echo $key ?>">
+        </li>
+    <?php endforeach ?>
+</ul>

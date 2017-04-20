@@ -2,8 +2,8 @@
 @import url("https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i&subset=latin-ext");
 @font-face {
   font-family: 'icomoon';
-  src: url("../fonts/icomoon/icomoon.eot?o86x08");
-  src: url("../fonts/icomoon/icomoon.eot?o86x08#iefix") format("embedded-opentype"), url("../fonts/icomoon/icomoon.woff2?o86x08") format("woff2"), url("../fonts/icomoon/icomoon.ttf?o86x08") format("truetype"), url("../fonts/icomoon/icomoon.woff?o86x08") format("woff"), url("../fonts/icomoon/icomoon.svg?o86x08#icomoon") format("svg");
+  src: url("../fonts/icomoon/icomoon.eot?uh3ivb");
+  src: url("../fonts/icomoon/icomoon.eot?uh3ivb#iefix") format("embedded-opentype"), url("../fonts/icomoon/icomoon.woff2?uh3ivb") format("woff2"), url("../fonts/icomoon/icomoon.ttf?uh3ivb") format("truetype"), url("../fonts/icomoon/icomoon.woff?uh3ivb") format("woff"), url("../fonts/icomoon/icomoon.svg?uh3ivb#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -20,6 +20,22 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-globe:before {
+  content: "";
+}
+
+.icon-instagram:before {
+  content: "";
+}
+
+.icon-twitter:before {
+  content: "";
+}
+
+.icon-youtube:before {
+  content: "";
 }
 
 .icon-chevron-down:before {
@@ -9410,6 +9426,37 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   }
   .products.list.slick-initialized .slick-arrow .icon {
     font-size: 36px;
+  }
+}
+
+@media (max-width: 991px) {
+  .js-accordion-box.active h2:before {
+    -webkit-transform: translateY(-50%) rotate(180deg);
+        -ms-transform: translateY(-50%) rotate(180deg);
+         -o-transform: translateY(-50%) rotate(180deg);
+            transform: translateY(-50%) rotate(180deg);
+  }
+  .js-accordion-box.active ul {
+    display: block;
+  }
+  .js-accordion-box h2 {
+    padding: 0 40px 20px 0;
+    margin-bottom: 20px;
+    position: relative;
+    border-bottom: 1px solid #282828;
+    cursor: pointer;
+  }
+  .js-accordion-box h2:before {
+    content: "";
+    font-family: "icomoon";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+         -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+    font-size: 6px;
   }
 }
 
@@ -18850,9 +18897,10 @@ table .col,
   color: #8c8c8c;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
   .footer-links ul {
     margin-bottom: 40px;
+    display: none;
   }
 }
 
@@ -18860,7 +18908,6 @@ table .col,
   display: block;
   width: 40px;
   height: 40px;
-  float: right;
   -webkit-transition: all ease 0.3s;
   -o-transition: all ease 0.3s;
   transition: all ease 0.3s;
@@ -18884,12 +18931,12 @@ table .col,
 
 @media (max-width: 767px) {
   .scroll-top {
+    margin: 20px auto;
     -webkit-box-ordinal-group: 3;
     -webkit-order: 2;
         -ms-flex-order: 2;
             order: 2;
     float: none;
-    margin: 15px auto;
   }
 }
 
@@ -18916,6 +18963,27 @@ table .col,
   height: 25px;
 }
 
+.footer-social-icons {
+  margin: 0;
+}
+
+.footer-social-icons .list-inline-item {
+  margin: 0 10px;
+}
+
+.footer-social-icons a {
+  color: #333;
+  font-size: 18px;
+}
+
+.footer-social-icons a:hover {
+  color: #e21937;
+}
+
+.footer-lang .text {
+  margin-left: 5px;
+}
+
 .copyright {
   margin-bottom: 10px;
   font-size: 14px;
@@ -18932,7 +19000,10 @@ table .col,
   vertical-align: baseline;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 991px) {
+  .page-footer > .container {
+    width: 100%;
+  }
   .footer-bottom.right {
     display: -webkit-box;
     display: -webkit-flex;
@@ -18953,8 +19024,15 @@ table .col,
 }
 
 @media (min-width: 768px) {
-  .footer-bottom {
+  .footer-bottom,
+  .footer-info {
     border-top: 1px solid #f2f2f2;
+  }
+  .footer-info {
+    padding: 20px 0;
+  }
+  .footer-social-icons .list-inline-item {
+    margin: 0 5px;
   }
 }
 
@@ -20525,6 +20603,15 @@ body.contact-index-index .form {
 .block.block-newsletter .newsletter-terms a {
   color: #282828;
   text-decoration: underline;
+}
+
+@media (max-width: 991px) {
+  .block.block-newsletter.js-accordion-box.active .form-newsletter {
+    display: block;
+  }
+  .block.block-newsletter.js-accordion-box .form-newsletter {
+    display: none;
+  }
 }
 
 .products.list .pageflipcard-link {

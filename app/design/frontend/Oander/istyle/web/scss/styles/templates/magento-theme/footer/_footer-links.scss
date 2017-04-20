@@ -12,10 +12,11 @@
   }
 }
 
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-down(md) {
   .footer-links {
     ul {
       margin-bottom: 40px;
+      display: none;
     }
   }
 }

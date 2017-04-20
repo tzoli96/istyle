@@ -2,7 +2,6 @@
   display: block;
   width: 40px;
   height: 40px;
-  float: right;
   transition: all ease 0.3s;
   border: 1px solid $gray-darker;
   border-radius: 40px;
@@ -24,8 +23,8 @@
 
 @include media-breakpoint-down(sm) {
   .scroll-top {
+    margin: 20px auto;
     order: 2;
     float: none;
-    margin: 15px auto;
   }
 }

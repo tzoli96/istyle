@@ -13,3 +13,16 @@
     }
   }
 }
+
+@include media-breakpoint-down(md) {
+  .block.block-newsletter.js-accordion-box {
+    &.active {
+      .form-newsletter {
+        display: block;
+      }
+    }
+    .form-newsletter {
+      display: none;
+    }
+  }
+}

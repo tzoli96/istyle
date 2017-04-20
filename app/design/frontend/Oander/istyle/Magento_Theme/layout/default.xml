@@ -25,6 +25,11 @@
 
 
         <!-- Footer container -->
+        <referenceContainer name="footer-container">
+            <container name="footer.info" htmlClass="footer-info row" htmlTag="div" after="footer">
+                <block class="Magento\Framework\View\Element\Template" template="Magento_Theme::html/footer/info.phtml" />
+            </container>
+        </referenceContainer>
         <referenceContainer name="footer" htmlClass="footer-content row">
             <container name="footer.content.middle" htmlClass="footer-content-middle col-lg-5" htmlTag="div" after="footer.content.left">
                 <block class="Magento\Framework\View\Element\Template" name="footer_left_map"

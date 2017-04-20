@@ -1,0 +1,33 @@
+// Toggle blocks in mobile & tablet (footer)
+
+@include media-breakpoint-down(md) {
+  .js-accordion-box {
+    &.active {
+      h2 {
+        &:before {
+          transform: translateY(-50%) rotate(180deg);
+        }
+      }
+      ul {
+        display: block;
+      }
+    }
+    h2 {
+      padding: 0 40px 20px 0;
+      margin-bottom: 20px;
+      position: relative;
+      border-bottom: 1px solid $gray-darker;
+      cursor: pointer;
+
+      &:before {
+        content: $icon-chevron-down;
+        font-family: $icon-font-family;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 6px;
+      }
+    }
+  }
+}
