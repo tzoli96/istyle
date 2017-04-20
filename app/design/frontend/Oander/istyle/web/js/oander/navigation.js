@@ -74,7 +74,6 @@ define([
     showMobileNavigation: function() {
 
       $('html').addClass('nav-open');
-      //$('body').append('<div class="modal-backdrop fade show" data-html-class="nav-open" data-action="modal-close" id="modal-backdrop"></div>');
     },
 
 
@@ -85,7 +84,6 @@ define([
 
       $('.navigation').find('.parent').removeClass('active');
       $('html').removeClass('nav-open');
-      //$('#modal-backdrop').remove();
     },
 
 
@@ -116,7 +114,6 @@ define([
       var parent = $('.navigation .parent');
 
       // Open mobile navigation
-      //$('.action.nav-toggle').on('click', this.showMobileNavigation);
       $('.action.nav-toggle').on('click', function() {
 
         if($('html').hasClass('nav-open')) {
@@ -202,7 +199,7 @@ define([
       var _ = this;
 
       /**
-       * This function adds or removes the classes from list elements.
+       * This function adds or removes classes from list elements.
        */
       function classManager() {
 

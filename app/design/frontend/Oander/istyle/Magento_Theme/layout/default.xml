@@ -9,6 +9,8 @@
     <body>
 
         <referenceContainer name="header-wrapper" htmlClass="d-flex container page-header-wrapper">
+            <block class="Magento\Framework\View\Element\Template" name="nav-toggle"
+                   template="Magento_Theme::html/header/header-nav-toggle.phtml" before="logo" />
             <container name="page-header-right" htmlTag="div" htmlClass="header-right d-flex" after="-">
                 <block class="Magento\Framework\View\Element\Template" name="header-account"
                        template="Magento_Theme::html/header/header-account.phtml">
@@ -22,9 +24,28 @@
         </referenceContainer>
 
 
-        <!--<referenceBlock name="top.search">-->
-            <!--<block class="Magento\Framework\View\Element\Template" name="advanced-search-link" template="Magento_CatalogSearch::advanced/link.phtml" />-->
-        <!--</referenceBlock>-->
+        <!-- Footer container -->
+        <referenceContainer name="footer.content.left" htmlClass="footer-left col-lg-9" htmlTag="div">
+            <block class="Magento\Framework\View\Element\Template" name="footer_links"
+                   template="Magento_Theme::html/footer/links.phtml">
+                <block class="Magento\Cms\Block\Block" name="footer_links_1">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer_links_1</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Cms\Block\Block" name="footer_links_2">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer_links_2</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Cms\Block\Block" name="footer_map">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer_map</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="footer.content.right" htmlClass="footer-right col-lg-3" htmlTag="div" />
 
         <!-- Remove elements -->
         <referenceContainer name="header.panel.wrapper" remove="true" />

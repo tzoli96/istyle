@@ -18,11 +18,11 @@
 <?php $_menu = $block->getHtml('level-top', 'submenu', $columnsLimit) ?>
 
 <nav class="navigation" data-action="navigation">
-    <ul data-mage-init='{"oander.navigation":{"categoryAllLink": true}}'>
+    <ul data-mage-init='{"oander.navigation":{"categoryAllLink": false}}'>
         <?php /* @escapeNotVerified */ echo $_menu; ?>
         <?php /* @escapeNotVerified */ echo $block->getChildHtml(); ?>
         <li class="level0 nav-bordered level-top">
-            <a href="#" class="level-top promotion">Promotion <span class="percentage">%</span></a>
+            <a href="#" class="level-top promotion"><?php /* @escapeNotVerified */ echo __('Promotion') ?> <span class="percentage">%</span></a>
         </li>
     </ul>
 </nav>

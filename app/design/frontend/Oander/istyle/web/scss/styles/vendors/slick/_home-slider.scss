@@ -1,5 +1,4 @@
 .oander-multislider {
-  padding: 0;
   position: relative;
   z-index: 1;
 
@@ -94,6 +93,7 @@
         width: 44px;
         height: 2px;
         margin: 0 5px;
+        padding: 0;
         background: #dcdcdc;
         display: block;
         text-indent: -9999px;
@@ -107,7 +107,9 @@
 }
 
 @include media-breakpoint-down(xs) {
-  .oander-multislider {}
+  .oander-multislider {
+    padding: 0;
+  }
 }
 
 @include media-breakpoint-up(md) {

@@ -763,7 +763,7 @@ a.ais-current-refined-values--link:hover {
 #algolia_instant_selector .result .result-thumbnail .no-image {
   display: block;
   height: 148px;
-  background: #FAFAFA;
+  background: $gray-lightest;
 }
 #algolia_instant_selector .result .ratings .rating-box {
   margin: 0 auto 10px;

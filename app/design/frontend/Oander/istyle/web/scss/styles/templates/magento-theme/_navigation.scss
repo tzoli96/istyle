@@ -258,17 +258,6 @@
 }
 
 @include media-breakpoint-up(lg) {
-  .sections.nav-sections {
-    flex: 1;
-    display: flex;
-  }
-  .section-item-content {
-    display: none !important;
-
-    &[id="store.menu"] {
-      display: block !important;
-    }
-  }
   .navigation {
     height: $header-height;
 
@@ -405,7 +394,7 @@
                 justify-content: flex-start;
 
                 > li {
-                  width: 25%;
+                  width: 33%;
                   margin-bottom: 10px;
                   padding: 0 5px;
 
@@ -600,10 +589,19 @@
       }
     }
   }
-  .nav-sections-item-title,
-  .nav-sections .header.links,
-  .action.nav-toggle {
+  .nav-sections {
+    flex: 1;
+    display: flex;
+  }
+  .nav-sections-item-title {
     display: none;
+  }
+  .section-item-content {
+    display: none !important;
+
+    &[id="store.menu"] {
+      display: block !important;
+    }
   }
 }
 @include media-breakpoint-up(xl) {
@@ -614,6 +612,15 @@
       &.nav-bordered {
         padding-left: 50px;
         margin-left: 35px;
+      }
+      > .submenu.level0.block-added {
+        > li.sub-category {
+          .inner {
+            > li {
+              width: 25%;
+            }
+          }
+        }
       }
     }
   }

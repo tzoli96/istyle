@@ -14,11 +14,12 @@
   @extend .btn;
 
   // tocart, showcart, viewcart, checkout, wishlist, towishlist, apply, cancel
-  &.primary:not(.showcart):not(.viewcart):not(.wishlist):not(.apply):not(.cancel) {
+  &.primary:not(.showcart):not(.viewcart):not(.wishlist):not(.apply):not(.cancel):not(.subscribe) {
     @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
   }
   &.apply,
-  &.secondary {
+  &.secondary,
+  &.subscribe {
     @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
   }
   &.towishlist {

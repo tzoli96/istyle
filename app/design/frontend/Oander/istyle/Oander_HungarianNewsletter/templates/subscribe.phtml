@@ -1,0 +1,86 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php $url = $block->getUrl('adatvedelmi-szabalyzat'); ?>
+<div class="block block-newsletter hidden-md-down" id="oander-newsletter">
+    <h2 class="footer-block-title"><?php /* @escapeNotVerified */ echo __('Subscribe to Newsletter') ?></h2>
+    <form class="form form-newsletter"
+          novalidate
+          action="<?php /* @escapeNotVerified */ echo $block->getFormActionUrl() ?>"
+          method="post"
+          data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+          id="newsletter-validate-detail">
+        <?php if ($block->isInverted()) : ?>
+            <div class="form-group">
+                <label for="newsletter-lastname" class="sr-only"><?php /* @escapeNotVerified */ echo __('Enter your Last Name') ?></label>
+                <input name="newsletter-lastname" type="text" id="newsletter-lastname" class="form-control"
+                       placeholder="<?php /* @escapeNotVerified */ echo __('Enter your Last Name') ?>"
+                       data-validate="{required:true}"/>
+            </div>
+            <div class="form-group">
+                <label for="newsletter-firstname" class="sr-only"><?php /* @escapeNotVerified */ echo __('Enter your First Name') ?></label>
+                <input name="newsletter-firstname" type="text" id="newsletter-firstname" class="form-control"
+                       placeholder="<?php /* @escapeNotVerified */ echo __('Enter your First Name') ?>"
+                       data-validate="{required:true}"/>
+            </div>
+        <?php else : ?>
+            <div class="form-group">
+                <label for="newsletter-firstname" class="sr-only"><?php /* @escapeNotVerified */ echo __('Enter your First Name') ?></label>
+                <input name="newsletter-firstname" type="text" id="newsletter-firstname" class="form-control"
+                       placeholder="<?php /* @escapeNotVerified */ echo __('Enter your First Name') ?>"
+                       data-validate="{required:true}"/>
+            </div>
+            <div class="form-group">
+                <label for="newsletter-lastname" class="sr-only"><?php /* @escapeNotVerified */ echo __('Enter your Last Name') ?></label>
+                <input name="newsletter-lastname" type="text" id="newsletter-lastname" class="form-control"
+                       placeholder="<?php /* @escapeNotVerified */ echo __('Enter your Last Name') ?>"
+                       data-validate="{required:true}"/>
+            </div>
+        <?php endif; ?>
+        <div class="form-group">
+            <label for="newsletter-email" class="sr-only"><?php /* @escapeNotVerified */ echo __('Enter your email address') ?></label>
+            <input name="email" type="email" id="newsletter-email"
+                   placeholder="<?php /* @escapeNotVerified */ echo __('Enter your email address') ?>" class="form-control"
+                   data-validate="{required:true, 'validate-email':true}"/>
+        </div>
+        <div class="form-group">
+            <label class="checkbox newsletter-terms">
+                <input name="newsletter-terms" type="checkbox" id="newsletter-terms"
+                       placeholder="<?php /* @escapeNotVerified */ echo __('Please, accept the Terms and Conditions') ?>"
+                       data-validate="{required:true}"/>
+                <span><?php /* @escapeNotVerified */ echo __('Please, accept the <a href="%1" target="_blank">Terms and Conditions</a>', $url) ?></span>
+                <span generated="false" class="mage-error" id="newsletter-terms-error">
+                        <?php echo __('This is a required field.'); ?>
+                    </span>
+            </label>
+        </div>
+        <div class="form-group">
+            <button class="action subscribe primary" title="<?php /* @escapeNotVerified */ echo __('Subscribe') ?>" type="submit">
+                <span><?php /* @escapeNotVerified */ echo __('Subscribe') ?></span>
+            </button>
+        </div>
+    </form>
+</div>
+
+<script>
+  require(['jquery'], function($) {
+    $(document).ready(function () {
+      var footerNewsletterForm = $('#newsletter-terms-error');
+      footerNewsletterForm.hide();
+
+      setInterval(function () {
+        if ($('#newsletter-terms').hasClass('mage-error')) {
+          footerNewsletterForm.show();
+        } else {
+          footerNewsletterForm.hide();
+        }
+      }, 500);
+    });
+  });
+</script>

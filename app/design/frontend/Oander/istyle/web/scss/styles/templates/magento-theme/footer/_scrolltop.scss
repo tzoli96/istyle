@@ -1,0 +1,23 @@
+.scroll-top {
+  display: block;
+  width: 40px;
+  height: 40px;
+  float: right;
+  transition: all ease 0.3s;
+  border: 1px solid $gray-dark;
+  border-radius: 40px;
+  text-align: center;
+  text-decoration: none;
+  color: $gray-dark;
+
+  &:hover {
+    background: $gray-dark;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .icon {
+    line-height: 40px;
+    font-size: 8px;
+  }
+}

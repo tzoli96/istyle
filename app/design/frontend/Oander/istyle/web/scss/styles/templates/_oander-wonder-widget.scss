@@ -1,5 +1,7 @@
 .wonder-widget-usps {
-  margin: 20px 0;
+  background: $gray-lightest;
+  margin: $grid-gutter-width-base 0;
+  padding: 0 $grid-gutter-width-base/2;
   text-align: left;
 }
 
@@ -18,6 +20,7 @@
     }
   }
   .caption {
+    background: $gray-lightest;
     padding: $grid-gutter-width-base;
     text-align: center;
   }
@@ -26,9 +29,6 @@
       width: auto;
       max-width: 100%;
     }
-  }
-  .image {
-    display: none;
   }
   .widget-title {
     display: block;
@@ -43,7 +43,7 @@
     }
   }
   .description {
-    color: #8c8c8c;
+    color: #282828;
   }
   .link {
     margin-top: 10px;
@@ -164,6 +164,7 @@
 
 @include media-breakpoint-up(md) {
   .wonder-widget-usps {
+    padding: $grid-gutter-width-base/2;
 
     > .row {
       justify-content: space-between;
@@ -224,8 +225,7 @@
 }
 @include media-breakpoint-up(lg) {
   .wonder-widget-usps {
-    margin: 40px 0;
-    padding: 0 $grid-gutter-width-base;
+    padding: $grid-gutter-width-base;
   }
 
   .oander-wonder-widget-basic {

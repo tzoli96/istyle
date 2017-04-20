@@ -14,10 +14,10 @@
             <div class="image-wrapper" style="background-image: url('<?php echo $this->getImage(); ?>'); background-repeat: no-repeat;">
                 <?php if ($this->getLink()): ?>
                     <a href="<?php echo $this->getLink(); ?>" class="link-overlay">
-                        <img src="<?php echo $this->getImage(); ?>" />
+                        <img src="<?php echo $this->getImage(); ?>" class="hidden-md-up" />
                     </a>
                 <?php else: ?>
-                    <img src="<?php echo $this->getImage(); ?>" alt="<?php echo $this->getTitle() ?>" class="image" />
+                    <img src="<?php echo $this->getImage(); ?>" alt="<?php echo $this->getTitle() ?>" class="hidden-md-up" />
                 <?php endif; ?>
             </div>
         <?php endif; ?>

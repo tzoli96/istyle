@@ -1,36 +1,5 @@
-.block.newsletter.magento-newsletter {
-  display: none;
-}
-.block.newsletter {
+.block.block-newsletter {
   .action.subscribe {
-    background: $gray-dark;
-    border: 0;
-    display: block;
-    text-transform: uppercase;
     width: 100%;
-
-    &:hover {
-      background: $brand-primary;
-      color: #fff;
-    }
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .block.newsletter {
-    .action.subscribe {
-      max-width: 160px;
-    }
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .block.newsletter {
-    .col-lastname {
-      padding-right: 5px;
-    }
-    .col-firstname {
-      padding-left: 5px;
-    }
   }
 }

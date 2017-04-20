@@ -256,7 +256,7 @@ $minicart-qty__height: 24px;
     padding: 0 5px;
     position: absolute;
     top: 50%;
-    left: $size*2;
+    left: 35px;
     border-radius: $size/2;
     background: $brand-secondary;
     color: #fff;
@@ -279,9 +279,6 @@ $minicart-qty__height: 24px;
 @include media-breakpoint-down(md) {
   .minicart-wrapper {
     .action.showcart {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-
       .icon {
         font-size: 18px;
         margin: -2px 0 0;

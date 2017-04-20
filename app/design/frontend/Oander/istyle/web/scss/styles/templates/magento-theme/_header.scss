@@ -60,18 +60,28 @@ $button__shadow: inset 0 2px 1px rgba(0, 0, 0, 0.12);
   display: block;
   position: relative;
   margin: 0;
-  padding: 0 0.5rem;
+  padding: 1rem 0.5rem 0;
   border: 0;
-  line-height: $header-height;
+  text-align: center;
+  transition: none;
 
-  &:focus,
-  &:hover {
+  &:not(.active):focus,
+  &:not(.active):hover {
     color: #ccc;
   }
-  .icon {
+  &.active:focus,
+  &.active:hover {
+    color: #fff;
+  }
+  .circle {
+    display: block;
+    width: 36px;
+    height: 36px;
     transition: background ease 0.3s;
     padding: 9px;
     border-radius: 100%;
+  }
+  .icon {
     font-size: 16px;
 
     &.opened-state {
@@ -142,32 +152,32 @@ $button__shadow: inset 0 2px 1px rgba(0, 0, 0, 0.12);
     position: relative;
     justify-content: flex-end;
     align-items: center;
-  }
-  .header-right-block {
-    &.active {
-      .skip-link {
-        &:before {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          margin-left: -18px;
-          width: 36px;
-          height: 6px;
-          background: $brand-secondary;
-        }
-        .icon {
-          background: rgba(#fff, 0.1);
 
-          &.opened-state {
-            display: inline-block;
-            padding: 10px;
-            font-size: 14px;
-          }
-          &.default-state {
-            display: none;
-          }
-        }
+    .skip-link.active {
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        margin-left: -18px;
+        width: 36px;
+        height: 6px;
+        background: $brand-secondary;
+      }
+      .circle {
+        background: rgba(#fff, 0.1);
+      }
+    }
+  }
+  .header-search.active {
+    .skip-link {
+      .icon.opened-state {
+        display: inline-block;
+        margin-top: 1px;
+        font-size: 14px;
+      }
+      .icon.default-state {
+        display: none;
       }
     }
   }

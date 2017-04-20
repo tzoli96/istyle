@@ -11,7 +11,7 @@ $icon-font-family: 'icomoon';
 
 $header-height: 64px;
 $algolia-width-lg-width: 630px;
-$algolia-width-xl-width: 800px;
+$algolia-width-xl-width: 840px;
 
 // Colors
 $gray-darker: #222;
@@ -19,7 +19,7 @@ $gray-dark: #282828;
 $gray: #55595c;
 $gray-light: #818a91;
 $gray-lighter: #eceeef;
-$gray-lightest: #f7f7f9;
+$gray-lightest: #fafafa;
 
 $brand-primary: #007aff;
 $brand-secondary: #e21937;
@@ -39,6 +39,7 @@ $color-wishlist: $brand-primary;
 $color-towishlist: $brand-primary;
 $color-apply: $brand-primary;
 $color-cancel: $brand-secondary;
+$color-subscribe: $brand-secondary;
 
 // Options
 
@@ -75,7 +76,7 @@ $container-max-widths: (
   sm: 540px,
   md: 720px,
   lg: 960px,
-  xl: 1180px
+  xl: 1200px
 );
 
 
@@ -139,21 +140,25 @@ $btn-active-box-shadow: none;
 $btn-focus-box-shadow: none;
 
 $btn-secondary-color:            #fff;
-$btn-secondary-bg:               #3c3c3c;
-$btn-secondary-border:           #3c3c3c;
+$btn-secondary-bg:               $brand-secondary;
+$btn-secondary-border:           $brand-secondary;
 
 
 // Forms
 $input-padding-y:                .75rem;
 $input-padding-y-sm:             .5rem;
 
+$input-border-color:             #b4b4b4;
+$input-box-shadow:               none;
+
 $input-border-focus: $brand-primary;
 
 $custom-control-spacer-y: .5rem;
-
 $custom-control-indicator-size:       1rem;
-
 $custom-radio-checked-icon: '';
+
+
+
 // Dropdowns
 
 
