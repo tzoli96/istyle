@@ -21,10 +21,8 @@
   }
 }
 
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-down(md) {
   .scroll-top {
     margin: 20px auto;
-    order: 2;
-    float: none;
   }
 }
