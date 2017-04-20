@@ -250,13 +250,12 @@ $minicart-qty__height: 24px;
   .counter.qty {
     $size: 20px;
 
+    display: inline-block;
+    vertical-align: middle;
     min-width: $size*1.5;
     height: $size;
-    margin-top: -12px;
     padding: 0 5px;
-    position: absolute;
-    top: 50%;
-    left: 35px;
+    margin: -4px 0 0 (-$size/2);
     border-radius: $size/2;
     background: $brand-secondary;
     color: #fff;
@@ -279,6 +278,8 @@ $minicart-qty__height: 24px;
 @include media-breakpoint-down(md) {
   .minicart-wrapper {
     .action.showcart {
+      right: 10px;
+
       .icon {
         font-size: 18px;
         margin: -2px 0 0;

@@ -371,8 +371,54 @@ output {
   display: none !important;
 }
 
+* {
+  outline: 0;
+}
+
+html {
+  font-size: 14px;
+}
+
+html.nav-open body, html.sidebar-opened body {
+  position: fixed;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
 body {
   margin: 0;
+}
+
+body *::-moz-selection {
+  background: #007aff;
+  color: #fff;
+}
+
+body *::selection {
+  background: #007aff;
+  color: #fff;
+}
+
+body *::-moz-selection {
+  background: #007aff;
+  color: #fff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+strong,
+b {
+  font-weight: 500;
+}
+
+@media (max-width: 991px) {
+  body {
+    -webkit-text-size-adjust: none;
+  }
 }
 
 h1, h2, h3, h4, h5, h6,

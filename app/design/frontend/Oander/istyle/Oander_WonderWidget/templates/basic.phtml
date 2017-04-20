@@ -14,17 +14,17 @@
             <div class="image-wrapper" style="background-image: url('<?php echo $this->getImage(); ?>'); background-repeat: no-repeat;">
                 <?php if ($this->getLink()): ?>
                     <a href="<?php echo $this->getLink(); ?>" class="link-overlay">
-                        <img src="<?php echo $this->getImage(); ?>" class="hidden-md-up" />
+                        <img src="<?php echo $this->getImage(); ?>" />
                     </a>
                 <?php else: ?>
-                    <img src="<?php echo $this->getImage(); ?>" alt="<?php echo $this->getTitle() ?>" class="hidden-md-up" />
+                    <img src="<?php echo $this->getImage(); ?>" alt="<?php echo $this->getTitle() ?>" class="image" />
                 <?php endif; ?>
             </div>
         <?php endif; ?>
 
         <div class="caption <?php echo ($this->getDescription()) ? 'has-description' : 'no-description' ; ?>">
             <?php if ($this->getTitle()): ?>
-                <h2 class="widget-title">
+                <h2 class="widget-title <?php echo ($this->getLink()) ? 'has-link' : 'link-not-added' ?>">
                     <?php if ($this->getLink()): ?>
                         <a href="<?php echo $this->getLink(); ?>" class="widget-title-link">
                             <?php echo $this->getTitle(); ?>
