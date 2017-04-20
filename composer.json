@@ -37,6 +37,7 @@
         "oander/module-checkout": "1.0.0",
         "oander/module-core-bug-fix": "1.0.1",
         "oander/module-currency-manager": "1.1.0",
+        "oander/module-customer-file-upload": "1.0.2",
         "oander/module-discount-badge": "1.0.2",
         "oander/module-dropdown-products": "1.0.2",
         "oander/module-fancy-filter": "1.0.5",
@@ -124,6 +125,10 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/oander-currency-manager.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-customer-file-upload.git"
         },
         {
             "type": "vcs",
