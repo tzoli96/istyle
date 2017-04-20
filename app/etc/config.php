@@ -132,6 +132,7 @@ return array (
     'Oander_Checkout' => 1,
     'Oander_CoreBugFix' => 1,
     'Oander_CurrencyManager' => 1,
+    'Oander_CustomerFileUpload' => 1,
     'Oander_DiscountBadge' => 1,
     'Oander_DropdownProducts' => 1,
     'Oander_FancyFilter' => 1,
