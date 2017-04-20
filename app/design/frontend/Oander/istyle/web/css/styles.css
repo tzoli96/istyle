@@ -19558,6 +19558,9 @@ table .col,
     background: transparent;
     padding: 0;
   }
+  .navigation > ul .oander-wonder-widget-basic .image-wrapper {
+    background: none !important;
+  }
   .navigation > ul .oander-wonder-widget-basic .widget-title.link-not-added {
     display: none;
   }
