@@ -145,6 +145,7 @@ return array (
     'Oander_OrderComment' => 1,
     'Oander_PayPal' => 1,
     'Oander_PosLocations' => 1,
+    'Oander_ProductIcons' => 1,
     'Oander_Shipping' => 1,
     'Oander_WarehouseManager' => 1,
     'Oander_WonderWidget' => 1,
