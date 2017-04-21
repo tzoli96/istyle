@@ -37,7 +37,7 @@
         "oander/module-checkout": "1.0.0",
         "oander/module-core-bug-fix": "1.0.1",
         "oander/module-currency-manager": "1.1.0",
-        "oander/module-customer-file-upload": "1.0.2",
+        "oander/module-customer-file-upload": "1.0.4",
         "oander/module-discount-badge": "1.0.2",
         "oander/module-dropdown-products": "1.0.2",
         "oander/module-fancy-filter": "1.0.5",
@@ -50,8 +50,9 @@
         "oander/module-order-comment": "1.0.1",
         "oander/module-paypal": "1.0.0",
         "oander/module-pos-locations": "1.0.7",
+        "oander/module-product-icons": "1.0.5",
         "oander/module-shipping": "1.0.1",
-        "oander/module-warehouse-manager": "1.0.7",
+        "oander/module-warehouse-manager": "1.0.9",
         "oander/module-wonder-widget": "1.1.4",
         "oander/theme-hodor": "1.1.4",
         "algolia/algoliasearch-magento-2": "^1.0"
@@ -181,6 +182,10 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/oander-pos-locations.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-product-icons.git"
         },
         {
             "type": "vcs",
