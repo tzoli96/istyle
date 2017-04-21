@@ -12,7 +12,7 @@
 }
 .footer-payments {
   margin-right: 10px;
-  margin-top: 10px;
+  margin-top: 8px;
 
   li {
     margin: 0 5px 10px;
@@ -30,6 +30,8 @@
   a {
     color: #333;
     font-size: 18px;
+    display: block;
+    line-height: 1;
 
     &:hover {
       color: $brand-secondary;
@@ -95,12 +97,21 @@
 }
 
 @include media-breakpoint-up(md) {
-  .footer-info {
-    padding: 20px 0;
-  }
   .footer-social-icons {
     .list-inline-item {
       margin: 0 5px;
+    }
+  }
+}
+@include media-breakpoint-up(lg) {
+  .footer-info {
+    align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+
+    p {
+      margin-bottom: 0;
     }
   }
 }

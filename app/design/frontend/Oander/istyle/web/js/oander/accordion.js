@@ -13,6 +13,9 @@ define([
   'use strict';
 
   $('.js-accordion-box h2').on('click', function(e) {
+
+    console.log('asdf');
+
     $(this).closest('.js-accordion-box').toggleClass('active');
   });
 
