@@ -2,7 +2,18 @@
 //  Sidebar product view
 //  ---------------------------------------------
 
+.sidebar-wrapper {
+  border-radius: 4px;
+}
 .sidebar {
+  background: #fafafa;
+  border: 1px solid #e6e6e6;
+  padding: $grid-gutter-width-base;
+
+  & + .sidebar {
+    border-top: 0;
+    margin-top: -1px;
+  }
 
   .block-title {
     margin-top: 0;

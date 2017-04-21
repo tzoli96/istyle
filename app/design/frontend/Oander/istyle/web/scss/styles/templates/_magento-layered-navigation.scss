@@ -1,13 +1,4 @@
 .block.filter {
-  .filter-title,
-  .filter-current,
-  .filter-actions,
-  .filter-subtitle,
-  .filter-options {
-    background-color: #fff;
-    padding: 18px;
-  }
-
   .filter-current {
     padding-bottom: 0;
 
@@ -93,10 +84,6 @@
     }
   }
   .filter-options-title {
-    font-size: 1rem;
-    font-weight: $font-weight-medium;
-    padding: 12px 18px 0;
-    margin: 10px -18px;
     border-top: 1px solid #eee;
   }
 }
@@ -193,7 +180,6 @@
   }
 }
 .items {
-  //@extend .abs-reset-list;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -220,13 +206,6 @@
   & + .actions {
     margin-bottom: 35px;
   }
-}
-
-.block-compare,
-.block-wishlist,
-.block-reorder {
-  padding: 20px 0 20px 15px;
-  margin-bottom: 30px;
 }
 
 @include media-breakpoint-down(md) {
@@ -278,10 +257,6 @@
 
 // Whislist widget
 .block-wishlist {
-  background-color: #fff;
-  padding: 0;
-
-  // Hide elements
   .block-title .counter,
   .subtitle {
     display: none;
@@ -297,18 +272,12 @@
   .block-content {
     padding-top: 8px;
   }
-
   .btn {
     display: block;
   }
-
 }
 
-// Reorder widget
 .block-reorder {
-  background-color: #fff;
-  padding: 0;
-
   .block-title,
   .block-content {
     padding: 18px;

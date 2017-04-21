@@ -53,7 +53,7 @@
         "oander/module-shipping": "1.0.1",
         "oander/module-warehouse-manager": "1.0.7",
         "oander/module-wonder-widget": "1.1.4",
-        "oander/theme-hodor": "1.1.2",
+        "oander/theme-hodor": "1.1.4",
         "algolia/algoliasearch-magento-2": "^1.0"
     },
     "require-dev": {

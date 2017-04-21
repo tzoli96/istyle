@@ -1,0 +1,50 @@
+<?php
+/**
+ * Oander_CategoryBadge
+ *
+ * @author  David Belicza <david.belicza@oander.hu>
+ * @license Oander Media Kft. (http://www.oander.hu)
+ */
+?>
+<?php
+/**
+ * @see        \Oander\CategoryBadge\Block\Product\ImageBuilder
+ * @var $block \Magento\Catalog\Block\Product\Image
+ */
+?>
+
+<div class="product-image-container oander-category-badge-image-container"
+      style="width:<?php /* @escapeNotVerified */ echo $block->getWidth()?>px;">
+    <?php if ($block->gethasBadge()): ?>
+        <?php $badges = $block->getBadges(); ?>
+        <?php $i = 0; ?>
+        <?php foreach ($badges as $badge): ?>
+            <?php if ($badge['visible_title'] || $badge['visible_image']): ?>
+                <?php $i++; ?>
+                <span class="badge-container badge-<?php echo $badge['category_slug']; ?> badge-item-<?php echo $i; ?>">
+                    <span class="badge-box">
+                        <?php if ($badge['visible_title']): ?>
+                            <span class="badge-label">
+                                <?php echo $badge['label']; ?>
+                            </span>
+                        <?php endif; ?>
+                        <?php if ($badge['visible_image']): ?>
+                            <img src="<?php echo $badge['image_url']; ?>"
+                                 width="<?php echo $badge['width']; ?>"
+                                 title="<?php echo $badge['label']; ?>"/>
+                        <?php endif; ?>
+                    </span>
+                </span>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    <?php endif; ?>
+
+    <div class="product-image-wrapper">
+        <img class="product-image-photo"
+            <?php /* @escapeNotVerified */ echo $block->getCustomAttributes(); ?>
+             src="<?php /* @escapeNotVerified */ echo $block->getImageUrl(); ?>"
+             width="<?php /* @escapeNotVerified */ echo $block->getResizedImageWidth(); ?>"
+             height="<?php /* @escapeNotVerified */ echo $block->getResizedImageHeight(); ?>"
+             alt="<?php /* @escapeNotVerified */ echo $block->stripTags($block->getLabel(), null, true); ?>"/>
+    </div>
+</div>

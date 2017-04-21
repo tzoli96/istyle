@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9642a1eb477fff9b6aa5f61e85376489",
-    "content-hash": "d355afaf32b0866e2037686911b695ff",
+    "hash": "95b0bede0341e9867b3b57dabb22705f",
+    "content-hash": "282dc47d0f377c0f0869aafa61b9e840",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6990,16 +6990,16 @@
         },
         {
             "name": "oander/theme-hodor",
-            "version": "1.1.2",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-hodor.git",
-                "reference": "642e25860363a8fb5651871431dbe6718e1e36a6"
+                "reference": "23fc7ff52990c98ddcc562a6037e298747f41e75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-hodor/zipball/642e25860363a8fb5651871431dbe6718e1e36a6",
-                "reference": "642e25860363a8fb5651871431dbe6718e1e36a6",
+                "url": "https://api.github.com/repos/oandermedia/oander-hodor/zipball/23fc7ff52990c98ddcc562a6037e298747f41e75",
+                "reference": "23fc7ff52990c98ddcc562a6037e298747f41e75",
                 "shasum": ""
             },
             "require": {
@@ -7017,10 +7017,10 @@
             ],
             "description": "Hodor template",
             "support": {
-                "source": "https://github.com/oandermedia/oander-hodor/tree/1.1.2",
+                "source": "https://github.com/oandermedia/oander-hodor/tree/1.1.4",
                 "issues": "https://github.com/oandermedia/oander-hodor/issues"
             },
-            "time": "2017-04-20 07:31:02"
+            "time": "2017-04-21 13:45:37"
         },
         {
             "name": "oyejorge/less.php",
