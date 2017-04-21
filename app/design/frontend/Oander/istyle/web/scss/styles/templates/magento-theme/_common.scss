@@ -1,55 +1,3 @@
-// Add base font size to HTML
-// After this, the body font size inherits this value (1rem)
-* {
-  outline: 0;
-}
-html {
-  font-size: 14px;
-
-  &.nav-open,
-  &.sidebar-opened {
-    body {
-      position: fixed;
-      overflow: hidden;
-      width: 100vw;
-      height: 100vh;
-    }
-  }
-}
-strong,
-b {
-  font-weight: $font-weight-medium;
-}
-img {
-  max-width: 100%;
-  height: auto;
-}
-body {
-
-  *::selection {
-    background: $brand-selected-bg;
-    color: $brand-selected-text;
-  }
-  *::-moz-selection {
-    background: $brand-selected-bg;
-    color: $brand-selected-text;
-  }
-
-  //&.customer-account-login,
-  //&.catalog-category-view,
-  //&[class^="checkout-"],
-  //&.catalog-product-view,
-  //&.catalogsearch-result-index,
-  //&.locations-index-index,
-  //&.locations-shop-view {
-  //  .page-main {
-  //    .wrapper {
-  //      background-color: transparent;
-  //      padding: 0;
-  //    }
-  //  }
-  //}
-}
 .page-wrapper {
   position: relative;
   transition: left cubic-bezier(0.5, 0.25, 0, 1) 0.4s;
@@ -79,11 +27,5 @@ table,
 .cms-index-index {
   .page-title-wrapper {
     display: none;
-  }
-}
-
-@include media-breakpoint-down(md) {
-  body{
-    -webkit-text-size-adjust: none;
   }
 }

@@ -30,7 +30,7 @@ $button__shadow: inset 0 2px 1px rgba(0, 0, 0, 0.12);
   }
 }
 .page-header {
-  background: $gray-dark;
+  background: $gray-darker;
 }
 .page-header-wrapper {
   height: $header-height;
@@ -65,16 +65,12 @@ $button__shadow: inset 0 2px 1px rgba(0, 0, 0, 0.12);
   text-align: center;
   transition: none;
 
-  &:not(.active):focus,
-  &:not(.active):hover {
-    color: #ccc;
-  }
-  &.active:focus,
-  &.active:hover {
+  &:focus,
+  &:hover {
     color: #fff;
   }
   .circle {
-    display: block;
+    display: inline-block;
     width: 36px;
     height: 36px;
     transition: background ease 0.3s;

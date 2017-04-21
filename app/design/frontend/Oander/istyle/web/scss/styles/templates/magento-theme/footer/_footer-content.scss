@@ -1,0 +1,12 @@
+.footer-content {
+  margin-top: $grid-gutter-width-base;
+  padding: $grid-gutter-width-base 0 $grid-gutter-width-base/2;
+
+  h2,
+  .footer-block-title {
+    color: $gray-darker;
+    font-size: 14px;
+    font-weight: $font-weight-medium;
+    margin-bottom: $grid-gutter-width-base;
+  }
+}

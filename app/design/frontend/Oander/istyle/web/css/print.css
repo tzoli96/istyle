@@ -2,8 +2,8 @@
 @import url("https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i&subset=latin-ext");
 @font-face {
   font-family: 'icomoon';
-  src: url("../fonts/icomoon/icomoon.eot?o86x08");
-  src: url("../fonts/icomoon/icomoon.eot?o86x08#iefix") format("embedded-opentype"), url("../fonts/icomoon/icomoon.woff2?o86x08") format("woff2"), url("../fonts/icomoon/icomoon.ttf?o86x08") format("truetype"), url("../fonts/icomoon/icomoon.woff?o86x08") format("woff"), url("../fonts/icomoon/icomoon.svg?o86x08#icomoon") format("svg");
+  src: url("../fonts/icomoon/icomoon.eot?uh3ivb");
+  src: url("../fonts/icomoon/icomoon.eot?uh3ivb#iefix") format("embedded-opentype"), url("../fonts/icomoon/icomoon.woff2?uh3ivb") format("woff2"), url("../fonts/icomoon/icomoon.ttf?uh3ivb") format("truetype"), url("../fonts/icomoon/icomoon.woff?uh3ivb") format("woff"), url("../fonts/icomoon/icomoon.svg?uh3ivb#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -20,6 +20,22 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-globe:before {
+  content: "";
+}
+
+.icon-instagram:before {
+  content: "";
+}
+
+.icon-twitter:before {
+  content: "";
+}
+
+.icon-youtube:before {
+  content: "";
 }
 
 .icon-chevron-down:before {
@@ -182,7 +198,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #282828;
+  color: #323232;
   background-color: #fff;
 }
 
@@ -371,8 +387,54 @@ output {
   display: none !important;
 }
 
+* {
+  outline: 0;
+}
+
+html {
+  font-size: 14px;
+}
+
+html.nav-open body, html.sidebar-opened body {
+  position: fixed;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
 body {
   margin: 0;
+}
+
+body *::-moz-selection {
+  background: #007aff;
+  color: #fff;
+}
+
+body *::selection {
+  background: #007aff;
+  color: #fff;
+}
+
+body *::-moz-selection {
+  background: #007aff;
+  color: #fff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+strong,
+b {
+  font-weight: 500;
+}
+
+@media (max-width: 991px) {
+  body {
+    -webkit-text-size-adjust: none;
+  }
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -568,7 +630,7 @@ kbd {
   padding: 0.2rem 0.4rem;
   font-size: 90%;
   color: #fff;
-  background-color: #282828;
+  background-color: #323232;
   border-radius: 0;
 }
 
@@ -583,7 +645,7 @@ pre {
   margin-top: 0;
   margin-bottom: 1rem;
   font-size: 90%;
-  color: #282828;
+  color: #323232;
 }
 
 pre code {
@@ -2051,7 +2113,7 @@ pre code {
 
 .thead-inverse th {
   color: #fff;
-  background-color: #282828;
+  background-color: #323232;
 }
 
 .thead-default th {
@@ -2061,7 +2123,7 @@ pre code {
 
 .table-inverse {
   color: #fff;
-  background-color: #282828;
+  background-color: #323232;
 }
 
 .table-inverse th,
@@ -6521,11 +6583,11 @@ a.text-danger:focus, a.text-danger:hover {
 }
 
 .text-gray-dark {
-  color: #282828 !important;
+  color: #323232 !important;
 }
 
 a.text-gray-dark:focus, a.text-gray-dark:hover {
-  color: #0f0f0f !important;
+  color: #191919 !important;
 }
 
 .text-hide {

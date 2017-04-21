@@ -25,8 +25,25 @@
 
 
         <!-- Footer container -->
-        <referenceContainer name="footer.content.left" htmlClass="footer-left col-lg-9" htmlTag="div">
-            <block class="Magento\Framework\View\Element\Template" name="footer_links"
+        <referenceContainer name="footer-container">
+            <container name="footer.info" htmlClass="footer-info row" htmlTag="div" after="footer">
+                <block class="Magento\Framework\View\Element\Template" template="Magento_Theme::html/footer/info.phtml" />
+            </container>
+        </referenceContainer>
+        <referenceContainer name="footer" htmlClass="footer-content row">
+            <container name="footer.content.middle" htmlClass="footer-content-middle col-lg-5" htmlTag="div" after="footer.content.left">
+                <block class="Magento\Framework\View\Element\Template" name="footer_left_map"
+                       template="Magento_Theme::html/footer/map.phtml" after="footer_left_links">
+                    <block class="Magento\Cms\Block\Block" name="footer_map">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">footer_map</argument>
+                        </arguments>
+                    </block>
+                </block>
+            </container>
+        </referenceContainer>
+        <referenceContainer name="footer.content.left" htmlClass="footer-content-left col-lg-4" htmlTag="div">
+            <block class="Magento\Framework\View\Element\Template" name="footer_left_links"
                    template="Magento_Theme::html/footer/links.phtml">
                 <block class="Magento\Cms\Block\Block" name="footer_links_1">
                     <arguments>
@@ -38,17 +55,20 @@
                         <argument name="block_id" xsi:type="string">footer_links_2</argument>
                     </arguments>
                 </block>
-                <block class="Magento\Cms\Block\Block" name="footer_map">
-                    <arguments>
-                        <argument name="block_id" xsi:type="string">footer_map</argument>
-                    </arguments>
-                </block>
             </block>
         </referenceContainer>
-        <referenceContainer name="footer.content.right" htmlClass="footer-right col-lg-3" htmlTag="div" />
+        <referenceContainer name="footer.content.right" htmlClass="footer-content-right col-lg-3" htmlTag="div" />
+        <referenceContainer name="footer.bottom" htmlClass="footer-bottom row">
+            <container name="footer.bottom.left" htmlClass="footer-bottom-left col-lg-4 col-xl-5" htmlTag="div">
+                <block class="Magento\Theme\Block\Html\Footer" template="Magento_Theme::html/footer/copyright.phtml" />
+                <block class="Magento\Theme\Block\Html\Footer" template="Magento_Theme::html/footer/site-developer.phtml" />
+            </container>
+            <referenceContainer name="footer.bottom.right" htmlTag="div" htmlClass="footer-bottom-right col-lg-8 col-xl-7 clearfix" />
+        </referenceContainer>
 
         <!-- Remove elements -->
         <referenceContainer name="header.panel.wrapper" remove="true" />
+        <referenceContainer name="footer_links" remove="true" />
 
         <!-- Move elements -->
         <move element="navigation.sections" destination="header-wrapper" after="logo" />

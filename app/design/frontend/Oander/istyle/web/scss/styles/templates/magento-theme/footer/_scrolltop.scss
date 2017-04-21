@@ -2,16 +2,15 @@
   display: block;
   width: 40px;
   height: 40px;
-  float: right;
   transition: all ease 0.3s;
-  border: 1px solid $gray-dark;
+  border: 1px solid $gray-darker;
   border-radius: 40px;
   text-align: center;
   text-decoration: none;
-  color: $gray-dark;
+  color: $gray-darker;
 
   &:hover {
-    background: $gray-dark;
+    background: $gray-darker;
     color: #fff;
     text-decoration: none;
   }
@@ -19,5 +18,11 @@
   .icon {
     line-height: 40px;
     font-size: 8px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .scroll-top {
+    margin: 20px auto;
   }
 }
