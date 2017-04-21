@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "62d5ef1c03ca433d2a8bf373a347eb9b",
+    "content-hash": "648a07d584d013f170b058cf76ed1bb3",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6943,23 +6943,23 @@
             ],
             "description": "Shipping",
             "support": {
-                "source": "https://github.com/oandermedia/oander-shipping/tree/1.0.1",
+                "source": "https://github.com/oandermedia/oander-shipping/tree/1.0.0",
                 "issues": "https://github.com/oandermedia/oander-shipping/issues"
             },
             "time": "2017-04-12T14:26:17+00:00"
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.0.7",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "812e76fa2afa604768b7cb36a18fd68e96ae65dc"
+                "reference": "a266b72f013a0f6825e83362fd9bc16b58441969"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/812e76fa2afa604768b7cb36a18fd68e96ae65dc",
-                "reference": "812e76fa2afa604768b7cb36a18fd68e96ae65dc",
+                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/a266b72f013a0f6825e83362fd9bc16b58441969",
+                "reference": "a266b72f013a0f6825e83362fd9bc16b58441969",
                 "shasum": ""
             },
             "require": {
@@ -6982,10 +6982,10 @@
             ],
             "description": "Warehouse Manager",
             "support": {
-                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.0.7",
+                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.0.9",
                 "issues": "https://github.com/oandermedia/oander-warehouse-manager/issues"
             },
-            "time": "2017-04-13T11:22:20+00:00"
+            "time": "2017-04-21T15:17:02+00:00"
         },
         {
             "name": "oander/module-wonder-widget",
@@ -10731,16 +10731,16 @@
         },
         {
             "name": "theseer/fdomdocument",
-            "version": "1.6.4",
+            "version": "1.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/theseer/fDOMDocument.git",
-                "reference": "cf219ede922fb47956726f35e2127277ebd302ca"
+                "reference": "8dcfd392135a5bd938c3c83ea71419501ad9855d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theseer/fDOMDocument/zipball/cf219ede922fb47956726f35e2127277ebd302ca",
-                "reference": "cf219ede922fb47956726f35e2127277ebd302ca",
+                "url": "https://api.github.com/repos/theseer/fDOMDocument/zipball/8dcfd392135a5bd938c3c83ea71419501ad9855d",
+                "reference": "8dcfd392135a5bd938c3c83ea71419501ad9855d",
                 "shasum": ""
             },
             "require": {
@@ -10767,7 +10767,7 @@
             ],
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
-            "time": "2017-04-17T09:08:13+00:00"
+            "time": "2017-04-21T14:50:31+00:00"
         }
     ],
     "aliases": [],
