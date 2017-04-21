@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9642a1eb477fff9b6aa5f61e85376489",
-    "content-hash": "d355afaf32b0866e2037686911b695ff",
+    "hash": "e76da18f22da29a2aee91706db9b24fa",
+    "content-hash": "fed8a8a62f51d1bcde10dd74a548418f",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6394,16 +6394,16 @@
         },
         {
             "name": "oander/module-customer-file-upload",
-            "version": "1.0.2",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-customer-file-upload.git",
-                "reference": "d5ab768b187690795e9e9d863e728b6051bbea49"
+                "reference": "cccfb8e1d860a03500388f29648f30587977e62e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-customer-file-upload/zipball/d5ab768b187690795e9e9d863e728b6051bbea49",
-                "reference": "d5ab768b187690795e9e9d863e728b6051bbea49",
+                "url": "https://api.github.com/repos/oandermedia/oander-customer-file-upload/zipball/cccfb8e1d860a03500388f29648f30587977e62e",
+                "reference": "cccfb8e1d860a03500388f29648f30587977e62e",
                 "shasum": ""
             },
             "require": {
@@ -6424,10 +6424,10 @@
             ],
             "description": "Customer upload file",
             "support": {
-                "source": "https://github.com/oandermedia/oander-customer-file-upload/tree/1.0.2",
+                "source": "https://github.com/oandermedia/oander-customer-file-upload/tree/1.0.4",
                 "issues": "https://github.com/oandermedia/oander-customer-file-upload/issues"
             },
-            "time": "2017-04-20 12:13:30"
+            "time": "2017-04-21 10:25:39"
         },
         {
             "name": "oander/module-discount-badge",
