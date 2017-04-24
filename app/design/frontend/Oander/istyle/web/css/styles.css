@@ -9196,9 +9196,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 @media (min-width: 992px) {
-  .oander-multislider {
-    margin-top: 20px;
-  }
   .oander-multislider:hover .slick-arrow {
     opacity: 1;
     visibility: visible;
@@ -18566,6 +18563,10 @@ table .col,
   }
   .page-header {
     height: 64px;
+    margin-bottom: 30px;
+  }
+  .catalog-category-view .page-header {
+    margin-bottom: 0;
   }
   .page-header .panel.wrapper {
     border-bottom: 1px solid #eceeef;
