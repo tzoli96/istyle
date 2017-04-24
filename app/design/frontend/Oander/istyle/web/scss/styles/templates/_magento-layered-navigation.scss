@@ -68,43 +68,27 @@
   .filter-subtitle {
     display: none;
   }
-
-  // Filter options title
-  .filter-options-item {
-    &:first-child {
-      .filter-options-title {
-        border-top: 0;
-        margin-top: 0;
-        padding-top: 0;
-
-      }
-    }
-    .dropdown {
-
-    }
-  }
-  .filter-options-title {
-    border-top: 1px solid #eee;
-  }
 }
-
 .block-subtitle {
+  margin-bottom: 1rem;
   font-weight: 500;
   font-size: 1rem;
+  color: $gray-dark;
 }
+
 .filter-options {
   margin: 0;
 
   .filter-options-content {
     .item {
+      margin: 5px 0;
+
       a {
         display: block;
-        font-size: 12px;
-        padding: 3px 0;
         color: $gray-darker;
 
         &:hover {
-          color: $brand-primary;
+          color: $gray-dark;
         }
         .filter-count-label {
           color: $gray-darker;
@@ -129,19 +113,15 @@
         }
       }
       span {
-        padding-right: 30px;
-        display: block;
+        display: inline-block;
         position: relative;
+        text-transform: lowercase;
+        color: $gray-dark;
 
         &:after {
-          position: absolute;
           font-family: $icon-font-family;
-          font-size: 12px;
-          right: 0;
-          top: 50%;
-          transform: translateY(-50%);
+          font-size: 6px;
         }
-
         &.more {
           &:after {
             content: $icon-chevron-down;
@@ -155,7 +135,6 @@
       }
     }
   }
-
   .count {
     color: lighten($gray-dark, 29%);
 
@@ -166,6 +145,16 @@
     &:after {
       content: ')';
     }
+  }
+}
+.filter-options-title {
+  margin-bottom: 20px;
+}
+.filter-options-item {
+  padding: 20px 0;
+
+  & + .filter-options-item {
+    border-top: 1px solid #dcdcdc;
   }
 }
 .filter-actions {
@@ -208,54 +197,6 @@
   }
 }
 
-@include media-breakpoint-down(md) {
-  .sidebar.sidebar-main {
-    position: fixed;
-    left: -100%;
-    top: 0;
-    height: 100%;
-    width: calc(100% - 60px);
-    background-color: #fff;
-    padding: 20px 20px 0;
-    z-index: 1050;
-    overflow: auto;
-    transition: left cubic-bezier(0.5, 0.25, 0, 1) 0.4s;
-
-    // Close action
-    .action.close-sidebar {
-      position: absolute;
-      padding: 8px;
-      right: 8px;
-      top: 8px;
-      font-size: 20px;
-      line-height: 20px;
-      font-weight: normal;
-    }
-
-    .block:not(.filter):not(.account-nav) {
-      display: none;
-    }
-
-    // Opened
-    html.sidebar-opened & {
-      left: 0;
-    }
-
-  }
-}
-@include media-breakpoint-down(sm) {
-
-  .page-with-filter {
-    .columns {
-      .sidebar-main {
-        order: 0;
-      }
-    }
-  }
-
-}
-
-// Whislist widget
 .block-wishlist {
   .block-title .counter,
   .subtitle {
@@ -276,7 +217,6 @@
     display: block;
   }
 }
-
 .block-reorder {
   .block-title,
   .block-content {
@@ -284,5 +224,46 @@
   }
   .block-title {
     padding-bottom: 0;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .sidebar.sidebar-main {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    height: 100%;
+    width: calc(100% - 60px);
+    background-color: #fff;
+    padding: 20px 20px 0;
+    z-index: 1050;
+    overflow: auto;
+    transition: left cubic-bezier(0.5, 0.25, 0, 1) 0.4s;
+
+    .action.close-sidebar {
+      position: absolute;
+      padding: 8px;
+      right: 8px;
+      top: 8px;
+      font-size: 20px;
+      line-height: 20px;
+      font-weight: normal;
+    }
+    .block:not(.filter):not(.account-nav) {
+      display: none;
+    }
+    html.sidebar-opened & {
+      left: 0;
+    }
+
+  }
+}
+@include media-breakpoint-down(sm) {
+  .page-with-filter {
+    .columns {
+      .sidebar-main {
+        order: 0;
+      }
+    }
   }
 }

@@ -40,9 +40,7 @@ define([
       _.initMobileNavigation();
       _.submenuPositionWatcher();
 
-      //
       $('.header-account-dropdown').clone().appendTo('#store\\.links');
-
     },
 
 
@@ -224,7 +222,6 @@ define([
       }
 
       classManager();
-
       window.addEventListener('resize', classManager);
 
     }
