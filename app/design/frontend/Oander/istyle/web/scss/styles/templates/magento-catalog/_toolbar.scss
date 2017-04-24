@@ -8,6 +8,17 @@
   }
 }
 .toolbar-top {
+  font-size: $font-size-sm;
+
+  .toolbar {
+    margin-bottom: 0;
+  }
+  .toolbar-amount {
+    padding: 0 10px;
+  }
+  .toolbar-sorter {
+    padding: 0 10px;
+  }
   .pages,
   .field.limiter {
     display: none;

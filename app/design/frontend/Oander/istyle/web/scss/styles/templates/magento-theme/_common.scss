@@ -5,6 +5,14 @@
   left: 0;
   overflow: hidden;
 }
+.page-main-top-wrapper {
+  margin: 0 0 $grid-gutter-width-base;
+  padding: $grid-gutter-width-base 0;
+  background: #fafafa;
+}
+.page-main-top {
+  justify-content: space-between;
+}
 .page-main {
   > .page-title-wrapper {
     .page-title + .action {
@@ -22,10 +30,5 @@ table,
   .col {
     display: table-cell;
     width: auto;
-  }
-}
-.cms-index-index {
-  .page-title-wrapper {
-    display: none;
   }
 }

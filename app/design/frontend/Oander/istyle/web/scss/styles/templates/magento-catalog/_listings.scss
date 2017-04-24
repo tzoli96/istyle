@@ -1,54 +1,15 @@
 .category-view-inner {
   position: relative;
-  margin-bottom: 20px;
-
-  .page-title {
-    font-size: 36px;
-    line-height: 1.4em;
-    font-weight: normal;
-  }
 }
 .category-view-inner.has-img {
-  background-color: #fff;
-  height: 80px;
-  margin-bottom: 25px;
-
-  .page-title-wrapper {
-    position: absolute;
-    top: 27px;
-    left: 18px;
-    z-index: 2;
-
-    .page-title {
-      margin: 0;
-      font-size: 24px;
-      line-height: 1em;
-    }
-  }
   .category-image {
-    position: absolute;
-    width: 50vw;
-    height: 100%;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
-    margin: 0;
-
     img {
-      position: absolute;
-      width: 100%;
-      height: auto;
-      right: 0;
-      bottom: 0;
+      display: none;
     }
   }
   .category-description {
     display: none;
     margin: 0;
-
-    p {
-      margin: 0;
-    }
   }
 }
 .list.product-items {

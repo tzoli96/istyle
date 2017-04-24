@@ -104,12 +104,16 @@ $font-size-xs: .75rem;
 
 $line-height-base: 1.5;
 
-$font-size-h1: 2.5rem;
-$font-size-h2: 2rem;
-$font-size-h3: 1.75rem;
-$font-size-h4: 1.5rem;
-$font-size-h5: 1.25rem;
-$font-size-h6: 1rem;
+$font-size-h1: 1.571428571rem;
+$font-size-h2: 1.142857143rem;
+$font-size-h3: 1rem;
+$font-size-h4: 0.9rem;
+$font-size-h5: 0.8rem;
+$font-size-h6: 0.75rem;
+
+$font-size-lg-h1: 2rem;
+$font-size-lg-h2: 1.285714286rem;
+$font-size-lg-h3: 1.142857143rem;
 
 $font-weight-light: 300;
 $font-weight-normal: 400;
@@ -118,6 +122,8 @@ $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
 $font-weight-base: $font-weight-normal;
+
+$headings-font-weight: $font-weight-normal;
 
 
 // Components

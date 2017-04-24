@@ -69,12 +69,6 @@
     display: none;
   }
 }
-.block-subtitle {
-  margin-bottom: 1rem;
-  font-weight: 500;
-  font-size: 1rem;
-  color: $gray-dark;
-}
 
 .filter-options {
   margin: 0;
@@ -119,8 +113,11 @@
         color: $gray-dark;
 
         &:after {
+          margin-left: 5px;
           font-family: $icon-font-family;
           font-size: 6px;
+          display: inline-block;
+          vertical-align: middle;
         }
         &.more {
           &:after {
@@ -148,6 +145,7 @@
   }
 }
 .filter-options-title {
+  font-size: 1rem;
   margin-bottom: 20px;
 }
 .filter-options-item {
@@ -194,76 +192,5 @@
 
   & + .actions {
     margin-bottom: 35px;
-  }
-}
-
-.block-wishlist {
-  .block-title .counter,
-  .subtitle {
-    display: none;
-  }
-
-  .block-title,
-  .block-content {
-    padding: 18px;
-  }
-  .block-title {
-    padding-bottom: 0;
-  }
-  .block-content {
-    padding-top: 8px;
-  }
-  .btn {
-    display: block;
-  }
-}
-.block-reorder {
-  .block-title,
-  .block-content {
-    padding: 18px;
-  }
-  .block-title {
-    padding-bottom: 0;
-  }
-}
-
-@include media-breakpoint-down(md) {
-  .sidebar.sidebar-main {
-    position: fixed;
-    left: -100%;
-    top: 0;
-    height: 100%;
-    width: calc(100% - 60px);
-    background-color: #fff;
-    padding: 20px 20px 0;
-    z-index: 1050;
-    overflow: auto;
-    transition: left cubic-bezier(0.5, 0.25, 0, 1) 0.4s;
-
-    .action.close-sidebar {
-      position: absolute;
-      padding: 8px;
-      right: 8px;
-      top: 8px;
-      font-size: 20px;
-      line-height: 20px;
-      font-weight: normal;
-    }
-    .block:not(.filter):not(.account-nav) {
-      display: none;
-    }
-    html.sidebar-opened & {
-      left: 0;
-    }
-
-  }
-}
-@include media-breakpoint-down(sm) {
-  .page-with-filter {
-    .columns {
-      .sidebar-main {
-        order: 0;
-      }
-    }
   }
 }

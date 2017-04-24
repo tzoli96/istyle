@@ -37,7 +37,19 @@ b {
 }
 
 @include media-breakpoint-down(md) {
-  body{
+  body {
     -webkit-text-size-adjust: none;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  h1 {
+    font-size: $font-size-lg-h1;
+  }
+  h2 {
+    font-size: $font-size-lg-h2;
+  }
+  h3 {
+    font-size: $font-size-lg-h3;
   }
 }
