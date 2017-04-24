@@ -121,6 +121,8 @@
 }
 @include media-breakpoint-up(lg) {
   .oander-multislider {
+    margin-top: 20px;
+
     &:hover {
       .slick-arrow {
         opacity: 1;
