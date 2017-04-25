@@ -16,19 +16,18 @@
   margin: 0;
 
   .product-item-info {
-    .product-item-name,
     .price-box {
       display: block;
       position: relative;
       margin-bottom: 8px;
-    }
-    .product-item-name {
-      a {
-        display: block;
-        color: $gray-darker;
-      }
+      color: $brand-secondary;
     }
     .price-box {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+
       .price-final_price {
         font-size: 1.1428rem;
         font-weight: 500;
