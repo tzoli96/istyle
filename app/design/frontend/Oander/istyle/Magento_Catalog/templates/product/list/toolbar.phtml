@@ -16,23 +16,32 @@
 use Magento\Catalog\Model\Product\ProductList\Toolbar;
 ?>
 <?php if ($block->getCollection()->getSize()): ?>
-    <div class="toolbar toolbar-products clearfix" data-mage-init='<?php /* @escapeNotVerified */ echo $block->getWidgetOptionsJson(); ?>'>
 
-        <?php /*if ($block->isExpanded()): ?>
-            <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/viewmode.phtml')) ?>
-        <?php endif;*/ ?>
-        <a href="#" class="btn btn-outline-secondary sidebar-collapse-trigger hidden-md-up" id="sidebar-collapse-trigger">
-            <?php /* @escapeNotVerified */ echo __('Filters') ?>
-        </a>
+    <?php if ($block->getToolbarHtml()): ?>
+        <?php echo $this->getToolbarBlock()->setHideToolbar(false)->setHidePagination(true)->toHtml();?>
+    <?php endif; ?>
 
-        <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/amount.phtml')) ?>
+    <?php if (!$this->getHideToolbar()) : ?>
+        <div class="toolbar toolbar-products clearfix" data-mage-init='<?php /* @escapeNotVerified */ echo $block->getWidgetOptionsJson(); ?>'>
 
-        <?php echo $block->getPagerHtml() ?>
+            <a href="#" class="btn btn-outline-secondary sidebar-collapse-trigger hidden-md-up" id="sidebar-collapse-trigger">
+                <?php /* @escapeNotVerified */ echo __('Filters') ?>
+            </a>
 
-        <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/limiter.phtml')) ?>
+            <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/amount.phtml')) ?>
 
-        <?php if ($block->isExpanded()): ?>
-            <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/sorter.phtml')) ?>
-        <?php endif; ?>
-    </div>
+            <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/limiter.phtml')) ?>
+
+            <?php if ($block->isExpanded()): ?>
+                <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/sorter.phtml')) ?>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if (!$this->getHidePagination()) : ?>
+        <div class="pagination pagination-products">
+            <?php echo $block->getPagerHtml() ?>
+        </div>
+    <?php endif; ?>
+
 <?php endif ?>
