@@ -4,7 +4,7 @@
 }
 .badge-container {
   position: absolute;
-  left: 0;
+  right: 0;
   top: 0;
   z-index: 2;
 }
@@ -18,7 +18,8 @@
 }
 .badge-label {
   display: inline-block;
-  background-color: $brand-primary;
+  background-color: $brand-secondary;
+  border-radius: 15px;
   color: #fff;
   font-size: 12px;
   letter-spacing: 2px;

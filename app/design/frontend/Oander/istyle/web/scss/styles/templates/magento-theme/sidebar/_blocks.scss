@@ -1,40 +1,10 @@
 @import "blocks/block-filter";
 
-
 .block-subtitle {
   margin-bottom: 1rem;
   font-weight: 500;
   font-size: 1rem;
   color: $gray-dark;
-}
-.block-wishlist {
-  .block-title .counter,
-  .subtitle {
-    display: none;
-  }
-
-  .block-title,
-  .block-content {
-    padding: 18px;
-  }
-  .block-title {
-    padding-bottom: 0;
-  }
-  .block-content {
-    padding-top: 8px;
-  }
-  .btn {
-    display: block;
-  }
-}
-.block-reorder {
-  .block-title,
-  .block-content {
-    padding: 18px;
-  }
-  .block-title {
-    padding-bottom: 0;
-  }
 }
 
 @include media-breakpoint-down(sm) {

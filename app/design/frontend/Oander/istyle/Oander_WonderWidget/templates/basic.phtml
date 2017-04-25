@@ -10,7 +10,8 @@
 
 <div class="widget-block block oander-wonder-widget-basic">
     <div class="content">
-        <?php if ($this->getImage()): ?>
+
+        <?php if ($this->getImage()) : ?>
             <div class="image-wrapper" style="background-image: url('<?php echo $this->getImage(); ?>'); background-repeat: no-repeat;">
                 <?php if ($this->getLink()): ?>
                     <a href="<?php echo $this->getLink(); ?>" class="link-overlay">

@@ -15,7 +15,7 @@
  */
 use Magento\Catalog\Model\Product\ProductList\Toolbar;
 ?>
-<div class="toolbar-sorter sorter float-md-right">
+<div class="toolbar-sorter sorter float-md-right hidden-sm-down">
     <div class="form-inline">
         <label class="sorter-label text-uppercase" for="sorter"><?php /* @escapeNotVerified */ echo __('Sort By') ?></label>
         <select id="sorter" data-role="sorter" class="sorter-options form-control-sm">
@@ -31,12 +31,12 @@ use Magento\Catalog\Model\Product\ProductList\Toolbar;
         <?php if ($block->getCurrentDirection() == 'desc'): ?>
             <a title="<?php /* @escapeNotVerified */ echo __('Set Ascending Direction') ?>" href="#"
                class="action btn-sm sorter-action sort-desc" data-role="direction-switcher" data-value="asc">
-                <i class="icon-sort-asc"></i>
+                <i class="icon icon-arrow-up"></i>
             </a>
         <?php else: ?>
             <a title="<?php /* @escapeNotVerified */ echo __('Set Descending Direction') ?>" href="#"
                class="action btn-sm sorter-action sort-asc" data-role="direction-switcher" data-value="desc">
-                <i class="icon-sort-desc"></i>
+                <i class="icon icon-arrow-down"></i>
             </a>
         <?php endif; ?>
     </div>

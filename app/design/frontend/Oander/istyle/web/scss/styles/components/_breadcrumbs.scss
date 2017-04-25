@@ -1,5 +1,7 @@
 .breadcrumbs {
   margin-bottom: $spacer;
+  text-transform: uppercase;
+
   .items {
     font-size: $font-size-sm;
     color: $gray;

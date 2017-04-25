@@ -3,7 +3,6 @@
 // These variables override bootstrap core variables
 
 // Imports
-//@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,500,600,700&subset=latin-ext');
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i&subset=latin-ext');
 
 // Variables
@@ -148,6 +147,8 @@ $btn-focus-box-shadow: none;
 $btn-secondary-color:            #fff;
 $btn-secondary-bg:               $brand-secondary;
 $btn-secondary-border:           $brand-secondary;
+
+$btn-dark-border:   $gray-darker;
 
 
 // Forms

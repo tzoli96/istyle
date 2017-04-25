@@ -3,6 +3,7 @@ var gulp = require('gulp'),
   sass = require('gulp-sass'),
   notify = require('gulp-notify'),
   sourcemaps = require('gulp-sourcemaps'),
+  sassLint = require('gulp-sass-lint'),
   autoprefixer  = require('gulp-autoprefixer');
 
 var dist = 'app/design/frontend/Oander/istyle/web/';
@@ -14,6 +15,13 @@ var paths = {
     dist + 'scss/**/*.scss'
   ]
 };
+
+gulp.task('sass-lint', function () {
+  return gulp.src(paths.scss)
+    .pipe(sassLint())
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError())
+});
 
 gulp.task('sass', function() {
   return gulp.src(paths.scss)

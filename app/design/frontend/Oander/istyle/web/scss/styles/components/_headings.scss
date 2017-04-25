@@ -4,3 +4,9 @@
 .block-title {
   margin: 2rem 0;
 }
+
+@include media-breakpoint-down(sm) {
+  .page-title {
+    margin-bottom: 1rem;
+  }
+}

@@ -59,11 +59,6 @@
       padding: 0;
     }
   }
-
-  .filter-actions,
-  .filter-options {
-    margin-bottom: 30px;
-  }
   > .filter-title,
   .filter-subtitle {
     display: none;
@@ -95,6 +90,7 @@
     .dropdown {
       margin-top: 10px;
       color: #555;
+      font-weight: $font-weight-medium;
 
       &.closed {
         .less {

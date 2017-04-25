@@ -26,12 +26,10 @@
         <referenceContainer name="page.top">
             <container htmlTag="div" name="page-main-top-wrapper" htmlClass="page-main-top-wrapper">
                 <container htmlTag="div" htmlClass="container">
-                    <container name="page-main-top" htmlTag="div" htmlClass="page-main-top d-flex" />
+                    <container name="page-main-top" htmlTag="div" htmlClass="page-main-top d-md-flex" />
                 </container>
             </container>
         </referenceContainer>
-
-        <referenceContainer name="breadcrumbs" htmlClass="breadcrumbs container" />
 
         <!-- Footer container -->
         <referenceContainer name="footer-container">

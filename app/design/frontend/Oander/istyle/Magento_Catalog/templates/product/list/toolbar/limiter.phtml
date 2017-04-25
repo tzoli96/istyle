@@ -15,12 +15,12 @@
  */
 use Magento\Catalog\Model\Product\ProductList\Toolbar;
 ?>
-<div class="field limiter form-inline hidden-md-down float-md-right">
+<div class="field limiter form-inline hidden-sm-down">
     <label class="label" for="limiter">
         <span><?php /* @escapeNotVerified */ echo __('Show') ?></span>
     </label>
     <div class="control select-wrapper">
-        <select id="limiter" data-role="limiter" class="limiter-options form-control form-control-sm">
+        <select id="limiter" data-role="limiter" class="limiter-options form-control">
             <?php foreach ($block->getAvailableLimit() as $_key => $_limit): ?>
                 <option value="<?php /* @escapeNotVerified */ echo $_key ?>"<?php if ($block->isLimitCurrent($_key)): ?>
                     selected="selected"<?php endif ?>>
