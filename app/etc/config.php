@@ -126,6 +126,7 @@ return array (
     'Magento_Wishlist' => 1,
     'Magento_WishlistSampleData' => 1,
     'Oander_AjaxCatalog' => 1,
+    'Oander_ApiGateway' => 1,
     'Oander_Base' => 1,
     'Oander_CategoryBadge' => 1,
     'Oander_CategoryDropdown' => 1,
