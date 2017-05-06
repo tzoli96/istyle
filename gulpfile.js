@@ -4,7 +4,9 @@ var gulp = require('gulp'),
   notify = require('gulp-notify'),
   sourcemaps = require('gulp-sourcemaps'),
   sassLint = require('gulp-sass-lint'),
-  autoprefixer  = require('gulp-autoprefixer');
+  autoPrefixer  = require('gulp-autoprefixer'),
+  gulpif = require('gulp-if'),
+  argv = require('yargs').argv;
 
 var dist = 'app/design/frontend/Oander/istyle/web/';
 var distCss = dist + 'css/';
@@ -18,21 +20,36 @@ var paths = {
 
 gulp.task('sass-lint', function () {
   return gulp.src(paths.scss)
-    .pipe(sassLint())
+    .pipe(sassLint(
+      {
+        options: {
+        },
+        rules: {
+          'property-sort-order': 0,
+          'nesting-depth': 0,
+          'empty-line-between-blocks': 0,
+          'pseudo-element': 0,
+          'force-element-nesting': 0
+        }
+      }
+    ))
     .pipe(sassLint.format())
     .pipe(sassLint.failOnError())
 });
 
 gulp.task('sass', function() {
+
+  var outputStyle = (argv.dev) ? 'expanded' : 'compressed';
+
   return gulp.src(paths.scss)
     .pipe(plumber())
-    .pipe(sourcemaps.init())
+    .pipe(gulpif(argv.dev, sourcemaps.init()))
     .pipe(sass({
-      outputStyle: 'expanded'
+      outputStyle: outputStyle
     })).on('error', notify.onError(function (error) {
       return error.message;
     }))
-    .pipe(autoprefixer({
+    .pipe(autoPrefixer({
       browsers: [
         'Chrome >= 45',
         'Firefox >= 45',
@@ -45,10 +62,12 @@ gulp.task('sass', function() {
         'Opera >= 12'
       ]
     }))
-    .pipe(sourcemaps.write('./'))
+    .pipe(gulpif(argv.dev, sourcemaps.write('./')))
     .pipe(gulp.dest(distCss));
 });
 
-gulp.task('default',  function(){
+gulp.task('watch', function() {
   gulp.watch(paths.scss, ['sass']);
 });
+
+gulp.task('default', ['sass', 'watch']);

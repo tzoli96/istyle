@@ -2,10 +2,14 @@
   .product-view-top {
     background: #fff;
     padding: 20px;
-    margin: 0;
   }
   .product-info-main {
     margin-top: 0;
+  }
+  .product-info-right {
+    padding: 30px;
+    border: 1px solid #dcdcdc;
+    border-radius: $border-radius;
   }
   .page-title {
     line-height: 1.3em;
@@ -417,13 +421,12 @@
   }
 }
 
-@include media-breakpoint-down(md) {
+@include media-breakpoint-down(md) {}
+@include media-breakpoint-down(sm) {
   .product.product-media,
   .product-info-main {
     padding: 0;
   }
-}
-@include media-breakpoint-down(sm) {
   .catalog-product-view {
     .column.main {
       display: flex;
@@ -501,3 +504,4 @@
     }
   }
 }
+

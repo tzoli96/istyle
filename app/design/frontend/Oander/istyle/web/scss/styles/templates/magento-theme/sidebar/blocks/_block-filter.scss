@@ -5,10 +5,11 @@
     .block-subtitle {
       font-weight: $font-weight-semibold;
     }
+
     .items {
       .item {
-        padding-top: 5px;
         padding-bottom: 5px;
+        padding-top: 5px;
 
         &:not(:last-child) {
           padding-bottom: 0;
@@ -45,10 +46,8 @@
       padding-left: 20px;
 
       > li {
-        margin: 5px 0;
         @include clearfix;
-
-
+        margin: 5px 0;
       }
     }
   }
@@ -82,7 +81,7 @@
         .filter-count-label {
           color: $gray-darker;
         }
-        input[type="checkbox"] {
+        input[type='checkbox'] {
           vertical-align: middle;
         }
       }
