@@ -1,0 +1,41 @@
+<?php
+/**
+ * Oander_WarehouseManager
+ *
+ * @author  Tamas Vegvari <tamas.vegvari@oander.hu>
+ * @license Oander Media Kft. (http://www.oander.hu)
+ */
+?>
+<?php use Oander\WarehouseManager\Enum\WarehouseBlock; ?>
+<?php /** @var $this \Oander\WarehouseManager\Block\Product\ProductList\Warehouse */ ?>
+<?php if ($this->getProduct()->isInStock()): ?>
+    <div class="warehouse-manager" data-product-id="<?php echo $this->getProduct()->getId(); ?>">
+        <input name="stock-sum-url" type="hidden" value="<?php echo $this->getAjaxStockSumUrl() ?>"/>
+        <div class="warehouse-stock-info"></div>
+        <span class="warehouse-open-btn"><?php /* @escapeNotVerified */ echo __('Where is it in stock?') ?></span>
+        <div class="warehouse-info popup-box text-right" style="display: none;">
+            <input name="warehouse-stock-list-url" type="hidden" value="<?php echo $this->getAjaxWarehouseStockListUrl() ?>"/>
+            <a class="warehouse-close-btn" href="#"><i class="icon icon-close"></i></a>
+            <div class="mt-4 text-left">
+                <table class="warehouse-stock-table stock-table table"></table>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+      require([
+          'jquery',
+          'oanderWarehouseManager',
+          'oanderWarehouseList'
+        ],
+        function(
+          $,
+          oanderWarehouseManager,
+          oanderWarehouseList
+        ) {
+
+          var product_id = '<?php echo $this->getProduct()->getId(); ?>';
+          oanderWarehouseManager.loadProductSumStockStatus('<?php echo WarehouseBlock::BLOCK_TYPE_LIST ?>', product_id);
+        });
+    </script>
+<?php endif; ?>

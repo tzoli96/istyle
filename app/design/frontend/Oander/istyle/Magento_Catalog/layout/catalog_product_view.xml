@@ -6,9 +6,6 @@
  */
 -->
 <page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <head>
-        <!--<remove src="Oander_WarehouseManager::css/warehouse-product.css" />-->
-    </head>
     <body>
         <referenceContainer name="product.view.top" htmlClass="product-view-top">
             <container name="product.view.top.row" htmlTag="div" htmlClass="row" before="-">
@@ -23,6 +20,8 @@
         <referenceContainer name="product.info.media" htmlClass="product product-media" />
         <referenceContainer name="product.info.main" htmlClass="product-info-main" />
 
+
+        <!-- Moves -->
         <move element="product.info.media" destination="product.view.top.left" before="-" />
         <move element="product.info.main" destination="product.view.top.center" before="-" />
 
@@ -34,8 +33,11 @@
         <move element="view.addto.warehouse.btn" destination="product.info.right" after="product.essential.bottom" />
         <move element="view.warehouse" destination="product.info.right" after="view.warehouse" />
 
+
+        <!-- Removes -->
         <referenceContainer name="breadcrumbs" remove="true" />
         <referenceContainer name="product.info.type" remove="true" />
         <referenceContainer name="social.box" remove="true" />
+
     </body>
 </page>

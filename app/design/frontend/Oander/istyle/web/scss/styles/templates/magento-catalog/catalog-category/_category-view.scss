@@ -16,56 +16,6 @@
   margin: 0;
 
   .product-item-info {
-    .price-box {
-      display: block;
-      position: relative;
-      margin-bottom: 8px;
-      color: $brand-secondary;
-    }
-    .price-box {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-      align-items: center;
-
-      .price-final_price {
-        font-size: 1.1428rem;
-        font-weight: 500;
-      }
-
-      .old-price {
-        display: block;
-        line-height: 1em;
-        padding: 0;
-
-        .price {
-          font-size: 0.75em;
-
-        }
-      }
-    }
-
-    .actions-primary {
-      .action.tocart {}
-    }
-    .actions-secondary {
-      .action.towishlist {
-        padding: 10px;
-      }
-    }
-    .product-item-actions {
-      position: relative;
-    }
-    .product-item-inner {
-      padding: 5px 0;
-    }
-
-    // Hide unused elements
-    .product-reviews-summary,
-    .action.tocompare {
-      display: none;
-    }
-
     .swatch-option {
       $size: 18px;
 
@@ -121,3 +71,4 @@
 @include media-breakpoint-up(xl) {
 
 }
+

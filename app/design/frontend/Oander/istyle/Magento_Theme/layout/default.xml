@@ -6,6 +6,11 @@
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <head>
+        <remove src="Oander_WarehouseManager::css/warehouse-product.css" />
+    </head>
+
     <body>
 
         <referenceContainer name="header-wrapper" htmlClass="d-flex container page-header-wrapper">
@@ -73,15 +78,15 @@
             <referenceContainer name="footer.bottom.right" htmlTag="div" htmlClass="footer-bottom-right col-lg-8 col-xl-7 clearfix" />
         </referenceContainer>
 
-        <!-- Remove elements -->
-        <referenceContainer name="header.panel.wrapper" remove="true" />
-        <referenceContainer name="footer_links" remove="true" />
-
         <!-- Move elements -->
         <move element="navigation.sections" destination="header-wrapper" after="logo" />
         <move element="minicart" destination="page-header-right" after="-" />
         <move element="top.search" destination="page-header-right" before="header-account" />
         <move element="breadcrumbs" destination="page-main-top-wrapper" before="-" />
+
+        <!-- Remove elements -->
+        <referenceContainer name="header.panel.wrapper" remove="true" />
+        <referenceContainer name="footer_links" remove="true" />
 
     </body>
 </page>

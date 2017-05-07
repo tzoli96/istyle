@@ -1,0 +1,20 @@
+.product-item {
+  .price-box {
+    display: block;
+    position: relative;
+    margin-bottom: 2rem;
+    color: $brand-secondary;
+  }
+  .price-box {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+
+    .old-price {
+      font-weight: 400;
+      font-size: 13px;
+    }
+  }
+}

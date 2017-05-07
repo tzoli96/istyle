@@ -1,0 +1,36 @@
+<?php
+/**
+ * Oander_WarehouseManager
+ *
+ * @author  Tamas Vegvari <tamas.vegvari@oander.hu>
+ * @license Oander Media Kft. (http://www.oander.hu)
+ */
+?>
+<?php /** @var $this \Oander\WarehouseManager\Block\Product\WarehouseItem */ ?>
+<?php $warehouseList = $this->getWarehouseItem() ?>
+
+<?php if($warehouseList->getSize() > 0): ?>
+    <?php /** @var $warehouseItem \Oander\WarehouseManager\Model\WarehouseItem \Oander\WarehouseManager\Model\Warehouse */ ?>
+    <?php foreach ($warehouseList as $warehouseItem) : ?>
+        <tr>
+            <td class="cell-store-name"><?php echo $warehouseItem->getWarehouseName()?></td>
+            <?php if ($warehouseItem->getQuantity() > 0) :?>
+                <td class="">
+                    <span class="warehouse-stock in-stock"></span>
+                </td>
+                <td class="stock-noti"><?php /* @escapeNotVerified */ echo __('In Stock') ?></td>
+            <?php else: ?>
+                <td>
+                    <span class="warehouse-stock out-of-stock"></span>
+                </td>
+                <td class="stock-noti"><?php /* @escapeNotVerified */ echo __('Out of Stock') ?></td>
+            <?php endif; ?>
+            <?php if ($warehouseItem->getNavigationUrl()): ?>
+                <td class="stock-direction-icon">&#9992;</td>
+                <td class="stock-direction">
+                    <a href="<?php echo $warehouseItem->getNavigationUrl() ?>" name="directions"><?php /* @escapeNotVerified */ echo __('directions') ?></a>
+                </td>
+            <?php endif; ?>
+        </tr>
+    <?php endforeach; ?>
+<?php endif; ?>

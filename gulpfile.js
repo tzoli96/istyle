@@ -1,22 +1,34 @@
 var gulp = require('gulp'),
   plumber = require('gulp-plumber'),
   sass = require('gulp-sass'),
-  notify = require('gulp-notify'),
-  sourcemaps = require('gulp-sourcemaps'),
   sassLint = require('gulp-sass-lint'),
   autoPrefixer  = require('gulp-autoprefixer'),
   gulpif = require('gulp-if'),
+  browserSync = require('browser-sync'),
+  notify = require('gulp-notify'),
+  sourcemaps = require('gulp-sourcemaps'),
   argv = require('yargs').argv;
 
 var dist = 'app/design/frontend/Oander/istyle/web/';
 var distCss = dist + 'css/';
-
-// Path array
 var paths = {
   scss : [
     dist + 'scss/**/*.scss'
   ]
 };
+
+/**
+ * Tasks
+ */
+gulp.task('browser-sync', function() {
+  browserSync({
+    proxy: 'http://istylem2.tld'
+  });
+});
+
+gulp.task('bs-reload', function () {
+  browserSync.reload();
+});
 
 gulp.task('sass-lint', function () {
   return gulp.src(paths.scss)
@@ -38,7 +50,7 @@ gulp.task('sass-lint', function () {
 });
 
 gulp.task('sass', function() {
-
+  
   var outputStyle = (argv.dev) ? 'expanded' : 'compressed';
 
   return gulp.src(paths.scss)
@@ -63,11 +75,14 @@ gulp.task('sass', function() {
       ]
     }))
     .pipe(gulpif(argv.dev, sourcemaps.write('./')))
-    .pipe(gulp.dest(distCss));
+    .pipe(gulp.dest(distCss))
+    .pipe(gulpif(argv.dev, browserSync.reload({
+      stream: true
+    })));
 });
 
 gulp.task('watch', function() {
   gulp.watch(paths.scss, ['sass']);
 });
 
-gulp.task('default', ['sass', 'watch']);
+gulp.task('default', ['sass', 'browser-sync', 'watch']);

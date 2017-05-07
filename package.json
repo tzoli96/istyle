@@ -12,6 +12,7 @@
   },
   "homepage": "https://github.com/oandermedia/project-istyle-M2#readme",
   "devDependencies": {
+    "browser-sync": "^2.18.8",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-if": "^2.0.2",

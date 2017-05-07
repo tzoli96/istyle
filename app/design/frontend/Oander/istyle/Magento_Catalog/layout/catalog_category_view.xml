@@ -12,7 +12,13 @@
             <block class="Magento\Catalog\Block\Product\ListProduct" name="toolbar-top" template="Magento_Catalog::product/list/toolbar/toolbar-top.phtml" after="-" />
         </referenceContainer>
 
+
+        <!-- Moves -->
         <move element="category.view.container" destination="page-main-top" before="toolbar-top" />
 
+
+        <!-- Removes -->
+        <referenceBlock name="category.product.addto.compare" remove="true" />
+        <referenceBlock name="category.product.addto.wishlist" remove="true" />
     </body>
 </page>

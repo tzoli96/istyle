@@ -72,8 +72,8 @@
                 <height>700</height>
             </image>
             <image id="product_page_image_small" type="thumbnail">
-                <width>90</width>
-                <height>90</height>
+                <width>60</width>
+                <height>60</height>
             </image>
             <image id="product_page_main_image" type="image">
                 <width>700</width>

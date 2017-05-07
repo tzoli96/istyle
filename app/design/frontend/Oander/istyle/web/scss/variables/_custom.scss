@@ -22,10 +22,10 @@ $gray-lightest: #fafafa;
 
 $brand-primary: #007aff;
 $brand-secondary: #e21937;
-$brand-success: #10ad00;
+$brand-success: #36ba5c;
 $brand-info: #5bc0de;
 $brand-warning: #f0ad4e;
-$brand-danger: #d9534f;
+$brand-danger: $brand-secondary;
 $brand-inverse: $gray-darker;
 
 $brand-selected-bg: $brand-primary;
