@@ -69,7 +69,6 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                             </a>
                             <?php /* @escapeNotVerified */ echo $block->getProductPrice($_product) ?>
                             <?php echo $block->getProductDetailsHtml($_product); ?>
-
                             <div class="product-item-inner">
                                 <div class="product actions product-item-actions"<?php echo strpos($pos, $viewMode . '-actions') ? $position : ''; ?>>
                                     <div class="actions-primary"<?php echo strpos($pos, $viewMode . '-primary') ? $position : ''; ?>>

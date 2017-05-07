@@ -8,6 +8,9 @@
     font-weight: 500;
     color: $brand-secondary;
 
+    .minimal-price {
+      margin: 0;
+    }
     .old-price {
       font-weight: 400;
       font-size: 13px;
