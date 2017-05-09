@@ -131,6 +131,7 @@ return array (
     'Oander_CategoryBadge' => 1,
     'Oander_CategoryDropdown' => 1,
     'Oander_Checkout' => 1,
+    'Oander_CookieLaw' => 1,
     'Oander_CoreBugFix' => 1,
     'Oander_CurrencyManager' => 1,
     'Oander_CustomerFileUpload' => 1,

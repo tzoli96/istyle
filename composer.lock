@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b633b85b172a145603d5abbc28d630af",
+    "content-hash": "739290ad84978b0b8ec91842fdbf295f",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6354,6 +6354,43 @@
             "time": "2017-04-11T09:25:36+00:00"
         },
         {
+            "name": "oander/module-cookie-law",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-cookie-law.git",
+                "reference": "cd26cc20ad484a24226fba3f8973a6f6ff688901"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-cookie-law/zipball/cd26cc20ad484a24226fba3f8973a6f6ff688901",
+                "reference": "cd26cc20ad484a24226fba3f8973a6f6ff688901",
+                "shasum": ""
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\CookieLaw\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Cookie Law",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-cookie-law/tree/0.0.1",
+                "issues": "https://github.com/oandermedia/oander-cookie-law/issues"
+            },
+            "time": "2017-05-05T11:08:21+00:00"
+        },
+        {
             "name": "oander/module-core-bug-fix",
             "version": "1.0.1",
             "source": {
@@ -7215,16 +7252,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "ab8028c93c03cc8d9c824efa75dc94f1db2369bf"
+                "reference": "f8dd0e18d2328c447dd4190fecd11ef52680d968"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/ab8028c93c03cc8d9c824efa75dc94f1db2369bf",
-                "reference": "ab8028c93c03cc8d9c824efa75dc94f1db2369bf",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/f8dd0e18d2328c447dd4190fecd11ef52680d968",
+                "reference": "f8dd0e18d2328c447dd4190fecd11ef52680d968",
                 "shasum": ""
             },
             "require": {
@@ -7303,7 +7340,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2016-10-04T00:57:04+00:00"
+            "time": "2017-05-08T05:58:35+00:00"
         },
         {
             "name": "psr/log",

@@ -36,6 +36,7 @@
         "oander/module-category-badge": "2.2.0",
         "oander/module-category-dropdown": "1.0.4",
         "oander/module-checkout": "1.0.0",
+        "oander/module-cookie-law": "0.*",
         "oander/module-core-bug-fix": "1.0.1",
         "oander/module-currency-manager": "1.1.0",
         "oander/module-customer-file-upload": "1.0.4",
@@ -123,6 +124,10 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/oander-checkout.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-cookie-law.git"
         },
         {
             "type": "vcs",
