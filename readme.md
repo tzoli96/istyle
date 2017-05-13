@@ -19,4 +19,4 @@ A projekthez be lett állítva **sass-lint**. Ezzel egységesen (konfigurációs
     2. Path to sass-lint bin (betallózni!): `{PROJECT-ROOT}/node_modules/sass-lint/bin/sass-lint.js`
     3. Use specific config file (betallózni!): `{PROJECT-ROOT}/.sass-lint.yml`
  
- Angol nyelvű dev dokumentáció: /usr/bin/node
+ Angol nyelvű dev dokumentáció: https://github.com/idok/sass-lint-plugin
