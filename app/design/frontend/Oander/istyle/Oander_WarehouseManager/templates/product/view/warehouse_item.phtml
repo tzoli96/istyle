@@ -15,15 +15,15 @@
         <tr>
             <td class="cell-store-name"><?php echo $warehouseItem->getWarehouseName()?></td>
             <?php if ($warehouseItem->getQuantity() > 0) :?>
-                <td class="">
+                <td>
                     <span class="warehouse-stock in-stock"></span>
+                    <span class="stock-text"><?php /* @escapeNotVerified */ echo __('In Stock') ?></span>
                 </td>
-                <td class="stock-noti"><?php /* @escapeNotVerified */ echo __('In Stock') ?></td>
             <?php else: ?>
                 <td>
                     <span class="warehouse-stock out-of-stock"></span>
+                    <span class="stock-text"><?php /* @escapeNotVerified */ echo __('Out of Stock') ?></span>
                 </td>
-                <td class="stock-noti"><?php /* @escapeNotVerified */ echo __('Out of Stock') ?></td>
             <?php endif; ?>
             <?php if ($warehouseItem->getNavigationUrl()): ?>
                 <td class="stock-direction-icon">&#9992;</td>

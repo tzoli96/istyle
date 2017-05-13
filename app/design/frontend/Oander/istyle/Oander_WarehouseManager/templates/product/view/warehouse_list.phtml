@@ -1,0 +1,21 @@
+<?php
+/**
+ * Oander_WarehouseManager
+ *
+ * @author  Tamas Vegvari <tamas.vegvari@oander.hu>
+ * @license Oander Media Kft. (http://www.oander.hu)
+ */
+?>
+<?php /** @var $this \Oander\WarehouseManager\Block\Warehouse */ ?>
+<div class="warehouse-info text-right">
+    <input name="warehouse-stock-list-url" type="hidden" value="<?php echo $this->getAjaxWarehouseStockListUrl() ?>"/>
+    <div class="warehouse-close-btn mb-4">X</div>
+    <table class="text-left stock-table table table-striped">
+    </table>
+</div>
+
+<script type="text/javascript">
+    require(['jquery', 'oanderWarehouseView'],function($, oanderWarehouseView) {
+
+    });
+</script>

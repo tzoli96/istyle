@@ -1,3 +1,15 @@
+.tab-label-reviews-title {
+  .counter {
+    &::before {
+      content: '(';
+    }
+
+    &::after {
+      content: ')';
+    }
+  }
+}
+
 // Accordion - mobile
 @include media-breakpoint-down(sm) {
   .data.items {
@@ -20,10 +32,6 @@
         border-bottom: 1px solid #eee;
         color: #000;
         text-decoration: none;
-      }
-      &:not(.disabled) > .switch:focus,
-      &:not(.disabled) > .switch:hover {
-        // add style
       }
       &:not(.disabled) > .switch:active,
       &.active > .switch,

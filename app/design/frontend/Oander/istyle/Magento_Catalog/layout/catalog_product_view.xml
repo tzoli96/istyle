@@ -25,7 +25,7 @@
         <move element="product.info.main" destination="product.view.top.center" before="-" />
 
         <move element="product.info.price" destination="product.info.right" before="-" />
-        <move element="product.essential.bottom" destination="product.info.right" after="product.info.price" />
+        <move element="product.info.social" destination="product.info.right" after="product.info.price" />
         <move element="product.info.sku" destination="product.info.main" after="page.main.title" />
 
         <!-- Warehouse Manager moves-->

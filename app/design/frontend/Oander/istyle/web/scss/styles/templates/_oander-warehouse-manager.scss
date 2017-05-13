@@ -1,50 +1,85 @@
-.warehouse-info-block {
-  background-color: $gray-lightest;
-  padding: 10px;
-  margin: 5px;
-}
 .warehouse-stock {
   $size: 10px;
 
   display: inline-block;
-  height: $size;
   width: $size;
+  height: $size;
   margin: 0 5px;
-  vertical-align: middle;
   border-radius: $size;
+  vertical-align: middle;
 
   &.out-of-stock {
     background-color: $brand-danger;
   }
+
   &.in-stock {
     background-color: $brand-success;
   }
+
   &.external-stock {
     background-color: #ffed3e;
   }
 }
+
+.stock-status {
+  &.out-of-stock {
+    color: $brand-danger;
+  }
+
+  &.in-stock {
+    color: $brand-success;
+  }
+
+  &.external-stock {
+    color: #ffed3e;
+  }
+}
+
 .warehouse-info {
   display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
   width: 600px;
   min-height: 300px;
   max-height: 70%;
   padding: 30px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9999;
+  border: 1px solid #5a5a5a;
+  border-radius: $border-radius;
   background: #fff;
-  box-shadow: 0 0 10px 0 rgba(#000, 0.3);
-  -webkit-backface-visibility: hidden;
+  z-index: 9999;
   backface-visibility: hidden;
+
+  .product-info-right & {
+    position: absolute;
+    top: calc(100% - 5px);
+    right: 0;
+    left: auto;
+    transform: none;
+  }
 }
 .warehouse-info-head {
   text-align: right;
 }
+
 .warehouse-open-btn {
+  background: #5a5a5a;
+  color: #fff;
+  cursor: pointer;
+
+  .product-info-right & {
+    margin: 20px -30px -30px;
+    padding: 20px 30px;
+    border-radius: 0 0 $border-radius $border-radius;
+  }
+}
+
+.warehouse-close-btn {
+  display: inline;
   cursor: pointer;
 }
+
 .warehouse-stock-table {
   margin: 0;
 }

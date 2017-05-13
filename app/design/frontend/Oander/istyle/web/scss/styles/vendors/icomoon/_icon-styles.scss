@@ -1,11 +1,12 @@
+
 @font-face {
   font-family: 'icomoon';
-  src:  url('#{$icomoon-font-path}/icomoon.eot?uh3ivb');
-  src:  url('#{$icomoon-font-path}/icomoon.eot?uh3ivb#iefix') format('embedded-opentype'),
-  url('#{$icomoon-font-path}/icomoon.woff2?uh3ivb') format('woff2'),
-  url('#{$icomoon-font-path}/icomoon.ttf?uh3ivb') format('truetype'),
-  url('#{$icomoon-font-path}/icomoon.woff?uh3ivb') format('woff'),
-  url('#{$icomoon-font-path}/icomoon.svg?uh3ivb#icomoon') format('svg');
+  src:  url('#{$icomoon-font-path}/icomoon.eot?kt2vci');
+  src:  url('#{$icomoon-font-path}/icomoon.eot?kt2vci#iefix') format('embedded-opentype'),
+  url('#{$icomoon-font-path}/icomoon.woff2?kt2vci') format('woff2'),
+  url('#{$icomoon-font-path}/icomoon.ttf?kt2vci') format('truetype'),
+  url('#{$icomoon-font-path}/icomoon.woff?kt2vci') format('woff'),
+  url('#{$icomoon-font-path}/icomoon.svg?kt2vci#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -25,24 +26,44 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-globe {
+.icon-arrow-down {
   &:before {
-    content: $icon-globe;
+    content: $icon-arrow-down;
   }
 }
-.icon-instagram {
+.icon-arrow-left {
   &:before {
-    content: $icon-instagram;
+    content: $icon-arrow-left;
   }
 }
-.icon-twitter {
+.icon-arrow-right {
   &:before {
-    content: $icon-twitter;
+    content: $icon-arrow-right;
   }
 }
-.icon-youtube {
+.icon-arrow-up {
   &:before {
-    content: $icon-youtube;
+    content: $icon-arrow-up;
+  }
+}
+.icon-box-check {
+  &:before {
+    content: $icon-box-check;
+  }
+}
+.icon-car {
+  &:before {
+    content: $icon-car;
+  }
+}
+.icon-cart {
+  &:before {
+    content: $icon-cart;
+  }
+}
+.icon-check {
+  &:before {
+    content: $icon-check;
   }
 }
 .icon-chevron-down {
@@ -65,41 +86,6 @@
     content: $icon-chevron-up;
   }
 }
-.icon-arrow-down {
-  &:before {
-    content: $icon-arrow-down;
-  }
-}
-.icon-arrow-left {
-  &:before {
-    content: $icon-arrow-left;
-  }
-}
-.icon-arrow-right {
-  &:before {
-    content: $icon-arrow-right;
-  }
-}
-.icon-arrow-up {
-  &:before {
-    content: $icon-arrow-up;
-  }
-}
-.icon-car {
-  &:before {
-    content: $icon-car;
-  }
-}
-.icon-cart {
-  &:before {
-    content: $icon-cart;
-  }
-}
-.icon-check {
-  &:before {
-    content: $icon-check;
-  }
-}
 .icon-clock-full {
   &:before {
     content: $icon-clock-full;
@@ -113,6 +99,11 @@
 .icon-close-circle {
   &:before {
     content: $icon-close-circle;
+  }
+}
+.icon-coin {
+  &:before {
+    content: $icon-coin;
   }
 }
 .icon-edit {
@@ -130,9 +121,24 @@
     content: $icon-facebook;
   }
 }
+.icon-globe {
+  &:before {
+    content: $icon-globe;
+  }
+}
 .icon-heart {
   &:before {
     content: $icon-heart;
+  }
+}
+.icon-heart-full {
+  &:before {
+    content: $icon-heart-full;
+  }
+}
+.icon-instagram {
+  &:before {
+    content: $icon-instagram;
   }
 }
 .icon-marker {
@@ -153,6 +159,11 @@
 .icon-question-circle {
   &:before {
     content: $icon-question-circle;
+  }
+}
+.icon-recycle {
+  &:before {
+    content: $icon-recycle;
   }
 }
 .icon-remove {
@@ -200,8 +211,18 @@
     content: $icon-truck;
   }
 }
+.icon-twitter {
+  &:before {
+    content: $icon-twitter;
+  }
+}
 .icon-user {
   &:before {
     content: $icon-user;
+  }
+}
+.icon-youtube {
+  &:before {
+    content: $icon-youtube;
   }
 }

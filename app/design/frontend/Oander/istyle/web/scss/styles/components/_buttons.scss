@@ -1,7 +1,7 @@
 .btn,
 .action {
   text-transform: uppercase;
-  box-shadow: none !important; // temp solution
+  box-shadow: none !important; // temp solution - bootstrap bug
 
   &.has-icon {
     .icon {
@@ -10,6 +10,7 @@
     }
   }
 }
+
 .action {
   @extend .btn;
 
@@ -17,26 +18,19 @@
   &.primary:not(.showcart):not(.viewcart):not(.wishlist):not(.apply):not(.cancel):not(.subscribe) {
     @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
   }
+
   &.apply,
   &.secondary,
   &.subscribe {
     @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
   }
+
   &.towishlist {
-    @include button-variant($gray-dark, transparent, transparent);
+    @include button-variant($brand-secondary, transparent, transparent);
 
     &:hover {
       .icon-heart {
         color: $brand-primary;
-      }
-    }
-    &.product-view {
-      color: #7f7f7f;
-
-      &:hover {
-        .icon-heart {
-          color: #7f7f7f;
-        }
       }
     }
 
@@ -44,6 +38,7 @@
       font-size: 14px;
     }
   }
+
   &.wishlist {
     @include button-outline-variant($btn-primary-bg);
 
@@ -51,15 +46,19 @@
       color: #000;
     }
   }
+
   &.viewcart {
     @include button-outline-variant($btn-primary-bg);
   }
+
   &.showcart {
     border: 0;
   }
+
   &.checkout {
     font-weight: $font-weight-medium;
   }
+
   &.back {
     color: $gray-darker;
   }
@@ -68,4 +67,3 @@
 .btn-outline-dark {
   @include button-outline-variant($btn-dark-border);
 }
-@include media-breakpoint-up(lg) {  }

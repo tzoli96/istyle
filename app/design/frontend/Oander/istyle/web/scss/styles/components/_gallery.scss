@@ -1,10 +1,11 @@
 .product-image-container {
   &,
   .product-image-photo {
-    height: auto;
     max-width: 100%;
+    height: auto;
   }
 }
+
 .product-gallery {
   $gallery-size: 430px;
   position: relative;
@@ -13,75 +14,78 @@
     .product-image {
       height: $gallery-size;
     }
+
     .loader {
       display: block;
     }
   }
+
   .loader {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
     display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
+
   .product-image {
-    border: 1px solid #f2f2f2;
     margin-bottom: 20px;
 
     .image-box {
       display: block;
-      height: $gallery-size;
-      width: 100%;
       position: relative;
+      width: 100%;
+      height: $gallery-size;
 
       img {
         position: absolute;
-        max-width: 100%;
-        max-height: 100%;
         top: 50%;
         left: 50%;
+        max-width: 100%;
+        max-height: 100%;
         transform: translate(-50%, -50%);
-
       }
     }
   }
+
   .product-carousel {
     .item {
-      cursor: pointer;
       text-align: center;
+      cursor: pointer;
     }
+
     .slick-current {
       img {
         border-color: #ddd;
       }
     }
+
     .slick-arrow {
       width: 40px;
       height: 100%;
-      background: rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, .6);
 
       &.slick-prev {
         .icon {
           left: 8px;
         }
       }
+
       &.slick-next {
         .icon {
           right: 8px;
         }
       }
+
       .icon {
-        font-size: 24px;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+        font-size: 24px;
       }
     }
-    img {
-      border: 1px solid #f2f2f2;
-      display: inline;
-    }
   }
+
   .slick-arrow {
     position: absolute;
     top: 50%;
@@ -91,12 +95,14 @@
     &.slick-prev {
       left: 0;
     }
+
     &.slick-next {
       right: 0;
     }
+
     .icon {
-      font-size: 36px;
       color: #999;
+      font-size: 36px;
     }
   }
 }
