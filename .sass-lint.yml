@@ -1,0 +1,34 @@
+files:
+  ignore:
+   - 'app/design/frontend/Oander/istyle/web/vendor/**/*.scss'
+   - 'pub/**/*.scss'
+
+# Rule Configuration
+rules:
+
+  # Disable nesting validation
+  nesting-depth:
+  - 0
+
+  # Disable 'force variable using to colors'
+  no-color-literals:
+  - 0
+
+  property-sort-order:
+  - 1
+  - order: smacss
+
+  force-attribute-nesting:
+  - 0
+
+  force-element-nesting:
+  - 0
+
+  force-pseudo-nesting:
+  - 0
+
+  no-qualifying-elements:
+    - 1
+    - allow-element-with-attribute: true
+      allow-element-with-class: true
+      allow-element-with-id: true

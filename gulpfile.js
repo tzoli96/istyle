@@ -32,21 +32,11 @@ gulp.task('bs-reload', function () {
 
 gulp.task('sass-lint', function () {
   return gulp.src(paths.scss)
-    .pipe(sassLint(
-      {
-        options: {
-        },
-        rules: {
-          'property-sort-order': 0,
-          'nesting-depth': 0,
-          'empty-line-between-blocks': 0,
-          'pseudo-element': 0,
-          'force-element-nesting': 0
-        }
-      }
-    ))
+    .pipe(sassLint({
+      configFile: '.sass-lint.yml'
+    }))
     .pipe(sassLint.format())
-    .pipe(sassLint.failOnError())
+    .pipe(sassLint.failOnError());
 });
 
 gulp.task('sass', function() {
