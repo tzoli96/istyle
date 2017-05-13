@@ -21,7 +21,7 @@ $color-list: (
 
     & + .color-name {
       .color-code {
-        &:before {
+        &::before {
           content: '#{$value}';
         }
       }
