@@ -3,7 +3,7 @@
 // These variables override bootstrap core variables
 
 // Imports
-@import url('https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i&subset=latin-ext');
+@import url('http://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i&subset=latin-ext');
 
 // Variables
 $icon-font-family: 'icomoon';
@@ -97,7 +97,7 @@ $font-family-sans-serif: 'Rubik', sans-serif;
 $font-size-root: 14px;
 
 $font-size-base: 1rem;
-$font-size-lg: 1.25rem;
+$font-size-lg: 1.15rem;
 $font-size-sm: .875rem;
 $font-size-xs: .75rem;
 
@@ -106,9 +106,9 @@ $line-height-base: 1.5;
 $font-size-h1: 1.571428571rem;
 $font-size-h2: 1.142857143rem;
 $font-size-h3: 1rem;
-$font-size-h4: 0.9rem;
-$font-size-h5: 0.8rem;
-$font-size-h6: 0.75rem;
+$font-size-h4: .9rem;
+$font-size-h5: .8rem;
+$font-size-h6: .75rem;
 
 $font-size-lg-h1: 2rem;
 $font-size-lg-h2: 1.285714286rem;
@@ -127,8 +127,8 @@ $headings-font-weight: $font-weight-normal;
 
 // Components
 $border-radius: 4px;
-$border-radius-lg: 0;
-$border-radius-sm: 0;
+$border-radius-lg: 4px;
+$border-radius-sm: 4px;
 
 
 // Tables

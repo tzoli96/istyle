@@ -1,7 +1,66 @@
 .product-info-price {
+  .regular-price,
   .special-price {
-    display: block;
     color: $brand-secondary;
     font-size: 28px;
   }
+}
+
+
+
+.price-label {
+  display: none;
+}
+.old-price,
+.old.price {
+  color: #a0a0a0;
+  text-decoration: line-through;
+}
+.prices-tier {
+  margin: 10px 0;
+  padding: 10px (.75 * 20px);
+  background: $gray-lightest;
+
+
+  .price-including-tax,
+  .price-excluding-tax,
+  .weee {
+    display: inline-block;
+
+    .price {
+      font-size: 14px;
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  .price-container {
+    display: inline-block;
+
+    .price-including-tax {
+      + .price-excluding-tax {
+        &::before {
+          content: '(' attr(data-label) ': ';
+        }
+
+        &:last-child::after {
+          content: ')';
+        }
+      }
+    }
+
+    .weee[data-label] {
+      display: inline;
+
+      .price {
+        font-size: 11px;
+      }
+
+      &::before {
+        content: ' +' attr(data-label) ': ';
+      }
+    }
+  }
+}
+.actual-price {
+  font-weight: $font-weight-bold;
 }

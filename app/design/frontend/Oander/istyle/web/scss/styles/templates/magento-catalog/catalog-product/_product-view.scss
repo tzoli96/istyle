@@ -17,15 +17,6 @@
     border-radius: $border-radius;
   }
 
-  .page-title {
-    line-height: 1.3em;
-  }
-
-  .product-info-price {
-    padding-bottom: 20px;
-    border-bottom: 1px solid $body-bg;
-  }
-
   .product-options-wrapper {
     > .fieldset {
       > .field {
@@ -93,77 +84,7 @@
     }
   }
 }
-.price-label {
-  display: none;
-}
-.old-price,
-.old.price {
-  color: #a0a0a0;
-  text-decoration: line-through;
-}
-.prices-tier {
-  margin: 10px 0;
-  padding: 10px (.75 * 20px);
-  background: $gray-lightest;
 
-  @extend .abs-reset-list;
-
-  .price-including-tax,
-  .price-excluding-tax,
-  .weee {
-    display: inline-block;
-
-    .price {
-      font-size: 14px;
-      font-weight: $font-weight-bold;
-    }
-  }
-
-  .price-container {
-    display: inline-block;
-
-    .price-including-tax {
-      + .price-excluding-tax {
-        &::before {
-          content: '(' attr(data-label) ': ';
-        }
-
-        &:last-child::after {
-          content: ')';
-        }
-      }
-    }
-
-    .weee[data-label] {
-      display: inline;
-
-      .price {
-        font-size: 11px;
-      }
-
-      &:before {
-        content: ' +' attr(data-label) ': ';
-      }
-    }
-  }
-}
-.actual-price {
-  font-weight: $font-weight-bold;
-}
-.category {
-  &-image {
-    .image {
-      display: block;
-      height: auto;
-      max-width: 100%;
-    }
-  }
-
-  &-image,
-  &-description {
-    margin-bottom: 20px;
-  }
-}
 .product.info {
   .product.description {
     blockquote {
@@ -198,6 +119,7 @@
       color: $brand-danger;
     }
   }
+
   .product {
     &.attribute {
       &.sku {
@@ -228,6 +150,7 @@
       margin: 10px 0;
     }
   }
+
   .table-wrapper.grouped {
     .price-box {
       float: none;
@@ -237,25 +160,13 @@
       margin-top: 10px;
     }
   }
-  .price-box {
-    float: left;
-    margin-top: 10px;
-
-    > span {
-      display: inline-block;
-    }
-  }
-  .product-reviews-summary {
-    display: none;
-  }
-  .product-reviews-summary .reviews-actions {
-    font-size: $font-size-base;
-  }
 }
+
 .product-info-stock-sku {
   float: right;
   text-align: right;
 }
+
 .product-options-wrapper {
   .fieldset-product-options-inner {
     .legend {
@@ -287,76 +198,7 @@
     }
   }
 }
-.product-info-main,
-.product-options-bottom {
-  .price-box {
-    .price-including-tax + .price-excluding-tax,
-    .weee + .price-excluding-tax,
-    .weee {
-      font-size: 12px;
-      line-height: 14px;
-      margin-bottom: 5px;
 
-      .price {
-        font-size: 12px;
-        font-weight: $font-weight-bold;
-      }
-    }
-    .price-wrapper {
-      .price {
-        font-size: 26px;
-        font-weight: $font-weight-bold;
-      }
-    }
-    .price {
-      white-space: nowrap;
-    }
-  }
-  .special-price {
-    display: block;
-    margin: 10px 0;
-
-    .price-label + .price-wrapper {
-      display: inline-block;
-    }
-  }
-  .old-price,
-  .special-price {
-
-    .price-label {
-      &:after {
-        content: ': ';
-      }
-    }
-  }
-  .old-price {
-    .price-wrapper {
-      .price {
-        font-weight: 300;
-        font-size: 18px;
-      }
-    }
-  }
-
-  .box-tocart {
-    margin: 20px 0;
-
-    .field.qty {
-      padding-right: 0.75 * 20px;
-      width: 75px;
-      float: left;
-    }
-    .actions {
-      text-align: center;
-      overflow: hidden;
-
-      .btn {
-        display: block;
-        width: 100%;
-      }
-    }
-  }
-}
 .block.related {
   .action.select {
     margin: 0 5px;
@@ -368,67 +210,24 @@
   .product-info-main {
     padding: 0;
   }
-  .catalog-product-view {
-    .column.main {
-      display: flex;
-      flex-direction: column;
-    }
-    .product.product-media {
-      order: -1;
-    }
-  }
+
   .block.related {
     .action.select {
       display: block;
       margin: 5px 0;
     }
   }
+
   .compare,
   .product-addto-links .action.tocompare,
   .product-item-actions .actions-secondary > .action.tocompare,
   [class*='block-compare'] {
-    display: none;
+    //display: none;
   }
 }
 
 @include media-breakpoint-up(md) {
-  .product.info {
-    .product.description {
-      blockquote {
-        padding-left: 80px;
-        background-size: 40px auto;
-      }
-    }
-  }
+
 }
 @include media-breakpoint-up(lg) {
-  .product-info-main,
-  .product-options-bottom {
-    .price-box {
-      .price-wrapper {
-        .price {
-          font-size: 30px;
-        }
-      }
-    }
-    .old-price {
-      .price-wrapper {
-        .price {
-          font-size: 20px;
-        }
-      }
-    }
-    .box-tocart {
-      .field.qty {
-        display: table-cell;
-        float: none;
-      }
-
-      .actions {
-        display: table-cell;
-        vertical-align: bottom;
-        overflow: visible;
-      }
-    }
-  }
 }

@@ -36,6 +36,7 @@
         <referenceContainer name="breadcrumbs" remove="true" />
         <referenceContainer name="product.info.type" remove="true" />
         <referenceContainer name="social.box" remove="true" />
+        <referenceContainer name="product.info.review" remove="true" />
 
     </body>
 </page>

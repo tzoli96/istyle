@@ -2,6 +2,7 @@
 .action {
   text-transform: uppercase;
   box-shadow: none !important; // temp solution - bootstrap bug
+  font-weight: 500;
 
   &.has-icon {
     .icon {
