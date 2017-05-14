@@ -15,10 +15,12 @@ $algolia-width-xl-width: 840px;
 // Colors
 $gray-darker: #282828;
 $gray-dark: #323232;
-$gray: #55595c;
+$gray: #5a5a5a;
 $gray-light: #818a91;
 $gray-lighter: #eceeef;
 $gray-lightest: #fafafa;
+
+$gray-border: #dcdcdc;
 
 $brand-primary: #007aff;
 $brand-secondary: #e21937;
@@ -140,6 +142,8 @@ $table-border-color: $gray-lighter;
 $btn-padding-x: 2rem;
 $btn-padding-y: .75rem;
 
+$btn-padding-y-lg: 1rem;
+
 $btn-box-shadow: none;
 $btn-active-box-shadow: none;
 $btn-focus-box-shadow: none;
@@ -154,6 +158,8 @@ $btn-dark-border:   $gray-darker;
 // Forms
 $input-padding-y:                .6rem;
 $input-padding-y-sm:             .5rem;
+
+$input-padding-y-lg:             1rem;
 
 $input-border-color:             #b4b4b4;
 $input-box-shadow:               none;

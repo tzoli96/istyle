@@ -11,20 +11,20 @@
 <?php $_product = $block->getProduct(); ?>
 <?php $buttonTitle = __('Add to Cart'); ?>
 <?php if ($_product->isSaleable()): ?>
-    <div class="box-tocart">
-        <div class="fieldset">
+    <div class="box-tocart mb-4">
+        <div class="form-inline">
             <?php if ($block->shouldRenderQuantity()): ?>
-                <div class="field qty">
+                <div class="field qty form-group mr-2">
                     <label class="label hidden-xs-up" for="qty"><span><?php /* @escapeNotVerified */ echo __('Qty') ?></span></label>
                     <div class="control">
                         <input type="number" name="qty" id="qty" min="1"
                                value="<?php /* @escapeNotVerified */ echo $block->getProductDefaultQty() * 1 ?>"
-                               title="<?php /* @escapeNotVerified */ echo __('Qty') ?>" class="input-text qty form-control"
+                               title="<?php /* @escapeNotVerified */ echo __('Qty') ?>" class="input-text qty form-control form-control-lg"
                                data-validate="<?php echo $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>" />
                     </div>
                 </div>
             <?php endif; ?>
-            <div class="actions">
+            <div class="actions form-group">
                 <button type="submit" title="<?php /* @escapeNotVerified */ echo $buttonTitle ?>"
                         class="action primary tocart btn-lg" id="product-addtocart-button">
                     <span><?php /* @escapeNotVerified */ echo $buttonTitle ?></span>

@@ -11,7 +11,7 @@
             <container name="product.view.top.row" htmlTag="div" htmlClass="row" before="-">
                 <container name="product.view.top.left" htmlTag="div" htmlClass="col-md-6 col-lg-4" />
                 <container name="product.view.top.center" htmlTag="div" htmlClass="col-md-6 col-lg-5" />
-                <container name="product.view.top.right" htmlTag="div" htmlClass="col-md-6 col-lg-3">
+                <container name="product.view.top.right" htmlTag="div" htmlClass="col-md-6 offset-md-6 offset-lg-0 col-lg-3">
                     <container name="product.info.right" htmlTag="div" htmlClass="product-info-right" />
                 </container>
             </container>
@@ -31,6 +31,10 @@
         <!-- Warehouse Manager moves-->
         <move element="view.addto.warehouse.btn" destination="product.info.right" after="product.essential.bottom" />
         <move element="view.warehouse" destination="product.info.right" after="view.warehouse" />
+
+        <!-- Product icons -->
+        <move element="view.addto.producticons" destination="product.info.right" after="product.info.social" />
+
 
         <!-- Removes -->
         <referenceContainer name="breadcrumbs" remove="true" />

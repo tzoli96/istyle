@@ -1,42 +1,21 @@
 .oander-product-icons {
-  padding: 20px;
+  .product-icon {
+    padding: 1.5rem 0;
+    border-top: 1px solid $gray-border;
+    color: $gray;
 
-  .col-item {
-    margin-bottom: 20px;
+  }
 
-    a {
-      color: #222;
-      transition: color ease 0.3s;
+  .product-icon-link {
+    transition: color ease .3s;
+    color: $gray;
 
-      &:hover {
-        color: $brand-primary;
-      }
-    }
-    img {
-      width: 30px;
+    &:hover {
+      color: $brand-primary;
     }
   }
-}
 
-@include media-breakpoint-down(sm) {
-  .oander-product-icons {
-    .col-item {
-
-      &:nth-child(2n+1) {
-        clear: left;
-      }
-    }
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .oander-product-icons {
-    padding: 20px 10px 0;
-
-    .col-item {
-      &:nth-child(3n+1) {
-        clear: left;
-      }
-    }
+  .product-icon-image {
+    width: 20px;
   }
 }

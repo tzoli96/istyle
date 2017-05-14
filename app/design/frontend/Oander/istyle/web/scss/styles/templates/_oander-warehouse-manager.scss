@@ -45,41 +45,66 @@
   max-height: 70%;
   padding: 30px;
   transform: translate(-50%, -50%);
-  border: 1px solid #5a5a5a;
+  border: 1px solid $gray;
   border-radius: $border-radius;
   background: #fff;
   z-index: 9999;
   backface-visibility: hidden;
 
-  .product-info-right & {
+  .catalog-product-view  & {
     position: absolute;
     top: calc(100% - 5px);
     right: 0;
     left: auto;
+    width: 480px;
     transform: none;
   }
 }
+
 .warehouse-info-head {
   text-align: right;
 }
 
+.warehouse-info-block {
+  padding: 20px 0 0;
+  border-top: 1px solid $gray-border;
+
+  .media-left {
+    .icon {
+      font-size: 20px;
+    }
+  }
+}
+
 .warehouse-open-btn {
-  background: #5a5a5a;
-  color: #fff;
+  color: $gray;
   cursor: pointer;
 
-  .product-info-right & {
-    margin: 20px -30px -30px;
+  &.active {
+    background: $gray;
+    color: #fff;
+  }
+
+  .catalog-product-view & {
+    margin: 20px -20px -30px;
     padding: 20px 30px;
     border-radius: 0 0 $border-radius $border-radius;
   }
 }
 
 .warehouse-close-btn {
-  display: inline;
+  display: inline-block;
   cursor: pointer;
 }
 
 .warehouse-stock-table {
   margin: 0;
+}
+
+@include media-breakpoint-up(xl) {
+  .warehouse-open-btn {
+    .catalog-product-view & {
+      margin: 20px -30px -30px;
+    }
+  }
 }

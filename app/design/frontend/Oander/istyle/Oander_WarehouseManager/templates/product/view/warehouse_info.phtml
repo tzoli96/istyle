@@ -12,8 +12,15 @@
 <div class="warehouse-stock-info"></div>
 <div class="warehouse-info-block warehouse-open-btn">
     <input name="stock-sum-url" type="hidden" value="<?php echo $this->getAjaxStockSumUrl() ?>"/>
-    <p class="mb-0"><strong><?php /* @escapeNotVerified */ echo __('Where is it in stock?') ?></strong></p>
-    <p class="mb-0"><?php /* @escapeNotVerified */ echo __('Find stores where it is in stock') ?></p>
+    <div class="media">
+        <div class="media-left mr-3 align-self-center">
+            <i class="icon icon-marker mr-2"></i>
+        </div>
+        <div class="media-body align-self-center">
+            <p class="mb-0"><strong><?php /* @escapeNotVerified */ echo __('Where is it in stock?') ?></strong></p>
+            <p class="mb-0"><?php /* @escapeNotVerified */ echo __('Find stores where it is in stock') ?></p>
+        </div>
+    </div>
 </div>
 
 <script type="text/javascript">

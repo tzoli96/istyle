@@ -1,0 +1,30 @@
+<?php
+/**
+ * Oander_ProductIcons
+ *
+ * @author  Tamas Vegvari <tamas.vegvari@oander.hu>
+ * @license Oander Media Kft. (http://www.oander.hu)
+ */
+
+/** @var $this \Oander\ProductIcons\Block\ProductIcons\ */
+/** @var $productIcons \Oander\ProductIcons\Model\ProductIcons */
+?>
+<?php $productIcons = $block->getProductIcons() ?>
+<?php if ($productIcons->getSize() > 0) : ?>
+    <div class="oander-product-icons">
+    <?php foreach ($productIcons as $productIcon) : ?>
+        <div class="product-icon">
+            <?php if ($productIcon->getUrl()): ?><a href="<?php echo $this->getIconUrl($productIcon->getUrl()); ?>" class="product-icon-link"><?php endif; ?>
+                <div class="media">
+                    <?php if ($productIcon->getImageUrl()): ?>
+                        <div class="mr-3 align-self-center">
+                            <img src="<?php echo $productIcon->getImageUrl(); ?>" class="img-fluid mr-2 product-icon-image" />
+                        </div>
+                    <?php endif; ?>
+                    <div class="media-body align-self-center"><?php echo $productIcon->getTitle(); ?></div>
+                </div>
+                <?php if ($productIcon->getUrl()): ?></a><?php endif; ?>
+        </div>
+    <?php endforeach; ?>
+    </div>
+<?php endif; ?>

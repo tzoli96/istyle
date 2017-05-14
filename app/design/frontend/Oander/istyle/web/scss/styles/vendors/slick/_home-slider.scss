@@ -60,7 +60,7 @@
       background: rgba(#f0f0f0, 0.5);
       border-radius: 50px;
       text-align: center;
-      color: #5a5a5a;
+      color: $gray;
     }
     .icon {
       font-size: 18px;
@@ -94,7 +94,7 @@
         height: 2px;
         margin: 0 5px;
         padding: 0;
-        background: #dcdcdc;
+        background: $gray-border;
         display: block;
         text-indent: -9999px;
         transition: background ease 0.3s;

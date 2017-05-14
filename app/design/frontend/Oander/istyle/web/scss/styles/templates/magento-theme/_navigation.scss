@@ -182,7 +182,7 @@
             }
           }
           > a {
-            color: #5a5a5a;
+            color: $gray;
           }
         }
       }
@@ -229,7 +229,7 @@
           position: absolute;
           left: 0;
           top: 50%;
-          background: #5a5a5a;
+          background: $gray;
         }
       }
 
@@ -358,7 +358,7 @@
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: space-around;
-                color: #5a5a5a;
+                color: $gray;
               }
               .widget-title-link {
                 white-space: normal;

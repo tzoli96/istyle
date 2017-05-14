@@ -2,7 +2,6 @@
 .action {
   text-transform: uppercase;
   box-shadow: none !important; // temp solution - bootstrap bug
-  font-weight: 500;
 
   &.has-icon {
     .icon {
@@ -29,9 +28,9 @@
   &.towishlist {
     @include button-variant($brand-secondary, transparent, transparent);
 
-    &:hover {
+    &.product-view {
       .icon-heart {
-        color: $brand-primary;
+        font-size: 20px;
       }
     }
 

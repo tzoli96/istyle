@@ -3,7 +3,7 @@
     position: relative;
     padding-top: $grid-gutter-width-base/2;
     padding-bottom: $grid-gutter-width-base/2;
-    border: 1px solid #dcdcdc;
+    border: 1px solid $gray-border;
     margin: -1px 0 0 -1px;
 
     &:before {

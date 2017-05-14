@@ -1,21 +1,6 @@
 // TODO - Refact product page SCSS!!
 
 .catalog-product-view {
-  .product-view-top {
-    padding: 20px;
-    background: #fff;
-  }
-
-  .product-info-main {
-    margin-top: 0;
-  }
-
-  .product-info-right {
-    position: relative;
-    padding: 30px;
-    border: 1px solid #dcdcdc;
-    border-radius: $border-radius;
-  }
 
   .product-options-wrapper {
     > .fieldset {
@@ -38,6 +23,11 @@
     .action {
       padding-right: 0;
       padding-left: 0;
+      text-transform: none;
+
+      .icon {
+        vertical-align: middle;
+      }
     }
   }
 
@@ -45,7 +35,7 @@
   .block.upsell,
   .block.crosssell {
     .block-title {
-      font-size: $font-size-h3;
+      font-size: $font-size-h2;
     }
 
     .block-actions {
@@ -85,6 +75,17 @@
   }
 }
 
+.product-view-top {
+  background: #fff;
+}
+
+.product-info-right {
+  position: relative;
+  padding: 20px;
+  border: 1px solid $gray-border;
+  border-radius: $border-radius;
+}
+
 .product.info {
   .product.description {
     blockquote {
@@ -98,10 +99,12 @@
     }
   }
 }
+
 .product.info.detailed {
-  clear: both;
   margin-bottom: 30px;
+  clear: both;
 }
+
 .product-info-main {
   margin-top: 30px;
 
@@ -156,6 +159,7 @@
       float: none;
       margin-top: 10px;
     }
+
     .product-item-name {
       margin-top: 10px;
     }
@@ -226,8 +230,8 @@
   }
 }
 
-@include media-breakpoint-up(md) {
-
-}
-@include media-breakpoint-up(lg) {
+@include media-breakpoint-up(xl) {
+  .product-info-right {
+    padding: 30px;
+  }
 }

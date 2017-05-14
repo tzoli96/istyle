@@ -14,20 +14,27 @@
 <?php $productStock = $this->getProductStock(); ?>
 
 <div class="warehouse-info-block warehouse-stock-info">
-    <div>
-        <?php if($productStock->getStockStatus() == StockStatus::IN_STOCK): ?>
-            <span class="stock-status in-stock"><?php /* @escapeNotVerified */ echo __('In Stock') ?></span>
-        <?php elseif ($productStock->getStockStatus() == StockStatus::OUT_OF_STOCK) : ?>
-            <span class="stock-status out-of-stock"><?php /* @escapeNotVerified */ echo __('Out of Stock') ?></span>
-        <?php endif; ?>
-    </div>
-    <div>
-        <?php if($productStock->getAvailability() == Availability::GREEN): ?>
-            <span class="stock-status-info"><?php /* @escapeNotVerified */ echo __('Available') ?></span>
-        <?php elseif ($productStock->getAvailability() == Availability::RED) : ?>
-            <span class="stock-status-info"><?php /* @escapeNotVerified */ echo __('Not available') ?></span>
-        <?php elseif ($productStock->getAvailability() == Availability::YELLOW) : ?>
-            <span class="stock-status-info"><?php /* @escapeNotVerified */ echo __('Delivery within 3 days') ?></span>
-        <?php endif; ?>
+    <div class="media">
+        <div class="media-left mr-3 align-self-center">
+            <i class="icon icon-box-check mr-2"></i>
+        </div>
+        <div class="media-body align-self-center">
+            <div class="text-uppercase">
+                <?php if($productStock->getStockStatus() == StockStatus::IN_STOCK): ?>
+                    <span class="stock-status in-stock"><?php /* @escapeNotVerified */ echo __('In Stock') ?></span>
+                <?php elseif ($productStock->getStockStatus() == StockStatus::OUT_OF_STOCK) : ?>
+                    <span class="stock-status out-of-stock"><?php /* @escapeNotVerified */ echo __('Out of Stock') ?></span>
+                <?php endif; ?>
+            </div>
+            <div>
+                <?php if($productStock->getAvailability() == Availability::GREEN): ?>
+                    <span class="stock-status-info"><?php /* @escapeNotVerified */ echo __('Available') ?></span>
+                <?php elseif ($productStock->getAvailability() == Availability::RED) : ?>
+                    <span class="stock-status-info"><?php /* @escapeNotVerified */ echo __('Not available') ?></span>
+                <?php elseif ($productStock->getAvailability() == Availability::YELLOW) : ?>
+                    <span class="stock-status-info"><?php /* @escapeNotVerified */ echo __('Delivery within 3 days') ?></span>
+                <?php endif; ?>
+            </div>
+        </div>
     </div>
 </div>

@@ -2083,7 +2083,7 @@ pre code {
 }
 
 .thead-default th {
-  color: #55595c;
+  color: #5a5a5a;
   background-color: #eceeef;
 }
 
@@ -2119,7 +2119,7 @@ pre code {
   padding: 0.6rem 0.75rem;
   font-size: 1rem;
   line-height: 1.25;
-  color: #55595c;
+  color: #5a5a5a;
   background-color: #fff;
   background-image: none;
   -webkit-background-clip: padding-box;
@@ -2139,7 +2139,7 @@ pre code {
 }
 
 .form-control:focus {
-  color: #55595c;
+  color: #5a5a5a;
   background-color: #fff;
   border-color: #007aff;
   outline: none;
@@ -2179,7 +2179,7 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 select.form-control:focus::-ms-value {
-  color: #55595c;
+  color: #5a5a5a;
   background-color: #fff;
 }
 
@@ -2195,8 +2195,8 @@ select.form-control:focus::-ms-value {
 }
 
 .col-form-label-lg {
-  padding-top: calc(0.75rem - 1px * 2);
-  padding-bottom: calc(0.75rem - 1px * 2);
+  padding-top: calc(1rem - 1px * 2);
+  padding-bottom: calc(1rem - 1px * 2);
   font-size: 1.15rem;
 }
 
@@ -2248,7 +2248,7 @@ select.form-control-sm:not([size]):not([multiple]), .input-group-sm > select.for
 .form-control-lg, .input-group-lg > .form-control,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn {
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 1.5rem;
   font-size: 1.15rem;
   border-radius: 4px;
 }
@@ -2256,7 +2256,7 @@ select.form-control-sm:not([size]):not([multiple]), .input-group-sm > select.for
 select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.form-control:not([size]):not([multiple]),
 .input-group-lg > select.input-group-addon:not([size]):not([multiple]),
 .input-group-lg > .input-group-btn > select.btn:not([size]):not([multiple]) {
-  height: 3.03333rem;
+  height: 3.53333rem;
 }
 
 .form-group {
@@ -2947,7 +2947,7 @@ fieldset[disabled] a.btn {
 }
 
 .btn-lg {
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 1.5rem;
   font-size: 1.15rem;
   border-radius: 4px;
 }
@@ -3033,7 +3033,7 @@ input[type="button"].btn-block {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.25;
-  color: #55595c;
+  color: #5a5a5a;
   text-align: center;
   background-color: #eceeef;
   border: 1px solid #b4b4b4;
@@ -3051,7 +3051,7 @@ input[type="button"].btn-block {
 .input-group-addon.form-control-lg,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .input-group-addon.btn {
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 1.5rem;
   font-size: 1.15rem;
   border-radius: 4px;
 }
@@ -3240,7 +3240,7 @@ input[type="button"].btn-block {
   height: calc(2.45rem + 2px);
   padding: 0.375rem 1.75rem 0.375rem 0.75rem;
   line-height: 1.25;
-  color: #55595c;
+  color: #5a5a5a;
   vertical-align: middle;
   background: #fff url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%23333' d='M2 0L0 2h4zm0 5L0 3h4z'/%3E%3C/svg%3E") no-repeat right 0.75rem center;
   -webkit-background-size: 8px 10px;
@@ -3257,7 +3257,7 @@ input[type="button"].btn-block {
 }
 
 .custom-select:focus::-ms-value {
-  color: #55595c;
+  color: #5a5a5a;
   background-color: #fff;
 }
 
@@ -3304,7 +3304,7 @@ input[type="button"].btn-block {
   height: 2.5rem;
   padding: 0.5rem 1rem;
   line-height: 1.5;
-  color: #55595c;
+  color: #5a5a5a;
   pointer-events: none;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -3329,7 +3329,7 @@ input[type="button"].btn-block {
   height: 2.5rem;
   padding: 0.5rem 1rem;
   line-height: 1.5;
-  color: #55595c;
+  color: #5a5a5a;
   background-color: #eceeef;
   border: 1px solid #b4b4b4;
   border-radius: 0 4px 4px 0;
@@ -9171,7 +9171,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   -o-transition: color ease 0.3s;
   transition: color ease 0.3s;
   font-size: 20px;
-  color: #55595c;
+  color: #5a5a5a;
 }
 
 @media (max-width: 575px) {
@@ -9277,7 +9277,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   }
   pre,
   blockquote {
-    border: 1px solid #55595c;
+    border: 1px solid #5a5a5a;
     page-break-inside: avoid;
   }
   thead {
@@ -9291,7 +9291,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     width: auto;
   }
   .table-wrapper table > tfoot > tr:first-child {
-    border-top: 1px solid #55595c;
+    border-top: 1px solid #5a5a5a;
   }
   .box,
   tr,

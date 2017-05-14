@@ -65,11 +65,11 @@
     }
   }
   .footer-bottom {
-    border-top: 1px solid #dcdcdc;
+    border-top: 1px solid $gray-border;
     padding-bottom: 0;
   }
   .footer-bottom-right {
-    border-top: 1px solid #dcdcdc;
+    border-top: 1px solid $gray-border;
     margin-top: 20px;
   }
   .footer-payments {
@@ -84,7 +84,7 @@
       &:before {
         content: '';
         position: absolute;
-        border-top: 1px solid #dcdcdc;
+        border-top: 1px solid $gray-border;
         top: 0;
         left: -$grid-gutter-width-base/2;
         right: -$grid-gutter-width-base/2;
@@ -107,8 +107,8 @@
   .footer-info {
     align-items: center;
     padding: 20px 0;
-    border-top: 1px solid #dcdcdc;
-    border-bottom: 1px solid #dcdcdc;
+    border-top: 1px solid $gray-border;
+    border-bottom: 1px solid $gray-border;
 
     p {
       margin-bottom: 0;
