@@ -54,7 +54,7 @@
         "oander/module-pos-locations": "1.0.7",
         "oander/module-product-icons": "1.0.5",
         "oander/module-shipping": "1.0.1",
-        "oander/module-warehouse-manager": "1.0.12",
+        "oander/module-warehouse-manager": "1.1.0",
         "oander/module-wonder-widget": "1.1.4",
         "oander/theme-hodor": "1.1.4",
         "algolia/algoliasearch-magento-2": "^1.0"
