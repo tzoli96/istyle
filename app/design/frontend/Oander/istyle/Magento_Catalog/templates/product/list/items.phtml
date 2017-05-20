@@ -71,8 +71,6 @@ switch ($type = $block->getType()) {
             $templateType = null;
             $description = false;
             $canItemsAddToCart = false;
-
-            $slider = false;
         }
         break;
 
@@ -113,8 +111,6 @@ switch ($type = $block->getType()) {
             $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
             $description = false;
             $canItemsAddToCart = false;
-
-            $slider = false;
         }
         break;
 
@@ -189,7 +185,6 @@ switch ($type = $block->getType()) {
                 <?php endif; ?>
                 <div class="products wrapper grid products-grid products-<?php /* @escapeNotVerified */ echo $type; ?>">
                     <div class="products list product-items row" id="products-list">
-                        <?php $iterator = 1; ?>
                         <?php foreach ($items as $_item): ?>
                             <?php $available = ''; ?>
                             <?php if (!$_item->isComposite() && $_item->isSaleable() && $type == 'related'): ?>
@@ -198,9 +193,11 @@ switch ($type = $block->getType()) {
                                 <?php endif; ?>
                             <?php endif; ?>
                             <?php if ($type == 'related' || $type == 'upsell'): ?>
-                                <?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<div class="item product product-item col-6 col-md-4 col-lg-3 col-xl-2" style="display: none;">' : '</div><div class="item product product-item col-6 col-md-4 col-lg-3 col-xl-2" style="display: none;">' ?>
-                            <?php else: ?>
-                                <?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<div class="item product product-item col-6 col-md-4 col-lg-3 col-xl-2">' : '</div><div class="item product product-item col-6 col-md-4 col-lg-3 col-xl-2">' ?>
+                                <?php if ( $slider == 'true') : ?>
+                                    <div class="item product product-item">
+                                <?php else : ?>
+                                    <div class="item product product-item col-6 col-md-4 col-lg-3 col-xl-2">
+                                <?php endif; ?>
                             <?php endif; ?>
                             <div class="product-item-info <?php /* @escapeNotVerified */ echo $available; ?>">
                                 <?php /* @escapeNotVerified */ echo '<!-- ' . $image . '-->' ?>
@@ -267,7 +264,7 @@ switch ($type = $block->getType()) {
                                     <?php endif; ?>
                                 </div>
                             </div>
-                            <?php echo($iterator == count($items)+1) ? '</div>' : '' ?>
+                        </div>
                         <?php endforeach ?>
                     </div>
                 </div>

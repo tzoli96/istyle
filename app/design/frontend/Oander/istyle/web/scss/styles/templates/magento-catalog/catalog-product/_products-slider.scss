@@ -1,10 +1,25 @@
 .products.list {
+  margin-bottom: 40px;
+
   &.slick-initialized {
     padding: 0 10px;
 
+    .slick-track {
+      display: flex;
+    }
+
     .item {
       max-width: none;
-      margin: 0 0 0 -1px;
+      height: auto;
+      margin: 0;
+      padding-right: $grid-gutter-width-base / 2;
+      padding-left: $grid-gutter-width-base / 2;
+
+      &.slick-current {
+        &::before {
+          content: '';
+        }
+      }
     }
 
     .slick-dots {
@@ -16,10 +31,11 @@
       li {
         display: inline-block;
         height: 6px;
+        margin: 0 10px;
         padding: 2px 0 0;
         vertical-align: top;
 
-        &.active {
+        &.slick-active {
           button {
             background: $gray-darkest;
           }
@@ -85,7 +101,6 @@
 @include media-breakpoint-up(md) {
   .products.list {
     &.slick-initialized {
-      margin-bottom: 30px;
       padding: 0 60px;
 
       .slick-arrow {
@@ -105,12 +120,12 @@
         }
 
         &.slick-prev {
-          left: 20px;
+          left: 0;
           padding-right: 2px;
         }
 
         &.slick-next {
-          right: 20px;
+          right: 0;
           padding-left: 2px;
         }
 
@@ -129,6 +144,25 @@
     &.slick-initialized {
       padding: 0 80px;
 
+      .slick-list {
+        &::before,
+        &::after {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 1px;
+          background: $gray-border;
+        }
+
+        &::before {
+          left: 0;
+        }
+
+        &::after {
+          right: 0;
+        }
+      }
+
       .slick-arrow {
         .icon {
           font-size: 18px;
@@ -137,6 +171,8 @@
 
       .slick-dots {
         li {
+          margin: 0 20px;
+
           button {
             width: 60px;
           }
