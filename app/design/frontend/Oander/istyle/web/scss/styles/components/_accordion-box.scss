@@ -4,29 +4,31 @@
   .js-accordion-box {
     &.active {
       h2 {
-        &:before {
+        &::before {
           transform: translateY(-50%) rotate(180deg);
         }
       }
+
       ul {
         display: block;
       }
     }
+
     h2 {
-      padding: 0 40px 20px 0;
-      margin-bottom: 20px;
       position: relative;
+      margin-bottom: 20px;
+      padding: 0 40px 20px 0;
       border-bottom: 1px solid $gray-darker;
       cursor: pointer;
 
-      &:before {
-        content: $icon-chevron-down;
-        font-family: $icon-font-family;
+      &::before {
         position: absolute;
-        right: 0;
         top: 50%;
+        right: 0;
         transform: translateY(-50%);
-        font-size: 6px;
+        font-family: $icon-font-family;
+        font-size: 12px;
+        content: $icon-chevron-down;
       }
     }
   }

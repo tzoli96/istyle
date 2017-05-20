@@ -12,13 +12,18 @@
 }
 
 @include media-breakpoint-up(lg) {
-  h1 {
+  h1,
+  .h1 {
     font-size: $font-size-lg-h1;
   }
-  h2 {
+
+  h2,
+  .h2 {
     font-size: $font-size-lg-h2;
   }
-  h3 {
+
+  h3,
+  .h3 {
     font-size: $font-size-lg-h3;
   }
 }

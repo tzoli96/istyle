@@ -84,7 +84,7 @@
 
       &.slick-active {
         button {
-          background: #141414;
+          background: $gray-darkest;
         }
       }
       button {
@@ -155,6 +155,7 @@
     }
   }
 }
+
 @include media-breakpoint-up(xl) {
   .oander-multislider {
     .slick-dots {
