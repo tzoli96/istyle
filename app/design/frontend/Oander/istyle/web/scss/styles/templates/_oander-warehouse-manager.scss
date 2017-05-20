@@ -21,6 +21,7 @@
   }
 }
 
+.warehouse-info .stock-text,
 .stock-status {
   &.out-of-stock {
     color: $brand-danger;
@@ -41,7 +42,6 @@
   top: 50%;
   left: 50%;
   width: 600px;
-  min-height: 300px;
   max-height: 70%;
   padding: 30px;
   transform: translate(-50%, -50%);
@@ -58,6 +58,14 @@
     left: auto;
     width: 480px;
     transform: none;
+  }
+
+  .table {
+    font-size: 13px;
+
+    td {
+      padding: .3rem $table-cell-padding;
+    }
   }
 }
 

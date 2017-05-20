@@ -34,43 +34,15 @@
   .block.related,
   .block.upsell,
   .block.crosssell {
-    .block-title {
-      font-size: $font-size-h2;
-    }
-
     .block-actions {
       display: none;
       margin-bottom: 15px;
     }
 
-    .list.product-items {
-      .item.product {
-        margin-bottom: 20px;
-      }
-
-      .product-item-info {
-        height: 100%;
-        margin-bottom: 0;
-      }
-    }
-
     .product-item-info {
       .field.choice {
         display: none;
-
-        input {
-          position: relative;
-          top: -1px;
-          margin: 0 .4rem 0 0;
-          vertical-align: middle;
-        }
       }
-    }
-  }
-
-  .product-add-form {
-    .mage-error {
-      margin-bottom: 5px;
     }
   }
 }
@@ -116,9 +88,11 @@
       text-transform: uppercase;
       vertical-align: top;
     }
+
     &.available {
       color: $brand-success;
     }
+
     &.unavailable {
       color: $brand-danger;
     }
@@ -127,19 +101,12 @@
   .product {
     &.attribute {
       &.sku {
-        display: inline-block;
-        vertical-align: top;
-
-        > .value {
-          display: inline-block;
-          vertical-align: top;
-          word-break: break-all;
-        }
 
         .type {
           margin-right: 5px;
           color: #000;
-          &:after {
+
+          &::after {
             content: ':';
           }
         }
@@ -154,17 +121,6 @@
       margin: 10px 0;
     }
   }
-
-  .table-wrapper.grouped {
-    .price-box {
-      float: none;
-      margin-top: 10px;
-    }
-
-    .product-item-name {
-      margin-top: 10px;
-    }
-  }
 }
 
 .product-info-stock-sku {
@@ -175,19 +131,19 @@
 .product-options-wrapper {
   .fieldset-product-options-inner {
     .legend {
-      font-weight: $font-weight-bold;
-      margin: 0 0 5px;
-      font-size: 14px;
-      border: none;
       display: inline-block;
+      margin: 0 0 5px;
       padding: 0;
+      border: 0;
+      font-size: 14px;
+      font-weight: $font-weight-bold;
     }
+
     &.required,
     &._required {
       .legend {
-        &:after {
+        &::after {
           content: '*';
-          margin: $form-field-label-asterisk__margin;
         }
       }
     }
@@ -204,9 +160,19 @@
   }
 }
 
-.block.related {
-  .action.select {
-    margin: 0 5px;
+.additional-attributes-wrapper {
+  font-size: 13px;
+
+  .col-item {
+    padding: 0 $grid-gutter-width-base;
+  }
+
+  .data {
+    color: $gray-light;
+  }
+
+  p {
+    margin: 0;
   }
 }
 
@@ -221,13 +187,6 @@
       display: block;
       margin: 5px 0;
     }
-  }
-
-  .compare,
-  .product-addto-links .action.tocompare,
-  .product-item-actions .actions-secondary > .action.tocompare,
-  [class*='block-compare'] {
-    //display: none;
   }
 }
 

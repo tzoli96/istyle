@@ -9,13 +9,13 @@
 <?php /** @var $this \Oander\WarehouseManager\Block\Warehouse */ ?>
 <div class="warehouse-info text-right">
     <input name="warehouse-stock-list-url" type="hidden" value="<?php echo $this->getAjaxWarehouseStockListUrl() ?>"/>
-    <div class="warehouse-close-btn mb-4">X</div>
-    <table class="text-left stock-table table table-striped">
+    <div class="warehouse-close-btn mb-3"><i class="icon icon-close"></i></div>
+    <table class="text-left stock-table table table-striped mb-0">
     </table>
 </div>
 
 <script type="text/javascript">
-    require(['jquery', 'oanderWarehouseView'],function($, oanderWarehouseView) {
-
+    require(['jquery', 'oanderWarehouseView'], function ($, oanderWarehouseView) {
+      //
     });
 </script>

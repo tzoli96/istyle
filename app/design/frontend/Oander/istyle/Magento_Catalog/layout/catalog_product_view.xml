@@ -39,9 +39,8 @@
         <move element="product.info.sku" destination="product.info.main" after="page.main.title" />
 
         <move element="oander_wonder_widget.product_video_box.wrapper" destination="product.view.content" before="-" />
-        <move element="product.info.details" destination="product.view.content.container" before="" />
-        <move element="product_list" destination="product.view.content.container" />
-
+        <move element="product.info.details" destination="product.view.content.container" before="-" />
+        <move element="content.aside" destination="product.view.content.container" />
 
 
         <!-- Warehouse Manager moves-->

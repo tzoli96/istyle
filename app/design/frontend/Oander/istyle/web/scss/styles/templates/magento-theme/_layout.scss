@@ -8,9 +8,9 @@ html {
   &.sidebar-opened {
     body {
       position: fixed;
-      overflow: hidden;
       width: 100vw;
       height: 100vh;
+      overflow: hidden;
     }
   }
 }
@@ -22,6 +22,7 @@ body {
     background: $brand-selected-bg;
     color: $brand-selected-text;
   }
+
   *::-moz-selection {
     background: $brand-selected-bg;
     color: $brand-selected-text;
@@ -31,6 +32,7 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 strong,
 b {
   font-weight: $font-weight-medium;
@@ -39,17 +41,5 @@ b {
 @include media-breakpoint-down(md) {
   body {
     -webkit-text-size-adjust: none;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  h1 {
-    font-size: $font-size-lg-h1;
-  }
-  h2 {
-    font-size: $font-size-lg-h2;
-  }
-  h3 {
-    font-size: $font-size-lg-h3;
   }
 }
