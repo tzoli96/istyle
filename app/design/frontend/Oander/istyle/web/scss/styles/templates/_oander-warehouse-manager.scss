@@ -53,7 +53,7 @@
 
   .catalog-product-view  & {
     position: absolute;
-    top: calc(100% - 5px);
+    top: calc(100%);
     right: 0;
     left: auto;
     width: 480px;
@@ -81,8 +81,19 @@
   cursor: pointer;
 
   &.active {
+    position: relative;
     background: $gray;
     color: #fff;
+
+    &::before {
+      position: absolute;
+      right: 30px;
+      bottom: 0;
+      left: 30px;
+      height: 5px;
+      background: $brand-secondary;
+      content: '';
+    }
   }
 
   .catalog-product-view & {

@@ -10708,6 +10708,10 @@ input:-webkit-autofill:active {
           transform: translate(-50%, -50%);
 }
 
+.product-gallery .product-carousel {
+  padding: 0 30px;
+}
+
 .product-gallery .product-carousel .item {
   text-align: center;
   cursor: pointer;
@@ -12281,6 +12285,7 @@ body._has-modal-custom .modal-custom-overlay {
 }
 
 .product-view-top {
+  margin-bottom: 30px;
   background: #fff;
 }
 
@@ -20666,6 +20671,9 @@ body.contact-index-index .form {
   .oander-wonder-widget-usp .content .widget-title {
     margin: 0;
   }
+  .oander-wonder-widget-video .image-wrapper {
+    background: none !important;
+  }
 }
 
 @media (min-width: 768px) {
@@ -20748,28 +20756,34 @@ body.contact-index-index .form {
     -o-transition: ease .3s;
     transition: ease .3s;
   }
-  .oander-wonder-widget-video:hover img {
-    -webkit-transform: scale(1.15) rotate(2deg);
-        -ms-transform: scale(1.15) rotate(2deg);
-         -o-transform: scale(1.15) rotate(2deg);
-            transform: scale(1.15) rotate(2deg);
-    opacity: .7;
+  .oander-wonder-widget-video:hover .image-wrapper {
+    opacity: .8;
   }
   .oander-wonder-widget-video .content-block {
+    position: relative;
     font-size: 24px;
   }
-  .oander-wonder-widget-video .icon-play {
-    font-size: 36px;
+  .oander-wonder-widget-video .wonder-widget-video-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
   }
   .oander-wonder-widget-video .image-wrapper {
-    overflow: hidden;
+    height: 250px;
+    -webkit-transition: ease .3s;
+    -o-transition: ease .3s;
+    transition: ease .3s;
+    background-position: center center;
+    -webkit-background-size: cover;
+            background-size: cover;
+  }
+  .oander-wonder-widget-video .icon-play {
+    font-size: 60px;
   }
   .oander-wonder-widget-video img {
-    -webkit-transition: ease .4s;
-    -o-transition: ease .4s;
-    transition: ease .4s;
-    -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
+    display: none;
   }
   .oander-wonder-widget-usp .content {
     padding: 0 30px;
@@ -20836,7 +20850,7 @@ body.contact-index-index .form {
 
 .catalog-product-view .warehouse-info {
   position: absolute;
-  top: calc(100% - 5px);
+  top: calc(100%);
   right: 0;
   left: auto;
   width: 480px;
@@ -20865,8 +20879,19 @@ body.contact-index-index .form {
 }
 
 .warehouse-open-btn.active {
+  position: relative;
   background: #5a5a5a;
   color: #fff;
+}
+
+.warehouse-open-btn.active::before {
+  position: absolute;
+  right: 30px;
+  bottom: 0;
+  left: 30px;
+  height: 5px;
+  background: #e21937;
+  content: '';
 }
 
 .catalog-product-view .warehouse-open-btn {

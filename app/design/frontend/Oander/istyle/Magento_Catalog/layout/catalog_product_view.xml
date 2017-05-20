@@ -7,7 +7,10 @@
 -->
 <page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="product.view.top" htmlClass="product-view-top">
+
+        <referenceContainer name="main.content" htmlClass="page-main" />
+
+        <referenceContainer name="product.view.top" htmlClass="product-view-top container">
             <container name="product.view.top.row" htmlTag="div" htmlClass="row" before="-">
                 <container name="product.view.top.left" htmlTag="div" htmlClass="col-md-6 col-lg-4" />
                 <container name="product.view.top.center" htmlTag="div" htmlClass="col-md-6 col-lg-5" />
@@ -20,13 +23,26 @@
         <referenceContainer name="product.info.media" htmlClass="product product-media" />
         <referenceContainer name="product.info.main" htmlClass="product-info-main" />
 
+        <container name="product.view.content" htmlTag="div" htmlClass="product-view-content">
+            <container name="product.view.content.container" htmlTag="div" htmlClass="container" />
+        </container>
+
         <!-- Moves -->
+        <move element="product.view.content" destination="main" before="-" />
+        <move element="product.view.content" destination="main" after="product.view.top" />
+
         <move element="product.info.media" destination="product.view.top.left" before="-" />
         <move element="product.info.main" destination="product.view.top.center" before="-" />
 
         <move element="product.info.price" destination="product.info.right" before="-" />
         <move element="product.info.social" destination="product.info.right" after="product.info.price" />
         <move element="product.info.sku" destination="product.info.main" after="page.main.title" />
+
+        <move element="oander_wonder_widget.product_video_box.wrapper" destination="product.view.content" before="-" />
+        <move element="product.info.details" destination="product.view.content.container" before="" />
+        <move element="product_list" destination="product.view.content.container" />
+
+
 
         <!-- Warehouse Manager moves-->
         <move element="view.addto.warehouse.btn" destination="product.info.right" after="product.essential.bottom" />

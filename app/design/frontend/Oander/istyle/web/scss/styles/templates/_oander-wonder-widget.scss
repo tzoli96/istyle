@@ -175,6 +175,12 @@
       }
     }
   }
+
+  .oander-wonder-widget-video {
+    .image-wrapper {
+      background: none !important;
+    }
+  }
 }
 
 @include media-breakpoint-up(md) {
@@ -258,27 +264,37 @@
 
   .oander-wonder-widget-video {
     &:hover {
-      img {
-        transform: scale(1.15) rotate(2deg);
-        opacity: .7;
+      .image-wrapper {
+        opacity: .8;
       }
     }
 
     .content-block {
+      position: relative;
       font-size: 24px;
     }
 
-    .icon-play {
-      font-size: 36px;
+    .wonder-widget-video-link {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
     }
 
     .image-wrapper {
-      overflow: hidden;
+      height: 250px;
+      transition: ease .3s;
+      background-position: center center;
+      background-size: cover;
+    }
+
+    .icon-play {
+      font-size: 60px;
     }
 
     img {
-      transition: ease .4s;
-      backface-visibility: hidden;
+      display: none;
     }
   }
 
