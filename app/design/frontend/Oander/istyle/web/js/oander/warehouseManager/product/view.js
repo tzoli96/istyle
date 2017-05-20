@@ -17,7 +17,7 @@ define(['jquery', 'uiComponent', 'oanderWarehouseManager'], function ($, Compone
     initConfigurableProductOnChange: function () {
       var product_id = $('#product_addtocart_form').find('[name="product"]').val();
 
-      $('.swatch-opt').on('change','.swatch-attribute', function() {
+      $(document).on('click','.swatch-attribute', function() {
         $('.swatch-opt').children().each(function () {
 
           if (oanderWarehouseManager.productAttributes[product_id] == undefined) {
