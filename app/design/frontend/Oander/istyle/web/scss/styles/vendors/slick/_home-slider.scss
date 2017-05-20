@@ -3,27 +3,31 @@
   z-index: 1;
 
   .slider-layer {
-    z-index: 1000;
-    background: #fff;
-    opacity: 0;
-    visibility: hidden;
-    transition: all ease 0.3s;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    transition: ease .3s;
+    background: #fff;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
 
     &.loading {
       opacity: 1;
       visibility: visible;
     }
   }
+
   .multislider-inner {
-    overflow: hidden;
     background: #fff;
+    overflow: hidden;
   }
+
   .slick-arrow {
+    position: absolute;
+    top: 50%;
     width: 50px;
     height: 50px;
     margin-top: -25px;
@@ -31,11 +35,9 @@
     border: 0;
     border-radius: 50px;
     outline: none;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    z-index: 999;
     text-decoration: none;
+    cursor: pointer;
+    z-index: 999;
 
     &.slick-prev {
       left: 10px;
@@ -44,6 +46,7 @@
         right: 1px;
       }
     }
+
     &.slick-next {
       right: 10px;
 
@@ -51,31 +54,33 @@
         left: 1px;
       }
     }
+
     > span {
-      width: 100%;
-      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(#f0f0f0, 0.5);
+      width: 100%;
+      height: 100%;
       border-radius: 50px;
-      text-align: center;
+      background: rgba(#f0f0f0, .5);
       color: $gray;
+      text-align: center;
     }
+
     .icon {
-      font-size: 18px;
       position: relative;
+      font-size: 18px;
     }
   }
 
   .slick-dots {
-    width: 100%;
     position: absolute;
     bottom: 10px;
+    width: 100%;
     margin: 0;
     padding: 0;
-    text-align: center;
     list-style: none;
+    text-align: center;
     z-index: 9999;
 
     li {
@@ -87,20 +92,22 @@
           background: $gray-darkest;
         }
       }
+
       button {
-        border: 0;
-        outline: none !important;
+        display: block;
         width: 44px;
         height: 2px;
         margin: 0 5px;
         padding: 0;
+        transition: background ease .3s;
+        border: 0;
+        outline: none !important;
         background: $gray-border;
-        display: block;
         text-indent: -9999px;
-        transition: background ease 0.3s;
       }
     }
   }
+
   img {
     width: 100%;
   }
@@ -132,18 +139,21 @@
         }
       }
     }
+
     .slick-arrow {
+      transition: ease .3s;
       opacity: 0;
       visibility: hidden;
-      transition: all ease 0.3s;
 
       &.slick-prev {
-        transform: translateX(-10px) scale(0.92);
+        transform: translateX(-10px) scale(.92);
       }
+
       &.slick-next {
-        transform: translateX(10px) scale(0.92);
+        transform: translateX(10px) scale(.92);
       }
     }
+
     .slick-dots {
       bottom: 15px;
 
