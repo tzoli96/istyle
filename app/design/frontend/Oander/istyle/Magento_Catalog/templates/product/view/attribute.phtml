@@ -33,7 +33,7 @@ if ($_attributeType && $_attributeType == 'text') {
 ?>
 
 <?php if ($_attributeValue): ?>
-    <div class="product attribute <?php /* @escapeNotVerified */ echo $_className?>">
+    <div class="product attribute mb-4 <?php /* @escapeNotVerified */ echo $_className?>">
         <div class="d-flex">
             <?php if ($_attributeLabel != 'none' && $_attributeLabel != 'nincs'): ?>
                 <div class="type"><?php /* @escapeNotVerified */ echo $_attributeLabel?></div>
