@@ -11,7 +11,7 @@
   position: relative;
 
   &.loading {
-    .product-image {
+    .product-slider {
       height: $gallery-size;
     }
 
@@ -20,15 +20,7 @@
     }
   }
 
-  .loader {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .product-image {
+  .product-slider {
     margin-bottom: 20px;
 
     .image-box {
@@ -54,6 +46,10 @@
     .item {
       text-align: center;
       cursor: pointer;
+
+      img {
+        display: inline-block;
+      }
     }
 
     .slick-current {
@@ -63,27 +59,11 @@
     }
 
     .slick-arrow {
-      width: 40px;
-      height: 100%;
-      background: rgba(255, 255, 255, .6);
-
-      &.slick-prev {
-        .icon {
-          left: 8px;
-        }
-      }
-
-      &.slick-next {
-        .icon {
-          right: 8px;
-        }
-      }
+      width: 34px;
+      height: 34px;
 
       .icon {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 24px;
+        font-size: 14px;
       }
     }
   }
@@ -92,19 +72,78 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    text-align: center;
     z-index: 90;
 
     &.slick-prev {
       left: 0;
+      padding-right: 2px;
     }
 
     &.slick-next {
       right: 0;
+      padding-left: 2px;
     }
 
     .icon {
-      color: #999;
-      font-size: 36px;
+      color: $gray;
+      font-size: 20px;
+    }
+  }
+
+  .loader {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .product-gallery {
+    .product-carousel {
+      padding: 0 50px;
+    }
+  }
+}
+@include media-breakpoint-up(lg) {
+  .product-gallery {
+    .product-slider {
+      .slick-arrow {
+        $size: 50px;
+
+        width: $size;
+        height: $size;
+        border-radius: $size;
+
+        .icon {
+          line-height: $size;
+        }
+      }
+    }
+
+    .product-carousel {
+      .slick-arrow {
+        $size: 40px;
+
+        width: $size;
+        height: $size;
+        border-radius: $size;
+
+        .icon {
+          font-size: 18px;
+          line-height: $size;
+        }
+      }
+    }
+
+    .slick-arrow {
+      transition: ease .3s;
+
+      &:hover {
+        background: #f0f0f0;
+      }
     }
   }
 }
