@@ -44,8 +44,19 @@
     padding: 0 30px;
 
     .item {
+      padding-bottom: 5px;
       text-align: center;
       cursor: pointer;
+
+      &::after {
+        display: block;
+        width: 40px;
+        max-width: 100%;
+        margin: 10px auto 0;
+        transition: border ease .3s;
+        border-bottom: 2px solid transparent;
+        content: '';
+      }
 
       img {
         display: inline-block;
@@ -53,8 +64,8 @@
     }
 
     .slick-current {
-      img {
-        border-color: #ddd;
+      &::after {
+        border-color: #000;
       }
     }
 
@@ -99,6 +110,7 @@
     transform: translate(-50%, -50%);
   }
 }
+
 
 @include media-breakpoint-up(md) {
   .product-gallery {

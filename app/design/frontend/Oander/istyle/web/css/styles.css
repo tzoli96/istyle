@@ -10599,16 +10599,29 @@ input:-webkit-autofill:active {
 }
 
 .product-gallery .product-carousel .item {
+  padding-bottom: 5px;
   text-align: center;
   cursor: pointer;
+}
+
+.product-gallery .product-carousel .item::after {
+  display: block;
+  width: 40px;
+  max-width: 100%;
+  margin: 10px auto 0;
+  -webkit-transition: border ease .3s;
+  -o-transition: border ease .3s;
+  transition: border ease .3s;
+  border-bottom: 2px solid transparent;
+  content: '';
 }
 
 .product-gallery .product-carousel .item img {
   display: inline-block;
 }
 
-.product-gallery .product-carousel .slick-current img {
-  border-color: #ddd;
+.product-gallery .product-carousel .slick-current::after {
+  border-color: #000;
 }
 
 .product-gallery .product-carousel .slick-arrow {
