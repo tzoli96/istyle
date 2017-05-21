@@ -6,9 +6,7 @@
 
     <referenceContainer name="page.bottom.container">
         <block class="Magento\Framework\View\Element\Template" name="homepage_products_container"
-               template="Magento_Theme::homepage/featured_products.phtml" />
-        <block class="Magento\Framework\View\Element\Template" name="homepage_recently_products"
-               template="Magento_Theme::homepage/recently-viewed-products.phtml" />
+               template="Magento_Theme::homepage/featured_products.phtml" before="-" />
     </referenceContainer>
 
 </page>
