@@ -1,52 +1,5 @@
 // TODO - Refact product page SCSS!!
 
-.catalog-product-view {
-
-  .product-options-wrapper {
-    > .fieldset {
-      > .field {
-        margin-bottom: 15px;
-
-        > .label {
-          display: block;
-          margin-bottom: 15px;
-          font-size: 16px;
-          font-weight: $font-weight-medium;
-        }
-      }
-    }
-  }
-
-  .product-share-links {
-    padding: 10px 0;
-
-    .action {
-      padding-right: 0;
-      padding-left: 0;
-      text-transform: none;
-
-      .icon {
-        vertical-align: middle;
-      }
-    }
-  }
-
-  .block.related,
-  .block.upsell,
-  .block.crosssell {
-    .block-actions {
-      display: none;
-      margin-bottom: 15px;
-    }
-
-    .product-item-info {
-      .field.choice {
-        display: none;
-      }
-    }
-  }
-}
-
 .product-view-top {
   margin-bottom: 30px;
   background: #fff;
@@ -101,10 +54,11 @@
   .product {
     &.attribute {
       &.sku {
+        margin-top: 1rem;
+        color: $gray-light;
 
         .type {
           margin-right: 5px;
-          color: #000;
 
           &::after {
             content: ':';
@@ -129,6 +83,19 @@
 }
 
 .product-options-wrapper {
+  > .fieldset {
+    > .field {
+      margin-bottom: 15px;
+
+      > .label {
+        display: block;
+        margin-bottom: 15px;
+        font-size: 16px;
+        font-weight: $font-weight-medium;
+      }
+    }
+  }
+
   .fieldset-product-options-inner {
     .legend {
       display: inline-block;
@@ -159,6 +126,21 @@
     }
   }
 }
+
+.product-share-links {
+  padding: 10px 0;
+
+  .action {
+    padding-right: 0;
+    padding-left: 0;
+    text-transform: none;
+
+    .icon {
+      vertical-align: middle;
+    }
+  }
+}
+
 
 .additional-attributes-wrapper {
   font-size: 13px;

@@ -12126,44 +12126,6 @@ body._has-modal-custom .modal-custom-overlay {
   font-weight: 700;
 }
 
-.catalog-product-view .product-options-wrapper > .fieldset > .field {
-  margin-bottom: 15px;
-}
-
-.catalog-product-view .product-options-wrapper > .fieldset > .field > .label {
-  display: block;
-  margin-bottom: 15px;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.catalog-product-view .product-share-links {
-  padding: 10px 0;
-}
-
-.catalog-product-view .product-share-links .action {
-  padding-right: 0;
-  padding-left: 0;
-  text-transform: none;
-}
-
-.catalog-product-view .product-share-links .action .icon {
-  vertical-align: middle;
-}
-
-.catalog-product-view .block.related .block-actions,
-.catalog-product-view .block.upsell .block-actions,
-.catalog-product-view .block.crosssell .block-actions {
-  display: none;
-  margin-bottom: 15px;
-}
-
-.catalog-product-view .block.related .product-item-info .field.choice,
-.catalog-product-view .block.upsell .product-item-info .field.choice,
-.catalog-product-view .block.crosssell .product-item-info .field.choice {
-  display: none;
-}
-
 .product-view-top {
   margin-bottom: 30px;
   background: #fff;
@@ -12209,9 +12171,13 @@ body._has-modal-custom .modal-custom-overlay {
   color: #e21937;
 }
 
+.product-info-main .product.attribute.sku {
+  margin-top: 1rem;
+  color: #818a91;
+}
+
 .product-info-main .product.attribute.sku .type {
   margin-right: 5px;
-  color: #000;
 }
 
 .product-info-main .product.attribute.sku .type::after {
@@ -12231,6 +12197,17 @@ body._has-modal-custom .modal-custom-overlay {
   text-align: right;
 }
 
+.product-options-wrapper > .fieldset > .field {
+  margin-bottom: 15px;
+}
+
+.product-options-wrapper > .fieldset > .field > .label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
 .product-options-wrapper .fieldset-product-options-inner .legend {
   display: inline-block;
   margin: 0 0 5px;
@@ -12246,6 +12223,20 @@ body._has-modal-custom .modal-custom-overlay {
 
 .product-options-wrapper .field .note {
   display: block;
+}
+
+.product-share-links {
+  padding: 10px 0;
+}
+
+.product-share-links .action {
+  padding-right: 0;
+  padding-left: 0;
+  text-transform: none;
+}
+
+.product-share-links .action .icon {
+  vertical-align: middle;
 }
 
 .additional-attributes-wrapper {

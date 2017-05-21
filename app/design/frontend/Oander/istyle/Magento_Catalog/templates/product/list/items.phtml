@@ -47,7 +47,7 @@ switch ($type = $block->getType()) {
             $canItemsAddToCart = $block->canItemsAddToCart();
 
             $showAddTo = false;
-            $showCart = true;
+            $showCart = false;
             $templateType = null;
             $description = false;
 
@@ -87,7 +87,7 @@ switch ($type = $block->getType()) {
             $shuffle = 0;
 
             $showAddTo = false;
-            $showCart = true;
+            $showCart = false;
             $templateType = null;
             $description = false;
             $canItemsAddToCart = false;
@@ -125,7 +125,7 @@ switch ($type = $block->getType()) {
             $items = $block->getItems();
 
             $showAddTo = false;
-            $showCart = true;
+            $showCart = false;
             //$templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
             $templateType = null;
             $description = false;
@@ -148,7 +148,7 @@ switch ($type = $block->getType()) {
             $items = $exist;
 
             $showAddTo = false;
-            $showCart = true;
+            $showCart = false;
             $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
             $description = ($mode == 'list') ? true : false;
             $canItemsAddToCart = false;
