@@ -1,5 +1,21 @@
 var config = {
-  'map': {
+
+  // @Todo: FIX boostrap tether bug with requireJS
+
+  // shim: {
+  //   tether: {
+  //     'deps': ['jquery']
+  //   },
+  //   bootstrap: {
+  //     'deps': ['jquery', 'tether']
+  //   }
+  // },
+  // paths: {
+  //   'tether': 'js/vendor/tether.min',
+  //   'bootstrap': 'js/vendor/bootstrap.min'
+  // },
+
+  map: {
     '*': {
       'oander.navigation': 'js/oander/navigation',
       'oander.accordion': 'js/oander/accordion',

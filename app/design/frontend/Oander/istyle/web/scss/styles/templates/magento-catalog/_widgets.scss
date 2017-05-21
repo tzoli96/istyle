@@ -1,28 +1,13 @@
-.block-category-link,
-.block-product-link {
-  //
-}
+// Recently Viewed Products Container
+.recently-viewed-products-wrapper {
+  padding: 30px 0;
+  background: $gray-lightest;
 
-.block-product-link-inline {
-  //
-}
-
-.block.widget {
-  .product-item-info {
-    width: auto;
+  .badge-container {
+    display: none;
   }
 }
 
-@include media-breakpoint-up(sm) {
-}
-
-@include media-breakpoint-up(md) {
-  //
-}
-@include media-breakpoint-up(lg) {
-  //
-}
-
-@include media-breakpoint-up(md) {
-  //
+.viewed-products-heading {
+  white-space: nowrap;
 }

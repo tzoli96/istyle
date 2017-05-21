@@ -12480,8 +12480,17 @@ body._has-modal-custom .modal-custom-overlay {
   }
 }
 
-.block.widget .product-item-info {
-  width: auto;
+.recently-viewed-products-wrapper {
+  padding: 30px 0;
+  background: #fafafa;
+}
+
+.recently-viewed-products-wrapper .badge-container {
+  display: none;
+}
+
+.viewed-products-heading {
+  white-space: nowrap;
 }
 
 .columns .block-event {

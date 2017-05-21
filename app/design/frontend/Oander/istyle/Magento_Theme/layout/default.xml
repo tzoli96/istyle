@@ -36,6 +36,17 @@
             </container>
         </referenceContainer>
 
+        <referenceContainer name="page.bottom.container">
+            <block class="Magento\Framework\View\Element\Template" name="recently_viewed_products_block"
+                   template="Magento_Theme::html/recently-viewed-products.phtml">
+                <block class="Magento\Cms\Block\Block" name="recently_viewed_products">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">recently_viewed_products_list</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+
         <!-- Footer container -->
         <referenceContainer name="footer-container">
             <container name="footer.info" htmlClass="footer-info row" htmlTag="div" after="footer">
