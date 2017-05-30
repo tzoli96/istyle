@@ -53,6 +53,7 @@
         "oander/module-order-comment": "1.0.1",
         "oander/module-paypal": "1.0.0",
         "oander/module-pos-locations": "1.0.7",
+        "oander/module-price-tooltip": "1.0.1",
         "oander/module-product-icons": "1.0.5",
         "oander/module-shipping": "1.0.1",
         "oander/module-warehouse-manager": "1.1.0",
@@ -197,6 +198,10 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/oander-pos-locations.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-price-tooltip.git"
         },
         {
             "type": "vcs",
