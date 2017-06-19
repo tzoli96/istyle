@@ -1,0 +1,71 @@
+<!-- Begin MailChimp Signup Form -->
+<div id="mc_embed_signup">
+    <form action="//hooli.us16.list-manage.com/subscribe/post?u=98183d485ff869383199b3253&amp;id=b58b5cf209"
+          method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+          target="_blank" novalidate>
+        <div id="mc_embed_signup_scroll">
+            <div class="form-group">
+                <div class="mc-field-group">
+                    <input type="email" value="" placeholder="Enter your email address" name="EMAIL" class="required form-control email" id="mce-EMAIL">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="mc-field-group">
+                    <input type="text" value="" placeholder="Enter your First Name" name="FNAME" class="required form-control" id="mce-FNAME">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="mc-field-group">
+                    <input type="text" value="" placeholder="Enter your Last Name" name="LNAME" class="required form-control" id="mce-LNAME">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="checkbox newsletter-terms">
+                    <input type="checkbox" placeholder="Please, accept the Terms and Conditions'); ?>" value="Accept" name="MMERGE3" class="form-control" id="mce-MMERGE3-0">
+                    <span>
+                        Please, accept the <a href="#" target="_blank">Terms and Conditions</a>
+                    </span>
+                    <span generated="false" class="mage-error" id="newsletter-terms-error">
+                        This is a required field.
+                    </span>
+                </label>
+            </div>
+
+            <div id="mce-responses" class="clear">
+                <div class="response" id="mce-error-response" style="display:none"></div>
+                <div class="response" id="mce-success-response" style="display:none"></div>
+            </div>
+            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                <input type="text" name="b_98183d485ff869383199b3253_b58b5cf209" tabindex="-1" value="">
+            </div>
+
+            <div class="clear">
+                <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button action subscribe primary">
+            </div>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+    require(
+        [
+            '//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js',
+            'jquery'
+        ],
+        function (mailChimp, $) {
+            (function ($) {
+                window.fnames = new Array();
+                window.ftypes = new Array();
+                fnames[0] = 'EMAIL';
+                ftypes[0] = 'email';
+                fnames[1] = 'FNAME';
+                ftypes[1] = 'text';
+                fnames[2] = 'LNAME';
+                ftypes[2] = 'text';
+                fnames[3] = 'MMERGE3';
+                ftypes[3] = 'checkbox';
+            }(jQuery));
+            var $mcj = jQuery.noConflict(true);
+        });
+</script>

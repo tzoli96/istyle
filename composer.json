@@ -32,7 +32,7 @@
         "magento/module-offline-shipping-sample-data": "100.1.*",
         "oander/module-ajax-catalog": "1.0.3",
         "oander/module-api-gateway": "0.*",
-        "oander/module-base": "1.2.5",
+        "oander/module-base": "1.2.6",
         "oander/module-category-badge": "2.2.0",
         "oander/module-category-dropdown": "1.0.4",
         "oander/module-checkout": "1.0.0",
@@ -56,6 +56,7 @@
         "oander/module-price-tooltip": "1.0.1",
         "oander/module-product-icons": "1.0.5",
         "oander/module-shipping": "1.0.1",
+        "oander/module-test-base": "1.0.1",
         "oander/module-warehouse-manager": "1.1.0",
         "oander/module-warehouse-stock-order": "1.0.2",
         "oander/module-wonder-widget": "1.1.4",
@@ -211,6 +212,10 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/oander-shipping.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-test-base.git"
         },
         {
             "type": "vcs",
