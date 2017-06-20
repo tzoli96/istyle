@@ -17671,6 +17671,20 @@ body.account .form-group .nested {
   clear: both;
 }
 
+.connectivity-container::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.connectivity-container .swatches-box {
+  height: auto;
+}
+
+.connectivity-container > span {
+  display: block;
+}
+
 .swatch-attribute-label {
   font-weight: 500;
   position: relative;
@@ -17691,8 +17705,8 @@ body.account .form-group .nested {
 }
 
 .swatch-attribute-selected-option {
-  color: #646464;
   padding-left: 17px;
+  color: #646464;
 }
 
 .swatch-attribute-options {
@@ -17700,34 +17714,35 @@ body.account .form-group .nested {
 }
 
 .swatch-option {
+  position: relative;
   width: 28px;
   height: 28px;
-  float: left;
   margin: 0 10px 5px 0;
-  text-align: center;
-  cursor: pointer;
-  position: relative;
+  float: left;
   border: 1px solid #e1e1e1;
-  overflow: hidden;
+  text-align: center;
   text-overflow: ellipsis;
+  cursor: pointer;
+  overflow: hidden;
 }
 
 .swatch-option.text {
+  width: auto;
+  min-width: 50px;
+  height: auto;
+  margin-right: 7px;
+  padding: 10px 8px;
+  border: 0;
+  border-radius: 4px;
   background: #fff;
   color: #000;
   font-size: 14px;
-  line-height: 20px;
-  padding: 4px 8px;
-  width: auto;
-  min-width: 50px;
-  margin-right: 7px;
 }
 
 .swatch-option.selected {
-  outline: 2px solid #007aff;
+  outline: none;
   background-color: #fff;
   color: #333;
-  border: 1px solid #fff;
 }
 
 .swatch-option.text.selected {
@@ -17739,17 +17754,14 @@ body.account .form-group .nested {
   cursor: default;
 }
 
-.swatch-option.disabled:after {
-  content: '';
+.swatch-option.disabled::after {
   position: absolute;
-  left: 0;
-  right: 0;
   top: 0;
+  right: 0;
   bottom: 0;
-  background: -webkit-gradient(linear, right bottom, left top, from(rgba(255, 255, 255, 0)), color-stop(42%, rgba(255, 255, 255, 0)), color-stop(43%, white), color-stop(46%, white), color-stop(47%, #ff5216), color-stop(53%, #ff5216), color-stop(54%, white), color-stop(57%, white), color-stop(58%, rgba(255, 255, 255, 0)), to(rgba(255, 255, 255, 0)));
-  background: -webkit-linear-gradient(right bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 42%, white 43%, white 46%, #ff5216 47%, #ff5216 53%, white 54%, white 57%, rgba(255, 255, 255, 0) 58%, rgba(255, 255, 255, 0) 100%);
-  background: -o-linear-gradient(right bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 42%, white 43%, white 46%, #ff5216 47%, #ff5216 53%, white 54%, white 57%, rgba(255, 255, 255, 0) 58%, rgba(255, 255, 255, 0) 100%);
-  background: linear-gradient(to left top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 42%, white 43%, white 46%, #ff5216 47%, #ff5216 53%, white 54%, white 57%, rgba(255, 255, 255, 0) 58%, rgba(255, 255, 255, 0) 100%);
+  left: 0;
+  background: rgba(255, 255, 255, 0.5);
+  content: '';
 }
 
 .swatch-option-tooltip {

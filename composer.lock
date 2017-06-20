@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4f20196e72d427978244b8d5c6540dbb",
-    "content-hash": "cc55ed8633c24dc1312314a07e98eaa6",
+    "content-hash": "ea8190fd711731427930be6d56858d03",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -56,7 +55,7 @@
             ],
             "description": "Algolia Search API Client for PHP",
             "homepage": "https://github.com/algolia/algoliasearch-client-php",
-            "time": "2017-05-22 14:50:28"
+            "time": "2017-05-22T14:50:28+00:00"
         },
         {
             "name": "algolia/algoliasearch-magento-2",
@@ -91,7 +90,7 @@
                 "MIT"
             ],
             "description": "Algolia Search integration for Magento 2",
-            "time": "2017-05-17 10:09:23"
+            "time": "2017-05-17T10:09:23+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -138,7 +137,7 @@
                 }
             ],
             "description": "Braintree PHP Client Library",
-            "time": "2015-11-19 19:14:47"
+            "time": "2015-11-19T19:14:47+00:00"
         },
         {
             "name": "colinmollenhour/cache-backend-file",
@@ -174,7 +173,7 @@
             ],
             "description": "The stock Zend_Cache_Backend_File backend has extremely poor performance for cleaning by tags making it become unusable as the number of cached items increases. This backend makes many changes resulting in a huge performance boost, especially for tag cleaning.",
             "homepage": "https://github.com/colinmollenhour/Cm_Cache_Backend_File",
-            "time": "2016-05-02 16:24:47"
+            "time": "2016-05-02T16:24:47+00:00"
         },
         {
             "name": "colinmollenhour/cache-backend-redis",
@@ -210,7 +209,7 @@
             ],
             "description": "Zend_Cache backend using Redis with full support for tags.",
             "homepage": "https://github.com/colinmollenhour/Cm_Cache_Backend_Redis",
-            "time": "2016-05-02 16:23:36"
+            "time": "2016-05-02T16:23:36+00:00"
         },
         {
             "name": "colinmollenhour/credis",
@@ -249,7 +248,7 @@
             ],
             "description": "Credis is a lightweight interface to the Redis key-value store which wraps the phpredis library when available for better performance.",
             "homepage": "https://github.com/colinmollenhour/credis",
-            "time": "2015-11-28 01:20:04"
+            "time": "2015-11-28T01:20:04+00:00"
         },
         {
             "name": "colinmollenhour/php-redis-session-abstract",
@@ -287,7 +286,7 @@
             ],
             "description": "A Redis-based session handler with optimistic locking",
             "homepage": "https://github.com/colinmollenhour/php-redis-session-abstract",
-            "time": "2016-08-04 18:05:51"
+            "time": "2016-08-04T18:05:51+00:00"
         },
         {
             "name": "composer/composer",
@@ -362,7 +361,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2016-03-03 15:15:10"
+            "time": "2016-03-03T15:15:10+00:00"
         },
         {
             "name": "composer/semver",
@@ -424,7 +423,7 @@
                 "validation",
                 "versioning"
             ],
-            "time": "2016-08-30 16:08:34"
+            "time": "2016-08-30T16:08:34+00:00"
         },
         {
             "name": "composer/spdx-licenses",
@@ -485,7 +484,7 @@
                 "spdx",
                 "validator"
             ],
-            "time": "2017-04-03 19:08:52"
+            "time": "2017-04-03T19:08:52+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -551,7 +550,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2016-01-25 15:43:01"
+            "time": "2016-01-25T15:43:01+00:00"
         },
         {
             "name": "league/climate",
@@ -600,7 +599,7 @@
                 "php",
                 "terminal"
             ],
-            "time": "2015-01-18 14:31:58"
+            "time": "2015-01-18T14:31:58+00:00"
         },
         {
             "name": "magento/composer",
@@ -920,7 +919,7 @@
                 "composer-installer",
                 "magento"
             ],
-            "time": "2016-10-06 16:05:07"
+            "time": "2016-10-06T16:05:07+00:00"
         },
         {
             "name": "magento/magento2-base",
@@ -6054,7 +6053,7 @@
                 "ZF1",
                 "framework"
             ],
-            "time": "2017-02-27 21:19:07"
+            "time": "2017-02-27T21:19:07+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -6130,7 +6129,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-08-09 17:44:44"
+            "time": "2015-08-09T17:44:44+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
@@ -6167,7 +6166,7 @@
                 "source": "https://github.com/oandermedia/oander-ajax-catalog/tree/1.0.3",
                 "issues": "https://github.com/oandermedia/oander-ajax-catalog/issues"
             },
-            "time": "2017-02-21 15:42:55"
+            "time": "2017-02-21T15:42:55+00:00"
         },
         {
             "name": "oander/module-api-gateway",
@@ -6204,7 +6203,7 @@
                 "source": "https://github.com/oandermedia/oander-api-gateway/tree/0.0.2",
                 "issues": "https://github.com/oandermedia/oander-api-gateway/issues"
             },
-            "time": "2017-05-05 10:57:32"
+            "time": "2017-05-05T10:57:32+00:00"
         },
         {
             "name": "oander/module-base",
@@ -6241,7 +6240,7 @@
                 "source": "https://github.com/oandermedia/oander-base/tree/1.2.6",
                 "issues": "https://github.com/oandermedia/oander-base/issues"
             },
-            "time": "2017-06-19 13:57:39"
+            "time": "2017-06-19T13:57:39+00:00"
         },
         {
             "name": "oander/module-category-badge",
@@ -6278,7 +6277,7 @@
                 "source": "https://github.com/oandermedia/oander-category-badge/tree/2.2.0",
                 "issues": "https://github.com/oandermedia/oander-category-badge/issues"
             },
-            "time": "2017-03-24 14:46:50"
+            "time": "2017-03-24T14:46:50+00:00"
         },
         {
             "name": "oander/module-category-dropdown",
@@ -6316,7 +6315,7 @@
                 "source": "https://github.com/oandermedia/oander-category-dropdown/tree/1.0.4",
                 "issues": "https://github.com/oandermedia/oander-category-dropdown/issues"
             },
-            "time": "2017-03-22 12:58:12"
+            "time": "2017-03-22T12:58:12+00:00"
         },
         {
             "name": "oander/module-checkout",
@@ -6353,20 +6352,20 @@
                 "source": "https://github.com/oandermedia/oander-checkout/tree/1.0.0",
                 "issues": "https://github.com/oandermedia/oander-checkout/issues"
             },
-            "time": "2017-04-11 09:25:36"
+            "time": "2017-04-11T09:25:36+00:00"
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "a917073d9ab3837943f30e700664cb98ec1eaeb4"
+                "reference": "991bba80dc7e0e629249ed2d736b4314e98de4b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/a917073d9ab3837943f30e700664cb98ec1eaeb4",
-                "reference": "a917073d9ab3837943f30e700664cb98ec1eaeb4",
+                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/991bba80dc7e0e629249ed2d736b4314e98de4b3",
+                "reference": "991bba80dc7e0e629249ed2d736b4314e98de4b3",
                 "shasum": ""
             },
             "require": {
@@ -6387,10 +6386,10 @@
             ],
             "description": "Configurable Product Attribute",
             "support": {
-                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.4",
+                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.5",
                 "issues": "https://github.com/oandermedia/oander-configurable-product-attribute/issues"
             },
-            "time": "2017-05-23 13:03:22"
+            "time": "2017-06-20T11:11:56+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -6427,7 +6426,7 @@
                 "source": "https://github.com/oandermedia/oander-cookie-law/tree/0.0.2",
                 "issues": "https://github.com/oandermedia/oander-cookie-law/issues"
             },
-            "time": "2017-05-26 09:02:44"
+            "time": "2017-05-26T09:02:44+00:00"
         },
         {
             "name": "oander/module-core-bug-fix",
@@ -6463,7 +6462,7 @@
                 "source": "https://github.com/oandermedia/oander-core-bug-fix/tree/1.0.1",
                 "issues": "https://github.com/oandermedia/oander-core-bug-fix/issues"
             },
-            "time": "2017-01-25 13:44:59"
+            "time": "2017-01-25T13:44:59+00:00"
         },
         {
             "name": "oander/module-currency-manager",
@@ -6502,7 +6501,7 @@
                 "source": "https://github.com/oandermedia/oander-currency-manager/tree/1.1.0",
                 "issues": "https://github.com/oandermedia/oander-currency-manager/issues"
             },
-            "time": "2017-03-08 08:55:39"
+            "time": "2017-03-08T08:55:39+00:00"
         },
         {
             "name": "oander/module-customer-file-upload",
@@ -6539,7 +6538,7 @@
                 "source": "https://github.com/oandermedia/oander-customer-file-upload/tree/1.0.4",
                 "issues": "https://github.com/oandermedia/oander-customer-file-upload/issues"
             },
-            "time": "2017-04-21 10:25:39"
+            "time": "2017-04-21T10:25:39+00:00"
         },
         {
             "name": "oander/module-discount-badge",
@@ -6577,7 +6576,7 @@
                 "source": "https://github.com/oandermedia/oander-discount-badge/tree/1.0.2",
                 "issues": "https://github.com/oandermedia/oander-discount-badge/issues"
             },
-            "time": "2017-03-27 09:49:52"
+            "time": "2017-03-27T09:49:52+00:00"
         },
         {
             "name": "oander/module-dropdown-products",
@@ -6613,7 +6612,7 @@
                 "source": "https://github.com/oandermedia/oander-dropdown-products/tree/1.0.2",
                 "issues": "https://github.com/oandermedia/oander-dropdown-products/issues"
             },
-            "time": "2017-03-27 13:11:36"
+            "time": "2017-03-27T13:11:36+00:00"
         },
         {
             "name": "oander/module-fancy-filter",
@@ -6650,7 +6649,7 @@
                 "source": "https://github.com/oandermedia/oander-fancy-filter/tree/1.0.5",
                 "issues": "https://github.com/oandermedia/oander-fancy-filter/issues"
             },
-            "time": "2017-03-24 11:36:28"
+            "time": "2017-03-24T11:36:28+00:00"
         },
         {
             "name": "oander/module-free-shipping-display",
@@ -6687,7 +6686,7 @@
                 "source": "https://github.com/oandermedia/oander-free-shipping-display/tree/1.0.0",
                 "issues": "https://github.com/oandermedia/oander-free-shipping-display/issues"
             },
-            "time": "2017-01-18 15:52:35"
+            "time": "2017-01-18T15:52:35+00:00"
         },
         {
             "name": "oander/module-google-tag-manager",
@@ -6725,7 +6724,7 @@
                 "source": "https://github.com/oandermedia/oander-google-tag-manager/tree/1.0.0",
                 "issues": "https://github.com/oandermedia/oander-google-tag-manager/issues"
             },
-            "time": "2017-01-04 11:34:53"
+            "time": "2017-01-04T11:34:53+00:00"
         },
         {
             "name": "oander/module-hungarian-newsletter",
@@ -6763,7 +6762,7 @@
                 "source": "https://github.com/oandermedia/oander-hungarian-newsletter/tree/1.1.0",
                 "issues": "https://github.com/oandermedia/oander-hungarian-newsletter/issues"
             },
-            "time": "2017-03-07 16:10:05"
+            "time": "2017-03-07T16:10:05+00:00"
         },
         {
             "name": "oander/module-indexer",
@@ -6800,7 +6799,7 @@
                 "source": "https://github.com/oandermedia/oander-indexer/tree/1.0.0",
                 "issues": "https://github.com/oandermedia/oander-indexer/issues"
             },
-            "time": "2017-01-26 12:48:44"
+            "time": "2017-01-26T12:48:44+00:00"
         },
         {
             "name": "oander/module-multislider",
@@ -6837,7 +6836,7 @@
                 "source": "https://github.com/oandermedia/oander-multi-slider/tree/1.0.6",
                 "issues": "https://github.com/oandermedia/oander-multi-slider/issues"
             },
-            "time": "2017-03-08 09:12:06"
+            "time": "2017-03-08T09:12:06+00:00"
         },
         {
             "name": "oander/module-name-switcher",
@@ -6874,7 +6873,7 @@
                 "source": "https://github.com/oandermedia/oander-name-switcher/tree/1.0.8",
                 "issues": "https://github.com/oandermedia/oander-name-switcher/issues"
             },
-            "time": "2017-03-17 11:46:52"
+            "time": "2017-03-17T11:46:52+00:00"
         },
         {
             "name": "oander/module-order-comment",
@@ -6911,7 +6910,7 @@
                 "source": "https://github.com/oandermedia/oander-order-comment/tree/1.0.1",
                 "issues": "https://github.com/oandermedia/oander-order-comment/issues"
             },
-            "time": "2017-01-05 12:26:42"
+            "time": "2017-01-05T12:26:42+00:00"
         },
         {
             "name": "oander/module-paypal",
@@ -6948,7 +6947,7 @@
                 "source": "https://github.com/oandermedia/oander-paypal/tree/1.0.0",
                 "issues": "https://github.com/oandermedia/oander-paypal/issues"
             },
-            "time": "2017-01-04 11:42:27"
+            "time": "2017-01-04T11:42:27+00:00"
         },
         {
             "name": "oander/module-pos-locations",
@@ -6985,7 +6984,7 @@
                 "source": "https://github.com/oandermedia/oander-pos-locations/tree/1.0.7",
                 "issues": "https://github.com/oandermedia/oander-pos-locations/issues"
             },
-            "time": "2017-03-17 11:42:31"
+            "time": "2017-03-17T11:42:31+00:00"
         },
         {
             "name": "oander/module-price-tooltip",
@@ -7022,7 +7021,7 @@
                 "source": "https://github.com/oandermedia/oander-price-tooltip/tree/1.0.1",
                 "issues": "https://github.com/oandermedia/oander-price-tooltip/issues"
             },
-            "time": "2017-05-30 12:26:11"
+            "time": "2017-05-30T12:26:11+00:00"
         },
         {
             "name": "oander/module-product-icons",
@@ -7059,7 +7058,7 @@
                 "source": "https://github.com/oandermedia/oander-product-icons/tree/1.0.5",
                 "issues": "https://github.com/oandermedia/oander-product-icons/issues"
             },
-            "time": "2017-03-31 15:38:53"
+            "time": "2017-03-31T15:38:53+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -7096,7 +7095,7 @@
                 "source": "https://github.com/oandermedia/oander-shipping/tree/1.0.1",
                 "issues": "https://github.com/oandermedia/oander-shipping/issues"
             },
-            "time": "2017-04-12 14:26:17"
+            "time": "2017-04-12T14:26:17+00:00"
         },
         {
             "name": "oander/module-test-base",
@@ -7132,7 +7131,7 @@
                 "source": "https://github.com/oandermedia/oander-test-base/tree/1.0.1",
                 "issues": "https://github.com/oandermedia/oander-test-base/issues"
             },
-            "time": "2017-06-19 13:25:11"
+            "time": "2017-06-19T13:25:11+00:00"
         },
         {
             "name": "oander/module-warehouse-manager",
@@ -7171,7 +7170,7 @@
                 "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.1.0",
                 "issues": "https://github.com/oandermedia/oander-warehouse-manager/issues"
             },
-            "time": "2017-05-19 09:29:21"
+            "time": "2017-05-19T09:29:21+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
@@ -7209,7 +7208,7 @@
                 "source": "https://github.com/oandermedia/oander-warehouse-stock-order/tree/1.0.2",
                 "issues": "https://github.com/oandermedia/oander-warehouse-stock-order/issues"
             },
-            "time": "2017-05-31 08:51:05"
+            "time": "2017-05-31T08:51:05+00:00"
         },
         {
             "name": "oander/module-wonder-widget",
@@ -7246,7 +7245,7 @@
                 "source": "https://github.com/oandermedia/oander-wonder-widget/tree/1.1.4",
                 "issues": "https://github.com/oandermedia/oander-wonder-widget/issues"
             },
-            "time": "2017-03-29 13:44:08"
+            "time": "2017-03-29T13:44:08+00:00"
         },
         {
             "name": "oander/theme-hodor",
@@ -7280,7 +7279,7 @@
                 "source": "https://github.com/oandermedia/oander-hodor/tree/1.1.4",
                 "issues": "https://github.com/oandermedia/oander-hodor/issues"
             },
-            "time": "2017-04-21 13:45:37"
+            "time": "2017-04-21T13:45:37+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -7342,7 +7341,7 @@
                 "php",
                 "stylesheet"
             ],
-            "time": "2017-03-28 22:19:25"
+            "time": "2017-03-28T22:19:25+00:00"
         },
         {
             "name": "pelago/emogrifier",
@@ -7398,7 +7397,7 @@
             ],
             "description": "Converts CSS styles into inline style attributes in your HTML code",
             "homepage": "http://www.pelagodesign.com/sidecar/emogrifier/",
-            "time": "2015-05-15 11:37:51"
+            "time": "2015-05-15T11:37:51+00:00"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -7490,7 +7489,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2017-06-05 06:31:10"
+            "time": "2017-06-05T06:31:10+00:00"
         },
         {
             "name": "psr/log",
@@ -7537,7 +7536,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10 12:19:37"
+            "time": "2016-10-10T12:19:37+00:00"
         },
         {
             "name": "seld/cli-prompt",
@@ -7585,7 +7584,7 @@
                 "input",
                 "prompt"
             ],
-            "time": "2017-03-18 11:32:45"
+            "time": "2017-03-18T11:32:45+00:00"
         },
         {
             "name": "seld/jsonlint",
@@ -7634,7 +7633,7 @@
                 "parser",
                 "validator"
             ],
-            "time": "2017-06-18 15:11:04"
+            "time": "2017-06-18T15:11:04+00:00"
         },
         {
             "name": "seld/phar-utils",
@@ -7678,7 +7677,7 @@
             "keywords": [
                 "phra"
             ],
-            "time": "2015-10-13 18:44:15"
+            "time": "2015-10-13T18:44:15+00:00"
         },
         {
             "name": "sjparkinson/static-review",
@@ -7731,7 +7730,7 @@
                 }
             ],
             "description": "An extendable framework for version control hooks.",
-            "time": "2014-09-22 08:40:36"
+            "time": "2014-09-22T08:40:36+00:00"
         },
         {
             "name": "symfony/console",
@@ -7789,7 +7788,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2015-07-26 09:08:40"
+            "time": "2015-07-26T09:08:40+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -7849,7 +7848,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-02 07:47:27"
+            "time": "2017-06-02T07:47:27+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -7898,7 +7897,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2017-05-28 14:07:33"
+            "time": "2017-05-28T14:07:33+00:00"
         },
         {
             "name": "symfony/finder",
@@ -7947,7 +7946,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-01 21:01:25"
+            "time": "2017-06-01T21:01:25+00:00"
         },
         {
             "name": "symfony/process",
@@ -7996,7 +7995,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-05-08 01:19:21"
+            "time": "2017-05-08T01:19:21+00:00"
         },
         {
             "name": "tedivm/jshrink",
@@ -8042,7 +8041,7 @@
                 "javascript",
                 "minifier"
             ],
-            "time": "2014-11-11 03:54:14"
+            "time": "2014-11-11T03:54:14+00:00"
         },
         {
             "name": "tubalmartin/cssmin",
@@ -8086,11 +8085,11 @@
                 "minify",
                 "yui"
             ],
-            "time": "2014-09-22 08:08:50"
+            "time": "2014-09-22T08:08:50+00:00"
         },
         {
             "name": "zendframework/zend-code",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-code.git",
@@ -8139,11 +8138,11 @@
                 "code",
                 "zf2"
             ],
-            "time": "2015-05-11 16:17:05"
+            "time": "2015-05-11T16:17:05+00:00"
         },
         {
             "name": "zendframework/zend-config",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-config.git",
@@ -8196,11 +8195,11 @@
                 "config",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-console",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-console.git",
@@ -8246,11 +8245,11 @@
                 "console",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-crypt",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-crypt.git",
@@ -8298,11 +8297,11 @@
                 "crypt",
                 "zf2"
             ],
-            "time": "2015-11-23 16:33:27"
+            "time": "2015-11-23T16:33:27+00:00"
         },
         {
             "name": "zendframework/zend-di",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-di.git",
@@ -8349,11 +8348,11 @@
                 "di",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-escaper",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-escaper.git",
@@ -8394,11 +8393,11 @@
                 "escaper",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-eventmanager",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-eventmanager.git",
@@ -8440,11 +8439,11 @@
                 "eventmanager",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-filter",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-filter.git",
@@ -8496,11 +8495,11 @@
                 "filter",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-form",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-form.git",
@@ -8567,11 +8566,11 @@
                 "form",
                 "zf2"
             ],
-            "time": "2015-09-09 19:11:05"
+            "time": "2015-09-09T19:11:05+00:00"
         },
         {
             "name": "zendframework/zend-http",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-http.git",
@@ -8618,11 +8617,11 @@
                 "http",
                 "zf2"
             ],
-            "time": "2015-09-14 16:11:20"
+            "time": "2015-09-14T16:11:20+00:00"
         },
         {
             "name": "zendframework/zend-i18n",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-i18n.git",
@@ -8682,11 +8681,11 @@
                 "i18n",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-inputfilter",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-inputfilter.git",
@@ -8733,11 +8732,11 @@
                 "inputfilter",
                 "zf2"
             ],
-            "time": "2015-09-09 15:44:54"
+            "time": "2015-09-09T15:44:54+00:00"
         },
         {
             "name": "zendframework/zend-json",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-json.git",
@@ -8787,11 +8786,11 @@
                 "json",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-loader",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-loader.git",
@@ -8832,11 +8831,11 @@
                 "loader",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-log",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-log.git",
@@ -8894,11 +8893,11 @@
                 "logging",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-math",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-math.git",
@@ -8945,11 +8944,11 @@
                 "math",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-modulemanager",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-modulemanager.git",
@@ -9003,11 +9002,11 @@
                 "modulemanager",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-mvc",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-mvc.git",
@@ -9091,11 +9090,11 @@
                 "mvc",
                 "zf2"
             ],
-            "time": "2015-09-14 16:32:50"
+            "time": "2015-09-14T16:32:50+00:00"
         },
         {
             "name": "zendframework/zend-serializer",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-serializer.git",
@@ -9144,11 +9143,11 @@
                 "serializer",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-server",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-server.git",
@@ -9191,11 +9190,11 @@
                 "server",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-servicemanager",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-servicemanager.git",
@@ -9241,11 +9240,11 @@
                 "servicemanager",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-soap",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-soap.git",
@@ -9293,11 +9292,11 @@
                 "soap",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-stdlib",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-stdlib.git",
@@ -9348,11 +9347,11 @@
                 "stdlib",
                 "zf2"
             ],
-            "time": "2015-07-21 13:55:46"
+            "time": "2015-07-21T13:55:46+00:00"
         },
         {
             "name": "zendframework/zend-text",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-text.git",
@@ -9395,11 +9394,11 @@
                 "text",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-uri",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-uri.git",
@@ -9443,11 +9442,11 @@
                 "uri",
                 "zf2"
             ],
-            "time": "2015-09-14 16:17:10"
+            "time": "2015-09-14T16:17:10+00:00"
         },
         {
             "name": "zendframework/zend-validator",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-validator.git",
@@ -9508,11 +9507,11 @@
                 "validator",
                 "zf2"
             ],
-            "time": "2015-09-08 21:04:17"
+            "time": "2015-09-08T21:04:17+00:00"
         },
         {
             "name": "zendframework/zend-view",
-            "version": "2.4.11",
+            "version": "2.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-view.git",
@@ -9585,7 +9584,7 @@
                 "view",
                 "zf2"
             ],
-            "time": "2015-06-16 15:22:37"
+            "time": "2015-06-16T15:22:37+00:00"
         }
     ],
     "packages-dev": [
@@ -9641,7 +9640,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-06-14 21:17:01"
+            "time": "2015-06-14T21:17:01+00:00"
         },
         {
             "name": "fabpot/php-cs-fixer",
@@ -9700,7 +9699,7 @@
             ],
             "description": "A tool to automatically fix PHP code style",
             "abandoned": "friendsofphp/php-cs-fixer",
-            "time": "2016-12-01 00:05:05"
+            "time": "2016-12-01T00:05:05+00:00"
         },
         {
             "name": "lusitanian/oauth",
@@ -9767,7 +9766,7 @@
                 "oauth",
                 "security"
             ],
-            "time": "2015-10-07 00:20:04"
+            "time": "2015-10-07T00:20:04+00:00"
         },
         {
             "name": "pdepend/pdepend",
@@ -9807,7 +9806,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2015-10-16 08:49:58"
+            "time": "2015-10-16T08:49:58+00:00"
         },
         {
             "name": "phpmd/phpmd",
@@ -9872,7 +9871,7 @@
                 "phpmd",
                 "pmd"
             ],
-            "time": "2016-11-23 20:33:32"
+            "time": "2016-11-23T20:33:32+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -9934,7 +9933,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-10-06 15:47:00"
+            "time": "2015-10-06T15:47:00+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -9979,7 +9978,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2013-10-10 15:34:57"
+            "time": "2013-10-10T15:34:57+00:00"
         },
         {
             "name": "phpunit/php-text-template",
@@ -10020,7 +10019,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2015-06-21 13:50:34"
+            "time": "2015-06-21T13:50:34+00:00"
         },
         {
             "name": "phpunit/php-timer",
@@ -10069,7 +10068,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2017-02-26 11:10:40"
+            "time": "2017-02-26T11:10:40+00:00"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -10118,7 +10117,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-02-27 10:12:30"
+            "time": "2017-02-27T10:12:30+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -10192,7 +10191,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-05-02 07:13:40"
+            "time": "2014-05-02T07:13:40+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -10248,7 +10247,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2015-10-02 06:51:40"
+            "time": "2015-10-02T06:51:40+00:00"
         },
         {
             "name": "sebastian/comparator",
@@ -10312,7 +10311,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2017-01-29 09:50:25"
+            "time": "2017-01-29T09:50:25+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -10364,7 +10363,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-05-22 07:24:03"
+            "time": "2017-05-22T07:24:03+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -10414,7 +10413,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2016-08-18 05:49:44"
+            "time": "2016-08-18T05:49:44+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -10481,7 +10480,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2016-06-17 09:04:28"
+            "time": "2016-06-17T09:04:28+00:00"
         },
         {
             "name": "sebastian/finder-facade",
@@ -10520,7 +10519,7 @@
             ],
             "description": "FinderFacade is a convenience wrapper for Symfony's Finder component.",
             "homepage": "https://github.com/sebastianbergmann/finder-facade",
-            "time": "2016-02-17 07:02:23"
+            "time": "2016-02-17T07:02:23+00:00"
         },
         {
             "name": "sebastian/phpcpd",
@@ -10571,7 +10570,7 @@
             ],
             "description": "Copy/Paste Detector (CPD) for PHP code.",
             "homepage": "https://github.com/sebastianbergmann/phpcpd",
-            "time": "2013-11-08 09:05:42"
+            "time": "2013-11-08T09:05:42+00:00"
         },
         {
             "name": "sebastian/recursion-context",
@@ -10624,7 +10623,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2016-10-03 07:41:43"
+            "time": "2016-10-03T07:41:43+00:00"
         },
         {
             "name": "sebastian/version",
@@ -10659,7 +10658,7 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2015-06-21 13:59:46"
+            "time": "2015-06-21T13:59:46+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -10734,7 +10733,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2014-05-01 03:07:07"
+            "time": "2014-05-01T03:07:07+00:00"
         },
         {
             "name": "symfony/config",
@@ -10790,7 +10789,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2017-04-12 14:07:15"
+            "time": "2017-04-12T14:07:15+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -10853,7 +10852,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-02 14:36:56"
+            "time": "2017-06-02T14:36:56+00:00"
         },
         {
             "name": "symfony/stopwatch",
@@ -10902,7 +10901,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2017-04-12 14:14:56"
+            "time": "2017-04-12T14:14:56+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -10951,7 +10950,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-01 20:52:29"
+            "time": "2017-06-01T20:52:29+00:00"
         },
         {
             "name": "theseer/fdomdocument",
@@ -10991,7 +10990,7 @@
             ],
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
-            "time": "2017-04-21 14:50:31"
+            "time": "2017-04-21T14:50:31+00:00"
         }
     ],
     "aliases": [],
