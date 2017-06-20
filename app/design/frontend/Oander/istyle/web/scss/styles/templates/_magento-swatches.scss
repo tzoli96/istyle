@@ -1,9 +1,11 @@
-.clearfix:after {
-  content: '';
-  visibility: hidden;
+// @todo refact CSS
+
+.clearfix::after {
   display: block;
   height: 0;
   clear: both;
+  content: '';
+  visibility: hidden;
 }
 
 .connectivity-container {
@@ -11,29 +13,153 @@
 
   .swatches-box {
     height: auto;
+    margin: 5px 0 10px;
+    padding: 15px 10px;
+    border: 1px solid $gray-border;
+    border-radius: 4px;
+
+    .swatch-option {
+      position: relative;
+      width: 33.33%;
+      margin: 0;
+      text-align: center;
+
+      &.selected {
+        &::after {
+          position: absolute;
+          top: -15px;
+          bottom: -15px;
+          border: 1px solid $brand-primary;
+          border-radius: 4px;
+          content: '';
+          z-index: 100;
+        }
+
+        &:nth-child(3n + 1) {
+          &::after {
+            right: -1px;
+            left: -11px;
+          }
+        }
+
+        &:nth-child(3n + 2) {
+          &::after {
+            right: -1px;
+            left: 0;
+          }
+        }
+
+        &:nth-child(3n + 3) {
+          &::after {
+            right: -11px;
+            left: 0;
+          }
+        }
+      }
+
+      &:nth-child(3n + 2),
+      &:nth-child(3n + 3) {
+        &::before {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          border-left: 1px solid $gray-border;
+          content: '';
+        }
+      }
+    }
   }
 
   > span {
     display: block;
+    margin: 5px 0;
+  }
+}
+
+.swatch-attribute {
+  margin-bottom: 15px;
+
+  &.config_size {
+    .swatch-attribute-options {
+      display: flex;
+      height: auto;
+      margin: 5px 0 10px;
+      padding: 15px 10px;
+      border: 1px solid $gray-border;
+      border-radius: 4px;
+    }
+
+    .swatch-option {
+      position: relative;
+      width: 33.33%;
+      margin: 0;
+      text-align: center;
+
+      &.selected {
+        &::after {
+          position: absolute;
+          top: -15px;
+          bottom: -15px;
+          border: 1px solid $brand-primary;
+          border-radius: 4px;
+          content: '';
+          z-index: 100;
+        }
+
+        &:nth-child(3n + 1) {
+          &::after {
+            right: -1px;
+            left: -11px;
+          }
+        }
+
+        &:nth-child(3n + 2) {
+          &::after {
+            right: -1px;
+            left: 0;
+          }
+        }
+
+        &:nth-child(3n + 3) {
+          &::after {
+            right: -11px;
+            left: 0;
+          }
+        }
+      }
+
+      &:nth-child(3n + 2),
+      &:nth-child(3n + 3) {
+        &::before {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          border-left: 1px solid $gray-border;
+          content: '';
+        }
+      }
+    }
   }
 }
 
 .swatch-attribute-label {
-  font-weight: $font-weight-medium;
   position: relative;
+  font-weight: $font-weight-medium;
 
   &.required {
     padding-right: 10px;
   }
 
-  &[data-required="1"]::after {
-    content: '*';
-    color: red;
+  &[data-required='1']::after {
     position: absolute;
-    right: -11px;
     top: -2px;
-    font-weight: $font-weight-medium;
+    right: -11px;
+    color: #f00;
     font-size: 1em;
+    font-weight: $font-weight-medium;
+    content: '*';
   }
 }
 
@@ -43,7 +169,7 @@
 }
 
 .swatch-attribute-options {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .swatch-option {
@@ -52,49 +178,65 @@
   height: 28px;
   margin: 0 10px 5px 0;
   float: left;
-  border: 1px solid #e1e1e1;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
   text-align: center;
   text-overflow: ellipsis;
   cursor: pointer;
-  overflow: hidden;
 
   &.text {
     width: auto;
     min-width: 50px;
     height: auto;
-    margin-right: 7px;
-    padding: 10px 8px;
     border: 0;
     border-radius: $border-radius;
     background: #fff;
     color: #000;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   &.selected {
-    // border: 1px solid $brand-primary;
     outline: none;
     background-color: #fff;
     color: #333;
   }
 
   &.text.selected {
-    padding: 3px 8px;
+    color: $brand-primary;
     font-weight: 700;
   }
 
+  &.color {
+    &.selected {
+      border-color: $brand-primary;
+    }
+
+    &.disabled {
+      &::after {
+        right: 0;
+        left: 0;
+      }
+    }
+  }
+
   &.disabled {
-    cursor: default;
+    cursor: not-allowed;
 
     &::after {
       position: absolute;
       top: 0;
-      right: 0;
+      right: 1px;
       bottom: 0;
-      left: 0;
-      background: rgba(white, 0.5);
+      left: 1px;
+      background: rgba(#fff, 0.85);
       content: '';
     }
+  }
+
+  .label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
   }
 }
 

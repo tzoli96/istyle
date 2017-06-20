@@ -17663,12 +17663,12 @@ body.account .form-group .nested {
   vertical-align: top;
 }
 
-.clearfix:after {
-  content: '';
-  visibility: hidden;
+.clearfix::after {
   display: block;
   height: 0;
   clear: both;
+  content: '';
+  visibility: hidden;
 }
 
 .connectivity-container::after {
@@ -17679,29 +17679,132 @@ body.account .form-group .nested {
 
 .connectivity-container .swatches-box {
   height: auto;
+  margin: 5px 0 10px;
+  padding: 15px 10px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+}
+
+.connectivity-container .swatches-box .swatch-option {
+  position: relative;
+  width: 33.33%;
+  margin: 0;
+  text-align: center;
+}
+
+.connectivity-container .swatches-box .swatch-option.selected::after {
+  position: absolute;
+  top: -15px;
+  bottom: -15px;
+  border: 1px solid #007aff;
+  border-radius: 4px;
+  content: '';
+  z-index: 100;
+}
+
+.connectivity-container .swatches-box .swatch-option.selected:nth-child(3n + 1)::after {
+  right: -1px;
+  left: -11px;
+}
+
+.connectivity-container .swatches-box .swatch-option.selected:nth-child(3n + 2)::after {
+  right: -1px;
+  left: 0;
+}
+
+.connectivity-container .swatches-box .swatch-option.selected:nth-child(3n + 3)::after {
+  right: -11px;
+  left: 0;
+}
+
+.connectivity-container .swatches-box .swatch-option:nth-child(3n + 2)::before, .connectivity-container .swatches-box .swatch-option:nth-child(3n + 3)::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-left: 1px solid #dcdcdc;
+  content: '';
 }
 
 .connectivity-container > span {
   display: block;
+  margin: 5px 0;
+}
+
+.swatch-attribute {
+  margin-bottom: 15px;
+}
+
+.swatch-attribute.config_size .swatch-attribute-options {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: auto;
+  margin: 5px 0 10px;
+  padding: 15px 10px;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+}
+
+.swatch-attribute.config_size .swatch-option {
+  position: relative;
+  width: 33.33%;
+  margin: 0;
+  text-align: center;
+}
+
+.swatch-attribute.config_size .swatch-option.selected::after {
+  position: absolute;
+  top: -15px;
+  bottom: -15px;
+  border: 1px solid #007aff;
+  border-radius: 4px;
+  content: '';
+  z-index: 100;
+}
+
+.swatch-attribute.config_size .swatch-option.selected:nth-child(3n + 1)::after {
+  right: -1px;
+  left: -11px;
+}
+
+.swatch-attribute.config_size .swatch-option.selected:nth-child(3n + 2)::after {
+  right: -1px;
+  left: 0;
+}
+
+.swatch-attribute.config_size .swatch-option.selected:nth-child(3n + 3)::after {
+  right: -11px;
+  left: 0;
+}
+
+.swatch-attribute.config_size .swatch-option:nth-child(3n + 2)::before, .swatch-attribute.config_size .swatch-option:nth-child(3n + 3)::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-left: 1px solid #dcdcdc;
+  content: '';
 }
 
 .swatch-attribute-label {
-  font-weight: 500;
   position: relative;
+  font-weight: 500;
 }
 
 .swatch-attribute-label.required {
   padding-right: 10px;
 }
 
-.swatch-attribute-label[data-required="1"]::after {
-  content: '*';
-  color: red;
+.swatch-attribute-label[data-required='1']::after {
   position: absolute;
-  right: -11px;
   top: -2px;
-  font-weight: 500;
+  right: -11px;
+  color: #f00;
   font-size: 1em;
+  font-weight: 500;
+  content: '*';
 }
 
 .swatch-attribute-selected-option {
@@ -17710,7 +17813,7 @@ body.account .form-group .nested {
 }
 
 .swatch-attribute-options {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .swatch-option {
@@ -17719,24 +17822,22 @@ body.account .form-group .nested {
   height: 28px;
   margin: 0 10px 5px 0;
   float: left;
-  border: 1px solid #e1e1e1;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
   text-align: center;
   text-overflow: ellipsis;
   cursor: pointer;
-  overflow: hidden;
 }
 
 .swatch-option.text {
   width: auto;
   min-width: 50px;
   height: auto;
-  margin-right: 7px;
-  padding: 10px 8px;
   border: 0;
   border-radius: 4px;
   background: #fff;
   color: #000;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .swatch-option.selected {
@@ -17746,22 +17847,37 @@ body.account .form-group .nested {
 }
 
 .swatch-option.text.selected {
-  padding: 3px 8px;
+  color: #007aff;
   font-weight: 700;
 }
 
+.swatch-option.color.selected {
+  border-color: #007aff;
+}
+
+.swatch-option.color.disabled::after {
+  right: 0;
+  left: 0;
+}
+
 .swatch-option.disabled {
-  cursor: default;
+  cursor: not-allowed;
 }
 
 .swatch-option.disabled::after {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 1px;
   bottom: 0;
-  left: 0;
-  background: rgba(255, 255, 255, 0.5);
+  left: 1px;
+  background: rgba(255, 255, 255, 0.85);
   content: '';
+}
+
+.swatch-option .label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .swatch-option-tooltip {
