@@ -75,4 +75,4 @@ gulp.task('watch', function() {
   gulp.watch(paths.scss, ['sass']);
 });
 
-gulp.task('default', ['sass', 'browser-sync', 'watch']);
+gulp.task('default', ['sass', 'watch']);
