@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0295af27c617f5532d7c43f4b22396c9",
+    "content-hash": "2cb447a9e868bea615a7ebf5bfbe368b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7092,7 +7092,7 @@
             ],
             "description": "Shipping",
             "support": {
-                "source": "https://github.com/oandermedia/oander-shipping/tree/1.0.1",
+                "source": "https://github.com/oandermedia/oander-shipping/tree/1.0.0",
                 "issues": "https://github.com/oandermedia/oander-shipping/issues"
             },
             "time": "2017-04-12T14:26:17+00:00"
@@ -7249,16 +7249,16 @@
         },
         {
             "name": "oander/theme-hodor",
-            "version": "1.1.4",
+            "version": "1.1.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-hodor.git",
-                "reference": "23fc7ff52990c98ddcc562a6037e298747f41e75"
+                "reference": "4bda27557267804adceb60ca4c1fb6843fb9b6d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-hodor/zipball/23fc7ff52990c98ddcc562a6037e298747f41e75",
-                "reference": "23fc7ff52990c98ddcc562a6037e298747f41e75",
+                "url": "https://api.github.com/repos/oandermedia/oander-hodor/zipball/4bda27557267804adceb60ca4c1fb6843fb9b6d6",
+                "reference": "4bda27557267804adceb60ca4c1fb6843fb9b6d6",
                 "shasum": ""
             },
             "require": {
@@ -7276,10 +7276,10 @@
             ],
             "description": "Hodor template",
             "support": {
-                "source": "https://github.com/oandermedia/oander-hodor/tree/1.1.4",
+                "source": "https://github.com/oandermedia/oander-hodor/tree/1.1.12",
                 "issues": "https://github.com/oandermedia/oander-hodor/issues"
             },
-            "time": "2017-04-21T13:45:37+00:00"
+            "time": "2017-06-23T12:38:46+00:00"
         },
         {
             "name": "oyejorge/less.php",
