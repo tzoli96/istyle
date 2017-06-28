@@ -6,6 +6,11 @@
  */
 -->
 <page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <head>
+        <remove src="Oander_PriceTooltip::css/product/price-tooltip.css" />
+    </head>
+
     <body>
 
         <referenceContainer name="main.content" htmlClass="page-main" />
@@ -38,7 +43,6 @@
         <move element="product.info.social" destination="product.info.right" after="product.info.price" />
         <move element="product.info.sku" destination="product.info.main" after="page.main.title" />
 
-        <move element="oander_wonder_widget.product_video_box.wrapper" destination="product.view.content" before="-" />
         <move element="product.info.details" destination="product.view.content.container" before="-" />
         <move element="content.aside" destination="product.view.content.container" />
 

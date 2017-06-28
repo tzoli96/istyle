@@ -9,6 +9,7 @@
 
     <head>
         <remove src="Oander_WarehouseManager::css/warehouse-product.css" />
+        <!--<remove src="Oander_PriceTooltip::css/product/price-tooltip.css" />-->
     </head>
 
     <body>

@@ -6,7 +6,7 @@
 }
 
 .oander-wonder-widget-basic {
-  padding: 0 map_get($grid-gutter-widths, xs) / 2;
+  padding: 0 map-get($grid-gutter-widths, xs) / 2;
 
   .content {
     position: relative;
@@ -32,13 +32,13 @@
     transition: color ease .3s;
     font-size: 16px;
     font-weight: 400;
+  }
 
-    .widget-title-link {
-      color: #5f5f5f;
+  .widget-title-link {
+    color: $gray-darker;
 
-      &:hover {
-        color: $brand-primary;
-      }
+    &:hover {
+      color: $brand-primary;
     }
   }
 
@@ -46,11 +46,10 @@
     color: #282828;
   }
 
-  .link {
-    display: none;
+  .buttons-set {
     margin-top: 10px;
 
-    a {
+    .link {
       display: block;
       position: relative;
       padding-right: 40px;
@@ -68,7 +67,7 @@
 
   .image-wrapper {
     padding-right: 15px;
-    background: none !important;
+    background-size: 0;
   }
 
   .content {
@@ -88,18 +87,18 @@
 
     .widget-title {
       margin: 0;
+      color: $gray-darker;
       font-size: 14px;
       font-weight: 400;
       line-height: 1.5;
 
-      &,
-      .widget-title-link {
-        color: $gray-darker;
-      }
-
       .icon {
         display: none;
       }
+    }
+
+    .widget-title-link {
+      color: $gray-darker;
     }
   }
 
@@ -121,6 +120,7 @@
     width: 80%;
     transform: translateY(-50%);
     color: #fff;
+    font-size: 18px;
     text-align: center;
     z-index: 2;
     pointer-events: none;
@@ -130,13 +130,23 @@
     display: inline-block;
   }
 
+  .title {
+    margin-top: 10px;
+  }
+
   .icon-play {
-    font-size: 24px;
+    font-size: 60px;
   }
 
   img {
     width: auto;
     max-width: 100%;
+  }
+}
+
+.video-widget-attribute-wrapper {
+  > p {
+    margin: 0;
   }
 }
 
@@ -149,7 +159,7 @@
 
   .oander-wonder-widget-basic {
     .image-wrapper {
-      background: none !important;
+      background-size: 0;
     }
   }
 
@@ -177,8 +187,23 @@
   }
 
   .oander-wonder-widget-video {
+
     .image-wrapper {
-      background: none !important;
+      height: 220px;
+      background-size: cover;
+    }
+
+    .wonder-widget-video-link {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 100;
+
+      img {
+        display: none;
+      }
     }
   }
 }
@@ -287,10 +312,6 @@
       transition: ease .3s;
       background-position: center center;
       background-size: cover;
-    }
-
-    .icon-play {
-      font-size: 60px;
     }
 
     img {

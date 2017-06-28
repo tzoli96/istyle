@@ -2225,10 +2225,12 @@ select.form-control:focus::-ms-value, select:focus::-ms-value {
 .form-control-static.form-control-sm, .input-group-sm > .form-control-static.form-control, .input-group-sm > select.form-control-static,
 .input-group-sm > .form-control-static.input-group-addon,
 .input-group-sm > .input-group-btn > .form-control-static.btn,
-.input-group-sm > .input-group-btn > .form-control-static.action, .form-control-static.form-control-lg, .input-group-lg > .form-control-static.form-control, .input-group-lg > select.form-control-static,
+.input-group-sm > .input-group-btn > .form-control-static.action, .catalog-product-view .oander-wonder-widget-basic
+.input-group-sm > .input-group-btn > .form-control-static.link, .form-control-static.form-control-lg, .input-group-lg > .form-control-static.form-control, .input-group-lg > select.form-control-static,
 .input-group-lg > .form-control-static.input-group-addon,
 .input-group-lg > .input-group-btn > .form-control-static.btn,
-.input-group-lg > .input-group-btn > .form-control-static.action {
+.input-group-lg > .input-group-btn > .form-control-static.action, .catalog-product-view .oander-wonder-widget-basic
+.input-group-lg > .input-group-btn > .form-control-static.link {
   padding-right: 0;
   padding-left: 0;
 }
@@ -2236,7 +2238,8 @@ select.form-control:focus::-ms-value, select:focus::-ms-value {
 .form-control-sm, .input-group-sm > .form-control, .input-group-sm > select,
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .btn,
-.input-group-sm > .input-group-btn > .action {
+.input-group-sm > .input-group-btn > .action, .catalog-product-view .oander-wonder-widget-basic
+.input-group-sm > .input-group-btn > .link {
   padding: 0.5rem 0.5rem;
   font-size: 0.875rem;
   border-radius: 4px;
@@ -2244,14 +2247,16 @@ select.form-control:focus::-ms-value, select:focus::-ms-value {
 
 select.form-control-sm:not([size]):not([multiple]), .input-group-sm > select:not([size]):not([multiple]),
 .input-group-sm > .input-group-btn > select.btn:not([size]):not([multiple]),
-.input-group-sm > .input-group-btn > select.action:not([size]):not([multiple]) {
+.input-group-sm > .input-group-btn > select.action:not([size]):not([multiple]), .catalog-product-view .oander-wonder-widget-basic
+.input-group-sm > .input-group-btn > select.link:not([size]):not([multiple]) {
   height: 2.3125rem;
 }
 
 .form-control-lg, .input-group-lg > .form-control, .input-group-lg > select,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn,
-.input-group-lg > .input-group-btn > .action {
+.input-group-lg > .input-group-btn > .action, .catalog-product-view .oander-wonder-widget-basic
+.input-group-lg > .input-group-btn > .link {
   padding: 1rem 1.5rem;
   font-size: 1.15rem;
   border-radius: 4px;
@@ -2259,7 +2264,8 @@ select.form-control-sm:not([size]):not([multiple]), .input-group-sm > select:not
 
 select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select:not([size]):not([multiple]),
 .input-group-lg > .input-group-btn > select.btn:not([size]):not([multiple]),
-.input-group-lg > .input-group-btn > select.action:not([size]):not([multiple]) {
+.input-group-lg > .input-group-btn > select.action:not([size]):not([multiple]), .catalog-product-view .oander-wonder-widget-basic
+.input-group-lg > .input-group-btn > select.link:not([size]):not([multiple]) {
   height: 3.53333rem;
 }
 
@@ -2514,7 +2520,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select:not
   }
 }
 
-.btn, .action {
+.btn, .action, .catalog-product-view .oander-wonder-widget-basic .link {
   display: inline-block;
   font-weight: 400;
   line-height: 1.25;
@@ -2534,28 +2540,30 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select:not
   transition: all 0.2s ease-in-out;
 }
 
-.btn:focus, .action:focus, .btn:hover, .action:hover {
+.btn:focus, .action:focus, .catalog-product-view .oander-wonder-widget-basic .link:focus, .btn:hover, .action:hover, .catalog-product-view .oander-wonder-widget-basic .link:hover {
   text-decoration: none;
 }
 
-.btn:focus, .action:focus, .btn.focus, .focus.action {
+.btn:focus, .action:focus, .catalog-product-view .oander-wonder-widget-basic .link:focus, .btn.focus, .focus.action, .catalog-product-view .oander-wonder-widget-basic .focus.link {
   outline: 0;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-.btn.disabled, .disabled.action, .btn:disabled, .action:disabled {
+.btn.disabled, .disabled.action, .catalog-product-view .oander-wonder-widget-basic .disabled.link, .btn:disabled, .action:disabled, .catalog-product-view .oander-wonder-widget-basic .link:disabled {
   cursor: not-allowed;
   opacity: .65;
 }
 
-.btn:active, .action:active, .btn.active, .active.action {
+.btn:active, .action:active, .catalog-product-view .oander-wonder-widget-basic .link:active, .btn.active, .active.action, .catalog-product-view .oander-wonder-widget-basic .active.link {
   background-image: none;
 }
 
-a.btn.disabled, a.disabled.action,
+a.btn.disabled, a.disabled.action, .catalog-product-view .oander-wonder-widget-basic a.disabled.link,
 fieldset[disabled] a.btn,
-fieldset[disabled] a.action {
+fieldset[disabled] a.action,
+fieldset[disabled] .catalog-product-view .oander-wonder-widget-basic a.link, .catalog-product-view .oander-wonder-widget-basic
+fieldset[disabled] a.link {
   pointer-events: none;
 }
 
@@ -2589,30 +2597,31 @@ fieldset[disabled] a.action {
   border-color: #005dc2;
 }
 
-.btn-secondary {
+.btn-secondary, .catalog-product-view .oander-wonder-widget-basic .link {
   color: #fff;
   background-color: #e21937;
   border-color: #e21937;
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover, .catalog-product-view .oander-wonder-widget-basic .link:hover {
   color: #fff;
   background-color: #b4142c;
   border-color: #ab132a;
 }
 
-.btn-secondary:focus, .btn-secondary.focus {
+.btn-secondary:focus, .catalog-product-view .oander-wonder-widget-basic .link:focus, .btn-secondary.focus, .catalog-product-view .oander-wonder-widget-basic .focus.link {
   -webkit-box-shadow: 0 0 0 2px rgba(226, 25, 55, 0.5);
           box-shadow: 0 0 0 2px rgba(226, 25, 55, 0.5);
 }
 
-.btn-secondary.disabled, .btn-secondary:disabled {
+.btn-secondary.disabled, .catalog-product-view .oander-wonder-widget-basic .disabled.link, .btn-secondary:disabled, .catalog-product-view .oander-wonder-widget-basic .link:disabled {
   background-color: #e21937;
   border-color: #e21937;
 }
 
-.btn-secondary:active, .btn-secondary.active,
-.show > .btn-secondary.dropdown-toggle {
+.btn-secondary:active, .catalog-product-view .oander-wonder-widget-basic .link:active, .btn-secondary.active, .catalog-product-view .oander-wonder-widget-basic .active.link,
+.show > .btn-secondary.dropdown-toggle, .catalog-product-view .oander-wonder-widget-basic
+.show > .dropdown-toggle.link {
   color: #fff;
   background-color: #b4142c;
   background-image: none;
@@ -3050,7 +3059,8 @@ input[type="button"].btn-block {
 .input-group-addon.form-control-sm,
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .input-group-addon.btn,
-.input-group-sm > .input-group-btn > .input-group-addon.action {
+.input-group-sm > .input-group-btn > .input-group-addon.action, .catalog-product-view .oander-wonder-widget-basic
+.input-group-sm > .input-group-btn > .input-group-addon.link {
   padding: 0.5rem 0.5rem;
   font-size: 0.875rem;
   border-radius: 4px;
@@ -3059,7 +3069,8 @@ input[type="button"].btn-block {
 .input-group-addon.form-control-lg,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .input-group-addon.btn,
-.input-group-lg > .input-group-btn > .input-group-addon.action {
+.input-group-lg > .input-group-btn > .input-group-addon.action, .catalog-product-view .oander-wonder-widget-basic
+.input-group-lg > .input-group-btn > .input-group-addon.link {
   padding: 1rem 1.5rem;
   font-size: 1.15rem;
   border-radius: 4px;
@@ -3073,14 +3084,18 @@ input[type="button"].btn-block {
 .input-group .form-control:not(:last-child), .input-group select:not(:last-child),
 .input-group-addon:not(:last-child),
 .input-group-btn:not(:last-child) > .btn,
-.input-group-btn:not(:last-child) > .action,
+.input-group-btn:not(:last-child) > .action, .catalog-product-view .oander-wonder-widget-basic
+.input-group-btn:not(:last-child) > .link,
 .input-group-btn:not(:last-child) > .btn-group > .btn,
-.input-group-btn:not(:last-child) > .btn-group > .action,
+.input-group-btn:not(:last-child) > .btn-group > .action, .catalog-product-view .oander-wonder-widget-basic
+.input-group-btn:not(:last-child) > .btn-group > .link,
 .input-group-btn:not(:last-child) > .dropdown-toggle,
 .input-group-btn:not(:first-child) > .btn:not(:last-child):not(.dropdown-toggle),
-.input-group-btn:not(:first-child) > .action:not(:last-child):not(.dropdown-toggle),
+.input-group-btn:not(:first-child) > .action:not(:last-child):not(.dropdown-toggle), .catalog-product-view .oander-wonder-widget-basic
+.input-group-btn:not(:first-child) > .link:not(:last-child):not(.dropdown-toggle),
 .input-group-btn:not(:first-child) > .btn-group:not(:last-child) > .btn,
-.input-group-btn:not(:first-child) > .btn-group:not(:last-child) > .action {
+.input-group-btn:not(:first-child) > .btn-group:not(:last-child) > .action, .catalog-product-view .oander-wonder-widget-basic
+.input-group-btn:not(:first-child) > .btn-group:not(:last-child) > .link {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
@@ -3092,14 +3107,18 @@ input[type="button"].btn-block {
 .input-group .form-control:not(:first-child), .input-group select:not(:first-child),
 .input-group-addon:not(:first-child),
 .input-group-btn:not(:first-child) > .btn,
-.input-group-btn:not(:first-child) > .action,
+.input-group-btn:not(:first-child) > .action, .catalog-product-view .oander-wonder-widget-basic
+.input-group-btn:not(:first-child) > .link,
 .input-group-btn:not(:first-child) > .btn-group > .btn,
-.input-group-btn:not(:first-child) > .btn-group > .action,
+.input-group-btn:not(:first-child) > .btn-group > .action, .catalog-product-view .oander-wonder-widget-basic
+.input-group-btn:not(:first-child) > .btn-group > .link,
 .input-group-btn:not(:first-child) > .dropdown-toggle,
 .input-group-btn:not(:last-child) > .btn:not(:first-child),
-.input-group-btn:not(:last-child) > .action:not(:first-child),
+.input-group-btn:not(:last-child) > .action:not(:first-child), .catalog-product-view .oander-wonder-widget-basic
+.input-group-btn:not(:last-child) > .link:not(:first-child),
 .input-group-btn:not(:last-child) > .btn-group:not(:first-child) > .btn,
-.input-group-btn:not(:last-child) > .btn-group:not(:first-child) > .action {
+.input-group-btn:not(:last-child) > .btn-group:not(:first-child) > .action, .catalog-product-view .oander-wonder-widget-basic
+.input-group-btn:not(:last-child) > .btn-group:not(:first-child) > .link {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 }
@@ -3114,7 +3133,7 @@ input[type="button"].btn-block {
   white-space: nowrap;
 }
 
-.input-group-btn > .btn, .input-group-btn > .action {
+.input-group-btn > .btn, .input-group-btn > .action, .catalog-product-view .oander-wonder-widget-basic .input-group-btn > .link {
   position: relative;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -3122,26 +3141,26 @@ input[type="button"].btn-block {
           flex: 1;
 }
 
-.input-group-btn > .btn + .btn, .input-group-btn > .action + .btn, .input-group-btn > .btn + .action, .input-group-btn > .action + .action {
+.input-group-btn > .btn + .btn, .input-group-btn > .action + .btn, .catalog-product-view .oander-wonder-widget-basic .input-group-btn > .link + .btn, .input-group-btn > .btn + .action, .input-group-btn > .action + .action, .catalog-product-view .oander-wonder-widget-basic .input-group-btn > .link + .action, .catalog-product-view .oander-wonder-widget-basic .input-group-btn > .btn + .link, .catalog-product-view .oander-wonder-widget-basic .input-group-btn > .action + .link, .catalog-product-view .oander-wonder-widget-basic .input-group-btn > .link + .link {
   margin-left: -1px;
 }
 
-.input-group-btn > .btn:focus, .input-group-btn > .action:focus, .input-group-btn > .btn:active, .input-group-btn > .action:active, .input-group-btn > .btn:hover, .input-group-btn > .action:hover {
+.input-group-btn > .btn:focus, .input-group-btn > .action:focus, .catalog-product-view .oander-wonder-widget-basic .input-group-btn > .link:focus, .input-group-btn > .btn:active, .input-group-btn > .action:active, .catalog-product-view .oander-wonder-widget-basic .input-group-btn > .link:active, .input-group-btn > .btn:hover, .input-group-btn > .action:hover, .catalog-product-view .oander-wonder-widget-basic .input-group-btn > .link:hover {
   z-index: 3;
 }
 
-.input-group-btn:not(:last-child) > .btn, .input-group-btn:not(:last-child) > .action,
+.input-group-btn:not(:last-child) > .btn, .input-group-btn:not(:last-child) > .action, .catalog-product-view .oander-wonder-widget-basic .input-group-btn:not(:last-child) > .link,
 .input-group-btn:not(:last-child) > .btn-group {
   margin-right: -1px;
 }
 
-.input-group-btn:not(:first-child) > .btn, .input-group-btn:not(:first-child) > .action,
+.input-group-btn:not(:first-child) > .btn, .input-group-btn:not(:first-child) > .action, .catalog-product-view .oander-wonder-widget-basic .input-group-btn:not(:first-child) > .link,
 .input-group-btn:not(:first-child) > .btn-group {
   z-index: 2;
   margin-left: -1px;
 }
 
-.input-group-btn:not(:first-child) > .btn:focus, .input-group-btn:not(:first-child) > .action:focus, .input-group-btn:not(:first-child) > .btn:active, .input-group-btn:not(:first-child) > .action:active, .input-group-btn:not(:first-child) > .btn:hover, .input-group-btn:not(:first-child) > .action:hover,
+.input-group-btn:not(:first-child) > .btn:focus, .input-group-btn:not(:first-child) > .action:focus, .catalog-product-view .oander-wonder-widget-basic .input-group-btn:not(:first-child) > .link:focus, .input-group-btn:not(:first-child) > .btn:active, .input-group-btn:not(:first-child) > .action:active, .catalog-product-view .oander-wonder-widget-basic .input-group-btn:not(:first-child) > .link:active, .input-group-btn:not(:first-child) > .btn:hover, .input-group-btn:not(:first-child) > .action:hover, .catalog-product-view .oander-wonder-widget-basic .input-group-btn:not(:first-child) > .link:hover,
 .input-group-btn:not(:first-child) > .btn-group:focus,
 .input-group-btn:not(:first-child) > .btn-group:active,
 .input-group-btn:not(:first-child) > .btn-group:hover {
@@ -9224,14 +9243,14 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   max-width: 100%;
 }
 
-.btn, .action,
+.btn, .action, .catalog-product-view .oander-wonder-widget-basic .link,
 .action {
   text-transform: uppercase;
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
 }
 
-.btn.has-icon .icon, .has-icon.action .icon,
+.btn.has-icon .icon, .has-icon.action .icon, .catalog-product-view .oander-wonder-widget-basic .has-icon.link .icon,
 .action.has-icon .icon {
   display: inline-block;
   margin-right: 8px;
@@ -11059,7 +11078,7 @@ body._has-modal {
   margin-top: auto;
 }
 
-.modal-popup .modal-footer .btn, .modal-popup .modal-footer .action {
+.modal-popup .modal-footer .btn, .modal-popup .modal-footer .action, .modal-popup .modal-footer .catalog-product-view .oander-wonder-widget-basic .link, .catalog-product-view .oander-wonder-widget-basic .modal-popup .modal-footer .link {
   padding-bottom: 0.6rem;
 }
 
@@ -12480,6 +12499,72 @@ body._has-modal-custom .modal-custom-overlay {
   }
 }
 
+.catalog-product-view .oander-wonder-widget-basic {
+  max-width: 100%;
+  padding: 0;
+}
+
+.catalog-product-view .oander-wonder-widget-basic .image-wrapper {
+  height: 220px;
+  -webkit-background-size: cover;
+          background-size: cover;
+}
+
+.catalog-product-view .oander-wonder-widget-basic .image-wrapper .link-overlay {
+  display: none;
+}
+
+.catalog-product-view .oander-wonder-widget-basic .caption {
+  text-align: left;
+}
+
+.catalog-product-view .oander-wonder-widget-basic .widget-title {
+  margin-bottom: 1.5rem;
+  color: #000;
+}
+
+.catalog-product-view .oander-wonder-widget-basic .widget-title-link {
+  color: #000;
+  font-size: 30px;
+}
+
+.catalog-product-view .oander-wonder-widget-basic .buttons-set {
+  display: inline-block !important;
+}
+
+.catalog-product-view .oander-wonder-widget-basic .link {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .catalog-product-view .oander-wonder-widget-basic .image-wrapper {
+    height: 350px;
+  }
+  .catalog-product-view .oander-wonder-widget-basic .caption {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 340px;
+    margin-left: -340px;
+    z-index: 100;
+  }
+}
+
+@media (min-width: 992px) {
+  .catalog-product-view .oander-wonder-widget-basic .caption {
+    padding: 40px;
+    width: 480px;
+    margin-left: -590px;
+  }
+}
+
+@media (min-width: 1220px) {
+  .catalog-product-view .oander-wonder-widget-basic .caption {
+    margin-left: -590px;
+  }
+}
+
 .recently-viewed-products-wrapper {
   padding: 30px 0;
   background: #fafafa;
@@ -12983,7 +13068,9 @@ body._has-modal-custom .modal-custom-overlay {
 
 .cart-summary .action.primary.checkout,
 .cart-summary .btn.multicheckout,
-.cart-summary .multicheckout.action {
+.cart-summary .multicheckout.action,
+.cart-summary .catalog-product-view .oander-wonder-widget-basic .multicheckout.link, .catalog-product-view .oander-wonder-widget-basic
+.cart-summary .multicheckout.link {
   width: 100%;
   display: block;
   font-weight: 500;
@@ -12991,7 +13078,7 @@ body._has-modal-custom .modal-custom-overlay {
   white-space: normal;
 }
 
-.cart-summary .btn.multicheckout, .cart-summary .multicheckout.action {
+.cart-summary .btn.multicheckout, .cart-summary .multicheckout.action, .cart-summary .catalog-product-view .oander-wonder-widget-basic .multicheckout.link, .catalog-product-view .oander-wonder-widget-basic .cart-summary .multicheckout.link {
   padding: 0.75rem 10px;
 }
 
@@ -13007,7 +13094,7 @@ body._has-modal-custom .modal-custom-overlay {
   padding: 10px;
 }
 
-.block.discount .btn, .block.discount .action {
+.block.discount .btn, .block.discount .action, .block.discount .catalog-product-view .oander-wonder-widget-basic .link, .catalog-product-view .oander-wonder-widget-basic .block.discount .link {
   display: block;
   width: 100%;
 }
@@ -13064,11 +13151,11 @@ body._has-modal-custom .modal-custom-overlay {
             justify-content: space-between;
     margin: 0 -10px;
   }
-  .cart.table-wrapper .item-actions .actions-toolbar .btn, .cart.table-wrapper .item-actions .actions-toolbar .action {
+  .cart.table-wrapper .item-actions .actions-toolbar .btn, .cart.table-wrapper .item-actions .actions-toolbar .action, .cart.table-wrapper .item-actions .actions-toolbar .catalog-product-view .oander-wonder-widget-basic .link, .catalog-product-view .oander-wonder-widget-basic .cart.table-wrapper .item-actions .actions-toolbar .link {
     width: 100%;
     margin: 0 10px;
   }
-  .cart.table-wrapper .item-actions .actions-toolbar .btn:not(:hover), .cart.table-wrapper .item-actions .actions-toolbar .action:not(:hover) {
+  .cart.table-wrapper .item-actions .actions-toolbar .btn:not(:hover), .cart.table-wrapper .item-actions .actions-toolbar .action:not(:hover), .cart.table-wrapper .item-actions .actions-toolbar .catalog-product-view .oander-wonder-widget-basic .link:not(:hover), .catalog-product-view .oander-wonder-widget-basic .cart.table-wrapper .item-actions .actions-toolbar .link:not(:hover) {
     color: #818a91;
   }
   .cart.table-wrapper .item-actions td {
@@ -13113,7 +13200,7 @@ body._has-modal-custom .modal-custom-overlay {
     margin: 15px 0 5px;
     font-size: 12px;
   }
-  .cart.main.actions .btn, .cart.main.actions .action,
+  .cart.main.actions .btn, .cart.main.actions .action, .cart.main.actions .catalog-product-view .oander-wonder-widget-basic .link, .catalog-product-view .oander-wonder-widget-basic .cart.main.actions .link,
   .cart.main.actions .action {
     width: 100%;
     display: block;
@@ -13146,7 +13233,7 @@ body._has-modal-custom .modal-custom-overlay {
     padding-right: 90px;
     white-space: nowrap;
   }
-  .cart.table-wrapper .item-actions .actions-toolbar .btn, .cart.table-wrapper .item-actions .actions-toolbar .action {
+  .cart.table-wrapper .item-actions .actions-toolbar .btn, .cart.table-wrapper .item-actions .actions-toolbar .action, .cart.table-wrapper .item-actions .actions-toolbar .catalog-product-view .oander-wonder-widget-basic .link, .catalog-product-view .oander-wonder-widget-basic .cart.table-wrapper .item-actions .actions-toolbar .link {
     width: 30px;
     height: 30px;
     padding: 0;
@@ -13154,13 +13241,13 @@ body._has-modal-custom .modal-custom-overlay {
     right: 0;
     line-height: 30px;
   }
-  .cart.table-wrapper .item-actions .actions-toolbar .btn:nth-child(1), .cart.table-wrapper .item-actions .actions-toolbar .action:nth-child(1) {
+  .cart.table-wrapper .item-actions .actions-toolbar .btn:nth-child(1), .cart.table-wrapper .item-actions .actions-toolbar .action:nth-child(1), .cart.table-wrapper .item-actions .actions-toolbar .catalog-product-view .oander-wonder-widget-basic .link:nth-child(1), .catalog-product-view .oander-wonder-widget-basic .cart.table-wrapper .item-actions .actions-toolbar .link:nth-child(1) {
     bottom: 90px;
   }
-  .cart.table-wrapper .item-actions .actions-toolbar .btn:nth-child(2), .cart.table-wrapper .item-actions .actions-toolbar .action:nth-child(2) {
+  .cart.table-wrapper .item-actions .actions-toolbar .btn:nth-child(2), .cart.table-wrapper .item-actions .actions-toolbar .action:nth-child(2), .cart.table-wrapper .item-actions .actions-toolbar .catalog-product-view .oander-wonder-widget-basic .link:nth-child(2), .catalog-product-view .oander-wonder-widget-basic .cart.table-wrapper .item-actions .actions-toolbar .link:nth-child(2) {
     bottom: 50px;
   }
-  .cart.table-wrapper .item-actions .actions-toolbar .btn:nth-child(3), .cart.table-wrapper .item-actions .actions-toolbar .action:nth-child(3) {
+  .cart.table-wrapper .item-actions .actions-toolbar .btn:nth-child(3), .cart.table-wrapper .item-actions .actions-toolbar .action:nth-child(3), .cart.table-wrapper .item-actions .actions-toolbar .catalog-product-view .oander-wonder-widget-basic .link:nth-child(3), .catalog-product-view .oander-wonder-widget-basic .cart.table-wrapper .item-actions .actions-toolbar .link:nth-child(3) {
     bottom: 10px;
   }
   .cart.table-wrapper tbody td {
@@ -13174,12 +13261,12 @@ body._has-modal-custom .modal-custom-overlay {
     content: "";
     clear: both;
   }
-  .cart.main.actions .btn, .cart.main.actions .action,
+  .cart.main.actions .btn, .cart.main.actions .action, .cart.main.actions .catalog-product-view .oander-wonder-widget-basic .link, .catalog-product-view .oander-wonder-widget-basic .cart.main.actions .link,
   .cart.main.actions .action {
     width: calc(50% - 10px);
     float: left;
   }
-  .cart.main.actions .btn.checkout, .cart.main.actions .checkout.action,
+  .cart.main.actions .btn.checkout, .cart.main.actions .checkout.action, .cart.main.actions .catalog-product-view .oander-wonder-widget-basic .checkout.link, .catalog-product-view .oander-wonder-widget-basic .cart.main.actions .checkout.link,
   .cart.main.actions .action.checkout {
     float: right;
   }
@@ -13193,11 +13280,11 @@ body._has-modal-custom .modal-custom-overlay {
 }
 
 @media (min-width: 992px) and (max-width: 1219px) {
-  .cart.main.actions .btn, .cart.main.actions .action {
+  .cart.main.actions .btn, .cart.main.actions .action, .cart.main.actions .catalog-product-view .oander-wonder-widget-basic .link, .catalog-product-view .oander-wonder-widget-basic .cart.main.actions .link {
     padding-left: 10px;
     padding-right: 10px;
   }
-  .block.discount .btn, .block.discount .action {
+  .block.discount .btn, .block.discount .action, .block.discount .catalog-product-view .oander-wonder-widget-basic .link, .catalog-product-view .oander-wonder-widget-basic .block.discount .link {
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -13219,7 +13306,7 @@ body._has-modal-custom .modal-custom-overlay {
   .cart-container .form-cart {
     margin: 0;
   }
-  .cart.table-wrapper .item-actions .actions-toolbar .btn, .cart.table-wrapper .item-actions .actions-toolbar .action {
+  .cart.table-wrapper .item-actions .actions-toolbar .btn, .cart.table-wrapper .item-actions .actions-toolbar .action, .cart.table-wrapper .item-actions .actions-toolbar .catalog-product-view .oander-wonder-widget-basic .link, .catalog-product-view .oander-wonder-widget-basic .cart.table-wrapper .item-actions .actions-toolbar .link {
     width: 25px;
     height: 40px;
     padding: 0.75rem 0;
@@ -13227,16 +13314,16 @@ body._has-modal-custom .modal-custom-overlay {
     position: absolute;
     bottom: 10px;
   }
-  .cart.table-wrapper .item-actions .actions-toolbar .btn.action-delete, .cart.table-wrapper .item-actions .actions-toolbar .action-delete.action {
+  .cart.table-wrapper .item-actions .actions-toolbar .btn.action-delete, .cart.table-wrapper .item-actions .actions-toolbar .action-delete.action, .cart.table-wrapper .item-actions .actions-toolbar .catalog-product-view .oander-wonder-widget-basic .action-delete.link, .catalog-product-view .oander-wonder-widget-basic .cart.table-wrapper .item-actions .actions-toolbar .action-delete.link {
     right: 0;
   }
-  .cart.table-wrapper .item-actions .actions-toolbar .btn.action-edit, .cart.table-wrapper .item-actions .actions-toolbar .action-edit.action {
+  .cart.table-wrapper .item-actions .actions-toolbar .btn.action-edit, .cart.table-wrapper .item-actions .actions-toolbar .action-edit.action, .cart.table-wrapper .item-actions .actions-toolbar .catalog-product-view .oander-wonder-widget-basic .action-edit.link, .catalog-product-view .oander-wonder-widget-basic .cart.table-wrapper .item-actions .actions-toolbar .action-edit.link {
     right: 35px;
   }
-  .cart.table-wrapper .item-actions .actions-toolbar .btn.action-towishlist, .cart.table-wrapper .item-actions .actions-toolbar .action-towishlist.action {
+  .cart.table-wrapper .item-actions .actions-toolbar .btn.action-towishlist, .cart.table-wrapper .item-actions .actions-toolbar .action-towishlist.action, .cart.table-wrapper .item-actions .actions-toolbar .catalog-product-view .oander-wonder-widget-basic .action-towishlist.link, .catalog-product-view .oander-wonder-widget-basic .cart.table-wrapper .item-actions .actions-toolbar .action-towishlist.link {
     right: 70px;
   }
-  .cart.main.actions .btn, .cart.main.actions .action {
+  .cart.main.actions .btn, .cart.main.actions .action, .cart.main.actions .catalog-product-view .oander-wonder-widget-basic .link, .catalog-product-view .oander-wonder-widget-basic .cart.main.actions .link {
     float: right;
   }
   .block.discount {
@@ -13327,9 +13414,11 @@ body._has-modal-custom .modal-custom-overlay {
   margin-bottom: 10px;
 }
 
-.block-minicart .block-content > .actions > .primary .btn, .block-minicart .block-content > .actions > .primary .action,
+.block-minicart .block-content > .actions > .primary .btn, .block-minicart .block-content > .actions > .primary .action, .block-minicart .block-content > .actions > .primary .catalog-product-view .oander-wonder-widget-basic .link, .catalog-product-view .oander-wonder-widget-basic .block-minicart .block-content > .actions > .primary .link,
 .block-minicart .block-content > .actions > .secondary .btn,
-.block-minicart .block-content > .actions > .secondary .action {
+.block-minicart .block-content > .actions > .secondary .action,
+.block-minicart .block-content > .actions > .secondary .catalog-product-view .oander-wonder-widget-basic .link, .catalog-product-view .oander-wonder-widget-basic
+.block-minicart .block-content > .actions > .secondary .link {
   display: block;
   width: 100%;
   text-transform: uppercase;
@@ -20233,7 +20322,7 @@ fieldset[disabled] .my-credit-cards-popup .action.secondary {
   margin-bottom: 10px;
 }
 
-.form-wishlist-items .product-item-info .wishlist-actions.secondary .btn, .form-wishlist-items .product-item-info .wishlist-actions.secondary .action {
+.form-wishlist-items .product-item-info .wishlist-actions.secondary .btn, .form-wishlist-items .product-item-info .wishlist-actions.secondary .action, .form-wishlist-items .product-item-info .wishlist-actions.secondary .catalog-product-view .oander-wonder-widget-basic .link, .catalog-product-view .oander-wonder-widget-basic .form-wishlist-items .product-item-info .wishlist-actions.secondary .link {
   display: block;
   padding-top: 0.4rem;
   padding-bottom: 0.4rem;
@@ -20257,7 +20346,7 @@ fieldset[disabled] .my-credit-cards-popup .action.secondary {
   margin-bottom: 10px;
 }
 
-.form-wishlist-items .actions-toolbar.custom-buttons .btn, .form-wishlist-items .actions-toolbar.custom-buttons .action {
+.form-wishlist-items .actions-toolbar.custom-buttons .btn, .form-wishlist-items .actions-toolbar.custom-buttons .action, .form-wishlist-items .actions-toolbar.custom-buttons .catalog-product-view .oander-wonder-widget-basic .link, .catalog-product-view .oander-wonder-widget-basic .form-wishlist-items .actions-toolbar.custom-buttons .link {
   display: block;
   width: 100%;
   height: 100%;
@@ -20448,7 +20537,7 @@ body.contact-index-index .form {
   margin-bottom: 0;
 }
 
-.locations-list .btn.btn-secondary, .locations-list .btn-secondary.action {
+.locations-list .btn.btn-secondary, .locations-list .btn-secondary.action, .locations-list .catalog-product-view .oander-wonder-widget-basic .link, .catalog-product-view .oander-wonder-widget-basic .locations-list .link {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -20649,11 +20738,11 @@ body.contact-index-index .form {
   font-weight: 400;
 }
 
-.oander-wonder-widget-basic .widget-title .widget-title-link {
-  color: #5f5f5f;
+.oander-wonder-widget-basic .widget-title-link {
+  color: #282828;
 }
 
-.oander-wonder-widget-basic .widget-title .widget-title-link:hover {
+.oander-wonder-widget-basic .widget-title-link:hover {
   color: #007aff;
 }
 
@@ -20661,12 +20750,11 @@ body.contact-index-index .form {
   color: #282828;
 }
 
-.oander-wonder-widget-basic .link {
-  display: none;
+.oander-wonder-widget-basic .buttons-set {
   margin-top: 10px;
 }
 
-.oander-wonder-widget-basic .link a {
+.oander-wonder-widget-basic .buttons-set .link {
   display: block;
   position: relative;
   padding-right: 40px;
@@ -20683,7 +20771,8 @@ body.contact-index-index .form {
 
 .oander-wonder-widget-usp .image-wrapper {
   padding-right: 15px;
-  background: none !important;
+  -webkit-background-size: 0 0;
+          background-size: 0;
 }
 
 .oander-wonder-widget-usp .content {
@@ -20704,18 +20793,18 @@ body.contact-index-index .form {
 
 .oander-wonder-widget-usp .content .widget-title {
   margin: 0;
+  color: #282828;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
 }
 
-.oander-wonder-widget-usp .content .widget-title,
-.oander-wonder-widget-usp .content .widget-title .widget-title-link {
-  color: #282828;
-}
-
 .oander-wonder-widget-usp .content .widget-title .icon {
   display: none;
+}
+
+.oander-wonder-widget-usp .content .widget-title-link {
+  color: #282828;
 }
 
 .oander-wonder-widget-usp .description,
@@ -20737,6 +20826,7 @@ body.contact-index-index .form {
        -o-transform: translateY(-50%);
           transform: translateY(-50%);
   color: #fff;
+  font-size: 18px;
   text-align: center;
   z-index: 2;
   pointer-events: none;
@@ -20746,8 +20836,12 @@ body.contact-index-index .form {
   display: inline-block;
 }
 
+.oander-wonder-widget-video .title {
+  margin-top: 10px;
+}
+
 .oander-wonder-widget-video .icon-play {
-  font-size: 24px;
+  font-size: 60px;
 }
 
 .oander-wonder-widget-video img {
@@ -20755,12 +20849,17 @@ body.contact-index-index .form {
   max-width: 100%;
 }
 
+.video-widget-attribute-wrapper > p {
+  margin: 0;
+}
+
 @media (max-width: 767px) {
   .wonder-widget-blocks .oander-wonder-widget-basic {
     padding: 0;
   }
   .oander-wonder-widget-basic .image-wrapper {
-    background: none !important;
+    -webkit-background-size: 0 0;
+            background-size: 0;
   }
   .oander-wonder-widget-usp + .oander-wonder-widget-usp .widget-title {
     position: relative;
@@ -20777,7 +20876,20 @@ body.contact-index-index .form {
     margin: 0;
   }
   .oander-wonder-widget-video .image-wrapper {
-    background: none !important;
+    height: 220px;
+    -webkit-background-size: cover;
+            background-size: cover;
+  }
+  .oander-wonder-widget-video .wonder-widget-video-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+  }
+  .oander-wonder-widget-video .wonder-widget-video-link img {
+    display: none;
   }
 }
 
@@ -20883,9 +20995,6 @@ body.contact-index-index .form {
     background-position: center center;
     -webkit-background-size: cover;
             background-size: cover;
-  }
-  .oander-wonder-widget-video .icon-play {
-    font-size: 60px;
   }
   .oander-wonder-widget-video img {
     display: none;
