@@ -12553,9 +12553,9 @@ body._has-modal-custom .modal-custom-overlay {
 
 @media (min-width: 992px) {
   .catalog-product-view .oander-wonder-widget-basic .caption {
-    padding: 40px;
     width: 480px;
-    margin-left: -590px;
+    margin-left: -470px;
+    padding: 40px;
   }
 }
 
