@@ -23,5 +23,8 @@
     "gulp-sourcemaps": "^2.5.1",
     "sass-lint": "^1.10.2",
     "yargs": "^8.0.1"
+  },
+  "scripts": {
+    "preinstall": "bower install"
   }
 }
