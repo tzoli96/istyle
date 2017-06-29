@@ -1,4 +1,8 @@
 .product-info-price {
+  .price-box {
+    float: left;
+  }
+
   .regular-price,
   .special-price {
     color: $brand-secondary;
@@ -6,16 +10,16 @@
   }
 }
 
-
-
 .price-label {
   display: none;
 }
+
 .old-price,
 .old.price {
   color: #a0a0a0;
   text-decoration: line-through;
 }
+
 .prices-tier {
   margin: 10px 0;
   padding: 10px (.75 * 20px);
@@ -63,4 +67,8 @@
 }
 .actual-price {
   font-weight: $font-weight-bold;
+}
+
+.oander-product-addtocart-button {
+  display: block;
 }

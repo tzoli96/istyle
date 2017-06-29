@@ -3,6 +3,12 @@
     max-width: 100%;
     padding: 0;
 
+    &:hover {
+      .image-wrapper {
+        opacity: 1;
+      }
+    }
+
     .image-wrapper {
       height: 220px;
       background-size: cover;
@@ -17,7 +23,7 @@
     }
 
     .widget-title {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       color: #000;
     }
 
@@ -35,6 +41,7 @@
       @extend .btn-secondary;
 
       display: block;
+      text-transform: none;
     }
   }
 }
@@ -47,8 +54,6 @@
       }
 
       .caption {
-        // @Todo
-        // background: none;
         position: absolute;
         top: 0;
         bottom: 0;
@@ -56,6 +61,11 @@
         width: 340px;
         margin-left: -340px;
         z-index: 100;
+      }
+
+      .description {
+        max-height: 10 * $line-height-base#{em};
+        overflow: hidden;
       }
     }
   }
@@ -67,7 +77,7 @@
       .caption {
         width: 480px;
         margin-left: -(map-get($container-max-widths, lg) / 2 - (map-get($grid-gutter-widths, lg) / 2));
-        padding: 40px;
+        padding: 30px 40px;
       }
     }
   }

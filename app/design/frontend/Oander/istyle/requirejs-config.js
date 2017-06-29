@@ -23,7 +23,8 @@ var config = {
       'oander.slider-configuration': 'js/oander/slider-configuration',
       relatedProducts: 'js/module-catalog/related-products',
       upsellProducts: 'js/module-catalog/upsell-products',
-      oanderWarehouseView: 'js/oander/warehouse-manager/product/view'
+      oanderWarehouseView: 'js/oander/warehouse-manager/product/view',
+      oanderProductAddToCart: 'js/oander/product-add-to-cart'
     }
   }
 };

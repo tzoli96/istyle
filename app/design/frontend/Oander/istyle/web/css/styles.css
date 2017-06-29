@@ -22,6 +22,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-info:before {
+  content: "";
+}
+
 .icon-arrow-down:before {
   content: "";
 }
@@ -12121,6 +12125,10 @@ body._has-modal-custom .modal-custom-overlay {
   }
 }
 
+.product-info-price .price-box {
+  float: left;
+}
+
 .product-info-price .regular-price,
 .product-info-price .special-price {
   color: #e21937;
@@ -12182,6 +12190,10 @@ body._has-modal-custom .modal-custom-overlay {
 
 .actual-price {
   font-weight: 700;
+}
+
+.oander-product-addtocart-button {
+  display: block;
 }
 
 .product-view-top {
@@ -12504,6 +12516,10 @@ body._has-modal-custom .modal-custom-overlay {
   padding: 0;
 }
 
+.catalog-product-view .oander-wonder-widget-basic:hover .image-wrapper {
+  opacity: 1;
+}
+
 .catalog-product-view .oander-wonder-widget-basic .image-wrapper {
   height: 220px;
   -webkit-background-size: cover;
@@ -12519,7 +12535,7 @@ body._has-modal-custom .modal-custom-overlay {
 }
 
 .catalog-product-view .oander-wonder-widget-basic .widget-title {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   color: #000;
 }
 
@@ -12534,6 +12550,7 @@ body._has-modal-custom .modal-custom-overlay {
 
 .catalog-product-view .oander-wonder-widget-basic .link {
   display: block;
+  text-transform: none;
 }
 
 @media (min-width: 768px) {
@@ -12549,13 +12566,17 @@ body._has-modal-custom .modal-custom-overlay {
     margin-left: -340px;
     z-index: 100;
   }
+  .catalog-product-view .oander-wonder-widget-basic .description {
+    max-height: 15em;
+    overflow: hidden;
+  }
 }
 
 @media (min-width: 992px) {
   .catalog-product-view .oander-wonder-widget-basic .caption {
     width: 480px;
     margin-left: -470px;
-    padding: 40px;
+    padding: 30px 40px;
   }
 }
 
@@ -20674,6 +20695,42 @@ body.contact-index-index .form {
   .location-view .location-head-info .content {
     height: 100%;
   }
+}
+
+.price-tooltip {
+  position: relative;
+  top: 10px;
+  left: 10px;
+  float: left;
+}
+
+.price-tooltip:hover .content {
+  opacity: 1;
+  visibility: visible;
+}
+
+.price-tooltip .icon {
+  color: #aaa;
+}
+
+.price-tooltip .content {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 140px;
+  padding: 10px 15px;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+       -o-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: ease 0.3s;
+  -o-transition: ease 0.3s;
+  transition: ease 0.3s;
+  border-radius: 6px;
+  background-color: #f0f0f0;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .oander-product-icons .product-icon {

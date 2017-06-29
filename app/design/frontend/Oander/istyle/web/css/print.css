@@ -22,6 +22,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-info:before {
+  content: "";
+}
+
 .icon-arrow-down:before {
   content: "";
 }

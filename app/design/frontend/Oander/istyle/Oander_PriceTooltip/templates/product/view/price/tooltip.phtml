@@ -1,0 +1,15 @@
+<?php
+/**
+* Oander_PriceTooltip
+*
+* @author  Tamas Vegvari <tamas.vegvari@oander.hu>
+* @license Oander Media Kft. (http://www.oander.hu)
+*/
+?>
+<?php /** @var $this \Oander\PriceTooltip\Block\Product\PriceTooltip */ ?>
+<?php if ($this->isSetPriceTooltip()) : ?>
+    <div class="price-tooltip">
+        <i class="icon icon-info"></i>
+        <div class="content"><?php echo $this->getPriceTooltip(); ?></div>
+    </div>
+<?php endif; ?>

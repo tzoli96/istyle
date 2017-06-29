@@ -26,6 +26,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-info {
+  &:before {
+    content: $icon-info;
+  }
+}
 .icon-arrow-down {
   &:before {
     content: $icon-arrow-down;

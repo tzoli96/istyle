@@ -9,11 +9,9 @@
 
     <head>
         <remove src="Oander_WarehouseManager::css/warehouse-product.css" />
-        <!--<remove src="Oander_PriceTooltip::css/product/price-tooltip.css" />-->
     </head>
 
     <body>
-
         <referenceContainer name="header-wrapper" htmlClass="d-flex container page-header-wrapper">
             <block class="Magento\Framework\View\Element\Template" name="nav-toggle"
                    template="Magento_Theme::html/header/header-nav-toggle.phtml" before="logo" />
@@ -99,6 +97,5 @@
         <!-- Remove elements -->
         <referenceContainer name="header.panel.wrapper" remove="true" />
         <referenceContainer name="footer_links" remove="true" />
-
     </body>
 </page>

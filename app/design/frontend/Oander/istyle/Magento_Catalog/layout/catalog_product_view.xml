@@ -28,8 +28,16 @@
         <referenceContainer name="product.info.media" htmlClass="product-info-media mb-2" />
         <referenceContainer name="product.info.main" htmlClass="product-info-main" />
 
+        <referenceContainer name="page.messages" htmlTag="div" htmlClass="page messages container" />
+
         <container name="product.view.content" htmlTag="div" htmlClass="product-view-content">
             <container name="product.view.content.container" htmlTag="div" htmlClass="container" />
+        </container>
+
+        <container name="product.addtocart-container">
+            <block class="Magento\Framework\View\Element\Template"
+                   template="Magento_Catalog::product/view/addtocart-button.phtml">
+            </block>
         </container>
 
         <!-- Moves -->
@@ -40,7 +48,8 @@
         <move element="product.info.main" destination="product.view.top.center" before="-" />
 
         <move element="product.info.price" destination="product.info.right" before="-" />
-        <move element="product.info.social" destination="product.info.right" after="product.info.price" />
+        <move element="product.addtocart-container" destination="product.info.right" after="product.info.price" />
+        <move element="product.info.social" destination="product.info.right" after="product.addtocart-container" />
         <move element="product.info.sku" destination="product.info.main" after="page.main.title" />
 
         <move element="product.info.details" destination="product.view.content.container" before="-" />
