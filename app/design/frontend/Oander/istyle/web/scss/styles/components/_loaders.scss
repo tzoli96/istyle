@@ -1,5 +1,5 @@
 .load.indicator {
-  @include lib-loader();
+  @include lib-loader;
   position: absolute;
 
   & > span {
@@ -8,12 +8,12 @@
 }
 
 .loading-mask {
-  @include lib-loading-mask();
+  @include lib-loading-mask;
   background: rgba(255, 255, 255, 0.5);
 
   .loader {
     & > img {
-      @include lib-loading-mask();
+      @include lib-loading-mask;
     }
 
     & > p {

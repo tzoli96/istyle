@@ -71,4 +71,8 @@
 
 .oander-product-addtocart-button {
   display: block;
+
+  &:focus {
+    color: #fff;
+  }
 }
