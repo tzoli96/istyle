@@ -10850,10 +10850,6 @@ body > .loading-mask {
   padding: 10px 0;
 }
 
-.message.global.cookie .actions {
-  margin-top: 10px;
-}
-
 .message.global.demo {
   margin-bottom: 0;
   text-align: center;
