@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2cb447a9e868bea615a7ebf5bfbe368b",
+    "content-hash": "8577e857ccf7c496825323e82cf8ceb2",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6356,16 +6356,16 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "415f7a38decc5d97da62ccc82e7dfcb4651d9cf0"
+                "reference": "11533429ee8838adbfdf2f846e0a3d2dc666fe4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/415f7a38decc5d97da62ccc82e7dfcb4651d9cf0",
-                "reference": "415f7a38decc5d97da62ccc82e7dfcb4651d9cf0",
+                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/11533429ee8838adbfdf2f846e0a3d2dc666fe4f",
+                "reference": "11533429ee8838adbfdf2f846e0a3d2dc666fe4f",
                 "shasum": ""
             },
             "require": {
@@ -6386,10 +6386,10 @@
             ],
             "description": "Configurable Product Attribute",
             "support": {
-                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.6",
+                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.7",
                 "issues": "https://github.com/oandermedia/oander-configurable-product-attribute/issues"
             },
-            "time": "2017-06-20T17:10:06+00:00"
+            "time": "2017-06-30T11:54:34+00:00"
         },
         {
             "name": "oander/module-cookie-law",
