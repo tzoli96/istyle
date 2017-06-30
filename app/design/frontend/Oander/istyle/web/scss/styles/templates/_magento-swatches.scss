@@ -12,23 +12,25 @@
   @include clearfix;
 
   .swatches-box {
-    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
     margin: 5px 0 10px;
-    padding: 15px 10px;
-    border: 1px solid $gray-border;
+    border: 1px solid #dcdcdc;
     border-radius: 4px;
 
     .swatch-option {
-      position: relative;
-      width: 33.33%;
+      flex: 1 1 33.33%;
+      max-width: 33.33%;
       margin: 0;
+      padding: 20px;
       text-align: center;
 
       &.selected {
         &::after {
           position: absolute;
-          top: -15px;
-          bottom: -15px;
+          top: 0;
+          bottom: 0;
           border: 1px solid $brand-primary;
           border-radius: 4px;
           content: '';
@@ -38,7 +40,7 @@
         &:nth-child(3n + 1) {
           &::after {
             right: -1px;
-            left: -11px;
+            left: 0;
           }
         }
 
@@ -51,7 +53,7 @@
 
         &:nth-child(3n + 3) {
           &::after {
-            right: -11px;
+            right: 0;
             left: 0;
           }
         }
@@ -61,8 +63,8 @@
       &:nth-child(3n + 3) {
         &::before {
           position: absolute;
-          top: 0;
-          bottom: 0;
+          top: 15px;
+          bottom: 15px;
           left: 0;
           border-left: 1px solid $gray-border;
           content: '';
@@ -83,24 +85,27 @@
   &.config_size {
     .swatch-attribute-options {
       display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
       height: auto;
       margin: 5px 0 10px;
-      padding: 15px 10px;
       border: 1px solid $gray-border;
       border-radius: 4px;
     }
 
     .swatch-option {
       position: relative;
-      width: 33.33%;
+      flex: 1 1 33.33%;
+      max-width: 33.33%;
       margin: 0;
+      padding: 20px;
       text-align: center;
 
       &.selected {
         &::after {
           position: absolute;
-          top: -15px;
-          bottom: -15px;
+          top: 0;
+          bottom: 0;
           border: 1px solid $brand-primary;
           border-radius: 4px;
           content: '';
@@ -110,7 +115,7 @@
         &:nth-child(3n + 1) {
           &::after {
             right: -1px;
-            left: -11px;
+            left: 0;
           }
         }
 
@@ -123,7 +128,7 @@
 
         &:nth-child(3n + 3) {
           &::after {
-            right: -11px;
+            right: 0;
             left: 0;
           }
         }
@@ -133,8 +138,8 @@
       &:nth-child(3n + 3) {
         &::before {
           position: absolute;
-          top: 0;
-          bottom: 0;
+          top: 15px;
+          bottom: 15px;
           left: 0;
           border-left: 1px solid $gray-border;
           content: '';

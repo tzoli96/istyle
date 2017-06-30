@@ -12208,6 +12208,7 @@ body._has-modal-custom .modal-custom-overlay {
 
 .oander-product-addtocart-button {
   display: block;
+  width: 100%;
 }
 
 .oander-product-addtocart-button:focus {
@@ -17810,24 +17811,37 @@ body.account .form-group .nested {
 }
 
 .connectivity-container .swatches-box {
-  height: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   margin: 5px 0 10px;
-  padding: 15px 10px;
   border: 1px solid #dcdcdc;
   border-radius: 4px;
 }
 
 .connectivity-container .swatches-box .swatch-option {
-  position: relative;
-  width: 33.33%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 33.33%;
+      -ms-flex: 1 1 33.33%;
+          flex: 1 1 33.33%;
+  max-width: 33.33%;
   margin: 0;
+  padding: 20px;
   text-align: center;
 }
 
 .connectivity-container .swatches-box .swatch-option.selected::after {
   position: absolute;
-  top: -15px;
-  bottom: -15px;
+  top: 0;
+  bottom: 0;
   border: 1px solid #007aff;
   border-radius: 4px;
   content: '';
@@ -17836,7 +17850,7 @@ body.account .form-group .nested {
 
 .connectivity-container .swatches-box .swatch-option.selected:nth-child(3n + 1)::after {
   right: -1px;
-  left: -11px;
+  left: 0;
 }
 
 .connectivity-container .swatches-box .swatch-option.selected:nth-child(3n + 2)::after {
@@ -17845,14 +17859,14 @@ body.account .form-group .nested {
 }
 
 .connectivity-container .swatches-box .swatch-option.selected:nth-child(3n + 3)::after {
-  right: -11px;
+  right: 0;
   left: 0;
 }
 
 .connectivity-container .swatches-box .swatch-option:nth-child(3n + 2)::before, .connectivity-container .swatches-box .swatch-option:nth-child(3n + 3)::before {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 15px;
+  bottom: 15px;
   left: 0;
   border-left: 1px solid #dcdcdc;
   content: '';
@@ -17872,24 +17886,35 @@ body.account .form-group .nested {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   height: auto;
   margin: 5px 0 10px;
-  padding: 15px 10px;
   border: 1px solid #dcdcdc;
   border-radius: 4px;
 }
 
 .swatch-attribute.config_size .swatch-option {
   position: relative;
-  width: 33.33%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 33.33%;
+      -ms-flex: 1 1 33.33%;
+          flex: 1 1 33.33%;
+  max-width: 33.33%;
   margin: 0;
+  padding: 20px;
   text-align: center;
 }
 
 .swatch-attribute.config_size .swatch-option.selected::after {
   position: absolute;
-  top: -15px;
-  bottom: -15px;
+  top: 0;
+  bottom: 0;
   border: 1px solid #007aff;
   border-radius: 4px;
   content: '';
@@ -17898,7 +17923,7 @@ body.account .form-group .nested {
 
 .swatch-attribute.config_size .swatch-option.selected:nth-child(3n + 1)::after {
   right: -1px;
-  left: -11px;
+  left: 0;
 }
 
 .swatch-attribute.config_size .swatch-option.selected:nth-child(3n + 2)::after {
@@ -17907,14 +17932,14 @@ body.account .form-group .nested {
 }
 
 .swatch-attribute.config_size .swatch-option.selected:nth-child(3n + 3)::after {
-  right: -11px;
+  right: 0;
   left: 0;
 }
 
 .swatch-attribute.config_size .swatch-option:nth-child(3n + 2)::before, .swatch-attribute.config_size .swatch-option:nth-child(3n + 3)::before {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 15px;
+  bottom: 15px;
   left: 0;
   border-left: 1px solid #dcdcdc;
   content: '';
