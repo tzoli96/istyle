@@ -23,6 +23,12 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
     <div class="message info empty"><div><?php /* @escapeNotVerified */ echo __('We can\'t find products matching the selection.') ?></div></div>
 <?php else: ?>
 
+    <?php if ($block->getToolbarHtml()): ?>
+        <div class="toolbar-top">
+            <?php echo $block->getToolbarHtml() ?>
+        </div>
+    <?php endif; ?>
+
     <?php echo $block->getAdditionalHtml() ?>
     <?php
     if ($block->getMode() == 'grid') {
