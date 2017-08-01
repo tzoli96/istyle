@@ -1,0 +1,42 @@
+<?php
+/**
+ * Oander_WarehouseStockOrder
+ *
+ * @author  Gabor Kuti <gabor.kuti@oander.hu>
+ * @license Oander Media Kft. (http://www.oander.hu)
+ */
+?>
+<?php
+/**
+ * Product list toolbar
+ *
+ * @var $block \Oander\WarehouseStockOrder\Magento\Catalog\Block\Product\ProductList\Toolbar
+ */
+use Magento\Catalog\Model\Product\ProductList\Toolbar;
+?>
+<?php if ($block->getCollection()->getSize()): ?>
+    <div class="toolbar d-md-flex toolbar-products clearfix" data-mage-init='<?php /* @escapeNotVerified */ echo $block->getWidgetOptionsJson(); ?>'>
+        <?php if (!$this->getHideCollapseTrigger()) : ?>
+            <a href="#" class="btn btn-outline-secondary sidebar-collapse-trigger hidden-md-up" id="sidebar-collapse-trigger">
+                <?php /* @escapeNotVerified */ echo __('Show Filter') ?></a>
+        <?php endif; ?>
+
+        <?php if (!$this->getHideAmount()) : ?>
+            <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/amount.phtml')) ?>
+        <?php endif; ?>
+
+        <?php if (!$this->getHidePager()) : ?>
+        <?php echo $block->getPagerHtml() ?>
+        <?php endif; ?>
+
+        <?php if (!$this->getHideLimiter()) : ?>
+            <?php include ($block->getTemplateFile('Magento_Catalog::product/list/toolbar/limiter.phtml')) ?>
+        <?php endif; ?>
+
+        <?php if ($block->isExpanded()): ?>
+            <?php if (!$this->getHideSorter()) : ?>
+                <?php include ($block->getTemplateFile('Oander_WarehouseStockOrder::product/list/toolbar/sorter.phtml')) ?>
+            <?php endif; ?>
+        <?php endif; ?>
+    </div>
+<?php endif ?>

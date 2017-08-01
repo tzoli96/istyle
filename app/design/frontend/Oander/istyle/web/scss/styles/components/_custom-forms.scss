@@ -1,22 +1,60 @@
 .custom-checkbox {
-  .custom-control-indicator {
-    line-height: 10px;
-    text-align: center;
+  margin: 0;
 
-    &:before {
-      font-family: $icon-font-family;
-      font-size: 8px;
-      content: $icon-check;
-      color: $custom-control-indicator-bg;
+  .custom-checkbox__input {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+
+    &:checked {
+      & + .custom-checkbox__text {
+        font-weight: $font-weight-medium;
+
+        &::before {
+          border: 0;
+          background: $brand-primary;
+        }
+
+        &::after {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
     }
   }
-  .custom-control-input:checked {
-    & ~ .custom-control-indicator {
-      background-image: none;
 
-      &:before {
-        color: #fff;
-      }
+  .custom-checkbox__text {
+    position: relative;
+    padding-left: 20px;
+    font-size: 14px;
+    text-transform: none;
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &::before {
+      width: 14px;
+      height: 14px;
+      border: 1px solid $gray-light;
+      border-radius: 4px;
+      background: $gray-lighter;
+      content: '';
+    }
+
+    &::after {
+      top: 1px;
+      left: 1px;
+      color: #fff;
+      font-family: $icon-font-family;
+      font-size: 12px;
+      line-height: 12px;
+      content: $icon-check;
+      opacity: 0;
+      visibility: hidden;
     }
   }
 }
