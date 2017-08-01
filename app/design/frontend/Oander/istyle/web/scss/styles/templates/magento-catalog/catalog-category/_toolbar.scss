@@ -7,14 +7,7 @@
 }
 
 .toolbar-top {
-  display: none;
-  position: absolute;
   font-size: $font-size-sm;
-
-  .pages,
-  .field.limiter {
-    display: none;
-  }
 }
 
 .toolbar-bottom {
@@ -29,17 +22,19 @@
       margin-right: 5px;
     }
   }
-
-  .sidebar-collapse-trigger,
-  .toolbar-amount,
-  .toolbar-sorter {
-    display: none;
-  }
 }
 
 .toolbar-sorter {
-  display: flex;
+  display: none;
   align-items: center;
+}
+
+.toolbar-sorter,
+.field.limiter {
+  .limiter-text,
+  label {
+    text-transform: uppercase;
+  }
 }
 
 .limiter-options,
@@ -48,6 +43,7 @@
   border-radius: $border-radius;
   border-color: $gray-darker;
   background: transparent;
+
 }
 
 .sorter-action {
@@ -64,11 +60,29 @@
   display: none;
 }
 
+.sidebar-collapse-trigger {
+  border-color: #000;
+  color: #000;
+
+  &:hover {
+    border-color: #000;
+    background-color: #000;
+  }
+}
+
 @include media-breakpoint-down(sm) {
   .toolbar {
     .sidebar-collapse-trigger {
       width: 100%;
     }
+  }
+
+  .toolbar-top {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid $gray-lighter;
+    border-radius: 4px;
+    background: $gray-lightest;
   }
 
   .toolbar-bottom {
@@ -94,6 +108,7 @@
 @include media-breakpoint-up(md) {
   .toolbar-top {
     display: block;
+    position: absolute;
     top: -72px;
     right: 0;
 
@@ -129,6 +144,10 @@
     }
   }
 
+  .toolbar-sorter {
+    display: flex;
+  }
+
   .toolbar-products {
     align-items: center;
   }
@@ -162,7 +181,6 @@
 
   .in-stock-first {
     display: block;
-    margin-left: 1rem;
-    padding-left: 2rem;
+    padding-left: 1rem;
   }
 }

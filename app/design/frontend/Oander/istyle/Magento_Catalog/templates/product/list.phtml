@@ -25,7 +25,14 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
 
     <?php if ($block->getToolbarHtml()): ?>
         <div class="toolbar-top">
-            <?php echo $block->getToolbarHtml() ?>
+            <?php if ($block->getToolbarHtml()): ?>
+                <?php echo $this->getToolbarBlock()
+                    ->setHideCollapseTrigger(false)
+                    ->setHidePager(true)
+                    ->setHideLimiter(true)
+                    ->toHtml();
+                ?>
+            <?php endif; ?>
         </div>
     <?php endif; ?>
 
@@ -121,8 +128,15 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
 
     <?php if ($block->getToolbarHtml()): ?>
         <div class="toolbar-bottom">
-            <?php echo $block->getToolbarHtml() ?>
-        </div>
+            <?php echo $this->getToolbarBlock()
+                ->setHideSorter(true)
+                ->setHideCollapseTrigger(true)
+                ->setHidePager(false)
+                ->setHideLimiter(false)
+                ->setHideAmount(true)
+                ->toHtml();
+            ?>
+            </div>
     <?php endif; ?>
 
     <?php if (!$block->isRedirectToCartEnabled()) : ?>
