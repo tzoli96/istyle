@@ -11992,10 +11992,6 @@ body._has-modal-custom .modal-custom-overlay {
   margin-bottom: 25px;
 }
 
-.toolbar-bottom .field.limiter .select-wrapper {
-  margin-right: 5px;
-}
-
 .toolbar-sorter {
   display: none;
   -webkit-box-align: center;
@@ -12017,6 +12013,10 @@ body._has-modal-custom .modal-custom-overlay {
   border-radius: 4px;
   border-color: #282828;
   background: transparent;
+}
+
+.limiter-options {
+  margin-right: 5px;
 }
 
 .sorter-action {

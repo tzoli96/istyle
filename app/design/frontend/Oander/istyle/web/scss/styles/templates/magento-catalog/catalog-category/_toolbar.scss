@@ -16,12 +16,6 @@
   .toolbar {
     margin-bottom: 25px;
   }
-
-  .field.limiter {
-    .select-wrapper {
-      margin-right: 5px;
-    }
-  }
 }
 
 .toolbar-sorter {
@@ -43,7 +37,10 @@
   border-radius: $border-radius;
   border-color: $gray-darker;
   background: transparent;
+}
 
+.limiter-options {
+  margin-right: 5px;
 }
 
 .sorter-action {

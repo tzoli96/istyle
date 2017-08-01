@@ -25,14 +25,12 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
 
     <?php if ($block->getToolbarHtml()): ?>
         <div class="toolbar-top">
-            <?php if ($block->getToolbarHtml()): ?>
-                <?php echo $this->getToolbarBlock()
-                    ->setHideCollapseTrigger(false)
-                    ->setHidePager(true)
-                    ->setHideLimiter(true)
-                    ->toHtml();
-                ?>
-            <?php endif; ?>
+            <?php echo $this->getToolbarBlock()
+                ->setHideCollapseTrigger(false)
+                ->setHidePager(true)
+                ->setHideLimiter(true)
+                ->toHtml();
+            ?>
         </div>
     <?php endif; ?>
 
