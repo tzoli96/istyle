@@ -26,7 +26,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
+.icon-refund {
+  &:before {
+    content: $icon-refund;
+  }
+}
 .icon-check {
   &:before {
     content: $icon-check;
