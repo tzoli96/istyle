@@ -180,18 +180,19 @@
 
   .item {
     color: $black;
+    display: flex;
+    align-items: center;
     transition: .5s ease color;
 
     .image {
       font-size: 22px;
       text-align: center;
       line-height: 50px;
-      float: left;
       width: 80px;
     }
 
     .text {
-      font-size: 15px;
+      font-size: 14px;
     }
 
     .title {
@@ -202,6 +203,33 @@
     &:hover,
     &:focus {
       color: $brand-secondary;
+    }
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .cart-page-top {
+    .item {
+      .text {
+        font-size: 12px;
+        text-align: center;
+      }
+
+      .title {
+        font-size: 12px;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// Tablet
+@include media-breakpoint-down(md) {
+  .cart-page-top {
+    .item {
+      .description {
+        display: none;
+      }
     }
   }
 }
@@ -337,6 +365,22 @@
     }
     .form-control {
       margin-bottom: 10px;
+    }
+  }
+
+  .cart-page-top {
+    .item {
+      .description {
+        display: none;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .cart-page-top {
+    .item {
+      flex-direction: column;
     }
   }
 }
