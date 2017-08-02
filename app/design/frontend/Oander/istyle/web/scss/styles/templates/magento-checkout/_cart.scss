@@ -168,6 +168,44 @@
   }
 }
 
+.cart-page-top {
+  background-color: $gray-lightest;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+
+  > :not(:last-child) {
+    border-right: 1px solid $gray-border;
+  }
+
+  .item {
+    color: $black;
+    transition: .5s ease color;
+
+    .image {
+      font-size: 22px;
+      text-align: center;
+      line-height: 50px;
+      float: left;
+      width: 80px;
+    }
+
+    .text {
+      font-size: 15px;
+    }
+
+    .title {
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    &:hover,
+    &:focus {
+      color: $brand-secondary;
+    }
+  }
+}
+
 // Mobile
 @include media-breakpoint-down(sm) {
   .cart.table-wrapper {
