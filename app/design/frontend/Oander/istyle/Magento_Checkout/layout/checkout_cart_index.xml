@@ -41,6 +41,6 @@
 
         <move element="cart.summary" destination="col.cart.summary" before="-" />
         <move element="checkout.cart.form" destination="col.form.cart" before="-" />
-        <move element="checkout.cart.coupon" destination="col.form.cart" after="checkout.cart.form" />
+        <move element="checkout.cart.coupon" destination="cart.summary" before="checkout.cart.methods.bottom" />
     </body>
 </page>

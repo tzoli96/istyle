@@ -125,7 +125,12 @@
   .mark,
   .amount {
     border-top: none;
-    border-bottom: 1px solid $gray-border;
+  }
+  :not(:last-child) {
+    > .mark,
+    > .amount {
+      border-bottom: 1px solid $gray-border;
+    }
   }
   .mark {
     font-weight: normal;
@@ -152,6 +157,8 @@
     }
   }
   .checkout.methods {
+    margin-top: 30px;
+
     .item {
       & + .item {
         margin-top: 10px;
@@ -165,11 +172,13 @@
   }
   .action.primary.checkout,
   .btn.multicheckout {
+    font-size: 16px;
     width: 100%;
     display: block;
-    font-weight: $font-weight-medium;
+    font-weight: 600;
     text-transform: uppercase;
     white-space: normal;
+    padding: 16px;
   }
   .btn.multicheckout {
     padding: $btn-padding-y 10px;
@@ -179,14 +188,22 @@
   display: none;
 }
 .block.discount {
-  background: #fff;
-
-  &.cart {
-    padding: $grid-gutter-width-base/2;
-  }
-  .btn {
+  .title {
+    font-weight: 500;
     display: block;
-    width: 100%;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+
+  .input-discount,
+  .action {
+    font-size: 12px;
+  }
+  .action {
+    font-weight: bold;
+    background-color: $input-border-color;
+    border-color: $input-border-color;
   }
 }
 
@@ -474,24 +491,11 @@
       }
     }
   }
-  .cart.block.discount,
-  .block.discount.cart-discount {
-    position: absolute;
-    right: $grid-gutter-width-base;
-    left: $grid-gutter-width-base;
-    bottom: 80px;
-  }
 }
 
 // Desktop - wide desktop
 @include media-breakpoint-only(lg) {
   .cart.main.actions {
-    .btn {
-      padding-left: 10px;
-      padding-right: 10px;
-    }
-  }
-  .block.discount {
     .btn {
       padding-left: 10px;
       padding-right: 10px;
@@ -539,30 +543,6 @@
   .cart.main.actions {
     .btn {
       float: right;
-    }
-  }
-  .block.discount {
-    position: relative;
-    padding: 0;
-
-    .content {
-      position: absolute;
-      left: $grid-gutter-width-base/2;
-      width: 400px;
-      bottom: $grid-gutter-width-base/2;
-      background: transparent;
-    }
-  }
-}
-@include media-breakpoint-up(xl) {
-  .block.discount {
-    .content {
-      width: 545px;
-    }
-  }
-  .cart.main.actions {
-    .btn {
-
     }
   }
 }
