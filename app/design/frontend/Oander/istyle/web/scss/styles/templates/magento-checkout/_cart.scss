@@ -146,6 +146,68 @@
       border: 0;
     }
   }
+
+  .quantity {
+    position: relative;
+
+    .qty {
+      text-align: right;
+      -moz-appearance: textfield;
+      line-height: 1.65;
+      float: left;
+      padding-right: 25px;
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+
+    .quantity-nav {
+      float: left;
+      position: relative;
+      height: 42px;
+    }
+
+    .quantity-button {
+      position: absolute;
+      cursor: pointer;
+      height: 50%;
+      width: 20px;
+      text-align: center;
+      color: $white;
+      font-size: 13px;
+      line-height: 1.7;
+      transform: translateX(-100%);
+      user-select: none;
+
+      &.quantity-up {
+        top: 0;
+        background-color: $gray-darker;
+        border-radius: 4px 4px 0 0;
+
+        &:hover {
+          background-color: lighten($gray-darker, 10%);
+        }
+        &:active {
+          background-color: lighten($gray-darker, 20%);
+        }
+      }
+      &.quantity-down {
+        bottom: -1px;
+        background-color: $gray;
+        border-radius: 0 0 4px 4px;
+
+        &:hover {
+          background-color: lighten($gray, 10%);
+        }
+        &:active {
+          background-color: lighten($gray, 20%);
+        }
+      }
+    }
+  }
 }
 
 .cart-container .cart-summary {

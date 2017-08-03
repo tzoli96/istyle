@@ -12,6 +12,9 @@ define([
     'use strict';
 
     // Enable Bootstrap-tooltip for the whole webpage
+    /**
+     * Enable Bootstrap-tooltip for the whole webpage
+     */
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
