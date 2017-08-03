@@ -40,7 +40,8 @@
         <move element="col.form.cart" destination="cart.container.row" after="col.cart.summary" />
 
         <move element="cart.summary" destination="col.cart.summary" before="-" />
-        <move element="checkout.cart.form" destination="col.form.cart" before="-" />
+        <move element="page.messages" destination="col.form.cart" before="col.form.cart" />
+        <move element="checkout.cart.form" destination="col.form.cart" after="page.messages" />
         <move element="checkout.cart.coupon" destination="cart.summary" before="checkout.cart.methods.bottom" />
     </body>
 </page>

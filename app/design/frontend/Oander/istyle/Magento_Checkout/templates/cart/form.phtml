@@ -61,12 +61,6 @@
                     class="btn btn-outline-primary">
                 <span><?php /* @escapeNotVerified */ echo __('Update Shopping Cart'); ?></span>
             </button>
-            <button type="button"
-                    data-role="proceed-to-checkout" title="<?php /* @escapeNotVerified */ echo __('Proceed to Checkout') ?>"
-                    data-mage-init='{"Magento_Checkout/js/proceed-to-checkout":{"checkoutUrl":"<?php /* @escapeNotVerified */ echo $block->getCheckoutUrl(); ?>"}}'
-                    class="btn btn-primary action checkout hidden-lg-up">
-                <span><?php /* @escapeNotVerified */ echo __('Proceed to Checkout') ?></span>
-            </button>
             <input type="hidden" value="" id="update_cart_action_container" data-cart-item-update=""/>
         </div>
     </form>
