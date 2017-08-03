@@ -6,8 +6,33 @@
   .badge-container {
     display: none;
   }
-}
 
+  .product-item-info {
+    width: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .product-item-photo {
+    .product-image-container {
+      padding-bottom: 5px;
+      border-bottom: 2px solid transparent;
+    }
+
+    &:hover,
+    &:active {
+      .product-image-container {
+        border-bottom-color: $black;
+      }
+    }
+  }
+
+
+}
+.tooltip-top {
+  background-color: $gray !important;display: none !important;
+}
 .viewed-products-heading {
+  color: $gray;
   white-space: nowrap;
 }
