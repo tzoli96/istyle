@@ -204,6 +204,15 @@
     font-weight: bold;
     background-color: $input-border-color;
     border-color: $input-border-color;
+    border-radius: 4px;
+    margin-left: -3px;
+    z-index: 4;
+
+    &:hover,
+    &:focus {
+      background-color: lighten($input-border-color, 10%);
+      border-color: lighten($input-border-color, 10%);
+    }
   }
 }
 
@@ -270,6 +279,10 @@
       }
     }
   }
+
+  .cart-container .cart-summary {
+    padding: 20px;
+  }
 }
 
 // Tablet
@@ -281,10 +294,53 @@
       }
     }
   }
+
+  .cart-container .cart-summary {
+    .summary.title {
+      font-size: 22px;
+    }
+
+    .mark,
+    .amount {
+      font-size: 12px;
+    }
+    .grand.totals {
+      .mark,
+      .amount {
+        color: $gray-dark;
+
+        strong {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .block.discount {
+    .title {
+      font-size: 12px;
+      line-height: 1.2em;
+      font-weight: normal;
+      color: $gray-light;
+    }
+
+    .action {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
 }
 
 // Mobile
 @include media-breakpoint-down(sm) {
+  .cart-page-top {
+    .item {
+      .description {
+        display: none;
+      }
+    }
+  }
+
   .cart.table-wrapper {
     .cart.item {
       @include clearfix;
@@ -401,26 +457,36 @@
       margin-top: 10px;
     }
   }
-  .form.form-discount,
+
   .block.discount {
-    .input-group {
-      display: block;
+    .title {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5em;
+      color: $gray-dark;
     }
-    .input-discount,
-    .button-discount {
-      display: block;
-      position: static;
-      width: 100%;
-    }
-    .form-control {
-      margin-bottom: 10px;
+
+    .action {
+      padding-left: 20px;
+      padding-right: 20px;
     }
   }
 
-  .cart-page-top {
-    .item {
-      .description {
-        display: none;
+  .cart-container .cart-summary {
+    .mark,
+    .amount {
+      font-size: 14px;
+    }
+    .grand.totals {
+      font-size: 18px;
+
+      .mark,
+      .amount {
+        color: $gray;
+
+        strong {
+          font-weight: normal;
+        }
       }
     }
   }
