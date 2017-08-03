@@ -221,38 +221,6 @@
     margin-bottom: 15px;
   }
 
-  .block.shipping {
-    display: none;
-
-    &.active {
-      .title {
-        &:after {
-          transform: rotate(180deg);
-        }
-      }
-    }
-    .title {
-      padding-right: $grid-gutter-width-base;
-      position: relative;
-      display: block;
-      margin-bottom: 10px;
-      cursor: pointer;
-
-      &:after {
-        @if variable-exists(icon-chevron-down) {
-          content: $icon-chevron-down;
-        } @else {
-          @warn 'Variable is not defined!';
-        }
-        font-family: $icon-font-family;
-        position: absolute;
-        right: 0;
-        top: 0;
-        font-size: 16px;
-      }
-    }
-  }
-
   .mark,
   .amount {
     border-top: none;
