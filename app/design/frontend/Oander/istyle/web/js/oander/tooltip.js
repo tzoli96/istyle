@@ -16,7 +16,9 @@ define([
      * Enable Bootstrap-tooltip for the whole webpage
      */
     $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
+        $('[data-toggle="tooltip"]').tooltip({
+            position: { my: "center+25 bottom", at: "center top-10" }
+        });
     })
 
 });

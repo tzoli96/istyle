@@ -75,6 +75,13 @@
 
   .col.image {
     width: 100px;
+
+    .badge-label {
+      width: 70px;
+      text-align: center;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
   }
   .col.item {
     a {
@@ -195,7 +202,7 @@
         }
       }
       &.quantity-down {
-        bottom: -1px;
+        bottom: 0;
         background-color: $gray;
         border-radius: 0 0 4px 4px;
 
