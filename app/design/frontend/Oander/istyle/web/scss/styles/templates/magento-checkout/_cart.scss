@@ -285,6 +285,10 @@
   .btn.multicheckout {
     padding: $btn-padding-y 10px;
   }
+
+  .totals .table-caption {
+    display: none;
+  }
 }
 
 .block.discount {
