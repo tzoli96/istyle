@@ -11,7 +11,6 @@ define([
 ], function ($) {
     'use strict';
 
-    // Enable Bootstrap-tooltip for the whole webpage
     /**
      * Enable Bootstrap-tooltip for the whole webpage
      */

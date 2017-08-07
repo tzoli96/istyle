@@ -7,24 +7,8 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceContainer name="wrapper">
-            <block class="Magento\Cms\Block\Block" name="cart_page_top" before="-">
-                <arguments>
-                    <argument name="block_id" xsi:type="string">cart_page_top</argument>
-                </arguments>
-            </block>
-        </referenceContainer>
-        <referenceContainer name="checkout.cart.container">
-            <referenceBlock name="cart_page_top" />
-            <container name="cart.container.row" htmlTag="div" htmlClass="row">
-                <container name="col.cart.summary" htmlTag="div" htmlClass="col-md-4 col-cart-summary" />
-                <container name="col.form.cart" htmlTag="div" htmlClass="col-md-8 col-form-cart" />
-            </container>
-        </referenceContainer>
-
         <referenceBlock name="checkout.cart.summary.title">
             <arguments>
-                <!-- Modified block argument -->
                 <argument translate="true" name="text" xsi:type="string">Cart Summary</argument>
                 <argument name="tag" xsi:type="string">h2</argument>
             </arguments>
@@ -36,10 +20,6 @@
             </action>
         </referenceBlock>
 
-        <move element="col.cart.summary" destination="cart.container.row" before="-" />
-        <move element="col.form.cart" destination="cart.container.row" after="col.cart.summary" />
-
-        <move element="cart.summary" destination="col.cart.summary" before="-" />
         <move element="page.messages" destination="col.form.cart" before="col.form.cart" />
         <move element="checkout.cart.form" destination="col.form.cart" after="page.messages" />
         <move element="checkout.cart.coupon" destination="cart.summary" before="checkout.cart.methods.bottom" />
