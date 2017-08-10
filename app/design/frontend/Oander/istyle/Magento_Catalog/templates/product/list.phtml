@@ -23,6 +23,17 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
     <div class="message info empty"><div><?php /* @escapeNotVerified */ echo __('We can\'t find products matching the selection.') ?></div></div>
 <?php else: ?>
 
+    <?php if ($block->getToolbarHtml()): ?>
+        <div class="toolbar-top">
+            <?php echo $this->getToolbarBlock()
+                ->setHideCollapseTrigger(false)
+                ->setHidePager(true)
+                ->setHideLimiter(true)
+                ->toHtml();
+            ?>
+        </div>
+    <?php endif; ?>
+
     <?php echo $block->getAdditionalHtml() ?>
     <?php
     if ($block->getMode() == 'grid') {
@@ -115,8 +126,15 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
 
     <?php if ($block->getToolbarHtml()): ?>
         <div class="toolbar-bottom">
-            <?php echo $block->getToolbarHtml() ?>
-        </div>
+            <?php echo $this->getToolbarBlock()
+                ->setHideSorter(true)
+                ->setHideCollapseTrigger(true)
+                ->setHidePager(false)
+                ->setHideLimiter(false)
+                ->setHideAmount(true)
+                ->toHtml();
+            ?>
+            </div>
     <?php endif; ?>
 
     <?php if (!$block->isRedirectToCartEnabled()) : ?>
