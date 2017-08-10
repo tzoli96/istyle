@@ -7,6 +7,13 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
+        <referenceContainer name="wrapper">
+            <block class="Magento\Cms\Block\Block" name="cart_page_top" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">cart_page_top</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
         <referenceBlock name="checkout.cart.summary.title">
             <arguments>
                 <argument translate="true" name="text" xsi:type="string">Cart Summary</argument>
