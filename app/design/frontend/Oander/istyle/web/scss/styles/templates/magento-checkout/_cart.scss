@@ -577,6 +577,9 @@
       }
     }
   }
+  .cart-container .cart-summary {
+    margin-top: 20px;
+  }
 }
 
 // Desktop - wide desktop
@@ -594,10 +597,6 @@
   }
   .col-cart-summary {
     order: 2;
-  }
-
-  .cart-container .cart-summary {
-    margin-top: -40px;
   }
 }
 @include media-breakpoint-up(lg) {
@@ -634,5 +633,8 @@
     .btn {
       float: right;
     }
+  }
+  .cart-container .cart-summary {
+    margin-top: -40px;
   }
 }
