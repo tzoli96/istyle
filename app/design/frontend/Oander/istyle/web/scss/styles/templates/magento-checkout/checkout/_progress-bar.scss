@@ -6,7 +6,7 @@ $progress-bar-title-color: #c3c3c3;
 .opc-progress-bar {
   counter-reset: i;
   position: relative;
-  margin: 20px 35px;
+  margin: 20px 0;
 
   &.success {
     .opc-progress-bar-item {
