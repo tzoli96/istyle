@@ -8,7 +8,7 @@
  */
 -->
 <li id="shipping" class="checkout-shipping-address" data-bind="fadeVisible: visible()">
-    <h2 class="step-title" data-bind="i18n: 'Shipping Addresss'" data-role="title"></h2>
+    <h2 class="step-title" data-bind="i18n: 'Contact information'" data-role="title"></h2>
     <div id="checkout-step-shipping"
          class="step-content"
          data-role="content">
@@ -18,7 +18,7 @@
         <!-- ko template: getTemplate() --><!-- /ko -->
         <!--/ko-->
         <!--/ko-->
-
+        <h2 class="step-title" data-bind="i18n: 'Shipping Address'" data-role="title"></h2>
         <!-- ko foreach: getRegion('address-list') -->
         <!-- ko template: getTemplate() --><!-- /ko -->
         <!--/ko-->
@@ -56,7 +56,7 @@
     data-bind="fadeVisible: visible(), blockLoader: isLoading"
     role="presentation">
     <div class="checkout-shipping-method">
-        <h2 class="step-title" data-bind="i18n: 'Shipping Methods'" data-role="title"></h2>
+        <h2 class="step-title" data-bind="i18n: 'Select your shipping method'" data-role="title"></h2>
         <!-- ko foreach: getRegion('before-shipping-method-form') -->
         <!-- ko template: getTemplate() --><!-- /ko -->
         <!-- /ko -->
@@ -189,8 +189,8 @@
                 <!-- /ko -->
                 <div class="actions-toolbar" id="shipping-method-buttons-container">
                     <div class="primary">
-                        <button data-role="opc-continue" type="submit" class="button action continue primary">
-                            <span data-bind="i18n: 'Next'"></span>
+                        <button data-role="opc-continue" type="submit" class="button action continue primary col-md-6">
+                            <span data-bind="i18n: 'Continue to payment method'"></span>
                         </button>
                     </div>
                 </div>

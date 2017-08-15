@@ -8,7 +8,6 @@
       .note {
         display: block;
         margin-top: 5px;
-        font-size: 12px;
       }
     }
   }
@@ -206,10 +205,6 @@
   }
   .checkout-shipping-method {
     .actions-toolbar {
-      > .primary {
-        float: right;
-      }
-
       .action {
         &.primary {
           margin: 0;
