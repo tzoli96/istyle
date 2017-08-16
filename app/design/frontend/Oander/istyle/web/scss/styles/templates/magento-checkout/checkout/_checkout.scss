@@ -110,6 +110,11 @@
 }
 
 @include media-breakpoint-down(md) {
+  .checkout-index-index {
+    .step-content .step-title {
+      padding-top: 0;
+    }
+  }
   .opc-wrapper {
     .step-content {
       margin: 0 0 15px;
@@ -156,16 +161,8 @@
     }
   }
 }
-@include media-breakpoint-up(lg) {
+@include media-breakpoint-up(md) {
   .checkout-index-index {
-    .page-header,
-    .header.content {
-      height: 90px;
-    }
-    .form.form-login,
-    .form-shipping-address {
-      margin: 0 (-$grid-gutter-width-base/2) 20px;
-    }
     .fieldset {
       @include clearfix();
 
@@ -193,6 +190,18 @@
           padding: 0 !important;
         }
       }
+    }
+  }
+}
+@include media-breakpoint-up(lg) {
+  .checkout-index-index {
+    .page-header,
+    .header.content {
+      height: 90px;
+    }
+    .form.form-login,
+    .form-shipping-address {
+      margin: 0 (-$grid-gutter-width-base/2) 20px;
     }
     .header.content {
       padding: 25px 20px 0;
