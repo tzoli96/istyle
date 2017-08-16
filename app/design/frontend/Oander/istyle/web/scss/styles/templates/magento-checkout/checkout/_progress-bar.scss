@@ -1,10 +1,12 @@
 $progress-bar-items-count: 3;
-$progress-circle-size: 30px;
+$progress-circle-size: 40px;
+$progress-bar-color: #f0f0f0;
+$progress-bar-title-color: #c3c3c3;
 
 .opc-progress-bar {
   counter-reset: i;
   position: relative;
-  margin: 20px 35px;
+  margin: 20px 0;
 
   &.success {
     .opc-progress-bar-item {
@@ -22,9 +24,9 @@ $progress-circle-size: 30px;
     content: '';
     position: absolute;
     width: 100%;
-    height: 1px;
-    background: #c9c9cb;
-    top: 15px;
+    height: 3px;
+    background-color: $progress-bar-color;
+    top: 18px;
     left: 0;
   }
 }
@@ -33,15 +35,15 @@ $progress-circle-size: 30px;
   float: left;
   position: relative;
   text-align: center;
-  color: #78797c;
+  color: $progress-bar-title-color;
 
   &:before {
     content: '';
     position: absolute;
     width: 100%;
-    height: 1px;
-    background: #c9c9cb;
-    top: 15px;
+    height: 3px;
+    background-color: $progress-bar-color;
+    top: 18px;
     left: 0;
   }
   &:first-child {
@@ -59,31 +61,48 @@ $progress-circle-size: 30px;
       float: right;
     }
   }
-  &._active,
-  &._complete {
-    color: $brand-primary;
+  &._active {
+    color: $gray-dark;
+
+    .opc-progress-bar-item-text {
+      font-weight: 500;
+    }
 
     .opc-progress-bar-item-circle {
-      background: $brand-primary;
+      background: $gray-darker;
+      width: 50px;
+      height: 50px;
+      margin-top: -7px;
+
+      &::before {
+        font-size: 28px;
+        line-height: 50px;
+        color: $white;
+        padding-left: 10px;
+      }
     }
   }
   &._complete {
     cursor: pointer;
+    color: #0DB153;
 
     &:before {
-      background: $brand-primary;
+      background: #0DB153;
     }
     & + ._active:not(._last) {
       &:before {
-        background: $brand-primary;
+        background: #0DB153;
         width: 50%;
       }
     }
     .opc-progress-bar-item-circle {
+      background: #0DB153;
+
       &:before {
         content: $icon-check;
         font-family: $icon-font-family;
-        font-size: 10px;
+        font-size: 20px;
+        color: $white;
       }
     }
   }
@@ -93,7 +112,7 @@ $progress-circle-size: 30px;
   z-index: 10;
   display: block;
   margin: 0 auto 5px;
-  background: #a7a9ab;
+  background-color: $progress-bar-color;
   border-radius: $progress-circle-size;
   text-align: center;
 
@@ -108,15 +127,22 @@ $progress-circle-size: 30px;
     position: absolute;
     left: 0;
     top: 0;
-    font-weight: $font-weight-medium;
-    line-height: $progress-circle-size;
-    color: #fff;
+    font-weight: 400;
+    line-height: 36px;
+    color: $gray-light;
+    font-size: 12px;
   }
 }
 .opc-progress-bar-item-text {
   clear: both;
   display: block;
-  font-size: 12px;
-  font-weight: $font-weight-medium;
-  text-transform: lowercase;
+  font-size: 14px;
+  font-weight: 400;
+  padding-top: 8px;
+}
+
+@include media-breakpoint-down(sm) {
+  .opc-progress-bar-item-text {
+    display: none;
+  }
 }
