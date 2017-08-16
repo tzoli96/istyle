@@ -128,8 +128,35 @@
         width: 20px;
       }
 
+      &.col-method {
+        padding-top: 0;
+        padding-right: 0;
+      }
       &.col-price {
         font-weight: $font-weight-medium;
+      }
+
+      .custom-control {
+        margin-bottom: 0;
+      }
+      .custom-control-description {
+        padding-left: 15px;
+
+        > * {
+          display: block;
+          float: left;
+
+          &:not(:last-child) {
+            margin-right: 10px;
+          }
+        }
+        .price {
+          font-weight: 500;
+          width: 110px;
+        }
+        .title {
+          width: 220px;
+        }
       }
     }
 

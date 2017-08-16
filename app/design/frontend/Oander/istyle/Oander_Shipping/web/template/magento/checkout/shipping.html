@@ -99,55 +99,57 @@
                         <!--ko if: window.carrier.push(method.carrier_code) --><!-- /ko -->
 
                         <tr class="row" data-bind="click: $parent.selectShippingMethod">
-                            <td class="col col-method">
-                                <!-- ko ifnot: method.error_message -->
-                                <!-- ko if: $parent.rates().length == 1 -->
-                                <input class="radio"
-                                       type="radio"
-                                       data-bind="attr: {
+                            <td class="col col-method" colspan="4">
+                                <label class="custom-control custom-radio">
+                                    <!-- ko ifnot: method.error_message -->
+                                    <!-- ko if: $parent.rates().length == 1 -->
+                                    <input class="custom-control-input" type="radio" data-bind="attr: {
                                                     checked: $parent.rates().length == 1,
                                                     'value' : method.carrier_code + '_' + method.method_code,
                                                     'id': 's_method_' + method.method_code,
                                                     'aria-labelledby': 'label_method_' + method.method_code + '_' + method.carrier_code + ' ' + 'label_carrier_' + method.method_code + '_' + method.carrier_code
                                                  }" />
-                                <!-- /ko -->
-                                <!--ko ifnot: ($parent.rates().length == 1)-->
-                                <input type="radio"
-                                       data-bind="
-                                                value: method.carrier_code + '_' + method.method_code,
-                                                checked: $parent.isSelected,
-                                                attr: {
-                                                    'id': 's_method_' + method.carrier_code + '_' + method.method_code,
-                                                    'aria-labelledby': 'label_method_' + method.method_code + '_' + method.carrier_code + ' ' + 'label_carrier_' + method.method_code + '_' + method.carrier_code
-                                                },
-                                                click: $parent.selectShippingMethod"
-                                       class="radio"/>
-                                <!--/ko-->
-                                <!-- /ko -->
+                                    <!-- /ko -->
+                                    <!--ko ifnot: ($parent.rates().length == 1)-->
+                                    <input class="custom-control-input" type="radio" data-bind="
+                                        value: method.carrier_code + '_' + method.method_code,
+                                        checked: $parent.isSelected,
+                                        attr: {
+                                            'id': 's_method_' + method.carrier_code + '_' + method.method_code,
+                                            'aria-labelledby': 'label_method_' + method.method_code + '_' + method.carrier_code + ' ' + 'label_carrier_' + method.method_code + '_' + method.carrier_code
+                                        },
+                                        click: $parent.selectShippingMethod"/>
+                                    <!--/ko-->
+                                    <!-- /ko -->
+
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">
+                                        <span class="price">
+                                            <!-- ko foreach: $parent.getRegion('price') -->
+                                            <!-- ko template: getTemplate() --><!-- /ko -->
+                                            <!-- /ko -->
+                                        </span>
+
+                                        <span
+                                            class="title"
+                                            data-bind="text: method.method_title, attr: {'id': 'label_method_' + method.method_code + '_' + method.carrier_code}">
+                                        </span>
+
+                                        <!-- ko if: method.hasOwnProperty('extension_attributes')
+                                            && method.extension_attributes.hasOwnProperty('method_info') -->
+                                        <span class="info" data-bind="html: method.extension_attributes.method_info"></span>
+                                        <!-- /ko -->
+
+                                        <!-- ko ifnot: method.hasOwnProperty('extension_attributes')
+                                            && method.extension_attributes.hasOwnProperty('method_group_block')
+                                            && method.extension_attributes.method_group_block == true -->
+                                        <span class="carrier"
+                                              data-bind="text: method.carrier_title, attr: {'id': 'label_carrier_' + method.method_code + '_' + method.carrier_code}">
+                                        </span>
+                                        <!-- /ko -->
+                                    </span>
+                                </label>
                             </td>
-
-                            <td class="col col-method"
-                                data-bind="text: method.method_title, attr: {'id': 'label_method_' + method.method_code + '_' + method.carrier_code}"></td>
-
-                            <td class="col col-price">
-                                <!-- ko foreach: $parent.getRegion('price') -->
-                                <!-- ko template: getTemplate() --><!-- /ko -->
-                                <!-- /ko -->
-                            </td>
-
-                            <!-- ko if: method.hasOwnProperty('extension_attributes')
-                                && method.extension_attributes.hasOwnProperty('method_info') -->
-                            <td class="col col-info" data-bind="html: method.extension_attributes.method_info"></td>
-                            <!-- /ko -->
-
-
-                            <!-- ko ifnot: method.hasOwnProperty('extension_attributes')
-                                && method.extension_attributes.hasOwnProperty('method_group_block')
-                                && method.extension_attributes.method_group_block == true -->
-                                <td class="col col-carrier"
-                                    data-bind="text: method.carrier_title, attr: {'id': 'label_carrier_' + method.method_code + '_' + method.carrier_code}"></td>
-                            <!-- /ko -->
-
                         </tr>
 
                         <!-- ko if: method.hasOwnProperty('extension_attributes')
