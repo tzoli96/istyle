@@ -20,3 +20,14 @@
     }
   }
 }
+
+.custom-radio {
+  .custom-control-indicator {
+    background-color: $white;
+    border: 1px solid $gray-light;
+  }
+}
+
+.custom-control-input:focus ~ .custom-control-indicator {
+  box-shadow: none;
+}
