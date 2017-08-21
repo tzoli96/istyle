@@ -8,58 +8,6 @@
   }
 }
 
-.cart-page-top {
-  background-color: $gray-lightest;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  margin-bottom: 30px;
-
-  > :not(:last-child) {
-    border-right: 1px solid $gray-border;
-  }
-
-  .item {
-    color: $black;
-    display: flex;
-    align-items: center;
-    transition: .5s ease color;
-
-    .image {
-      font-size: 22px;
-      text-align: center;
-      line-height: 50px;
-      width: 80px;
-    }
-
-    .text {
-      font-size: 14px;
-    }
-
-    .title,
-    .description {
-      transition: .5s ease color;
-    }
-    .title {
-      font-weight: 500;
-      color: $gray-dark;
-      margin-bottom: 5px;
-    }
-    .description {
-      color: $gray-darker;
-    }
-
-    &:hover,
-    &:focus {
-      color: $brand-secondary;
-
-      .title,
-      .description {
-        color: $brand-secondary;
-      }
-    }
-  }
-}
-
 .cart-container {
   .form-cart,
   .cart-summary {
@@ -321,20 +269,6 @@
 }
 
 @include media-breakpoint-down(lg) {
-  .cart-page-top {
-    .item {
-      .text {
-        font-size: 12px;
-        text-align: center;
-      }
-
-      .title {
-        font-size: 12px;
-        margin-bottom: 0;
-      }
-    }
-  }
-
   .cart-container .cart-summary {
     padding: 20px;
   }
@@ -342,14 +276,6 @@
 
 // Tablet
 @include media-breakpoint-down(md) {
-  .cart-page-top {
-    .item {
-      .description {
-        display: none;
-      }
-    }
-  }
-
   .cart.table-wrapper {
     thead th {
       ::after {
@@ -451,14 +377,6 @@
 
 // Mobile
 @include media-breakpoint-down(sm) {
-  .cart-page-top {
-    .item {
-      .description {
-        display: none;
-      }
-    }
-  }
-
   .cart.main.actions {
     .btn,
     .action {
@@ -503,12 +421,6 @@
 }
 
 @include media-breakpoint-down(xs) {
-  .cart-page-top {
-    .item {
-      flex-direction: column;
-    }
-  }
-
   .cart.table-wrapper {
     tbody .col {
       &.qty,

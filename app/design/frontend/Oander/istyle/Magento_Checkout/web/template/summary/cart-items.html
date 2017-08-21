@@ -1,0 +1,37 @@
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<div class="block items-in-cart" data-bind="mageInit: {'collapsible':getDefaultSettings()}">
+    <div class="title" data-role="title">
+        <strong role="heading"><span data-bind="text: getItemsQty()"></span>
+            <!-- ko if: getItemsQty() == 1 -->
+            <!-- ko i18n: 'item in cart' --><!-- /ko -->
+            <!-- /ko -->
+            <!-- ko if: getItemsQty() > 1 -->
+            <!-- ko i18n: 'items in cart' --><!-- /ko -->
+            <!-- /ko -->
+        </strong>
+        <div class="subtotal">
+            <div class="label">Cart Subtotal:</div>
+            <div class="price">28 900 Ft</div>
+        </div>
+    </div>
+    <div class="content minicart-items" data-role="content">
+        <div class="minicart-items-wrapper overflowed">
+            <ol class="minicart-items">
+                <!-- ko foreach: getItems() -->
+                <li class="product-item">
+                    <div class="product clearfix">
+                        <!-- ko foreach: $parent.elems() -->
+                        <!-- ko template: getTemplate() --><!-- /ko -->
+                        <!-- /ko -->
+                    </div>
+                </li>
+                <!-- /ko -->
+            </ol>
+        </div>
+    </div>
+</div>
