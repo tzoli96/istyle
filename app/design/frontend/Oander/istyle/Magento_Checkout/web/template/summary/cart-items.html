@@ -6,15 +6,19 @@
 -->
 <!-- ko ifnot: isItemsBlockExpanded() -->
 <div class="block items-in-cart" data-bind="mageInit: {'collapsible':{'openedState': 'active', 'active' : true}}">
-    <div class="title text-primary" data-role="title">
+    <div class="title" data-role="title">
         <strong role="heading"><span data-bind="text: getItemsQty()"></span>
             <!-- ko if: getItemsQty() == 1 -->
-            <!-- ko i18n: 'Item in Cart' --><!-- /ko -->
+            <!-- ko i18n: 'item in cart' --><!-- /ko -->
             <!-- /ko -->
             <!-- ko if: getItemsQty() > 1 -->
-            <!-- ko i18n: 'Items in Cart' --><!-- /ko -->
+            <!-- ko i18n: 'items in cart' --><!-- /ko -->
             <!-- /ko -->
         </strong>
+        <div class="subtotal">
+            <div class="label">Cart Subtotal:</div>
+            <div class="price">28 900 Ft</div>
+        </div>
     </div>
     <div class="content minicart-items" data-role="content">
         <div class="minicart-items-wrapper overflowed">

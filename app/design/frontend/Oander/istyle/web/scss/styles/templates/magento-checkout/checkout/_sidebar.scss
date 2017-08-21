@@ -1,11 +1,40 @@
 @include media-breakpoint-up(lg) {
   .opc-sidebar {
-    width: calc(30% - 10px);
+    width: calc(35% - 10px);
     float: right;
   }
 }
 @include media-breakpoint-up(xl) {
   .opc-sidebar {
     width: calc(33.3333% - 15px); // col-xl-4
+  }
+}
+
+@include media-breakpoint-only(md) {
+  .opc-sidebar {
+    display: flex;
+    align-items: flex-start;
+
+    .opc-block-summary {
+      width: 66%;
+    }
+    .checkout-info-box-container {
+      width: 33%;
+      padding-left: 20px;
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .checkout-container {
+    display: flex;
+    flex-direction: column;
+
+    .opc-sidebar {
+      order: 10;
+    }
+    .opc-wrapper {
+      order: 11;
+    }
   }
 }

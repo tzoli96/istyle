@@ -13,14 +13,18 @@
     <div class="product-item-inner">
         <div class="product-item-name-block">
             <strong class="product-item-name" data-bind="text: $parent.name"></strong>
-            <div class="details-qty">
-                <span class="label"><!-- ko i18n: 'Quantity' --><!-- /ko --></span>
-                <span class="value" data-bind="text: $parent.qty"></span>
+            <div class="row">
+                <div class="details-qty col-6">
+                    <span class="label"><!-- ko i18n: 'Quantity' --><!-- /ko --></span>
+                    <span class="value" data-bind="text: $parent.qty"></span>
+                </div>
+                <div class="col-6">
+                    <!-- ko foreach: getRegion('after_details') -->
+                    <!-- ko template: getTemplate() --><!-- /ko -->
+                    <!-- /ko -->
+                </div>
             </div>
         </div>
-        <!-- ko foreach: getRegion('after_details') -->
-            <!-- ko template: getTemplate() --><!-- /ko -->
-        <!-- /ko -->
     </div>
 
     <!-- ko if: (JSON.parse($parent.options).length > 0)-->
