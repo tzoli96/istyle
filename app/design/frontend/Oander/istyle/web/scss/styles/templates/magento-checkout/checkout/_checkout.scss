@@ -36,6 +36,9 @@
   .step-content .step-title {
     padding-top: 20px;
   }
+  .action.checkout {
+    width: 100%;
+  }
 }
 .checkout-onepage-success {
   #registration {
@@ -109,6 +112,14 @@
   }
 }
 
+@include media-breakpoint-down(lg) {
+  .checkout-index-index {
+    .action.checkout {
+      margin-top: 30px;
+    }
+  }
+}
+
 @include media-breakpoint-down(md) {
   .checkout-index-index {
     .step-content .step-title {
@@ -116,9 +127,6 @@
     }
   }
   .opc-wrapper {
-    .step-content {
-      margin: 0 0 15px;
-    }
     .field-tooltip {
       display: none;
     }
@@ -191,6 +199,10 @@
         }
       }
     }
+
+    .action.checkout {
+      width: 220px;
+    }
   }
 }
 @include media-breakpoint-up(lg) {
@@ -262,5 +274,10 @@
 @include media-breakpoint-up(xl) {
   .opc-wrapper {
     width: calc(66.6666% - 15px); // col-xl-8
+  }
+  .checkout-index-index {
+    .action.checkout {
+      float: right;
+    }
   }
 }
