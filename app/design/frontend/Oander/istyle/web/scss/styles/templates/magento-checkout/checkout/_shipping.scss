@@ -24,11 +24,11 @@
     padding: 20px;
     border: 2px solid transparent;
     margin: 0 0 20px;
-    transition: all ease 0.3s;
+    transition: all ease .3s;
     position: relative;
     word-wrap: break-word;
 
-    &:after {
+    &::after {
       position: absolute;
       width: 30px;
       height: 30px;
@@ -43,13 +43,13 @@
       top: 0;
       opacity: 0;
       visibility: hidden;
-      transition: all ease 0.3s;
+      transition: all ease .3s;
     }
 
     &.selected-item {
       border-color: $brand-primary;
 
-      &:after {
+      &::after {
         visibility: visible;
         opacity: 1;
       }
@@ -119,7 +119,7 @@
     margin: 0;
 
     td {
-      border: 0;
+      border: none;
       padding: 10px;
 
       &:first-child {
@@ -161,7 +161,7 @@
 
     .row-error {
       td {
-        border-top: 0;
+        border-top: none;
         padding-bottom: 10px;
         padding-top: 0;
       }

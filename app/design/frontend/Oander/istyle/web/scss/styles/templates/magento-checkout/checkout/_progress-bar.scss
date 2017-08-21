@@ -20,7 +20,7 @@ $progress-bar-title-color: #c3c3c3;
     }
   }
 
-  &:before {
+  &::before {
     content: '';
     position: absolute;
     width: 100%;
@@ -37,7 +37,7 @@ $progress-bar-title-color: #c3c3c3;
   text-align: center;
   color: $progress-bar-title-color;
 
-  &:before {
+  &::before {
     content: '';
     position: absolute;
     width: 100%;
@@ -54,8 +54,8 @@ $progress-bar-title-color: #c3c3c3;
     }
   }
   &._last {
-    text-align: right;
     @include clearfix;
+    text-align: right;
 
     .opc-progress-bar-item-circle {
       float: right;
@@ -84,21 +84,21 @@ $progress-bar-title-color: #c3c3c3;
   }
   &._complete {
     cursor: pointer;
-    color: #0DB153;
+    color: #0db153;
 
-    &:before {
-      background: #0DB153;
+    &::before {
+      background: #0db153;
     }
     & + ._active:not(._last) {
-      &:before {
-        background: #0DB153;
+      &::before {
+        background: #0db153;
         width: 50%;
       }
     }
     .opc-progress-bar-item-circle {
-      background: #0DB153;
+      background: #0db153;
 
-      &:before {
+      &::before {
         content: $icon-check;
         font-family: $icon-font-family;
         font-size: 20px;
@@ -117,11 +117,11 @@ $progress-bar-title-color: #c3c3c3;
   text-align: center;
 
   &,
-  &:before {
+  &::before {
     width: $progress-circle-size;
     height: $progress-circle-size;
   }
-  &:before {
+  &::before {
     content: counter(i);
     counter-increment: i;
     position: absolute;

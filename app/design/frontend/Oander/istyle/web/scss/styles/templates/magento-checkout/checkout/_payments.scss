@@ -5,13 +5,13 @@
   .payment-method {
     &:first-child {
       .payment-method-title {
-        border-top: 0;
+        border-top: none;
       }
     }
     &._active {
       .payment-method-content {
-        display: block;
         @include clearfix;
+        display: block;
       }
     }
   }

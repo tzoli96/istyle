@@ -133,8 +133,8 @@
     .field .control._with-tooltip input {
       width: 100%;
     }
-    .fieldset > .field .note:before,
-    .fieldset > .fields > .field .note:before {
+    .fieldset > .field .note::before,
+    .fieldset > .fields > .field .note::before {
       display: none;
     }
     .payment-method-billing-address {
@@ -169,7 +169,7 @@
         .action {
           float: none;
           margin: 0;
-          padding: 0.75rem 1rem
+          padding: .75rem 1rem;
         }
       }
     }
@@ -184,7 +184,7 @@
         &:not(.choice):not(.field-select-billing) {
           width: 50%;
           float: left;
-          padding: 0 map_get($grid-gutter-widths, lg)/2;
+          padding: 0 map_get($grid-gutter-widths, lg) / 2;
 
           &:nth-of-type(odd) {
             clear: left;
@@ -219,7 +219,7 @@
     }
     .form.form-login,
     .form-shipping-address {
-      margin: 0 (-$grid-gutter-width-base/2) 20px;
+      margin: 0 (-$grid-gutter-width-base / 2) 20px;
     }
     .header.content {
       padding: 25px 20px 0;
@@ -236,7 +236,7 @@
 
       .payment-option-title {
         padding-left: 0;
-        border-top: 0;
+        border-top: none;
       }
     }
     .form.form-discount {
