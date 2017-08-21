@@ -1,0 +1,39 @@
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<!-- ko if: (isVisible()) -->
+<div class="shipping-information">
+    <div class="ship-to">
+        <div class="shipping-information-title clearfix">
+            <span class="float-left text-bold">
+                <strong data-bind="i18n: 'Ship To:'"></strong>
+            </span>
+            <button class="btn btn-secondary btn-sm float-right" data-bind="click: back">
+                <i class="icon icon-edit"></i>
+            </button>
+        </div>
+        <div class="shipping-information-content">
+            <!-- ko foreach: getRegion('ship-to') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </div>
+    </div>
+    <div class="ship-via">
+        <div class="shipping-information-title clearfix">
+            <span class="float-left text-bold">
+                <strong data-bind="i18n: 'Shipping Method:'"></strong>
+            </span>
+            <button class="btn btn-secondary btn-sm float-right" data-bind="click: backToShippingMethod">
+                <i class="icon icon-edit"></i>
+            </button>
+        </div>
+        <div class="shipping-information-content">
+            <span class="value" data-bind="text: getShippingMethodTitle()"></span>
+        </div>
+    </div>
+</div>
+<!--/ko-->
