@@ -136,7 +136,6 @@
     > .title {
       color: $gray-darker;
       padding: 10px 20px;
-      cursor: pointer;
       margin: 20px -20px 0;
       position: relative;
 
@@ -235,14 +234,15 @@
     .items-in-cart {
       > .title {
         @include lib-icon-font(
-                        $icon-chevron-up,
-                $_icon-font-size: 22px,
-                $_icon-font-line-height: 12px,
-                $_icon-font-text-hide: true,
-                $_icon-font-margin: 0,
-                $_icon-font-position: after,
-                $_icon-font-display: block
+          $icon-chevron-up,
+          $_icon-font-size: 22px,
+          $_icon-font-line-height: 12px,
+          $_icon-font-text-hide: true,
+          $_icon-font-margin: 0,
+          $_icon-font-position: after,
+          $_icon-font-display: block
         );
+        cursor: pointer;
 
         &:after {
           position: absolute;
@@ -255,7 +255,7 @@
       &.active {
         & > .title {
           &::after {
-            transform: translateY(-50%) rotate(-180deg);
+            transform: translateY(-50%) scale(-1);
           }
 
           .subtotal {

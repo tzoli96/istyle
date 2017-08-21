@@ -6,25 +6,51 @@
 /*global define*/
 define(
     [
+        'jquery',
         'ko',
         'Magento_Checkout/js/model/totals',
         'uiComponent',
         'Magento_Checkout/js/model/step-navigator',
         'Magento_Checkout/js/model/quote'
     ],
-    function (ko, totals, Component, stepNavigator, quote) {
+    function ($, ko, totals, Component) {
         'use strict';
+
         return Component.extend({
             defaults: {
-                template: 'Magento_Checkout/summary/cart-items'
+                template: 'Magento_Checkout/summary/cart-items',
             },
+            desktop: { openedState: 'active', active: true },
+            mobile: { openedState: 'active', active: false },
             totals: totals.totals(),
             getItems: totals.getItems(),
-            getItemsQty: function() {
+            mediaQuery: undefined,
+            initialize: function () {
+                this._super();
+
+                this.mediaQuery = window.matchMedia('(min-width: 992px)');
+                this.mediaQuery.addListener(this._toggleSettings);
+
+                return this;
+            },
+            getItemsQty: function () {
                 return parseFloat(this.totals.items_qty);
             },
-            isItemsBlockExpanded: function () {
-                return quote.isVirtual() || stepNavigator.isProcessed('shipping');
+            getDefaultSettings: function () {
+                return this.mediaQuery.matches ? this.desktop : this.mobile;
+            },
+            _toggleSettings: function (mediaQuery) {
+                var $elements = $('.items-in-cart');
+
+                if (mediaQuery.matches) {
+                    $elements.each(function () {
+                        $(this).collapsible('activate');
+                    });
+                } else {
+                    $elements.each(function () {
+                        $(this).collapsible('deactivate');
+                    });
+                }
             }
         });
     }
