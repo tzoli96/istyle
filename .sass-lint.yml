@@ -21,7 +21,7 @@ rules:
   - 0
 
   property-sort-order:
-  - 1
+  - 0
   - order: smacss
 
   force-attribute-nesting:
@@ -55,3 +55,6 @@ rules:
   max-file-line-count:
   - 1
   - length: 600
+
+  variable-name-format:
+  - 0
