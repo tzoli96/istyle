@@ -21,10 +21,11 @@
   }
 }
 
-.custom-radio {
+.custom-radio,
+.custom-checkbox {
   .custom-control-indicator {
-    background-color: $white;
     border: 1px solid $gray-light;
+    background-color: $white;
   }
 }
 

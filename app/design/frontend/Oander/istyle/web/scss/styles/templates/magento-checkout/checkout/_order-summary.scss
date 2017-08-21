@@ -32,7 +32,7 @@
       white-space: nowrap;
 
       strong {
-        font-weight: $font-weight-normal;
+        font-weight: 400;
       }
     }
 
@@ -40,15 +40,13 @@
       .mark,
       .amount {
         padding-top: 20px;
+        font-size: 18px;
+        color: $gray;
       }
 
       .amount {
         padding-right: 4px;
         text-align: right;
-
-        strong {
-          font-weight: $font-weight-bold;
-        }
       }
     }
 
@@ -107,7 +105,6 @@
   }
   .mark {
     background: transparent;
-    color: $gray-light;
     padding-left: 0;
 
     .value {

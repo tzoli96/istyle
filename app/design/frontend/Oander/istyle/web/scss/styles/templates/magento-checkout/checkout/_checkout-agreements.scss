@@ -1,5 +1,4 @@
 .checkout-agreements-block {
-  margin-bottom: 20px;
 
   .action-show {
     vertical-align: baseline;
@@ -23,4 +22,11 @@
 //  Checkout Agreements
 .checkout-agreement-item-content {
   overflow: auto;
+}
+
+@include media-breakpoint-up(xl) {
+  .checkout-agreements-block {
+    width: 65%;
+    float: left;
+  }
 }

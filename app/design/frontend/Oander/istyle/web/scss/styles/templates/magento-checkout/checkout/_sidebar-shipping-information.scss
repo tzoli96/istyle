@@ -1,31 +1,22 @@
 //
-//  Variables
-//  _____________________________________________
-
-$checkout-sidebar-shipping-information__padding: $grid-gutter-width-base;
-
-//
 //  Shipping Information
 //  _____________________________________________
 
 .opc-block-shipping-information {
-  //padding: 0 $checkout-sidebar-shipping-information__padding;
-
   .shipping-information-title {
-    border-bottom: $checkout-step-title__border;
-    margin: 0 0 20px;
     position: relative;
+    margin: 0 0 20px;
+    border-bottom: 1px solid $gray-border;
 
-    .action-edit {
-      top: 2px;
-      margin: 0;
-      position: absolute;
-      right: 0;
+    .btn {
+      background-color: transparent;
+      font-size: 16px;
     }
   }
 
   .shipping-information-content {
-    line-height: 27px;
+    line-height: 18px;
+
     .actions-toolbar {
       margin-left: 0;
     }
