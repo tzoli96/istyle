@@ -1,14 +1,20 @@
 files:
+  include: 'app/design/**/*.s+(a|c)ss'
   ignore:
-   - 'app/design/frontend/Oander/istyle/web/vendor/**/*.scss'
-   - 'pub/**/*.scss'
+   - 'app/design/frontend/*/*/web/vendor/**/*.s+(a|c)ss'
 
 # Rule Configuration
+# reference: https://github.com/sasstools/sass-lint/tree/master/docs/rules/
 rules:
+
+  indentation:
+  - 1
+  - size: 2
 
   # Disable nesting validation
   nesting-depth:
   - 0
+  - max-depth: 4
 
   # Disable 'force variable using to colors'
   no-color-literals:
@@ -31,10 +37,7 @@ rules:
   - 0
 
   no-qualifying-elements:
-  - 1
-  - allow-element-with-attribute: true
-    allow-element-with-class: true
-    allow-element-with-id: true
+  - 0
 
   placeholder-in-extend:
   - 0
@@ -43,4 +46,12 @@ rules:
   - 0
 
   leading-zero:
-  - 0
+  - 1
+
+  border-zero:
+  - 1
+  - convention: 'none'
+
+  max-file-line-count:
+  - 1
+  - length: 600
