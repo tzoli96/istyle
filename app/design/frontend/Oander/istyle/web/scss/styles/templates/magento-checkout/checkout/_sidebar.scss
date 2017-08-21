@@ -32,6 +32,10 @@
 
     .opc-sidebar {
       order: 10;
+
+      .opc-block-summary {
+        margin-bottom: 0;
+      }
     }
     .opc-wrapper {
       order: 11;

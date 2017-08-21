@@ -6,7 +6,7 @@ $progress-bar-title-color: #c3c3c3;
 .opc-progress-bar {
   counter-reset: i;
   position: relative;
-  margin: 20px 0;
+  margin: 25px 0;
 
   &.success {
     .opc-progress-bar-item {
@@ -142,7 +142,21 @@ $progress-bar-title-color: #c3c3c3;
 }
 
 @include media-breakpoint-down(sm) {
+  .opc-progress-bar {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
   .opc-progress-bar-item-text {
     display: none;
+  }
+  .opc-progress-bar-item._active {
+    .opc-progress-bar-item-text {
+      display: block;
+      font-size: 22px;
+      left: 0;
+      font-weight: 400;
+      margin-left: -50px;
+      margin-right: -50px;
+    }
   }
 }

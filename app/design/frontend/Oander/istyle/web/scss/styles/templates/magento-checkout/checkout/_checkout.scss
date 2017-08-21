@@ -147,6 +147,12 @@
   }
 }
 
+@include media-breakpoint-down(sm) {
+  .opc-wrapper {
+    margin-top: 15px;
+  }
+}
+
 @include media-breakpoint-up(sm) {
   .customer-email-fieldset {
     .actions-toolbar {
