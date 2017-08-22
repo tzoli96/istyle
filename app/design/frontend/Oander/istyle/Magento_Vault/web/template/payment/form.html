@@ -6,27 +6,30 @@
 -->
 <div class="payment-method" css="'_active': (getId() === isChecked())">
     <div class="payment-method-title field choice">
-        <input type="radio"
-               name="payment[method]"
-               class="radio"
-               data-bind="
+        <label class="custom-control custom-radio">
+            <input type="radio"
+                   name="payment[method]"
+                   class="custom-control-input radio"
+                   data-bind="
                     attr: {'id': getId()},
                     value: getId(),
                     click: selectPaymentMethod,
                     checked: isChecked,
                     visible: isRadioButtonVisible()"/>
-        <label class="label" data-bind="attr: {'for': getId()}">
-            <img data-bind="attr: {
-            'src': getIcons(getCardType()).url,
-            'width': getIcons(getCardType()).width,
-            'height': getIcons(getCardType()).height
-            }" class="payment-icon">
-            <span translate="'ending'"></span>
-            <span text="getMaskedCard()"></span>
-            (
-            <span translate="'expires'"></span>:
-            <span text="getExpirationDate()"></span>
-            )
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description label" data-bind="attr: {'for': getCode()}">
+                <img data-bind="attr: {
+                'src': getIcons(getCardType()).url,
+                'width': getIcons(getCardType()).width,
+                'height': getIcons(getCardType()).height
+                }" class="payment-icon">
+                <span translate="'ending'"></span>
+                <span text="getMaskedCard()"></span>
+                (
+                <span translate="'expires'"></span>:
+                <span text="getExpirationDate()"></span>
+                )
+            </span>
         </label>
     </div>
 
