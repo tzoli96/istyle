@@ -17,9 +17,10 @@
         <span class="opc-progress-bar-item-text" data-bind="i18n: 'Order confirmation'"></span>
     </li>
 </ul>
-<div class="opc-progress-bar-current hidden-md-up">
-    <!-- ko foreach: { data: steps().sort(sortItems), as: 'item' } -->
-        <span class="opc-progress-bar-item-text" data-bind="i18n: item.title, css: { _active : item.isVisible() }"></span>
-    <!-- /ko -->
-    <span class="opc-progress-bar-item-text" data-bind="i18n: 'Order confirmation'"></span>
+<!-- ko foreach: { data: steps().sort(sortItems), as: 'item' } -->
+<div class="opc-progress-bar-current hidden-md-up"
+     data-bind="i18n: item.title,
+                css: { _active: item.isVisible() },
+                attr: { 'data-step': item.code }">
 </div>
+<!-- /ko -->

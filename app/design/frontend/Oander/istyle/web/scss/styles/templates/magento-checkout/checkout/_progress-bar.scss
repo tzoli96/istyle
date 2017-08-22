@@ -153,11 +153,12 @@ $progress-bar-title-color: #c3c3c3;
     text-align: center;
     margin-top: -15px;
     margin-bottom: 15px;
+    display: none;
+    font-size: 22px;
+    font-weight: 400;
 
-    .opc-progress-bar-item-text._active {
-      display: inline;
-      font-size: 22px;
-      font-weight: 400;
+    &._active {
+      display: block;
     }
   }
 }

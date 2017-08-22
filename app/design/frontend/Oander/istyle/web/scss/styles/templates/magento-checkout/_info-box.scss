@@ -100,7 +100,8 @@
 
 @include media-breakpoint-down(sm) {
   .opc-sidebar .checkout-info-box {
-    display: none;
+    margin-bottom: -10px;
+    padding-bottom: 0;
   }
 }
 
