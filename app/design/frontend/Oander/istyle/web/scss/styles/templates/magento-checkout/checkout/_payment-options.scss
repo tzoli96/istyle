@@ -17,7 +17,7 @@
       }
 
       &._inactive {
-        opacity: 0.4;
+        opacity: .4;
       }
       span {
         display: inline-block;
@@ -27,7 +27,7 @@
     }
     img {
       filter: grayscale(100%);
-      transition: all 0.6s ease;
+      transition: all .6s ease;
     }
   }
 

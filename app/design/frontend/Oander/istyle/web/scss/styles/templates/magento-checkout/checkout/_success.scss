@@ -2,7 +2,7 @@
   .checkout-success {
     font-size: 14px;
     background-color: #fff;
-    padding: 35px $grid-gutter-width-base/2 30px;
+    padding: 35px $grid-gutter-width-base / 2 30px;
   }
 }
 .checkout-success__main {
@@ -37,7 +37,7 @@
     display: block;
     height: 1px;
     background-color: transparent;
-    border: 0;
+    border: none;
     border-bottom: 1px solid #f1f1f2;
     margin-bottom: 25px;
   }

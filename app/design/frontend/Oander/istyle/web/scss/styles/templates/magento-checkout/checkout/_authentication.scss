@@ -2,13 +2,13 @@ $block-auth__or-label__size: 50px;
 
 .authentication-dropdown {
   width: 300px;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .3);
 
   .modal-inner-wrap {
     padding: $grid-gutter-width-base;
   }
   .modal-content {
-    border: 0;
+    border: none;
   }
   .fieldset.form-group {
     margin-bottom: 30px;
@@ -83,7 +83,7 @@ $block-auth__or-label__size: 50px;
         display: inline-block;
         left: 50%;
         letter-spacing: normal;
-        padding: 0 0.2rem;
+        padding: 0 .2rem;
         position: absolute;
         text-align: center;
         text-transform: uppercase;
@@ -127,7 +127,7 @@ $block-auth__or-label__size: 50px;
         + li {
           margin-top: 20px;
         }
-        &:before {
+        &::before {
           content: $icon-check;
           width: 20px;
           height: 20px;
@@ -207,13 +207,13 @@ $block-auth__or-label__size: 50px;
     text-align: left;
     transform: scale(1, 0);
     transform-origin: 0 0;
-    transition: all ease 0.15s;
+    transition: all ease .15s;
     visibility: hidden;
 
     &._show {
       z-index: 100;
       transform: scale(1, 1);
-      transition: all ease 0.15s;
+      transition: all ease .15s;
       visibility: visible;
     }
   }
@@ -253,7 +253,7 @@ $block-auth__or-label__size: 50px;
 
       & + .block {
         border-left: 1px solid $gray-lighter;
-        border-top: 0;
+        border-top: none;
         margin: 0;
         padding: 10px 0 0 40px;
 
@@ -292,7 +292,6 @@ $block-auth__or-label__size: 50px;
         .actions-toolbar {
           margin-top: 10px;
         }
-      ;
       }
     }
   }

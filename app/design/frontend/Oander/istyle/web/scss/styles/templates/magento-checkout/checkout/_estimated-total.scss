@@ -25,7 +25,7 @@
 
     .action {
       &.showcart {
-        &:before {
+        &::before {
           color: $gray-darker;
         }
       }

@@ -129,10 +129,10 @@ $minicart-qty__height: 24px;
 
 .minicart-items-wrapper {
   margin: 0 (-$grid-gutter-width-base);
-  padding: $grid-gutter-width-base/2 $grid-gutter-width-base/2 0;
+  padding: $grid-gutter-width-base / 2 $grid-gutter-width-base / 2 0;
   border: 1px solid #f1f1f2;
-  border-right: 0;
-  border-left: 0;
+  border-right: none;
+  border-left: none;
   overflow-x: auto;
   max-height: 80vh;
 }
@@ -182,6 +182,12 @@ $minicart-qty__height: 24px;
   }
   .product.options {
     display: none;
+
+    .tooltip.toggle {
+      .details {
+        display: none;
+      }
+    }
   }
   .product.actions {
     position: absolute;
@@ -189,7 +195,7 @@ $minicart-qty__height: 24px;
     bottom: 0;
 
     .action {
-      padding: 0.3rem $btn-padding-x/3;
+      padding: .3rem $btn-padding-x / 3;
       text-align: center;
       color: $gray-light;
       font-size: 16px;
@@ -231,20 +237,13 @@ $minicart-qty__height: 24px;
       }
     }
     .details-qty {
-      margin-top: $grid-gutter-width-base/2;
-    }
-  }
-  .product.options {
-    .tooltip.toggle {
-      .details {
-        display: none;
-      }
+      margin-top: $grid-gutter-width-base / 2;
     }
   }
   .details-qty,
   .price-minicart {
     .label {
-      &:after {
+      &::after {
         content: ': ';
       }
     }
@@ -259,7 +258,7 @@ $minicart-qty__height: 24px;
   .update-cart-item {
     font-size: 12px;
     vertical-align: top;
-    padding: 0.5rem;
+    padding: .5rem;
   }
   .subtitle {
     display: none;
@@ -271,17 +270,17 @@ $minicart-qty__height: 24px;
 
     display: inline-block;
     vertical-align: middle;
-    min-width: $size*1.5;
+    min-width: $size * 1.5;
     height: $size;
     padding: 0 5px;
-    margin: -4px 0 0 (-$size/2);
-    border-radius: $size/2;
+    margin: -4px 0 0 (-$size / 2);
+    border-radius: $size / 2;
     background: $brand-secondary;
     color: #fff;
     font-size: 12px;
     font-weight: $font-weight-medium;
     line-height: $size;
-    transition: all ease 0.3s;
+    transition: all ease .3s;
 
     &.empty {
       display: none;
@@ -335,13 +334,13 @@ $minicart-qty__height: 24px;
 
   }
   .minicart-items-wrapper {
-    padding: $grid-gutter-width-base/2 $grid-gutter-width-base 0;
+    padding: $grid-gutter-width-base / 2 $grid-gutter-width-base 0;
     max-height: 40vh;
   }
   .minicart-items {
     .product.actions {
       .action {
-        padding: 0.3rem 0;
+        padding: .3rem 0;
       }
     }
     .item-qty {

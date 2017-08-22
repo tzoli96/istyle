@@ -22,7 +22,7 @@ $checkout-shipping-policy-tooltip-mobile__width: 300px;
       color: $checkout-shipping-policy-action__color;
       cursor: pointer;
 
-      &:before {
+      &::before {
         display: none;
       }
 
@@ -55,8 +55,8 @@ $checkout-shipping-policy-tooltip-mobile__width: 300px;
         width: $checkout-shipping-policy-tooltip-mobile__width;
         right: auto;
 
-        &:before,
-        &:after {
+        &::before,
+        &::after {
           right: auto;
         }
       }

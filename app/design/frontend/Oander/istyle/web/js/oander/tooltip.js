@@ -6,18 +6,17 @@
  */
 
 define([
-    'jquery',
-    'mage/bootstrap'
+  'jquery',
+  'mage/bootstrap'
 ], function ($) {
-    'use strict';
+  'use strict';
 
-    /**
+  /**
      * Enable Bootstrap-tooltip for the whole webpage
      */
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip({
-            position: { my: "center+25 bottom", at: "center top-10" }
-        });
-    })
-
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip({
+      position: { my: 'center+25 bottom', at: 'center top-10' }
+    });
+  });
 });

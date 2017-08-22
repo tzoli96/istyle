@@ -2,7 +2,7 @@
   cursor: pointer;
   position: absolute;
   right: 2px;
-  top: 0px;
+  top: 0;
 
   &._active {
     z-index: 100;
@@ -11,16 +11,16 @@
       display: block;
     }
     .field-tooltip-action {
-      &:before {
+      &::before {
         color: $brand-primary;
       }
     }
   }
   .field-tooltip-action {
-    &:before {
+    &::before {
       content: $icon-question-circle;
       margin-right: 4px;
-      transition: color ease 0.3s;
+      transition: color ease .3s;
       font-family: $icon-font-family;
       font-size: 22px;
       line-height: 40px;
@@ -42,12 +42,12 @@
     z-index: 2;
     white-space: nowrap;
 
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       @include lib-arrow(
-      $_position: down,
-      $_size: 5px,
-      $_color: #78797c
+        $_position: down,
+        $_size: 5px,
+        $_color: #78797c
       );
       left: 20px;
       top: 30px;
@@ -58,7 +58,7 @@
       transform: scaleX(-1);
       border-right-color: #78797c;
     }
-    &:after {
+    &::after {
       width: 1px;
       z-index: 4;
     }

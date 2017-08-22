@@ -30,11 +30,13 @@
     .description {
       transition: .5s ease color;
     }
+
     .title {
       font-weight: 500;
       color: $gray-dark;
       margin-bottom: 5px;
     }
+
     .description {
       color: $gray-darker;
     }

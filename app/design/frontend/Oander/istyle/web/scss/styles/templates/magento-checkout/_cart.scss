@@ -12,7 +12,7 @@
   .form-cart,
   .cart-summary {
     background-color: #fff;
-    margin-bottom: $grid-gutter-width-base/2;
+    margin-bottom: $grid-gutter-width-base / 2;
   }
 }
 
@@ -31,6 +31,7 @@
       padding-right: 5px;
     }
   }
+
   .col.item {
     a {
       color: $gray-darker;
@@ -46,20 +47,24 @@
       padding-top: 5px;
     }
   }
+
   .col.qty {
     width: 100px;
 
     .form-group {
       margin-bottom: 0;
     }
+
     .form-control {
       color: $gray-darker;
       width: 60px;
     }
   }
+
   .col.subtotal .price {
     font-weight: 500;
   }
+
   .col.delete {
     text-align: right;
 
@@ -74,11 +79,13 @@
       }
     }
   }
+
   .product-item-name {
     a {
       color: $black;
     }
   }
+
   thead {
     border-bottom: 1px solid $black;
 
@@ -92,13 +99,14 @@
       }
     }
   }
+
   tbody {
     border-bottom: 1px solid $gray-border;
 
     td {
       vertical-align: middle;
-      padding: 1.5rem 0.75rem;
-      border: 0;
+      padding: 1.5rem .75rem;
+      border: none;
     }
   }
 
@@ -279,7 +287,7 @@
   .cart.table-wrapper {
     thead th {
       ::after {
-        content: "S";
+        content: 'S';
       }
 
       &:not(:first-child) {
@@ -295,14 +303,15 @@
       }
 
       &:not(.image) {
-         float: right;
-         width: 100%;
-         padding-left: 120px;
+        float: right;
+        width: 100%;
+        padding-left: 120px;
        }
 
       &.item {
         padding-bottom: 20px;
       }
+
       &.qty,
       &.subtotal,
       &.delete {
@@ -310,11 +319,13 @@
         padding-bottom: 10px;
         padding-right: 0;
       }
+
       &.subtotal {
         font-weight: 500;
         text-align: right;
         margin-bottom: -20px;
       }
+
       &.delete {
         position: relative;
         bottom: 55px;
@@ -328,11 +339,13 @@
         font-weight: 500;
         text-transform: uppercase;
       }
+
       &.qty::before {
         float: left;
         width: 60px;
         line-height: 40px;
       }
+
       &.subtotal::before {
         float: left;
       }
@@ -348,6 +361,7 @@
     .amount {
       font-size: 12px;
     }
+
     .grand.totals {
       .mark,
       .amount {
@@ -391,6 +405,7 @@
     .amount {
       font-size: 14px;
     }
+
     .grand.totals {
       font-size: 18px;
 
@@ -427,6 +442,7 @@
       &.subtotal {
         padding-left: 0;
       }
+
       &.qty::before {
         width: 120px;
       }
@@ -446,6 +462,7 @@
       padding-right: 90px;
       white-space: nowrap;
     }
+
     .item-actions {
       .actions-toolbar {
         .btn {
@@ -461,9 +478,11 @@
           &:nth-child(1) {
             bottom: 90px;
           }
+
           &:nth-child(2) {
             bottom: 50px;
           }
+
           &:nth-child(3) {
             bottom: 10px;
           }
@@ -472,7 +491,7 @@
     }
     tbody {
       td {
-        padding: 2.25rem 0.75rem;
+        padding: 2.25rem .75rem;
       }
     }
   }
@@ -489,6 +508,7 @@
       }
     }
   }
+
   .cart-container .cart-summary {
     margin-top: 20px;
   }
@@ -507,6 +527,7 @@
   .col-form-cart {
     order: 1;
   }
+
   .col-cart-summary {
     order: 2;
   }
@@ -517,6 +538,7 @@
       margin: 0;
     }
   }
+
   .cart.table-wrapper {
     .item-actions {
       .actions-toolbar {
@@ -524,16 +546,18 @@
           width: 25px;
           height: 40px;
           padding: $btn-padding-y 0;
-          border: 0;
+          border: none;
           position: absolute;
           bottom: 10px;
 
           &.action-delete {
             right: 0;
           }
+
           &.action-edit {
             right: 35px;
           }
+
           &.action-towishlist {
             right: 70px;
           }
@@ -541,11 +565,13 @@
       }
     }
   }
+
   .cart.main.actions {
     .btn {
       float: right;
     }
   }
+
   .cart-container .cart-summary {
     margin-top: -40px;
   }

@@ -14,7 +14,7 @@
     .totals.sub {
       td,
       th {
-        border-top: 0;
+        border-top: none;
       }
     }
     .mark {
@@ -67,7 +67,7 @@
           padding-right: $grid-gutter-width-base;
           position: relative;
 
-          &:after {
+          &::after {
             position: absolute;
             right: -5px;
             top: -12px;
@@ -77,13 +77,13 @@
         &.expanded {
           .mark,
           .amount {
-            border-bottom: 0;
+            border-bottom: none;
           }
 
           .amount .price {
             @include lib-icon-font-symbol(
-            $_icon-font-content: $icon-chevron-up,
-            $_icon-font-position: after
+              $_icon-font-content: $icon-chevron-up,
+              $_icon-font-position: after
             );
           }
         }
@@ -116,7 +116,7 @@
     & + .grand.excl {
       .mark,
       .amount {
-        border-top: 0;
+        border-top: none;
         font-size: 14px;
         padding-top: 0;
 
@@ -160,7 +160,7 @@
     overflow: visible;
     margin: 20px 0 0;
     padding: 0;
-    border: 0;
+    border: none;
   }
   .column.main & {
     .product-item {
@@ -241,7 +241,7 @@
         );
         cursor: pointer;
 
-        &:after {
+        &::after {
           position: absolute;
           right: 20px;
           top: 50%;

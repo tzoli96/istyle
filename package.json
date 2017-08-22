@@ -14,6 +14,7 @@
   "scripts": {
     "bower": "bower install",
     "gulp": "gulp sass",
+    "lint-scss": "sass-lint -c .sass-lint.yml -v -q || exit 0"
     "lint-js": "node ./node_modules/eslint/bin/eslint.js --ext .js . || exit 0"
   },
   "dependencies": {},
