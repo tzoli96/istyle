@@ -1,7 +1,7 @@
 .opc-block-summary {
   background: #fff;
   padding: 30px;
-  margin: 0 0 25px;
+  margin: 0 0 10px;
   border: 1px solid $gray-border;
   border-radius: 4px;
 
@@ -222,7 +222,7 @@
       > .title {
         @include lib-icon-font(
           $icon-chevron-up,
-          $_icon-font-size: 22px,
+          $_icon-font-size: 12px,
           $_icon-font-line-height: 12px,
           $_icon-font-text-hide: true,
           $_icon-font-margin: 0,
