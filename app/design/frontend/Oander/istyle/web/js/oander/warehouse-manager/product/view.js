@@ -35,7 +35,7 @@ define(['jquery', 'uiComponent', 'oanderWarehouseManager'], function ($, Compone
 
     initWarehouseListClickEvents: function () {
       $('.warehouse-open-btn').on('click', function () {
-        var warehouseTop = jQuery('.warehouse-info-block.warehouse-open-btn').offset().top;
+        var warehouseTop = $(this).offset().top;
         var product_id = $('#product_addtocart_form').find('[name="product"]').val();
 
         $(this).addClass('active');
