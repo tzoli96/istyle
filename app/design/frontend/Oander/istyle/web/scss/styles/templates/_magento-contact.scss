@@ -12,6 +12,22 @@ body.contact-index-index {
 
   .form {
     margin-bottom: 20px;
+
+    .field {
+      .form-control {
+        color: $gray-placeholder;
+        font-size: 12px;
+        padding: .75rem .75rem .65rem;
+      }
+
+      .label {
+        font-size: 12px;
+      }
+
+      &:not(.comment) .label {
+        display: none;
+      }
+    }
   }
 }
 
