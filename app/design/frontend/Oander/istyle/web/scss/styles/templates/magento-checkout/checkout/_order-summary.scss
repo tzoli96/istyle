@@ -1,7 +1,7 @@
 .opc-block-summary {
   background: #fff;
   padding: 30px;
-  margin: 0 0 20px;
+  margin: 0 0 10px;
   border: 1px solid $gray-border;
   border-radius: 4px;
 
@@ -209,6 +209,58 @@
 
           .price {
             font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.opc-progress-bar-current._active[data-step="payment"] ~ .opc-sidebar {
+  .opc-block-summary {
+    .items-in-cart {
+      > .title {
+        @include lib-icon-font(
+          $icon-chevron-up,
+          $_icon-font-size: 12px,
+          $_icon-font-line-height: 12px,
+          $_icon-font-text-hide: true,
+          $_icon-font-margin: 0,
+          $_icon-font-position: after,
+          $_icon-font-display: block
+        );
+        cursor: pointer;
+
+        &::after {
+          position: absolute;
+          right: 20px;
+          top: 50%;
+          transform: translateY(-50%);
+          transition: .5s transform;
+        }
+
+        [role="heading"] {
+          font-weight: 500;
+        }
+      }
+
+      &.active {
+        & > .title {
+          &::after {
+            transform: translateY(-50%) scale(-1);
+          }
+
+          .subtotal {
+            text-align: left;
+            float: none;
+          }
+        }
+      }
+
+      &:not(.active) {
+        & > .title {
+          .subtotal {
+            display: none;
           }
         }
       }

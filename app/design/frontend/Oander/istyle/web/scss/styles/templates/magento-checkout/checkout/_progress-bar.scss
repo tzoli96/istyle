@@ -143,20 +143,22 @@ $progress-bar-title-color: #c3c3c3;
 
 @include media-breakpoint-down(sm) {
   .opc-progress-bar {
-    margin-top: 20px;
+    margin-top: 0;
     margin-bottom: 20px;
   }
   .opc-progress-bar-item-text {
     display: none;
   }
-  .opc-progress-bar-item._active {
-    .opc-progress-bar-item-text {
+  .opc-progress-bar-current {
+    text-align: center;
+    margin-top: -15px;
+    margin-bottom: 10px;
+    display: none;
+    font-size: 22px;
+    font-weight: 400;
+
+    &._active {
       display: block;
-      font-size: 22px;
-      left: 0;
-      font-weight: 400;
-      margin-left: -50px;
-      margin-right: -50px;
     }
   }
 }
