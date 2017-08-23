@@ -16,11 +16,19 @@
     align-items: flex-start;
 
     .opc-block-summary {
-      width: 66%;
+      flex-grow: 4;
     }
-    .checkout-info-box-container {
-      width: 33%;
+
+    .opc-block-shipping-information {
       padding-left: 20px;
+    }
+
+    .checkout-info-box-container {
+      width: 220px;
+    }
+
+    .shipping-information {
+      width: 340px;
     }
   }
 }
@@ -36,9 +44,18 @@
       .opc-block-summary {
         margin-bottom: 0;
       }
+
+      .shipping-information {
+        margin-top: 20px;
+      }
     }
+
     .opc-wrapper {
       order: 11;
+    }
+
+    .opc-progress-bar-current._active[data-step="payment"] ~ .opc-sidebar {
+      order: 12;
     }
   }
 }

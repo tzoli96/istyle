@@ -16,7 +16,7 @@
     }
   }
   .payment-method-title {
-    padding: 15px 0;
+    padding: 5px 0;
     margin: 0;
 
     .payment-icon {
@@ -84,10 +84,6 @@
 
 @include media-breakpoint-down(sm) {
   .checkout-payment-method {
-    .payment-method-title {
-      padding: 15px;
-    }
-
     .payment-method-billing-address {
       .action-cancel {
         margin-top: 10px;
