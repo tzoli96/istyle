@@ -26,6 +26,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-imagazin-logo {
+  &:before {
+    content: $icon-imagazin-logo;
+  }
+}
 .icon-refund {
   &:before {
     content: $icon-refund;

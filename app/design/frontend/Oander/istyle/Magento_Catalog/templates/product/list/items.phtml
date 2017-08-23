@@ -192,15 +192,6 @@ switch ($type = $block->getType()) {
         </h2>
 
         <div class="block-content content" aria-labelledby="block-<?php /* @escapeNotVerified */ echo $class?>-heading">
-            <?php if (($type == 'related' || $type == 'crosssell') && $canItemsAddToCart): ?>
-                <div class="block-actions">
-                    <?php /* @escapeNotVerified */ echo __('Check items to add to the cart or') ?>
-                    <button type="button" class="action select" role="select-all">
-                        <span><?php /* @escapeNotVerified */ echo __('select all') ?></span>
-                    </button>
-                </div>
-            <?php endif; ?>
-
             <div class="products wrapper grid products-grid products-<?php /* @escapeNotVerified */ echo $type; ?>">
                 <div class="products list product-items row" id="products-list">
                     <?php foreach ($items as $_item): ?>
