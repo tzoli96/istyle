@@ -3,6 +3,10 @@
 //  _____________________________________________
 
 .opc-block-shipping-information {
+  .shipping-information {
+    margin-top: 15px;
+  }
+
   .shipping-information-title {
     position: relative;
     margin: 0 0 20px;
@@ -11,6 +15,16 @@
     .btn {
       background-color: transparent;
       font-size: 16px;
+
+      i {
+        transition: .5s color;
+      }
+
+      &:hover {
+        i {
+          color: $brand-primary;
+        }
+      }
     }
   }
 
@@ -25,5 +39,13 @@
   .ship-to,
   .ship-via {
     margin: 0 0 20px;
+  }
+}
+
+@include media-breakpoint-only(md) {
+  .opc-block-shipping-information {
+    .shipping-information {
+      margin-top: 0;
+    }
   }
 }

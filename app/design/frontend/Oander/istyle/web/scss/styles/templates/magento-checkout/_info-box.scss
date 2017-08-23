@@ -39,6 +39,7 @@
 
     .description {
       color: $gray-darker;
+      margin-bottom: 0;
     }
 
     &:hover,
@@ -67,8 +68,22 @@
     background-color: $gray-lightest;
   }
 
-  .item .text {
-    padding-top: 20px;
+  .item {
+    .text {
+      padding-top: 20px;
+    }
+
+    .description {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+@include media-breakpoint-only(md) {
+  .opc-sidebar .checkout-info-box {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 }
 

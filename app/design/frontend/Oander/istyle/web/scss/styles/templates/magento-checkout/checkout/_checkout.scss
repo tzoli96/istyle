@@ -23,6 +23,11 @@
       width: 140px;
     }
   }
+
+  .checkout-container {
+    margin-bottom: 50px;
+  }
+
   .step-title {
     color: $gray;
     margin: 0 0 10px;
@@ -146,6 +151,10 @@
 @include media-breakpoint-down(sm) {
   .opc-wrapper {
     margin-top: 15px;
+  }
+
+  .opc-progress-bar-current._active[data-step="payment"] ~ .opc-wrapper {
+    margin-top: 0;
   }
 }
 
