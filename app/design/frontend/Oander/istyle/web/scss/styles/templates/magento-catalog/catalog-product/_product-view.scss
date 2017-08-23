@@ -28,6 +28,10 @@
       line-height: 2.5rem;
     }
     &.attribute {
+      h1,
+      h2 {
+        margin: 1rem 0;
+      }
       &.sku {
         margin-top: .5rem;
         color: $gray-light;
