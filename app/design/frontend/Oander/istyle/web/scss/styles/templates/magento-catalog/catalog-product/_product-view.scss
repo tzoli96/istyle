@@ -24,6 +24,9 @@
   }
 
   .product {
+    .page-title {
+      line-height: 2.5rem;
+    }
     &.attribute {
       &.sku {
         margin-top: .5rem;
