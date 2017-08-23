@@ -32,7 +32,7 @@
                                                                         <item name="oander-order-comment-form-fieldset" xsi:type="array">
                                                                             <item name="children" xsi:type="array">
                                                                                 <item name="comment" xsi:type="array">
-                                                                                    <item name="label" translate="true" xsi:type="string">Message or comment about your order:</item>
+                                                                                    <item name="label" translate="true" xsi:type="string">Message or comment about your order</item>
                                                                                 </item>
                                                                             </item>
                                                                         </item>
