@@ -35,16 +35,18 @@ define(['jquery', 'uiComponent', 'oanderWarehouseManager'], function ($, Compone
 
     initWarehouseListClickEvents: function () {
       $('.warehouse-open-btn').on('click', function () {
-
+        var warehouseTop = jQuery('.warehouse-info-block.warehouse-open-btn').offset().top;
         var product_id = $('#product_addtocart_form').find('[name="product"]').val();
 
         $(this).addClass('active');
         oanderWarehouseManager.loadWarehouseListBox(product_id);
+        $('html,body').animate({ scrollTop: warehouseTop });
       });
 
       $('.warehouse-close-btn').on('click', function () {
         $('.warehouse-open-btn').removeClass('active');
         $('.warehouse-info').hide();
+        $('html,body').animate({ scrollTop: '0' });
       });
     }
 
