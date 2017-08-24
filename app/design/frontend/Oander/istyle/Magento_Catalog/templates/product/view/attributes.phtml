@@ -16,7 +16,7 @@
 $_helper = $this->helper('Magento\Catalog\Helper\Output');
 $_product = $block->getProduct()
 ?>
-<?php if ($_additional = $block->getAdditionalData()): ?>
+<?php if ($_additional = $block->getAdditionalData(['price_tooltip', 'video_widget'])): ?>
 
     <?php // echo count($_additional)?>
 
