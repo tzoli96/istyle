@@ -1,6 +1,16 @@
+body.customer-account-login {
+  .page-title {
+    margin: 30px 0 15px;
+    padding: 0;
+    font-size: 22px;
+    line-height: 30px;
+    color: #000;
+  }
+}
+
 .login-container {
   > .col-box {
-    margin-bottom: $grid-gutter-width-base;
+    margin-bottom: 30px;
 
     > div {
       background-color: #fff;
@@ -12,15 +22,18 @@
       color: $gray-darker;
     }
   }
+
   .block-title {
-    font-size: 16px;
-    color: #5f5f5f;
-    padding-bottom: 5px;
     margin: 0 0 15px;
+    padding-bottom: 5px;
     border-bottom: 1px solid $gray-border;
+    font-size: 16px;
+    font-weight: 400;
+    color: #5f5f5f;
   }
+
   .action.remind {
-    color: #676767;
+    color: $gray-darker;
     text-transform: none;
     transition: color .3s ease;
     font-size: 14px;
@@ -30,17 +43,17 @@
       color: $brand-primary;
     }
   }
+
   .action.primary {
     display: block;
     width: 100%;
   }
-  
+
   .form-group {
     .label {
       display: none;
     }
   }
-;
 }
 
 .block-customer-login,
@@ -55,9 +68,18 @@
     .action.login {
       margin-bottom: 20px;
     }
-  
+
     .action.remind {
       padding: 0;
+    }
+  }
+}
+
+@include media-breakpoint-up(sm) {
+  body.customer-account-login {
+    .page-title {
+      font-size: 28px;
+      margin-bottom: 20px;
     }
   }
 }
@@ -65,20 +87,32 @@
 @include media-breakpoint-up(md) {
   .login-container {
     overflow: hidden;
-  
+
     .col-box {
+
       min-height: 100px;
-    
+
       > div {
         height: 100%;
       }
     }
-    
+
     .block-title {
       font-size: 18px;
     }
-    
+
+    .action.primary {
+      display: inline-block;
+      width: auto;
+    }
+
+    .action.remind {
+      text-align: left;
+    }
+
     .action.create {
+      display: inline-block;
+      width: auto;
       position: absolute;
       left: 20px;
       bottom: 20px;
@@ -88,14 +122,10 @@
 
 @include media-breakpoint-up(lg) {
   .login-container {
-    .action.primary {
-      display: inline-block;
-      width: auto;
-    }
-  
     .action.remind {
       display: inline-block;
-      font-size: 12px;
+      float: right;
+      padding-right: 0;
     }
   }
 }
