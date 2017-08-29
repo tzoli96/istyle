@@ -7,8 +7,24 @@
   }
 }
 .form-create-account {
+  padding: $grid-gutter-width-base;
+  border: 1px solid $gray-border;
+  border-radius: 4px;
+  margin-bottom: 30px;
+
+  > div {
+    margin: 0 auto;
+    max-width: 460px;
+  }
+
   .actions-toolbar {
     position: relative;
+  }
+
+  .action.back {
+    padding-left: 0;
+    padding-right: 0;
+    text-transform: none;
   }
 }
 
@@ -17,7 +33,7 @@
   background-color: $body-bg;
   display: block;
   width: 100%;
-  padding: 0.75rem 0.75rem;
+  padding: .75rem;
   font-size: 12px;
   color: #000;
   line-height: 1.25;
@@ -99,4 +115,9 @@
     }
   }
 
+  .form-create-account {
+    > div {
+      max-width: 580px;
+    }
+  }
 }
