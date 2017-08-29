@@ -351,6 +351,12 @@ body.account {
         display: none;
       }
       
+      thead {
+        tr {
+          border-bottom: 1px solid #dcdcdc;
+        }
+      }
+      
       td,
       th {
         &:first-child {
