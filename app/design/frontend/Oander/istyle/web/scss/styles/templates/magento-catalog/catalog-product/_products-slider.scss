@@ -47,6 +47,11 @@
           border: 0;
           background: $gray-border;
           text-indent: -9999px;
+
+          &:active,
+          &:focus {
+            outline: none;
+          }
         }
       }
     }
