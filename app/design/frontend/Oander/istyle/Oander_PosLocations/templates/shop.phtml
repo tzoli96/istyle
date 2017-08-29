@@ -1,0 +1,56 @@
+<?php
+/** @var $this \Oander\PosLocations\Block\Shop */
+?>
+
+<?php $shop = $this->getShop(); ?>
+
+<div class="location-view">
+    <div class="location-view-top <?php echo ($shop->getCustomButton() != '' && $shop->getCustomButtonUrl() != '') ? 'has-button clearfix' : '' ?>">
+        <h1><?php echo $shop->getTitle(); ?></h1>
+        <?php if ($shop->getCustomButton() != '' && $shop->getCustomButtonUrl() != ''): ?>
+            <a class="btn btn-primary custom-button" target="_blank" href="<?php echo $shop->getCustomButtonUrl(); ?>"><?php echo $shop->getCustomButton(); ?></a>
+        <?php endif; ?>
+    </div>
+
+    <div class="location-head row">
+        <div class="location-head-image col-lg-6">
+            <?php $imageUrl = $shop->getImageUrl(); ?>
+            <img class="img-fluid hidden-lg-up" src="<?php echo $imageUrl ?>" />
+            <div class="img-box hidden-md-down" style="background-image: url(<?php echo $imageUrl ?>)"></div>
+        </div>
+        <div class="location-head-info col-lg-6">
+            <div class="content">
+                <table>
+                    <tr>
+                        <td class="cell-icon"><i class="icon icon-marker"></i> </td>
+                        <td><?php echo $shop->getAddress(); ?></td>
+                    </tr>
+                    <tr>
+                        <td class="cell-icon"><i class="icon icon-car"></i> </td>
+                        <td><?php echo $shop->getParking(); ?></td>
+                    </tr>
+                    <tr>
+                        <td class="cell-icon"><i class="icon icon-clock-full"></i> </td>
+                        <td><?php echo $shop->getOpeningHours(); ?></td>
+                    </tr>
+                    <tr>
+                        <td class="cell-icon"><i class="icon icon-phone"></i> </td>
+                        <td><?php echo $shop->getPhoneNumber(); ?></td>
+                    </tr>
+                    <?php if ($shop->getGoogleMapsUrl() != ''): ?>
+                        <tr>
+                            <td class="cell-empty">&nbsp;</td>
+                            <td><a href="<?php echo $shop->getGoogleMapsUrl(); ?>" class="btn btn-secondary"><?php echo __('Get direction') ?></a></td>
+                        </tr>
+                    <?php endif; ?>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="description"><?php echo $shop->getDescription(); ?></div>
+
+    <h2 class="map-title text-center"><?php echo __('Our store on map:'); ?></h2>
+    <?php echo $this->getChildBlock('google_maps')->setData('shops', [$shop])->toHtml(); ?>
+</div>
+
