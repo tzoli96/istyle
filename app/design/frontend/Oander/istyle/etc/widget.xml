@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Oander_WonderWidget
+ *
+ * @author  David Belicza <david.belicza@oander.hu>
+ * @license Oander Media Kft. (http://www.oander.hu)
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+
+    <widget id="oander_wonder_widget_basic">
+        <parameters>
+            <parameter name="template" xsi:type="select">
+                <options>
+                    <option name="imagazin" value="Oander_WonderWidget::basic/imagazin.phtml" selected="false">
+                        <label translate="true">iMagazin Template</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+
+</widgets>
