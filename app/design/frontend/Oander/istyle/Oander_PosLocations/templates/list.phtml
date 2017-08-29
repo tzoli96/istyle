@@ -1,0 +1,41 @@
+<?php
+/** @var $this \Oander\PosLocations\Block\ListBlock */
+?>
+<?php $shopCollection = $this->getAllShops(); ?>
+<?php $shops = $shopCollection->getItems(); ?>
+<?php if ($shopCollection->getSize() > 0): ?>
+    <h1><?php echo __('Locations'); ?></h1>
+
+    <?php echo $this->getChildBlock('google_maps')->setData('shops', $shops)->toHtml(); ?>
+
+    <div class="locations-list">
+        <?php /** @var \Oander\PosLocations\Api\Data\ShopInterface $shop */ ?>
+        <?php foreach ($shops as $shop): ?>
+            <div class="item row">
+                <div class="col-md-3 col-lg-2 col-image hidden-sm-down">
+                    <a href="<?php echo $shop->getShopLink(); ?>" class="location-image">
+                        <img class="img-fluid" src="<?php echo $shop->getImageUrl(); ?>" /></a>
+                </div>
+                <div class="col-md-9 col-lg-8 col-middle">
+                    <ul class="list-unstlyed list-inline list-top">
+                        <li class="list-inline-item block-xs"><h2 class="location-title"><a href="<?php echo $shop->getShopLink(); ?>"><?php echo $shop->getTitle(); ?></a></h2></li>
+                        <?php if ($shop->getShopTag() != ''): ?>
+                            <li class="list-inline-item ">
+                                <span class="location-tag"><?php echo $shop->getShopTag(); ?></span>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+                    <ul class="list-unstlyed list-inline list-bottom">
+                        <li class="list-inline-item"><address class="location-address"><i class="icon icon-marker"></i> <?php echo $shop->getAddress(); ?></address></li>
+                        <li class="list-inline-item"><div class="location-phone"><i class="icon icon-phone"></i> <?php echo $shop->getPhoneNumber(); ?></div></li>
+                    </ul>
+                    <a href="<?php echo $shop->getShopLink(); ?>" class="more-link hidden-lg-up"><i class="icon icon-chevron-right"></i> </a>
+                </div>
+
+                <div class="col-lg-2 hidden-md-down">
+                    <a href="<?php echo $shop->getShopLink(); ?>" class="btn btn-secondary"><?php echo __('Learn more'); ?></a>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
