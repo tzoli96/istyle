@@ -4,6 +4,20 @@ body.account {
       padding-top: 30px;
     }
   }
+
+  .sidebar-collapse-trigger {
+    background-color: #2a2a2a;
+    border-color: #2a2a2a;
+    color: #fff;
+    transition: background .35s ease;
+
+    &:hover,
+    &.active {
+      background-color: rgba(0, 0, 0, 0);
+      color: #2a2a2a;
+    }
+  }
+
   .main {
 
     // Sidebar trigger
@@ -28,20 +42,31 @@ body.account {
 
     // Blocks titles
     .block-title {
-      font-size: 18px;
-      font-weight: $font-weight-medium;
-      line-height: 1em;
-      padding-bottom: 15px;
-      border-bottom: 1px solid $body-bg;
-      margin-bottom: 15px;
+      margin: 0 0 15px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid $gray-border;
+      font-size: 16px;
+      font-weight: 400;
+      color: #5f5f5f;
+
+      > strong {
+        font-weight: 400;
+      }
+
+      > a {
+        float: right;
+        color: $gray-placeholder;
+      }
     }
 
     // Edit links
     .action.edit,
     .action.change-password {
       padding: 0;
-      text-transform: uppercase;
+      text-transform: none;
       text-decoration: underline;
+      font-size: 12px;
+      color: $gray-placeholder;
     }
 
     .action.change-password {
@@ -59,7 +84,6 @@ body.account {
         display: inline-block;
         text-decoration: underline;
         text-transform: none;
-        color: #000;
         font-size: 12px;
         padding: 0;
         margin-left: 20px;
@@ -73,9 +97,38 @@ body.account {
       margin-top: 10px;
     }
   }
+
   .form-group {
     .nested {
       margin-top: 1rem;
+    }
+  }
+
+  .table-order-items {
+    color: #000;
+
+    tr {
+      background-color: transparent;
+    }
+
+    th,
+    td {
+      border: none;
+    }
+
+    th {
+      font-size: $font-size-root;
+      font-weight: $font-weight-medium;
+    }
+
+    a.action {
+      padding: 0;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 400;
+      color: $gray-placeholder;
+      text-transform: uppercase;
+      text-decoration: underline;
     }
   }
 }
@@ -86,13 +139,14 @@ body.account {
   .title {
     display: none;
   }
+
   .nav.item {
     padding: 0 15px;
     position: relative;
     margin-bottom: 15px;
 
     &.current {
-      &:before {
+      &::before {
         content: '';
         position: absolute;
         left: 0;
@@ -103,6 +157,7 @@ body.account {
       }
     }
   }
+
   a {
     color: #000;
 
@@ -122,40 +177,12 @@ body.account {
   }
 }
 
-#my-orders-table {
-  color: #000;
-
-  thead {
-    th {
-      background: $gray-lightest;
-    }
-  }
-  th, td {
-    border: 0;
-  }
-  th {
-    font-size: $font-size-root;
-    font-weight: $font-weight-medium;
-  }
-  a.action {
-    padding: 0;
-    font-size: 10px;
-    color: #000;
-    text-transform: uppercase;
-    text-decoration: underline;
-
-    &.order {
-      display: inline-block;
-      margin-left: 20px;
-    }
-  }
-}
-
 @include media-breakpoint-down(md) {
   body.account {
     .wrapper {
       margin-top: 15px;
     }
+
     .block.account-nav {
       padding: 18px;
 
@@ -170,9 +197,117 @@ body.account {
   }
 }
 @include media-breakpoint-down(xs) {
+  body.account {
+    .sidebar-collapse-trigger {
+      display: block;
+      width: 100%;
+    }
+  }
+
   .block.block-dashboard-info {
     .box-newsletter {
       margin-top: 10px;
+    }
+  }
+
+  .block-dashboard-addresses {
+    .block-content {
+      & > div {
+        &:not(:last-child) {
+          padding-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  body.account {
+    .sidebar-background {
+      padding: 0;
+      border: none;
+    }
+
+    .table-order-items {
+      .table-caption {
+        display: none;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tbody {
+        tr {
+          background-color: rgba(0, 0, 0, 0);
+        }
+
+        td {
+          position: relative;
+          display: block;
+          padding: 6px 15px 6px 50%;
+          font-size: 12px;
+          text-align: right;
+          background-color: #f6f6f6;
+
+          &::before {
+            content: attr(data-th);
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            padding: 6px 5px 6px 15px;
+            font-weight: 500;
+            text-align: left;
+            width: 50%;
+          }
+
+          &:first-child {
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            padding: 12px 15px 6px 50%;
+
+            &::before {
+              top: 6px;
+            }
+          }
+
+          &:nth-last-child(2) {
+            padding: 6px 15px 12px 50%;
+          }
+
+          &:last-child {
+            padding: 0;
+            border-top: 1px solid #ececec;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+
+            &::before {
+              display: none;
+            }
+
+            &::after {
+              content: '';
+              display: table;
+              clear: both;
+            }
+
+            a.action {
+              display: block;
+              margin: 0;
+              padding: 12px 15px;
+              float: left;
+              width: 50%;
+              text-align: left;
+
+              &:last-child {
+                text-align: right;
+                border-left: 1px solid #ececec;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -184,7 +319,17 @@ body.account {
         display: block;
         margin: 5px 0 0;
         padding-left: 0;
-        border: 0;
+        border: none;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  body.account {
+    .main {
+      .block-title {
+        font-size: 18px;
       }
     }
   }
