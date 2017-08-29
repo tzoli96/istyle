@@ -122,13 +122,14 @@ body.account {
     }
 
     a.action {
-      padding: 0;
+      padding: 0 20px 0 0;
       font-size: 12px;
       line-height: 16px;
       font-weight: 400;
-      color: $gray-placeholder;
       text-transform: uppercase;
       text-decoration: underline;
+      color: $gray-placeholder;
+      border: none;
     }
   }
 }
@@ -314,6 +315,14 @@ body.account {
 
 @include media-breakpoint-only(sm) {
   body.account {
+    .page-title-wrapper {
+      float: right;
+
+      .page-title {
+        margin: 0;
+      }
+    }
+
     .main {
       .action.change-password {
         display: block;
@@ -327,9 +336,26 @@ body.account {
 
 @include media-breakpoint-up(md) {
   body.account {
+    .page-title-wrapper {
+      text-align: left;
+    }
+
     .main {
       .block-title {
         font-size: 18px;
+      }
+    }
+
+    .table-order-items {
+      .table-caption {
+        display: none;
+      }
+      
+      td,
+      th {
+        &:first-child {
+          padding-left: 0;
+        }
       }
     }
   }
