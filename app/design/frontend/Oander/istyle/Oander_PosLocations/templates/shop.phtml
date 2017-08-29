@@ -1,0 +1,55 @@
+<?php
+/** @var $this \Oander\PosLocations\Block\Shop */
+?>
+
+<?php $shop = $this->getShop(); ?>
+
+<div class="location-view">
+    <div class="location-view__top <?php echo ($shop->getCustomButton() != '' && $shop->getCustomButtonUrl() != '') ? 'has-button clearfix' : '' ?>">
+        <h1 class="page-title"><?php echo $shop->getTitle(); ?></h1>
+        <?php if ($shop->getCustomButton() != '' && $shop->getCustomButtonUrl() != ''): ?>
+            <a class="action dark" target="_blank" href="<?php echo $shop->getCustomButtonUrl(); ?>"><?php echo $shop->getCustomButton(); ?></a>
+        <?php endif; ?>
+    </div>
+
+    <div class="location-head row">
+        <div class="location-head-image col-md-6">
+            <?php $imageUrl = $shop->getImageUrl(); ?>
+            <img class="img-fluid hidden-md-up" src="<?php echo $imageUrl ?>" />
+            <div class="img-box hidden-sm-down" style="background-image: url(<?php echo $imageUrl ?>)"></div>
+        </div>
+        <div class="location-head-info col-md-6">
+            <div class="location-head-info__box">
+                <div class="head-item head-item--address">
+                    <?php echo $shop->getAddress(); ?>
+                </div>
+                <div class="head-item">
+                    <?php echo $shop->getParking(); ?>
+                </div>
+                <div class="head-item">
+                    <p class="mb-0"><?php echo __('Opening hours:') ?></p>
+                    <?php echo $shop->getOpeningHours(); ?>
+                </div>
+                <div class="head-item">
+                    <strong><?php echo __('Telephone') ?>: <?php echo $shop->getPhoneNumber(); ?></strong>
+                </div>
+                <?php if ($shop->getGoogleMapsUrl() != ''): ?>
+                    <div class="head-item">
+                        <a href="<?php echo $shop->getGoogleMapsUrl(); ?>"
+                           class="action dark"><?php echo __('Get direction') ?></a>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+
+    <div class="location-description"><?php echo $shop->getDescription(); ?></div>
+
+    <div class="location-map">
+        <h2 class="location-map__title text-center"><?php echo __('Our store on map:'); ?></h2>
+        <div class="location-map__box">
+            <?php echo $this->getChildBlock('google_maps')->setData('shops', [$shop])->toHtml(); ?>
+        </div>
+    </div>
+</div>
+
