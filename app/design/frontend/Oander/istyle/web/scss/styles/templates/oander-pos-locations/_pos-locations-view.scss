@@ -1,0 +1,93 @@
+.location-view {
+  .location-head {
+    margin-top: $grid-gutter-width-base;
+    margin-bottom: $grid-gutter-width-base;
+  }
+
+  .location-head-info {
+    .content {
+      padding: 20px;
+      background: #fff;
+
+      > table {
+        width: 100%;
+
+        td {
+          padding-top: 10px;
+          padding-bottom: 10px;
+          vertical-align: top;
+
+          &.cell-icon,
+          &.cell-empty {
+            width: 40px;
+            padding-right: 10px;
+          }
+
+          .icon {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .description {
+    margin: $grid-gutter-width-base 0;
+    padding: $grid-gutter-width-base;
+    border-top: 2px solid $brand-primary;
+    background: #fff;
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .map-title {
+    margin-bottom: $grid-gutter-width-base;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .location-view {
+    .location-view-top.has-button {
+      h1 {
+        display: inline-block;
+        float: left;
+      }
+
+      .custom-button {
+        float: right;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .location-view {
+    .location-head {
+      padding-right: map_get($grid-gutter-widths, lg) / 2;
+    }
+
+    .location-head-image {
+      order: 2;
+      padding-right: 0;
+      background: #fff;
+
+      .img-box {
+        height: 330px;
+        background: {
+          position: center center;
+          size: cover;
+        }
+      }
+    }
+
+    .location-head-info {
+      padding-right: 0;
+
+      .content {
+        height: 100%;
+      }
+    }
+  }
+}

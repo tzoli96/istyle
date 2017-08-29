@@ -11,29 +11,33 @@
     <div class="locations-list">
         <?php /** @var \Oander\PosLocations\Api\Data\ShopInterface $shop */ ?>
         <?php foreach ($shops as $shop): ?>
-            <div class="item row">
+            <div class="location-item row">
                 <div class="col-md-3 col-lg-2 col-image hidden-sm-down">
-                    <a href="<?php echo $shop->getShopLink(); ?>" class="location-image">
+                    <a href="<?php echo $shop->getShopLink(); ?>" class="location-item__image">
                         <img class="img-fluid" src="<?php echo $shop->getImageUrl(); ?>" /></a>
                 </div>
-                <div class="col-md-9 col-lg-8 col-middle">
-                    <ul class="list-unstlyed list-inline list-top">
-                        <li class="list-inline-item block-xs"><h2 class="location-title"><a href="<?php echo $shop->getShopLink(); ?>"><?php echo $shop->getTitle(); ?></a></h2></li>
-                        <?php if ($shop->getShopTag() != ''): ?>
-                            <li class="list-inline-item ">
-                                <span class="location-tag"><?php echo $shop->getShopTag(); ?></span>
-                            </li>
-                        <?php endif; ?>
-                    </ul>
-                    <ul class="list-unstlyed list-inline list-bottom">
-                        <li class="list-inline-item"><address class="location-address"><i class="icon icon-marker"></i> <?php echo $shop->getAddress(); ?></address></li>
-                        <li class="list-inline-item"><div class="location-phone"><i class="icon icon-phone"></i> <?php echo $shop->getPhoneNumber(); ?></div></li>
-                    </ul>
-                    <a href="<?php echo $shop->getShopLink(); ?>" class="more-link hidden-lg-up"><i class="icon icon-chevron-right"></i> </a>
-                </div>
-
-                <div class="col-lg-2 hidden-md-down">
-                    <a href="<?php echo $shop->getShopLink(); ?>" class="btn btn-secondary"><?php echo __('Learn more'); ?></a>
+                <div class="col-md-9 col-lg-10 col-middle">
+                    <div>
+                        <div class="location-meta">
+                            <h2 class="location-meta__title">
+                                <a href="<?php echo $shop->getShopLink(); ?>"><?php echo $shop->getTitle(); ?></a></h2>
+                            <?php if ($shop->getShopTag() != ''): ?>
+                                <div class="location-meta__tag"><?php echo $shop->getShopTag(); ?></div>
+                            <?php endif; ?>
+                        </div>
+                        <div class="location-footer">
+                            <?php if ($shop->getAddress()) : ?>
+                                <address class="location-footer__address"><?php echo $shop->getAddress(); ?></address>
+                            <?php endif; ?>
+                            <?php if ($shop->getPhoneNumber()) : ?>
+                                <div class="location-footer__phone"><?php echo $shop->getPhoneNumber(); ?></div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="hidden-sm-down actions">
+                        <a href="<?php echo $shop->getShopLink(); ?>" class="action dark"><?php echo __('Learn more'); ?></a>
+                    </div>
+                    <a href="<?php echo $shop->getShopLink(); ?>" class="more-link hidden-md-up"><i class="icon icon-chevron-right"></i> </a>
                 </div>
             </div>
         <?php endforeach; ?>

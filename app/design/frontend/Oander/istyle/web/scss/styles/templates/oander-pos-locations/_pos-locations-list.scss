@@ -1,0 +1,145 @@
+.locations-list {
+  margin: $grid-gutter-width-base 0;
+  padding: 0 $grid-gutter-width-base / 2;
+  background: #fff;
+
+  .col-middle {
+    padding-right: 40px;
+
+    .more-link {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      color: $gray-dark;
+
+      .icon {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.location-item {
+  padding: $grid-gutter-width-base 0;
+
+  & + .location-item {
+    border-top: 1px solid $gray-lighter;
+  }
+
+  .location-meta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+
+    .location-meta__title {
+      margin: 0 15px 0 0;
+      font-size: 16px;
+
+      > a {
+        &:not(:hover) {
+          color: $gray;
+        }
+      }
+    }
+
+    .location-meta__tag {
+      padding: 2px 20px;
+      border: 1px solid $brand-secondary;
+      color: $brand-secondary;
+      font-size: 12px;
+      line-height: 16px;
+      white-space: nowrap;
+    }
+  }
+
+  .location-footer {
+    font-size: 12px;
+
+    .location-footer__address {
+      margin-right: 20px;
+      margin-bottom: 0;
+    }
+  }
+
+  .more-link {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .locations-list {
+    padding: 10px $grid-gutter-width-base;
+  }
+
+  .location-item {
+    margin-right: -10px;
+    margin-left: -10px;
+
+    .col-middle {
+      padding-right: $grid-gutter-width-base / 2;
+    }
+
+    .location-meta {
+      .location-meta__title {
+        font-size: 22px;
+        line-height: 30px;
+
+        > a {
+          &:not(:hover) {
+            color: $color-black;
+          }
+        }
+      }
+    }
+
+    .location-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 20px;
+      color: $gray;
+      font-size: 16px;
+
+      .location-footer__address {
+        margin: 0;
+
+        & + .location-footer__phone {
+          margin-left: 10px;
+          padding-left: 10px;
+          border-left: 1px solid $gray;
+        }
+      }
+    }
+  }
+
+  .col-image {
+    padding-left: 0;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .location-item {
+    .col-middle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .location-meta {
+      .location-meta__title {
+        font-size: $font-size-lg-h1;
+      }
+    }
+
+    .location-footer {
+      .location-footer__address {
+        font-size: $font-size-lg-h2;
+      }
+    }
+  }
+}
