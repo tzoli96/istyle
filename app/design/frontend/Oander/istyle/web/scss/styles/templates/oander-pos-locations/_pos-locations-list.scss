@@ -1,3 +1,12 @@
+.locations-index-index {
+  .main {
+    h1 {
+      margin: $grid-gutter-width-base 0;
+      text-align: center;
+    }
+  }
+}
+
 .locations-list {
   margin: $grid-gutter-width-base 0;
   padding: 0 $grid-gutter-width-base / 2;

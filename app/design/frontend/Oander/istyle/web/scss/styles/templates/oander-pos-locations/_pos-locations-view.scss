@@ -1,71 +1,82 @@
 .location-view {
+  .location-view__top {
+    padding: 1rem 0;
+    text-align: center;
+  }
+
   .location-head {
     margin-top: $grid-gutter-width-base;
-    margin-bottom: $grid-gutter-width-base;
   }
 
   .location-head-info {
-    .content {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .location-head-info__box {
       padding: 20px;
-      background: #fff;
-
-      > table {
-        width: 100%;
-
-        td {
-          padding-top: 10px;
-          padding-bottom: 10px;
-          vertical-align: top;
-
-          &.cell-icon,
-          &.cell-empty {
-            width: 40px;
-            padding-right: 10px;
-          }
-
-          .icon {
-            font-size: 20px;
-          }
-        }
-      }
+      border: 1px solid $gray-lighter;
+      border-radius: 4px;
     }
   }
 
-  .description {
-    margin: $grid-gutter-width-base 0;
-    padding: $grid-gutter-width-base;
-    border-top: 2px solid $brand-primary;
-    background: #fff;
+  .head-item {
+    & + .head-item {
+      margin-top: 20px;
+    }
+
+    &.head-item--address {
+      color: $gray;
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    .action {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .location-description {
+    margin-bottom: 1rem;
+    padding: 0 1rem;
 
     > *:last-child {
       margin-bottom: 0;
     }
   }
 
-  .map-title {
-    margin-bottom: $grid-gutter-width-base;
+  .location-map {
+    .location-map__title {
+      margin-bottom: $grid-gutter-width-base;
+      color: $gray;
+    }
+
+    .location-map__box {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .action {
+    text-transform: none;
   }
 }
 
 @include media-breakpoint-up(md) {
   .location-view {
-    .location-view-top.has-button {
-      h1 {
-        display: inline-block;
-        float: left;
-      }
+    .location-view__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
 
-      .custom-button {
-        float: right;
+      .action {
+        margin-left: auto;
       }
     }
-  }
-}
 
-@include media-breakpoint-up(lg) {
-  .location-view {
-    .location-head {
-      padding-right: map_get($grid-gutter-widths, lg) / 2;
+    .location-head-info {
+      padding-top: 0;
+      padding-bottom: 0;
     }
 
     .location-head-image {
@@ -74,7 +85,7 @@
       background: #fff;
 
       .img-box {
-        height: 330px;
+        height: 100%;
         background: {
           position: center center;
           size: cover;
@@ -82,12 +93,18 @@
       }
     }
 
-    .location-head-info {
-      padding-right: 0;
+    .location-description {
+      margin: 2rem 0;
+      padding: 0 4rem;
+      text-align: center;
+    }
+  }
+}
 
-      .content {
-        height: 100%;
-      }
+@include media-breakpoint-up(lg) {
+  .location-view {
+    .location-head {
+      padding-right: map_get($grid-gutter-widths, lg) / 2;
     }
   }
 }
