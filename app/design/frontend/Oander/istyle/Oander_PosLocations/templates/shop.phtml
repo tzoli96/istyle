@@ -24,20 +24,14 @@
                     <?php echo $shop->getAddress(); ?>
                 </div>
                 <div class="head-item">
-                    <div class="head-item__text">
-                        <?php echo $shop->getParking(); ?>
-                    </div>
+                    <?php echo $shop->getParking(); ?>
                 </div>
                 <div class="head-item">
-                    <div class="head-item__text">
-                        <p class="mb-0"><?php echo __('Opening hours:') ?></p>
-                        <?php echo $shop->getOpeningHours(); ?>
-                    </div>
+                    <p class="mb-0"><?php echo __('Opening hours:') ?></p>
+                    <?php echo $shop->getOpeningHours(); ?>
                 </div>
                 <div class="head-item">
-                    <div class="head-item__text">
-                        <strong><?php echo __('Telephone') ?>: <?php echo $shop->getPhoneNumber(); ?></strong>
-                    </div>
+                    <strong><?php echo __('Telephone') ?>: <?php echo $shop->getPhoneNumber(); ?></strong>
                 </div>
                 <?php if ($shop->getGoogleMapsUrl() != ''): ?>
                     <div class="head-item">
