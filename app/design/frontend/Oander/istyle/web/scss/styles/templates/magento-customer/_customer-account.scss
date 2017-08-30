@@ -350,17 +350,37 @@ body.account {
       .table-caption {
         display: none;
       }
-      
+
       thead {
         tr {
           border-bottom: 1px solid #dcdcdc;
         }
       }
-      
+
       td,
       th {
         &:first-child {
           padding-left: 0;
+        }
+      }
+    }
+
+    .sidebar-background {
+      padding-left: 0;
+      padding-right: 0;
+      border: none;
+      background-color: #f0f0f0;
+    }
+
+    .account-nav {
+      .nav.item {
+        padding-left: 20px;
+
+        &.current {
+          &::before {
+            width: 6px;
+            background-color: #000;
+          }
         }
       }
     }
