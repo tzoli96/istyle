@@ -94,6 +94,11 @@
     border: 1px solid transparent;
   }
 }
+.products-grid {
+  .slick-slide.product-item.slick-active ~ .slick-slide.product-item.slick-active {
+    border-left-color: transparent;
+  }
+}
 .slick-arrow.slick-hidden {
   display: none;
 }
