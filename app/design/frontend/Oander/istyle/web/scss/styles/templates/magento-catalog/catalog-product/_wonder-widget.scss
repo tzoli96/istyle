@@ -21,6 +21,7 @@
 
       .caption {
         text-align: left;
+        background-color: $white;
       }
 
       .widget-title {
@@ -34,7 +35,8 @@
       }
 
       .buttons-set {
-        display: inline-block !important;
+        display: inline-block !important; /* to override display: none !important; */
+        margin-top: 30px;
       }
 
       .link {
@@ -43,6 +45,17 @@
 
         display: block;
         text-transform: none;
+      }
+
+      .imagazin-link {
+        padding-top: 0;
+        padding-bottom: 0;
+
+        .icon {
+          font-size: 2.8em;
+          padding-right: 8px;
+          vertical-align: -11px;
+        }
       }
     }
   }
@@ -82,7 +95,7 @@
         .caption {
           width: 480px;
           margin-left: -(map-get($container-max-widths, lg) / 2 - (map-get($grid-gutter-widths, lg) / 2));
-          padding: 30px 40px;
+          padding: 40px;
         }
       }
     }

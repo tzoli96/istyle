@@ -32,6 +32,9 @@
 
         <container name="product.view.content" htmlTag="div" htmlClass="product-view-content">
             <container name="product.view.content.container" htmlTag="div" htmlClass="container" />
+            <block before="product.view.content.container" name="product.view.content.article-offer"
+                   class="Magento\Catalog\Block\Product\View\Attributes"
+                   template="Magento_Catalog::product/view/article_offer.phtml" />
         </container>
 
         <container name="product.addtocart-container">
