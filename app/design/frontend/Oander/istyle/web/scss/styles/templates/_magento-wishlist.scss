@@ -11,6 +11,12 @@
       width: 100%;
       margin-bottom: 15px;
     }
+
+    .action.back {
+      width: auto;
+      color: $gray-placeholder;
+      text-decoration: underline;
+    }
   }
 }
 
@@ -87,6 +93,14 @@
 }
 
 @include media-breakpoint-up(md) {
+  .form-wishlist-items {
+    .actions-toolbar {
+      .action.back {
+        text-align: left;
+      }
+    }
+  }
+
   .product-item.product-item--wishlist {
     padding: 0 0 20px;
     margin: 0 0 20px;
