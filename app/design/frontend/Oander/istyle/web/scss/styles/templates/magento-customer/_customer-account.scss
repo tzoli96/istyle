@@ -222,13 +222,8 @@ body.account {
   }
 }
 
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-down(md) {
   body.account {
-    .sidebar-background {
-      padding: 0;
-      border: none;
-    }
-
     .table-order-items {
       .table-caption {
         display: none;
@@ -313,6 +308,15 @@ body.account {
   }
 }
 
+@include media-breakpoint-down(sm) {
+  body.account {
+    .sidebar-background {
+      padding: 0;
+      border: none;
+    }
+  }
+}
+
 @include media-breakpoint-only(sm) {
   body.account {
     .page-title-wrapper {
@@ -320,6 +324,7 @@ body.account {
 
       .page-title {
         margin: 0;
+        line-height: 40px;
       }
     }
 
