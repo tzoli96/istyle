@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
  */
 
@@ -15,9 +15,9 @@ $columns = $block->getColumns();
 <div class="products-grid wishlist">
     <?php $iterator = 1; ?>
     <?php if (count($block->getItems())): ?>
-        <ul class="product-items">
+        <ul class="row products list product-items">
             <?php foreach ($block->getItems() as $item): ?>
-                <?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<li data-row="product-item" class="product-item product-item--wishlist" id="item_' . $item->getId() . '">' : '</li><li class="product-item product-item--wishlist" id="item_' . $item->getId() . '">' ?>
+                <?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<li data-row="product-item" class="item product product-item product-item--wishlist" id="item_' . $item->getId() . '">' : '</li><li class="item product product-item product-item--wishlist" id="item_' . $item->getId() . '">' ?>
                 <div class="product-item-info">
                     <?php foreach ($columns as $column): ?>
                         <?php $column->setItem($item); echo $column->toHtml($item);?>

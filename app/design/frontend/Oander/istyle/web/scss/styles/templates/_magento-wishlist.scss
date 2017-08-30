@@ -1,4 +1,4 @@
-.form-wishlist-items {
+/*.form-wishlist-items {
   .product-item-info {
     border: 1px solid #f7f7f7;
 
@@ -74,5 +74,21 @@
         padding-left: 15px;
       }
     }
+  }
+}
+*/
+
+.form-wishlist-items {
+  .product-items {
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+  }
+}
+
+.product-item.product-item--wishlist {
+  .actions-primary {
+    display: block;
   }
 }
