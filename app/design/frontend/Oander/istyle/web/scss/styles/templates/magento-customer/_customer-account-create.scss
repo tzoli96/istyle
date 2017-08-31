@@ -1,14 +1,36 @@
 .customer-account-create {
   legend {
+    margin: 0 0 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid $gray-border;
     font-size: 16px;
-    font-weight: $font-weight-medium;
-    padding-bottom: 12px;
-    border-bottom: 1px solid $body-bg;
+    font-weight: 400;
+    color: #5f5f5f;
   }
 }
 .form-create-account {
+  padding: $grid-gutter-width-base;
+  border: 1px solid $gray-border;
+  border-radius: 4px;
+  margin-bottom: 30px;
+
+  > div {
+    margin: 0 auto;
+    max-width: 460px;
+  }
+
+  .label {
+    display: none;
+  }
+
   .actions-toolbar {
     position: relative;
+  }
+
+  .action.back {
+    padding-left: 0;
+    padding-right: 0;
+    text-transform: none;
   }
 }
 
@@ -17,7 +39,7 @@
   background-color: $body-bg;
   display: block;
   width: 100%;
-  padding: 0.75rem 0.75rem;
+  padding: .75rem;
   font-size: 12px;
   color: #000;
   line-height: 1.25;
@@ -34,7 +56,7 @@
   &.password-strength-meter-2,
   &.password-strength-meter-3,
   &.password-strength-meter-4 {
-    &:before {
+    &::before {
       content: '';
       position: absolute;
       left: 0;
@@ -46,23 +68,23 @@
     }
   }
 
-  &.password-strength-meter-1:before {
+  &.password-strength-meter-1::before {
     background-color: $brand-danger;
     z-index: 1;
     width: 25%;
   }
 
-  &.password-strength-meter-2:before {
+  &.password-strength-meter-2::before {
     background-color: $brand-warning;
     width: 50%;
   }
 
-  &.password-strength-meter-3:before {
+  &.password-strength-meter-3::before {
     background-color: #ebd518;
     width: 75%;
   }
 
-  &.password-strength-meter-4:before {
+  &.password-strength-meter-4::before {
     background-color: $brand-success;
     width: 100%;
   }
@@ -76,6 +98,7 @@
       min-width: 170px;
       margin: 0 auto 20px;
     }
+
     .action.back {
       display: block;
       text-align: center;
@@ -89,14 +112,17 @@
       font-size: 30px;
       margin-bottom: 40px;
     }
-  }
-}
 
-@include media-breakpoint-up(lg) {
-  .customer-account-create {
     legend {
       font-size: 18px;
     }
   }
+}
 
+@include media-breakpoint-up(lg) {
+  .form-create-account {
+    > div {
+      max-width: 580px;
+    }
+  }
 }
