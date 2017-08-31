@@ -20,7 +20,8 @@
                        placeholder="i18n: E-mail address"
                        data-bind="
                             textInput: email,
-                            hasFocus: emailFocused"
+                            hasFocus: emailFocused,
+                            attr: {placeholder: emailTitle}"
                        name="username"
                        data-validate="{required:true, 'validate-email':true}"
                        id="customer-email" />
@@ -31,15 +32,12 @@
         <!--Hidden fields -->
         <fieldset class="fieldset hidden-fields" data-bind="fadeVisible: isPasswordVisible">
             <div class="field">
-                <label class="label" for="customer-password">
-                    <span data-bind="i18n: 'Password'"></span>
-                </label>
                 <div class="control">
                     <input class="input-text form-control"
-                           placeholder="optional"
                            type="password"
                            name="password"
                            id="customer-password"
+                           data-bind="attr: {placeholder: passwordTitle}"
                            data-validate="{required:true}" autocomplete="off"/>
                     <span class="note" data-bind="i18n: 'You already have an account with us. Sign in or continue as guest.'"></span>
                 </div>

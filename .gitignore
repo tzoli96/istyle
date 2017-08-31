@@ -26,6 +26,7 @@ atlassian*
 /.grunt
 
 /pub/media/*.*
+/pub/media/favicon
 !/pub/media/.htaccess
 /pub/media/catalog/*
 !/pub/media/catalog/.htaccess

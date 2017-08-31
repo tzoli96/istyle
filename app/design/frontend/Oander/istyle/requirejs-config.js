@@ -12,6 +12,7 @@ var config = {
       'oander.custom-number-input': 'js/oander/custom-number-input',
       'oander.label-replace': 'js/oander/label-replace',
       'oander.file-upload': 'js/oander/file-upload',
+      'oander.article-offer': 'js/oander/article-offer',
       relatedProducts: 'js/module-catalog/related-products',
       upsellProducts: 'js/module-catalog/upsell-products',
       oanderWarehouseView: 'js/oander/warehouse-manager/product/view'

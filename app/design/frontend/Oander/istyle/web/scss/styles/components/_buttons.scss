@@ -1,8 +1,8 @@
 .btn,
 .action {
-  cursor: pointer;
   text-transform: uppercase;
   box-shadow: none !important; // temp solution - bootstrap bug
+  cursor: pointer;
 
   &.has-icon {
     .icon {
@@ -54,7 +54,7 @@
   }
 
   &.showcart {
-    border: 0;
+    border: none;
   }
 
   &.checkout {
@@ -63,6 +63,15 @@
 
   &.back {
     color: $gray-darker;
+  }
+
+  &.dark {
+    @include button-variant($color-white, $color-black, $color-black);
+
+    &:hover {
+      border-color: $brand-secondary;
+      background-color: $brand-secondary;
+    }
   }
 }
 
