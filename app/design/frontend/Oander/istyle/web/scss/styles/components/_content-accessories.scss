@@ -1,84 +1,104 @@
-$semi-transparent-gray: rgba(0,0,0,.5);
-$semi-transparent-lightgray: rgba(0,0,0,.1);
-$red-color: rgb(233,32,63);
+$semitransparent-gray: rgba(0, 0, 0, .5);
+$semitransparent-lightgray: rgba(0, 0, 0, .1);
+$red-color: rgb(233, 32, 63);
 
 .content-accessories {
+  .sidebar-background {
+    border-radius: .25rem;
+
+    ol {
+      margin: 1.5rem 0;
+    }
+
+    .block-title {
+      h2 {
+        margin-top: .5rem;
+      }
+    }
+  }
+
   .row {
     margin-bottom: 1rem;
+
     &:last-child {
       margin-bottom: 0;
     }
   }
+
   .block-title h2 {
-    color: $semi-transparent-gray;
+    color: $semitransparent-gray;
   }
+
   .product-box {
-    overflow: hidden;
     height: 240px;
+    overflow: hidden;
+
     &.full-size {
       .description {
         width: 24%;
       }
+
       .media {
         width: 76%;
-        img {
-          width: 100%;
-        }
       }
     }
-    > div {
-      border-style: solid;
-    }
+
     .description {
       position: relative;
-      height: inherit;
-      border-color: $semi-transparent-lightgray;
-      padding: 1rem;
-      border-width: 1px 0 1px 1px;
-      border-radius: 1rem 0 0 1rem;
-      float: left;
       width: 50%;
+      height: inherit;
+      padding: 1rem;
+      float: left;
+      border-width: 1px 0 1px 1px;
+      border-style: solid;
+      border-radius: .25rem 0 0 .25rem;
+      border-color: $semitransparent-lightgray;
+
       .title {
-        color: $semi-transparent-gray;
-        /*font-size: 2rem;*/
+        color: $semitransparent-gray;
       }
-      p {
-        /*font-size: 1rem;*/
-      }
+
       .price {
-        font-weight: 400;
-        /*font-size: 1.2rem;*/
-        bottom: 5rem;
         position: absolute;
+        bottom: 5rem;
+        font-weight: 500;
       }
+
       .btn-red {
         position: absolute;
-        bottom: 1rem;
         right: 1rem;
+        bottom: 1rem;
         left: 1rem;
-        background-color: $red-color;
-        color: white;
-        font-size: inherit;
         padding: .75rem 0;
+        background-color: $red-color;
+        color: #fff;
+        font-size: inherit;
         font-weight: 400;
       }
     }
+
     .media {
-      height: inherit;
-      border-width: 1px 1px 1px 0;
-      border-radius: 0 1rem 1rem 0;
-      border-color: $semi-transparent-lightgray;
-      float: right;
+      position: relative;
       width: 50%;
+      height: inherit;
+      float: right;
+      border-width: 1px 1px 1px 0;
+      border-style: solid;
+      border-radius: 0 .25rem .25rem 0;
+      border-color: $semitransparent-lightgray;
+      overflow: hidden;
+
       img {
-        border-radius: inherit;
+        position: absolute;
+        right: 0;
+        max-width: none;
         height: 100%;
       }
     }
   }
 }
 
-@media (min-width: 576px) {
+@include media-breakpoint-up(sm) {
   .content-accessories {
     .product-box {
       font-size: .75rem;
@@ -86,7 +106,7 @@ $red-color: rgb(233,32,63);
   }
 }
 
-@media (min-width: 768px) {
+@include media-breakpoint-up(md) {
   .content-accessories {
     .product-box {
       font-size: .85rem;
@@ -94,7 +114,7 @@ $red-color: rgb(233,32,63);
   }
 }
 
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   .content-accessories {
     .product-box {
       font-size: 1rem;
@@ -102,7 +122,7 @@ $red-color: rgb(233,32,63);
   }
 }
 
-@media (min-width: 1200px) {
+@include media-breakpoint-up(xl) {
   .content-accessories {
     .product-box {
       font-size: 1.15rem;
