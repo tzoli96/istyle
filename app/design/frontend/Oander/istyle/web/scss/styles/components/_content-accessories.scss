@@ -1,5 +1,114 @@
+$semi-transparent-gray: rgba(0,0,0,.5);
+$semi-transparent-lightgray: rgba(0,0,0,.1);
+$red-color: rgb(233,32,63);
+
 .content-accessories {
+  .row {
+    margin-bottom: 1rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
   .block-title h2 {
-    color: rgba(0,0,0,.5);
+    color: $semi-transparent-gray;
+  }
+  .product-box {
+    overflow: hidden;
+    height: 240px;
+    &.full-size {
+      .description {
+        width: 24%;
+      }
+      .media {
+        width: 76%;
+        img {
+          width: 100%;
+        }
+      }
+    }
+    > div {
+      border-style: solid;
+    }
+    .description {
+      position: relative;
+      height: inherit;
+      border-color: $semi-transparent-lightgray;
+      padding: 1rem;
+      border-width: 1px 0 1px 1px;
+      border-radius: 1rem 0 0 1rem;
+      float: left;
+      width: 50%;
+      .title {
+        color: $semi-transparent-gray;
+        /*font-size: 2rem;*/
+      }
+      p {
+        /*font-size: 1rem;*/
+      }
+      .price {
+        font-weight: 400;
+        /*font-size: 1.2rem;*/
+        bottom: 5rem;
+        position: absolute;
+      }
+      .btn-red {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+        left: 1rem;
+        background-color: $red-color;
+        color: white;
+        font-size: inherit;
+        padding: .75rem 0;
+        font-weight: 400;
+      }
+    }
+    .media {
+      height: inherit;
+      border-width: 1px 1px 1px 0;
+      border-radius: 0 1rem 1rem 0;
+      border-color: $semi-transparent-lightgray;
+      float: right;
+      width: 50%;
+      img {
+        border-radius: inherit;
+        height: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .content-accessories {
+    .product-box {
+      font-size: .75rem;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .content-accessories {
+    .product-box {
+      font-size: .85rem;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .content-accessories {
+    .product-box {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .content-accessories {
+    .product-box {
+      font-size: 1.15rem;
+      .media {
+        width: auto;
+      }
+    }
   }
 }
