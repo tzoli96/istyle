@@ -61,7 +61,8 @@
         "oander/module-warehouse-stock-order": "1.0.2",
         "oander/module-wonder-widget": "1.1.4",
         "oander/theme-hodor": "1.1.*",
-        "algolia/algoliasearch-magento-2": "^1.0"
+        "algolia/algoliasearch-magento-2": "^1.0",
+        "swissup/slick-carousel": "^1.1"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
