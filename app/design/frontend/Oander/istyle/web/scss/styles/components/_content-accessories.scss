@@ -3,6 +3,15 @@ $semitransparent-lightgray: rgba(0, 0, 0, .1);
 $red-color: rgb(233, 32, 63);
 
 .content-accessories {
+  .slider-container {
+    position: relative;
+    margin: 1rem 2rem 3rem;
+
+    &::after {
+      clear: both;
+    }
+  }
+
   .sidebar-background {
     border-radius: .25rem;
 
