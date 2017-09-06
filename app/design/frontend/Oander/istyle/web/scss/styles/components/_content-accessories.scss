@@ -5,7 +5,24 @@ $red-color: rgb(233, 32, 63);
 .content-accessories {
   .slider-container {
     position: relative;
-    margin: 1rem 2rem 3rem;
+    margin: 1rem 2rem 2rem;
+
+    a {
+      color: #111;
+    }
+
+    .price-box {
+      display: block;
+
+      .special-price,
+      .old-price {
+        display: block;
+      }
+    }
+
+    .product-item-name {
+      font-weight: 500;
+    }
 
     .slick-dots li {
       button {
