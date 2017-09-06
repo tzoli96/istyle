@@ -7,6 +7,20 @@ $red-color: rgb(233, 32, 63);
     position: relative;
     margin: 1rem 2rem 3rem;
 
+    .slick-dots li {
+      button {
+        width: 1.5rem;
+        height: 2px;
+
+        &::before {
+          width: inherit;
+          height: inherit;
+          background-color: #0a0a0a;
+          content: '';
+        }
+      }
+    }
+
     &::after {
       clear: both;
     }
@@ -107,6 +121,14 @@ $red-color: rgb(233, 32, 63);
   }
 }
 
+@include media-breakpoint-down(sm) {
+  .content-accessories {
+    .slider-container {
+      display: none;
+    }
+  }
+}
+
 @include media-breakpoint-up(sm) {
   .content-accessories {
     .product-box {
@@ -116,6 +138,10 @@ $red-color: rgb(233, 32, 63);
 }
 
 @include media-breakpoint-up(md) {
+  .slider-container {
+    display: block;
+  }
+
   .content-accessories {
     .product-box {
       font-size: .85rem;
