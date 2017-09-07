@@ -46,6 +46,19 @@ table,
   }
 }
 
+.slick-slider {
+  .slick-slide {
+    padding: 0 !important;
+  }
+
+  .slick-next,
+  .slick-prev {
+    &::before {
+      content: '' !important;
+    }
+  }
+}
+
 @include media-breakpoint-up(md) {
   .page-main-top {
     align-items: center;
