@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8490f727e911876c6e1c1c35b2b7f83b",
+    "content-hash": "01def1ff6146480f5b5ebaacd1442cd9",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7731,52 +7731,6 @@
             ],
             "description": "An extendable framework for version control hooks.",
             "time": "2014-09-22T08:40:36+00:00"
-        },
-        {
-            "name": "swissup/slick-carousel",
-            "version": "1.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/swissup/slick-carousel.git",
-                "reference": "878bf948b6fca75e02b3d2041744df6452492d09"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/swissup/slick-carousel/zipball/878bf948b6fca75e02b3d2041744df6452492d09",
-                "reference": "878bf948b6fca75e02b3d2041744df6452492d09",
-                "shasum": ""
-            },
-            "require": {
-                "php": "~5.5.0|~5.6.0|~7.0.0"
-            },
-            "type": "magento2-module",
-            "extra": {
-                "swissup": {
-                    "links": {
-                        "docs": "http://docs.swissuplabs.com/m2/extensions/slick-carousel/",
-                        "changelog": "http://docs.swissuplabs.com/m2/extensions/slick-carousel/changelog/"
-                    }
-                }
-            },
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Swissup\\SlickCarousel\\": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "the last carousel you'll ever need for magento2",
-            "keywords": [
-                "carousel",
-                "slick carousel",
-                "slider"
-            ],
-            "time": "2016-09-12T12:05:55+00:00"
         },
         {
             "name": "symfony/console",

@@ -156,6 +156,5 @@ return array (
     'Oander_WarehouseManager' => 1,
     'Oander_WarehouseStockOrder' => 1,
     'Oander_WonderWidget' => 1,
-    'Swissup_SlickCarousel' => 1,
   ),
 );
