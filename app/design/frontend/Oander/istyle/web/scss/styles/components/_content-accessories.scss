@@ -24,16 +24,32 @@ $red-color: rgb(233, 32, 63);
       font-weight: 500;
     }
 
-    .slick-dots li {
-      button {
-        width: 1.5rem;
-        height: 2px;
+    .slick-dots {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
 
-        &::before {
-          width: inherit;
-          height: inherit;
+    .slick-dots li {
+      display: inline-block;
+
+      button {
+        display: block;
+        border: none;
+        padding: 0;
+        margin: 0;
+        font-size: 0;
+        background-color: $gray-border;
+        color: rgba(0, 0, 0, 0);
+        width: 40px;
+        height: 2px;
+        outline: none;
+      }
+
+      &.slick-active {
+        button {
           background-color: #0a0a0a;
-          content: '';
         }
       }
     }
@@ -155,13 +171,55 @@ $red-color: rgb(233, 32, 63);
 }
 
 @include media-breakpoint-up(md) {
-  .slider-container {
-    display: block;
-  }
-
   .content-accessories {
     .product-box {
       font-size: .85rem;
+    }
+
+    .slider-container {
+      display: block;
+      margin: 20px 60px;
+
+      .slick-list {
+        padding: 1px;
+      }
+
+      .product-item {
+        margin: 0 1px 0 -1px;
+        padding: 15px;
+        box-shadow: 1px 0 0 0 $gray-border,
+        0 1px 0 0 $gray-border,
+        1px 1px 0 0 $gray-border,
+        1px 0 0 0 $gray-border inset,
+        0 1px 0 0 $gray-border inset;
+      }
+
+      .slick-dots li {
+        button {
+          width: 40px;
+        }
+      }
+
+      .slick-arrow {
+        display: block;
+        position: absolute;
+        top: 50%;
+        margin-top: -20px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background-color: #f0f0f0;
+        color: $gray-darker;
+        border-radius: 100%;
+
+        &.slick-prev {
+          left: -60px;
+        }
+        &.slick-next {
+          right: -60px;
+        }
+      }
     }
   }
 }
@@ -170,6 +228,14 @@ $red-color: rgb(233, 32, 63);
   .content-accessories {
     .product-box {
       font-size: 1rem;
+    }
+
+    .slider-container {
+      .slick-dots li {
+        button {
+          width: 80px;
+        }
+      }
     }
   }
 }
