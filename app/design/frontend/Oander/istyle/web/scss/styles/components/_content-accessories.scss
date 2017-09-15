@@ -178,7 +178,7 @@ $red-color: rgb(233, 32, 63);
 
     .slider-container {
       display: block;
-      margin: 20px 60px;
+      margin: 20px 0;
 
       .slick-list {
         padding: 1px;
@@ -192,6 +192,15 @@ $red-color: rgb(233, 32, 63);
         1px 1px 0 0 $gray-border,
         1px 0 0 0 $gray-border inset,
         0 1px 0 0 $gray-border inset;
+
+        .product-image-wrapper,
+        .product-item-name {
+          margin-bottom: 10px;
+        }
+
+        .product-item-details p {
+          font-size: 12px;
+        }
       }
 
       .slick-dots li {
@@ -199,26 +208,9 @@ $red-color: rgb(233, 32, 63);
           width: 40px;
         }
       }
-
+      
       .slick-arrow {
-        display: block;
-        position: absolute;
-        top: 50%;
-        margin-top: -20px;
-        width: 40px;
-        height: 40px;
-        line-height: 40px;
-        text-align: center;
-        background-color: #f0f0f0;
-        color: $gray-darker;
-        border-radius: 100%;
-
-        &.slick-prev {
-          left: -60px;
-        }
-        &.slick-next {
-          right: -60px;
-        }
+        display: none;
       }
     }
   }
@@ -231,9 +223,51 @@ $red-color: rgb(233, 32, 63);
     }
 
     .slider-container {
+      margin: 20px 60px;
+
       .slick-dots li {
         button {
           width: 80px;
+        }
+      }
+
+      .slick-arrow {
+        display: block;
+        position: absolute;
+        top: 50%;
+        margin-top: -20px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        color: $gray-darker;
+        border-radius: 100%;
+        transition: background .35s ease;
+        cursor: pointer;
+
+        i {
+          line-height: 40px;
+          position: relative;
+        }
+
+        &.slick-prev {
+          left: -60px;
+
+          i {
+            left: -1px;
+          }
+        }
+
+        &.slick-next {
+          right: -60px;
+
+          i {
+            right: -1px;
+          }
+        }
+
+        &:hover {
+          background-color: #f0f0f0;
         }
       }
     }
