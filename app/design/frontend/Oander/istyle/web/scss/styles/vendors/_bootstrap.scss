@@ -11,11 +11,12 @@
 @import '../../../vendor/bootstrap/scss/mixins';
 
 // Reset and dependencies
-//@import '../../../vendor/bootstrap/scss/normalize';
+@import '../../../vendor/bootstrap/scss/normalize';
 //@import '../../../vendor/bootstrap/scss/print';
 
 // Core CSS
 @import '../../../vendor/bootstrap/scss/reboot';
+@import 'bootstrap/reboot';
 @import '../../../vendor/bootstrap/scss/type';
 @import '../../../vendor/bootstrap/scss/images';
 @import '../../../vendor/bootstrap/scss/code';
