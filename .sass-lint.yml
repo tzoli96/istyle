@@ -21,7 +21,7 @@ rules:
   - 0
 
   property-sort-order:
-  - 0
+  - 1
   - order: smacss
 
   force-attribute-nesting:
