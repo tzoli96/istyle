@@ -1,7 +1,21 @@
+.catalogsearch-result-index .page-title-wrapper {
+  width: 100%;
+
+  .page-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+  }
+}
 #algolia-autocomplete-container:after,
 .autocomplete-wrapper:after {
   clear: both;
   content: '';
+}
+#algolia-right-container .toolbar-top {
+  top: -74px;
+  right: 10px;
 }
 
 /* SEARCH BOX */
@@ -643,7 +657,7 @@ a.ais-current-refined-values--link:hover {
  */
 
 #algolia_instant_selector {
-  margin: 10px;
+  margin: 10px 0;
 }
 
 #algolia_instant_selector a,
@@ -672,9 +686,11 @@ a.ais-current-refined-values--link:hover {
   float: left;
   width: calc(100% - 140px);
   height: 40px;
+  color: $gray;
   font-family: "Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;
-  border: solid 2px #54A5CD;
-  border-left: none;
+  border-radius: 4px;
+  border: 1px solid $gray-darker;
+  background-color: rgba(0,0,0,0);
   padding-left: 6px;
   padding-top: 2px;
 }
@@ -727,10 +743,20 @@ a.ais-current-refined-values--link:hover {
   margin-top: 20px;
   margin-bottom: 30px;
 }
+#algolia_instant_selector .ais-hits {
+  width: 100%;
+}
 #algolia_instant_selector .ais-hits--item .product-reviews-summary {
   text-align: center;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+.ais-sort-by-selector {
+  height: calc(2.45rem + 2px);
+  width: auto;
+  border-radius: 4px;
+  border-color: $gray-darker;
+  background: rgba(0,0,0,0);
 }
 
 /**
@@ -853,9 +879,11 @@ a.ais-current-refined-values--link:hover {
 
 #algolia_instant_selector #instant-search-bar-container {
   padding-top: 0;
-  margin-bottom: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
   width: 100%;
   position: relative;
+  border-bottom: 1px solid $gray-border;
 }
 #algolia_instant_selector #instant-search-bar-container:after {
   clear: both;
@@ -875,14 +903,12 @@ a.ais-current-refined-values--link:hover {
   display: none;
 }
 #algolia_instant_selector .instant-search-bar-label {
-  background-color: #54A5CD;
   height: 40px;
   line-height: 24px;
   padding: 8px 12px;
-  color: white;
+  color: $gray-dark;
   float: left;
   width: 140px;
-  text-align: right;
 }
 #algolia_instant_selector #instant-search-box svg.magnifying-glass {
   position: absolute;
@@ -957,6 +983,22 @@ a.ais-current-refined-values--link:hover {
   margin-bottom: 20px;
 }
 
+/*
+** NEW GRID
+*/
+#algolia_instant_selector  .ais-hits--item {
+  flex: 0 0 50%;
+  max-width: 50%;
+  display: inline-block;
+}
+
+@include media-breakpoint-up(lg) {
+  #algolia_instant_selector  .ais-hits--item {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+  }
+}
+
 /**
 ** GRID
 */
@@ -987,6 +1029,9 @@ a.ais-current-refined-values--link:hover {
 }
 
 @include media-breakpoint-up(md) {
+  .catalogsearch-result-index .page-title-wrapper {
+    width: 75%;
+  }
   #autocomplete-products-footer {
     display: block;
   }
@@ -1005,26 +1050,35 @@ a.ais-current-refined-values--link:hover {
     display: inline-block;
     width: 50%;
   }
+  #algolia-autocomplete-container .aa-dropdown-menu .aa-dataset-products:only-child {
+    width: 100%;
+  }
   .aa-dataset-products .aa-suggestions {
     margin: 10px auto 50px auto;
   }
   .col9 {
-    border-left: solid 1px #eeeeee;
     width: 70%;
     right: 0;
     height: 100%;
   }
   .col3 {
+    border-right: solid 1px #eeeeee;
     float: left;
     width: 30%;
   }
 }
 @include media-breakpoint-up(lg) {
+  .catalogsearch-result-index .page-title-wrapper {
+    width: 50%;
+  }
   #algolia-autocomplete-container .aa-dropdown-menu {
     width: $algolia-width-lg-width;
   }
 }
 @include media-breakpoint-up(xl) {
+  .catalogsearch-result-index .page-title-wrapper {
+    width: 60%;
+  }
   #algolia-autocomplete-container .aa-dropdown-menu {
     width: $algolia-width-xl-width;
   }

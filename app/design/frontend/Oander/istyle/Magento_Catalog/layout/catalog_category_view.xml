@@ -11,8 +11,8 @@
         <!-- Moves -->
         <move element="category.view.container" destination="page-main-top" before="-" />
 
-
         <!-- Removes -->
+        <referenceBlock name="category.view.container" remove="true" />
         <referenceBlock name="category.product.addto.compare" remove="true" />
         <referenceBlock name="category.product.addto.wishlist" remove="true" />
         <referenceBlock name="wishlist_sidebar" remove="true" />

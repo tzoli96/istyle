@@ -1,0 +1,78 @@
+<?php /** @var \Algolia\AlgoliaSearch\Block\Instant\Wrapper $block */?>
+<!-- Wrapping template -->
+<script type="text/template" id="instant_wrapper_template">
+    {{#findAutocomplete}}
+    <div id="algolia-autocomplete-container"></div>
+    {{/findAutocomplete}}
+    <div id="algolia_instant_selector" class="<?php echo $block->hasFacets() ? ' with-facets' : '' ?>">
+        <div class="row">
+            <div class="sidebar-wrapper col-md-4 col-lg-3" id="algolia-left-container">
+                <div id="refine-toggle" class="visible-xs visible-sm">+ <?php echo __('Refine'); ?></div>
+                <div class="hidden-xs hidden-sm" id="instant-search-facets-container">
+                    <div id="current-refinements"></div>
+                </div>
+<!--                <div class="sidebar-background">-->
+<!--                    <div class="sidebar sidebar-main">-->
+<!--                        <div id="refine-toggle" class="visible-xs visible-sm">+ --><?php //echo __('Refine'); ?><!--</div>-->
+<!--                    </div>-->
+<!--                    <div class="sidebar sidebar-additional" id="instant-search-facets-container">-->
+<!--                        <div class="block-title">-->
+<!--                            <strong role="heading" aria-level="2">--><?php //echo __('Filters'); ?><!--</strong>-->
+<!--                        </div>-->
+<!--                        <div id="current-refinements"></div>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+
+            <div class="column main col-md-8 col-lg-9 flex-md-last order-md-last" id="algolia-right-container">
+                <div class="toolbar-top">
+                    <div class="toolbar d-md-flex toolbar-products clearfix">
+                        <div class="toolbar-amount" id="algolia-stats"></div>
+                        <div class="toolbar-sorter sorter">
+                            <label class="sorter-label" for="sorter">
+                                <?php echo __('SORT BY'); ?>
+                            </label>
+                            <div id="algolia-sorts"></div>
+                        </div>
+                        <div class="algolia-clearfix"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            {{#second_bar}}
+                            <div id="instant-search-bar-container">
+                                <div id="instant-search-box">
+                                    <div class="instant-search-bar-label">
+                                        <span><?php echo __('Current search') ?>:</span>
+                                    </div>
+                                    <div class="instant-search-bar-wrapper">
+                                        <label for="instant-search-bar">
+                                            <?php echo __('Search :'); ?>
+                                        </label>
+
+                                        <input placeholder="<?php echo __('Search for products'); ?>" id="instant-search-bar" type="text" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" />
+
+                                        <span class="clear-cross clear-query-instant"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/second_bar}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="products wrapper grid products-grid">
+                    <div class="products list product-items row" id="instant-search-results-container">
+                        <div id="instant-search-results-container"></div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <div id="instant-search-pagination-container"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</script>
