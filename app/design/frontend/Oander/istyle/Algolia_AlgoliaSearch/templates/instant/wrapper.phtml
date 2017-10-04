@@ -6,19 +6,13 @@
     {{/findAutocomplete}}
     <div id="algolia_instant_selector" class="<?php echo $block->hasFacets() ? ' with-facets' : '' ?>">
         <div class="row">
-            <div class="sidebar-wrapper col-md-4 col-lg-3" id="algolia-left-container">
-                <div class="sidebar-background">
-                    <div class="sidebar sidebar-main">
-                        <div class="hidden-xs hidden-sm" id="instant-search-facets-container">
-                            <div id="current-refinements" class="block-content filter-content"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="column main col-md-8 col-lg-9 flex-md-last order-md-last" id="algolia-right-container">
                 <div class="toolbar-top">
                     <div class="toolbar d-md-flex toolbar-products clearfix">
+                        <a href="#" class="btn btn-outline-secondary sidebar-collapse-trigger hidden-lg-up" id="sidebar-collapse-trigger">
+                            <?php /* @escapeNotVerified */ echo __('Filters') ?>
+                        </a>
                         <div class="toolbar-amount" id="algolia-stats"></div>
                         <div class="toolbar-sorter sorter">
                             <label class="sorter-label" for="sorter">
@@ -64,6 +58,25 @@
                     <div id="instant-search-pagination-container"></div>
                 </div>
             </div>
+
+            <div class="col-md-4 col-lg-3 sidebar-wrapper algolia-left-container" id="algolia-left-container">
+                <div class="sidebar-background">
+                    <div class="sidebar sidebar-main">
+                        <div id="instant-search-facets-container" class="block filter">
+                            <a data-html-class="sidebar-opened" data-action="modal-close" class="action close-sidebar hidden-md-up">
+                                <i class="icon-close-circle"></i>
+                            </a>
+                            <h3 class="block-title filter-title">
+                                <i class="material-icons hidden-lg-up">tune</i>
+                                <?php /* @escapeNotVerified */ echo __('Filters') ?>
+                            </h3>
+                            <div id="current-refinements" class="filter-current current-refinements"></div>
+                            <div id="refinements-list" class="filter-options"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>

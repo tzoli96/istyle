@@ -144,7 +144,17 @@ input::-ms-clear {
 .ais-current-refined-values--clear-all {
   position: absolute;
   right: 6px;
-  top: 3px;
+  top: 0;
+}
+@include media-breakpoint-down(md) {
+  .ais-current-refined-values--clear-all {
+    &,
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+      position: relative;
+    }
+  }
 }
 a.ais-current-refined-values--link:hover {
   text-decoration: none;
@@ -655,7 +665,10 @@ a.ais-current-refined-values--link:hover {
 /**
  * Instant Search
  */
-
+.algolia-instant-selector-results,
+#algolia_instant_selector {
+  width: 100%;
+}
 #algolia_instant_selector {
   margin: 10px 0;
 }
@@ -672,6 +685,16 @@ a.ais-current-refined-values--link:hover {
   &:focus {
     color: $gray;
     font-weight: 400;
+  }
+}
+@include media-breakpoint-down(md) {
+  #algolia_instant_selector a,
+  .ais-pagination--link {
+    &:not(.sidebar-collapse-trigger):hover,
+    &:not(.sidebar-collapse-trigger):focus {
+      display: inline-block;
+      color: $gray !important;
+    }
   }
 }
 #algolia_instant_selector:after {
@@ -742,6 +765,11 @@ a.ais-current-refined-values--link:hover {
   color: $gray;
   font-weight: 400;
 }
+@include media-breakpoint-down(md) {
+  #algolia_instant_selector a:hover {
+    color: $white;
+  }
+}
 #algolia_instant_selector .hits .no-results strong {
   color: #555;
 }
@@ -796,6 +824,9 @@ a.ais-current-refined-values--link:hover {
 #algolia_instant_selector .ais-header.ais-current-refined-values--header {
   margin-bottom: 13px;
 }
+#algolia_instant_selector .ais-header .block-subtitle.filter-current-subtitle {
+  font-weight: 500;
+}
 #algolia_instant_selector .facet .name {
   padding: 4px 8px;
   font-weight: 500;
@@ -803,7 +834,6 @@ a.ais-current-refined-values--link:hover {
   text-align: left;
   text-transform: uppercase;
 }
-
 .ais-current-refined-values.facet {
   position: relative;
 }
@@ -824,7 +854,6 @@ a.ais-current-refined-values--link:hover {
   text-align: center;
 }
 #algolia_instant_selector em {
-  background-color: #CFEAFA;
   font-style: normal;
 }
 #algolia_instant_selector h1 {
