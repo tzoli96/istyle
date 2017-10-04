@@ -61,8 +61,8 @@ input::-ms-clear {
 }
 .ais-pagination--item.ais-pagination--item__next a,
 .ais-pagination--item.ais-pagination--item__previous a {
-  font-weight: bold;
-  color: #606060;
+  font-weight: 400;
+  color: $gray-dark;
 }
 
 /* REFINEMENT LIST */
@@ -73,7 +73,7 @@ input::-ms-clear {
 .ais-refinement-list--label {
   padding: 4px 10px;
   cursor: pointer;
-  color: #636363;
+  color: $gray-darker;
   text-decoration: none;
   display: block;
   font-family: inherit;
@@ -85,8 +85,7 @@ input::-ms-clear {
 .ais-refinement-list--item__active > div > .ais-hierarchical-list--link,
 .ais-refinement-list--item__active > div > .ais-refinement-list--label,
 .ais-price-ranges--item__active > .ais-price-ranges--link{
-  font-weight: bold;
-  box-shadow: inset 3px 0 0 #3399cc;
+  font-weight: 500;
 }
 .ais-hierearchical-link-wrapper, .ais-refinement-list--item {
   padding: 7px 0;
@@ -146,8 +145,6 @@ input::-ms-clear {
   position: absolute;
   right: 6px;
   top: 3px;
-  color: #666666;
-  font-weight: 500;
 }
 a.ais-current-refined-values--link:hover {
   text-decoration: none;
@@ -161,7 +158,7 @@ a.ais-current-refined-values--link:hover {
   display: block;
 }
 .ais-current-refined-values--item .current-refinement-label {
-  font-weight: bold;
+  font-weight: 500;
 }
 .ais-current-refined-values--item .cross-wrapper {
   font-weight: bold;
@@ -182,15 +179,18 @@ a.ais-current-refined-values--link:hover {
 }
 .ais-current-refined-values--item .current-refinement-wrapper {
   float: left;
-  width: calc(100% - 26px);
   height: 26px;
   padding-left: 8px;
-  overflow: hidden;
-  text-overflow: ellipsis;
   line-height: 26px;
 }
 .ais-current-refined-values--link:hover .current-refinement-wrapper {
   text-decoration: line-through;
+  color: $brand-secondary;
+
+  .current-refinement-label,
+  .current-refinement-name {
+    color: $gray;
+  }
 }
 
 .ais-menu--link:hover,
@@ -200,7 +200,7 @@ a.ais-current-refined-values--link:hover {
 }
 .ais-menu--count, .ais-hierarchical-menu--count, .ais-refinement-list--count {
   float: right;
-  color: #666;
+  color: $gray-darker;
 }
 
 /* RANGE SLIDER */
@@ -661,9 +661,18 @@ a.ais-current-refined-values--link:hover {
 }
 
 #algolia_instant_selector a,
-#algolia_instant_selector a:hover,
-#algolia_instant_selector a:focus {
+.ais-pagination--link {
+  color: $gray-dark;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
   outline: 0;
+
+  &:hover,
+  &:focus {
+    color: $gray;
+    font-weight: 400;
+  }
 }
 #algolia_instant_selector:after {
   content: "";
@@ -730,7 +739,8 @@ a.ais-current-refined-values--link:hover {
   font-size: 16px;
 }
 #algolia_instant_selector a:hover {
-  color: #666666;
+  color: $gray;
+  font-weight: 400;
 }
 #algolia_instant_selector .hits .no-results strong {
   color: #555;
@@ -775,8 +785,7 @@ a.ais-current-refined-values--link:hover {
 #algolia_instant_selector .facet {
   margin-bottom: 15px;
   padding-bottom: 6px;
-  background-color: white;
-  border: solid 1px #efefef;
+  border-bottom: solid 1px #efefef;
 }
 #algolia_instant_selector .facet:not(:first-child) {
   margin-top: 10px;
@@ -790,7 +799,6 @@ a.ais-current-refined-values--link:hover {
 #algolia_instant_selector .facet .name {
   padding: 4px 8px;
   font-weight: 500;
-  background-color: #f4f4f4;
   color: #757575;
   text-align: left;
   text-transform: uppercase;

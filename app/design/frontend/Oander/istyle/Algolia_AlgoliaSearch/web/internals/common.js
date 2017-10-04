@@ -240,7 +240,7 @@ requirejs(['algoliaBundle'], function(algoliaBundle) {
                     }
 
                     var allUrl = algoliaConfig.baseUrl + '/catalogsearch/result/?q=' + encodeURIComponent(query.query);
-                    var returnFooter = '<div id="autocomplete-products-footer">' + algoliaConfig.translations.seeIn + ' <span><a href="' + allUrl +  '">' + algoliaConfig.translations.allDepartments + '</a></span> (' + content.nbHits + ')';
+                    var returnFooter = '<div id="autocomplete-products-footer"><span><a href="' + allUrl +  '">' + algoliaConfig.translations.seeAll + '</a></span>';
 
                     if(ors && algoliaConfig.instant.enabled) {
                         returnFooter += ' ' + algoliaConfig.translations.orIn + ' ' + ors;
