@@ -59,22 +59,22 @@
         },
         {
             "name": "algolia/algoliasearch-magento-2",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/algolia/algoliasearch-magento-2.git",
-                "reference": "730f3cdc34068dffcf7160b4f194d6826adf5b91"
+                "reference": "ac1b8ca416af08c35b0676bf331f9e0c5b34aed2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/algolia/algoliasearch-magento-2/zipball/730f3cdc34068dffcf7160b4f194d6826adf5b91",
-                "reference": "730f3cdc34068dffcf7160b4f194d6826adf5b91",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-magento-2/zipball/ac1b8ca416af08c35b0676bf331f9e0c5b34aed2",
+                "reference": "ac1b8ca416af08c35b0676bf331f9e0c5b34aed2",
                 "shasum": ""
             },
             "require": {
                 "algolia/algoliasearch-client-php": ">=1.10.2 <2.0",
                 "magento/framework": "~100.0",
-                "php": "~5.5.0|~5.6.0|~7.0.0"
+                "php": "~5.5.0|~5.6.0|~7.0"
             },
             "type": "magento2-module",
             "autoload": {
@@ -90,7 +90,7 @@
                 "MIT"
             ],
             "description": "Algolia Search integration for Magento 2",
-            "time": "2017-07-10T15:43:39+00:00"
+            "time": "2017-09-07T12:52:36+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -7249,16 +7249,16 @@
         },
         {
             "name": "oander/theme-hodor",
-            "version": "1.1.15",
+            "version": "1.1.18",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-hodor.git",
-                "reference": "34d48b90e2e8de5245ea7de0fb1f8d17556a8537"
+                "reference": "372ac2798fcb066cc9728f81d17547b7a0cdefde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-hodor/zipball/34d48b90e2e8de5245ea7de0fb1f8d17556a8537",
-                "reference": "34d48b90e2e8de5245ea7de0fb1f8d17556a8537",
+                "url": "https://api.github.com/repos/oandermedia/oander-hodor/zipball/372ac2798fcb066cc9728f81d17547b7a0cdefde",
+                "reference": "372ac2798fcb066cc9728f81d17547b7a0cdefde",
                 "shasum": ""
             },
             "require": {
@@ -7276,10 +7276,10 @@
             ],
             "description": "Hodor template",
             "support": {
-                "source": "https://github.com/oandermedia/oander-hodor/tree/1.1.15",
+                "source": "https://github.com/oandermedia/oander-hodor/tree/1.1.18",
                 "issues": "https://github.com/oandermedia/oander-hodor/issues"
             },
-            "time": "2017-08-16T10:17:17+00:00"
+            "time": "2017-09-18T11:42:11+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -7901,7 +7901,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.3.8",
+            "version": "v3.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -9644,16 +9644,16 @@
         },
         {
             "name": "fabpot/php-cs-fixer",
-            "version": "v1.13.2",
+            "version": "v1.13.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "106313aa0d501782260e48ac04a1c671b5d418ea"
+                "reference": "387e4c86c9dc0e1e4c475291fc114ec45b98e624"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/106313aa0d501782260e48ac04a1c671b5d418ea",
-                "reference": "106313aa0d501782260e48ac04a1c671b5d418ea",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/387e4c86c9dc0e1e4c475291fc114ec45b98e624",
+                "reference": "387e4c86c9dc0e1e4c475291fc114ec45b98e624",
                 "shasum": ""
             },
             "require": {
@@ -9699,7 +9699,7 @@
             ],
             "description": "A tool to automatically fix PHP code style",
             "abandoned": "friendsofphp/php-cs-fixer",
-            "time": "2017-08-19T11:43:55+00:00"
+            "time": "2017-09-11T14:11:16+00:00"
         },
         {
             "name": "lusitanian/oauth",
@@ -10856,7 +10856,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.3.8",
+            "version": "v3.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",

@@ -32,6 +32,11 @@
 }
 
 @include media-breakpoint-up(md) {
+  .catalogsearch-result-index {
+    .page-title {
+      font-size: 32px;
+    }
+  }
   .category-view-inner.has-img {
     position: relative;
     height: 200px;
@@ -62,6 +67,11 @@
   }
 }
 @include media-breakpoint-up(lg) {
+  .catalogsearch-result-index {
+    .page-title {
+      font-size: 32px;
+    }
+  }
   .category-view-inner {
     .page-title {
       font-size: 42px;
