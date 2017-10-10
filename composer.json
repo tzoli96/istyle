@@ -61,6 +61,7 @@
         "oander/module-warehouse-stock-order": "1.0.2",
         "oander/module-wonder-widget": "1.1.4",
         "oander/theme-hodor": "1.1.*",
+        "oander/theme-istyle": "1.0.*",
         "algolia/algoliasearch-magento-2": "^1.0"
     },
     "require-dev": {
@@ -104,6 +105,14 @@
         {
             "type": "composer",
             "url": "https://repo.magento.com/"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-hodor.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/theme-istyle.git"
         },
         {
             "type": "vcs",
@@ -168,10 +177,6 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/oander-google-tag-manager.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:oandermedia/oander-hodor.git"
         },
         {
             "type": "vcs",

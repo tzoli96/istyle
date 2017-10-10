@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "01def1ff6146480f5b5ebaacd1442cd9",
+    "content-hash": "e9770acc7247aa251919c6e48ea6e439",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
-            "version": "1.20.0",
+            "version": "1.21.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/algolia/algoliasearch-client-php.git",
-                "reference": "3daee8d55c1d84eff227fd99054e78ddc196f309"
+                "reference": "95d61b0ebc27635dff0b1342e15d7b6f8a14f37c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/3daee8d55c1d84eff227fd99054e78ddc196f309",
-                "reference": "3daee8d55c1d84eff227fd99054e78ddc196f309",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/95d61b0ebc27635dff0b1342e15d7b6f8a14f37c",
+                "reference": "95d61b0ebc27635dff0b1342e15d7b6f8a14f37c",
                 "shasum": ""
             },
             "require": {
@@ -31,8 +31,7 @@
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "AlgoliaSearch": "src/",
-                    "AlgoliaSearch\\Tests": "tests/"
+                    "AlgoliaSearch": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -55,7 +54,7 @@
             ],
             "description": "Algolia Search API Client for PHP",
             "homepage": "https://github.com/algolia/algoliasearch-client-php",
-            "time": "2017-08-30T08:28:40+00:00"
+            "time": "2017-10-06T13:42:54+00:00"
         },
         {
             "name": "algolia/algoliasearch-magento-2",
@@ -7249,16 +7248,16 @@
         },
         {
             "name": "oander/theme-hodor",
-            "version": "1.1.18",
+            "version": "1.1.20",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-hodor.git",
-                "reference": "372ac2798fcb066cc9728f81d17547b7a0cdefde"
+                "reference": "dbe88a65d07a6b8a489ca059158e658e6e211cc5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-hodor/zipball/372ac2798fcb066cc9728f81d17547b7a0cdefde",
-                "reference": "372ac2798fcb066cc9728f81d17547b7a0cdefde",
+                "url": "https://api.github.com/repos/oandermedia/oander-hodor/zipball/dbe88a65d07a6b8a489ca059158e658e6e211cc5",
+                "reference": "dbe88a65d07a6b8a489ca059158e658e6e211cc5",
                 "shasum": ""
             },
             "require": {
@@ -7276,10 +7275,44 @@
             ],
             "description": "Hodor template",
             "support": {
-                "source": "https://github.com/oandermedia/oander-hodor/tree/1.1.18",
+                "source": "https://github.com/oandermedia/oander-hodor/tree/1.1.20",
                 "issues": "https://github.com/oandermedia/oander-hodor/issues"
             },
-            "time": "2017-09-18T11:42:11+00:00"
+            "time": "2017-10-09T09:23:49+00:00"
+        },
+        {
+            "name": "oander/theme-istyle",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/theme-istyle.git",
+                "reference": "b802f6635a1a20befdec6af3f0a6a254b58a1117"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/b802f6635a1a20befdec6af3f0a6a254b58a1117",
+                "reference": "b802f6635a1a20befdec6af3f0a6a254b58a1117",
+                "shasum": ""
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-theme",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "iStyle M2 Theme",
+            "support": {
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.1",
+                "issues": "https://github.com/oandermedia/theme-istyle/issues"
+            },
+            "time": "2017-10-10T10:09:17+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -7792,16 +7825,16 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.27",
+            "version": "v2.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "1377400fd641d7d1935981546aaef780ecd5bf6d"
+                "reference": "7fe089232554357efb8d4af65ce209fc6e5a2186"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/1377400fd641d7d1935981546aaef780ecd5bf6d",
-                "reference": "1377400fd641d7d1935981546aaef780ecd5bf6d",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/7fe089232554357efb8d4af65ce209fc6e5a2186",
+                "reference": "7fe089232554357efb8d4af65ce209fc6e5a2186",
                 "shasum": ""
             },
             "require": {
@@ -7848,20 +7881,20 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-02T07:47:27+00:00"
+            "time": "2017-10-01T21:00:16+00:00"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.8.27",
+            "version": "v2.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "714b1036010c354ae2b25d7f9ca27e14e265e9f2"
+                "reference": "5e3af878f144089faddd4060a48cadae4fc44dee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/714b1036010c354ae2b25d7f9ca27e14e265e9f2",
-                "reference": "714b1036010c354ae2b25d7f9ca27e14e265e9f2",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/5e3af878f144089faddd4060a48cadae4fc44dee",
+                "reference": "5e3af878f144089faddd4060a48cadae4fc44dee",
                 "shasum": ""
             },
             "require": {
@@ -7897,20 +7930,20 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-11T07:12:11+00:00"
+            "time": "2017-10-02T08:46:46+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v3.3.9",
+            "version": "v3.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "b2260dbc80f3c4198f903215f91a1ac7fe9fe09e"
+                "reference": "773e19a491d97926f236942484cb541560ce862d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/b2260dbc80f3c4198f903215f91a1ac7fe9fe09e",
-                "reference": "b2260dbc80f3c4198f903215f91a1ac7fe9fe09e",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/773e19a491d97926f236942484cb541560ce862d",
+                "reference": "773e19a491d97926f236942484cb541560ce862d",
                 "shasum": ""
             },
             "require": {
@@ -7946,20 +7979,20 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-29T21:54:42+00:00"
+            "time": "2017-10-02T06:42:24+00:00"
         },
         {
             "name": "symfony/process",
-            "version": "v2.8.27",
+            "version": "v2.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "57e52a0a6a80ea0aec4fc1b785a7920a95cb88a8"
+                "reference": "26c9fb02bf06bd6b90f661a5bd17e510810d0176"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/57e52a0a6a80ea0aec4fc1b785a7920a95cb88a8",
-                "reference": "57e52a0a6a80ea0aec4fc1b785a7920a95cb88a8",
+                "url": "https://api.github.com/repos/symfony/process/zipball/26c9fb02bf06bd6b90f661a5bd17e510810d0176",
+                "reference": "26c9fb02bf06bd6b90f661a5bd17e510810d0176",
                 "shasum": ""
             },
             "require": {
@@ -7995,7 +8028,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-03T08:04:30+00:00"
+            "time": "2017-10-01T21:00:16+00:00"
         },
         {
             "name": "tedivm/jshrink",
@@ -10737,16 +10770,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.8.27",
+            "version": "v2.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "0b8541d18507d10204a08384640ff6df3c739ebe"
+                "reference": "1dbeaa8e2db4b29159265867efff075ad961558c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/0b8541d18507d10204a08384640ff6df3c739ebe",
-                "reference": "0b8541d18507d10204a08384640ff6df3c739ebe",
+                "url": "https://api.github.com/repos/symfony/config/zipball/1dbeaa8e2db4b29159265867efff075ad961558c",
+                "reference": "1dbeaa8e2db4b29159265867efff075ad961558c",
                 "shasum": ""
             },
             "require": {
@@ -10789,20 +10822,20 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2017-04-12T14:07:15+00:00"
+            "time": "2017-10-04T18:56:36+00:00"
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.8.27",
+            "version": "v2.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "fbeea992f0d30e3c400694c85f60c9bfd10454a3"
+                "reference": "2562562610dbdabbb98c6ceb60459a351811c734"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/fbeea992f0d30e3c400694c85f60c9bfd10454a3",
-                "reference": "fbeea992f0d30e3c400694c85f60c9bfd10454a3",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/2562562610dbdabbb98c6ceb60459a351811c734",
+                "reference": "2562562610dbdabbb98c6ceb60459a351811c734",
                 "shasum": ""
             },
             "require": {
@@ -10852,20 +10885,20 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-10T14:42:21+00:00"
+            "time": "2017-10-02T07:17:52+00:00"
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.3.9",
+            "version": "v3.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "9a5610a8d6a50985a7be485c0ba745c22607beeb"
+                "reference": "170edf8b3247d7b6779eb6fa7428f342702ca184"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/9a5610a8d6a50985a7be485c0ba745c22607beeb",
-                "reference": "9a5610a8d6a50985a7be485c0ba745c22607beeb",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/170edf8b3247d7b6779eb6fa7428f342702ca184",
+                "reference": "170edf8b3247d7b6779eb6fa7428f342702ca184",
                 "shasum": ""
             },
             "require": {
@@ -10901,20 +10934,20 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-29T21:54:42+00:00"
+            "time": "2017-10-02T06:42:24+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.27",
+            "version": "v2.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "4c29dec8d489c4e37cf87ccd7166cd0b0e6a45c5"
+                "reference": "842fb6df22180244b4c65935ce1a88d324e5ff9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/4c29dec8d489c4e37cf87ccd7166cd0b0e6a45c5",
-                "reference": "4c29dec8d489c4e37cf87ccd7166cd0b0e6a45c5",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/842fb6df22180244b4c65935ce1a88d324e5ff9e",
+                "reference": "842fb6df22180244b4c65935ce1a88d324e5ff9e",
                 "shasum": ""
             },
             "require": {
@@ -10950,7 +10983,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-01T20:52:29+00:00"
+            "time": "2017-10-05T14:38:30+00:00"
         },
         {
             "name": "theseer/fdomdocument",
