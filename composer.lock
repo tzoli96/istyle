@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
-            "version": "1.21.0",
+            "version": "1.22.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/algolia/algoliasearch-client-php.git",
-                "reference": "95d61b0ebc27635dff0b1342e15d7b6f8a14f37c"
+                "reference": "627e43858977dfa7b3ceeb5aac9d683e89f2eea7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/95d61b0ebc27635dff0b1342e15d7b6f8a14f37c",
-                "reference": "95d61b0ebc27635dff0b1342e15d7b6f8a14f37c",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/627e43858977dfa7b3ceeb5aac9d683e89f2eea7",
+                "reference": "627e43858977dfa7b3ceeb5aac9d683e89f2eea7",
                 "shasum": ""
             },
             "require": {
@@ -54,7 +54,7 @@
             ],
             "description": "Algolia Search API Client for PHP",
             "homepage": "https://github.com/algolia/algoliasearch-client-php",
-            "time": "2017-10-06T13:42:54+00:00"
+            "time": "2017-10-17T07:08:44+00:00"
         },
         {
             "name": "algolia/algoliasearch-magento-2",
@@ -6429,16 +6429,16 @@
         },
         {
             "name": "oander/module-core-bug-fix",
-            "version": "1.0.10",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "7de71dd2429fe9adccb1b362d40f71e54903cc2f"
+                "reference": "9bd671cbd21c5ed72176d6b5630cdebcca86794e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-core-bug-fix/zipball/7de71dd2429fe9adccb1b362d40f71e54903cc2f",
-                "reference": "7de71dd2429fe9adccb1b362d40f71e54903cc2f",
+                "url": "https://api.github.com/repos/oandermedia/oander-core-bug-fix/zipball/9bd671cbd21c5ed72176d6b5630cdebcca86794e",
+                "reference": "9bd671cbd21c5ed72176d6b5630cdebcca86794e",
                 "shasum": ""
             },
             "require": {
@@ -6458,23 +6458,23 @@
             ],
             "description": "Core bug fixes for Magento 2.x",
             "support": {
-                "source": "https://github.com/oandermedia/oander-core-bug-fix/tree/1.0.10",
+                "source": "https://github.com/oandermedia/oander-core-bug-fix/tree/1.0.11",
                 "issues": "https://github.com/oandermedia/oander-core-bug-fix/issues"
             },
-            "time": "2017-10-06T10:50:38+00:00"
+            "time": "2017-10-17T11:40:21+00:00"
         },
         {
             "name": "oander/module-currency-manager",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-currency-manager.git",
-                "reference": "21f636795813bf490f030004eecb98aed9d32e56"
+                "reference": "5edb067182944306b5efa4dc2c16a6aef1ed4ae7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-currency-manager/zipball/21f636795813bf490f030004eecb98aed9d32e56",
-                "reference": "21f636795813bf490f030004eecb98aed9d32e56",
+                "url": "https://api.github.com/repos/oandermedia/oander-currency-manager/zipball/5edb067182944306b5efa4dc2c16a6aef1ed4ae7",
+                "reference": "5edb067182944306b5efa4dc2c16a6aef1ed4ae7",
                 "shasum": ""
             },
             "require": {
@@ -6497,10 +6497,10 @@
             ],
             "description": "This module provides currency settings.",
             "support": {
-                "source": "https://github.com/oandermedia/oander-currency-manager/tree/1.1.0",
+                "source": "https://github.com/oandermedia/oander-currency-manager/tree/1.1.1",
                 "issues": "https://github.com/oandermedia/oander-currency-manager/issues"
             },
-            "time": "2017-03-08T08:55:39+00:00"
+            "time": "2017-10-11T10:49:06+00:00"
         },
         {
             "name": "oander/module-customer-file-upload",
@@ -6541,16 +6541,16 @@
         },
         {
             "name": "oander/module-discount-badge",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-discount-badge.git",
-                "reference": "832c1040ba29f93e23cdbdc03382a0b4407f4e71"
+                "reference": "207b30e82f57b60739b9faa07255888c3ce62ec8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-discount-badge/zipball/832c1040ba29f93e23cdbdc03382a0b4407f4e71",
-                "reference": "832c1040ba29f93e23cdbdc03382a0b4407f4e71",
+                "url": "https://api.github.com/repos/oandermedia/oander-discount-badge/zipball/207b30e82f57b60739b9faa07255888c3ce62ec8",
+                "reference": "207b30e82f57b60739b9faa07255888c3ce62ec8",
                 "shasum": ""
             },
             "require": {
@@ -6572,10 +6572,10 @@
             ],
             "description": "Extended version of the Oander Category Badge module to show discount badges.",
             "support": {
-                "source": "https://github.com/oandermedia/oander-discount-badge/tree/1.0.3",
+                "source": "https://github.com/oandermedia/oander-discount-badge/tree/1.0.4",
                 "issues": "https://github.com/oandermedia/oander-discount-badge/issues"
             },
-            "time": "2017-03-28T08:16:25+00:00"
+            "time": "2017-10-12T12:07:23+00:00"
         },
         {
             "name": "oander/module-dropdown-products",
