@@ -6385,7 +6385,7 @@
             ],
             "description": "Configurable Product Attribute",
             "support": {
-                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/master",
+                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.8",
                 "issues": "https://github.com/oandermedia/oander-configurable-product-attribute/issues"
             },
             "time": "2017-06-30T13:05:05+00:00"
@@ -7309,7 +7309,7 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/master",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.2",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
             "time": "2017-10-19T07:17:58+00:00"
