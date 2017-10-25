@@ -31,7 +31,14 @@
         "magento/sample-data-media": "100.1.*",
         "magento/module-offline-shipping-sample-data": "100.1.*",
         "oander/module-ajax-catalog": "1.0.*",
-        "oander/module-api-gateway": "0.*",
+        "oander/module-api-base": "1.*",
+        "oander/module-api-gateway": "1.*",
+        "oander/module-api-category": "1.*",
+        "oander/module-api-checkout": "1.*",
+        "oander/module-api-customer": "1.*",
+        "oander/module-api-image": "1.*",
+        "oander/module-api-product": "1.*",
+        "oander/module-api-warehouse-manager": "1.*",
         "oander/module-base": "1.2.*",
         "oander/module-category-badge": "2.2.*",
         "oander/module-category-dropdown": "1.0.*",
@@ -56,8 +63,8 @@
         "oander/module-price-tooltip": "1.0.*",
         "oander/module-product-icons": "1.0.*",
         "oander/module-shipping": "1.0.*",
-        "oander/module-test-base": "1.0.*",
-        "oander/module-warehouse-manager": "1.1.*",
+        "oander/module-test-base": "1.*",
+        "oander/module-warehouse-manager": "1.*",
         "oander/module-warehouse-stock-order": "1.0.*",
         "oander/module-wonder-widget": "1.1.*",
         "oander/theme-hodor": "1.1.*",
@@ -120,7 +127,35 @@
         },
         {
             "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-api-base.git"
+        },
+        {
+            "type": "vcs",
             "url": "git@github.com:oandermedia/oander-api-gateway.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-api-category.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-api-checkout.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-api-customer.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-api-image.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-api-product.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-api-warehouse-manager.git"
         },
         {
             "type": "vcs",

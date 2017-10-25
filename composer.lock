@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3a189ba39d1e87428c37ac9f1dd48666",
+    "content-hash": "324889828dc2939485779817b7a5db75",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -58,21 +58,21 @@
         },
         {
             "name": "algolia/algoliasearch-magento-2",
-            "version": "1.2.1",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/algolia/algoliasearch-magento-2.git",
-                "reference": "ac1b8ca416af08c35b0676bf331f9e0c5b34aed2"
+                "reference": "08ceb5ee82378f362ecf413c9cd4df72d5064796"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/algolia/algoliasearch-magento-2/zipball/ac1b8ca416af08c35b0676bf331f9e0c5b34aed2",
-                "reference": "ac1b8ca416af08c35b0676bf331f9e0c5b34aed2",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-magento-2/zipball/08ceb5ee82378f362ecf413c9cd4df72d5064796",
+                "reference": "08ceb5ee82378f362ecf413c9cd4df72d5064796",
                 "shasum": ""
             },
             "require": {
                 "algolia/algoliasearch-client-php": ">=1.10.2 <2.0",
-                "magento/framework": "~100.0",
+                "magento/framework": "~100.0|~101.0",
                 "php": "~5.5.0|~5.6.0|~7.0"
             },
             "type": "magento2-module",
@@ -89,7 +89,7 @@
                 "MIT"
             ],
             "description": "Algolia Search integration for Magento 2",
-            "time": "2017-09-07T12:52:36+00:00"
+            "time": "2017-10-02T14:32:19+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -6168,20 +6168,175 @@
             "time": "2017-02-21T15:42:55+00:00"
         },
         {
-            "name": "oander/module-api-gateway",
-            "version": "0.0.2",
+            "name": "oander/module-api-base",
+            "version": "1.0.15",
             "source": {
                 "type": "git",
-                "url": "git@github.com:oandermedia/oander-api-gateway.git",
-                "reference": "2106dfe67a0492813c0503dc7f878fa39dd9ff3e"
+                "url": "git@github.com:oandermedia/oander-api-base.git",
+                "reference": "7612146a12963b3d04b9e04441c2bc8f19f68193"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-gateway/zipball/2106dfe67a0492813c0503dc7f878fa39dd9ff3e",
-                "reference": "2106dfe67a0492813c0503dc7f878fa39dd9ff3e",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-base/zipball/7612146a12963b3d04b9e04441c2bc8f19f68193",
+                "reference": "7612146a12963b3d04b9e04441c2bc8f19f68193",
                 "shasum": ""
             },
             "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\ApiBase\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "API Base",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-api-base/tree/1.0.15",
+                "issues": "https://github.com/oandermedia/oander-api-base/issues"
+            },
+            "time": "2017-10-19T11:51:14+00:00"
+        },
+        {
+            "name": "oander/module-api-category",
+            "version": "1.0.7",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-api-category.git",
+                "reference": "e34e4f16d164689b8cccf0d46d02eac2b250fb1e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-category/zipball/e34e4f16d164689b8cccf0d46d02eac2b250fb1e",
+                "reference": "e34e4f16d164689b8cccf0d46d02eac2b250fb1e",
+                "shasum": ""
+            },
+            "require": {
+                "oander/module-api-base": "*",
+                "oander/module-api-gateway": "*",
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\ApiCategory\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Backend API to Category",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-api-category/tree/1.0.7",
+                "issues": "https://github.com/oandermedia/oander-api-category/issues"
+            },
+            "time": "2017-10-19T11:53:25+00:00"
+        },
+        {
+            "name": "oander/module-api-checkout",
+            "version": "1.0.6",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-api-checkout.git",
+                "reference": "509cef81df8815e41eb9a131ddae5daed27342fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-checkout/zipball/509cef81df8815e41eb9a131ddae5daed27342fa",
+                "reference": "509cef81df8815e41eb9a131ddae5daed27342fa",
+                "shasum": ""
+            },
+            "require": {
+                "oander/module-api-base": "*",
+                "oander/module-api-gateway": "*",
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\ApiCheckout\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "API Checkout module.",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-api-checkout/tree/1.0.6",
+                "issues": "https://github.com/oandermedia/oander-api-checkout/issues"
+            },
+            "time": "2017-10-19T11:54:22+00:00"
+        },
+        {
+            "name": "oander/module-api-customer",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-api-customer.git",
+                "reference": "08bf875d5a52c89c8dd3f7233b8603301d4bba41"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-customer/zipball/08bf875d5a52c89c8dd3f7233b8603301d4bba41",
+                "reference": "08bf875d5a52c89c8dd3f7233b8603301d4bba41",
+                "shasum": ""
+            },
+            "require": {
+                "oander/module-api-base": "*",
+                "oander/module-api-gateway": "*",
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\ApiCustomer\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Backend API to Customer",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-api-customer/tree/1.0.5",
+                "issues": "https://github.com/oandermedia/oander-api-customer/issues"
+            },
+            "time": "2017-10-19T11:55:20+00:00"
+        },
+        {
+            "name": "oander/module-api-gateway",
+            "version": "1.0.8",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-api-gateway.git",
+                "reference": "71e50161647f439e1eeaf10a4f27f5b480b34e00"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-gateway/zipball/71e50161647f439e1eeaf10a4f27f5b480b34e00",
+                "reference": "71e50161647f439e1eeaf10a4f27f5b480b34e00",
+                "shasum": ""
+            },
+            "require": {
+                "oander/module-api-base": "*",
                 "oander/module-base": "*",
                 "php": "7.*"
             },
@@ -6199,10 +6354,128 @@
             ],
             "description": "The API Gateway module for ERP connections and import solutions.",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-gateway/tree/0.0.2",
+                "source": "https://github.com/oandermedia/oander-api-gateway/tree/1.0.8",
                 "issues": "https://github.com/oandermedia/oander-api-gateway/issues"
             },
-            "time": "2017-05-05T10:57:32+00:00"
+            "time": "2017-09-13T12:07:27+00:00"
+        },
+        {
+            "name": "oander/module-api-image",
+            "version": "1.0.6",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-api-image.git",
+                "reference": "b5a8e77e7d9c4cc6befee5dd550b158d4937a5b3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-image/zipball/b5a8e77e7d9c4cc6befee5dd550b158d4937a5b3",
+                "reference": "b5a8e77e7d9c4cc6befee5dd550b158d4937a5b3",
+                "shasum": ""
+            },
+            "require": {
+                "oander/module-api-base": "*",
+                "oander/module-api-gateway": "*",
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\ApiImage\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Backend API to Image",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-api-image/tree/1.0.6",
+                "issues": "https://github.com/oandermedia/oander-api-image/issues"
+            },
+            "time": "2017-10-19T11:56:56+00:00"
+        },
+        {
+            "name": "oander/module-api-product",
+            "version": "1.0.17",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-api-product.git",
+                "reference": "99155b99ff04b3d626fb3778e0ea3fed901ac443"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-product/zipball/99155b99ff04b3d626fb3778e0ea3fed901ac443",
+                "reference": "99155b99ff04b3d626fb3778e0ea3fed901ac443",
+                "shasum": ""
+            },
+            "require": {
+                "oander/module-api-base": "*",
+                "oander/module-api-gateway": "*",
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\ApiProduct\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Backend API to Product",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-api-product/tree/1.0.17",
+                "issues": "https://github.com/oandermedia/oander-api-product/issues"
+            },
+            "time": "2017-10-24T11:17:47+00:00"
+        },
+        {
+            "name": "oander/module-api-warehouse-manager",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-api-warehouse-manager.git",
+                "reference": "c1b8fa5286380df356a1599f96b6559358080e52"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-warehouse-manager/zipball/c1b8fa5286380df356a1599f96b6559358080e52",
+                "reference": "c1b8fa5286380df356a1599f96b6559358080e52",
+                "shasum": ""
+            },
+            "require": {
+                "oander/module-api-base": "*",
+                "oander/module-api-gateway": "*",
+                "oander/module-base": "*",
+                "oander/module-warehouse-manager": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\ApiWarehouseManager\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander_ApiWarehouseManager",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-api-warehouse-manager/tree/1.0.3",
+                "issues": "https://github.com/oandermedia/oander-api-warehouse-manager/issues"
+            },
+            "time": "2017-10-19T12:00:09+00:00"
         },
         {
             "name": "oander/module-base",
@@ -7134,16 +7407,16 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.1.0",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "4746ff3483768ae7bef488d8e38e753ce16f03ad"
+                "reference": "797535dbf734b160ccbffae27ab2b98516d30d63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/4746ff3483768ae7bef488d8e38e753ce16f03ad",
-                "reference": "4746ff3483768ae7bef488d8e38e753ce16f03ad",
+                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/797535dbf734b160ccbffae27ab2b98516d30d63",
+                "reference": "797535dbf734b160ccbffae27ab2b98516d30d63",
                 "shasum": ""
             },
             "require": {
@@ -7166,10 +7439,10 @@
             ],
             "description": "Warehouse Manager",
             "support": {
-                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.1.0",
+                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.2.3",
                 "issues": "https://github.com/oandermedia/oander-warehouse-manager/issues"
             },
-            "time": "2017-05-19T09:29:21+00:00"
+            "time": "2017-10-12T09:24:17+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
@@ -7434,16 +7707,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.6",
+            "version": "2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "34a7699e6f31b1ef4035ee36444407cecf9f56aa"
+                "reference": "f4b6a522dfa1fd1e477c9cfe5909d5b31f098c0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/34a7699e6f31b1ef4035ee36444407cecf9f56aa",
-                "reference": "34a7699e6f31b1ef4035ee36444407cecf9f56aa",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/f4b6a522dfa1fd1e477c9cfe5909d5b31f098c0b",
+                "reference": "f4b6a522dfa1fd1e477c9cfe5909d5b31f098c0b",
                 "shasum": ""
             },
             "require": {
@@ -7522,7 +7795,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2017-06-05T06:31:10+00:00"
+            "time": "2017-10-23T05:04:54+00:00"
         },
         {
             "name": "psr/log",
