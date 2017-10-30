@@ -7555,16 +7555,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "2f5ebe4f4ef164f7e812cf21bc61feb308119a03"
+                "reference": "2f9526f4fe604ddd76dae61b64207cc665538073"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/2f5ebe4f4ef164f7e812cf21bc61feb308119a03",
-                "reference": "2f5ebe4f4ef164f7e812cf21bc61feb308119a03",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/2f9526f4fe604ddd76dae61b64207cc665538073",
+                "reference": "2f9526f4fe604ddd76dae61b64207cc665538073",
                 "shasum": ""
             },
             "require": {
@@ -7582,10 +7582,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.3",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.4",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2017-10-30T11:38:18+00:00"
+            "time": "2017-10-30T13:40:59+00:00"
         },
         {
             "name": "oyejorge/less.php",
