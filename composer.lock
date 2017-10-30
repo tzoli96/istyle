@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
-            "version": "1.22.0",
+            "version": "1.23.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/algolia/algoliasearch-client-php.git",
-                "reference": "627e43858977dfa7b3ceeb5aac9d683e89f2eea7"
+                "reference": "4abaf869af55107b2bd61e75ad3ac06ffcd456a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/627e43858977dfa7b3ceeb5aac9d683e89f2eea7",
-                "reference": "627e43858977dfa7b3ceeb5aac9d683e89f2eea7",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/4abaf869af55107b2bd61e75ad3ac06ffcd456a6",
+                "reference": "4abaf869af55107b2bd61e75ad3ac06ffcd456a6",
                 "shasum": ""
             },
             "require": {
@@ -54,7 +54,7 @@
             ],
             "description": "Algolia Search API Client for PHP",
             "homepage": "https://github.com/algolia/algoliasearch-client-php",
-            "time": "2017-10-17T07:08:44+00:00"
+            "time": "2017-10-26T14:10:58+00:00"
         },
         {
             "name": "algolia/algoliasearch-magento-2",
@@ -6169,16 +6169,16 @@
         },
         {
             "name": "oander/module-api-base",
-            "version": "1.0.15",
+            "version": "1.0.16",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-base.git",
-                "reference": "7612146a12963b3d04b9e04441c2bc8f19f68193"
+                "reference": "23fa1663eb3df0a42ac001909112f80413b1bce4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-base/zipball/7612146a12963b3d04b9e04441c2bc8f19f68193",
-                "reference": "7612146a12963b3d04b9e04441c2bc8f19f68193",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-base/zipball/23fa1663eb3df0a42ac001909112f80413b1bce4",
+                "reference": "23fa1663eb3df0a42ac001909112f80413b1bce4",
                 "shasum": ""
             },
             "require": {
@@ -6199,23 +6199,23 @@
             ],
             "description": "API Base",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-base/tree/1.0.15",
+                "source": "https://github.com/oandermedia/oander-api-base/tree/1.0.16",
                 "issues": "https://github.com/oandermedia/oander-api-base/issues"
             },
-            "time": "2017-10-19T11:51:14+00:00"
+            "time": "2017-10-30T09:57:26+00:00"
         },
         {
             "name": "oander/module-api-category",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-category.git",
-                "reference": "e34e4f16d164689b8cccf0d46d02eac2b250fb1e"
+                "reference": "d9440e983f3703bf54ebe8aed89d70e2b2d7ee05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-category/zipball/e34e4f16d164689b8cccf0d46d02eac2b250fb1e",
-                "reference": "e34e4f16d164689b8cccf0d46d02eac2b250fb1e",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-category/zipball/d9440e983f3703bf54ebe8aed89d70e2b2d7ee05",
+                "reference": "d9440e983f3703bf54ebe8aed89d70e2b2d7ee05",
                 "shasum": ""
             },
             "require": {
@@ -6238,10 +6238,10 @@
             ],
             "description": "Backend API to Category",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-category/tree/1.0.7",
+                "source": "https://github.com/oandermedia/oander-api-category/tree/1.0.8",
                 "issues": "https://github.com/oandermedia/oander-api-category/issues"
             },
-            "time": "2017-10-19T11:53:25+00:00"
+            "time": "2017-10-26T12:48:00+00:00"
         },
         {
             "name": "oander/module-api-checkout",
@@ -6323,16 +6323,16 @@
         },
         {
             "name": "oander/module-api-gateway",
-            "version": "1.0.8",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-gateway.git",
-                "reference": "71e50161647f439e1eeaf10a4f27f5b480b34e00"
+                "reference": "afad20096ec05eac8f5aadd87a8898e36cba6c52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-gateway/zipball/71e50161647f439e1eeaf10a4f27f5b480b34e00",
-                "reference": "71e50161647f439e1eeaf10a4f27f5b480b34e00",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-gateway/zipball/afad20096ec05eac8f5aadd87a8898e36cba6c52",
+                "reference": "afad20096ec05eac8f5aadd87a8898e36cba6c52",
                 "shasum": ""
             },
             "require": {
@@ -6354,10 +6354,10 @@
             ],
             "description": "The API Gateway module for ERP connections and import solutions.",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-gateway/tree/1.0.8",
+                "source": "https://github.com/oandermedia/oander-api-gateway/tree/1.0.9",
                 "issues": "https://github.com/oandermedia/oander-api-gateway/issues"
             },
-            "time": "2017-09-13T12:07:27+00:00"
+            "time": "2017-10-26T12:48:00+00:00"
         },
         {
             "name": "oander/module-api-image",
@@ -6553,16 +6553,16 @@
         },
         {
             "name": "oander/module-category-dropdown",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-category-dropdown.git",
-                "reference": "887b622f5cfa54ebb27a6d371df4bfcdb327c095"
+                "reference": "123f50d63d6cddc55ff4e9613cf480a2d686013f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-category-dropdown/zipball/887b622f5cfa54ebb27a6d371df4bfcdb327c095",
-                "reference": "887b622f5cfa54ebb27a6d371df4bfcdb327c095",
+                "url": "https://api.github.com/repos/oandermedia/oander-category-dropdown/zipball/123f50d63d6cddc55ff4e9613cf480a2d686013f",
+                "reference": "123f50d63d6cddc55ff4e9613cf480a2d686013f",
                 "shasum": ""
             },
             "require": {
@@ -6584,10 +6584,10 @@
             ],
             "description": "Oander Category Dropdown module",
             "support": {
-                "source": "https://github.com/oandermedia/oander-category-dropdown/tree/1.0.6",
+                "source": "https://github.com/oandermedia/oander-category-dropdown/tree/1.0.7",
                 "issues": "https://github.com/oandermedia/oander-category-dropdown/issues"
             },
-            "time": "2017-10-09T11:35:49+00:00"
+            "time": "2017-10-26T13:00:16+00:00"
         },
         {
             "name": "oander/module-checkout",
@@ -6658,7 +6658,7 @@
             ],
             "description": "Configurable Product Attribute",
             "support": {
-                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.8",
+                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/master",
                 "issues": "https://github.com/oandermedia/oander-configurable-product-attribute/issues"
             },
             "time": "2017-06-30T13:05:05+00:00"
@@ -7555,16 +7555,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "07a712ce909736387571942a1ebe53e152c47fbb"
+                "reference": "2f5ebe4f4ef164f7e812cf21bc61feb308119a03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/07a712ce909736387571942a1ebe53e152c47fbb",
-                "reference": "07a712ce909736387571942a1ebe53e152c47fbb",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/2f5ebe4f4ef164f7e812cf21bc61feb308119a03",
+                "reference": "2f5ebe4f4ef164f7e812cf21bc61feb308119a03",
                 "shasum": ""
             },
             "require": {
@@ -7582,10 +7582,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.2",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.3",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2017-10-19T07:17:58+00:00"
+            "time": "2017-10-30T11:38:18+00:00"
         },
         {
             "name": "oyejorge/less.php",
