@@ -6361,16 +6361,16 @@
         },
         {
             "name": "oander/module-api-image",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-image.git",
-                "reference": "b5a8e77e7d9c4cc6befee5dd550b158d4937a5b3"
+                "reference": "a242c9e6c15c79f61e3b472fec10ba1724ba3d59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-image/zipball/b5a8e77e7d9c4cc6befee5dd550b158d4937a5b3",
-                "reference": "b5a8e77e7d9c4cc6befee5dd550b158d4937a5b3",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-image/zipball/a242c9e6c15c79f61e3b472fec10ba1724ba3d59",
+                "reference": "a242c9e6c15c79f61e3b472fec10ba1724ba3d59",
                 "shasum": ""
             },
             "require": {
@@ -6393,10 +6393,10 @@
             ],
             "description": "Backend API to Image",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-image/tree/1.0.6",
+                "source": "https://github.com/oandermedia/oander-api-image/tree/1.0.7",
                 "issues": "https://github.com/oandermedia/oander-api-image/issues"
             },
-            "time": "2017-10-19T11:56:56+00:00"
+            "time": "2017-11-07T16:12:24+00:00"
         },
         {
             "name": "oander/module-api-product",
@@ -7555,16 +7555,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "269869208b8028d60414e27c55c98dd64d34e5da"
+                "reference": "fa1fd454aa4babbb51332b345e72fe7aa60ad709"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/269869208b8028d60414e27c55c98dd64d34e5da",
-                "reference": "269869208b8028d60414e27c55c98dd64d34e5da",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/fa1fd454aa4babbb51332b345e72fe7aa60ad709",
+                "reference": "fa1fd454aa4babbb51332b345e72fe7aa60ad709",
                 "shasum": ""
             },
             "require": {
@@ -7582,10 +7582,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.6",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.7",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2017-11-07T13:57:52+00:00"
+            "time": "2017-11-08T09:40:36+00:00"
         },
         {
             "name": "oyejorge/less.php",
