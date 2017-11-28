@@ -49,7 +49,8 @@
         "oander/module-wonder-widget": "1.1.*",
         "oander/theme-hodor": "1.1.*",
         "oander/theme-istyle": "1.0.*",
-        "algolia/algoliasearch-magento-2": "^1.0"
+        "algolia/algoliasearch-magento-2": "^1.0",
+        "ubertheme/module-ubdatamigration-pro": "3.1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
@@ -248,6 +249,10 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/oander-wonder-widget.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/ubertheme-ubdatamigration.git"
         }
     ],
     "extra": {
