@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "56488376cfd339d925642b2d5847f543",
-    "content-hash": "324889828dc2939485779817b7a5db75",
+    "content-hash": "1019e0af08a0e10ee9d1431e06c51dbd",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -55,20 +54,20 @@
             ],
             "description": "Algolia Search API Client for PHP",
             "homepage": "https://github.com/algolia/algoliasearch-client-php",
-            "time": "2017-11-07 09:38:14"
+            "time": "2017-11-07T09:38:14+00:00"
         },
         {
             "name": "algolia/algoliasearch-magento-2",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/algolia/algoliasearch-magento-2.git",
-                "reference": "08ceb5ee82378f362ecf413c9cd4df72d5064796"
+                "reference": "ac01a639b4c06d67be5134575ca87a938000cc9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/algolia/algoliasearch-magento-2/zipball/08ceb5ee82378f362ecf413c9cd4df72d5064796",
-                "reference": "08ceb5ee82378f362ecf413c9cd4df72d5064796",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-magento-2/zipball/ac01a639b4c06d67be5134575ca87a938000cc9e",
+                "reference": "ac01a639b4c06d67be5134575ca87a938000cc9e",
                 "shasum": ""
             },
             "require": {
@@ -90,7 +89,7 @@
                 "MIT"
             ],
             "description": "Algolia Search integration for Magento 2",
-            "time": "2017-10-02 14:32:19"
+            "time": "2017-11-23T16:29:44+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -137,7 +136,7 @@
                 }
             ],
             "description": "Braintree PHP Client Library",
-            "time": "2015-11-19 19:14:47"
+            "time": "2015-11-19T19:14:47+00:00"
         },
         {
             "name": "colinmollenhour/cache-backend-file",
@@ -173,7 +172,7 @@
             ],
             "description": "The stock Zend_Cache_Backend_File backend has extremely poor performance for cleaning by tags making it become unusable as the number of cached items increases. This backend makes many changes resulting in a huge performance boost, especially for tag cleaning.",
             "homepage": "https://github.com/colinmollenhour/Cm_Cache_Backend_File",
-            "time": "2016-05-02 16:24:47"
+            "time": "2016-05-02T16:24:47+00:00"
         },
         {
             "name": "colinmollenhour/cache-backend-redis",
@@ -209,7 +208,7 @@
             ],
             "description": "Zend_Cache backend using Redis with full support for tags.",
             "homepage": "https://github.com/colinmollenhour/Cm_Cache_Backend_Redis",
-            "time": "2016-05-02 16:23:36"
+            "time": "2016-05-02T16:23:36+00:00"
         },
         {
             "name": "colinmollenhour/credis",
@@ -248,7 +247,7 @@
             ],
             "description": "Credis is a lightweight interface to the Redis key-value store which wraps the phpredis library when available for better performance.",
             "homepage": "https://github.com/colinmollenhour/credis",
-            "time": "2015-11-28 01:20:04"
+            "time": "2015-11-28T01:20:04+00:00"
         },
         {
             "name": "colinmollenhour/php-redis-session-abstract",
@@ -286,7 +285,7 @@
             ],
             "description": "A Redis-based session handler with optimistic locking",
             "homepage": "https://github.com/colinmollenhour/php-redis-session-abstract",
-            "time": "2016-08-04 18:05:51"
+            "time": "2016-08-04T18:05:51+00:00"
         },
         {
             "name": "composer/composer",
@@ -361,7 +360,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2016-03-03 15:15:10"
+            "time": "2016-03-03T15:15:10+00:00"
         },
         {
             "name": "composer/semver",
@@ -423,7 +422,7 @@
                 "validation",
                 "versioning"
             ],
-            "time": "2016-08-30 16:08:34"
+            "time": "2016-08-30T16:08:34+00:00"
         },
         {
             "name": "composer/spdx-licenses",
@@ -484,7 +483,7 @@
                 "spdx",
                 "validator"
             ],
-            "time": "2017-04-03 19:08:52"
+            "time": "2017-04-03T19:08:52+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -550,7 +549,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2016-01-25 15:43:01"
+            "time": "2016-01-25T15:43:01+00:00"
         },
         {
             "name": "league/climate",
@@ -599,7 +598,7 @@
                 "php",
                 "terminal"
             ],
-            "time": "2015-01-18 14:31:58"
+            "time": "2015-01-18T14:31:58+00:00"
         },
         {
             "name": "magento/composer",
@@ -919,7 +918,7 @@
                 "composer-installer",
                 "magento"
             ],
-            "time": "2016-10-06 16:05:07"
+            "time": "2016-10-06T16:05:07+00:00"
         },
         {
             "name": "magento/magento2-base",
@@ -1804,36 +1803,6 @@
             "description": "N/A"
         },
         {
-            "name": "magento/module-bundle-sample-data",
-            "version": "100.1.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/module-bundle-sample-data/magento-module-bundle-sample-data-100.1.1.0.zip",
-                "reference": null,
-                "shasum": "4c8ecb3ac158e838bf8dd2f789631664a1ddba73"
-            },
-            "require": {
-                "magento/module-bundle": "100.1.*",
-                "magento/module-catalog-sample-data": "100.1.*",
-                "magento/module-sample-data": "100.1.*",
-                "php": "~5.6.0|7.0.2|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magento\\BundleSampleData\\": ""
-                }
-            },
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "N/A"
-        },
-        {
             "name": "magento/module-cache-invalidate",
             "version": "100.1.3",
             "dist": {
@@ -2098,63 +2067,6 @@
             "description": "N/A"
         },
         {
-            "name": "magento/module-catalog-rule-sample-data",
-            "version": "100.1.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/module-catalog-rule-sample-data/magento-module-catalog-rule-sample-data-100.1.1.0.zip",
-                "reference": null,
-                "shasum": "860218349e688e36972ae31db8b7d56f5a319110"
-            },
-            "require": {
-                "magento/module-catalog-rule": "100.1.*",
-                "magento/module-sample-data": "100.1.*",
-                "php": "~5.6.0|7.0.2|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magento\\CatalogRuleSampleData\\": ""
-                }
-            },
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "N/A"
-        },
-        {
-            "name": "magento/module-catalog-sample-data",
-            "version": "100.1.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/module-catalog-sample-data/magento-module-catalog-sample-data-100.1.1.0.zip",
-                "reference": null,
-                "shasum": "3d3418e81d655534ef2d777b12d987f12ef90df7"
-            },
-            "require": {
-                "magento/module-sample-data": "100.1.*",
-                "php": "~5.6.0|7.0.2|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magento\\CatalogSampleData\\": ""
-                }
-            },
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "N/A"
-        },
-        {
             "name": "magento/module-catalog-search",
             "version": "100.1.4",
             "dist": {
@@ -2385,37 +2297,6 @@
             "description": "N/A"
         },
         {
-            "name": "magento/module-cms-sample-data",
-            "version": "100.1.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/module-cms-sample-data/magento-module-cms-sample-data-100.1.1.0.zip",
-                "reference": null,
-                "shasum": "88fb4e001c98bb98e866aa5556bd2aba2fffd2f0"
-            },
-            "require": {
-                "magento/module-cms": "101.0.*",
-                "magento/module-sample-data": "100.1.*",
-                "magento/module-theme-sample-data": "100.1.*",
-                "magento/sample-data-media": "100.1.*",
-                "php": "~5.6.0|7.0.2|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magento\\CmsSampleData\\": ""
-                }
-            },
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "N/A"
-        },
-        {
             "name": "magento/module-cms-url-rewrite",
             "version": "100.1.2",
             "dist": {
@@ -2553,36 +2434,6 @@
                 ],
                 "psr-4": {
                     "Magento\\ConfigurableProduct\\": ""
-                }
-            },
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "N/A"
-        },
-        {
-            "name": "magento/module-configurable-sample-data",
-            "version": "100.1.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/module-configurable-sample-data/magento-module-configurable-sample-data-100.1.1.0.zip",
-                "reference": null,
-                "shasum": "d47748c5c7235d29814b4f5a5d843eefe26e55c9"
-            },
-            "require": {
-                "magento/module-configurable-product": "100.1.*",
-                "magento/module-product-links-sample-data": "100.1.*",
-                "magento/module-sample-data": "100.1.*",
-                "php": "~5.6.0|7.0.2|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magento\\ConfigurableSampleData\\": ""
                 }
             },
             "license": [
@@ -2806,34 +2657,6 @@
             "description": "N/A"
         },
         {
-            "name": "magento/module-customer-sample-data",
-            "version": "100.1.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/module-customer-sample-data/magento-module-customer-sample-data-100.1.1.0.zip",
-                "reference": null,
-                "shasum": "e8d607f6b2b178a90d4bbd207aa64ef505bf01ec"
-            },
-            "require": {
-                "magento/module-sample-data": "100.1.*",
-                "php": "~5.6.0|7.0.2|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magento\\CustomerSampleData\\": ""
-                }
-            },
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "N/A"
-        },
-        {
             "name": "magento/module-deploy",
             "version": "100.1.5",
             "dist": {
@@ -3040,37 +2863,6 @@
                 ],
                 "psr-4": {
                     "Magento\\DownloadableImportExport\\": ""
-                }
-            },
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "N/A"
-        },
-        {
-            "name": "magento/module-downloadable-sample-data",
-            "version": "100.1.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/module-downloadable-sample-data/magento-module-downloadable-sample-data-100.1.1.0.zip",
-                "reference": null,
-                "shasum": "0121d16781d77cf0a286010c9e87c75207dbb855"
-            },
-            "require": {
-                "magento/module-catalog-sample-data": "100.1.*",
-                "magento/module-downloadable": "100.1.*",
-                "magento/module-sample-data": "100.1.*",
-                "magento/sample-data-media": "100.1.*",
-                "php": "~5.6.0|7.0.2|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magento\\DownloadableSampleData\\": ""
                 }
             },
             "license": [
@@ -3422,36 +3214,6 @@
             "description": "N/A"
         },
         {
-            "name": "magento/module-grouped-product-sample-data",
-            "version": "100.1.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/module-grouped-product-sample-data/magento-module-grouped-product-sample-data-100.1.1.0.zip",
-                "reference": null,
-                "shasum": "c978c27011712f436cf2316f9237e28e3b35f51e"
-            },
-            "require": {
-                "magento/module-catalog-sample-data": "100.1.*",
-                "magento/module-grouped-product": "100.1.*",
-                "magento/module-sample-data": "100.1.*",
-                "php": "~5.6.0|7.0.2|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magento\\GroupedProductSampleData\\": ""
-                }
-            },
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "N/A"
-        },
-        {
             "name": "magento/module-import-export",
             "version": "100.1.3",
             "dist": {
@@ -3676,35 +3438,6 @@
             "description": "N/A"
         },
         {
-            "name": "magento/module-msrp-sample-data",
-            "version": "100.1.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/module-msrp-sample-data/magento-module-msrp-sample-data-100.1.1.0.zip",
-                "reference": null,
-                "shasum": "2330ff939b538160edebdd0edb5f6536d6f098e2"
-            },
-            "require": {
-                "magento/module-msrp": "100.1.*",
-                "magento/module-sample-data": "100.1.*",
-                "php": "~5.6.0|7.0.2|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magento\\MsrpSampleData\\": ""
-                }
-            },
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "N/A"
-        },
-        {
             "name": "magento/module-multishipping",
             "version": "100.1.2",
             "dist": {
@@ -3884,36 +3617,6 @@
             "description": "N/A"
         },
         {
-            "name": "magento/module-offline-shipping-sample-data",
-            "version": "100.1.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/module-offline-shipping-sample-data/magento-module-offline-shipping-sample-data-100.1.1.0.zip",
-                "reference": null,
-                "shasum": "e2a74079b246a4aeaabe18618210d8bdfbbc301c"
-            },
-            "require": {
-                "magento/module-directory": "100.1.*",
-                "magento/module-offline-shipping": "100.1.*",
-                "magento/module-sample-data": "100.1.*",
-                "php": "~5.6.0|7.0.2|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magento\\OfflineShippingSampleData\\": ""
-                }
-            },
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "N/A"
-        },
-        {
             "name": "magento/module-page-cache",
             "version": "100.1.3",
             "dist": {
@@ -4082,35 +3785,6 @@
                 ],
                 "psr-4": {
                     "Magento\\ProductAlert\\": ""
-                }
-            },
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "N/A"
-        },
-        {
-            "name": "magento/module-product-links-sample-data",
-            "version": "100.1.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/module-product-links-sample-data/magento-module-product-links-sample-data-100.1.1.0.zip",
-                "reference": null,
-                "shasum": "75e87f176fa01b050f93a253f81b0028b849dc28"
-            },
-            "require": {
-                "magento/module-catalog-sample-data": "100.1.*",
-                "magento/module-sample-data": "100.1.*",
-                "php": "~5.6.0|7.0.2|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magento\\ProductLinksSampleData\\": ""
                 }
             },
             "license": [
@@ -4310,35 +3984,6 @@
             "description": "N/A"
         },
         {
-            "name": "magento/module-review-sample-data",
-            "version": "100.1.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/module-review-sample-data/magento-module-review-sample-data-100.1.1.0.zip",
-                "reference": null,
-                "shasum": "1ca6edcf7f884443ec0abe5974cf8a144f0e18e9"
-            },
-            "require": {
-                "magento/module-review": "100.1.*",
-                "magento/module-sample-data": "100.1.*",
-                "php": "~5.6.0|7.0.2|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magento\\ReviewSampleData\\": ""
-                }
-            },
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "N/A"
-        },
-        {
             "name": "magento/module-rss",
             "version": "100.1.2",
             "dist": {
@@ -4527,67 +4172,6 @@
                 ],
                 "psr-4": {
                     "Magento\\SalesRule\\": ""
-                }
-            },
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "N/A"
-        },
-        {
-            "name": "magento/module-sales-rule-sample-data",
-            "version": "100.1.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/module-sales-rule-sample-data/magento-module-sales-rule-sample-data-100.1.1.0.zip",
-                "reference": null,
-                "shasum": "4ea2310f5fef918fa9cc01c85cbddc5f73e25d8b"
-            },
-            "require": {
-                "magento/module-catalog-rule-sample-data": "100.1.*",
-                "magento/module-eav": "100.1.*",
-                "magento/module-sales-rule": "100.1.*",
-                "magento/module-sample-data": "100.1.*",
-                "php": "~5.6.0|7.0.2|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magento\\SalesRuleSampleData\\": ""
-                }
-            },
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "N/A"
-        },
-        {
-            "name": "magento/module-sales-sample-data",
-            "version": "100.1.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/module-sales-sample-data/magento-module-sales-sample-data-100.1.1.0.zip",
-                "reference": null,
-                "shasum": "618dd30248476dfa4bb6805217b96ff7ff242d27"
-            },
-            "require": {
-                "magento/module-configurable-sample-data": "100.1.*",
-                "magento/module-sales": "100.1.*",
-                "magento/module-sample-data": "100.1.*",
-                "php": "~5.6.0|7.0.2|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magento\\SalesSampleData\\": ""
                 }
             },
             "license": [
@@ -4969,36 +4553,6 @@
             "description": "N/A"
         },
         {
-            "name": "magento/module-swatches-sample-data",
-            "version": "100.1.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/module-swatches-sample-data/magento-module-swatches-sample-data-100.1.1.0.zip",
-                "reference": null,
-                "shasum": "4634e7dd0c0401783ac297469a349d3f3ba9989b"
-            },
-            "require": {
-                "magento/module-eav": "100.1.*",
-                "magento/module-sample-data": "100.1.*",
-                "magento/module-swatches": "100.1.*",
-                "php": "~5.6.0|7.0.2|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magento\\SwatchesSampleData\\": ""
-                }
-            },
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "N/A"
-        },
-        {
             "name": "magento/module-tax",
             "version": "100.1.2",
             "dist": {
@@ -5075,35 +4629,6 @@
             "description": "N/A"
         },
         {
-            "name": "magento/module-tax-sample-data",
-            "version": "100.1.2",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/module-tax-sample-data/magento-module-tax-sample-data-100.1.2.0.zip",
-                "reference": null,
-                "shasum": "5a39f9a8491bef920e3331e8a39b443c39fcf66c"
-            },
-            "require": {
-                "magento/module-sample-data": "100.1.*",
-                "magento/module-tax": "100.1.*",
-                "php": "~5.6.0|7.0.2|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magento\\TaxSampleData\\": ""
-                }
-            },
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "N/A"
-        },
-        {
             "name": "magento/module-theme",
             "version": "100.1.4",
             "dist": {
@@ -5138,35 +4663,6 @@
                 ],
                 "psr-4": {
                     "Magento\\Theme\\": ""
-                }
-            },
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "N/A"
-        },
-        {
-            "name": "magento/module-theme-sample-data",
-            "version": "100.1.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/module-theme-sample-data/magento-module-theme-sample-data-100.1.1.0.zip",
-                "reference": null,
-                "shasum": "b67b782883944e70e524c26ccd20f2df6d9afe8d"
-            },
-            "require": {
-                "magento/module-sample-data": "100.1.*",
-                "magento/module-theme": "100.1.*",
-                "php": "~5.6.0|7.0.2|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magento\\ThemeSampleData\\": ""
                 }
             },
             "license": [
@@ -5617,37 +5113,6 @@
             "description": "N/A"
         },
         {
-            "name": "magento/module-widget-sample-data",
-            "version": "100.1.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/module-widget-sample-data/magento-module-widget-sample-data-100.1.1.0.zip",
-                "reference": null,
-                "shasum": "893059d2f5d0ef3204b502ac9ee830fed23be35c"
-            },
-            "require": {
-                "magento/module-cms": "101.0.*",
-                "magento/module-sample-data": "100.1.*",
-                "magento/module-theme": "100.1.*",
-                "magento/module-widget": "100.1.*",
-                "php": "~5.6.0|7.0.2|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magento\\WidgetSampleData\\": ""
-                }
-            },
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "N/A"
-        },
-        {
             "name": "magento/module-wishlist",
             "version": "100.1.4",
             "dist": {
@@ -5685,35 +5150,6 @@
                 ],
                 "psr-4": {
                     "Magento\\Wishlist\\": ""
-                }
-            },
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "N/A"
-        },
-        {
-            "name": "magento/module-wishlist-sample-data",
-            "version": "100.1.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/module-wishlist-sample-data/magento-module-wishlist-sample-data-100.1.1.0.zip",
-                "reference": null,
-                "shasum": "fece126bc1b63f56a3888f3bcc7b7a8aff8b4728"
-            },
-            "require": {
-                "magento/module-sample-data": "100.1.*",
-                "magento/module-wishlist": "100.1.*",
-                "php": "~5.6.0|7.0.2|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Magento\\WishlistSampleData\\": ""
                 }
             },
             "license": [
@@ -5913,26 +5349,6 @@
             "description": "eCommerce Platform for Growth (Community Edition)"
         },
         {
-            "name": "magento/sample-data-media",
-            "version": "100.1.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/sample-data-media/magento-sample-data-media-100.1.0.0.zip",
-                "reference": null,
-                "shasum": "345fa8808d82050bcd9026bfdb31658cd6d9c29b"
-            },
-            "type": "magento2-component",
-            "extra": {
-                "map": [
-                    [
-                        "*",
-                        "pub/media"
-                    ]
-                ]
-            },
-            "description": "Sample Data media files"
-        },
-        {
             "name": "magento/theme-adminhtml-backend",
             "version": "100.1.2",
             "dist": {
@@ -6053,7 +5469,7 @@
                 "ZF1",
                 "framework"
             ],
-            "time": "2017-02-27 21:19:07"
+            "time": "2017-02-27T21:19:07+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -6129,7 +5545,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-08-09 17:44:44"
+            "time": "2015-08-09T17:44:44+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
@@ -6166,20 +5582,20 @@
                 "source": "https://github.com/oandermedia/oander-ajax-catalog/tree/1.0.3",
                 "issues": "https://github.com/oandermedia/oander-ajax-catalog/issues"
             },
-            "time": "2017-02-21 15:42:55"
+            "time": "2017-02-21T15:42:55+00:00"
         },
         {
             "name": "oander/module-api-base",
-            "version": "1.0.18",
+            "version": "1.0.19",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-base.git",
-                "reference": "d17604f445d1d6708dea4bd51ad45e3ca8c862cf"
+                "reference": "c3b4c6ebc367b36829609ba3e4270202a0e0d997"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-base/zipball/d17604f445d1d6708dea4bd51ad45e3ca8c862cf",
-                "reference": "d17604f445d1d6708dea4bd51ad45e3ca8c862cf",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-base/zipball/c3b4c6ebc367b36829609ba3e4270202a0e0d997",
+                "reference": "c3b4c6ebc367b36829609ba3e4270202a0e0d997",
                 "shasum": ""
             },
             "require": {
@@ -6200,23 +5616,23 @@
             ],
             "description": "API Base",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-base/tree/1.0.18",
+                "source": "https://github.com/oandermedia/oander-api-base/tree/1.0.19",
                 "issues": "https://github.com/oandermedia/oander-api-base/issues"
             },
-            "time": "2017-11-09 14:54:24"
+            "time": "2017-11-21T15:29:19+00:00"
         },
         {
             "name": "oander/module-api-category",
-            "version": "1.0.8",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-category.git",
-                "reference": "d9440e983f3703bf54ebe8aed89d70e2b2d7ee05"
+                "reference": "648e144c93685f84aebd077d05c481c9443b6561"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-category/zipball/d9440e983f3703bf54ebe8aed89d70e2b2d7ee05",
-                "reference": "d9440e983f3703bf54ebe8aed89d70e2b2d7ee05",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-category/zipball/648e144c93685f84aebd077d05c481c9443b6561",
+                "reference": "648e144c93685f84aebd077d05c481c9443b6561",
                 "shasum": ""
             },
             "require": {
@@ -6239,10 +5655,10 @@
             ],
             "description": "Backend API to Category",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-category/tree/1.0.8",
+                "source": "https://github.com/oandermedia/oander-api-category/tree/1.0.9",
                 "issues": "https://github.com/oandermedia/oander-api-category/issues"
             },
-            "time": "2017-10-26 12:48:00"
+            "time": "2017-11-27T15:10:27+00:00"
         },
         {
             "name": "oander/module-api-checkout",
@@ -6281,7 +5697,7 @@
                 "source": "https://github.com/oandermedia/oander-api-checkout/tree/1.0.6",
                 "issues": "https://github.com/oandermedia/oander-api-checkout/issues"
             },
-            "time": "2017-10-19 11:54:22"
+            "time": "2017-10-19T11:54:22+00:00"
         },
         {
             "name": "oander/module-api-customer",
@@ -6320,20 +5736,20 @@
                 "source": "https://github.com/oandermedia/oander-api-customer/tree/1.0.5",
                 "issues": "https://github.com/oandermedia/oander-api-customer/issues"
             },
-            "time": "2017-10-19 11:55:20"
+            "time": "2017-10-19T11:55:20+00:00"
         },
         {
             "name": "oander/module-api-gateway",
-            "version": "1.0.10",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-gateway.git",
-                "reference": "05bab51200551f7d087e13337819e82ecaf89b44"
+                "reference": "5e896a4836d6a1ccfeccea507a447bb84409fb25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-gateway/zipball/05bab51200551f7d087e13337819e82ecaf89b44",
-                "reference": "05bab51200551f7d087e13337819e82ecaf89b44",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-gateway/zipball/5e896a4836d6a1ccfeccea507a447bb84409fb25",
+                "reference": "5e896a4836d6a1ccfeccea507a447bb84409fb25",
                 "shasum": ""
             },
             "require": {
@@ -6355,23 +5771,23 @@
             ],
             "description": "The API Gateway module for ERP connections and import solutions.",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-gateway/tree/1.0.10",
+                "source": "https://github.com/oandermedia/oander-api-gateway/tree/1.0.11",
                 "issues": "https://github.com/oandermedia/oander-api-gateway/issues"
             },
-            "time": "2017-11-06 07:37:59"
+            "time": "2017-11-28T09:00:58+00:00"
         },
         {
             "name": "oander/module-api-image",
-            "version": "1.0.14",
+            "version": "1.0.19",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-image.git",
-                "reference": "2d0246a1d031bed6fcdac8a1b4025c2f91332885"
+                "reference": "1b15fc9c7dbc5ca78641524a75a987b9f0efa998"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-image/zipball/2d0246a1d031bed6fcdac8a1b4025c2f91332885",
-                "reference": "2d0246a1d031bed6fcdac8a1b4025c2f91332885",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-image/zipball/1b15fc9c7dbc5ca78641524a75a987b9f0efa998",
+                "reference": "1b15fc9c7dbc5ca78641524a75a987b9f0efa998",
                 "shasum": ""
             },
             "require": {
@@ -6394,23 +5810,23 @@
             ],
             "description": "Backend API to Image",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-image/tree/1.0.14",
+                "source": "https://github.com/oandermedia/oander-api-image/tree/1.0.19",
                 "issues": "https://github.com/oandermedia/oander-api-image/issues"
             },
-            "time": "2017-11-15 12:40:07"
+            "time": "2017-11-28T11:48:40+00:00"
         },
         {
             "name": "oander/module-api-product",
-            "version": "1.0.19",
+            "version": "1.0.20",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-product.git",
-                "reference": "de03a6491cdd2d7e71c44c9830c14cee63c64bd3"
+                "reference": "760da7f16f3b6ab2c971d4de9028eaf15e6e9cbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-product/zipball/de03a6491cdd2d7e71c44c9830c14cee63c64bd3",
-                "reference": "de03a6491cdd2d7e71c44c9830c14cee63c64bd3",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-product/zipball/760da7f16f3b6ab2c971d4de9028eaf15e6e9cbe",
+                "reference": "760da7f16f3b6ab2c971d4de9028eaf15e6e9cbe",
                 "shasum": ""
             },
             "require": {
@@ -6433,23 +5849,23 @@
             ],
             "description": "Backend API to Product",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-product/tree/1.0.19",
+                "source": "https://github.com/oandermedia/oander-api-product/tree/1.0.20",
                 "issues": "https://github.com/oandermedia/oander-api-product/issues"
             },
-            "time": "2017-11-09 13:38:40"
+            "time": "2017-11-28T12:39:07+00:00"
         },
         {
             "name": "oander/module-api-warehouse-manager",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-warehouse-manager.git",
-                "reference": "e9da20c9e30a8c5e140bca40ae742332502085bc"
+                "reference": "ee3f5fed10d770caa2e59c6ef12ed147fece352f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-warehouse-manager/zipball/e9da20c9e30a8c5e140bca40ae742332502085bc",
-                "reference": "e9da20c9e30a8c5e140bca40ae742332502085bc",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-warehouse-manager/zipball/ee3f5fed10d770caa2e59c6ef12ed147fece352f",
+                "reference": "ee3f5fed10d770caa2e59c6ef12ed147fece352f",
                 "shasum": ""
             },
             "require": {
@@ -6473,10 +5889,10 @@
             ],
             "description": "Oander_ApiWarehouseManager",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-warehouse-manager/tree/1.0.5",
+                "source": "https://github.com/oandermedia/oander-api-warehouse-manager/tree/1.0.6",
                 "issues": "https://github.com/oandermedia/oander-api-warehouse-manager/issues"
             },
-            "time": "2017-11-09 13:38:40"
+            "time": "2017-11-28T14:11:46+00:00"
         },
         {
             "name": "oander/module-base",
@@ -6513,7 +5929,7 @@
                 "source": "https://github.com/oandermedia/oander-base/tree/1.2.6",
                 "issues": "https://github.com/oandermedia/oander-base/issues"
             },
-            "time": "2017-06-19 13:57:39"
+            "time": "2017-06-19T13:57:39+00:00"
         },
         {
             "name": "oander/module-category-badge",
@@ -6550,20 +5966,20 @@
                 "source": "https://github.com/oandermedia/oander-category-badge/tree/2.2.1",
                 "issues": "https://github.com/oandermedia/oander-category-badge/issues"
             },
-            "time": "2017-03-28 08:22:44"
+            "time": "2017-03-28T08:22:44+00:00"
         },
         {
             "name": "oander/module-category-dropdown",
-            "version": "1.0.9",
+            "version": "1.0.10",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-category-dropdown.git",
-                "reference": "9e4dc6527ce5f3f6a36c5a09344f45f1076b0e18"
+                "reference": "a2b2471e7ba144162900f35c1b4a1cf56a235c5c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-category-dropdown/zipball/9e4dc6527ce5f3f6a36c5a09344f45f1076b0e18",
-                "reference": "9e4dc6527ce5f3f6a36c5a09344f45f1076b0e18",
+                "url": "https://api.github.com/repos/oandermedia/oander-category-dropdown/zipball/a2b2471e7ba144162900f35c1b4a1cf56a235c5c",
+                "reference": "a2b2471e7ba144162900f35c1b4a1cf56a235c5c",
                 "shasum": ""
             },
             "require": {
@@ -6585,10 +6001,10 @@
             ],
             "description": "Oander Category Dropdown module",
             "support": {
-                "source": "https://github.com/oandermedia/oander-category-dropdown/tree/1.0.9",
+                "source": "https://github.com/oandermedia/oander-category-dropdown/tree/1.0.10",
                 "issues": "https://github.com/oandermedia/oander-category-dropdown/issues"
             },
-            "time": "2017-11-15 11:43:50"
+            "time": "2017-11-20T15:21:21+00:00"
         },
         {
             "name": "oander/module-checkout",
@@ -6625,7 +6041,7 @@
                 "source": "https://github.com/oandermedia/oander-checkout/tree/1.0.0",
                 "issues": "https://github.com/oandermedia/oander-checkout/issues"
             },
-            "time": "2017-04-11 09:25:36"
+            "time": "2017-04-11T09:25:36+00:00"
         },
         {
             "name": "oander/module-configurable-product-attribute",
@@ -6659,10 +6075,10 @@
             ],
             "description": "Configurable Product Attribute",
             "support": {
-                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/master",
+                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.8",
                 "issues": "https://github.com/oandermedia/oander-configurable-product-attribute/issues"
             },
-            "time": "2017-06-30 13:05:05"
+            "time": "2017-06-30T13:05:05+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -6699,20 +6115,20 @@
                 "source": "https://github.com/oandermedia/oander-cookie-law/tree/0.0.2",
                 "issues": "https://github.com/oandermedia/oander-cookie-law/issues"
             },
-            "time": "2017-05-26 09:02:44"
+            "time": "2017-05-26T09:02:44+00:00"
         },
         {
             "name": "oander/module-core-bug-fix",
-            "version": "1.0.11",
+            "version": "1.0.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "9bd671cbd21c5ed72176d6b5630cdebcca86794e"
+                "reference": "cc9d2c400d135f3beedaa3d76bcd1e6db6b398a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-core-bug-fix/zipball/9bd671cbd21c5ed72176d6b5630cdebcca86794e",
-                "reference": "9bd671cbd21c5ed72176d6b5630cdebcca86794e",
+                "url": "https://api.github.com/repos/oandermedia/oander-core-bug-fix/zipball/cc9d2c400d135f3beedaa3d76bcd1e6db6b398a5",
+                "reference": "cc9d2c400d135f3beedaa3d76bcd1e6db6b398a5",
                 "shasum": ""
             },
             "require": {
@@ -6732,10 +6148,10 @@
             ],
             "description": "Core bug fixes for Magento 2.x",
             "support": {
-                "source": "https://github.com/oandermedia/oander-core-bug-fix/tree/1.0.11",
+                "source": "https://github.com/oandermedia/oander-core-bug-fix/tree/1.0.12",
                 "issues": "https://github.com/oandermedia/oander-core-bug-fix/issues"
             },
-            "time": "2017-10-17 11:40:21"
+            "time": "2017-11-20T16:11:05+00:00"
         },
         {
             "name": "oander/module-currency-manager",
@@ -6774,7 +6190,7 @@
                 "source": "https://github.com/oandermedia/oander-currency-manager/tree/1.1.1",
                 "issues": "https://github.com/oandermedia/oander-currency-manager/issues"
             },
-            "time": "2017-10-11 10:49:06"
+            "time": "2017-10-11T10:49:06+00:00"
         },
         {
             "name": "oander/module-customer-file-upload",
@@ -6811,7 +6227,7 @@
                 "source": "https://github.com/oandermedia/oander-customer-file-upload/tree/1.0.5",
                 "issues": "https://github.com/oandermedia/oander-customer-file-upload/issues"
             },
-            "time": "2017-09-20 11:42:36"
+            "time": "2017-09-20T11:42:36+00:00"
         },
         {
             "name": "oander/module-discount-badge",
@@ -6849,7 +6265,7 @@
                 "source": "https://github.com/oandermedia/oander-discount-badge/tree/1.0.4",
                 "issues": "https://github.com/oandermedia/oander-discount-badge/issues"
             },
-            "time": "2017-10-12 12:07:23"
+            "time": "2017-10-12T12:07:23+00:00"
         },
         {
             "name": "oander/module-dropdown-products",
@@ -6885,7 +6301,7 @@
                 "source": "https://github.com/oandermedia/oander-dropdown-products/tree/1.0.2",
                 "issues": "https://github.com/oandermedia/oander-dropdown-products/issues"
             },
-            "time": "2017-03-27 13:11:36"
+            "time": "2017-03-27T13:11:36+00:00"
         },
         {
             "name": "oander/module-fancy-filter",
@@ -6922,20 +6338,20 @@
                 "source": "https://github.com/oandermedia/oander-fancy-filter/tree/1.0.6",
                 "issues": "https://github.com/oandermedia/oander-fancy-filter/issues"
             },
-            "time": "2017-10-31 08:58:22"
+            "time": "2017-10-31T08:58:22+00:00"
         },
         {
             "name": "oander/module-free-shipping-display",
-            "version": "1.0.0",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-free-shipping-display.git",
-                "reference": "752e885f5b67efcf9a5849d9fa9960ef4775308c"
+                "reference": "d9629de1ca4022c110c6c82d772764726b1c35a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-free-shipping-display/zipball/752e885f5b67efcf9a5849d9fa9960ef4775308c",
-                "reference": "752e885f5b67efcf9a5849d9fa9960ef4775308c",
+                "url": "https://api.github.com/repos/oandermedia/oander-free-shipping-display/zipball/d9629de1ca4022c110c6c82d772764726b1c35a2",
+                "reference": "d9629de1ca4022c110c6c82d772764726b1c35a2",
                 "shasum": ""
             },
             "require": {
@@ -6956,10 +6372,10 @@
             ],
             "description": "Free shipping appears in the Mini Cart",
             "support": {
-                "source": "https://github.com/oandermedia/oander-free-shipping-display/tree/1.0.0",
+                "source": "https://github.com/oandermedia/oander-free-shipping-display/tree/1.0.2",
                 "issues": "https://github.com/oandermedia/oander-free-shipping-display/issues"
             },
-            "time": "2017-01-18 15:52:35"
+            "time": "2017-11-23T15:47:06+00:00"
         },
         {
             "name": "oander/module-google-tag-manager",
@@ -6997,7 +6413,7 @@
                 "source": "https://github.com/oandermedia/oander-google-tag-manager/tree/1.0.0",
                 "issues": "https://github.com/oandermedia/oander-google-tag-manager/issues"
             },
-            "time": "2017-01-04 11:34:53"
+            "time": "2017-01-04T11:34:53+00:00"
         },
         {
             "name": "oander/module-hungarian-newsletter",
@@ -7035,7 +6451,7 @@
                 "source": "https://github.com/oandermedia/oander-hungarian-newsletter/tree/1.1.1",
                 "issues": "https://github.com/oandermedia/oander-hungarian-newsletter/issues"
             },
-            "time": "2017-04-12 09:11:56"
+            "time": "2017-04-12T09:11:56+00:00"
         },
         {
             "name": "oander/module-indexer",
@@ -7072,20 +6488,20 @@
                 "source": "https://github.com/oandermedia/oander-indexer/tree/1.0.0",
                 "issues": "https://github.com/oandermedia/oander-indexer/issues"
             },
-            "time": "2017-01-26 12:48:44"
+            "time": "2017-01-26T12:48:44+00:00"
         },
         {
             "name": "oander/module-multislider",
-            "version": "1.0.7",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-multi-slider.git",
-                "reference": "430777aada0f830dc1336d8b34455cfd9291d461"
+                "reference": "4cfd13cb550a9236643460534b56c22cd86c0c7a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-multi-slider/zipball/430777aada0f830dc1336d8b34455cfd9291d461",
-                "reference": "430777aada0f830dc1336d8b34455cfd9291d461",
+                "url": "https://api.github.com/repos/oandermedia/oander-multi-slider/zipball/4cfd13cb550a9236643460534b56c22cd86c0c7a",
+                "reference": "4cfd13cb550a9236643460534b56c22cd86c0c7a",
                 "shasum": ""
             },
             "require": {
@@ -7106,10 +6522,10 @@
             ],
             "description": "Slider module",
             "support": {
-                "source": "https://github.com/oandermedia/oander-multi-slider/tree/1.0.7",
+                "source": "https://github.com/oandermedia/oander-multi-slider/tree/1.0.9",
                 "issues": "https://github.com/oandermedia/oander-multi-slider/issues"
             },
-            "time": "2017-10-02 12:11:38"
+            "time": "2017-11-29T09:56:05+00:00"
         },
         {
             "name": "oander/module-name-switcher",
@@ -7146,7 +6562,7 @@
                 "source": "https://github.com/oandermedia/oander-name-switcher/tree/1.0.8",
                 "issues": "https://github.com/oandermedia/oander-name-switcher/issues"
             },
-            "time": "2017-03-17 11:46:52"
+            "time": "2017-03-17T11:46:52+00:00"
         },
         {
             "name": "oander/module-order-comment",
@@ -7183,7 +6599,7 @@
                 "source": "https://github.com/oandermedia/oander-order-comment/tree/1.0.2",
                 "issues": "https://github.com/oandermedia/oander-order-comment/issues"
             },
-            "time": "2017-05-25 08:49:06"
+            "time": "2017-05-25T08:49:06+00:00"
         },
         {
             "name": "oander/module-paypal",
@@ -7220,7 +6636,7 @@
                 "source": "https://github.com/oandermedia/oander-paypal/tree/1.0.0",
                 "issues": "https://github.com/oandermedia/oander-paypal/issues"
             },
-            "time": "2017-01-04 11:42:27"
+            "time": "2017-01-04T11:42:27+00:00"
         },
         {
             "name": "oander/module-pos-locations",
@@ -7257,7 +6673,7 @@
                 "source": "https://github.com/oandermedia/oander-pos-locations/tree/1.0.10",
                 "issues": "https://github.com/oandermedia/oander-pos-locations/issues"
             },
-            "time": "2017-09-20 07:38:39"
+            "time": "2017-09-20T07:38:39+00:00"
         },
         {
             "name": "oander/module-price-tooltip",
@@ -7294,7 +6710,7 @@
                 "source": "https://github.com/oandermedia/oander-price-tooltip/tree/1.0.1",
                 "issues": "https://github.com/oandermedia/oander-price-tooltip/issues"
             },
-            "time": "2017-05-30 12:26:11"
+            "time": "2017-05-30T12:26:11+00:00"
         },
         {
             "name": "oander/module-product-icons",
@@ -7331,7 +6747,7 @@
                 "source": "https://github.com/oandermedia/oander-product-icons/tree/1.0.6",
                 "issues": "https://github.com/oandermedia/oander-product-icons/issues"
             },
-            "time": "2017-09-20 07:34:10"
+            "time": "2017-09-20T07:34:10+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -7368,7 +6784,7 @@
                 "source": "https://github.com/oandermedia/oander-shipping/tree/1.0.2",
                 "issues": "https://github.com/oandermedia/oander-shipping/issues"
             },
-            "time": "2017-09-04 11:05:20"
+            "time": "2017-09-04T11:05:20+00:00"
         },
         {
             "name": "oander/module-test-base",
@@ -7404,7 +6820,7 @@
                 "source": "https://github.com/oandermedia/oander-test-base/tree/1.0.1",
                 "issues": "https://github.com/oandermedia/oander-test-base/issues"
             },
-            "time": "2017-06-19 13:25:11"
+            "time": "2017-06-19T13:25:11+00:00"
         },
         {
             "name": "oander/module-warehouse-manager",
@@ -7443,7 +6859,7 @@
                 "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.2.3",
                 "issues": "https://github.com/oandermedia/oander-warehouse-manager/issues"
             },
-            "time": "2017-10-12 09:24:17"
+            "time": "2017-10-12T09:24:17+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
@@ -7481,20 +6897,20 @@
                 "source": "https://github.com/oandermedia/oander-warehouse-stock-order/tree/1.0.2",
                 "issues": "https://github.com/oandermedia/oander-warehouse-stock-order/issues"
             },
-            "time": "2017-05-31 08:51:05"
+            "time": "2017-05-31T08:51:05+00:00"
         },
         {
             "name": "oander/module-wonder-widget",
-            "version": "1.1.10",
+            "version": "1.1.13",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-wonder-widget.git",
-                "reference": "76ad7099b90b1168e2b658df75a7d88fdddf1cd7"
+                "reference": "ea013f89710f8f75ca772b895897480213eca64a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-wonder-widget/zipball/76ad7099b90b1168e2b658df75a7d88fdddf1cd7",
-                "reference": "76ad7099b90b1168e2b658df75a7d88fdddf1cd7",
+                "url": "https://api.github.com/repos/oandermedia/oander-wonder-widget/zipball/ea013f89710f8f75ca772b895897480213eca64a",
+                "reference": "ea013f89710f8f75ca772b895897480213eca64a",
                 "shasum": ""
             },
             "require": {
@@ -7515,10 +6931,10 @@
             ],
             "description": "Block Builder to build banners and different kind of Magento blocks by Magento 2 Widget Feature.",
             "support": {
-                "source": "https://github.com/oandermedia/oander-wonder-widget/tree/1.1.10",
+                "source": "https://github.com/oandermedia/oander-wonder-widget/tree/1.1.13",
                 "issues": "https://github.com/oandermedia/oander-wonder-widget/issues"
             },
-            "time": "2017-10-04 11:47:15"
+            "time": "2017-11-29T10:27:13+00:00"
         },
         {
             "name": "oander/theme-hodor",
@@ -7552,20 +6968,20 @@
                 "source": "https://github.com/oandermedia/oander-hodor/tree/1.1.20",
                 "issues": "https://github.com/oandermedia/oander-hodor/issues"
             },
-            "time": "2017-10-09 09:23:49"
+            "time": "2017-10-09T09:23:49+00:00"
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.14",
+            "version": "1.0.18",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "0076fbfa3b2385f08eff9d66dcd4b7f4b0fc1ac0"
+                "reference": "8f820e209bc041a31136f208caf8b59718f3db5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/0076fbfa3b2385f08eff9d66dcd4b7f4b0fc1ac0",
-                "reference": "0076fbfa3b2385f08eff9d66dcd4b7f4b0fc1ac0",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/8f820e209bc041a31136f208caf8b59718f3db5a",
+                "reference": "8f820e209bc041a31136f208caf8b59718f3db5a",
                 "shasum": ""
             },
             "require": {
@@ -7583,10 +6999,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.14",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.18",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2017-11-15 12:44:05"
+            "time": "2017-11-23T16:02:03+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -7648,7 +7064,117 @@
                 "php",
                 "stylesheet"
             ],
-            "time": "2017-03-28 22:19:25"
+            "time": "2017-03-28T22:19:25+00:00"
+        },
+        {
+            "name": "paragonie/constant_time_encoding",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paragonie/constant_time_encoding.git",
+                "reference": "d96e63b79a7135a65659ba5b1cb02826172bfedd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paragonie/constant_time_encoding/zipball/d96e63b79a7135a65659ba5b1cb02826172bfedd",
+                "reference": "d96e63b79a7135a65659ba5b1cb02826172bfedd",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3|^7"
+            },
+            "require-dev": {
+                "paragonie/random_compat": "^1.4|^2.0",
+                "phpunit/phpunit": "4.*|5.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ParagonIE\\ConstantTime\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paragon Initiative Enterprises",
+                    "email": "security@paragonie.com",
+                    "homepage": "https://paragonie.com",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Steve 'Sc00bz' Thomas",
+                    "email": "steve@tobtu.com",
+                    "homepage": "https://www.tobtu.com",
+                    "role": "Original Developer"
+                }
+            ],
+            "description": "Constant-time Implementations of RFC 4648 Encoding (Base-64, Base-32, Base-16)",
+            "keywords": [
+                "base16",
+                "base32",
+                "base32_decode",
+                "base32_encode",
+                "base64",
+                "base64_decode",
+                "base64_encode",
+                "bin2hex",
+                "encoding",
+                "hex",
+                "hex2bin",
+                "rfc4648"
+            ],
+            "time": "2016-06-13T01:00:24+00:00"
+        },
+        {
+            "name": "paragonie/random_compat",
+            "version": "v2.0.11",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paragonie/random_compat.git",
+                "reference": "5da4d3c796c275c55f057af5a643ae297d96b4d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/5da4d3c796c275c55f057af5a643ae297d96b4d8",
+                "reference": "5da4d3c796c275c55f057af5a643ae297d96b4d8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*|5.*"
+            },
+            "suggest": {
+                "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "lib/random.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paragon Initiative Enterprises",
+                    "email": "security@paragonie.com",
+                    "homepage": "https://paragonie.com"
+                }
+            ],
+            "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
+            "keywords": [
+                "csprng",
+                "pseudorandom",
+                "random"
+            ],
+            "time": "2017-09-27T21:40:39+00:00"
         },
         {
             "name": "pelago/emogrifier",
@@ -7704,24 +7230,26 @@
             ],
             "description": "Converts CSS styles into inline style attributes in your HTML code",
             "homepage": "http://www.pelagodesign.com/sidecar/emogrifier/",
-            "time": "2015-05-15 11:37:51"
+            "time": "2015-05-15T11:37:51+00:00"
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.7",
+            "version": "2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "f4b6a522dfa1fd1e477c9cfe5909d5b31f098c0b"
+                "reference": "0a58b73037b4cbcbd66bb9aaed910740eb8624e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/f4b6a522dfa1fd1e477c9cfe5909d5b31f098c0b",
-                "reference": "f4b6a522dfa1fd1e477c9cfe5909d5b31f098c0b",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/0a58b73037b4cbcbd66bb9aaed910740eb8624e5",
+                "reference": "0a58b73037b4cbcbd66bb9aaed910740eb8624e5",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "paragonie/constant_time_encoding": "^1",
+                "paragonie/random_compat": "^1.4|^2.0",
+                "php": ">=5.6.1"
             },
             "require-dev": {
                 "phing/phing": "~2.7",
@@ -7796,7 +7324,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2017-10-23 05:04:54"
+            "time": "2017-11-29T06:38:20+00:00"
         },
         {
             "name": "psr/log",
@@ -7843,7 +7371,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10 12:19:37"
+            "time": "2016-10-10T12:19:37+00:00"
         },
         {
             "name": "seld/cli-prompt",
@@ -7891,7 +7419,7 @@
                 "input",
                 "prompt"
             ],
-            "time": "2017-03-18 11:32:45"
+            "time": "2017-03-18T11:32:45+00:00"
         },
         {
             "name": "seld/jsonlint",
@@ -7940,7 +7468,7 @@
                 "parser",
                 "validator"
             ],
-            "time": "2017-06-18 15:11:04"
+            "time": "2017-06-18T15:11:04+00:00"
         },
         {
             "name": "seld/phar-utils",
@@ -7984,7 +7512,7 @@
             "keywords": [
                 "phra"
             ],
-            "time": "2015-10-13 18:44:15"
+            "time": "2015-10-13T18:44:15+00:00"
         },
         {
             "name": "sjparkinson/static-review",
@@ -8037,7 +7565,8 @@
                 }
             ],
             "description": "An extendable framework for version control hooks.",
-            "time": "2014-09-22 08:40:36"
+            "abandoned": "phpro/grumphp",
+            "time": "2014-09-22T08:40:36+00:00"
         },
         {
             "name": "symfony/console",
@@ -8095,11 +7624,11 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2015-07-26 09:08:40"
+            "time": "2015-07-26T09:08:40+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.30",
+            "version": "v2.8.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -8155,11 +7684,11 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-05 15:25:56"
+            "time": "2017-11-05T15:25:56+00:00"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.8.30",
+            "version": "v2.8.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -8204,11 +7733,11 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-07 14:08:47"
+            "time": "2017-11-07T14:08:47+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v3.3.12",
+            "version": "v3.3.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -8253,11 +7782,11 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-05 15:47:03"
+            "time": "2017-11-05T15:47:03+00:00"
         },
         {
             "name": "symfony/process",
-            "version": "v2.8.30",
+            "version": "v2.8.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -8302,7 +7831,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-05 15:25:56"
+            "time": "2017-11-05T15:25:56+00:00"
         },
         {
             "name": "tedivm/jshrink",
@@ -8348,7 +7877,7 @@
                 "javascript",
                 "minifier"
             ],
-            "time": "2014-11-11 03:54:14"
+            "time": "2014-11-11T03:54:14+00:00"
         },
         {
             "name": "tubalmartin/cssmin",
@@ -8392,7 +7921,45 @@
                 "minify",
                 "yui"
             ],
-            "time": "2014-09-22 08:08:50"
+            "time": "2014-09-22T08:08:50+00:00"
+        },
+        {
+            "name": "ubertheme/module-ubdatamigration-pro",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/ubertheme-ubdatamigration.git",
+                "reference": "d8f1251ca708cd580c716a70e8ade7cd1c8b7463"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/ubertheme-ubdatamigration/zipball/d8f1251ca708cd580c716a70e8ade7cd1c8b7463",
+                "reference": "d8f1251ca708cd580c716a70e8ade7cd1c8b7463",
+                "shasum": ""
+            },
+            "require": {
+                "magento/framework": ">=100.0.0 <101",
+                "magento/module-backend": ">=100.0.0",
+                "php": "~5.5.0|~5.6.0|7.0.2|~7.0.6"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Ubertheme\\Ubdatamigration\\": ""
+                }
+            },
+            "license": [
+                "Proprietary"
+            ],
+            "description": "This is a professional edition. This module allow migrate data from Magento 1.x to Magento 2.x",
+            "support": {
+                "source": "https://github.com/oandermedia/ubertheme-ubdatamigration/tree/3.1.0",
+                "issues": "https://github.com/oandermedia/ubertheme-ubdatamigration/issues"
+            },
+            "time": "2017-11-28T16:18:08+00:00"
         },
         {
             "name": "zendframework/zend-code",
@@ -8445,7 +8012,7 @@
                 "code",
                 "zf2"
             ],
-            "time": "2015-05-11 16:17:05"
+            "time": "2015-05-11T16:17:05+00:00"
         },
         {
             "name": "zendframework/zend-config",
@@ -8502,7 +8069,7 @@
                 "config",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-console",
@@ -8552,7 +8119,7 @@
                 "console",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-crypt",
@@ -8604,7 +8171,7 @@
                 "crypt",
                 "zf2"
             ],
-            "time": "2015-11-23 16:33:27"
+            "time": "2015-11-23T16:33:27+00:00"
         },
         {
             "name": "zendframework/zend-di",
@@ -8655,7 +8222,7 @@
                 "di",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-escaper",
@@ -8700,7 +8267,7 @@
                 "escaper",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-eventmanager",
@@ -8746,7 +8313,7 @@
                 "eventmanager",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-filter",
@@ -8802,7 +8369,7 @@
                 "filter",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-form",
@@ -8873,7 +8440,7 @@
                 "form",
                 "zf2"
             ],
-            "time": "2015-09-09 19:11:05"
+            "time": "2015-09-09T19:11:05+00:00"
         },
         {
             "name": "zendframework/zend-http",
@@ -8924,7 +8491,7 @@
                 "http",
                 "zf2"
             ],
-            "time": "2015-09-14 16:11:20"
+            "time": "2015-09-14T16:11:20+00:00"
         },
         {
             "name": "zendframework/zend-i18n",
@@ -8988,7 +8555,7 @@
                 "i18n",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-inputfilter",
@@ -9039,7 +8606,7 @@
                 "inputfilter",
                 "zf2"
             ],
-            "time": "2015-09-09 15:44:54"
+            "time": "2015-09-09T15:44:54+00:00"
         },
         {
             "name": "zendframework/zend-json",
@@ -9093,7 +8660,7 @@
                 "json",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-loader",
@@ -9138,7 +8705,7 @@
                 "loader",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-log",
@@ -9200,7 +8767,7 @@
                 "logging",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-math",
@@ -9251,7 +8818,7 @@
                 "math",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-modulemanager",
@@ -9309,7 +8876,7 @@
                 "modulemanager",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-mvc",
@@ -9397,7 +8964,7 @@
                 "mvc",
                 "zf2"
             ],
-            "time": "2015-09-14 16:32:50"
+            "time": "2015-09-14T16:32:50+00:00"
         },
         {
             "name": "zendframework/zend-serializer",
@@ -9450,7 +9017,7 @@
                 "serializer",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-server",
@@ -9497,7 +9064,7 @@
                 "server",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-servicemanager",
@@ -9547,7 +9114,7 @@
                 "servicemanager",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-soap",
@@ -9599,7 +9166,7 @@
                 "soap",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-stdlib",
@@ -9654,7 +9221,7 @@
                 "stdlib",
                 "zf2"
             ],
-            "time": "2015-07-21 13:55:46"
+            "time": "2015-07-21T13:55:46+00:00"
         },
         {
             "name": "zendframework/zend-text",
@@ -9701,7 +9268,7 @@
                 "text",
                 "zf2"
             ],
-            "time": "2015-05-07 14:55:31"
+            "time": "2015-05-07T14:55:31+00:00"
         },
         {
             "name": "zendframework/zend-uri",
@@ -9749,7 +9316,7 @@
                 "uri",
                 "zf2"
             ],
-            "time": "2015-09-14 16:17:10"
+            "time": "2015-09-14T16:17:10+00:00"
         },
         {
             "name": "zendframework/zend-validator",
@@ -9814,7 +9381,7 @@
                 "validator",
                 "zf2"
             ],
-            "time": "2015-09-08 21:04:17"
+            "time": "2015-09-08T21:04:17+00:00"
         },
         {
             "name": "zendframework/zend-view",
@@ -9891,7 +9458,7 @@
                 "view",
                 "zf2"
             ],
-            "time": "2015-06-16 15:22:37"
+            "time": "2015-06-16T15:22:37+00:00"
         }
     ],
     "packages-dev": [
@@ -9947,7 +9514,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-06-14 21:17:01"
+            "time": "2015-06-14T21:17:01+00:00"
         },
         {
             "name": "fabpot/php-cs-fixer",
@@ -10006,7 +9573,7 @@
             ],
             "description": "A tool to automatically fix PHP code style",
             "abandoned": "friendsofphp/php-cs-fixer",
-            "time": "2017-09-11 14:11:16"
+            "time": "2017-09-11T14:11:16+00:00"
         },
         {
             "name": "lusitanian/oauth",
@@ -10073,7 +9640,7 @@
                 "oauth",
                 "security"
             ],
-            "time": "2015-10-07 00:20:04"
+            "time": "2015-10-07T00:20:04+00:00"
         },
         {
             "name": "pdepend/pdepend",
@@ -10113,7 +9680,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2015-10-16 08:49:58"
+            "time": "2015-10-16T08:49:58+00:00"
         },
         {
             "name": "phpmd/phpmd",
@@ -10178,7 +9745,7 @@
                 "phpmd",
                 "pmd"
             ],
-            "time": "2016-11-23 20:33:32"
+            "time": "2016-11-23T20:33:32+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -10240,7 +9807,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-10-06 15:47:00"
+            "time": "2015-10-06T15:47:00+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -10285,7 +9852,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2013-10-10 15:34:57"
+            "time": "2013-10-10T15:34:57+00:00"
         },
         {
             "name": "phpunit/php-text-template",
@@ -10326,7 +9893,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2015-06-21 13:50:34"
+            "time": "2015-06-21T13:50:34+00:00"
         },
         {
             "name": "phpunit/php-timer",
@@ -10375,7 +9942,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2017-02-26 11:10:40"
+            "time": "2017-02-26T11:10:40+00:00"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -10424,7 +9991,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-02-27 10:12:30"
+            "time": "2017-02-27T10:12:30+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -10498,7 +10065,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-05-02 07:13:40"
+            "time": "2014-05-02T07:13:40+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -10554,7 +10121,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2015-10-02 06:51:40"
+            "time": "2015-10-02T06:51:40+00:00"
         },
         {
             "name": "sebastian/comparator",
@@ -10618,7 +10185,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2017-01-29 09:50:25"
+            "time": "2017-01-29T09:50:25+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -10670,7 +10237,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-05-22 07:24:03"
+            "time": "2017-05-22T07:24:03+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -10720,7 +10287,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2016-08-18 05:49:44"
+            "time": "2016-08-18T05:49:44+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -10787,24 +10354,24 @@
                 "export",
                 "exporter"
             ],
-            "time": "2016-06-17 09:04:28"
+            "time": "2016-06-17T09:04:28+00:00"
         },
         {
             "name": "sebastian/finder-facade",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/finder-facade.git",
-                "reference": "2a6f7f57efc0aa2d23297d9fd9e2a03111a8c0b9"
+                "reference": "4a3174709c2dc565fe5fb26fcf827f6a1fc7b09f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/finder-facade/zipball/2a6f7f57efc0aa2d23297d9fd9e2a03111a8c0b9",
-                "reference": "2a6f7f57efc0aa2d23297d9fd9e2a03111a8c0b9",
+                "url": "https://api.github.com/repos/sebastianbergmann/finder-facade/zipball/4a3174709c2dc565fe5fb26fcf827f6a1fc7b09f",
+                "reference": "4a3174709c2dc565fe5fb26fcf827f6a1fc7b09f",
                 "shasum": ""
             },
             "require": {
-                "symfony/finder": "~2.3|~3.0",
+                "symfony/finder": "~2.3|~3.0|~4.0",
                 "theseer/fdomdocument": "~1.3"
             },
             "type": "library",
@@ -10826,7 +10393,7 @@
             ],
             "description": "FinderFacade is a convenience wrapper for Symfony's Finder component.",
             "homepage": "https://github.com/sebastianbergmann/finder-facade",
-            "time": "2016-02-17 07:02:23"
+            "time": "2017-11-18T17:31:49+00:00"
         },
         {
             "name": "sebastian/phpcpd",
@@ -10877,7 +10444,7 @@
             ],
             "description": "Copy/Paste Detector (CPD) for PHP code.",
             "homepage": "https://github.com/sebastianbergmann/phpcpd",
-            "time": "2013-11-08 09:05:42"
+            "time": "2013-11-08T09:05:42+00:00"
         },
         {
             "name": "sebastian/recursion-context",
@@ -10930,7 +10497,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2016-10-03 07:41:43"
+            "time": "2016-10-03T07:41:43+00:00"
         },
         {
             "name": "sebastian/version",
@@ -10965,7 +10532,7 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2015-06-21 13:59:46"
+            "time": "2015-06-21T13:59:46+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -11040,11 +10607,11 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2014-05-01 03:07:07"
+            "time": "2014-05-01T03:07:07+00:00"
         },
         {
             "name": "symfony/config",
-            "version": "v2.8.30",
+            "version": "v2.8.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -11096,11 +10663,11 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-07 11:56:23"
+            "time": "2017-11-07T11:56:23+00:00"
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.8.30",
+            "version": "v2.8.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
@@ -11159,11 +10726,11 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-07 14:08:47"
+            "time": "2017-11-07T14:08:47+00:00"
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.3.12",
+            "version": "v3.3.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
@@ -11208,11 +10775,11 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-10 19:02:53"
+            "time": "2017-11-10T19:02:53+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.30",
+            "version": "v2.8.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -11257,7 +10824,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-05 15:25:56"
+            "time": "2017-11-05T15:25:56+00:00"
         },
         {
             "name": "theseer/fdomdocument",
@@ -11297,7 +10864,7 @@
             ],
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
-            "time": "2017-06-30 11:53:12"
+            "time": "2017-06-30T11:53:12+00:00"
         }
     ],
     "aliases": [],
