@@ -6553,16 +6553,16 @@
         },
         {
             "name": "oander/module-category-dropdown",
-            "version": "1.0.10",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-category-dropdown.git",
-                "reference": "a2b2471e7ba144162900f35c1b4a1cf56a235c5c"
+                "reference": "ca1acbc15536c025905ffe765f6defd83ef207ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-category-dropdown/zipball/a2b2471e7ba144162900f35c1b4a1cf56a235c5c",
-                "reference": "a2b2471e7ba144162900f35c1b4a1cf56a235c5c",
+                "url": "https://api.github.com/repos/oandermedia/oander-category-dropdown/zipball/ca1acbc15536c025905ffe765f6defd83ef207ab",
+                "reference": "ca1acbc15536c025905ffe765f6defd83ef207ab",
                 "shasum": ""
             },
             "require": {
@@ -6584,10 +6584,10 @@
             ],
             "description": "Oander Category Dropdown module",
             "support": {
-                "source": "https://github.com/oandermedia/oander-category-dropdown/tree/1.0.10",
+                "source": "https://github.com/oandermedia/oander-category-dropdown/tree/1.0.11",
                 "issues": "https://github.com/oandermedia/oander-category-dropdown/issues"
             },
-            "time": "2017-11-20T15:21:21+00:00"
+            "time": "2017-12-04T10:04:36+00:00"
         },
         {
             "name": "oander/module-checkout",
@@ -7555,16 +7555,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.18",
+            "version": "1.0.19",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "8f820e209bc041a31136f208caf8b59718f3db5a"
+                "reference": "9f228b25e31ac478f89a5d96e8ff078ddd67ec3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/8f820e209bc041a31136f208caf8b59718f3db5a",
-                "reference": "8f820e209bc041a31136f208caf8b59718f3db5a",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/9f228b25e31ac478f89a5d96e8ff078ddd67ec3d",
+                "reference": "9f228b25e31ac478f89a5d96e8ff078ddd67ec3d",
                 "shasum": ""
             },
             "require": {
@@ -7582,10 +7582,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.18",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.19",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2017-11-23T16:02:03+00:00"
+            "time": "2017-12-04T13:40:22+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10379,16 +10379,16 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "1.4.11",
+            "version": "1.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "e03f8f67534427a787e21a385a67ec3ca6978ea7"
+                "reference": "1ce90ba27c42e4e44e6d8458241466380b51fa16"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/e03f8f67534427a787e21a385a67ec3ca6978ea7",
-                "reference": "e03f8f67534427a787e21a385a67ec3ca6978ea7",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/1ce90ba27c42e4e44e6d8458241466380b51fa16",
+                "reference": "1ce90ba27c42e4e44e6d8458241466380b51fa16",
                 "shasum": ""
             },
             "require": {
@@ -10424,7 +10424,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-02-27T10:12:30+00:00"
+            "time": "2017-12-04T08:55:13+00:00"
         },
         {
             "name": "phpunit/phpunit",
