@@ -6284,16 +6284,16 @@
         },
         {
             "name": "oander/module-api-customer",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-customer.git",
-                "reference": "08bf875d5a52c89c8dd3f7233b8603301d4bba41"
+                "reference": "41903ee1f8e485e8e329e77f5562934f2ea8d815"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-customer/zipball/08bf875d5a52c89c8dd3f7233b8603301d4bba41",
-                "reference": "08bf875d5a52c89c8dd3f7233b8603301d4bba41",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-customer/zipball/41903ee1f8e485e8e329e77f5562934f2ea8d815",
+                "reference": "41903ee1f8e485e8e329e77f5562934f2ea8d815",
                 "shasum": ""
             },
             "require": {
@@ -6316,10 +6316,10 @@
             ],
             "description": "Backend API to Customer",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-customer/tree/1.0.5",
+                "source": "https://github.com/oandermedia/oander-api-customer/tree/1.0.6",
                 "issues": "https://github.com/oandermedia/oander-api-customer/issues"
             },
-            "time": "2017-10-19T11:55:20+00:00"
+            "time": "2017-12-04T15:51:28+00:00"
         },
         {
             "name": "oander/module-api-gateway",
@@ -7555,16 +7555,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.20",
+            "version": "1.0.21",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "1713b6221deee3430123e8d064a918731bb5b4ff"
+                "reference": "144319ca06e65184fedeba6d89cec7fe79a3ff14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/1713b6221deee3430123e8d064a918731bb5b4ff",
-                "reference": "1713b6221deee3430123e8d064a918731bb5b4ff",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/144319ca06e65184fedeba6d89cec7fe79a3ff14",
+                "reference": "144319ca06e65184fedeba6d89cec7fe79a3ff14",
                 "shasum": ""
             },
             "require": {
@@ -7582,10 +7582,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.20",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.21",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2017-12-04T15:14:16+00:00"
+            "time": "2017-12-05T11:07:19+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -8099,7 +8099,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.31",
+            "version": "v2.8.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -8159,16 +8159,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.8.31",
+            "version": "v2.8.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "10507c5f24577b0ad971b0d22097c823b2b45dd3"
+                "reference": "15ceb6736a9eebd0d99f9e05a62296ab6ce1cf2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/10507c5f24577b0ad971b0d22097c823b2b45dd3",
-                "reference": "10507c5f24577b0ad971b0d22097c823b2b45dd3",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/15ceb6736a9eebd0d99f9e05a62296ab6ce1cf2b",
+                "reference": "15ceb6736a9eebd0d99f9e05a62296ab6ce1cf2b",
                 "shasum": ""
             },
             "require": {
@@ -8204,11 +8204,11 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-07T14:08:47+00:00"
+            "time": "2017-11-19T18:39:05+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.0",
+            "version": "v3.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -8257,7 +8257,7 @@
         },
         {
             "name": "symfony/process",
-            "version": "v2.8.31",
+            "version": "v2.8.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -11044,7 +11044,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.8.31",
+            "version": "v2.8.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -11100,16 +11100,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.8.31",
+            "version": "v2.8.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "bc845111480786a9a68b39578ecdf27d9a6a44ec"
+                "reference": "d3e81e5402c38500770eb5595d78a6d85ea9e412"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/bc845111480786a9a68b39578ecdf27d9a6a44ec",
-                "reference": "bc845111480786a9a68b39578ecdf27d9a6a44ec",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/d3e81e5402c38500770eb5595d78a6d85ea9e412",
+                "reference": "d3e81e5402c38500770eb5595d78a6d85ea9e412",
                 "shasum": ""
             },
             "require": {
@@ -11159,11 +11159,11 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-07T14:08:47+00:00"
+            "time": "2017-11-23T11:13:33+00:00"
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.0",
+            "version": "v3.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
@@ -11212,16 +11212,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.31",
+            "version": "v2.8.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "d819bf267e901727141fe828ae888486fd21236e"
+                "reference": "968ef42161e4bc04200119da473077f9e7015128"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/d819bf267e901727141fe828ae888486fd21236e",
-                "reference": "d819bf267e901727141fe828ae888486fd21236e",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/968ef42161e4bc04200119da473077f9e7015128",
+                "reference": "968ef42161e4bc04200119da473077f9e7015128",
                 "shasum": ""
             },
             "require": {
@@ -11257,7 +11257,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-05T15:25:56+00:00"
+            "time": "2017-11-29T09:33:18+00:00"
         },
         {
             "name": "theseer/fdomdocument",
