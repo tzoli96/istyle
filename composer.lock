@@ -6702,16 +6702,16 @@
         },
         {
             "name": "oander/module-core-bug-fix",
-            "version": "1.0.12",
+            "version": "1.0.13",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "cc9d2c400d135f3beedaa3d76bcd1e6db6b398a5"
+                "reference": "a23e8851c48760452a9091dd2391a06156364288"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-core-bug-fix/zipball/cc9d2c400d135f3beedaa3d76bcd1e6db6b398a5",
-                "reference": "cc9d2c400d135f3beedaa3d76bcd1e6db6b398a5",
+                "url": "https://api.github.com/repos/oandermedia/oander-core-bug-fix/zipball/a23e8851c48760452a9091dd2391a06156364288",
+                "reference": "a23e8851c48760452a9091dd2391a06156364288",
                 "shasum": ""
             },
             "require": {
@@ -6731,10 +6731,10 @@
             ],
             "description": "Core bug fixes for Magento 2.x",
             "support": {
-                "source": "https://github.com/oandermedia/oander-core-bug-fix/tree/1.0.12",
+                "source": "https://github.com/oandermedia/oander-core-bug-fix/tree/1.0.13",
                 "issues": "https://github.com/oandermedia/oander-core-bug-fix/issues"
             },
-            "time": "2017-11-20T16:11:05+00:00"
+            "time": "2017-12-05T12:51:58+00:00"
         },
         {
             "name": "oander/module-currency-manager",
@@ -7555,16 +7555,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.22",
+            "version": "1.0.23",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "41065089756d230b8b84a0663d55574d92441d2c"
+                "reference": "6c2eee2a4839e88642cb9a4e53b1fe1a77d7cd1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/41065089756d230b8b84a0663d55574d92441d2c",
-                "reference": "41065089756d230b8b84a0663d55574d92441d2c",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/6c2eee2a4839e88642cb9a4e53b1fe1a77d7cd1a",
+                "reference": "6c2eee2a4839e88642cb9a4e53b1fe1a77d7cd1a",
                 "shasum": ""
             },
             "require": {
@@ -7582,10 +7582,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.22",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.23",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2017-12-05T11:40:42+00:00"
+            "time": "2017-12-05T13:17:08+00:00"
         },
         {
             "name": "oyejorge/less.php",
