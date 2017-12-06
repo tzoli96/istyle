@@ -4,7 +4,7 @@ WEBROOT="/var/www/istyle.mk/webroot"
 #php bin/magento maintenance:enable 
 
 cp /mnt/efs/istyle/env/env.php ${WEBROOT}/app/etc
-ln -s /mnt/efs/istylek/var/media ${WEBROOT}/media
+ln -s /mnt/efs/istyle/var/media ${WEBROOT}/media
 if [ -d ${WEBROOT}/pub/static];then rmdir ${WEBROOT}/pub/static;else rm ${WEBROOT}/pub/static;fi
 ln -s /mnt/efs/istyle/pub/static ${WEBROOT}/pub/static
 if [ -d ${WEBROOT}/var ];then rmdir ${WEBROOT}/var;else rm ${WEBROOT}/var;fi
