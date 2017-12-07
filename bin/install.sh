@@ -16,17 +16,17 @@ MASTER_ID="i-0a57263aca752890a"
 if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]
 	then 
 		#MASTER WORKFLOW
-#		su - www-data -s /bin/bash -c "cd /var/www/${WEBROOT} && npm install"
-		su - www-data -s /bin/bash -c "cd /var/www/${WEBROOT} && composer install"
-		su - www-data -s /bin/bash -c "cd /var/www/${WEBROOT} && /usr/bin/php bin/magento setup:upgrade"
-#		su - www-data -s /bin/bash -c "cd /var/www/${WEBROOT} && /usr/bin/php bin/magento setup:di:compile"
-		su - www-data -s /bin/bash -c "cd /var/www/${WEBROOT} && /usr/bin/php bin/magento setup:static-content:deploy"
-		su - www-data -s /bin/bash -c "cd /var/www/${WEBROOT} && /usr/bin/php bin/magento setup:upgrade --keep-generated "
+#		/bin/su - www-data -s /bin/bash -c "cd /var/www/${WEBROOT} && /usr/bin/npm install"
+		/bin/su - www-data -s /bin/bash -c "cd /var/www/${WEBROOT} && /usr/bin/composer install"
+		/bin/su - www-data -s /bin/bash -c "cd /var/www/${WEBROOT} && /usr/bin/php bin/magento setup:upgrade"
+#		/bin/su - www-data -s /bin/bash -c "cd /var/www/${WEBROOT} && /usr/bin/php bin/magento setup:di:compile"
+		/bin/su - www-data -s /bin/bash -c "cd /var/www/${WEBROOT} && /usr/bin/php bin/magento setup:static-content:deploy"
+		/bin/su - www-data -s /bin/bash -c "cd /var/www/${WEBROOT} && /usr/bin/php bin/magento setup:upgrade --keep-generated "
 
 	else 
 		#WORKER BRANCH
-		su - www-data -s /bin/bash -c "cd /var/www/${WEBROOT} && composer install"
+		/bin/su - www-data -s /bin/bash -c "cd /var/www/${WEBROOT} && /usr/bin/composer install"
 fi
 
-chown www-data:www-data -R ${WEBROOT}
+/bin/chown www-data:www-data -R ${WEBROOT}
 /etc/init.d/php7.0-fpm restart
