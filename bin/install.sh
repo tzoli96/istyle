@@ -1,7 +1,7 @@
 #!/bin/bash
 WEBROOT="/var/www/istyle.eu/webroot"
 
-#php bin/magento maintenance:enable 
+#/usr/bin/php /var/www/istyle.eu/webroot/bin/magento maintenance:enable 
 
 cp /mnt/efs/istyle/env/env.php ${WEBROOT}/app/etc
 ln -s /mnt/efs/istyle/media/ ${WEBROOT}/media
@@ -22,10 +22,11 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]
 #		/bin/su - www-data -s /bin/bash -c "cd /var/www/${WEBROOT} && /usr/bin/php bin/magento setup:di:compile"
 		/bin/su - www-data -s /bin/bash -c "cd /var/www/${WEBROOT} && /usr/bin/php bin/magento setup:static-content:deploy"
 		/bin/su - www-data -s /bin/bash -c "cd /var/www/${WEBROOT} && /usr/bin/php bin/magento setup:upgrade --keep-generated "
-
 	else 
 		#WORKER BRANCH
+		/usr/bin/php /var/www/istyle.eu/webroot/bin/magento maintenance:enable
 		/bin/su - www-data -s /bin/bash -c "cd /var/www/${WEBROOT} && /usr/bin/composer install"
+		/usr/bin/php /var/www/istyle.eu/webroot/bin/magento maintenance:disable
 fi
 
 /bin/chown www-data:www-data -R ${WEBROOT}
