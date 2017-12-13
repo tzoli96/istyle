@@ -23,7 +23,7 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]
 	then 
 		#MASTER WORKFLOW
 #		cd ${WEBROOT} && /usr/bin/npm install
-		cd ${WEBROOT} && /usr/bin/composer install"
+		cd ${WEBROOT} && /usr/bin/composer install
 		cd ${WEBROOT} && /usr/bin/php ${WEBROOT}/bin/magento maintenance:enable
 		cd ${WEBROOT} && /usr/bin/php ${WEBROOT}/bin/magento setup:upgrade
 		cd ${WEBROOT} && /usr/bin/php ${WEBROOT}/bin/magento setup:di:compile
