@@ -20,5 +20,5 @@ permissions:
 hooks:
   AfterInstall:
     - location: bin/install.sh
-      timeout: 360
+      timeout: 1800
       runas: root
