@@ -3,12 +3,10 @@
 WEBROOT="/var/www/istyle.eu/webroot"
 EFS="/mnt/efs/istyle"
 
-#/usr/bin/php /var/www/istyle.eu/webroot/bin/magento maintenance:enable 
-
 cp ${EFS}/env/env.php ${WEBROOT}/app/etc/
 
-[ -L ${WEBROOT}/media ] && rm ${WEBROOT}/media
-ln -s ${EFS}/media ${WEBROOT}/
+[ -L ${WEBROOT}/pub/media ] && rm ${WEBROOT}/pub/media
+ln -s ${EFS}/media ${WEBROOT}/pub/
 
 [ -L ${WEBROOT}/pub/static ] && rm ${WEBROOT}/pub/static || rm -rf ${WEBROOT}/pub/static
 ln -s ${EFS}/pub/static ${WEBROOT}/pub/
