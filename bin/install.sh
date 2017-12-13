@@ -29,7 +29,7 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]
 		cd ${WEBROOT} && /usr/bin/php ${WEBROOT}/bin/magento setup:di:compile
 		cd ${WEBROOT} && /usr/bin/php ${WEBROOT}/bin/magento setup:static-content:deploy en_US
 		cd ${WEBROOT} && /usr/bin/php ${WEBROOT}/bin/magento setup:static-content:deploy mk_MK
-#		cd ${WEBROOT} && /usr/bin/php ${WEBROOT}/bin/magento setup:static-content:deploy
+		cd ${WEBROOT} && /usr/bin/php ${WEBROOT}/bin/magento setup:static-content:deploy
 #		cd ${WEBROOT} && /usr/bin/php ${WEBROOT}/bin/magento setup:upgrade --keep-generated
 		cd ${WEBROOT} && /usr/bin/php ${WEBROOT}/bin/magento maintenance:disable
 	else 
