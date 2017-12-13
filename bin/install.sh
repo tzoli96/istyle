@@ -9,7 +9,7 @@ cp ${EFS}/env/env.php ${WEBROOT}/app/etc/
 [ -L ${WEBROOT}/media ] && rm ${WEBROOT}/media
 ln -s ${EFS}/media ${WEBROOT}/
 
-[ -L ${WEBROOT}/pub/static ] && rm ${WEBROOT}/pub/static
+[ -L ${WEBROOT}/pub/static ] && rm ${WEBROOT}/pub/static || rm -rf ${WEBROOT}/pub/static
 ln -s ${EFS}/pub/static ${WEBROOT}/pub/
 
 [ -L ${WEBROOT}/var ] && rm ${WEBROOT}/var
@@ -23,14 +23,14 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]
 		#MASTER WORKFLOW
 #		/bin/su - www-data -s /bin/bash -c "cd ${WEBROOT} && /usr/bin/npm install"
 		/bin/su - www-data -s /bin/bash -c "cd ${WEBROOT} && /usr/bin/composer install"
-		/bin/su - www-data -s /bin/bash -c "cd ${WEBROOT} && /usr/bin/php bin/magento maintenance:enable
+#		/bin/su - www-data -s /bin/bash -c "cd ${WEBROOT} && /usr/bin/php bin/magento maintenance:enable
 		/bin/su - www-data -s /bin/bash -c "cd ${WEBROOT} && /usr/bin/php bin/magento setup:upgrade"
 		/bin/su - www-data -s /bin/bash -c "cd ${WEBROOT} && /usr/bin/php bin/magento setup:di:compile"
 		/bin/su - www-data -s /bin/bash -c "cd ${WEBROOT} && /usr/bin/php bin/magento setup:static-content:deploy en_US"
 		/bin/su - www-data -s /bin/bash -c "cd ${WEBROOT} && /usr/bin/php bin/magento setup:static-content:deploy mk_MK"
 #		/bin/su - www-data -s /bin/bash -c "cd ${WEBROOT} && /usr/bin/php bin/magento setup:static-content:deploy"
 #		/bin/su - www-data -s /bin/bash -c "cd ${WEBROOT} && /usr/bin/php bin/magento setup:upgrade --keep-generated"
-		/bin/su - www-data -s /bin/bash -c "cd ${WEBROOT} && /usr/bin/php bin/magento maintenance:disable
+#		/bin/su - www-data -s /bin/bash -c "cd ${WEBROOT} && /usr/bin/php bin/magento maintenance:disable
 	else 
 		#WORKER BRANCH
 #		/usr/bin/php ${WEBROOT}/bin/magento maintenance:enable
