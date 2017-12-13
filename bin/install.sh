@@ -39,4 +39,5 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]
 fi
 
 /bin/chown www-data:www-data -R /var/www/istyle.eu/
+/bin/chown www-data:www-data -R /mnt/efs/istyle/var/
 /etc/init.d/php7.0-fpm restart
