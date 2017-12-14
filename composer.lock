@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cd559abbc3db47a0f91daca9f007f1f4",
+    "content-hash": "98ca7de868ac6fd03a64270b997dba24",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -484,74 +484,6 @@
                 "validator"
             ],
             "time": "2017-04-03T19:08:52+00:00"
-        },
-        {
-            "name": "innobyte/module-checkout-success",
-            "version": "0.0.1",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/innobyte-checkout-success.git",
-                "reference": "aef91b0517b1faa08367904f974f9b14574b2ce7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/innobyte-checkout-success/zipball/aef91b0517b1faa08367904f974f9b14574b2ce7",
-                "reference": "aef91b0517b1faa08367904f974f9b14574b2ce7",
-                "shasum": ""
-            },
-            "require": {
-                "magento/module-checkout": "^100.1.2",
-                "php": "7.0.2|7.0.4|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Innobyte\\CheckoutSuccess\\": ""
-                }
-            },
-            "description": "Innobyte CheckoutSuccess Module",
-            "support": {
-                "source": "https://github.com/oandermedia/innobyte-checkout-success/tree/master",
-                "issues": "https://github.com/oandermedia/innobyte-checkout-success/issues"
-            },
-            "time": "2017-12-13T16:02:50+00:00"
-        },
-        {
-            "name": "innobyte/module-nlb",
-            "version": "0.0.1",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/innobyte-nlbpayment.git",
-                "reference": "6f4aa560779b5484e94358bb18cd46b9f68be1e7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/innobyte-nlbpayment/zipball/6f4aa560779b5484e94358bb18cd46b9f68be1e7",
-                "reference": "6f4aa560779b5484e94358bb18cd46b9f68be1e7",
-                "shasum": ""
-            },
-            "require": {
-                "magento/module-checkout": "^100.1.2",
-                "php": "7.0.2|7.0.4|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Innobyte\\NLB\\": ""
-                }
-            },
-            "description": "Innobyte NLB Payment Module",
-            "support": {
-                "source": "https://github.com/oandermedia/innobyte-nlbpayment/tree/master",
-                "issues": "https://github.com/oandermedia/innobyte-nlbpayment/issues"
-            },
-            "time": "2017-12-13T15:45:44+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -7040,16 +6972,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.23",
+            "version": "1.0.24",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "6c2eee2a4839e88642cb9a4e53b1fe1a77d7cd1a"
+                "reference": "9ab256eae0c9753f06d5461e01e5aae0ce4d02c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/6c2eee2a4839e88642cb9a4e53b1fe1a77d7cd1a",
-                "reference": "6c2eee2a4839e88642cb9a4e53b1fe1a77d7cd1a",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/9ab256eae0c9753f06d5461e01e5aae0ce4d02c9",
+                "reference": "9ab256eae0c9753f06d5461e01e5aae0ce4d02c9",
                 "shasum": ""
             },
             "require": {
@@ -7067,10 +6999,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.23",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.24",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2017-12-05T13:17:08+00:00"
+            "time": "2017-12-14T11:09:13+00:00"
         },
         {
             "name": "oyejorge/less.php",
