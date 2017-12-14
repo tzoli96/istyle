@@ -50,7 +50,6 @@
         "oander/theme-hodor": "1.1.*",
         "oander/theme-istyle": "1.0.*",
         "algolia/algoliasearch-magento-2": "^1.0",
-        "ubertheme/module-ubdatamigration-pro": "3.1.0",
         "innobyte/module-nlb": "0.0.1",
         "innobyte/module-checkout-success": "0.0.1"
     },
@@ -251,10 +250,6 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/oander-wonder-widget.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:oandermedia/ubertheme-ubdatamigration.git"
         },
         {
             "type": "vcs",
