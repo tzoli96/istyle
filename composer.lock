@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "533c838df62c8c27811416318fde4fe0",
+    "content-hash": "c4fb1b0fbf2413c28c187a59eb28af49",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -484,6 +484,74 @@
                 "validator"
             ],
             "time": "2017-04-03T19:08:52+00:00"
+        },
+        {
+            "name": "innobyte/module-checkout-success",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/innobyte-checkout-success.git",
+                "reference": "ecd1f914e5ae0767de071c79892f1ad7956978ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/innobyte-checkout-success/zipball/ecd1f914e5ae0767de071c79892f1ad7956978ed",
+                "reference": "ecd1f914e5ae0767de071c79892f1ad7956978ed",
+                "shasum": ""
+            },
+            "require": {
+                "magento/module-checkout": "^100.1.2",
+                "php": "7.0.2|7.0.4|~7.0.6"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Innobyte\\CheckoutSuccess\\": ""
+                }
+            },
+            "description": "Innobyte CheckoutSuccess Module",
+            "support": {
+                "source": "https://github.com/oandermedia/innobyte-checkout-success/tree/0.0.2",
+                "issues": "https://github.com/oandermedia/innobyte-checkout-success/issues"
+            },
+            "time": "2017-12-14T12:26:47+00:00"
+        },
+        {
+            "name": "innobyte/module-nlb",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/innobyte-nlbpayment.git",
+                "reference": "6f4aa560779b5484e94358bb18cd46b9f68be1e7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/innobyte-nlbpayment/zipball/6f4aa560779b5484e94358bb18cd46b9f68be1e7",
+                "reference": "6f4aa560779b5484e94358bb18cd46b9f68be1e7",
+                "shasum": ""
+            },
+            "require": {
+                "magento/module-checkout": "^100.1.2",
+                "php": "7.0.2|7.0.4|~7.0.6"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Innobyte\\NLB\\": ""
+                }
+            },
+            "description": "Innobyte NLB Payment Module",
+            "support": {
+                "source": "https://github.com/oandermedia/innobyte-nlbpayment/tree/master",
+                "issues": "https://github.com/oandermedia/innobyte-nlbpayment/issues"
+            },
+            "time": "2017-12-13T15:45:44+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -6854,16 +6922,16 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.2.3",
+            "version": "1.2.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "797535dbf734b160ccbffae27ab2b98516d30d63"
+                "reference": "43d0840febbe59f2fa370dbac32874d02f0bee59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/797535dbf734b160ccbffae27ab2b98516d30d63",
-                "reference": "797535dbf734b160ccbffae27ab2b98516d30d63",
+                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/43d0840febbe59f2fa370dbac32874d02f0bee59",
+                "reference": "43d0840febbe59f2fa370dbac32874d02f0bee59",
                 "shasum": ""
             },
             "require": {
@@ -6886,10 +6954,10 @@
             ],
             "description": "Warehouse Manager",
             "support": {
-                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.2.3",
+                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.2.5",
                 "issues": "https://github.com/oandermedia/oander-warehouse-manager/issues"
             },
-            "time": "2017-10-12T09:24:17+00:00"
+            "time": "2017-12-15T12:49:27+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
