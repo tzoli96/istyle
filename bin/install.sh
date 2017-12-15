@@ -24,7 +24,7 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
    # INSTALL CODE
    # cd ${WEBROOT} && npm install
    cd ${WEBROOT} && composer install
-   cd ${WEBROOT} && php bin/magento maintenance:enable
+#   cd ${WEBROOT} && php bin/magento maintenance:enable
 
    # CHECK IF DB UPGRADE NEEDED
    if php ${WEBROOT}bin/magento setup:db:status | grep -q "up to date"; then
