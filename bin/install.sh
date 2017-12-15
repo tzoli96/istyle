@@ -26,6 +26,9 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
    cd ${WEBROOT} && composer install
 #   cd ${WEBROOT} && php bin/magento maintenance:enable
 
+   # UPDATE THE ENVIRONMENT FILE WITH NEW DATABASES
+   cp ${EFS}/env/upgrade_env.php ${WEBROOT}/app/etc/env.php
+
    # CHECK IF DB UPGRADE NEEDED
    if php ${WEBROOT}bin/magento setup:db:status | grep -q "up to date"; then
       # MAGENTO UPGRADE PROCESS WITHOUT DB CHANGE
@@ -36,9 +39,6 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
       mysqldump istylem2 | mysql istylem2_upg
       mysql -e 'DROP DATABASE istylem2p_upg; CREATE DATABASE istylem2p_upg;'
       mysqldump istylem2p | mysql istylem2p_upg
-
-      # UPDATE THE ENVIRONMENT FILE WITH NEW DATABASES
-      cp ${EFS}/env/upgrade_env.php ${WEBROOT}/app/etc/env.php
 
       # UPGRADE MAGENTO WITH DB CHANGE
       cd ${WEBROOT} && php bin/magento setup:upgrade
