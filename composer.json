@@ -10,6 +10,7 @@
     "require": {
         "magento/product-community-edition": "2.1.5",
         "composer/composer": "@alpha",
+        "oander/language-mk-mk": "1.*",
         "oander/module-ajax-catalog": "1.0.*",
         "oander/module-api-base": "1.*",
         "oander/module-api-gateway": "1.*",
@@ -100,6 +101,10 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/theme-istyle.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-language-mk-mk.git"
         },
         {
             "type": "vcs",
