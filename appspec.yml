@@ -18,6 +18,10 @@ permissions:
     type:
       - file
 hooks:
+  BeforeInstall:
+    - location: bin/beforeinstall.sh
+      timeout: 180
+      runas: root
   AfterInstall:
     - location: bin/install.sh
       timeout: 1800
