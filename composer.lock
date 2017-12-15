@@ -6045,16 +6045,16 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.8",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "2e4d1f910b09e580f712af764a733cbb488656b2"
+                "reference": "28ff93e83477b48db25ef071e84b277b0333d412"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/2e4d1f910b09e580f712af764a733cbb488656b2",
-                "reference": "2e4d1f910b09e580f712af764a733cbb488656b2",
+                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/28ff93e83477b48db25ef071e84b277b0333d412",
+                "reference": "28ff93e83477b48db25ef071e84b277b0333d412",
                 "shasum": ""
             },
             "require": {
@@ -6075,10 +6075,10 @@
             ],
             "description": "Configurable Product Attribute",
             "support": {
-                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.8",
+                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.11",
                 "issues": "https://github.com/oandermedia/oander-configurable-product-attribute/issues"
             },
-            "time": "2017-06-30T13:05:05+00:00"
+            "time": "2017-12-15T09:47:40+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -6529,16 +6529,16 @@
         },
         {
             "name": "oander/module-name-switcher",
-            "version": "1.0.8",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-name-switcher.git",
-                "reference": "9d1df25f7c7d2a35cb3a7545bd8d1f48947963fa"
+                "reference": "b6b38dda1e1904ba928732612b8da1e9519a8eb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-name-switcher/zipball/9d1df25f7c7d2a35cb3a7545bd8d1f48947963fa",
-                "reference": "9d1df25f7c7d2a35cb3a7545bd8d1f48947963fa",
+                "url": "https://api.github.com/repos/oandermedia/oander-name-switcher/zipball/b6b38dda1e1904ba928732612b8da1e9519a8eb6",
+                "reference": "b6b38dda1e1904ba928732612b8da1e9519a8eb6",
                 "shasum": ""
             },
             "require": {
@@ -6559,10 +6559,10 @@
             ],
             "description": "This module provides a feature to switch the last name and first name with each other",
             "support": {
-                "source": "https://github.com/oandermedia/oander-name-switcher/tree/1.0.8",
+                "source": "https://github.com/oandermedia/oander-name-switcher/tree/1.0.9",
                 "issues": "https://github.com/oandermedia/oander-name-switcher/issues"
             },
-            "time": "2017-03-17T11:46:52+00:00"
+            "time": "2017-12-14T16:11:28+00:00"
         },
         {
             "name": "oander/module-order-comment",
@@ -6938,16 +6938,16 @@
         },
         {
             "name": "oander/theme-hodor",
-            "version": "1.1.20",
+            "version": "1.1.21",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-hodor.git",
-                "reference": "dbe88a65d07a6b8a489ca059158e658e6e211cc5"
+                "reference": "fa3671f911bb6e7b638db5f49f3f1f6a5a7f9f50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-hodor/zipball/dbe88a65d07a6b8a489ca059158e658e6e211cc5",
-                "reference": "dbe88a65d07a6b8a489ca059158e658e6e211cc5",
+                "url": "https://api.github.com/repos/oandermedia/oander-hodor/zipball/fa3671f911bb6e7b638db5f49f3f1f6a5a7f9f50",
+                "reference": "fa3671f911bb6e7b638db5f49f3f1f6a5a7f9f50",
                 "shasum": ""
             },
             "require": {
@@ -6965,23 +6965,23 @@
             ],
             "description": "Hodor template",
             "support": {
-                "source": "https://github.com/oandermedia/oander-hodor/tree/1.1.20",
+                "source": "https://github.com/oandermedia/oander-hodor/tree/1.1.21",
                 "issues": "https://github.com/oandermedia/oander-hodor/issues"
             },
-            "time": "2017-10-09T09:23:49+00:00"
+            "time": "2017-12-14T15:04:29+00:00"
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.24",
+            "version": "1.0.27",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "9ab256eae0c9753f06d5461e01e5aae0ce4d02c9"
+                "reference": "4aa8bfc6c6c37c954e3e0eb11d73e472f015c9dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/9ab256eae0c9753f06d5461e01e5aae0ce4d02c9",
-                "reference": "9ab256eae0c9753f06d5461e01e5aae0ce4d02c9",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/4aa8bfc6c6c37c954e3e0eb11d73e472f015c9dc",
+                "reference": "4aa8bfc6c6c37c954e3e0eb11d73e472f015c9dc",
                 "shasum": ""
             },
             "require": {
@@ -6999,10 +6999,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.24",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.27",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2017-12-14T11:09:13+00:00"
+            "time": "2017-12-15T09:54:33+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -7625,7 +7625,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.1",
+            "version": "v3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -10580,7 +10580,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.1",
+            "version": "v3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
