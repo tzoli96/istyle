@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c4fb1b0fbf2413c28c187a59eb28af49",
+    "content-hash": "8567d98bc2b5c50bdff5f1548e99fdf1",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -548,7 +548,7 @@
             },
             "description": "Innobyte NLB Payment Module",
             "support": {
-                "source": "https://github.com/oandermedia/innobyte-nlbpayment/tree/master",
+                "source": "https://github.com/oandermedia/innobyte-nlbpayment/tree/0.0.1",
                 "issues": "https://github.com/oandermedia/innobyte-nlbpayment/issues"
             },
             "time": "2017-12-13T15:45:44+00:00"
@@ -5720,6 +5720,45 @@
             "time": "2017-11-21T15:29:19+00:00"
         },
         {
+            "name": "oander/module-api-cache",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-api-cache.git",
+                "reference": "291d5d0cc8e733fea2d7151c7955876e8b30c933"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-cache/zipball/291d5d0cc8e733fea2d7151c7955876e8b30c933",
+                "reference": "291d5d0cc8e733fea2d7151c7955876e8b30c933",
+                "shasum": ""
+            },
+            "require": {
+                "oander/module-api-base": "*",
+                "oander/module-api-gateway": "*",
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\ApiCache\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Backend API to Flush Cache",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-api-cache/tree/1.0.0",
+                "issues": "https://github.com/oandermedia/oander-api-cache/issues"
+            },
+            "time": "2017-11-27T15:42:24+00:00"
+        },
+        {
             "name": "oander/module-api-category",
             "version": "1.0.9",
             "source": {
@@ -5912,6 +5951,83 @@
                 "issues": "https://github.com/oandermedia/oander-api-image/issues"
             },
             "time": "2017-12-07T12:59:03+00:00"
+        },
+        {
+            "name": "oander/module-api-index",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-api-index.git",
+                "reference": "ecebd77633d089113d922311cafab30e95cdae41"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-index/zipball/ecebd77633d089113d922311cafab30e95cdae41",
+                "reference": "ecebd77633d089113d922311cafab30e95cdae41",
+                "shasum": ""
+            },
+            "require": {
+                "oander/module-api-base": "*",
+                "oander/module-api-gateway": "*",
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\ApiIndex\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Backend API to Reindex",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-api-index/tree/1.0.1",
+                "issues": "https://github.com/oandermedia/oander-api-index/issues"
+            },
+            "time": "2017-11-27T15:42:24+00:00"
+        },
+        {
+            "name": "oander/module-api-order-attachment",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-api-order-attachment.git",
+                "reference": "e6c6830d06ad20661584c53dff9666a822f3dee9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-order-attachment/zipball/e6c6830d06ad20661584c53dff9666a822f3dee9",
+                "reference": "e6c6830d06ad20661584c53dff9666a822f3dee9",
+                "shasum": ""
+            },
+            "require": {
+                "oander/module-base": "*",
+                "oander/module-order-attachment": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\ApiOrderAttachment\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Api Gateway Order Attachment",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-api-order-attachment/tree/1.0.0",
+                "issues": "https://github.com/oandermedia/oander-api-order-attachment/issues"
+            },
+            "time": "2017-12-14T16:47:52+00:00"
         },
         {
             "name": "oander/module-api-product",
@@ -6663,6 +6779,43 @@
             "time": "2017-12-14T16:11:28+00:00"
         },
         {
+            "name": "oander/module-order-attachment",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-order-attachment.git",
+                "reference": "86235b93f7423adc13ac7b43e3e9f90a248c2c18"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-order-attachment/zipball/86235b93f7423adc13ac7b43e3e9f90a248c2c18",
+                "reference": "86235b93f7423adc13ac7b43e3e9f90a248c2c18",
+                "shasum": ""
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\OrderAttachment\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Order Attachment",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-order-attachment/tree/1.0.2",
+                "issues": "https://github.com/oandermedia/oander-order-attachment/issues"
+            },
+            "time": "2017-12-15T09:55:59+00:00"
+        },
+        {
             "name": "oander/module-order-comment",
             "version": "1.0.2",
             "source": {
@@ -6846,6 +6999,81 @@
                 "issues": "https://github.com/oandermedia/oander-product-icons/issues"
             },
             "time": "2017-09-20T07:34:10+00:00"
+        },
+        {
+            "name": "oander/module-salesforce",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-salesforce.git",
+                "reference": "709018d95df3fa1c233fcebc920657f59e78fe49"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-salesforce/zipball/709018d95df3fa1c233fcebc920657f59e78fe49",
+                "reference": "709018d95df3fa1c233fcebc920657f59e78fe49",
+                "shasum": ""
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\Salesforce\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "salesforce",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-salesforce/tree/1.0.0",
+                "issues": "https://github.com/oandermedia/oander-salesforce/issues"
+            },
+            "time": "2017-12-14T14:06:34+00:00"
+        },
+        {
+            "name": "oander/module-salesforce-widget",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-salesforce-widget.git",
+                "reference": "7a7cc76cf5eb5e2fbaf25e355564c7e138319ec8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-salesforce-widget/zipball/7a7cc76cf5eb5e2fbaf25e355564c7e138319ec8",
+                "reference": "7a7cc76cf5eb5e2fbaf25e355564c7e138319ec8",
+                "shasum": ""
+            },
+            "require": {
+                "oander/module-base": "*",
+                "oander/module-salesforce": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\SalesforceWidget\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "salesforce-widget",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-salesforce-widget/tree/1.0.3",
+                "issues": "https://github.com/oandermedia/oander-salesforce-widget/issues"
+            },
+            "time": "2017-12-15T10:31:45+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -7033,6 +7261,44 @@
                 "issues": "https://github.com/oandermedia/oander-wonder-widget/issues"
             },
             "time": "2017-11-29T10:27:13+00:00"
+        },
+        {
+            "name": "oander/module-xtento-order-export-extender",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-xtento-order-export-extender.git",
+                "reference": "dd151b796b4613f4aabecba1fecb122a63b897b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-xtento-order-export-extender/zipball/dd151b796b4613f4aabecba1fecb122a63b897b1",
+                "reference": "dd151b796b4613f4aabecba1fecb122a63b897b1",
+                "shasum": ""
+            },
+            "require": {
+                "php": "7.*",
+                "xtento/module-orderexport": "2.3.9",
+                "xtento/module-xtcore": "~2.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\XtentoOrderExportExtender\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Xtento Order Export Extender",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-xtento-order-export-extender/tree/1.0.3",
+                "issues": "https://github.com/oandermedia/oander-xtento-order-export-extender/issues"
+            },
+            "time": "2017-11-20T12:27:28+00:00"
         },
         {
             "name": "oander/theme-hodor",
@@ -7908,6 +8174,97 @@
                 "yui"
             ],
             "time": "2014-09-22T08:08:50+00:00"
+        },
+        {
+            "name": "xtento/module-orderexport",
+            "version": "2.3.9",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/xtento-orderexport.git",
+                "reference": "fec6b91c65bf1fe0c48eef9c0b0507d3272ffde1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/xtento-orderexport/zipball/fec6b91c65bf1fe0c48eef9c0b0507d3272ffde1",
+                "reference": "fec6b91c65bf1fe0c48eef9c0b0507d3272ffde1",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~5.5.22|~5.6.0|7.0.2|7.0.4|~7.0.6|~7.1.0",
+                "xtento/module-xtcore": "~2.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Xtento\\OrderExport\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "XTENTO GmbH & Co. KG",
+                    "email": "info@xtento.com",
+                    "homepage": "http://www.xtento.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "XTENTO Order Export Module",
+            "support": {
+                "email": "info@xtento.com",
+                "source": "https://github.com/oandermedia/xtento-orderexport/tree/2.3.9",
+                "issues": "https://github.com/oandermedia/xtento-orderexport/issues"
+            },
+            "time": "2017-11-15T12:38:33+00:00"
+        },
+        {
+            "name": "xtento/module-xtcore",
+            "version": "2.1.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/xtento-core.git",
+                "reference": "b1f6631b2ca44b55fb2470971b6ecc8abbfd6810"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/xtento-core/zipball/b1f6631b2ca44b55fb2470971b6ecc8abbfd6810",
+                "reference": "b1f6631b2ca44b55fb2470971b6ecc8abbfd6810",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~5.5.22|~5.6.0|7.0.2|7.0.4|~7.0.6|~7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Xtento\\XtCore\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "XTENTO GmbH & Co. KG",
+                    "email": "info@xtento.com",
+                    "homepage": "http://www.xtento.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "XTENTO Core Module",
+            "support": {
+                "email": "info@xtento.com",
+                "source": "https://github.com/oandermedia/xtento-core/tree/2.1.0",
+                "issues": "https://github.com/oandermedia/xtento-core/issues"
+            },
+            "time": "2017-11-15T12:35:36+00:00"
         },
         {
             "name": "zendframework/zend-code",

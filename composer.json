@@ -13,11 +13,14 @@
         "oander/language-mk-mk": "1.*",
         "oander/module-ajax-catalog": "1.0.*",
         "oander/module-api-base": "1.*",
-        "oander/module-api-gateway": "1.*",
+        "oander/module-api-cache": "1.0.0",
         "oander/module-api-category": "1.*",
         "oander/module-api-checkout": "1.*",
         "oander/module-api-customer": "1.*",
+        "oander/module-api-gateway": "1.*",
         "oander/module-api-image": "1.*",
+        "oander/module-api-index": "1.0.1",
+        "oander/module-api-order-attachment": "1.0.0",
         "oander/module-api-product": "1.*",
         "oander/module-api-warehouse-manager": "1.*",
         "oander/module-base": "1.2.*",
@@ -38,16 +41,22 @@
         "oander/module-indexer": "1.0.*",
         "oander/module-multislider": "1.0.*",
         "oander/module-name-switcher": "1.0.*",
+        "oander/module-order-attachment": "1.0.2",
         "oander/module-order-comment": "1.0.*",
         "oander/module-paypal": "1.0.*",
         "oander/module-pos-locations": "1.0.*",
         "oander/module-price-tooltip": "1.0.*",
         "oander/module-product-icons": "1.0.*",
+        "oander/module-salesforce": "1.0.0",
+        "oander/module-salesforce-widget": "1.0.3",
         "oander/module-shipping": "1.0.*",
         "oander/module-test-base": "1.*",
         "oander/module-warehouse-manager": "1.*",
         "oander/module-warehouse-stock-order": "1.0.*",
         "oander/module-wonder-widget": "1.1.*",
+        "oander/module-xtento-order-export-extender": "1.*",
+        "xtento/module-orderexport": "2.3.9",
+        "xtento/module-xtcore": "2.1.0",
         "oander/theme-hodor": "1.1.*",
         "oander/theme-istyle": "1.0.*",
         "algolia/algoliasearch-magento-2": "^1.0",
@@ -122,6 +131,10 @@
         },
         {
             "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-api-cache.git"
+        },
+        {
+            "type": "vcs",
             "url": "git@github.com:oandermedia/oander-api-category.git"
         },
         {
@@ -135,6 +148,14 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/oander-api-image.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-api-index.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-api-order-attachment.git"
         },
         {
             "type": "vcs",
@@ -218,6 +239,10 @@
         },
         {
             "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-order-attachment.git"
+        },
+        {
+            "type": "vcs",
             "url": "git@github.com:oandermedia/oander-order-comment.git"
         },
         {
@@ -235,6 +260,14 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/oander-product-icons.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-salesforce.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-salesforce-widget.git"
         },
         {
             "type": "vcs",
@@ -263,6 +296,18 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/innobyte-checkout-success.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-xtento-order-export-extender.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/xtento-orderexport.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/xtento-core.git"
         }
     ],
     "extra": {
