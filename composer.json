@@ -61,7 +61,7 @@
         "oander/theme-istyle": "1.0.*",
         "algolia/algoliasearch-magento-2": "^1.0",
         "innobyte/module-nlb": "0.0.1",
-        "innobyte/module-checkout-success": "0.0.2"
+        "innobyte/module-checkout-success": "0.0.3"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
