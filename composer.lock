@@ -548,7 +548,7 @@
             },
             "description": "Innobyte NLB Payment Module",
             "support": {
-                "source": "https://github.com/oandermedia/innobyte-nlbpayment/tree/master",
+                "source": "https://github.com/oandermedia/innobyte-nlbpayment/tree/0.0.1",
                 "issues": "https://github.com/oandermedia/innobyte-nlbpayment/issues"
             },
             "time": "2017-12-13T15:45:44+00:00"
@@ -6031,16 +6031,16 @@
         },
         {
             "name": "oander/module-api-product",
-            "version": "1.0.20",
+            "version": "1.0.21",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-product.git",
-                "reference": "760da7f16f3b6ab2c971d4de9028eaf15e6e9cbe"
+                "reference": "c70f7102e6a62b009d50f92bdf919d64b18f6282"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-product/zipball/760da7f16f3b6ab2c971d4de9028eaf15e6e9cbe",
-                "reference": "760da7f16f3b6ab2c971d4de9028eaf15e6e9cbe",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-product/zipball/c70f7102e6a62b009d50f92bdf919d64b18f6282",
+                "reference": "c70f7102e6a62b009d50f92bdf919d64b18f6282",
                 "shasum": ""
             },
             "require": {
@@ -6063,10 +6063,10 @@
             ],
             "description": "Backend API to Product",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-product/tree/1.0.20",
+                "source": "https://github.com/oandermedia/oander-api-product/tree/1.0.21",
                 "issues": "https://github.com/oandermedia/oander-api-product/issues"
             },
-            "time": "2017-11-28T12:39:07+00:00"
+            "time": "2017-12-18T09:46:40+00:00"
         },
         {
             "name": "oander/module-api-warehouse-manager",
@@ -6333,16 +6333,16 @@
         },
         {
             "name": "oander/module-core-bug-fix",
-            "version": "1.0.14",
+            "version": "1.0.15",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "742891fe4155040c6621880fbdd8947df7186b1e"
+                "reference": "b2bb89647ce625c4c5c748728a64e2a677dcb922"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-core-bug-fix/zipball/742891fe4155040c6621880fbdd8947df7186b1e",
-                "reference": "742891fe4155040c6621880fbdd8947df7186b1e",
+                "url": "https://api.github.com/repos/oandermedia/oander-core-bug-fix/zipball/b2bb89647ce625c4c5c748728a64e2a677dcb922",
+                "reference": "b2bb89647ce625c4c5c748728a64e2a677dcb922",
                 "shasum": ""
             },
             "require": {
@@ -6362,10 +6362,10 @@
             ],
             "description": "Core bug fixes for Magento 2.x",
             "support": {
-                "source": "https://github.com/oandermedia/oander-core-bug-fix/tree/1.0.14",
+                "source": "https://github.com/oandermedia/oander-core-bug-fix/tree/1.0.15",
                 "issues": "https://github.com/oandermedia/oander-core-bug-fix/issues"
             },
-            "time": "2017-12-06T15:36:18+00:00"
+            "time": "2017-12-18T12:02:20+00:00"
         },
         {
             "name": "oander/module-currency-manager",
