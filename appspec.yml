@@ -24,5 +24,5 @@ hooks:
       runas: root
   AfterInstall:
     - location: bin/install.sh
-      timeout: 1800
+      timeout: 3600
       runas: root

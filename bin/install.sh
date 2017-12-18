@@ -13,7 +13,7 @@ ln -s ${EFS}/media ${WEBROOT}/pub/
 if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
    # MASTER WORKFLOW #
    # RSYNC BLUE FOLDER TO GREEN WITH EXCEPTIONS
-   rsync -aur --exclude={"/var/backups/*","/var/generation/*","/var/di/*","/pub/static/*"} ${EFS_BLUE}/* ${EFS_GREEN}/
+   time rsync -aur --exclude={"/var/backups/*","/var/generation/*","/var/di/*","/pub/static/*"} ${EFS_BLUE}/* ${EFS_GREEN}/
 
    # CREATE SYMLINKS TO GREEN
    [ -L ${WEBROOT}/var ] && rm ${WEBROOT}/var
@@ -35,10 +35,12 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
       cd ${WEBROOT} && php bin/magento setup:upgrade
    else
       # COPY DB
-      mysql -e 'DROP DATABASE istylem2_upg; CREATE DATABASE istylem2_upg;'
-      mysqldump istylem2 | mysql istylem2_upg
-      mysql -e 'DROP DATABASE istylem2p_upg; CREATE DATABASE istylem2p_upg;'
-      mysqldump istylem2p | mysql istylem2p_upg
+      mysql -e 'DROP DATABASE istyle_upg; CREATE DATABASE istyle_upg;'
+      mysqldump istyle | mysql istyle_upg
+      mysql -e 'DROP DATABASE istylewh_upg; CREATE DATABASE istylewh_upg;'
+      mysqldump istyle-warehousemanager | mysql istylewh_upg
+      mysql -e 'DROP DATABASE istyleapi_upg; CREATE DATABASE istyleapi_upg;'
+      mysqldump istyle-apigateway | mysql istyleapi_upg
 
       # UPGRADE MAGENTO WITH DB CHANGE
       cd ${WEBROOT} && php bin/magento setup:upgrade
@@ -65,7 +67,7 @@ else
 
    if [ -f ${EFS}/deployed.flag ]; then
       cd ${WEBROOT} && php bin/magento maintenance:enable
-      rsync -aur --exclude={"/var/backups/*"} ${EFS_GREEN}/* ${EFS_BLUE}/
+      time rsync -aur --exclude={"/var/backups/*"} ${EFS_GREEN}/* ${EFS_BLUE}/
       cd ${WEBROOT} && php bin/magento setup:upgrade --keep-generated
       cd ${WEBROOT} && php bin/magento maintenance:disable
       rm ${EFS}/deployed.flag
