@@ -6259,16 +6259,16 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.11",
+            "version": "1.0.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "28ff93e83477b48db25ef071e84b277b0333d412"
+                "reference": "70f0083e3b5b3fbb9414c656a503685b83e258ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/28ff93e83477b48db25ef071e84b277b0333d412",
-                "reference": "28ff93e83477b48db25ef071e84b277b0333d412",
+                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/70f0083e3b5b3fbb9414c656a503685b83e258ae",
+                "reference": "70f0083e3b5b3fbb9414c656a503685b83e258ae",
                 "shasum": ""
             },
             "require": {
@@ -6289,10 +6289,10 @@
             ],
             "description": "Configurable Product Attribute",
             "support": {
-                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.11",
+                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.12",
                 "issues": "https://github.com/oandermedia/oander-configurable-product-attribute/issues"
             },
-            "time": "2017-12-15T09:47:40+00:00"
+            "time": "2017-12-18T14:47:10+00:00"
         },
         {
             "name": "oander/module-cookie-law",
