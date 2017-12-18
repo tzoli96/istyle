@@ -63,17 +63,22 @@ else
    [ -L ${WEBROOT}/pub/static ] && rm ${WEBROOT}/pub/static || rm -rf ${WEBROOT}/pub/static
    ln -s ${EFS_BLUE}/pub/static ${WEBROOT}/pub/
 
+   cd ${WEBROOT} && php bin/magento maintenance:enable
+   rm -rf ${WEBROOT}/vendor/*
    cd ${WEBROOT} && composer install
 
    if [ -f ${EFS}/deployed.flag ]; then
-      cd ${WEBROOT} && php bin/magento maintenance:enable
+#      cd ${WEBROOT} && php bin/magento maintenance:enable
       time rsync -aur --exclude={"/var/backups/*"} ${EFS_GREEN}/* ${EFS_BLUE}/
       cd ${WEBROOT} && php bin/magento setup:upgrade --keep-generated
-      cd ${WEBROOT} && php bin/magento maintenance:disable
+      chown www-data:www-data -R ${EFS_BLUE}
+#      cd ${WEBROOT} && php bin/magento maintenance:disable
       rm ${EFS}/deployed.flag
    fi
 fi
 
 chown www-data:www-data -R /var/www/istyle.eu/
+cd ${WEBROOT} && php bin/magento maintenance:disable
+
 /etc/init.d/php7.0-fpm restart
 
