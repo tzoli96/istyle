@@ -76,3 +76,4 @@ fi
 
 chown www-data:www-data -R /var/www/istyle.eu/
 /etc/init.d/php7.0-fpm restart
+
