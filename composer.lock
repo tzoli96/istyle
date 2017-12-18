@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8567d98bc2b5c50bdff5f1548e99fdf1",
+    "content-hash": "a172c81077b11671ac04536f8a4a34a0",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -487,16 +487,16 @@
         },
         {
             "name": "innobyte/module-checkout-success",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-checkout-success.git",
-                "reference": "ecd1f914e5ae0767de071c79892f1ad7956978ed"
+                "reference": "811875b3d1935bc2327573de686fe3309ca00138"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/innobyte-checkout-success/zipball/ecd1f914e5ae0767de071c79892f1ad7956978ed",
-                "reference": "ecd1f914e5ae0767de071c79892f1ad7956978ed",
+                "url": "https://api.github.com/repos/oandermedia/innobyte-checkout-success/zipball/811875b3d1935bc2327573de686fe3309ca00138",
+                "reference": "811875b3d1935bc2327573de686fe3309ca00138",
                 "shasum": ""
             },
             "require": {
@@ -514,10 +514,10 @@
             },
             "description": "Innobyte CheckoutSuccess Module",
             "support": {
-                "source": "https://github.com/oandermedia/innobyte-checkout-success/tree/0.0.2",
+                "source": "https://github.com/oandermedia/innobyte-checkout-success/tree/0.0.3",
                 "issues": "https://github.com/oandermedia/innobyte-checkout-success/issues"
             },
-            "time": "2017-12-14T12:26:47+00:00"
+            "time": "2017-12-17T11:02:06+00:00"
         },
         {
             "name": "innobyte/module-nlb",
@@ -6031,16 +6031,16 @@
         },
         {
             "name": "oander/module-api-product",
-            "version": "1.0.20",
+            "version": "1.0.21",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-product.git",
-                "reference": "760da7f16f3b6ab2c971d4de9028eaf15e6e9cbe"
+                "reference": "c70f7102e6a62b009d50f92bdf919d64b18f6282"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-product/zipball/760da7f16f3b6ab2c971d4de9028eaf15e6e9cbe",
-                "reference": "760da7f16f3b6ab2c971d4de9028eaf15e6e9cbe",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-product/zipball/c70f7102e6a62b009d50f92bdf919d64b18f6282",
+                "reference": "c70f7102e6a62b009d50f92bdf919d64b18f6282",
                 "shasum": ""
             },
             "require": {
@@ -6063,10 +6063,10 @@
             ],
             "description": "Backend API to Product",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-product/tree/1.0.20",
+                "source": "https://github.com/oandermedia/oander-api-product/tree/1.0.21",
                 "issues": "https://github.com/oandermedia/oander-api-product/issues"
             },
-            "time": "2017-11-28T12:39:07+00:00"
+            "time": "2017-12-18T09:46:40+00:00"
         },
         {
             "name": "oander/module-api-warehouse-manager",
@@ -6259,16 +6259,16 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.11",
+            "version": "1.0.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "28ff93e83477b48db25ef071e84b277b0333d412"
+                "reference": "70f0083e3b5b3fbb9414c656a503685b83e258ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/28ff93e83477b48db25ef071e84b277b0333d412",
-                "reference": "28ff93e83477b48db25ef071e84b277b0333d412",
+                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/70f0083e3b5b3fbb9414c656a503685b83e258ae",
+                "reference": "70f0083e3b5b3fbb9414c656a503685b83e258ae",
                 "shasum": ""
             },
             "require": {
@@ -6289,10 +6289,10 @@
             ],
             "description": "Configurable Product Attribute",
             "support": {
-                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.11",
+                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.12",
                 "issues": "https://github.com/oandermedia/oander-configurable-product-attribute/issues"
             },
-            "time": "2017-12-15T09:47:40+00:00"
+            "time": "2017-12-18T14:47:10+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -6333,16 +6333,16 @@
         },
         {
             "name": "oander/module-core-bug-fix",
-            "version": "1.0.14",
+            "version": "1.0.15",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "742891fe4155040c6621880fbdd8947df7186b1e"
+                "reference": "b2bb89647ce625c4c5c748728a64e2a677dcb922"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-core-bug-fix/zipball/742891fe4155040c6621880fbdd8947df7186b1e",
-                "reference": "742891fe4155040c6621880fbdd8947df7186b1e",
+                "url": "https://api.github.com/repos/oandermedia/oander-core-bug-fix/zipball/b2bb89647ce625c4c5c748728a64e2a677dcb922",
+                "reference": "b2bb89647ce625c4c5c748728a64e2a677dcb922",
                 "shasum": ""
             },
             "require": {
@@ -6362,10 +6362,10 @@
             ],
             "description": "Core bug fixes for Magento 2.x",
             "support": {
-                "source": "https://github.com/oandermedia/oander-core-bug-fix/tree/1.0.14",
+                "source": "https://github.com/oandermedia/oander-core-bug-fix/tree/1.0.15",
                 "issues": "https://github.com/oandermedia/oander-core-bug-fix/issues"
             },
-            "time": "2017-12-06T15:36:18+00:00"
+            "time": "2017-12-18T12:02:20+00:00"
         },
         {
             "name": "oander/module-currency-manager",
