@@ -34,13 +34,16 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
       # MAGENTO UPGRADE PROCESS WITHOUT DB CHANGE
       cd ${WEBROOT} && php bin/magento setup:upgrade
    else
-      # COPY DB
+      # COPY DBs
       mysql -e 'DROP DATABASE istyle_upg; CREATE DATABASE istyle_upg;'
-      mysqldump istyle | mysql istyle_upg
+      mysqldump --skip-add-drop-table --no-data istyle | mysql istyle_upg
+      mysqldump --single-transaction istyle weee_tax theme product_alert_price eav_entity_type core_config_data setup_module store store_group store_website | mysql istyle_upg
       mysql -e 'DROP DATABASE istylewh_upg; CREATE DATABASE istylewh_upg;'
-      mysqldump istyle-warehousemanager | mysql istylewh_upg
+      mysqldump --skip-add-drop-table --no-data istyle-warehousemanager | mysql istylewh_upg
+      mysqldump --single-transaction istyle-warehousemanager weee_tax theme product_alert_price eav_entity_type core_config_data setup_module store store_group store_website | mysql istylewh_upg
       mysql -e 'DROP DATABASE istyleapi_upg; CREATE DATABASE istyleapi_upg;'
-      mysqldump istyle-apigateway | mysql istyleapi_upg
+      mysqldump --skip-add-drop-table --no-data istyle-apigateway | mysql istyleapi_upg
+      mysqldump --single-transaction istyle-apigateway weee_tax theme product_alert_price eav_entity_type core_config_data setup_module store store_group store_website | mysql istyleapi_upg
 
       # UPGRADE MAGENTO WITH DB CHANGE
       cd ${WEBROOT} && php bin/magento setup:upgrade
@@ -51,8 +54,8 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
    cd ${WEBROOT} && php bin/magento setup:static-content:deploy en_US
    cd ${WEBROOT} && php bin/magento setup:static-content:deploy mk_MK
    touch ${EFS}/deployed.flag
-   cd ${WEBROOT} && php bin/magento maintenance:disable
    chown www-data:www-data -R ${EFS_GREEN}
+   cd ${WEBROOT} && php bin/magento maintenance:disable
 else
    # WORKER INSTANCES #
    cp ${EFS}/env/env.php ${WEBROOT}/app/etc/
