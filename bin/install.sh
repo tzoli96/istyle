@@ -7,81 +7,98 @@ EFS_GREEN="/mnt/efs/istyle/green"
 INSTANCE_ID=`curl -s http://169.254.169.254/latest/meta-data/instance-id`
 MASTER_ID="i-0a57263aca752890a"
 
+echo " * CREATE DIRECTORY SYMLINK TO MEDIA FOLDER ... "
 [ -L ${WEBROOT}/pub/media ] && rm ${WEBROOT}/pub/media &> /dev/null || rm -rf ${WEBROOT}/pub/media
-ln -s ${EFS}/media ${WEBROOT}/pub/
+if ln -s ${EFS}/media ${WEBROOT}/pub/; then echo OK; else echo FAIL; fi
 
 if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
-   # MASTER WORKFLOW #
-   # UPDATE THE ENVIRONMENT FILE WITH NEW DATABASES
-   cp ${EFS}/env/upgrade_env.php ${WEBROOT}/app/etc/env.php
+   echo "### MASTER WORKFLOW ###"
+   echo -n " * CONFIGURE THE ENV FILE WITH THE DATABASES FOR UPGRADE ... "
+   if cp ${EFS}/env/upgrade_env.php ${WEBROOT}/app/etc/env.php; then echo OK; else echo FAIL; fi
    
-   # RSYNC BLUE FOLDER TO GREEN WITH EXCEPTIONS
-   time rsync -aur --exclude={"/var/backups/*","/var/generation/*","/var/di/*","/pub/static/*"} ${EFS_BLUE}/* ${EFS_GREEN}/
+   echo -n " * RSYNC BLUE FOLDER TO GREEN WITH EXCEPTIONS ... "
+   if time rsync -aur --exclude={"/var/backups/*","/var/generation/*","/var/di/*","/pub/static/*"} ${EFS_BLUE}/* ${EFS_GREEN}/; then echo OK; else echo FAIL; fi
 
-   # CREATE SYMLINKS TO GREEN
+   echo " * CREATE DIRECTORY SYMLINKS TO GREEN:"
    [ -L ${WEBROOT}/var ] && rm ${WEBROOT}/var
-   ln -s ${EFS_GREEN}/var ${WEBROOT}/
+   echo -n "var ... "
+   if ln -s ${EFS_GREEN}/var ${WEBROOT}/; then echo OK; else echo FAIL; fi
    [ -L ${WEBROOT}/pub/static ] && rm ${WEBROOT}/pub/static &> /dev/null || rm -rf ${WEBROOT}/pub/static
-   ln -s ${EFS_GREEN}/pub/static ${WEBROOT}/pub/
+   echo -n "pub/static ... "
+   if ln -s ${EFS_GREEN}/pub/static ${WEBROOT}/pub/; then echo OK; else echo FAIL; fi
 
-   # INSTALL CODE
+   echo "### COMPOSER INSTALL & MAGENTO UPGRADE ###"
    # cd ${WEBROOT} && npm install
-   cd ${WEBROOT} && composer install
+   cd ${WEBROOT} && time composer install
 #   cd ${WEBROOT} && php bin/magento maintenance:enable
 
-   # CHECK IF DB UPGRADE NEEDED
+   echo -n "### CHECK IF DB UPGRADE NEEDED ==> "
    if php ${WEBROOT}bin/magento setup:db:status | grep -q "up to date"; then
-      # MAGENTO UPGRADE PROCESS WITHOUT DB CHANGE
-      cd ${WEBROOT} && php bin/magento setup:upgrade
+      echo "UPGRADE WITHOUT DB CHANGE"
+      echo "### SETUP UPGRADE ###"
+      cd ${WEBROOT} && time php bin/magento setup:upgrade
    else
-      # COPY DBs
+      echo "UPGRADE WITH DB CHANGE"
+      echo " * COPY DATABASES:"
+      echo -n "istyle ... "
       mysql -e 'DROP DATABASE istyle_upg; CREATE DATABASE istyle_upg;'
       mysqldump --skip-add-drop-table --no-data istyle | mysql istyle_upg
-      mysqldump --single-transaction istyle weee_tax theme product_alert_price eav_entity_type core_config_data setup_module store store_group store_website | mysql istyle_upg
+      if mysqldump --single-transaction istyle weee_tax theme product_alert_price eav_entity_type core_config_data setup_module store store_group store_website | mysql istyle_upg; then echo OK; else echo FAIL; fi
+      echo -n "istyle-warehousemanager ... "
       mysql -e 'DROP DATABASE istylewh_upg; CREATE DATABASE istylewh_upg;'
-      mysqldump --skip-add-drop-table --no-data istyle-warehousemanager | mysql istylewh_upg
-      mysqldump --single-transaction istyle-warehousemanager weee_tax theme product_alert_price eav_entity_type core_config_data setup_module store store_group store_website | mysql istylewh_upg
+      if mysqldump --single-transaction istyle-warehousemanager | mysql istylewh_upg; then echo OK; else echo FAIL; fi
+      echo -n "istyle-apigateway ... "
       mysql -e 'DROP DATABASE istyleapi_upg; CREATE DATABASE istyleapi_upg;'
-      mysqldump --skip-add-drop-table --no-data istyle-apigateway | mysql istyleapi_upg
-      mysqldump --single-transaction istyle-apigateway weee_tax theme product_alert_price eav_entity_type core_config_data setup_module store store_group store_website | mysql istyleapi_upg
+      if mysqldump --single-transaction istyle-apigateway | mysql istyleapi_upg; then echo OK; else echo FAIL; fi
 
-      # UPGRADE MAGENTO WITH DB CHANGE
-      cd ${WEBROOT} && php bin/magento setup:upgrade
+      echo "### SETUP UPGRADE ###"
+      cd ${WEBROOT} && time php bin/magento setup:upgrade
    fi
 
-   # CONTINUE MAGENTO UPGRADE PROCESS
-   cd ${WEBROOT} && php bin/magento setup:di:compile
-   cd ${WEBROOT} && php bin/magento setup:static-content:deploy en_US
-   cd ${WEBROOT} && php bin/magento setup:static-content:deploy mk_MK
-   touch ${EFS}/deployed.flag
-   chown www-data:www-data -R ${EFS_GREEN}
-   cd ${WEBROOT} && php bin/magento maintenance:disable
+   echo "### COMPILE STATIC CONTENTS ###"
+   cd ${WEBROOT} && time php bin/magento setup:di:compile
+   cd ${WEBROOT} && time php bin/magento setup:static-content:deploy en_US
+   cd ${WEBROOT} && time php bin/magento setup:static-content:deploy mk_MK
+   echo -n " * CREATE FLAG FOR BLUE/GREEN DEPLOYMENT ... "
+   if touch ${EFS}/deployed.flag; then echo OK; else echo FAIL; fi
+   echo -n " * CHOWN EFS_GREEN DIR ... "
+   if time chown www-data:www-data -R ${EFS_GREEN}; then echo OK; else echo FAIL; fi
+#   cd ${WEBROOT} && php bin/magento maintenance:disable
 else
-   # WORKER INSTANCES #
-   cp ${EFS}/env/env.php ${WEBROOT}/app/etc/
+   echo "### WORKER INSTANCES ###"
+   echo -n " * CONFIGURE THE ENV FILE WITH THE PRODUCTION DATABASES FOR UPGRADE ... "
+   if cp ${EFS}/env/env.php ${WEBROOT}/app/etc/; then echo OK; else echo FAIL; fi
 
-   # CREATE SYMLINKS TO BLUE
+   echo " * CREATE DIRECTORY SYMLINKS TO BLUE:"
+   echo -n "var ... "
    [ -L ${WEBROOT}/var ] && rm ${WEBROOT}/var
-   ln -s ${EFS_BLUE}/var ${WEBROOT}/
+   if ln -s ${EFS_BLUE}/var ${WEBROOT}/; then echo OK; else echo FAIL; fi
+   echo -n "pub/static ... "
    [ -L ${WEBROOT}/pub/static ] && rm ${WEBROOT}/pub/static || rm -rf ${WEBROOT}/pub/static
-   ln -s ${EFS_BLUE}/pub/static ${WEBROOT}/pub/
+   if ln -s ${EFS_BLUE}/pub/static ${WEBROOT}/pub/; then echo OK; else echo FAIL; fi
 
    cd ${WEBROOT} && php bin/magento maintenance:enable
-   rm -rf ${WEBROOT}/vendor/*
-   cd ${WEBROOT} && composer install
+   echo " * DELETE VENDOR DIRECTORY ... "
+   if time rm -rf ${WEBROOT}/vendor/*; then echo OK; else echo FAIL; fi
+   echo "### COMPOSER INSTALL ###"
+   cd ${WEBROOT} && time composer install
 
+   echo -n "### CHECK IF DEPLOYED FLAG EXISTS ==> "
    if [ -f ${EFS}/deployed.flag ]; then
+      echo "YES"
 #      cd ${WEBROOT} && php bin/magento maintenance:enable
-      time rsync -aur --exclude={"/var/backups/*"} ${EFS_GREEN}/* ${EFS_BLUE}/
+      echo -n " * RSYNC EFS GREEN TO BLUE ... "
+      if time rsync -aur --exclude={"/var/backups/*"} ${EFS_GREEN}/* ${EFS_BLUE}/; then echo OK; else echo FAIL; fi
+      echo "### SETUP UPGRADE :: KEEP-GENERATED ###"
       cd ${WEBROOT} && php bin/magento setup:upgrade --keep-generated
-      chown www-data:www-data -R ${EFS_BLUE}
+      echo -n " * CHOWN EFS_BLUE DIR ... "
+      if time chown www-data:www-data -R ${EFS_BLUE}; then echo OK; else echo FAIL; fi
 #      cd ${WEBROOT} && php bin/magento maintenance:disable
-      rm ${EFS}/deployed.flag
+      echo -n " * REMOVING DEPLOYED FLAG ... "
+      if rm ${EFS}/deployed.flag; then echo OK; else echo FAIL; fi
    fi
+   cd ${WEBROOT} && php bin/magento maintenance:disable
 fi
 
 chown www-data:www-data -R /var/www/istyle.eu/
-cd ${WEBROOT} && php bin/magento maintenance:disable
-
 /etc/init.d/php7.0-fpm restart
-
