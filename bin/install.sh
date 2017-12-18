@@ -7,27 +7,27 @@ EFS_GREEN="/mnt/efs/istyle/green"
 INSTANCE_ID=`curl -s http://169.254.169.254/latest/meta-data/instance-id`
 MASTER_ID="i-0a57263aca752890a"
 
-[ -L ${WEBROOT}/pub/media ] && rm ${WEBROOT}/pub/media
+[ -L ${WEBROOT}/pub/media ] && rm ${WEBROOT}/pub/media &> /dev/null || rm -rf ${WEBROOT}/pub/media
 ln -s ${EFS}/media ${WEBROOT}/pub/
 
 if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
    # MASTER WORKFLOW #
+   # UPDATE THE ENVIRONMENT FILE WITH NEW DATABASES
+   cp ${EFS}/env/upgrade_env.php ${WEBROOT}/app/etc/env.php
+   
    # RSYNC BLUE FOLDER TO GREEN WITH EXCEPTIONS
    time rsync -aur --exclude={"/var/backups/*","/var/generation/*","/var/di/*","/pub/static/*"} ${EFS_BLUE}/* ${EFS_GREEN}/
 
    # CREATE SYMLINKS TO GREEN
    [ -L ${WEBROOT}/var ] && rm ${WEBROOT}/var
    ln -s ${EFS_GREEN}/var ${WEBROOT}/
-   [ -L ${WEBROOT}/pub/static ] && rm ${WEBROOT}/pub/static || rm -rf ${WEBROOT}/pub/static
+   [ -L ${WEBROOT}/pub/static ] && rm ${WEBROOT}/pub/static &> /dev/null || rm -rf ${WEBROOT}/pub/static
    ln -s ${EFS_GREEN}/pub/static ${WEBROOT}/pub/
 
    # INSTALL CODE
    # cd ${WEBROOT} && npm install
    cd ${WEBROOT} && composer install
 #   cd ${WEBROOT} && php bin/magento maintenance:enable
-
-   # UPDATE THE ENVIRONMENT FILE WITH NEW DATABASES
-   cp ${EFS}/env/upgrade_env.php ${WEBROOT}/app/etc/env.php
 
    # CHECK IF DB UPGRADE NEEDED
    if php ${WEBROOT}bin/magento setup:db:status | grep -q "up to date"; then
