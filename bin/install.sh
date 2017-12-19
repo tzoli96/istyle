@@ -85,14 +85,12 @@ else
    echo -n "### CHECK IF DEPLOYED FLAG EXISTS ==> "
    if [ -f ${EFS}/deployed.flag ]; then
       echo "YES"
-      cd ${WEBROOT} && php bin/magento maintenance:enable
       echo -n " * RSYNC EFS GREEN TO BLUE ... "
       if time rsync -au --exclude={"/var/backups/*"} ${EFS_GREEN}/* ${EFS_BLUE}/; then echo OK; else echo FAIL; fi
       echo "### SETUP UPGRADE :: KEEP-GENERATED ###"
+      cd ${WEBROOT} && php bin/magento maintenance:enable
       cd ${WEBROOT} && php bin/magento setup:upgrade --keep-generated
-      echo -n " * CHOWN EFS_BLUE DIR ... "
-      if time chown www-data:www-data -R ${EFS_BLUE}; then echo OK; else echo FAIL; fi
-#      cd ${WEBROOT} && php bin/magento maintenance:disable
+      cd ${WEBROOT} && php bin/magento maintenance:disable
       echo -n " * REMOVING DEPLOYED FLAG ... "
       if rm ${EFS}/deployed.flag; then echo OK; else echo FAIL; fi
    else
