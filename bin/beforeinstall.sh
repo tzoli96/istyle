@@ -9,3 +9,4 @@ fi
 
 mkdir -p ${WEBROOT}
 chown www-data:www-data ${WEBROOT}
+chown www-data:www-data -R /var/www/.composer
