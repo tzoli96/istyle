@@ -1,9 +1,9 @@
 #!/bin/bash
 
 WEBROOT="/var/www/istyle.eu/webroot"
-EFS="/mnt/efs/istyle"
-EFS_BLUE="/mnt/efs/istyle/blue"
-EFS_GREEN="/mnt/efs/istyle/green"
+EFS="/mnt/istyle-storage/istyle"
+EFS_BLUE="/mnt/istyle-storage/istyle/blue"
+EFS_GREEN="/mnt/istyle-storage/istyle/green"
 INSTANCE_ID=`curl -s http://169.254.169.254/latest/meta-data/instance-id`
 MASTER_ID="i-0a57263aca752890a"
 

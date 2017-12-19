@@ -62,7 +62,6 @@ atlassian*
 /ISSUE_TEMPLATE.md
 /LICENSE_AFL.txt
 /LICENSE.txt
-/nginx.conf.sample
 /package.json.sample
 /php.ini.sample
 /app/etc/config.php.sample
