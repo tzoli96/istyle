@@ -61,8 +61,8 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
    cd ${WEBROOT} && time php bin/magento setup:static-content:deploy mk_MK
    echo -n " * CREATE FLAG FOR BLUE/GREEN DEPLOYMENT ... "
    if touch ${EFS}/deployed.flag; then echo OK; else echo FAIL; fi
-#   echo -n " * CHOWN EFS_GREEN DIR ... "
-#   if time chown www-data:www-data -R ${EFS_GREEN}; then echo OK; else echo FAIL; fi
+   echo -n " * CHOWN EFS_GREEN DIR ... "
+   if time chown www-data:www-data -R ${EFS_GREEN}; then echo OK; else echo FAIL; fi
 #   cd ${WEBROOT} && php bin/magento maintenance:disable
 else
    echo "### WORKER INSTANCES ###"
@@ -91,7 +91,7 @@ else
       echo "### SETUP UPGRADE :: KEEP-GENERATED ###"
       cd ${WEBROOT} && php bin/magento setup:upgrade --keep-generated
       echo -n " * CHOWN EFS_BLUE DIR ... "
-#      if time chown www-data:www-data -R ${EFS_BLUE}; then echo OK; else echo FAIL; fi
+      if time chown www-data:www-data -R ${EFS_BLUE}; then echo OK; else echo FAIL; fi
 #      cd ${WEBROOT} && php bin/magento maintenance:disable
       echo -n " * REMOVING DEPLOYED FLAG ... "
       if rm ${EFS}/deployed.flag; then echo OK; else echo FAIL; fi
@@ -100,5 +100,5 @@ else
    fi
 fi
 
-#chown www-data:www-data -R /var/www/istyle.eu/
+chown www-data:www-data -R /var/www/istyle.eu/
 /etc/init.d/php7.0-fpm restart

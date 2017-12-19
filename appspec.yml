@@ -25,4 +25,4 @@ hooks:
   AfterInstall:
     - location: bin/install.sh
       timeout: 3600
-      runas: www-data
+      runas: root
