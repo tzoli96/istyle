@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a172c81077b11671ac04536f8a4a34a0",
+    "content-hash": "8c8e748c873be8172f91c5be56714ae9",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -521,16 +521,16 @@
         },
         {
             "name": "innobyte/module-nlb",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-nlbpayment.git",
-                "reference": "6f4aa560779b5484e94358bb18cd46b9f68be1e7"
+                "reference": "8503771353319321443dc86e3596207c6596f005"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/innobyte-nlbpayment/zipball/6f4aa560779b5484e94358bb18cd46b9f68be1e7",
-                "reference": "6f4aa560779b5484e94358bb18cd46b9f68be1e7",
+                "url": "https://api.github.com/repos/oandermedia/innobyte-nlbpayment/zipball/8503771353319321443dc86e3596207c6596f005",
+                "reference": "8503771353319321443dc86e3596207c6596f005",
                 "shasum": ""
             },
             "require": {
@@ -548,10 +548,10 @@
             },
             "description": "Innobyte NLB Payment Module",
             "support": {
-                "source": "https://github.com/oandermedia/innobyte-nlbpayment/tree/0.0.1",
+                "source": "https://github.com/oandermedia/innobyte-nlbpayment/tree/0.0.2",
                 "issues": "https://github.com/oandermedia/innobyte-nlbpayment/issues"
             },
-            "time": "2017-12-13T15:45:44+00:00"
+            "time": "2017-12-19T11:00:47+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
