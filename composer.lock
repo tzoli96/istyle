@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a172c81077b11671ac04536f8a4a34a0",
+    "content-hash": "cb765dd2a966a9843225680adb62aaea",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
-            "version": "1.24.0",
+            "version": "1.25.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/algolia/algoliasearch-client-php.git",
-                "reference": "170a8353f443680132cb58aaccee179ad05ab121"
+                "reference": "0fd6eabe909c3f860ac3ff38f595a735e74ff6da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/170a8353f443680132cb58aaccee179ad05ab121",
-                "reference": "170a8353f443680132cb58aaccee179ad05ab121",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/0fd6eabe909c3f860ac3ff38f595a735e74ff6da",
+                "reference": "0fd6eabe909c3f860ac3ff38f595a735e74ff6da",
                 "shasum": ""
             },
             "require": {
@@ -25,8 +25,8 @@
                 "php": ">=5.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8 || ^5.0",
-                "satooshi/php-coveralls": "0.6.*"
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4",
+                "satooshi/php-coveralls": "^1.0"
             },
             "type": "library",
             "autoload": {
@@ -54,7 +54,7 @@
             ],
             "description": "Algolia Search API Client for PHP",
             "homepage": "https://github.com/algolia/algoliasearch-client-php",
-            "time": "2017-12-12T13:05:46+00:00"
+            "time": "2017-12-28T08:10:23+00:00"
         },
         {
             "name": "algolia/algoliasearch-magento-2",
@@ -521,16 +521,16 @@
         },
         {
             "name": "innobyte/module-nlb",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-nlbpayment.git",
-                "reference": "6f4aa560779b5484e94358bb18cd46b9f68be1e7"
+                "reference": "8503771353319321443dc86e3596207c6596f005"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/innobyte-nlbpayment/zipball/6f4aa560779b5484e94358bb18cd46b9f68be1e7",
-                "reference": "6f4aa560779b5484e94358bb18cd46b9f68be1e7",
+                "url": "https://api.github.com/repos/oandermedia/innobyte-nlbpayment/zipball/8503771353319321443dc86e3596207c6596f005",
+                "reference": "8503771353319321443dc86e3596207c6596f005",
                 "shasum": ""
             },
             "require": {
@@ -548,10 +548,10 @@
             },
             "description": "Innobyte NLB Payment Module",
             "support": {
-                "source": "https://github.com/oandermedia/innobyte-nlbpayment/tree/0.0.1",
+                "source": "https://github.com/oandermedia/innobyte-nlbpayment/tree/0.0.2",
                 "issues": "https://github.com/oandermedia/innobyte-nlbpayment/issues"
             },
-            "time": "2017-12-13T15:45:44+00:00"
+            "time": "2017-12-19T11:00:47+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -911,16 +911,16 @@
         },
         {
             "name": "magento/magento-composer-installer",
-            "version": "0.1.12",
+            "version": "0.1.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/magento/magento-composer-installer.git",
-                "reference": "10c600e88ad34fec71bb6b435ea8415ce92d51de"
+                "reference": "8b6c32f53b4944a5d6656e86344cd0f9784709a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/magento/magento-composer-installer/zipball/10c600e88ad34fec71bb6b435ea8415ce92d51de",
-                "reference": "10c600e88ad34fec71bb6b435ea8415ce92d51de",
+                "url": "https://api.github.com/repos/magento/magento-composer-installer/zipball/8b6c32f53b4944a5d6656e86344cd0f9784709a1",
+                "reference": "8b6c32f53b4944a5d6656e86344cd0f9784709a1",
                 "shasum": ""
             },
             "require": {
@@ -986,7 +986,7 @@
                 "composer-installer",
                 "magento"
             ],
-            "time": "2016-10-06T16:05:07+00:00"
+            "time": "2017-12-29T16:45:24+00:00"
         },
         {
             "name": "magento/magento2-base",
@@ -6259,16 +6259,16 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.12",
+            "version": "1.0.13",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "70f0083e3b5b3fbb9414c656a503685b83e258ae"
+                "reference": "2a2de11809ce68febe3e811e50939f51e35f5e5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/70f0083e3b5b3fbb9414c656a503685b83e258ae",
-                "reference": "70f0083e3b5b3fbb9414c656a503685b83e258ae",
+                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/2a2de11809ce68febe3e811e50939f51e35f5e5a",
+                "reference": "2a2de11809ce68febe3e811e50939f51e35f5e5a",
                 "shasum": ""
             },
             "require": {
@@ -6289,10 +6289,10 @@
             ],
             "description": "Configurable Product Attribute",
             "support": {
-                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.12",
+                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.13",
                 "issues": "https://github.com/oandermedia/oander-configurable-product-attribute/issues"
             },
-            "time": "2017-12-18T14:47:10+00:00"
+            "time": "2017-12-20T08:36:45+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -6927,6 +6927,43 @@
             "time": "2017-12-13T11:54:20+00:00"
         },
         {
+            "name": "oander/module-preorder",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-preorder.git",
+                "reference": "6a5c62a965bb78a3ce41c21f4d179744f62029dc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-preorder/zipball/6a5c62a965bb78a3ce41c21f4d179744f62029dc",
+                "reference": "6a5c62a965bb78a3ce41c21f4d179744f62029dc",
+                "shasum": ""
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\Preorder\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Preorder",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-preorder/tree/1.0.4",
+                "issues": "https://github.com/oandermedia/oander-preorder/issues"
+            },
+            "time": "2018-01-02T10:29:55+00:00"
+        },
+        {
             "name": "oander/module-price-tooltip",
             "version": "1.0.1",
             "source": {
@@ -7302,16 +7339,16 @@
         },
         {
             "name": "oander/theme-hodor",
-            "version": "1.1.21",
+            "version": "1.1.22",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-hodor.git",
-                "reference": "fa3671f911bb6e7b638db5f49f3f1f6a5a7f9f50"
+                "reference": "b26cfe16ede7013d376cf0d6ec007a3aa13abd8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-hodor/zipball/fa3671f911bb6e7b638db5f49f3f1f6a5a7f9f50",
-                "reference": "fa3671f911bb6e7b638db5f49f3f1f6a5a7f9f50",
+                "url": "https://api.github.com/repos/oandermedia/oander-hodor/zipball/b26cfe16ede7013d376cf0d6ec007a3aa13abd8c",
+                "reference": "b26cfe16ede7013d376cf0d6ec007a3aa13abd8c",
                 "shasum": ""
             },
             "require": {
@@ -7329,23 +7366,23 @@
             ],
             "description": "Hodor template",
             "support": {
-                "source": "https://github.com/oandermedia/oander-hodor/tree/1.1.21",
+                "source": "https://github.com/oandermedia/oander-hodor/tree/1.1.22",
                 "issues": "https://github.com/oandermedia/oander-hodor/issues"
             },
-            "time": "2017-12-14T15:04:29+00:00"
+            "time": "2018-01-02T08:13:27+00:00"
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.27",
+            "version": "1.0.29",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "4aa8bfc6c6c37c954e3e0eb11d73e472f015c9dc"
+                "reference": "d1e1c4eb21574273ae5cd77377780adc1fadd5cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/4aa8bfc6c6c37c954e3e0eb11d73e472f015c9dc",
-                "reference": "4aa8bfc6c6c37c954e3e0eb11d73e472f015c9dc",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/d1e1c4eb21574273ae5cd77377780adc1fadd5cc",
+                "reference": "d1e1c4eb21574273ae5cd77377780adc1fadd5cc",
                 "shasum": ""
             },
             "require": {
@@ -7363,10 +7400,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.27",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.29",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2017-12-15T09:54:33+00:00"
+            "time": "2017-12-21T11:49:30+00:00"
         },
         {
             "name": "oyejorge/less.php",

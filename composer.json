@@ -45,6 +45,7 @@
         "oander/module-order-comment": "1.0.*",
         "oander/module-paypal": "1.0.*",
         "oander/module-pos-locations": "1.0.*",
+        "oander/module-preorder": "1.0.4",
         "oander/module-price-tooltip": "1.0.*",
         "oander/module-product-icons": "1.0.*",
         "oander/module-salesforce": "1.0.0",
@@ -60,7 +61,7 @@
         "oander/theme-hodor": "1.1.*",
         "oander/theme-istyle": "1.0.*",
         "algolia/algoliasearch-magento-2": "^1.0",
-        "innobyte/module-nlb": "0.0.1",
+        "innobyte/module-nlb": "0.0.2",
         "innobyte/module-checkout-success": "0.0.3"
     },
     "require-dev": {
@@ -252,6 +253,10 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/oander-pos-locations.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-preorder.git"
         },
         {
             "type": "vcs",
