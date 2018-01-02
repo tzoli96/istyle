@@ -6184,16 +6184,16 @@
         },
         {
             "name": "oander/module-category-dropdown",
-            "version": "1.0.11",
+            "version": "1.0.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-category-dropdown.git",
-                "reference": "ca1acbc15536c025905ffe765f6defd83ef207ab"
+                "reference": "5f9678d881b0c497ff18eb8b7e09887272ad4a56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-category-dropdown/zipball/ca1acbc15536c025905ffe765f6defd83ef207ab",
-                "reference": "ca1acbc15536c025905ffe765f6defd83ef207ab",
+                "url": "https://api.github.com/repos/oandermedia/oander-category-dropdown/zipball/5f9678d881b0c497ff18eb8b7e09887272ad4a56",
+                "reference": "5f9678d881b0c497ff18eb8b7e09887272ad4a56",
                 "shasum": ""
             },
             "require": {
@@ -6215,10 +6215,10 @@
             ],
             "description": "Oander Category Dropdown module",
             "support": {
-                "source": "https://github.com/oandermedia/oander-category-dropdown/tree/1.0.11",
+                "source": "https://github.com/oandermedia/oander-category-dropdown/tree/1.0.12",
                 "issues": "https://github.com/oandermedia/oander-category-dropdown/issues"
             },
-            "time": "2017-12-04T10:04:36+00:00"
+            "time": "2018-01-02T15:33:35+00:00"
         },
         {
             "name": "oander/module-checkout",
