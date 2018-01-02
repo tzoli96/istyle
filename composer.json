@@ -45,6 +45,7 @@
         "oander/module-order-comment": "1.0.*",
         "oander/module-paypal": "1.0.*",
         "oander/module-pos-locations": "1.0.*",
+        "oander/module-preorder": "1.0.4",
         "oander/module-price-tooltip": "1.0.*",
         "oander/module-product-icons": "1.0.*",
         "oander/module-salesforce": "1.0.0",
@@ -252,6 +253,10 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/oander-pos-locations.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-preorder.git"
         },
         {
             "type": "vcs",
