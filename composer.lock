@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb765dd2a966a9843225680adb62aaea",
+    "content-hash": "898f79ef58895d2b0ff22ad3287142a2",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6184,16 +6184,16 @@
         },
         {
             "name": "oander/module-category-dropdown",
-            "version": "1.0.11",
+            "version": "1.0.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-category-dropdown.git",
-                "reference": "ca1acbc15536c025905ffe765f6defd83ef207ab"
+                "reference": "5f9678d881b0c497ff18eb8b7e09887272ad4a56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-category-dropdown/zipball/ca1acbc15536c025905ffe765f6defd83ef207ab",
-                "reference": "ca1acbc15536c025905ffe765f6defd83ef207ab",
+                "url": "https://api.github.com/repos/oandermedia/oander-category-dropdown/zipball/5f9678d881b0c497ff18eb8b7e09887272ad4a56",
+                "reference": "5f9678d881b0c497ff18eb8b7e09887272ad4a56",
                 "shasum": ""
             },
             "require": {
@@ -6215,10 +6215,10 @@
             ],
             "description": "Oander Category Dropdown module",
             "support": {
-                "source": "https://github.com/oandermedia/oander-category-dropdown/tree/1.0.11",
+                "source": "https://github.com/oandermedia/oander-category-dropdown/tree/1.0.12",
                 "issues": "https://github.com/oandermedia/oander-category-dropdown/issues"
             },
-            "time": "2017-12-04T10:04:36+00:00"
+            "time": "2018-01-02T15:33:35+00:00"
         },
         {
             "name": "oander/module-checkout",
@@ -7039,16 +7039,16 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "709018d95df3fa1c233fcebc920657f59e78fe49"
+                "reference": "f292180d5dca7418c92178135939da7e2ecf2027"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-salesforce/zipball/709018d95df3fa1c233fcebc920657f59e78fe49",
-                "reference": "709018d95df3fa1c233fcebc920657f59e78fe49",
+                "url": "https://api.github.com/repos/oandermedia/oander-salesforce/zipball/f292180d5dca7418c92178135939da7e2ecf2027",
+                "reference": "f292180d5dca7418c92178135939da7e2ecf2027",
                 "shasum": ""
             },
             "require": {
@@ -7069,23 +7069,23 @@
             ],
             "description": "salesforce",
             "support": {
-                "source": "https://github.com/oandermedia/oander-salesforce/tree/1.0.0",
+                "source": "https://github.com/oandermedia/oander-salesforce/tree/1.0.1",
                 "issues": "https://github.com/oandermedia/oander-salesforce/issues"
             },
-            "time": "2017-12-14T14:06:34+00:00"
+            "time": "2018-01-02T16:18:57+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-widget.git",
-                "reference": "7a7cc76cf5eb5e2fbaf25e355564c7e138319ec8"
+                "reference": "3f8745c48b567719093d585d6539a10686c7dfd6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-salesforce-widget/zipball/7a7cc76cf5eb5e2fbaf25e355564c7e138319ec8",
-                "reference": "7a7cc76cf5eb5e2fbaf25e355564c7e138319ec8",
+                "url": "https://api.github.com/repos/oandermedia/oander-salesforce-widget/zipball/3f8745c48b567719093d585d6539a10686c7dfd6",
+                "reference": "3f8745c48b567719093d585d6539a10686c7dfd6",
                 "shasum": ""
             },
             "require": {
@@ -7107,10 +7107,10 @@
             ],
             "description": "salesforce-widget",
             "support": {
-                "source": "https://github.com/oandermedia/oander-salesforce-widget/tree/1.0.3",
+                "source": "https://github.com/oandermedia/oander-salesforce-widget/tree/1.0.4",
                 "issues": "https://github.com/oandermedia/oander-salesforce-widget/issues"
             },
-            "time": "2017-12-15T10:31:45+00:00"
+            "time": "2018-01-02T16:18:57+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -7373,16 +7373,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.29",
+            "version": "1.0.30",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "d1e1c4eb21574273ae5cd77377780adc1fadd5cc"
+                "reference": "f982e606f02def2c34fe76a3c483f27b993e642c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/d1e1c4eb21574273ae5cd77377780adc1fadd5cc",
-                "reference": "d1e1c4eb21574273ae5cd77377780adc1fadd5cc",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/f982e606f02def2c34fe76a3c483f27b993e642c",
+                "reference": "f982e606f02def2c34fe76a3c483f27b993e642c",
                 "shasum": ""
             },
             "require": {
@@ -7400,10 +7400,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.29",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.30",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2017-12-21T11:49:30+00:00"
+            "time": "2018-01-02T12:29:06+00:00"
         },
         {
             "name": "oyejorge/less.php",
