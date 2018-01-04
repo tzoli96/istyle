@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f66515b9c016dda34f5a42bb9e1ad88a",
+    "content-hash": "ddc8e1eaaf070232f19b0a53cd102c84",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -5541,16 +5541,16 @@
         },
         {
             "name": "mirasvit/module-core",
-            "version": "1.2.48",
+            "version": "1.2.48.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-core.git",
-                "reference": "e3048412a8f114b7d5ee346cdba89454c126dafc"
+                "reference": "43a588b814320f941c7534f68335f70a66cf56f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/mirasvit-core/zipball/e3048412a8f114b7d5ee346cdba89454c126dafc",
-                "reference": "e3048412a8f114b7d5ee346cdba89454c126dafc",
+                "url": "https://api.github.com/repos/oandermedia/mirasvit-core/zipball/43a588b814320f941c7534f68335f70a66cf56f7",
+                "reference": "43a588b814320f941c7534f68335f70a66cf56f7",
                 "shasum": ""
             },
             "require": {
@@ -5559,10 +5559,10 @@
             "type": "magento2-module",
             "autoload": {
                 "files": [
-                    "src/Core/registration.php"
+                    "registration.php"
                 ],
                 "psr-4": {
-                    "Mirasvit\\Core\\": "src/Core"
+                    "Mirasvit\\Core\\": ""
                 }
             },
             "license": [
@@ -5570,37 +5570,37 @@
             ],
             "description": "Mirasvit Core",
             "support": {
-                "source": "https://github.com/oandermedia/mirasvit-core/tree/1.2.48",
+                "source": "https://github.com/oandermedia/mirasvit-core/tree/1.2.48.1",
                 "issues": "https://github.com/oandermedia/mirasvit-core/issues"
             },
-            "time": "2018-01-04T08:48:42+00:00"
+            "time": "2018-01-04T15:02:15+00:00"
         },
         {
             "name": "mirasvit/module-feed",
-            "version": "1.0.62",
+            "version": "1.0.62.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-feed.git",
-                "reference": "77bddad3c6310b442392dcb46e7bc408e2cb1547"
+                "reference": "9662de35c78cee5024dd6d0542d843b60ef0409c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/mirasvit-feed/zipball/77bddad3c6310b442392dcb46e7bc408e2cb1547",
-                "reference": "77bddad3c6310b442392dcb46e7bc408e2cb1547",
+                "url": "https://api.github.com/repos/oandermedia/mirasvit-feed/zipball/9662de35c78cee5024dd6d0542d843b60ef0409c",
+                "reference": "9662de35c78cee5024dd6d0542d843b60ef0409c",
                 "shasum": ""
             },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*",
                 "mirasvit/module-core": ">=1.2.46",
-                "mirasvit/module-report": "1.2.*"
+                "mirasvit/module-report": ">=1.2.27"
             },
             "type": "magento2-module",
             "autoload": {
                 "files": [
-                    "src/Feed/registration.php"
+                    "registration.php"
                 ],
                 "psr-4": {
-                    "Mirasvit\\Feed\\": "src/Feed"
+                    "Mirasvit\\Feed\\": ""
                 }
             },
             "license": [
@@ -5608,36 +5608,36 @@
             ],
             "description": "Advanced Product Feeds",
             "support": {
-                "source": "https://github.com/oandermedia/mirasvit-feed/tree/1.0.62",
+                "source": "https://github.com/oandermedia/mirasvit-feed/tree/1.0.62.1",
                 "issues": "https://github.com/oandermedia/mirasvit-feed/issues"
             },
-            "time": "2018-01-04T08:51:58+00:00"
+            "time": "2018-01-04T15:04:08+00:00"
         },
         {
             "name": "mirasvit/module-report",
-            "version": "1.2.27",
+            "version": "1.2.27.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-report.git",
-                "reference": "8fd363f4731dfd9396ee2bc20f98cc6c9416810a"
+                "reference": "30c237683eaa9ee11d10db6476b63ac135c3346a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/mirasvit-report/zipball/8fd363f4731dfd9396ee2bc20f98cc6c9416810a",
-                "reference": "8fd363f4731dfd9396ee2bc20f98cc6c9416810a",
+                "url": "https://api.github.com/repos/oandermedia/mirasvit-report/zipball/30c237683eaa9ee11d10db6476b63ac135c3346a",
+                "reference": "30c237683eaa9ee11d10db6476b63ac135c3346a",
                 "shasum": ""
             },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*",
-                "mirasvit/module-core": "^1.2"
+                "mirasvit/module-core": ">=1.2.48"
             },
             "type": "magento2-module",
             "autoload": {
                 "files": [
-                    "src/Report/registration.php"
+                    "registration.php"
                 ],
                 "psr-4": {
-                    "Mirasvit\\Report\\": "src/Report"
+                    "Mirasvit\\Report\\": ""
                 }
             },
             "license": [
@@ -5645,10 +5645,10 @@
             ],
             "description": "Reports Core",
             "support": {
-                "source": "https://github.com/oandermedia/mirasvit-report/tree/1.2.27",
+                "source": "https://github.com/oandermedia/mirasvit-report/tree/1.2.27.1",
                 "issues": "https://github.com/oandermedia/mirasvit-report/issues"
             },
-            "time": "2018-01-04T08:53:56+00:00"
+            "time": "2018-01-04T15:05:05+00:00"
         },
         {
             "name": "monolog/monolog",

@@ -63,9 +63,9 @@
         "algolia/algoliasearch-magento-2": "^1.0",
         "innobyte/module-nlb": "0.0.2",
         "innobyte/module-checkout-success": "0.0.3",
-        "mirasvit/module-core": "1.2.48",
-        "mirasvit/module-feed": "1.0.62",
-        "mirasvit/module-report": "1.2.27"
+        "mirasvit/module-core": "1.2.48.1",
+        "mirasvit/module-feed": "1.0.62.1",
+        "mirasvit/module-report": "1.2.27.1"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
