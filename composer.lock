@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "898f79ef58895d2b0ff22ad3287142a2",
+    "content-hash": "f66515b9c016dda34f5a42bb9e1ad88a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -426,23 +426,23 @@
         },
         {
             "name": "composer/spdx-licenses",
-            "version": "1.1.6",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/spdx-licenses.git",
-                "reference": "2603a0d7ddc00a015deb576fa5297ca43dee6b1c"
+                "reference": "2d899e9b33023c631854f36c39ef9f8317a7ab33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/2603a0d7ddc00a015deb576fa5297ca43dee6b1c",
-                "reference": "2603a0d7ddc00a015deb576fa5297ca43dee6b1c",
+                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/2d899e9b33023c631854f36c39ef9f8317a7ab33",
+                "reference": "2d899e9b33023c631854f36c39ef9f8317a7ab33",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3.2 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5 || ^5.0.5",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5",
                 "phpunit/phpunit-mock-objects": "2.3.0 || ^3.0"
             },
             "type": "library",
@@ -483,7 +483,7 @@
                 "spdx",
                 "validator"
             ],
-            "time": "2017-04-03T19:08:52+00:00"
+            "time": "2018-01-03T16:37:06+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
@@ -5540,6 +5540,117 @@
             "time": "2017-02-27T21:19:07+00:00"
         },
         {
+            "name": "mirasvit/module-core",
+            "version": "1.2.48",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/mirasvit-core.git",
+                "reference": "3d046a6d6b8058e04b196f963b51a4af0df07fe8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/mirasvit-core/zipball/3d046a6d6b8058e04b196f963b51a4af0df07fe8",
+                "reference": "3d046a6d6b8058e04b196f963b51a4af0df07fe8",
+                "shasum": ""
+            },
+            "require": {
+                "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "src/Core/registration.php"
+                ],
+                "psr-4": {
+                    "Mirasvit\\Core\\": "src/Core"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Mirasvit Core",
+            "support": {
+                "source": "https://github.com/oandermedia/mirasvit-core/tree/1.2.48",
+                "issues": "https://github.com/oandermedia/mirasvit-core/issues"
+            },
+            "time": "2018-01-04T08:48:42+00:00"
+        },
+        {
+            "name": "mirasvit/module-feed",
+            "version": "1.0.62",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/mirasvit-feed.git",
+                "reference": "b2f75b17e580350646afa4366c5c86e95616ccee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/mirasvit-feed/zipball/b2f75b17e580350646afa4366c5c86e95616ccee",
+                "reference": "b2f75b17e580350646afa4366c5c86e95616ccee",
+                "shasum": ""
+            },
+            "require": {
+                "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*",
+                "mirasvit/module-core": ">=1.2.46",
+                "mirasvit/module-report": "1.2.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "src/Feed/registration.php"
+                ],
+                "psr-4": {
+                    "Mirasvit\\Feed\\": "src/Feed"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Advanced Product Feeds",
+            "support": {
+                "source": "https://github.com/oandermedia/mirasvit-feed/tree/1.0.62",
+                "issues": "https://github.com/oandermedia/mirasvit-feed/issues"
+            },
+            "time": "2018-01-04T08:51:58+00:00"
+        },
+        {
+            "name": "mirasvit/module-report",
+            "version": "1.2.27",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/mirasvit-report.git",
+                "reference": "c717996f934d913329f8ac0c1668e6c2eb74e215"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/mirasvit-report/zipball/c717996f934d913329f8ac0c1668e6c2eb74e215",
+                "reference": "c717996f934d913329f8ac0c1668e6c2eb74e215",
+                "shasum": ""
+            },
+            "require": {
+                "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*",
+                "mirasvit/module-core": "^1.2"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "src/Report/registration.php"
+                ],
+                "psr-4": {
+                    "Mirasvit\\Report\\": "src/Report"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Reports Core",
+            "support": {
+                "source": "https://github.com/oandermedia/mirasvit-report/tree/1.2.27",
+                "issues": "https://github.com/oandermedia/mirasvit-report/issues"
+            },
+            "time": "2018-01-04T08:53:56+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.16.0",
             "source": {
@@ -6891,16 +7002,16 @@
         },
         {
             "name": "oander/module-pos-locations",
-            "version": "1.0.11",
+            "version": "1.0.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-pos-locations.git",
-                "reference": "16a2494111a40a6c4435ec533bc103fb95ec9ac6"
+                "reference": "e8216a3cab54a7ed1af1b750b460c1a8aec5b757"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-pos-locations/zipball/16a2494111a40a6c4435ec533bc103fb95ec9ac6",
-                "reference": "16a2494111a40a6c4435ec533bc103fb95ec9ac6",
+                "url": "https://api.github.com/repos/oandermedia/oander-pos-locations/zipball/e8216a3cab54a7ed1af1b750b460c1a8aec5b757",
+                "reference": "e8216a3cab54a7ed1af1b750b460c1a8aec5b757",
                 "shasum": ""
             },
             "require": {
@@ -6921,10 +7032,10 @@
             ],
             "description": "Oander POS Locations module",
             "support": {
-                "source": "https://github.com/oandermedia/oander-pos-locations/tree/1.0.11",
+                "source": "https://github.com/oandermedia/oander-pos-locations/tree/1.0.12",
                 "issues": "https://github.com/oandermedia/oander-pos-locations/issues"
             },
-            "time": "2017-12-13T11:54:20+00:00"
+            "time": "2018-01-03T16:29:34+00:00"
         },
         {
             "name": "oander/module-preorder",
@@ -7712,23 +7823,23 @@
         },
         {
             "name": "seld/jsonlint",
-            "version": "1.6.2",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/jsonlint.git",
-                "reference": "7a30649c67ee0d19faacfd9fa2cfb6cc032d9b19"
+                "reference": "9b355654ea99460397b89c132b5c1087b6bf4473"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/7a30649c67ee0d19faacfd9fa2cfb6cc032d9b19",
-                "reference": "7a30649c67ee0d19faacfd9fa2cfb6cc032d9b19",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/9b355654ea99460397b89c132b5c1087b6bf4473",
+                "reference": "9b355654ea99460397b89c132b5c1087b6bf4473",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5"
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
             },
             "bin": [
                 "bin/jsonlint"
@@ -7757,7 +7868,7 @@
                 "parser",
                 "validator"
             ],
-            "time": "2017-11-30T15:34:22+00:00"
+            "time": "2018-01-03T12:13:57+00:00"
         },
         {
             "name": "seld/phar-utils",
