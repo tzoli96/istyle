@@ -5545,12 +5545,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-core.git",
-                "reference": "3d046a6d6b8058e04b196f963b51a4af0df07fe8"
+                "reference": "e3048412a8f114b7d5ee346cdba89454c126dafc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/mirasvit-core/zipball/3d046a6d6b8058e04b196f963b51a4af0df07fe8",
-                "reference": "3d046a6d6b8058e04b196f963b51a4af0df07fe8",
+                "url": "https://api.github.com/repos/oandermedia/mirasvit-core/zipball/e3048412a8f114b7d5ee346cdba89454c126dafc",
+                "reference": "e3048412a8f114b7d5ee346cdba89454c126dafc",
                 "shasum": ""
             },
             "require": {
@@ -5581,12 +5581,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-feed.git",
-                "reference": "b2f75b17e580350646afa4366c5c86e95616ccee"
+                "reference": "77bddad3c6310b442392dcb46e7bc408e2cb1547"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/mirasvit-feed/zipball/b2f75b17e580350646afa4366c5c86e95616ccee",
-                "reference": "b2f75b17e580350646afa4366c5c86e95616ccee",
+                "url": "https://api.github.com/repos/oandermedia/mirasvit-feed/zipball/77bddad3c6310b442392dcb46e7bc408e2cb1547",
+                "reference": "77bddad3c6310b442392dcb46e7bc408e2cb1547",
                 "shasum": ""
             },
             "require": {
@@ -5619,12 +5619,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-report.git",
-                "reference": "c717996f934d913329f8ac0c1668e6c2eb74e215"
+                "reference": "8fd363f4731dfd9396ee2bc20f98cc6c9416810a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/mirasvit-report/zipball/c717996f934d913329f8ac0c1668e6c2eb74e215",
-                "reference": "c717996f934d913329f8ac0c1668e6c2eb74e215",
+                "url": "https://api.github.com/repos/oandermedia/mirasvit-report/zipball/8fd363f4731dfd9396ee2bc20f98cc6c9416810a",
+                "reference": "8fd363f4731dfd9396ee2bc20f98cc6c9416810a",
                 "shasum": ""
             },
             "require": {
