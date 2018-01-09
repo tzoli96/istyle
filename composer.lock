@@ -7298,16 +7298,16 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.2.5",
+            "version": "1.2.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "43d0840febbe59f2fa370dbac32874d02f0bee59"
+                "reference": "e5e9921905e00d993a8222a48524785d0a6af21e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/43d0840febbe59f2fa370dbac32874d02f0bee59",
-                "reference": "43d0840febbe59f2fa370dbac32874d02f0bee59",
+                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/e5e9921905e00d993a8222a48524785d0a6af21e",
+                "reference": "e5e9921905e00d993a8222a48524785d0a6af21e",
                 "shasum": ""
             },
             "require": {
@@ -7330,10 +7330,10 @@
             ],
             "description": "Warehouse Manager",
             "support": {
-                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.2.5",
+                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.2.6",
                 "issues": "https://github.com/oandermedia/oander-warehouse-manager/issues"
             },
-            "time": "2017-12-15T12:49:27+00:00"
+            "time": "2018-01-08T15:41:24+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
@@ -7412,16 +7412,16 @@
         },
         {
             "name": "oander/module-xtento-order-export-extender",
-            "version": "1.0.3",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-xtento-order-export-extender.git",
-                "reference": "dd151b796b4613f4aabecba1fecb122a63b897b1"
+                "reference": "e149ee470c00a36ffa2e4474637b9ea56161c8f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-xtento-order-export-extender/zipball/dd151b796b4613f4aabecba1fecb122a63b897b1",
-                "reference": "dd151b796b4613f4aabecba1fecb122a63b897b1",
+                "url": "https://api.github.com/repos/oandermedia/oander-xtento-order-export-extender/zipball/e149ee470c00a36ffa2e4474637b9ea56161c8f2",
+                "reference": "e149ee470c00a36ffa2e4474637b9ea56161c8f2",
                 "shasum": ""
             },
             "require": {
@@ -7443,10 +7443,10 @@
             ],
             "description": "Xtento Order Export Extender",
             "support": {
-                "source": "https://github.com/oandermedia/oander-xtento-order-export-extender/tree/1.0.3",
+                "source": "https://github.com/oandermedia/oander-xtento-order-export-extender/tree/1.0.5",
                 "issues": "https://github.com/oandermedia/oander-xtento-order-export-extender/issues"
             },
-            "time": "2017-11-20T12:27:28+00:00"
+            "time": "2018-01-08T11:33:23+00:00"
         },
         {
             "name": "oander/theme-hodor",
@@ -7484,16 +7484,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.32",
+            "version": "1.0.33",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "54ab2603ab533468d8d9ee193db02c25fa1e490a"
+                "reference": "95c3a4d36da2402de3d8ae442c9d7b1bd171ebc6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/54ab2603ab533468d8d9ee193db02c25fa1e490a",
-                "reference": "54ab2603ab533468d8d9ee193db02c25fa1e490a",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/95c3a4d36da2402de3d8ae442c9d7b1bd171ebc6",
+                "reference": "95c3a4d36da2402de3d8ae442c9d7b1bd171ebc6",
                 "shasum": ""
             },
             "require": {
@@ -7511,10 +7511,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.32",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.33",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2018-01-08T09:07:02+00:00"
+            "time": "2018-01-09T11:40:25+00:00"
         },
         {
             "name": "oyejorge/less.php",
