@@ -7298,16 +7298,16 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.2.6",
+            "version": "1.2.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "e5e9921905e00d993a8222a48524785d0a6af21e"
+                "reference": "30ad80c174473ee6f12dd9deabfa2418c6cbc0d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/e5e9921905e00d993a8222a48524785d0a6af21e",
-                "reference": "e5e9921905e00d993a8222a48524785d0a6af21e",
+                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/30ad80c174473ee6f12dd9deabfa2418c6cbc0d1",
+                "reference": "30ad80c174473ee6f12dd9deabfa2418c6cbc0d1",
                 "shasum": ""
             },
             "require": {
@@ -7330,10 +7330,10 @@
             ],
             "description": "Warehouse Manager",
             "support": {
-                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.2.6",
+                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.2.8",
                 "issues": "https://github.com/oandermedia/oander-warehouse-manager/issues"
             },
-            "time": "2018-01-08T15:41:24+00:00"
+            "time": "2018-01-09T16:37:50+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
@@ -7484,16 +7484,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.33",
+            "version": "1.0.34",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "95c3a4d36da2402de3d8ae442c9d7b1bd171ebc6"
+                "reference": "5de68248d2eb380aaac5288f3f7a26c0457e2396"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/95c3a4d36da2402de3d8ae442c9d7b1bd171ebc6",
-                "reference": "95c3a4d36da2402de3d8ae442c9d7b1bd171ebc6",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/5de68248d2eb380aaac5288f3f7a26c0457e2396",
+                "reference": "5de68248d2eb380aaac5288f3f7a26c0457e2396",
                 "shasum": ""
             },
             "require": {
@@ -7511,10 +7511,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.33",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.34",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2018-01-09T11:40:25+00:00"
+            "time": "2018-01-10T11:10:35+00:00"
         },
         {
             "name": "oyejorge/less.php",
