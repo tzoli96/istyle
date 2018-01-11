@@ -142,6 +142,7 @@ return array (
     'Oander_OrderAttachment' => 1,
     'Oander_OrderComment' => 1,
     'Oander_PayPal' => 1,
+    'Oander_Pleisty' => 1,
     'Oander_PosLocations' => 1,
     'Oander_Preorder' => 1,
     'Oander_PriceTooltip' => 1,

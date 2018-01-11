@@ -44,6 +44,7 @@
         "oander/module-order-attachment": "1.0.2",
         "oander/module-order-comment": "1.0.*",
         "oander/module-paypal": "1.0.*",
+        "oander/module-pleisty": "1.0.*",
         "oander/module-pos-locations": "1.0.*",
         "oander/module-preorder": "1.0.4",
         "oander/module-price-tooltip": "1.0.*",
@@ -252,6 +253,10 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/oander-paypal.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-pleisty.git"
         },
         {
             "type": "vcs",
