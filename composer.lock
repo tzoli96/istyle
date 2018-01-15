@@ -5728,16 +5728,16 @@
         },
         {
             "name": "oander/language-mk-mk",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-mk-mk.git",
-                "reference": "7c64501e61fea909f8233463f84eca18db26f5d8"
+                "reference": "f85284233274e1269fd84e1e8f757fc79de7c3fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-mk-mk/zipball/7c64501e61fea909f8233463f84eca18db26f5d8",
-                "reference": "7c64501e61fea909f8233463f84eca18db26f5d8",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-mk-mk/zipball/f85284233274e1269fd84e1e8f757fc79de7c3fa",
+                "reference": "f85284233274e1269fd84e1e8f757fc79de7c3fa",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -5751,10 +5751,10 @@
             ],
             "description": "Macedonian language pack for the Magento",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-mk-mk/tree/master",
+                "source": "https://github.com/oandermedia/oander-language-mk-mk/tree/1.0.3",
                 "issues": "https://github.com/oandermedia/oander-language-mk-mk/issues"
             },
-            "time": "2018-01-15T13:24:17+00:00"
+            "time": "2018-01-15T16:31:34+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
