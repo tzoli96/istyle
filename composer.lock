@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5f2ac2eabecadd9ff6d5d6ffae6977f8",
+    "content-hash": "9107fddb0a8c6d57d27a3de2501080dc",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7071,16 +7071,16 @@
         },
         {
             "name": "oander/module-preorder",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-preorder.git",
-                "reference": "d2e491cf8a3e0445a009cb23f161a625ac45fbc8"
+                "reference": "ed7bf0a34b685db2b29da12ce15374dfc04bd38b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-preorder/zipball/d2e491cf8a3e0445a009cb23f161a625ac45fbc8",
-                "reference": "d2e491cf8a3e0445a009cb23f161a625ac45fbc8",
+                "url": "https://api.github.com/repos/oandermedia/oander-preorder/zipball/ed7bf0a34b685db2b29da12ce15374dfc04bd38b",
+                "reference": "ed7bf0a34b685db2b29da12ce15374dfc04bd38b",
                 "shasum": ""
             },
             "require": {
@@ -7101,10 +7101,10 @@
             ],
             "description": "Oander Preorder",
             "support": {
-                "source": "https://github.com/oandermedia/oander-preorder/tree/1.0.7",
+                "source": "https://github.com/oandermedia/oander-preorder/tree/1.0.8",
                 "issues": "https://github.com/oandermedia/oander-preorder/issues"
             },
-            "time": "2018-01-16T11:27:21+00:00"
+            "time": "2018-01-16T12:05:30+00:00"
         },
         {
             "name": "oander/module-price-tooltip",
