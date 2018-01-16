@@ -46,7 +46,7 @@
         "oander/module-paypal": "1.0.*",
         "oander/module-pleisty": "1.0.*",
         "oander/module-pos-locations": "1.0.*",
-        "oander/module-preorder": "1.0.4",
+        "oander/module-preorder": "1.0.6",
         "oander/module-price-tooltip": "1.0.*",
         "oander/module-product-icons": "1.0.*",
         "oander/module-salesforce": "1.0.1",
