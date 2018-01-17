@@ -27,8 +27,8 @@
     <preference for="Magento\Checkout\Block\Cart\Crosssell"
                 type="Oander\IstyleBase\Block\Cart\Crosssell" />
 
-    <!--<preference for="Magento\Catalog\Helper\Product"-->
-                <!--type="Oander\IstyleBase\Helper\Product"/>-->
+    <preference for="Magento\Catalog\Helper\Product"
+                type="Oander\IstyleBase\Helper\Product"/>
 
     <preference for="Magento\CatalogInventory\Model\ResourceModel\Product\StockStatusBaseSelectProcessor"
                 type="Oander\IstyleBase\Model\ResourceModel\Product\StockStatusBaseSelectProcessor"/>
