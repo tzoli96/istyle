@@ -17,20 +17,27 @@
 
 declare(strict_types = 1);
 
+namespace Oander\IstyleBase\Plugin\Catalog\Model;
 
-namespace Oander\IstyleBase\Helper;
-
-/**
- * Class Product
- *
- * @package Oander\IstyleBase\Helper
- */
-class Product extends \Magento\Catalog\Helper\Product
+class Product
 {
+
+
     /**
-     * @var bool
+     * @param             $subject
+     * @param \Closure    $method
+     *
+     * @return bool
      */
-    protected $_skipSaleableCheck = true;
+    public function aroundIsSalable($subject, \Closure $method): bool
+    {
+        if($subject->getStatus() == \Magento\Catalog\Model\Product\Attribute\Source\Status::STATUS_ENABLED){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
 
 
 }
