@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "59dc08197c1d48b0c6ced36c1217bc9a",
+    "content-hash": "351c1bbc08e930dc2e28363c9845f5ca",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7071,16 +7071,16 @@
         },
         {
             "name": "oander/module-preorder",
-            "version": "1.0.10",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-preorder.git",
-                "reference": "19324b8446f15de7b5a0fee0be9cb8b97d079f2d"
+                "reference": "ad96b13e91c010b83795b95b52edf1e3bf989d37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-preorder/zipball/19324b8446f15de7b5a0fee0be9cb8b97d079f2d",
-                "reference": "19324b8446f15de7b5a0fee0be9cb8b97d079f2d",
+                "url": "https://api.github.com/repos/oandermedia/oander-preorder/zipball/ad96b13e91c010b83795b95b52edf1e3bf989d37",
+                "reference": "ad96b13e91c010b83795b95b52edf1e3bf989d37",
                 "shasum": ""
             },
             "require": {
@@ -7101,10 +7101,10 @@
             ],
             "description": "Oander Preorder",
             "support": {
-                "source": "https://github.com/oandermedia/oander-preorder/tree/master",
+                "source": "https://github.com/oandermedia/oander-preorder/tree/1.0.11",
                 "issues": "https://github.com/oandermedia/oander-preorder/issues"
             },
-            "time": "2018-01-23T15:16:08+00:00"
+            "time": "2018-01-23T16:18:35+00:00"
         },
         {
             "name": "oander/module-price-tooltip",
@@ -7516,16 +7516,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.36",
+            "version": "1.0.37",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "f0a98752545dda2a1979cf5f97f6a0dddeff69e7"
+                "reference": "871b6f7894af92a483030c1868f9beace38c9225"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/f0a98752545dda2a1979cf5f97f6a0dddeff69e7",
-                "reference": "f0a98752545dda2a1979cf5f97f6a0dddeff69e7",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/871b6f7894af92a483030c1868f9beace38c9225",
+                "reference": "871b6f7894af92a483030c1868f9beace38c9225",
                 "shasum": ""
             },
             "require": {
@@ -7543,10 +7543,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.36",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.37",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2018-01-16T14:17:26+00:00"
+            "time": "2018-01-23T16:21:53+00:00"
         },
         {
             "name": "oyejorge/less.php",
