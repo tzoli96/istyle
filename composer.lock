@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9107fddb0a8c6d57d27a3de2501080dc",
+    "content-hash": "59dc08197c1d48b0c6ced36c1217bc9a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -58,16 +58,16 @@
         },
         {
             "name": "algolia/algoliasearch-magento-2",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/algolia/algoliasearch-magento-2.git",
-                "reference": "ac01a639b4c06d67be5134575ca87a938000cc9e"
+                "reference": "ca02298ce7affa4e22b4cc8233719aeac754513c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/algolia/algoliasearch-magento-2/zipball/ac01a639b4c06d67be5134575ca87a938000cc9e",
-                "reference": "ac01a639b4c06d67be5134575ca87a938000cc9e",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-magento-2/zipball/ca02298ce7affa4e22b4cc8233719aeac754513c",
+                "reference": "ca02298ce7affa4e22b4cc8233719aeac754513c",
                 "shasum": ""
             },
             "require": {
@@ -89,7 +89,7 @@
                 "MIT"
             ],
             "description": "Algolia Search integration for Magento 2",
-            "time": "2017-11-23T16:29:44+00:00"
+            "time": "2018-01-19T17:49:31+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -5910,16 +5910,16 @@
         },
         {
             "name": "oander/module-api-checkout",
-            "version": "1.0.6",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-checkout.git",
-                "reference": "509cef81df8815e41eb9a131ddae5daed27342fa"
+                "reference": "31ab76963195f546a1329ab14cc6815428886910"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-checkout/zipball/509cef81df8815e41eb9a131ddae5daed27342fa",
-                "reference": "509cef81df8815e41eb9a131ddae5daed27342fa",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-checkout/zipball/31ab76963195f546a1329ab14cc6815428886910",
+                "reference": "31ab76963195f546a1329ab14cc6815428886910",
                 "shasum": ""
             },
             "require": {
@@ -5942,10 +5942,10 @@
             ],
             "description": "API Checkout module.",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-checkout/tree/1.0.6",
+                "source": "https://github.com/oandermedia/oander-api-checkout/tree/1.3.0",
                 "issues": "https://github.com/oandermedia/oander-api-checkout/issues"
             },
-            "time": "2017-10-19T11:54:22+00:00"
+            "time": "2018-01-18T16:39:49+00:00"
         },
         {
             "name": "oander/module-api-customer",
@@ -7071,16 +7071,16 @@
         },
         {
             "name": "oander/module-preorder",
-            "version": "1.0.8",
+            "version": "1.0.10",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-preorder.git",
-                "reference": "ed7bf0a34b685db2b29da12ce15374dfc04bd38b"
+                "reference": "19324b8446f15de7b5a0fee0be9cb8b97d079f2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-preorder/zipball/ed7bf0a34b685db2b29da12ce15374dfc04bd38b",
-                "reference": "ed7bf0a34b685db2b29da12ce15374dfc04bd38b",
+                "url": "https://api.github.com/repos/oandermedia/oander-preorder/zipball/19324b8446f15de7b5a0fee0be9cb8b97d079f2d",
+                "reference": "19324b8446f15de7b5a0fee0be9cb8b97d079f2d",
                 "shasum": ""
             },
             "require": {
@@ -7101,10 +7101,10 @@
             ],
             "description": "Oander Preorder",
             "support": {
-                "source": "https://github.com/oandermedia/oander-preorder/tree/1.0.8",
+                "source": "https://github.com/oandermedia/oander-preorder/tree/master",
                 "issues": "https://github.com/oandermedia/oander-preorder/issues"
             },
-            "time": "2018-01-16T12:05:30+00:00"
+            "time": "2018-01-23T15:16:08+00:00"
         },
         {
             "name": "oander/module-price-tooltip",
@@ -7444,16 +7444,16 @@
         },
         {
             "name": "oander/module-xtento-order-export-extender",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-xtento-order-export-extender.git",
-                "reference": "e149ee470c00a36ffa2e4474637b9ea56161c8f2"
+                "reference": "825233f93b5e4e9fc816a25d35f04c288a891ae7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-xtento-order-export-extender/zipball/e149ee470c00a36ffa2e4474637b9ea56161c8f2",
-                "reference": "e149ee470c00a36ffa2e4474637b9ea56161c8f2",
+                "url": "https://api.github.com/repos/oandermedia/oander-xtento-order-export-extender/zipball/825233f93b5e4e9fc816a25d35f04c288a891ae7",
+                "reference": "825233f93b5e4e9fc816a25d35f04c288a891ae7",
                 "shasum": ""
             },
             "require": {
@@ -7475,10 +7475,10 @@
             ],
             "description": "Xtento Order Export Extender",
             "support": {
-                "source": "https://github.com/oandermedia/oander-xtento-order-export-extender/tree/1.0.5",
+                "source": "https://github.com/oandermedia/oander-xtento-order-export-extender/tree/1.0.6",
                 "issues": "https://github.com/oandermedia/oander-xtento-order-export-extender/issues"
             },
-            "time": "2018-01-08T11:33:23+00:00"
+            "time": "2018-01-18T16:43:04+00:00"
         },
         {
             "name": "oander/theme-hodor",
