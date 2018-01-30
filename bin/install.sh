@@ -46,7 +46,7 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
       if mysqldump --single-transaction istyle weee_tax theme product_alert_price eav_entity_type core_config_data setup_module store store_group store_website | mysql istyle_upg; then echo OK; else echo FAIL; fi
       echo -n "istyle-warehousemanager ... "
       mysql -e 'DROP DATABASE istylewh_upg; CREATE DATABASE istylewh_upg;'
-      if mysqldump --single-transaction istyle-warehousemanager | mysql istylewh_upg; then echo OK; else echo FAIL; fi
+      if mysqldump --single-transaction istyle-warehousemanager | sed 's/`istylem2`@`%`/`root`@`%`/g' | mysql istylewh_upg; then echo OK; else echo FAIL; fi
       echo -n "istyle-apigateway ... "
       mysql -e 'DROP DATABASE istyleapi_upg; CREATE DATABASE istyleapi_upg;'
       if mysqldump --single-transaction istyle-apigateway | mysql istyleapi_upg; then echo OK; else echo FAIL; fi
