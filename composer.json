@@ -316,14 +316,6 @@
         },
         {
             "type": "vcs",
-            "url": "git@github.com:oandermedia/xtento-orderexport.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:oandermedia/xtento-core.git"
-        },
-        {
-            "type": "vcs",
             "url": "git@github.com:oandermedia/mirasvit-core.git"
         },
         {
@@ -333,6 +325,14 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/mirasvit-report.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/xtento-orderexport.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/xtento-core.git"
         }
     ],
     "extra": {
