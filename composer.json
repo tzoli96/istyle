@@ -62,7 +62,7 @@
         "oander/theme-hodor": "1.1.*",
         "oander/theme-istyle": "1.0.*",
         "algolia/algoliasearch-magento-2": "^1.0",
-        "innobyte/module-nlb": "0.0.2",
+        "innobyte/module-nlb": "0.0.3",
         "innobyte/module-checkout-success": "0.0.3",
         "mirasvit/module-core": "1.2.48.1",
         "mirasvit/module-feed": "1.0.62.1",

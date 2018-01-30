@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "351c1bbc08e930dc2e28363c9845f5ca",
+    "content-hash": "05cf0d7e7a2f1cdf8609df2b29b2de25",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -521,16 +521,16 @@
         },
         {
             "name": "innobyte/module-nlb",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-nlbpayment.git",
-                "reference": "8503771353319321443dc86e3596207c6596f005"
+                "reference": "bde2add91a1b0d48d3543ba63ac05722a0f3f012"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/innobyte-nlbpayment/zipball/8503771353319321443dc86e3596207c6596f005",
-                "reference": "8503771353319321443dc86e3596207c6596f005",
+                "url": "https://api.github.com/repos/oandermedia/innobyte-nlbpayment/zipball/bde2add91a1b0d48d3543ba63ac05722a0f3f012",
+                "reference": "bde2add91a1b0d48d3543ba63ac05722a0f3f012",
                 "shasum": ""
             },
             "require": {
@@ -548,10 +548,10 @@
             },
             "description": "Innobyte NLB Payment Module",
             "support": {
-                "source": "https://github.com/oandermedia/innobyte-nlbpayment/tree/0.0.2",
+                "source": "https://github.com/oandermedia/innobyte-nlbpayment/tree/0.0.3",
                 "issues": "https://github.com/oandermedia/innobyte-nlbpayment/issues"
             },
-            "time": "2017-12-19T11:00:47+00:00"
+            "time": "2018-01-30T09:08:54+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -7444,16 +7444,16 @@
         },
         {
             "name": "oander/module-xtento-order-export-extender",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-xtento-order-export-extender.git",
-                "reference": "825233f93b5e4e9fc816a25d35f04c288a891ae7"
+                "reference": "6f5f654b771d51214ba33c847407e1bc308124d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-xtento-order-export-extender/zipball/825233f93b5e4e9fc816a25d35f04c288a891ae7",
-                "reference": "825233f93b5e4e9fc816a25d35f04c288a891ae7",
+                "url": "https://api.github.com/repos/oandermedia/oander-xtento-order-export-extender/zipball/6f5f654b771d51214ba33c847407e1bc308124d1",
+                "reference": "6f5f654b771d51214ba33c847407e1bc308124d1",
                 "shasum": ""
             },
             "require": {
@@ -7475,10 +7475,10 @@
             ],
             "description": "Xtento Order Export Extender",
             "support": {
-                "source": "https://github.com/oandermedia/oander-xtento-order-export-extender/tree/1.0.6",
+                "source": "https://github.com/oandermedia/oander-xtento-order-export-extender/tree/1.0.7",
                 "issues": "https://github.com/oandermedia/oander-xtento-order-export-extender/issues"
             },
-            "time": "2018-01-18T16:43:04+00:00"
+            "time": "2018-01-29T16:31:04+00:00"
         },
         {
             "name": "oander/theme-hodor",
