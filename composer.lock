@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "153d09021f48b7e2272ee0fc396fd225",
-    "content-hash": "351c1bbc08e930dc2e28363c9845f5ca",
+    "hash": "c296a14cbb4720c8fc26fae47c2a375b",
+    "content-hash": "15b6b192e1d557a0b9d10a42df8ca785",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -522,16 +522,16 @@
         },
         {
             "name": "innobyte/module-nlb",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-nlbpayment.git",
-                "reference": "8503771353319321443dc86e3596207c6596f005"
+                "reference": "bde2add91a1b0d48d3543ba63ac05722a0f3f012"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/innobyte-nlbpayment/zipball/8503771353319321443dc86e3596207c6596f005",
-                "reference": "8503771353319321443dc86e3596207c6596f005",
+                "url": "https://api.github.com/repos/oandermedia/innobyte-nlbpayment/zipball/bde2add91a1b0d48d3543ba63ac05722a0f3f012",
+                "reference": "bde2add91a1b0d48d3543ba63ac05722a0f3f012",
                 "shasum": ""
             },
             "require": {
@@ -549,10 +549,10 @@
             },
             "description": "Innobyte NLB Payment Module",
             "support": {
-                "source": "https://github.com/oandermedia/innobyte-nlbpayment/tree/0.0.2",
+                "source": "https://github.com/oandermedia/innobyte-nlbpayment/tree/0.0.3",
                 "issues": "https://github.com/oandermedia/innobyte-nlbpayment/issues"
             },
-            "time": "2017-12-19 11:00:47"
+            "time": "2018-01-30 09:08:54"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -6668,7 +6668,7 @@
         },
         {
             "name": "oander/module-free-shipping-display",
-            "version": "1.0.6",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-free-shipping-display.git",
