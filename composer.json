@@ -44,8 +44,9 @@
         "oander/module-order-attachment": "1.0.2",
         "oander/module-order-comment": "1.0.*",
         "oander/module-paypal": "1.0.*",
+        "oander/module-pleisty": "1.0.*",
         "oander/module-pos-locations": "1.0.*",
-        "oander/module-preorder": "1.0.4",
+        "oander/module-preorder": "1.0.11",
         "oander/module-price-tooltip": "1.0.*",
         "oander/module-product-icons": "1.0.*",
         "oander/module-salesforce": "1.0.1",
@@ -62,7 +63,10 @@
         "oander/theme-istyle": "1.0.*",
         "algolia/algoliasearch-magento-2": "^1.0",
         "innobyte/module-nlb": "0.0.2",
-        "innobyte/module-checkout-success": "0.0.3"
+        "innobyte/module-checkout-success": "0.0.3",
+        "mirasvit/module-core": "1.2.48.1",
+        "mirasvit/module-feed": "1.0.62.1",
+        "mirasvit/module-report": "1.2.27.1"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
@@ -252,6 +256,10 @@
         },
         {
             "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-pleisty.git"
+        },
+        {
+            "type": "vcs",
             "url": "git@github.com:oandermedia/oander-pos-locations.git"
         },
         {
@@ -313,6 +321,18 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/xtento-core.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/mirasvit-core.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/mirasvit-feed.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/mirasvit-report.git"
         }
     ],
     "extra": {

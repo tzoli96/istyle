@@ -27,10 +27,13 @@
     <preference for="Magento\Checkout\Block\Cart\Crosssell"
                 type="Oander\IstyleBase\Block\Cart\Crosssell" />
 
-    <preference for="Magento\Catalog\Helper\Product"
-                type="Oander\IstyleBase\Helper\Product"/>
 
     <preference for="Magento\CatalogInventory\Model\ResourceModel\Product\StockStatusBaseSelectProcessor"
                 type="Oander\IstyleBase\Model\ResourceModel\Product\StockStatusBaseSelectProcessor"/>
+
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="Oander_IstyleBase::magento_catalog_model_product"
+                type="Oander\IstyleBase\Plugin\Catalog\Model\Product" />
+    </type>
 
 </config>

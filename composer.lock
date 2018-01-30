@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "898f79ef58895d2b0ff22ad3287142a2",
+    "content-hash": "351c1bbc08e930dc2e28363c9845f5ca",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -58,16 +58,16 @@
         },
         {
             "name": "algolia/algoliasearch-magento-2",
-            "version": "1.4.0",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/algolia/algoliasearch-magento-2.git",
-                "reference": "ac01a639b4c06d67be5134575ca87a938000cc9e"
+                "reference": "ca02298ce7affa4e22b4cc8233719aeac754513c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/algolia/algoliasearch-magento-2/zipball/ac01a639b4c06d67be5134575ca87a938000cc9e",
-                "reference": "ac01a639b4c06d67be5134575ca87a938000cc9e",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-magento-2/zipball/ca02298ce7affa4e22b4cc8233719aeac754513c",
+                "reference": "ca02298ce7affa4e22b4cc8233719aeac754513c",
                 "shasum": ""
             },
             "require": {
@@ -89,7 +89,7 @@
                 "MIT"
             ],
             "description": "Algolia Search integration for Magento 2",
-            "time": "2017-11-23T16:29:44+00:00"
+            "time": "2018-01-19T17:49:31+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -426,23 +426,23 @@
         },
         {
             "name": "composer/spdx-licenses",
-            "version": "1.1.6",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/spdx-licenses.git",
-                "reference": "2603a0d7ddc00a015deb576fa5297ca43dee6b1c"
+                "reference": "2d899e9b33023c631854f36c39ef9f8317a7ab33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/2603a0d7ddc00a015deb576fa5297ca43dee6b1c",
-                "reference": "2603a0d7ddc00a015deb576fa5297ca43dee6b1c",
+                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/2d899e9b33023c631854f36c39ef9f8317a7ab33",
+                "reference": "2d899e9b33023c631854f36c39ef9f8317a7ab33",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3.2 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5 || ^5.0.5",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5",
                 "phpunit/phpunit-mock-objects": "2.3.0 || ^3.0"
             },
             "type": "library",
@@ -483,7 +483,7 @@
                 "spdx",
                 "validator"
             ],
-            "time": "2017-04-03T19:08:52+00:00"
+            "time": "2018-01-03T16:37:06+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
@@ -5540,6 +5540,117 @@
             "time": "2017-02-27T21:19:07+00:00"
         },
         {
+            "name": "mirasvit/module-core",
+            "version": "1.2.48.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/mirasvit-core.git",
+                "reference": "43a588b814320f941c7534f68335f70a66cf56f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/mirasvit-core/zipball/43a588b814320f941c7534f68335f70a66cf56f7",
+                "reference": "43a588b814320f941c7534f68335f70a66cf56f7",
+                "shasum": ""
+            },
+            "require": {
+                "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mirasvit\\Core\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Mirasvit Core",
+            "support": {
+                "source": "https://github.com/oandermedia/mirasvit-core/tree/1.2.48.1",
+                "issues": "https://github.com/oandermedia/mirasvit-core/issues"
+            },
+            "time": "2018-01-04T15:02:15+00:00"
+        },
+        {
+            "name": "mirasvit/module-feed",
+            "version": "1.0.62.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/mirasvit-feed.git",
+                "reference": "9662de35c78cee5024dd6d0542d843b60ef0409c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/mirasvit-feed/zipball/9662de35c78cee5024dd6d0542d843b60ef0409c",
+                "reference": "9662de35c78cee5024dd6d0542d843b60ef0409c",
+                "shasum": ""
+            },
+            "require": {
+                "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*",
+                "mirasvit/module-core": ">=1.2.46",
+                "mirasvit/module-report": ">=1.2.27"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mirasvit\\Feed\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Advanced Product Feeds",
+            "support": {
+                "source": "https://github.com/oandermedia/mirasvit-feed/tree/1.0.62.1",
+                "issues": "https://github.com/oandermedia/mirasvit-feed/issues"
+            },
+            "time": "2018-01-04T15:04:08+00:00"
+        },
+        {
+            "name": "mirasvit/module-report",
+            "version": "1.2.27.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/mirasvit-report.git",
+                "reference": "30c237683eaa9ee11d10db6476b63ac135c3346a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/mirasvit-report/zipball/30c237683eaa9ee11d10db6476b63ac135c3346a",
+                "reference": "30c237683eaa9ee11d10db6476b63ac135c3346a",
+                "shasum": ""
+            },
+            "require": {
+                "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*",
+                "mirasvit/module-core": ">=1.2.48"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mirasvit\\Report\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Reports Core",
+            "support": {
+                "source": "https://github.com/oandermedia/mirasvit-report/tree/1.2.27.1",
+                "issues": "https://github.com/oandermedia/mirasvit-report/issues"
+            },
+            "time": "2018-01-04T15:05:05+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.16.0",
             "source": {
@@ -5617,16 +5728,16 @@
         },
         {
             "name": "oander/language-mk-mk",
-            "version": "1.0.0",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-mk-mk.git",
-                "reference": "fd4f8f2835f9a09182672b680701d03dc7bf9cd1"
+                "reference": "f85284233274e1269fd84e1e8f757fc79de7c3fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-mk-mk/zipball/fd4f8f2835f9a09182672b680701d03dc7bf9cd1",
-                "reference": "fd4f8f2835f9a09182672b680701d03dc7bf9cd1",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-mk-mk/zipball/f85284233274e1269fd84e1e8f757fc79de7c3fa",
+                "reference": "f85284233274e1269fd84e1e8f757fc79de7c3fa",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -5640,23 +5751,23 @@
             ],
             "description": "Macedonian language pack for the Magento",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-mk-mk/tree/1.0.0",
+                "source": "https://github.com/oandermedia/oander-language-mk-mk/tree/1.0.3",
                 "issues": "https://github.com/oandermedia/oander-language-mk-mk/issues"
             },
-            "time": "2017-12-15T11:16:08+00:00"
+            "time": "2018-01-15T16:31:34+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
-            "version": "1.0.3",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-ajax-catalog.git",
-                "reference": "b38442ad49e10884dd17b6b6e0d4b1560b67ab96"
+                "reference": "a9882d37cc6913715900446d5518cc6f946241da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-ajax-catalog/zipball/b38442ad49e10884dd17b6b6e0d4b1560b67ab96",
-                "reference": "b38442ad49e10884dd17b6b6e0d4b1560b67ab96",
+                "url": "https://api.github.com/repos/oandermedia/oander-ajax-catalog/zipball/a9882d37cc6913715900446d5518cc6f946241da",
+                "reference": "a9882d37cc6913715900446d5518cc6f946241da",
                 "shasum": ""
             },
             "require": {
@@ -5677,23 +5788,23 @@
             ],
             "description": "Catalog via ajax.",
             "support": {
-                "source": "https://github.com/oandermedia/oander-ajax-catalog/tree/1.0.3",
+                "source": "https://github.com/oandermedia/oander-ajax-catalog/tree/1.0.5",
                 "issues": "https://github.com/oandermedia/oander-ajax-catalog/issues"
             },
-            "time": "2017-02-21T15:42:55+00:00"
+            "time": "2018-01-05T12:00:40+00:00"
         },
         {
             "name": "oander/module-api-base",
-            "version": "1.0.19",
+            "version": "1.0.20",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-base.git",
-                "reference": "c3b4c6ebc367b36829609ba3e4270202a0e0d997"
+                "reference": "c274a66b198ec236a16afbb73363a47db37dd615"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-base/zipball/c3b4c6ebc367b36829609ba3e4270202a0e0d997",
-                "reference": "c3b4c6ebc367b36829609ba3e4270202a0e0d997",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-base/zipball/c274a66b198ec236a16afbb73363a47db37dd615",
+                "reference": "c274a66b198ec236a16afbb73363a47db37dd615",
                 "shasum": ""
             },
             "require": {
@@ -5714,10 +5825,10 @@
             ],
             "description": "API Base",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-base/tree/1.0.19",
+                "source": "https://github.com/oandermedia/oander-api-base/tree/1.0.20",
                 "issues": "https://github.com/oandermedia/oander-api-base/issues"
             },
-            "time": "2017-11-21T15:29:19+00:00"
+            "time": "2018-01-05T12:54:40+00:00"
         },
         {
             "name": "oander/module-api-cache",
@@ -5799,16 +5910,16 @@
         },
         {
             "name": "oander/module-api-checkout",
-            "version": "1.0.6",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-checkout.git",
-                "reference": "509cef81df8815e41eb9a131ddae5daed27342fa"
+                "reference": "31ab76963195f546a1329ab14cc6815428886910"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-checkout/zipball/509cef81df8815e41eb9a131ddae5daed27342fa",
-                "reference": "509cef81df8815e41eb9a131ddae5daed27342fa",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-checkout/zipball/31ab76963195f546a1329ab14cc6815428886910",
+                "reference": "31ab76963195f546a1329ab14cc6815428886910",
                 "shasum": ""
             },
             "require": {
@@ -5831,10 +5942,10 @@
             ],
             "description": "API Checkout module.",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-checkout/tree/1.0.6",
+                "source": "https://github.com/oandermedia/oander-api-checkout/tree/1.3.0",
                 "issues": "https://github.com/oandermedia/oander-api-checkout/issues"
             },
-            "time": "2017-10-19T11:54:22+00:00"
+            "time": "2018-01-18T16:39:49+00:00"
         },
         {
             "name": "oander/module-api-customer",
@@ -6031,16 +6142,16 @@
         },
         {
             "name": "oander/module-api-product",
-            "version": "1.0.21",
+            "version": "1.0.21.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-product.git",
-                "reference": "c70f7102e6a62b009d50f92bdf919d64b18f6282"
+                "reference": "7ccd34a6b40ed9f60b1b3b97aa32235546d17bb4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-product/zipball/c70f7102e6a62b009d50f92bdf919d64b18f6282",
-                "reference": "c70f7102e6a62b009d50f92bdf919d64b18f6282",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-product/zipball/7ccd34a6b40ed9f60b1b3b97aa32235546d17bb4",
+                "reference": "7ccd34a6b40ed9f60b1b3b97aa32235546d17bb4",
                 "shasum": ""
             },
             "require": {
@@ -6063,23 +6174,23 @@
             ],
             "description": "Backend API to Product",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-product/tree/1.0.21",
+                "source": "https://github.com/oandermedia/oander-api-product/tree/1.0.21.1",
                 "issues": "https://github.com/oandermedia/oander-api-product/issues"
             },
-            "time": "2017-12-18T09:46:40+00:00"
+            "time": "2018-01-15T12:52:19+00:00"
         },
         {
             "name": "oander/module-api-warehouse-manager",
-            "version": "1.0.6",
+            "version": "1.0.6.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-warehouse-manager.git",
-                "reference": "ee3f5fed10d770caa2e59c6ef12ed147fece352f"
+                "reference": "7f99d2abade7d01867019c9474eeb4e0d098c2eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-warehouse-manager/zipball/ee3f5fed10d770caa2e59c6ef12ed147fece352f",
-                "reference": "ee3f5fed10d770caa2e59c6ef12ed147fece352f",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-warehouse-manager/zipball/7f99d2abade7d01867019c9474eeb4e0d098c2eb",
+                "reference": "7f99d2abade7d01867019c9474eeb4e0d098c2eb",
                 "shasum": ""
             },
             "require": {
@@ -6103,10 +6214,10 @@
             ],
             "description": "Oander_ApiWarehouseManager",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-warehouse-manager/tree/1.0.6",
+                "source": "https://github.com/oandermedia/oander-api-warehouse-manager/tree/1.0.6.1",
                 "issues": "https://github.com/oandermedia/oander-api-warehouse-manager/issues"
             },
-            "time": "2017-11-28T14:11:46+00:00"
+            "time": "2018-01-15T12:52:19+00:00"
         },
         {
             "name": "oander/module-base",
@@ -6259,16 +6370,16 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.13",
+            "version": "1.0.14",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "2a2de11809ce68febe3e811e50939f51e35f5e5a"
+                "reference": "324e37e8af5b8da78cc56511c17a13aadd738316"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/2a2de11809ce68febe3e811e50939f51e35f5e5a",
-                "reference": "2a2de11809ce68febe3e811e50939f51e35f5e5a",
+                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/324e37e8af5b8da78cc56511c17a13aadd738316",
+                "reference": "324e37e8af5b8da78cc56511c17a13aadd738316",
                 "shasum": ""
             },
             "require": {
@@ -6289,10 +6400,10 @@
             ],
             "description": "Configurable Product Attribute",
             "support": {
-                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.13",
+                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.14",
                 "issues": "https://github.com/oandermedia/oander-configurable-product-attribute/issues"
             },
-            "time": "2017-12-20T08:36:45+00:00"
+            "time": "2018-01-05T15:10:18+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -6890,17 +7001,49 @@
             "time": "2017-01-04T11:42:27+00:00"
         },
         {
-            "name": "oander/module-pos-locations",
-            "version": "1.0.11",
+            "name": "oander/module-pleisty",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:oandermedia/oander-pos-locations.git",
-                "reference": "16a2494111a40a6c4435ec533bc103fb95ec9ac6"
+                "url": "git@github.com:oandermedia/oander-pleisty.git",
+                "reference": "1db6d9a6aedc5851cd475fb85544885612ddff3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-pos-locations/zipball/16a2494111a40a6c4435ec533bc103fb95ec9ac6",
-                "reference": "16a2494111a40a6c4435ec533bc103fb95ec9ac6",
+                "url": "https://api.github.com/repos/oandermedia/oander-pleisty/zipball/1db6d9a6aedc5851cd475fb85544885612ddff3f",
+                "reference": "1db6d9a6aedc5851cd475fb85544885612ddff3f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\Pleisty\\": ""
+                }
+            },
+            "support": {
+                "source": "https://github.com/oandermedia/oander-pleisty/tree/1.0.0",
+                "issues": "https://github.com/oandermedia/oander-pleisty/issues"
+            },
+            "time": "2018-01-11T11:47:22+00:00"
+        },
+        {
+            "name": "oander/module-pos-locations",
+            "version": "1.0.12",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-pos-locations.git",
+                "reference": "e8216a3cab54a7ed1af1b750b460c1a8aec5b757"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-pos-locations/zipball/e8216a3cab54a7ed1af1b750b460c1a8aec5b757",
+                "reference": "e8216a3cab54a7ed1af1b750b460c1a8aec5b757",
                 "shasum": ""
             },
             "require": {
@@ -6921,23 +7064,23 @@
             ],
             "description": "Oander POS Locations module",
             "support": {
-                "source": "https://github.com/oandermedia/oander-pos-locations/tree/1.0.11",
+                "source": "https://github.com/oandermedia/oander-pos-locations/tree/1.0.12",
                 "issues": "https://github.com/oandermedia/oander-pos-locations/issues"
             },
-            "time": "2017-12-13T11:54:20+00:00"
+            "time": "2018-01-03T16:29:34+00:00"
         },
         {
             "name": "oander/module-preorder",
-            "version": "1.0.4",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-preorder.git",
-                "reference": "6a5c62a965bb78a3ce41c21f4d179744f62029dc"
+                "reference": "ad96b13e91c010b83795b95b52edf1e3bf989d37"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-preorder/zipball/6a5c62a965bb78a3ce41c21f4d179744f62029dc",
-                "reference": "6a5c62a965bb78a3ce41c21f4d179744f62029dc",
+                "url": "https://api.github.com/repos/oandermedia/oander-preorder/zipball/ad96b13e91c010b83795b95b52edf1e3bf989d37",
+                "reference": "ad96b13e91c010b83795b95b52edf1e3bf989d37",
                 "shasum": ""
             },
             "require": {
@@ -6958,10 +7101,10 @@
             ],
             "description": "Oander Preorder",
             "support": {
-                "source": "https://github.com/oandermedia/oander-preorder/tree/1.0.4",
+                "source": "https://github.com/oandermedia/oander-preorder/tree/1.0.11",
                 "issues": "https://github.com/oandermedia/oander-preorder/issues"
             },
-            "time": "2018-01-02T10:29:55+00:00"
+            "time": "2018-01-23T16:18:35+00:00"
         },
         {
             "name": "oander/module-price-tooltip",
@@ -7187,16 +7330,16 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.2.5",
+            "version": "1.2.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "43d0840febbe59f2fa370dbac32874d02f0bee59"
+                "reference": "30ad80c174473ee6f12dd9deabfa2418c6cbc0d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/43d0840febbe59f2fa370dbac32874d02f0bee59",
-                "reference": "43d0840febbe59f2fa370dbac32874d02f0bee59",
+                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/30ad80c174473ee6f12dd9deabfa2418c6cbc0d1",
+                "reference": "30ad80c174473ee6f12dd9deabfa2418c6cbc0d1",
                 "shasum": ""
             },
             "require": {
@@ -7219,10 +7362,10 @@
             ],
             "description": "Warehouse Manager",
             "support": {
-                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.2.5",
+                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.2.8",
                 "issues": "https://github.com/oandermedia/oander-warehouse-manager/issues"
             },
-            "time": "2017-12-15T12:49:27+00:00"
+            "time": "2018-01-09T16:37:50+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
@@ -7301,16 +7444,16 @@
         },
         {
             "name": "oander/module-xtento-order-export-extender",
-            "version": "1.0.3",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-xtento-order-export-extender.git",
-                "reference": "dd151b796b4613f4aabecba1fecb122a63b897b1"
+                "reference": "825233f93b5e4e9fc816a25d35f04c288a891ae7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-xtento-order-export-extender/zipball/dd151b796b4613f4aabecba1fecb122a63b897b1",
-                "reference": "dd151b796b4613f4aabecba1fecb122a63b897b1",
+                "url": "https://api.github.com/repos/oandermedia/oander-xtento-order-export-extender/zipball/825233f93b5e4e9fc816a25d35f04c288a891ae7",
+                "reference": "825233f93b5e4e9fc816a25d35f04c288a891ae7",
                 "shasum": ""
             },
             "require": {
@@ -7332,10 +7475,10 @@
             ],
             "description": "Xtento Order Export Extender",
             "support": {
-                "source": "https://github.com/oandermedia/oander-xtento-order-export-extender/tree/1.0.3",
+                "source": "https://github.com/oandermedia/oander-xtento-order-export-extender/tree/1.0.6",
                 "issues": "https://github.com/oandermedia/oander-xtento-order-export-extender/issues"
             },
-            "time": "2017-11-20T12:27:28+00:00"
+            "time": "2018-01-18T16:43:04+00:00"
         },
         {
             "name": "oander/theme-hodor",
@@ -7373,16 +7516,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.30",
+            "version": "1.0.40",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "f982e606f02def2c34fe76a3c483f27b993e642c"
+                "reference": "6d6a3d2975ebebc3d6c49d51f136a3ae80cb7a08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/f982e606f02def2c34fe76a3c483f27b993e642c",
-                "reference": "f982e606f02def2c34fe76a3c483f27b993e642c",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/6d6a3d2975ebebc3d6c49d51f136a3ae80cb7a08",
+                "reference": "6d6a3d2975ebebc3d6c49d51f136a3ae80cb7a08",
                 "shasum": ""
             },
             "require": {
@@ -7400,10 +7543,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.30",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.40",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2018-01-02T12:29:06+00:00"
+            "time": "2018-01-26T14:42:56+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -7472,12 +7615,12 @@
             "version": "v0.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jjriv/emogrifier.git",
+                "url": "https://github.com/MyIntervals/emogrifier.git",
                 "reference": "ed72bcd6a3c7014862ff86d026193667a172fedf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jjriv/emogrifier/zipball/ed72bcd6a3c7014862ff86d026193667a172fedf",
+                "url": "https://api.github.com/repos/MyIntervals/emogrifier/zipball/ed72bcd6a3c7014862ff86d026193667a172fedf",
                 "reference": "ed72bcd6a3c7014862ff86d026193667a172fedf",
                 "shasum": ""
             },
@@ -7712,23 +7855,23 @@
         },
         {
             "name": "seld/jsonlint",
-            "version": "1.6.2",
+            "version": "1.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/jsonlint.git",
-                "reference": "7a30649c67ee0d19faacfd9fa2cfb6cc032d9b19"
+                "reference": "d15f59a67ff805a44c50ea0516d2341740f81a38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/7a30649c67ee0d19faacfd9fa2cfb6cc032d9b19",
-                "reference": "7a30649c67ee0d19faacfd9fa2cfb6cc032d9b19",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/d15f59a67ff805a44c50ea0516d2341740f81a38",
+                "reference": "d15f59a67ff805a44c50ea0516d2341740f81a38",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5"
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
             },
             "bin": [
                 "bin/jsonlint"
@@ -7757,7 +7900,7 @@
                 "parser",
                 "validator"
             ],
-            "time": "2017-11-30T15:34:22+00:00"
+            "time": "2018-01-24T12:46:19+00:00"
         },
         {
             "name": "seld/phar-utils",
@@ -7917,16 +8060,16 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.32",
+            "version": "v2.8.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "b59aacf238fadda50d612c9de73b74751872a903"
+                "reference": "d64be24fc1eba62f9daace8a8918f797fc8e87cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/b59aacf238fadda50d612c9de73b74751872a903",
-                "reference": "b59aacf238fadda50d612c9de73b74751872a903",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/d64be24fc1eba62f9daace8a8918f797fc8e87cc",
+                "reference": "d64be24fc1eba62f9daace8a8918f797fc8e87cc",
                 "shasum": ""
             },
             "require": {
@@ -7973,20 +8116,20 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-05T15:25:56+00:00"
+            "time": "2018-01-03T07:36:31+00:00"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.8.32",
+            "version": "v2.8.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "15ceb6736a9eebd0d99f9e05a62296ab6ce1cf2b"
+                "reference": "1f4e8351e0196562f5e8ec584baeceeb8e2e92f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/15ceb6736a9eebd0d99f9e05a62296ab6ce1cf2b",
-                "reference": "15ceb6736a9eebd0d99f9e05a62296ab6ce1cf2b",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/1f4e8351e0196562f5e8ec584baeceeb8e2e92f6",
+                "reference": "1f4e8351e0196562f5e8ec584baeceeb8e2e92f6",
                 "shasum": ""
             },
             "require": {
@@ -8022,20 +8165,20 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-19T18:39:05+00:00"
+            "time": "2018-01-03T07:36:31+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.2",
+            "version": "v3.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "dac8d7db537bac7ad8143eb11360a8c2231f251a"
+                "reference": "613e26310776f49a1773b6737c6bd554b8bc8c6f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/dac8d7db537bac7ad8143eb11360a8c2231f251a",
-                "reference": "dac8d7db537bac7ad8143eb11360a8c2231f251a",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/613e26310776f49a1773b6737c6bd554b8bc8c6f",
+                "reference": "613e26310776f49a1773b6737c6bd554b8bc8c6f",
                 "shasum": ""
             },
             "require": {
@@ -8071,20 +8214,20 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-05T16:10:10+00:00"
+            "time": "2018-01-03T07:37:34+00:00"
         },
         {
             "name": "symfony/process",
-            "version": "v2.8.32",
+            "version": "v2.8.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "d25449e031f600807949aab7cadbf267712f4eee"
+                "reference": "905efe90024caa75a2fc93f54e14b26f2a099d96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/d25449e031f600807949aab7cadbf267712f4eee",
-                "reference": "d25449e031f600807949aab7cadbf267712f4eee",
+                "url": "https://api.github.com/repos/symfony/process/zipball/905efe90024caa75a2fc93f54e14b26f2a099d96",
+                "reference": "905efe90024caa75a2fc93f54e14b26f2a099d96",
                 "shasum": ""
             },
             "require": {
@@ -8120,7 +8263,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-05T15:25:56+00:00"
+            "time": "2018-01-29T08:54:45+00:00"
         },
         {
             "name": "tedivm/jshrink",
@@ -10953,16 +11096,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.8.32",
+            "version": "v2.8.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "f4f3f1d7090c464434bbbc3e8aa2b41149c59196"
+                "reference": "17605ff58313d9fe94e507620a399721fc347b6d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/f4f3f1d7090c464434bbbc3e8aa2b41149c59196",
-                "reference": "f4f3f1d7090c464434bbbc3e8aa2b41149c59196",
+                "url": "https://api.github.com/repos/symfony/config/zipball/17605ff58313d9fe94e507620a399721fc347b6d",
+                "reference": "17605ff58313d9fe94e507620a399721fc347b6d",
                 "shasum": ""
             },
             "require": {
@@ -11005,20 +11148,20 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-07T11:56:23+00:00"
+            "time": "2018-01-21T19:03:25+00:00"
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.8.32",
+            "version": "v2.8.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "d3e81e5402c38500770eb5595d78a6d85ea9e412"
+                "reference": "91ad61e6f140b050eba4aa39bc52eece713f2a71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/d3e81e5402c38500770eb5595d78a6d85ea9e412",
-                "reference": "d3e81e5402c38500770eb5595d78a6d85ea9e412",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/91ad61e6f140b050eba4aa39bc52eece713f2a71",
+                "reference": "91ad61e6f140b050eba4aa39bc52eece713f2a71",
                 "shasum": ""
             },
             "require": {
@@ -11068,20 +11211,20 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-23T11:13:33+00:00"
+            "time": "2018-01-29T08:55:23+00:00"
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.2",
+            "version": "v3.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "52510fe1aefdc1c5d2076ac6030421d387e689d1"
+                "reference": "c865551df7c17e63fc1f09f763db04387f91ae4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/52510fe1aefdc1c5d2076ac6030421d387e689d1",
-                "reference": "52510fe1aefdc1c5d2076ac6030421d387e689d1",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/c865551df7c17e63fc1f09f763db04387f91ae4d",
+                "reference": "c865551df7c17e63fc1f09f763db04387f91ae4d",
                 "shasum": ""
             },
             "require": {
@@ -11117,20 +11260,20 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-07T14:28:09+00:00"
+            "time": "2018-01-03T07:37:34+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.32",
+            "version": "v2.8.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "968ef42161e4bc04200119da473077f9e7015128"
+                "reference": "be720fcfae4614df204190d57795351059946a77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/968ef42161e4bc04200119da473077f9e7015128",
-                "reference": "968ef42161e4bc04200119da473077f9e7015128",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/be720fcfae4614df204190d57795351059946a77",
+                "reference": "be720fcfae4614df204190d57795351059946a77",
                 "shasum": ""
             },
             "require": {
@@ -11166,7 +11309,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-11-29T09:33:18+00:00"
+            "time": "2018-01-03T07:36:31+00:00"
         },
         {
             "name": "theseer/fdomdocument",
