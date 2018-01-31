@@ -25,7 +25,7 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
    echo -n "var ... "
    if ln -s ${EFS_GREEN}/var ${WEBROOT}/; then echo OK; else echo FAIL; fi
    echo -n "check var/log ... "
-   [ -L ${WEBROOT}/var/log/ ] && echo OK || echo FAIL
+   [ -L ${WEBROOT}/var/log ] && echo OK || echo FAIL
    echo -n "pub/static ... "
    [ -L ${WEBROOT}/pub/static ] && rm ${WEBROOT}/pub/static &> /dev/null || rm -rf ${WEBROOT}/pub/static
    if ln -s ${EFS_GREEN}/pub/static ${WEBROOT}/pub/; then echo OK; else echo FAIL; fi
@@ -62,6 +62,7 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
    cd ${WEBROOT} && time php bin/magento setup:di:compile
    cd ${WEBROOT} && time php bin/magento setup:static-content:deploy en_US
    cd ${WEBROOT} && time php bin/magento setup:static-content:deploy mk_MK
+   cd ${WEBROOT} && time php bin/magento setup:static-content:deploy hu_HU
    cd ${WEBROOT} && php bin/magento cache:enable
    echo -n " * CREATE FLAG FOR BLUE/GREEN DEPLOYMENT ... "
    if touch ${EFS}/deployed.flag; then echo OK; else echo FAIL; fi
@@ -108,11 +109,12 @@ else
       if rm ${EFS}/deployed.flag; then echo OK; else echo FAIL; fi
    else
       echo "NO"
-      cd ${WEBROOT} && php bin/magento cache:enable
    fi
 fi
 
 chown www-data:www-data -R /var/www/istyle.eu/
 /etc/init.d/php7.0-fpm restart
+sleep 5
+cd ${WEBROOT} && php bin/magento cache:enable
 
 exit 0
