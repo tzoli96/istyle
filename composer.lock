@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "dec4f8e2649e98b4e4c47243c376f8b5",
+    "hash": "6672ac1bbae2c95d9798580a2186e3a5",
+    "content-hash": "dfb4f8241828d3721960334146325619",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -54,7 +55,7 @@
             ],
             "description": "Algolia Search API Client for PHP",
             "homepage": "https://github.com/algolia/algoliasearch-client-php",
-            "time": "2017-12-28T08:10:23+00:00"
+            "time": "2017-12-28 08:10:23"
         },
         {
             "name": "algolia/algoliasearch-magento-2",
@@ -89,7 +90,7 @@
                 "MIT"
             ],
             "description": "Algolia Search integration for Magento 2",
-            "time": "2018-01-19T17:49:31+00:00"
+            "time": "2018-01-19 17:49:31"
         },
         {
             "name": "braintree/braintree_php",
@@ -136,7 +137,7 @@
                 }
             ],
             "description": "Braintree PHP Client Library",
-            "time": "2015-11-19T19:14:47+00:00"
+            "time": "2015-11-19 19:14:47"
         },
         {
             "name": "colinmollenhour/cache-backend-file",
@@ -172,7 +173,7 @@
             ],
             "description": "The stock Zend_Cache_Backend_File backend has extremely poor performance for cleaning by tags making it become unusable as the number of cached items increases. This backend makes many changes resulting in a huge performance boost, especially for tag cleaning.",
             "homepage": "https://github.com/colinmollenhour/Cm_Cache_Backend_File",
-            "time": "2016-05-02T16:24:47+00:00"
+            "time": "2016-05-02 16:24:47"
         },
         {
             "name": "colinmollenhour/cache-backend-redis",
@@ -208,7 +209,7 @@
             ],
             "description": "Zend_Cache backend using Redis with full support for tags.",
             "homepage": "https://github.com/colinmollenhour/Cm_Cache_Backend_Redis",
-            "time": "2016-05-02T16:23:36+00:00"
+            "time": "2016-05-02 16:23:36"
         },
         {
             "name": "colinmollenhour/credis",
@@ -247,7 +248,7 @@
             ],
             "description": "Credis is a lightweight interface to the Redis key-value store which wraps the phpredis library when available for better performance.",
             "homepage": "https://github.com/colinmollenhour/credis",
-            "time": "2015-11-28T01:20:04+00:00"
+            "time": "2015-11-28 01:20:04"
         },
         {
             "name": "colinmollenhour/php-redis-session-abstract",
@@ -285,7 +286,7 @@
             ],
             "description": "A Redis-based session handler with optimistic locking",
             "homepage": "https://github.com/colinmollenhour/php-redis-session-abstract",
-            "time": "2016-08-04T18:05:51+00:00"
+            "time": "2016-08-04 18:05:51"
         },
         {
             "name": "composer/composer",
@@ -360,7 +361,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2016-03-03T15:15:10+00:00"
+            "time": "2016-03-03 15:15:10"
         },
         {
             "name": "composer/semver",
@@ -422,7 +423,7 @@
                 "validation",
                 "versioning"
             ],
-            "time": "2016-08-30T16:08:34+00:00"
+            "time": "2016-08-30 16:08:34"
         },
         {
             "name": "composer/spdx-licenses",
@@ -483,7 +484,7 @@
                 "spdx",
                 "validator"
             ],
-            "time": "2018-01-31T13:17:27+00:00"
+            "time": "2018-01-31 13:17:27"
         },
         {
             "name": "innobyte/module-checkout-success",
@@ -517,7 +518,7 @@
                 "source": "https://github.com/oandermedia/innobyte-checkout-success/tree/0.0.3",
                 "issues": "https://github.com/oandermedia/innobyte-checkout-success/issues"
             },
-            "time": "2017-12-17T11:02:06+00:00"
+            "time": "2017-12-17 11:02:06"
         },
         {
             "name": "innobyte/module-nlb",
@@ -551,7 +552,7 @@
                 "source": "https://github.com/oandermedia/innobyte-nlbpayment/tree/0.0.3",
                 "issues": "https://github.com/oandermedia/innobyte-nlbpayment/issues"
             },
-            "time": "2018-01-30T09:08:54+00:00"
+            "time": "2018-01-30 09:08:54"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -617,7 +618,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2016-01-25T15:43:01+00:00"
+            "time": "2016-01-25 15:43:01"
         },
         {
             "name": "league/climate",
@@ -666,7 +667,7 @@
                 "php",
                 "terminal"
             ],
-            "time": "2015-01-18T14:31:58+00:00"
+            "time": "2015-01-18 14:31:58"
         },
         {
             "name": "magento/composer",
@@ -986,7 +987,7 @@
                 "composer-installer",
                 "magento"
             ],
-            "time": "2017-12-29T16:45:24+00:00"
+            "time": "2017-12-29 16:45:24"
         },
         {
             "name": "magento/magento2-base",
@@ -5537,7 +5538,7 @@
                 "ZF1",
                 "framework"
             ],
-            "time": "2017-02-27T21:19:07+00:00"
+            "time": "2017-02-27 21:19:07"
         },
         {
             "name": "mirasvit/module-core",
@@ -5573,7 +5574,7 @@
                 "source": "https://github.com/oandermedia/mirasvit-core/tree/1.2.48.1",
                 "issues": "https://github.com/oandermedia/mirasvit-core/issues"
             },
-            "time": "2018-01-04T15:02:15+00:00"
+            "time": "2018-01-04 15:02:15"
         },
         {
             "name": "mirasvit/module-feed",
@@ -5611,7 +5612,7 @@
                 "source": "https://github.com/oandermedia/mirasvit-feed/tree/1.0.62.1",
                 "issues": "https://github.com/oandermedia/mirasvit-feed/issues"
             },
-            "time": "2018-01-04T15:04:08+00:00"
+            "time": "2018-01-04 15:04:08"
         },
         {
             "name": "mirasvit/module-report",
@@ -5648,7 +5649,7 @@
                 "source": "https://github.com/oandermedia/mirasvit-report/tree/1.2.27.1",
                 "issues": "https://github.com/oandermedia/mirasvit-report/issues"
             },
-            "time": "2018-01-04T15:05:05+00:00"
+            "time": "2018-01-04 15:05:05"
         },
         {
             "name": "monolog/monolog",
@@ -5724,7 +5725,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-08-09T17:44:44+00:00"
+            "time": "2015-08-09 17:44:44"
         },
         {
             "name": "oander/language-mk-mk",
@@ -5754,7 +5755,7 @@
                 "source": "https://github.com/oandermedia/oander-language-mk-mk/tree/1.0.10",
                 "issues": "https://github.com/oandermedia/oander-language-mk-mk/issues"
             },
-            "time": "2018-01-31T18:42:21+00:00"
+            "time": "2018-01-31 18:42:21"
         },
         {
             "name": "oander/module-ajax-catalog",
@@ -5791,7 +5792,7 @@
                 "source": "https://github.com/oandermedia/oander-ajax-catalog/tree/1.0.5",
                 "issues": "https://github.com/oandermedia/oander-ajax-catalog/issues"
             },
-            "time": "2018-01-05T12:00:40+00:00"
+            "time": "2018-01-05 12:00:40"
         },
         {
             "name": "oander/module-api-base",
@@ -5828,7 +5829,7 @@
                 "source": "https://github.com/oandermedia/oander-api-base/tree/1.0.20",
                 "issues": "https://github.com/oandermedia/oander-api-base/issues"
             },
-            "time": "2018-01-05T12:54:40+00:00"
+            "time": "2018-01-05 12:54:40"
         },
         {
             "name": "oander/module-api-cache",
@@ -5867,7 +5868,7 @@
                 "source": "https://github.com/oandermedia/oander-api-cache/tree/1.0.0",
                 "issues": "https://github.com/oandermedia/oander-api-cache/issues"
             },
-            "time": "2017-11-27T15:42:24+00:00"
+            "time": "2017-11-27 15:42:24"
         },
         {
             "name": "oander/module-api-category",
@@ -5906,7 +5907,7 @@
                 "source": "https://github.com/oandermedia/oander-api-category/tree/1.0.9",
                 "issues": "https://github.com/oandermedia/oander-api-category/issues"
             },
-            "time": "2017-11-27T15:10:27+00:00"
+            "time": "2017-11-27 15:10:27"
         },
         {
             "name": "oander/module-api-checkout",
@@ -5945,7 +5946,7 @@
                 "source": "https://github.com/oandermedia/oander-api-checkout/tree/1.3.0",
                 "issues": "https://github.com/oandermedia/oander-api-checkout/issues"
             },
-            "time": "2018-01-18T16:39:49+00:00"
+            "time": "2018-01-18 16:39:49"
         },
         {
             "name": "oander/module-api-customer",
@@ -5984,7 +5985,7 @@
                 "source": "https://github.com/oandermedia/oander-api-customer/tree/1.0.6",
                 "issues": "https://github.com/oandermedia/oander-api-customer/issues"
             },
-            "time": "2017-12-04T15:51:28+00:00"
+            "time": "2017-12-04 15:51:28"
         },
         {
             "name": "oander/module-api-gateway",
@@ -6022,7 +6023,7 @@
                 "source": "https://github.com/oandermedia/oander-api-gateway/tree/1.0.12",
                 "issues": "https://github.com/oandermedia/oander-api-gateway/issues"
             },
-            "time": "2017-11-30T15:41:39+00:00"
+            "time": "2017-11-30 15:41:39"
         },
         {
             "name": "oander/module-api-image",
@@ -6061,7 +6062,7 @@
                 "source": "https://github.com/oandermedia/oander-api-image/tree/1.0.20",
                 "issues": "https://github.com/oandermedia/oander-api-image/issues"
             },
-            "time": "2017-12-07T12:59:03+00:00"
+            "time": "2017-12-07 12:59:03"
         },
         {
             "name": "oander/module-api-index",
@@ -6100,7 +6101,7 @@
                 "source": "https://github.com/oandermedia/oander-api-index/tree/1.0.1",
                 "issues": "https://github.com/oandermedia/oander-api-index/issues"
             },
-            "time": "2017-11-27T15:42:24+00:00"
+            "time": "2017-11-27 15:42:24"
         },
         {
             "name": "oander/module-api-order-attachment",
@@ -6138,7 +6139,7 @@
                 "source": "https://github.com/oandermedia/oander-api-order-attachment/tree/1.0.0",
                 "issues": "https://github.com/oandermedia/oander-api-order-attachment/issues"
             },
-            "time": "2017-12-14T16:47:52+00:00"
+            "time": "2017-12-14 16:47:52"
         },
         {
             "name": "oander/module-api-product",
@@ -6177,7 +6178,7 @@
                 "source": "https://github.com/oandermedia/oander-api-product/tree/1.0.21.1",
                 "issues": "https://github.com/oandermedia/oander-api-product/issues"
             },
-            "time": "2018-01-15T12:52:19+00:00"
+            "time": "2018-01-15 12:52:19"
         },
         {
             "name": "oander/module-api-warehouse-manager",
@@ -6217,7 +6218,7 @@
                 "source": "https://github.com/oandermedia/oander-api-warehouse-manager/tree/1.0.6.1",
                 "issues": "https://github.com/oandermedia/oander-api-warehouse-manager/issues"
             },
-            "time": "2018-01-15T12:52:19+00:00"
+            "time": "2018-01-15 12:52:19"
         },
         {
             "name": "oander/module-base",
@@ -6254,7 +6255,7 @@
                 "source": "https://github.com/oandermedia/oander-base/tree/1.2.6",
                 "issues": "https://github.com/oandermedia/oander-base/issues"
             },
-            "time": "2017-06-19T13:57:39+00:00"
+            "time": "2017-06-19 13:57:39"
         },
         {
             "name": "oander/module-category-badge",
@@ -6291,7 +6292,7 @@
                 "source": "https://github.com/oandermedia/oander-category-badge/tree/2.2.1",
                 "issues": "https://github.com/oandermedia/oander-category-badge/issues"
             },
-            "time": "2017-03-28T08:22:44+00:00"
+            "time": "2017-03-28 08:22:44"
         },
         {
             "name": "oander/module-category-dropdown",
@@ -6329,7 +6330,7 @@
                 "source": "https://github.com/oandermedia/oander-category-dropdown/tree/1.0.12",
                 "issues": "https://github.com/oandermedia/oander-category-dropdown/issues"
             },
-            "time": "2018-01-02T15:33:35+00:00"
+            "time": "2018-01-02 15:33:35"
         },
         {
             "name": "oander/module-checkout",
@@ -6366,7 +6367,7 @@
                 "source": "https://github.com/oandermedia/oander-checkout/tree/1.0.0",
                 "issues": "https://github.com/oandermedia/oander-checkout/issues"
             },
-            "time": "2017-04-11T09:25:36+00:00"
+            "time": "2017-04-11 09:25:36"
         },
         {
             "name": "oander/module-configurable-product-attribute",
@@ -6403,7 +6404,7 @@
                 "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.14",
                 "issues": "https://github.com/oandermedia/oander-configurable-product-attribute/issues"
             },
-            "time": "2018-01-05T15:10:18+00:00"
+            "time": "2018-01-05 15:10:18"
         },
         {
             "name": "oander/module-cookie-law",
@@ -6440,7 +6441,7 @@
                 "source": "https://github.com/oandermedia/oander-cookie-law/tree/0.0.2",
                 "issues": "https://github.com/oandermedia/oander-cookie-law/issues"
             },
-            "time": "2017-05-26T09:02:44+00:00"
+            "time": "2017-05-26 09:02:44"
         },
         {
             "name": "oander/module-core-bug-fix",
@@ -6476,7 +6477,7 @@
                 "source": "https://github.com/oandermedia/oander-core-bug-fix/tree/1.0.15",
                 "issues": "https://github.com/oandermedia/oander-core-bug-fix/issues"
             },
-            "time": "2017-12-18T12:02:20+00:00"
+            "time": "2017-12-18 12:02:20"
         },
         {
             "name": "oander/module-currency-manager",
@@ -6515,7 +6516,7 @@
                 "source": "https://github.com/oandermedia/oander-currency-manager/tree/1.1.1",
                 "issues": "https://github.com/oandermedia/oander-currency-manager/issues"
             },
-            "time": "2017-10-11T10:49:06+00:00"
+            "time": "2017-10-11 10:49:06"
         },
         {
             "name": "oander/module-customer-file-upload",
@@ -6552,7 +6553,7 @@
                 "source": "https://github.com/oandermedia/oander-customer-file-upload/tree/1.0.5",
                 "issues": "https://github.com/oandermedia/oander-customer-file-upload/issues"
             },
-            "time": "2017-09-20T11:42:36+00:00"
+            "time": "2017-09-20 11:42:36"
         },
         {
             "name": "oander/module-discount-badge",
@@ -6590,20 +6591,20 @@
                 "source": "https://github.com/oandermedia/oander-discount-badge/tree/1.0.4",
                 "issues": "https://github.com/oandermedia/oander-discount-badge/issues"
             },
-            "time": "2017-10-12T12:07:23+00:00"
+            "time": "2017-10-12 12:07:23"
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "1249baab66df02e1d396fde88d6f2c61021e4d93"
+                "reference": "b5082dbf57285db021ef159fa58270d95e7e0345"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-dropdown-products/zipball/1249baab66df02e1d396fde88d6f2c61021e4d93",
-                "reference": "1249baab66df02e1d396fde88d6f2c61021e4d93",
+                "url": "https://api.github.com/repos/oandermedia/oander-dropdown-products/zipball/b5082dbf57285db021ef159fa58270d95e7e0345",
+                "reference": "b5082dbf57285db021ef159fa58270d95e7e0345",
                 "shasum": ""
             },
             "require": {
@@ -6623,10 +6624,10 @@
             ],
             "description": "Oander Dropdown Products module",
             "support": {
-                "source": "https://github.com/oandermedia/oander-dropdown-products/tree/1.0.2",
+                "source": "https://github.com/oandermedia/oander-dropdown-products/tree/1.0.3",
                 "issues": "https://github.com/oandermedia/oander-dropdown-products/issues"
             },
-            "time": "2017-03-27T13:11:36+00:00"
+            "time": "2018-01-31 20:53:36"
         },
         {
             "name": "oander/module-fancy-filter",
@@ -6663,7 +6664,7 @@
                 "source": "https://github.com/oandermedia/oander-fancy-filter/tree/1.0.6",
                 "issues": "https://github.com/oandermedia/oander-fancy-filter/issues"
             },
-            "time": "2017-10-31T08:58:22+00:00"
+            "time": "2017-10-31 08:58:22"
         },
         {
             "name": "oander/module-free-shipping-display",
@@ -6700,7 +6701,7 @@
                 "source": "https://github.com/oandermedia/oander-free-shipping-display/tree/1.0.2",
                 "issues": "https://github.com/oandermedia/oander-free-shipping-display/issues"
             },
-            "time": "2017-11-23T15:47:06+00:00"
+            "time": "2017-11-23 15:47:06"
         },
         {
             "name": "oander/module-google-tag-manager",
@@ -6738,7 +6739,7 @@
                 "source": "https://github.com/oandermedia/oander-google-tag-manager/tree/1.0.0",
                 "issues": "https://github.com/oandermedia/oander-google-tag-manager/issues"
             },
-            "time": "2017-01-04T11:34:53+00:00"
+            "time": "2017-01-04 11:34:53"
         },
         {
             "name": "oander/module-hungarian-newsletter",
@@ -6776,7 +6777,7 @@
                 "source": "https://github.com/oandermedia/oander-hungarian-newsletter/tree/1.1.1",
                 "issues": "https://github.com/oandermedia/oander-hungarian-newsletter/issues"
             },
-            "time": "2017-04-12T09:11:56+00:00"
+            "time": "2017-04-12 09:11:56"
         },
         {
             "name": "oander/module-indexer",
@@ -6813,7 +6814,7 @@
                 "source": "https://github.com/oandermedia/oander-indexer/tree/1.0.0",
                 "issues": "https://github.com/oandermedia/oander-indexer/issues"
             },
-            "time": "2017-01-26T12:48:44+00:00"
+            "time": "2017-01-26 12:48:44"
         },
         {
             "name": "oander/module-multislider",
@@ -6850,7 +6851,7 @@
                 "source": "https://github.com/oandermedia/oander-multi-slider/tree/1.0.9",
                 "issues": "https://github.com/oandermedia/oander-multi-slider/issues"
             },
-            "time": "2017-11-29T09:56:05+00:00"
+            "time": "2017-11-29 09:56:05"
         },
         {
             "name": "oander/module-name-switcher",
@@ -6887,7 +6888,7 @@
                 "source": "https://github.com/oandermedia/oander-name-switcher/tree/1.0.9",
                 "issues": "https://github.com/oandermedia/oander-name-switcher/issues"
             },
-            "time": "2017-12-14T16:11:28+00:00"
+            "time": "2017-12-14 16:11:28"
         },
         {
             "name": "oander/module-order-attachment",
@@ -6924,7 +6925,7 @@
                 "source": "https://github.com/oandermedia/oander-order-attachment/tree/1.0.2",
                 "issues": "https://github.com/oandermedia/oander-order-attachment/issues"
             },
-            "time": "2017-12-15T09:55:59+00:00"
+            "time": "2017-12-15 09:55:59"
         },
         {
             "name": "oander/module-order-comment",
@@ -6961,7 +6962,7 @@
                 "source": "https://github.com/oandermedia/oander-order-comment/tree/1.0.2",
                 "issues": "https://github.com/oandermedia/oander-order-comment/issues"
             },
-            "time": "2017-05-25T08:49:06+00:00"
+            "time": "2017-05-25 08:49:06"
         },
         {
             "name": "oander/module-paypal",
@@ -6998,7 +6999,7 @@
                 "source": "https://github.com/oandermedia/oander-paypal/tree/1.0.0",
                 "issues": "https://github.com/oandermedia/oander-paypal/issues"
             },
-            "time": "2017-01-04T11:42:27+00:00"
+            "time": "2017-01-04 11:42:27"
         },
         {
             "name": "oander/module-pleisty",
@@ -7030,7 +7031,7 @@
                 "source": "https://github.com/oandermedia/oander-pleisty/tree/1.0.0",
                 "issues": "https://github.com/oandermedia/oander-pleisty/issues"
             },
-            "time": "2018-01-11T11:47:22+00:00"
+            "time": "2018-01-11 11:47:22"
         },
         {
             "name": "oander/module-pos-locations",
@@ -7067,7 +7068,7 @@
                 "source": "https://github.com/oandermedia/oander-pos-locations/tree/1.0.12",
                 "issues": "https://github.com/oandermedia/oander-pos-locations/issues"
             },
-            "time": "2018-01-03T16:29:34+00:00"
+            "time": "2018-01-03 16:29:34"
         },
         {
             "name": "oander/module-preorder",
@@ -7104,7 +7105,7 @@
                 "source": "https://github.com/oandermedia/oander-preorder/tree/1.0.11",
                 "issues": "https://github.com/oandermedia/oander-preorder/issues"
             },
-            "time": "2018-01-23T16:18:35+00:00"
+            "time": "2018-01-23 16:18:35"
         },
         {
             "name": "oander/module-price-tooltip",
@@ -7141,7 +7142,7 @@
                 "source": "https://github.com/oandermedia/oander-price-tooltip/tree/1.0.1",
                 "issues": "https://github.com/oandermedia/oander-price-tooltip/issues"
             },
-            "time": "2017-05-30T12:26:11+00:00"
+            "time": "2017-05-30 12:26:11"
         },
         {
             "name": "oander/module-product-icons",
@@ -7178,7 +7179,7 @@
                 "source": "https://github.com/oandermedia/oander-product-icons/tree/1.0.6",
                 "issues": "https://github.com/oandermedia/oander-product-icons/issues"
             },
-            "time": "2017-09-20T07:34:10+00:00"
+            "time": "2017-09-20 07:34:10"
         },
         {
             "name": "oander/module-salesforce",
@@ -7215,7 +7216,7 @@
                 "source": "https://github.com/oandermedia/oander-salesforce/tree/1.0.1",
                 "issues": "https://github.com/oandermedia/oander-salesforce/issues"
             },
-            "time": "2018-01-02T16:18:57+00:00"
+            "time": "2018-01-02 16:18:57"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -7253,7 +7254,7 @@
                 "source": "https://github.com/oandermedia/oander-salesforce-widget/tree/1.0.4",
                 "issues": "https://github.com/oandermedia/oander-salesforce-widget/issues"
             },
-            "time": "2018-01-02T16:18:57+00:00"
+            "time": "2018-01-02 16:18:57"
         },
         {
             "name": "oander/module-shipping",
@@ -7290,7 +7291,7 @@
                 "source": "https://github.com/oandermedia/oander-shipping/tree/1.0.2",
                 "issues": "https://github.com/oandermedia/oander-shipping/issues"
             },
-            "time": "2017-09-04T11:05:20+00:00"
+            "time": "2017-09-04 11:05:20"
         },
         {
             "name": "oander/module-test-base",
@@ -7326,7 +7327,7 @@
                 "source": "https://github.com/oandermedia/oander-test-base/tree/1.0.1",
                 "issues": "https://github.com/oandermedia/oander-test-base/issues"
             },
-            "time": "2017-06-19T13:25:11+00:00"
+            "time": "2017-06-19 13:25:11"
         },
         {
             "name": "oander/module-warehouse-manager",
@@ -7365,7 +7366,7 @@
                 "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.2.8",
                 "issues": "https://github.com/oandermedia/oander-warehouse-manager/issues"
             },
-            "time": "2018-01-09T16:37:50+00:00"
+            "time": "2018-01-09 16:37:50"
         },
         {
             "name": "oander/module-warehouse-stock-order",
@@ -7403,7 +7404,7 @@
                 "source": "https://github.com/oandermedia/oander-warehouse-stock-order/tree/1.0.2",
                 "issues": "https://github.com/oandermedia/oander-warehouse-stock-order/issues"
             },
-            "time": "2017-05-31T08:51:05+00:00"
+            "time": "2017-05-31 08:51:05"
         },
         {
             "name": "oander/module-wonder-widget",
@@ -7440,7 +7441,7 @@
                 "source": "https://github.com/oandermedia/oander-wonder-widget/tree/1.1.13",
                 "issues": "https://github.com/oandermedia/oander-wonder-widget/issues"
             },
-            "time": "2017-11-29T10:27:13+00:00"
+            "time": "2017-11-29 10:27:13"
         },
         {
             "name": "oander/module-xtento-order-export-extender",
@@ -7478,7 +7479,7 @@
                 "source": "https://github.com/oandermedia/oander-xtento-order-export-extender/tree/1.0.7",
                 "issues": "https://github.com/oandermedia/oander-xtento-order-export-extender/issues"
             },
-            "time": "2018-01-29T16:31:04+00:00"
+            "time": "2018-01-29 16:31:04"
         },
         {
             "name": "oander/theme-hodor",
@@ -7512,7 +7513,7 @@
                 "source": "https://github.com/oandermedia/oander-hodor/tree/1.1.22",
                 "issues": "https://github.com/oandermedia/oander-hodor/issues"
             },
-            "time": "2018-01-02T08:13:27+00:00"
+            "time": "2018-01-02 08:13:27"
         },
         {
             "name": "oander/theme-istyle",
@@ -7546,7 +7547,7 @@
                 "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.43",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2018-01-31T19:21:15+00:00"
+            "time": "2018-01-31 19:21:15"
         },
         {
             "name": "oyejorge/less.php",
@@ -7608,7 +7609,7 @@
                 "php",
                 "stylesheet"
             ],
-            "time": "2017-03-28T22:19:25+00:00"
+            "time": "2017-03-28 22:19:25"
         },
         {
             "name": "pelago/emogrifier",
@@ -7664,7 +7665,7 @@
             ],
             "description": "Converts CSS styles into inline style attributes in your HTML code",
             "homepage": "http://www.pelagodesign.com/sidecar/emogrifier/",
-            "time": "2015-05-15T11:37:51+00:00"
+            "time": "2015-05-15 11:37:51"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -7756,7 +7757,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2017-11-29T06:38:08+00:00"
+            "time": "2017-11-29 06:38:08"
         },
         {
             "name": "psr/log",
@@ -7803,7 +7804,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10T12:19:37+00:00"
+            "time": "2016-10-10 12:19:37"
         },
         {
             "name": "seld/cli-prompt",
@@ -7851,7 +7852,7 @@
                 "input",
                 "prompt"
             ],
-            "time": "2017-03-18T11:32:45+00:00"
+            "time": "2017-03-18 11:32:45"
         },
         {
             "name": "seld/jsonlint",
@@ -7900,7 +7901,7 @@
                 "parser",
                 "validator"
             ],
-            "time": "2018-01-24T12:46:19+00:00"
+            "time": "2018-01-24 12:46:19"
         },
         {
             "name": "seld/phar-utils",
@@ -7944,7 +7945,7 @@
             "keywords": [
                 "phra"
             ],
-            "time": "2015-10-13T18:44:15+00:00"
+            "time": "2015-10-13 18:44:15"
         },
         {
             "name": "sjparkinson/static-review",
@@ -7998,7 +7999,7 @@
             ],
             "description": "An extendable framework for version control hooks.",
             "abandoned": "phpro/grumphp",
-            "time": "2014-09-22T08:40:36+00:00"
+            "time": "2014-09-22 08:40:36"
         },
         {
             "name": "symfony/console",
@@ -8056,7 +8057,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2015-07-26T09:08:40+00:00"
+            "time": "2015-07-26 09:08:40"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -8116,7 +8117,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-03T07:36:31+00:00"
+            "time": "2018-01-03 07:36:31"
         },
         {
             "name": "symfony/filesystem",
@@ -8165,7 +8166,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-03T07:36:31+00:00"
+            "time": "2018-01-03 07:36:31"
         },
         {
             "name": "symfony/finder",
@@ -8214,7 +8215,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-03T07:37:34+00:00"
+            "time": "2018-01-03 07:37:34"
         },
         {
             "name": "symfony/process",
@@ -8263,7 +8264,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-29T08:54:45+00:00"
+            "time": "2018-01-29 08:54:45"
         },
         {
             "name": "tedivm/jshrink",
@@ -8309,7 +8310,7 @@
                 "javascript",
                 "minifier"
             ],
-            "time": "2014-11-11T03:54:14+00:00"
+            "time": "2014-11-11 03:54:14"
         },
         {
             "name": "tubalmartin/cssmin",
@@ -8353,7 +8354,7 @@
                 "minify",
                 "yui"
             ],
-            "time": "2014-09-22T08:08:50+00:00"
+            "time": "2014-09-22 08:08:50"
         },
         {
             "name": "xtento/module-orderexport",
@@ -8399,7 +8400,7 @@
                 "source": "https://github.com/oandermedia/xtento-orderexport/tree/2.3.9",
                 "issues": "https://github.com/oandermedia/xtento-orderexport/issues"
             },
-            "time": "2017-11-15T12:38:33+00:00"
+            "time": "2017-11-15 12:38:33"
         },
         {
             "name": "xtento/module-xtcore",
@@ -8444,7 +8445,7 @@
                 "source": "https://github.com/oandermedia/xtento-core/tree/2.1.0",
                 "issues": "https://github.com/oandermedia/xtento-core/issues"
             },
-            "time": "2017-11-15T12:35:36+00:00"
+            "time": "2017-11-15 12:35:36"
         },
         {
             "name": "zendframework/zend-code",
@@ -8497,7 +8498,7 @@
                 "code",
                 "zf2"
             ],
-            "time": "2015-05-11T16:17:05+00:00"
+            "time": "2015-05-11 16:17:05"
         },
         {
             "name": "zendframework/zend-config",
@@ -8554,7 +8555,7 @@
                 "config",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-console",
@@ -8604,7 +8605,7 @@
                 "console",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-crypt",
@@ -8656,7 +8657,7 @@
                 "crypt",
                 "zf2"
             ],
-            "time": "2015-11-23T16:33:27+00:00"
+            "time": "2015-11-23 16:33:27"
         },
         {
             "name": "zendframework/zend-di",
@@ -8707,7 +8708,7 @@
                 "di",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-escaper",
@@ -8752,7 +8753,7 @@
                 "escaper",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-eventmanager",
@@ -8798,7 +8799,7 @@
                 "eventmanager",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-filter",
@@ -8854,7 +8855,7 @@
                 "filter",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-form",
@@ -8925,7 +8926,7 @@
                 "form",
                 "zf2"
             ],
-            "time": "2015-09-09T19:11:05+00:00"
+            "time": "2015-09-09 19:11:05"
         },
         {
             "name": "zendframework/zend-http",
@@ -8976,7 +8977,7 @@
                 "http",
                 "zf2"
             ],
-            "time": "2015-09-14T16:11:20+00:00"
+            "time": "2015-09-14 16:11:20"
         },
         {
             "name": "zendframework/zend-i18n",
@@ -9040,7 +9041,7 @@
                 "i18n",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-inputfilter",
@@ -9091,7 +9092,7 @@
                 "inputfilter",
                 "zf2"
             ],
-            "time": "2015-09-09T15:44:54+00:00"
+            "time": "2015-09-09 15:44:54"
         },
         {
             "name": "zendframework/zend-json",
@@ -9145,7 +9146,7 @@
                 "json",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-loader",
@@ -9190,7 +9191,7 @@
                 "loader",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-log",
@@ -9252,7 +9253,7 @@
                 "logging",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-math",
@@ -9303,7 +9304,7 @@
                 "math",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-modulemanager",
@@ -9361,7 +9362,7 @@
                 "modulemanager",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-mvc",
@@ -9449,7 +9450,7 @@
                 "mvc",
                 "zf2"
             ],
-            "time": "2015-09-14T16:32:50+00:00"
+            "time": "2015-09-14 16:32:50"
         },
         {
             "name": "zendframework/zend-serializer",
@@ -9502,7 +9503,7 @@
                 "serializer",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-server",
@@ -9549,7 +9550,7 @@
                 "server",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-servicemanager",
@@ -9599,7 +9600,7 @@
                 "servicemanager",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-soap",
@@ -9651,7 +9652,7 @@
                 "soap",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-stdlib",
@@ -9706,7 +9707,7 @@
                 "stdlib",
                 "zf2"
             ],
-            "time": "2015-07-21T13:55:46+00:00"
+            "time": "2015-07-21 13:55:46"
         },
         {
             "name": "zendframework/zend-text",
@@ -9753,7 +9754,7 @@
                 "text",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-uri",
@@ -9801,7 +9802,7 @@
                 "uri",
                 "zf2"
             ],
-            "time": "2015-09-14T16:17:10+00:00"
+            "time": "2015-09-14 16:17:10"
         },
         {
             "name": "zendframework/zend-validator",
@@ -9866,7 +9867,7 @@
                 "validator",
                 "zf2"
             ],
-            "time": "2015-09-08T21:04:17+00:00"
+            "time": "2015-09-08 21:04:17"
         },
         {
             "name": "zendframework/zend-view",
@@ -9943,7 +9944,7 @@
                 "view",
                 "zf2"
             ],
-            "time": "2015-06-16T15:22:37+00:00"
+            "time": "2015-06-16 15:22:37"
         }
     ],
     "packages-dev": [
@@ -9999,7 +10000,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-06-14T21:17:01+00:00"
+            "time": "2015-06-14 21:17:01"
         },
         {
             "name": "fabpot/php-cs-fixer",
@@ -10058,7 +10059,7 @@
             ],
             "description": "A tool to automatically fix PHP code style",
             "abandoned": "friendsofphp/php-cs-fixer",
-            "time": "2017-09-11T14:11:16+00:00"
+            "time": "2017-09-11 14:11:16"
         },
         {
             "name": "lusitanian/oauth",
@@ -10125,7 +10126,7 @@
                 "oauth",
                 "security"
             ],
-            "time": "2015-10-07T00:20:04+00:00"
+            "time": "2015-10-07 00:20:04"
         },
         {
             "name": "pdepend/pdepend",
@@ -10165,7 +10166,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2015-10-16T08:49:58+00:00"
+            "time": "2015-10-16 08:49:58"
         },
         {
             "name": "phpmd/phpmd",
@@ -10230,7 +10231,7 @@
                 "phpmd",
                 "pmd"
             ],
-            "time": "2016-11-23T20:33:32+00:00"
+            "time": "2016-11-23 20:33:32"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -10292,7 +10293,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-10-06T15:47:00+00:00"
+            "time": "2015-10-06 15:47:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -10337,7 +10338,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2013-10-10T15:34:57+00:00"
+            "time": "2013-10-10 15:34:57"
         },
         {
             "name": "phpunit/php-text-template",
@@ -10378,7 +10379,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2015-06-21T13:50:34+00:00"
+            "time": "2015-06-21 13:50:34"
         },
         {
             "name": "phpunit/php-timer",
@@ -10427,7 +10428,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2017-02-26T11:10:40+00:00"
+            "time": "2017-02-26 11:10:40"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -10476,7 +10477,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-12-04T08:55:13+00:00"
+            "time": "2017-12-04 08:55:13"
         },
         {
             "name": "phpunit/phpunit",
@@ -10550,7 +10551,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-05-02T07:13:40+00:00"
+            "time": "2014-05-02 07:13:40"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -10606,7 +10607,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2015-10-02T06:51:40+00:00"
+            "time": "2015-10-02 06:51:40"
         },
         {
             "name": "sebastian/comparator",
@@ -10670,7 +10671,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2017-01-29T09:50:25+00:00"
+            "time": "2017-01-29 09:50:25"
         },
         {
             "name": "sebastian/diff",
@@ -10722,7 +10723,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-05-22T07:24:03+00:00"
+            "time": "2017-05-22 07:24:03"
         },
         {
             "name": "sebastian/environment",
@@ -10772,7 +10773,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2016-08-18T05:49:44+00:00"
+            "time": "2016-08-18 05:49:44"
         },
         {
             "name": "sebastian/exporter",
@@ -10839,7 +10840,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2016-06-17T09:04:28+00:00"
+            "time": "2016-06-17 09:04:28"
         },
         {
             "name": "sebastian/finder-facade",
@@ -10878,7 +10879,7 @@
             ],
             "description": "FinderFacade is a convenience wrapper for Symfony's Finder component.",
             "homepage": "https://github.com/sebastianbergmann/finder-facade",
-            "time": "2017-11-18T17:31:49+00:00"
+            "time": "2017-11-18 17:31:49"
         },
         {
             "name": "sebastian/phpcpd",
@@ -10929,7 +10930,7 @@
             ],
             "description": "Copy/Paste Detector (CPD) for PHP code.",
             "homepage": "https://github.com/sebastianbergmann/phpcpd",
-            "time": "2013-11-08T09:05:42+00:00"
+            "time": "2013-11-08 09:05:42"
         },
         {
             "name": "sebastian/recursion-context",
@@ -10982,7 +10983,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2016-10-03T07:41:43+00:00"
+            "time": "2016-10-03 07:41:43"
         },
         {
             "name": "sebastian/version",
@@ -11017,7 +11018,7 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2015-06-21T13:59:46+00:00"
+            "time": "2015-06-21 13:59:46"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -11092,7 +11093,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2014-05-01T03:07:07+00:00"
+            "time": "2014-05-01 03:07:07"
         },
         {
             "name": "symfony/config",
@@ -11148,7 +11149,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-21T19:03:25+00:00"
+            "time": "2018-01-21 19:03:25"
         },
         {
             "name": "symfony/dependency-injection",
@@ -11211,7 +11212,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-29T08:55:23+00:00"
+            "time": "2018-01-29 08:55:23"
         },
         {
             "name": "symfony/stopwatch",
@@ -11260,7 +11261,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-03T07:37:34+00:00"
+            "time": "2018-01-03 07:37:34"
         },
         {
             "name": "symfony/yaml",
@@ -11309,7 +11310,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-03T07:36:31+00:00"
+            "time": "2018-01-03 07:36:31"
         },
         {
             "name": "theseer/fdomdocument",
@@ -11349,7 +11350,7 @@
             ],
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
-            "time": "2017-06-30T11:53:12+00:00"
+            "time": "2017-06-30 11:53:12"
         }
     ],
     "aliases": [],
