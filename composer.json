@@ -10,7 +10,7 @@
     "require": {
         "magento/product-community-edition": "2.1.5",
         "composer/composer": "@alpha",
-        "oander/language-mk-mk": "1.0.8",
+        "oander/language-mk-mk": "1.0.9",
         "oander/module-ajax-catalog": "1.0.5",
         "oander/module-api-base": "1.0.20",
         "oander/module-api-cache": "1.0.0",
