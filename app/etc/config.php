@@ -139,6 +139,7 @@ return array (
     'Oander_GoogleTagManager' => 1,
     'Oander_NameSwitcher' => 1,
     'Oander_Indexer' => 1,
+    'Oander_IndexerRangeBugFix' => 1,
     'Oander_IstyleBase' => 1,
     'Oander_MultiSlider' => 1,
     'Oander_HungarianNewsletter' => 1,
