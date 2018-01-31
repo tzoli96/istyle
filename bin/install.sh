@@ -10,6 +10,7 @@ MASTER_ID="i-0a57263aca752890a"
 echo -n " * CREATE DIRECTORY SYMLINK TO MEDIA FOLDER ... "
 [ -L ${WEBROOT}/pub/media ] && rm ${WEBROOT}/pub/media &> /dev/null || rm -rf ${WEBROOT}/pub/media
 if ln -s ${EFS}/media ${WEBROOT}/pub/; then echo OK; else echo FAIL; fi
+if ln -s ${EFS}/upload ${WEBROOT}/; then echo OK; else echo FAIL; fi
 
 if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
    echo "### MASTER WORKFLOW ###"
@@ -17,12 +18,15 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
    if cp ${EFS}/env/upgrade_env.php ${WEBROOT}/app/etc/env.php; then echo OK; else echo FAIL; fi
    
    echo -n " * RSYNC BLUE FOLDER TO GREEN WITH EXCEPTIONS ... "
-   if time rsync -au --exclude={"/var/backups/*","/var/generation/*","/var/di/*","/pub/static/*"} ${EFS_BLUE}/* ${EFS_GREEN}/; then echo OK; else echo FAIL; fi
+   if time rsync -au --exclude={"/var/backups/*","/var/log/*","/var/generation/*","/var/di/*","/pub/static/*"} ${EFS_BLUE}/* ${EFS_GREEN}/; then echo OK; else echo FAIL; fi
 
    echo " * CREATE DIRECTORY SYMLINKS TO GREEN:"
    [ -L ${WEBROOT}/var ] && rm ${WEBROOT}/var
    echo -n "var ... "
    if ln -s ${EFS_GREEN}/var ${WEBROOT}/; then echo OK; else echo FAIL; fi
+   echo -n "var/log ... "
+   [ -d ${WEBROOT}/var/log/ ] && rm -rf ${WEBROOT}/var/log/
+   if ln -s /var/log/magento/log ${WEBROOT}/var/; then echo OK; else echo FAIL; fi
    [ -L ${WEBROOT}/pub/static ] && rm ${WEBROOT}/pub/static &> /dev/null || rm -rf ${WEBROOT}/pub/static
    echo -n "pub/static ... "
    if ln -s ${EFS_GREEN}/pub/static ${WEBROOT}/pub/; then echo OK; else echo FAIL; fi
@@ -59,6 +63,7 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
    cd ${WEBROOT} && time php bin/magento setup:di:compile
    cd ${WEBROOT} && time php bin/magento setup:static-content:deploy en_US
    cd ${WEBROOT} && time php bin/magento setup:static-content:deploy mk_MK
+   cd ${WEBROOT} && php bin/magento cache:enable
    echo -n " * CREATE FLAG FOR BLUE/GREEN DEPLOYMENT ... "
    if touch ${EFS}/deployed.flag; then echo OK; else echo FAIL; fi
    echo -n " * CHOWN EFS_GREEN DIR ... "
@@ -99,10 +104,12 @@ else
       cd ${WEBROOT} && php bin/magento maintenance:enable
       cd ${WEBROOT} && php bin/magento setup:upgrade --keep-generated
       cd ${WEBROOT} && php bin/magento maintenance:disable
+      cd ${WEBROOT} && php bin/magento cache:enable
       echo -n " * REMOVING DEPLOYED FLAG ... "
       if rm ${EFS}/deployed.flag; then echo OK; else echo FAIL; fi
    else
       echo "NO"
+      cd ${WEBROOT} && php bin/magento cache:enable
    fi
 fi
 
