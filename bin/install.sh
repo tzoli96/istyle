@@ -63,6 +63,14 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
    if touch ${EFS}/deployed.flag; then echo OK; else echo FAIL; fi
    echo -n " * CHOWN EFS_GREEN DIR ... "
    if time chown www-data:www-data -R ${EFS_GREEN}; then echo OK; else echo FAIL; fi
+
+   echo " * SET BACK SYMLINKS TO BLUE:"
+   [ -L ${WEBROOT}/var ] && rm ${WEBROOT}/var
+   echo -n "var ... "
+   if ln -s ${EFS_BLUE}/var ${WEBROOT}/; then echo OK; else echo FAIL; fi
+   [ -L ${WEBROOT}/pub/static ] && rm ${WEBROOT}/pub/static
+   echo -n "pub/static ... "
+   if ln -s ${EFS_BLUE}/pub/static ${WEBROOT}/pub/; then echo OK; else echo FAIL; fi
 #   cd ${WEBROOT} && php bin/magento maintenance:disable
 else
    echo "### WORKER INSTANCES ###"
