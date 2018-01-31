@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b64d54094c0a3326c4faf688e569c020",
+    "content-hash": "dec4f8e2649e98b4e4c47243c376f8b5",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -5728,16 +5728,16 @@
         },
         {
             "name": "oander/language-mk-mk",
-            "version": "1.0.4",
+            "version": "1.0.10",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-mk-mk.git",
-                "reference": "90512266daa50a6d82a52f713548afe441994f39"
+                "reference": "77fe872b2a6aadc595d68821531b38767b20dbc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-mk-mk/zipball/90512266daa50a6d82a52f713548afe441994f39",
-                "reference": "90512266daa50a6d82a52f713548afe441994f39",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-mk-mk/zipball/77fe872b2a6aadc595d68821531b38767b20dbc8",
+                "reference": "77fe872b2a6aadc595d68821531b38767b20dbc8",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -5751,10 +5751,10 @@
             ],
             "description": "Macedonian language pack for the Magento",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-mk-mk/tree/1.0.4",
+                "source": "https://github.com/oandermedia/oander-language-mk-mk/tree/1.0.10",
                 "issues": "https://github.com/oandermedia/oander-language-mk-mk/issues"
             },
-            "time": "2018-01-30T14:43:14+00:00"
+            "time": "2018-01-31T18:42:21+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
