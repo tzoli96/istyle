@@ -24,11 +24,10 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
    [ -L ${WEBROOT}/var ] && rm ${WEBROOT}/var
    echo -n "var ... "
    if ln -s ${EFS_GREEN}/var ${WEBROOT}/; then echo OK; else echo FAIL; fi
-   echo -n "var/log ... "
-   [ -d ${WEBROOT}/var/log/ ] && rm -rf ${WEBROOT}/var/log/
-   if ln -s /var/log/magento/log ${WEBROOT}/var/; then echo OK; else echo FAIL; fi
-   [ -L ${WEBROOT}/pub/static ] && rm ${WEBROOT}/pub/static &> /dev/null || rm -rf ${WEBROOT}/pub/static
+   echo -n "check var/log ... "
+   [ -L ${WEBROOT}/var/log/ ] && echo OK || echo FAIL
    echo -n "pub/static ... "
+   [ -L ${WEBROOT}/pub/static ] && rm ${WEBROOT}/pub/static &> /dev/null || rm -rf ${WEBROOT}/pub/static
    if ln -s ${EFS_GREEN}/pub/static ${WEBROOT}/pub/; then echo OK; else echo FAIL; fi
 
    echo "### COMPOSER INSTALL & MAGENTO UPGRADE ###"
