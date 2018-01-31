@@ -102,8 +102,10 @@ else
       if time rsync -au --exclude={"/var/backups/*"} ${EFS_GREEN}/* ${EFS_BLUE}/; then echo OK; else echo FAIL; fi
       echo "### SETUP UPGRADE :: KEEP-GENERATED ###"
       cd ${WEBROOT} && php bin/magento maintenance:enable
+      sleep 10
       cd ${WEBROOT} && php bin/magento setup:upgrade --keep-generated
       cd ${WEBROOT} && php bin/magento maintenance:disable
+      sleep 20
       cd ${WEBROOT} && php bin/magento cache:enable
       echo -n " * REMOVING DEPLOYED FLAG ... "
       if rm ${EFS}/deployed.flag; then echo OK; else echo FAIL; fi
@@ -112,6 +114,7 @@ else
    fi
 fi
 
+chown www-data:www-data -R /var/log/magento
 chown www-data:www-data -R /var/www/istyle.eu/
 /etc/init.d/php7.0-fpm restart
 sleep 5
