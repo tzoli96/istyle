@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d06d055eb28e1f3d2230a5d7b08af03",
+    "content-hash": "ba9f1a67544126539d18904152dada71",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -426,16 +426,16 @@
         },
         {
             "name": "composer/spdx-licenses",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/spdx-licenses.git",
-                "reference": "2d899e9b33023c631854f36c39ef9f8317a7ab33"
+                "reference": "7e111c50db92fa2ced140f5ba23b4e261bc77a30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/2d899e9b33023c631854f36c39ef9f8317a7ab33",
-                "reference": "2d899e9b33023c631854f36c39ef9f8317a7ab33",
+                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/7e111c50db92fa2ced140f5ba23b4e261bc77a30",
+                "reference": "7e111c50db92fa2ced140f5ba23b4e261bc77a30",
                 "shasum": ""
             },
             "require": {
@@ -483,7 +483,7 @@
                 "spdx",
                 "validator"
             ],
-            "time": "2018-01-03T16:37:06+00:00"
+            "time": "2018-01-31T13:17:27+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
@@ -5728,16 +5728,16 @@
         },
         {
             "name": "oander/language-mk-mk",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-mk-mk.git",
-                "reference": "d2662b16989972c82cc87910a9cefca27deca2b6"
+                "reference": "74d8904f7d564f1a4317570639984a233e3cfe73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-mk-mk/zipball/d2662b16989972c82cc87910a9cefca27deca2b6",
-                "reference": "d2662b16989972c82cc87910a9cefca27deca2b6",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-mk-mk/zipball/74d8904f7d564f1a4317570639984a233e3cfe73",
+                "reference": "74d8904f7d564f1a4317570639984a233e3cfe73",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -5751,10 +5751,10 @@
             ],
             "description": "Macedonian language pack for the Magento",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-mk-mk/tree/1.0.7",
+                "source": "https://github.com/oandermedia/oander-language-mk-mk/tree/1.0.8",
                 "issues": "https://github.com/oandermedia/oander-language-mk-mk/issues"
             },
-            "time": "2018-01-31T11:41:26+00:00"
+            "time": "2018-01-31T15:50:03+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
