@@ -10,7 +10,7 @@
     "require": {
         "magento/product-community-edition": "2.1.5",
         "composer/composer": "@alpha",
-        "oander/language-mk-mk": "1.0.*",
+        "oander/language-mk-mk": "1.0.11",
         "oander/module-ajax-catalog": "1.0.5",
         "oander/module-api-base": "1.0.20",
         "oander/module-api-cache": "1.0.0",
@@ -21,8 +21,8 @@
         "oander/module-api-image": "1.0.20",
         "oander/module-api-index": "1.0.1",
         "oander/module-api-order-attachment": "1.0.0",
-        "oander/module-api-product": "1.0.21.1",
-        "oander/module-api-warehouse-manager": "1.0.6.1",
+        "oander/module-api-product": "1.0.22",
+        "oander/module-api-warehouse-manager": "1.0.7",
         "oander/module-base": "1.2.6",
         "oander/module-category-badge": "2.2.1",
         "oander/module-category-dropdown": "1.0.12",
@@ -33,7 +33,7 @@
         "oander/module-currency-manager": "1.1.1",
         "oander/module-customer-file-upload": "1.0.5",
         "oander/module-discount-badge": "1.0.4",
-        "oander/module-dropdown-products": "1.0.2",
+        "oander/module-dropdown-products": "1.0.3",
         "oander/module-fancy-filter": "1.0.6",
         "oander/module-free-shipping-display": "1.0.2",
         "oander/module-google-tag-manager": "1.0.0",
@@ -58,7 +58,7 @@
         "oander/module-wonder-widget": "1.1.13",
         "oander/module-xtento-order-export-extender": "1.0.7",
         "oander/theme-hodor": "1.1.22",
-        "oander/theme-istyle": "1.0.42",
+        "oander/theme-istyle": "1.0.43",
         "algolia/algoliasearch-magento-2": "^1.0",
         "innobyte/module-nlb": "0.0.3",
         "innobyte/module-checkout-success": "0.0.3",
@@ -316,14 +316,6 @@
         },
         {
             "type": "vcs",
-            "url": "git@github.com:oandermedia/xtento-orderexport.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:oandermedia/xtento-core.git"
-        },
-        {
-            "type": "vcs",
             "url": "git@github.com:oandermedia/mirasvit-core.git"
         },
         {
@@ -333,6 +325,14 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/mirasvit-report.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/xtento-orderexport.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/xtento-core.git"
         }
     ],
     "extra": {
