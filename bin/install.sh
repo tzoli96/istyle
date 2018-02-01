@@ -14,7 +14,7 @@ if ln -s ${EFS}/upload ${WEBROOT}/; then echo OK; else echo FAIL; fi
 
 if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
    echo "### MASTER WORKFLOW ###"
-   echo -n " * CONFIGURE THE ENV FILE WITH THE DATABASES FOR UPGRADE ... "
+   echo -n " * COPY THE ENV FILE WITH THE DATABASES FOR UPGRADE ... "
    if cp ${EFS}/env/upgrade_env.php ${WEBROOT}/app/etc/env.php; then echo OK; else echo FAIL; fi
    
    echo -n " * RSYNC BLUE FOLDER TO GREEN WITH EXCEPTIONS ... "
@@ -69,6 +69,9 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
    echo -n " * CHOWN EFS_GREEN DIR ... "
    if time chown www-data:www-data -R ${EFS_GREEN}; then echo OK; else echo FAIL; fi
 
+   echo -n " * COPY THE ENV FILE WITH THE DATABASES TO PRODUCTION FOR CRONJOBS ... "
+   if cp ${EFS}/env/env.php ${WEBROOT}/app/etc/; then echo OK; else echo FAIL; fi
+
    echo " * SET BACK SYMLINKS TO BLUE:"
    [ -L ${WEBROOT}/var ] && rm ${WEBROOT}/var
    echo -n "var ... "
@@ -82,14 +85,6 @@ else
    echo -n " * CONFIGURE THE ENV FILE WITH THE PRODUCTION DATABASES FOR UPGRADE ... "
    if cp ${EFS}/env/env.php ${WEBROOT}/app/etc/; then echo OK; else echo FAIL; fi
 
-   echo " * CREATE DIRECTORY SYMLINKS TO BLUE:"
-   echo -n "var ... "
-   [ -L ${WEBROOT}/var ] && rm ${WEBROOT}/var
-   if ln -s ${EFS_BLUE}/var ${WEBROOT}/; then echo OK; else echo FAIL; fi
-   echo -n "pub/static ... "
-   [ -L ${WEBROOT}/pub/static ] && rm ${WEBROOT}/pub/static || rm -rf ${WEBROOT}/pub/static
-   if ln -s ${EFS_BLUE}/pub/static ${WEBROOT}/pub/; then echo OK; else echo FAIL; fi
-
    echo " * DELETE VENDOR DIRECTORY ... "
    if time rm -rf ${WEBROOT}/vendor/*; then echo OK; else echo FAIL; fi
    echo "### COMPOSER INSTALL ###"
@@ -101,6 +96,7 @@ else
       echo -n " * RSYNC EFS GREEN TO BLUE ... "
       if time rsync -au --exclude={"/var/backups/*"} ${EFS_GREEN}/* ${EFS_BLUE}/; then echo OK; else echo FAIL; fi
       echo "### SETUP UPGRADE :: KEEP-GENERATED ###"
+      cp ${WEBROOT}/pub/errors/default/maintenance.phtml ${WEBROOT}/pub/errors/default/503.phtml
       cd ${WEBROOT} && php bin/magento maintenance:enable
       sleep 10
       cd ${WEBROOT} && php bin/magento setup:upgrade --keep-generated
@@ -111,13 +107,19 @@ else
       if rm ${EFS}/deployed.flag; then echo OK; else echo FAIL; fi
    else
       echo "NO"
+      echo " * CREATE DIRECTORY SYMLINKS TO BLUE:"
+      echo -n "var ... "
+      [ -L ${WEBROOT}/var ] && rm ${WEBROOT}/var
+      if ln -s ${EFS_BLUE}/var ${WEBROOT}/; then echo OK; else echo FAIL; fi
+      echo -n "pub/static ... "
+      [ -L ${WEBROOT}/pub/static ] && rm ${WEBROOT}/pub/static || rm -rf ${WEBROOT}/pub/static
+      if ln -s ${EFS_BLUE}/pub/static ${WEBROOT}/pub/; then echo OK; else echo FAIL; fi
+      cd ${WEBROOT} && php bin/magento cache:enable
    fi
 fi
 
 chown www-data:www-data -R /var/log/magento
 chown www-data:www-data -R /var/www/istyle.eu/
 /etc/init.d/php7.0-fpm restart
-sleep 5
-cd ${WEBROOT} && php bin/magento cache:enable
 
 exit 0
