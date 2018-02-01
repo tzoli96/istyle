@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6672ac1bbae2c95d9798580a2186e3a5",
-    "content-hash": "dfb4f8241828d3721960334146325619",
+    "hash": "0e108669e4264c76a7b2103f2466ce3d",
+    "content-hash": "7441d54307eb8fd03244dd9feb58cf97",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -5729,16 +5729,16 @@
         },
         {
             "name": "oander/language-mk-mk",
-            "version": "1.0.10",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-mk-mk.git",
-                "reference": "77fe872b2a6aadc595d68821531b38767b20dbc8"
+                "reference": "a38f2157db474ca25e80057892617841483f855d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-mk-mk/zipball/77fe872b2a6aadc595d68821531b38767b20dbc8",
-                "reference": "77fe872b2a6aadc595d68821531b38767b20dbc8",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-mk-mk/zipball/a38f2157db474ca25e80057892617841483f855d",
+                "reference": "a38f2157db474ca25e80057892617841483f855d",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -5752,10 +5752,10 @@
             ],
             "description": "Macedonian language pack for the Magento",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-mk-mk/tree/1.0.10",
+                "source": "https://github.com/oandermedia/oander-language-mk-mk/tree/1.0.11",
                 "issues": "https://github.com/oandermedia/oander-language-mk-mk/issues"
             },
-            "time": "2018-01-31 18:42:21"
+            "time": "2018-02-01 10:46:35"
         },
         {
             "name": "oander/module-ajax-catalog",

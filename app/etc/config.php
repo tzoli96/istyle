@@ -135,6 +135,7 @@ return array (
     'Oander_DiscountBadge' => 1,
     'Oander_DropdownProducts' => 1,
     'Oander_FancyFilter' => 1,
+    'Oander_FrameworkCollectionWorkaround' => 1,
     'Oander_FreeShippingDisplay' => 1,
     'Oander_GoogleTagManager' => 1,
     'Oander_NameSwitcher' => 1,
