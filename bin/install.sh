@@ -45,7 +45,7 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
       echo " * COPY DATABASES:"
       echo -n "istyle ... "
       mysql -e 'DROP DATABASE istyle_upg; CREATE DATABASE istyle_upg;'
-      mysqldump --skip-add-drop-table --no-data istyle | mysql istyle_upg
+      mysqldump --skip-add-drop-table --no-data istyle | sed 's/`istylem2`@`%`/`root`@`%`/g' | mysql istyle_upg
       if mysqldump --single-transaction istyle weee_tax theme product_alert_price eav_entity_type core_config_data setup_module store store_group store_website | sed 's/`istylem2`@`%`/`root`@`%`/g' | mysql istyle_upg; then echo OK; else echo FAIL; fi
       echo -n "istyle-warehousemanager ... "
       mysql -e 'DROP DATABASE istylewh_upg; CREATE DATABASE istylewh_upg;'
