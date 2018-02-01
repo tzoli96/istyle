@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0e108669e4264c76a7b2103f2466ce3d",
-    "content-hash": "7441d54307eb8fd03244dd9feb58cf97",
+    "hash": "79150548a0dda85ca7e73ea2deb7f8ad",
+    "content-hash": "35ea1eef2dea1ee5b997a934451bbe69",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6143,21 +6143,22 @@
         },
         {
             "name": "oander/module-api-product",
-            "version": "1.0.21.1",
+            "version": "1.0.22",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-product.git",
-                "reference": "7ccd34a6b40ed9f60b1b3b97aa32235546d17bb4"
+                "reference": "6847aced573815244723b610591ae5483a4cc2ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-product/zipball/7ccd34a6b40ed9f60b1b3b97aa32235546d17bb4",
-                "reference": "7ccd34a6b40ed9f60b1b3b97aa32235546d17bb4",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-product/zipball/6847aced573815244723b610591ae5483a4cc2ba",
+                "reference": "6847aced573815244723b610591ae5483a4cc2ba",
                 "shasum": ""
             },
             "require": {
                 "oander/module-api-base": "*",
                 "oander/module-api-gateway": "*",
+                "oander/module-api-index": "*",
                 "oander/module-base": "*",
                 "php": "7.*"
             },
@@ -6175,23 +6176,23 @@
             ],
             "description": "Backend API to Product",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-product/tree/1.0.21.1",
+                "source": "https://github.com/oandermedia/oander-api-product/tree/1.0.22",
                 "issues": "https://github.com/oandermedia/oander-api-product/issues"
             },
-            "time": "2018-01-15 12:52:19"
+            "time": "2018-01-25 16:25:01"
         },
         {
             "name": "oander/module-api-warehouse-manager",
-            "version": "1.0.6.1",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-warehouse-manager.git",
-                "reference": "7f99d2abade7d01867019c9474eeb4e0d098c2eb"
+                "reference": "7b406754a36d210dd5d79b5d31d74ce86a4aae67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-warehouse-manager/zipball/7f99d2abade7d01867019c9474eeb4e0d098c2eb",
-                "reference": "7f99d2abade7d01867019c9474eeb4e0d098c2eb",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-warehouse-manager/zipball/7b406754a36d210dd5d79b5d31d74ce86a4aae67",
+                "reference": "7b406754a36d210dd5d79b5d31d74ce86a4aae67",
                 "shasum": ""
             },
             "require": {
@@ -6215,10 +6216,10 @@
             ],
             "description": "Oander_ApiWarehouseManager",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-warehouse-manager/tree/1.0.6.1",
+                "source": "https://github.com/oandermedia/oander-api-warehouse-manager/tree/1.0.7",
                 "issues": "https://github.com/oandermedia/oander-api-warehouse-manager/issues"
             },
-            "time": "2018-01-15 12:52:19"
+            "time": "2018-01-30 10:47:44"
         },
         {
             "name": "oander/module-base",
