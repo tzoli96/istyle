@@ -21,7 +21,7 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
    if time rsync -au --exclude={"/var/backups/*","/var/log/*","/var/generation/*","/var/di/*","/pub/static/*"} ${EFS_BLUE}/* ${EFS_GREEN}/; then echo OK; else echo FAIL; fi
 
    echo " * CREATE DIRECTORY SYMLINKS TO GREEN:"
-   [ -L ${WEBROOT}/var ] && rm ${WEBROOT}/var
+   [ -L ${WEBROOT}/var ] && rm ${WEBROOT}/var || rm -rf ${WEBROOT}/var
    echo -n "var ... "
    if ln -s ${EFS_GREEN}/var ${WEBROOT}/; then echo OK; else echo FAIL; fi
    echo -n "check var/log ... "
@@ -73,10 +73,10 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
    if cp ${EFS}/env/env.php ${WEBROOT}/app/etc/; then echo OK; else echo FAIL; fi
 
    echo " * SET BACK SYMLINKS TO BLUE:"
-   [ -L ${WEBROOT}/var ] && rm ${WEBROOT}/var
+   [ -L ${WEBROOT}/var ] && rm ${WEBROOT}/var || rm -rf ${WEBROOT}/var
    echo -n "var ... "
    if ln -s ${EFS_BLUE}/var ${WEBROOT}/; then echo OK; else echo FAIL; fi
-   [ -L ${WEBROOT}/pub/static ] && rm ${WEBROOT}/pub/static
+   [ -L ${WEBROOT}/pub/static ] && rm ${WEBROOT}/pub/static || rm -rf ${WEBROOT}/pub/static
    echo -n "pub/static ... "
    if ln -s ${EFS_BLUE}/pub/static ${WEBROOT}/pub/; then echo OK; else echo FAIL; fi
 #   cd ${WEBROOT} && php bin/magento maintenance:disable
@@ -94,7 +94,13 @@ else
    if [ -f ${EFS}/deployed.flag ]; then
       echo "YES"
       echo -n " * RSYNC EFS GREEN TO BLUE ... "
-      if time rsync -au --exclude={"/var/backups/*"} ${EFS_GREEN}/* ${EFS_BLUE}/; then echo OK; else echo FAIL; fi
+      if time rsync -au --exclude={"/var/backups/*","/var/log/*"} ${EFS_GREEN}/* ${EFS_BLUE}/; then echo OK; else echo FAIL; fi
+      echo " * CREATE DIRECTORY SYMLINKS TO BLUE:"
+      echo -n "var ... "
+      [ -L ${WEBROOT}/var ] && rm ${WEBROOT}/var || rm -rf ${WEBROOT}/var
+      if ln -s ${EFS_BLUE}/var ${WEBROOT}/; then echo OK; else echo FAIL; fi
+      echo -n "pub/static ... "
+      [ -L ${WEBROOT}/pub/static ] && rm ${WEBROOT}/pub/static || rm -rf ${WEBROOT}/pub/static
       echo "### SETUP UPGRADE :: KEEP-GENERATED ###"
       cp ${WEBROOT}/pub/errors/default/maintenance.phtml ${WEBROOT}/pub/errors/default/503.phtml
       cd ${WEBROOT} && php bin/magento maintenance:enable
@@ -109,7 +115,7 @@ else
       echo "NO"
       echo " * CREATE DIRECTORY SYMLINKS TO BLUE:"
       echo -n "var ... "
-      [ -L ${WEBROOT}/var ] && rm ${WEBROOT}/var
+      [ -L ${WEBROOT}/var ] && rm ${WEBROOT}/var || rm -rf ${WEBROOT}/var
       if ln -s ${EFS_BLUE}/var ${WEBROOT}/; then echo OK; else echo FAIL; fi
       echo -n "pub/static ... "
       [ -L ${WEBROOT}/pub/static ] && rm ${WEBROOT}/pub/static || rm -rf ${WEBROOT}/pub/static

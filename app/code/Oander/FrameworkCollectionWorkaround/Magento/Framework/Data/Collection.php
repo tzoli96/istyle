@@ -34,7 +34,7 @@ class Collection extends \Magento\Framework\Data\Collection
         $itemId = $subject->_getItemId($item);
         if ($itemId !== null) {
             if (isset($subject->_items[$itemId])) {
-                if (get_class($item) !== get_class($this->_items[$itemId])) {
+                if (get_class($item) !== get_class($subject->_items[$itemId])) {
                     throw new \Exception(
                         'Item (' . get_class($item) . ') with the same ID "' . $item->getId() . '" already exists.'
                     );
