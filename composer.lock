@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "91c2d304018aac4c96a9d34f2da3d92f",
-    "content-hash": "619c6453e0985b14d3fef9e0e0a649a0",
+    "hash": "fb1b0eab9d162d5b9226f391763148ee",
+    "content-hash": "1eddfe5b691117f57800d6321059349d",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -5729,16 +5729,16 @@
         },
         {
             "name": "oander/language-mk-mk",
-            "version": "1.0.11",
+            "version": "1.0.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-mk-mk.git",
-                "reference": "a38f2157db474ca25e80057892617841483f855d"
+                "reference": "18aa76bcd6aeb66c84f3f5bed8b686e420e9e1bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-mk-mk/zipball/a38f2157db474ca25e80057892617841483f855d",
-                "reference": "a38f2157db474ca25e80057892617841483f855d",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-mk-mk/zipball/18aa76bcd6aeb66c84f3f5bed8b686e420e9e1bc",
+                "reference": "18aa76bcd6aeb66c84f3f5bed8b686e420e9e1bc",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -5752,10 +5752,10 @@
             ],
             "description": "Macedonian language pack for the Magento",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-mk-mk/tree/1.0.11",
+                "source": "https://github.com/oandermedia/oander-language-mk-mk/tree/1.0.12",
                 "issues": "https://github.com/oandermedia/oander-language-mk-mk/issues"
             },
-            "time": "2018-02-01 10:46:35"
+            "time": "2018-02-02 14:10:07"
         },
         {
             "name": "oander/module-ajax-catalog",
@@ -7518,16 +7518,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.43",
+            "version": "1.0.44",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "4ae8db20b49ff296e0d53b2b6d1327128ce3cb5b"
+                "reference": "01f30df553f8cad7dd66f89a362707c6a2ccf108"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/4ae8db20b49ff296e0d53b2b6d1327128ce3cb5b",
-                "reference": "4ae8db20b49ff296e0d53b2b6d1327128ce3cb5b",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/01f30df553f8cad7dd66f89a362707c6a2ccf108",
+                "reference": "01f30df553f8cad7dd66f89a362707c6a2ccf108",
                 "shasum": ""
             },
             "require": {
@@ -7545,10 +7545,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.43",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.44",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2018-01-31 19:21:15"
+            "time": "2018-02-02 14:06:29"
         },
         {
             "name": "oyejorge/less.php",

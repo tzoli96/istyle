@@ -10,7 +10,7 @@
     "require": {
         "magento/product-community-edition": "2.1.5",
         "composer/composer": "@alpha",
-        "oander/language-mk-mk": "1.0.11",
+        "oander/language-mk-mk": "1.0.12",
         "oander/module-ajax-catalog": "1.0.5",
         "oander/module-api-base": "1.0.20",
         "oander/module-api-cache": "1.0.0",
@@ -58,7 +58,7 @@
         "oander/module-wonder-widget": "1.1.13",
         "oander/module-xtento-order-export-extender": "1.0.7",
         "oander/theme-hodor": "1.1.22",
-        "oander/theme-istyle": "1.0.43",
+        "oander/theme-istyle": "1.0.44",
         "algolia/algoliasearch-magento-2": "^1.0",
         "innobyte/module-nlb": "0.0.3",
         "innobyte/module-checkout-success": "0.0.3",
