@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "79150548a0dda85ca7e73ea2deb7f8ad",
-    "content-hash": "35ea1eef2dea1ee5b997a934451bbe69",
+    "hash": "91c2d304018aac4c96a9d34f2da3d92f",
+    "content-hash": "619c6453e0985b14d3fef9e0e0a649a0",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7332,16 +7332,16 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.2.8",
+            "version": "1.2.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "30ad80c174473ee6f12dd9deabfa2418c6cbc0d1"
+                "reference": "1b591b576917af6f8be4eaee3536e05fdc1c9c89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/30ad80c174473ee6f12dd9deabfa2418c6cbc0d1",
-                "reference": "30ad80c174473ee6f12dd9deabfa2418c6cbc0d1",
+                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/1b591b576917af6f8be4eaee3536e05fdc1c9c89",
+                "reference": "1b591b576917af6f8be4eaee3536e05fdc1c9c89",
                 "shasum": ""
             },
             "require": {
@@ -7364,10 +7364,10 @@
             ],
             "description": "Warehouse Manager",
             "support": {
-                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.2.8",
+                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.2.9",
                 "issues": "https://github.com/oandermedia/oander-warehouse-manager/issues"
             },
-            "time": "2018-01-09 16:37:50"
+            "time": "2018-02-01 18:08:29"
         },
         {
             "name": "oander/module-warehouse-stock-order",
