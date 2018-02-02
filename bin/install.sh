@@ -11,7 +11,7 @@ echo -n " * CREATE DIRECTORY SYMLINK TO MEDIA FOLDER ... "
 [ -L ${WEBROOT}/pub/media ] && rm ${WEBROOT}/pub/media &> /dev/null || rm -rf ${WEBROOT}/pub/media
 if ln -s ${EFS}/media ${WEBROOT}/pub/; then echo OK; else echo FAIL; fi
 if ln -s ${EFS}/upload ${WEBROOT}/; then echo OK; else echo FAIL; fi
-if ln -s ${WEBROOT}/pub ./mk; then echo OK; else echo FAIL; fi
+if ln -s ${WEBROOT}/pub ${WEBROOT}/pub/mk; then echo OK; else echo FAIL; fi
 
 if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
    echo "### MASTER WORKFLOW ###"
@@ -128,6 +128,9 @@ fi
 
 chown www-data:www-data -R /var/log/magento
 chown www-data:www-data -R /var/www/istyle.eu/
+
+cp ${WEBROOT}/nginx.magento.conf ${WEBROOT}/nginx.conf.sample
 /etc/init.d/php7.0-fpm restart
+/etc/init.d/nginx restart
 
 exit 0
