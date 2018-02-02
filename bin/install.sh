@@ -11,6 +11,7 @@ echo -n " * CREATE DIRECTORY SYMLINK TO MEDIA FOLDER ... "
 [ -L ${WEBROOT}/pub/media ] && rm ${WEBROOT}/pub/media &> /dev/null || rm -rf ${WEBROOT}/pub/media
 if ln -s ${EFS}/media ${WEBROOT}/pub/; then echo OK; else echo FAIL; fi
 if ln -s ${EFS}/upload ${WEBROOT}/; then echo OK; else echo FAIL; fi
+if ln -s ${WEBROOT}/pub ./mk; then echo OK; else echo FAIL; fi
 
 if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
    echo "### MASTER WORKFLOW ###"
@@ -101,6 +102,7 @@ else
       if ln -s ${EFS_BLUE}/var ${WEBROOT}/; then echo OK; else echo FAIL; fi
       echo -n "pub/static ... "
       [ -L ${WEBROOT}/pub/static ] && rm ${WEBROOT}/pub/static || rm -rf ${WEBROOT}/pub/static
+      if ln -s ${EFS_BLUE}/pub/static ${WEBROOT}/pub/; then echo OK; else echo FAIL; fi
       echo "### SETUP UPGRADE :: KEEP-GENERATED ###"
       cp ${WEBROOT}/pub/errors/default/maintenance.phtml ${WEBROOT}/pub/errors/default/503.phtml
       cd ${WEBROOT} && php bin/magento maintenance:enable
