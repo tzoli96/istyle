@@ -1,0 +1,552 @@
+@charset "utf-8";
+
+/* ///////////////////////////////////// CSS RESET */
+
+* {
+    font-family: "Rubik", "Myriad Set Pro", "Helvetica Neue", "Helvetica", "Arial", "Verdana", "sans-serif";
+    text-rendering: optimizeLegibility;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+/* ///////////////////////////////////// GRID SYSTEM */
+
+.coll-1 {
+    width: 8.33%;
+}
+
+.coll-2 {
+    width: 16.66%;
+}
+
+.coll-3 {
+    width: 25%;
+}
+
+.coll-4 {
+    width: 33.33%;
+}
+
+.coll-5 {
+    width: 41.66%;
+}
+
+.coll-6 {
+    width: 50%;
+}
+
+.coll-7 {
+    width: 58.33%;
+}
+
+.coll-8 {
+    width: 66.66%;
+}
+
+.coll-9 {
+    width: 75%;
+}
+
+.coll-10 {
+    width: 83.33%;
+}
+
+.coll-11 {
+    width: 91.66%;
+}
+
+.coll-12 {
+    width: 100%;
+}
+
+
+/* 2.3 txt aligns */
+
+.txtcentr {
+    text-align: center;
+}
+
+.txtleft {
+    text-align: left;
+}
+
+.txtright {
+    text-align: right;
+}
+
+.txtjust {
+    text-align: justify;
+}
+
+
+/* ///////////////////////////////////// POSITIONING */
+
+.centr {
+    margin: 0 auto;
+}
+
+[class*="flex-"] {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+}
+
+.flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.flex-baseline {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    -ms-grid-row-align: baseline;
+    align-items: baseline;
+    -ms-flex-line-pack: center;
+    align-content: center;
+}
+
+.flex-t-l {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -ms-grid-row-align: flex-start;
+    align-items: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+}
+
+.flex-t-c {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -ms-grid-row-align: flex-start;
+    align-items: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+}
+
+.flex-t-r {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    -ms-grid-row-align: flex-start;
+    align-items: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+}
+
+.flex-c-l {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -ms-grid-row-align: center;
+    align-items: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+}
+
+.flex-c-c {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -ms-grid-row-align: center;
+    align-items: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+}
+
+.flex-c-r {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -ms-grid-row-align: center;
+    align-items: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+}
+
+.flex-b-l {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    -ms-grid-row-align: flex-end;
+    align-items: flex-end;
+    -ms-flex-line-pack: end;
+    align-content: flex-end;
+}
+
+.flex-b-c {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    -ms-grid-row-align: flex-end;
+    align-items: flex-end;
+    -ms-flex-line-pack: end;
+    align-content: flex-end;
+}
+
+.flex-b-r {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    -ms-grid-row-align: flex-end;
+    align-items: flex-end;
+    -ms-flex-line-pack: end;
+    align-content: flex-end;
+}
+
+.flex-column {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.flex-wrap {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.flex-dist {
+    justify-content: space-between;
+}
+
+.flex-align-top {
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+}
+
+.flex-align-bottom {
+    -ms-flex-item-align: end;
+    align-self: flex-end;
+}
+
+/* ///////////////////////////////////// MAGENTO FIXES */
+
+.breadcrumbs {
+    display: none;
+}
+
+.full-width-landing {
+    overflow: hidden;
+}
+
+.catalog-product-view .fullwidth-product .col-main .product-collateral .box-collateral.box-description.full-width .std .full-width-landing {
+    overflow: hidden;
+    margin: -38px -20px -48px -20px !important;
+    width: 100%;
+}
+
+
+/* ///////////////////////////////////// 1. BASIC BLOCKS */
+
+.holdall {
+    height: 100vh;
+    background-color: #1d1d1d;
+}
+
+body {
+    background-color: #1d1d1d;
+}
+
+.full {
+    width: 100%;
+    min-height: inherit;
+}
+
+.wrap {
+    max-width: 999px;
+    min-height: inherit;
+    margin: 0 auto;
+}
+
+.boxx {
+    padding: 2.8em 2.8em 0em 2.8em;
+    background-color: rgb(255, 255, 255);
+    border-radius: 16px;
+}
+
+.boxx2 {
+    padding: 2.8em;
+}
+
+.tipup {
+    position: relative;
+    bottom: 100px;
+}
+
+/* ///////////////////////////////////// TYPOGRAPHY */
+
+.cat-tag {
+    font-weight: 100;
+    font-size: 9pt;
+    line-height: 1.25em;
+    /*    text-transform: uppercase;*/
+    margin-bottom: 0em;
+    color: #000000;
+}
+
+.superliner {
+    font-weight: 100;
+    font-size: 36pt;
+    line-height: 1.3em;
+    text-transform: none;
+    margin-bottom: 0em;
+    color: #000000;
+}
+
+
+.headliner {
+    font-weight: 100;
+    font-size: 24pt;
+    line-height: 1.2em;
+    text-transform: none;
+    margin-bottom: 0.2em;
+    color: #000000;
+}
+
+.subliner {
+    font-weight: 100;
+    font-size: 14pt;
+    line-height: 1.2em;
+    margin-bottom: 1.2em;
+    color: #555555;
+}
+
+.parag {
+    font-weight: 100;
+    font-size: 11pt;
+    line-height: 1.5em;
+    color: #838383;
+}
+
+.added {
+    font-weight: 100;
+    font-size: 9pt;
+    line-height: 1.5em;
+    color: #585858;
+    margin: .2em 0;
+}
+
+.added a {
+    text-decoration: none;
+    color: #a21818;
+}
+
+.legal {
+    border-top: 1px solid #9f9f9f;
+    border-bottom: 1px solid #9f9f9f;
+    /*    margin: 1em 0;*/
+}
+
+.countr-ico {
+    display: inline-block;
+    text-align: center;
+    border-radius: 3px;
+    padding: 0.5em;
+    font-size: 12px;
+    font-weight: 500;
+    color: white;
+    margin: 0 4px 0 0;
+    background-color: #bfbfbf;
+    width: 34px;
+}
+
+.holdmybeer{
+    padding: .75em;
+}
+
+/* ///////////////////////////////////// BUTTONS-LINKS */
+
+.ibutton span {
+    font-weight: 600;
+    font-size: 10pt;
+    line-height: 1.5em;
+}
+
+.ibutton {
+    cursor: pointer;
+    -webkit-transition: 120ms ease-in-out;
+    transition: 120ms ease-in-out;
+    min-width: 9em;
+    min-height: 33px;
+    margin: 2em 0 0 0;
+    padding: 0.4em 3em;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    background-color: rgb(0, 0, 0);
+    color: #ffffff;
+}
+
+.ibutton:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* ///////////////////////////////////// COLORS / COLORIZERS */
+
+.white {
+    background-color: #ffffff;
+}
+
+.txtwhite {
+    color: #ffffff;
+}
+
+/* ///////////////////////////////////// IMAGES */
+
+[class*="img-"] {
+    background-repeat: no-repeat;
+}
+
+.img-01 {
+    background-image: url(http://www.istyle.eu/media/wysiwyg/HU/landing-pages/maintenance/bogyo-v01.svg);
+    background-size: 480px;
+    background-position: 50% 50%;
+    height: 250px;
+}
+
+.img-02 {
+    background-image: url(http://www.istyle.eu/media/wysiwyg/HU/universal/istyle-white-red.svg);
+    background-size: 180px;
+    background-position: 50% 50%;
+    height: 150px;
+}
+
+/* /////////////////////////////////////  TABLET VIEW */
+
+@media only screen and (max-width: 997px) {
+    /* /////////////////////////////////////////////////////////////////////// MAGENTO FIXES */
+    .catalog-product-view .fullwidth-product .col-main .product-collateral .box-collateral.box-description.full-width .std .full-width-landing {
+        margin: -58px -20px -68px -20px !important;
+    }
+    /* /////////////////////////////////////////////////////////////////////// GRID SYSTEM */
+    .tcoll-1 {
+        width: 8.33%;
+    }
+    .tcoll-2 {
+        width: 16.66%;
+    }
+    .tcoll-3 {
+        width: 25%;
+    }
+    .tcoll-4 {
+        width: 33.33%;
+    }
+    .tcoll-5 {
+        width: 41.66%;
+    }
+    .tcoll-6 {
+        width: 50%;
+    }
+    .tcoll-7 {
+        width: 58.33%;
+    }
+    .tcoll-8 {
+        width: 66.66%;
+    }
+    .tcoll-9 {
+        width: 75%;
+    }
+    .tcoll-10 {
+        width: 83.33%;
+    }
+    .tcoll-11 {
+        width: 91.66%;
+    }
+    .tcoll-12 {
+        width: 100%;
+    }
+    [class*="flex-"] {
+        width: 100%;
+    }
+    /* /////////////////////////////////////////////////////////////////////// BLOCKS */
+    .wrap {
+        max-width: 663px;
+    }
+    .boxx {
+        padding: 2em;
+    }
+    /* ///////////////////////////////////////////////////////////////////////  TYPOGRAPHY */
+    .cat-tag {
+        font-size: 9pt;
+    }
+    .superliner {
+        font-size: 30pt;
+    }
+    .headliner {
+        font-size: 20pt;
+    }
+    .subliner {
+        font-size: 14pt;
+    }
+    .parag {
+        font-size: 11pt;
+    }
+    .added {
+        font-size: 9pt;
+    }
+}
+
+
+/* /////////////////////////////////////  MOBILE VIEW */
+
+@media only screen and (max-width: 600px) {
+    /* ///////////////////////////////////////////////////////////////////////  GRID */
+    [class*="coll-"] {
+        width: 100%;
+    }
+    /* ///////////////////////////////////////////////////////////////////////  BLOCKS */
+    [class*="boxx"] {
+        -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+        order: 2;
+        padding: 2.15em;
+    }
+    /* ///////////////////////////////////////////////////////////////////////  TYPOGRAPHY */
+    .boxx ul {
+        text-align: left;
+    }
+    /* ///////////////////////////////////////////////////////////////////////  IMAGES */
+    [class*="full"] {}
+    [class*="img-"] {
+        -webkit-box-ordinal-group: 1;
+        -ms-flex-order: 1;
+        order: 1;
+    }
+    .tipup {
+        position: relative;
+        bottom: 70px;
+    }
+}
