@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fb1b0eab9d162d5b9226f391763148ee",
-    "content-hash": "1eddfe5b691117f57800d6321059349d",
+    "hash": "def0776595766ad7acd62cc60ee530c0",
+    "content-hash": "ca419dd00e8775a8f7dc72e250dbf9d0",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7073,16 +7073,16 @@
         },
         {
             "name": "oander/module-preorder",
-            "version": "1.0.11",
+            "version": "1.0.13",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-preorder.git",
-                "reference": "ad96b13e91c010b83795b95b52edf1e3bf989d37"
+                "reference": "8fd5d95227d78969be70a96eb506f2522b6d4bc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-preorder/zipball/ad96b13e91c010b83795b95b52edf1e3bf989d37",
-                "reference": "ad96b13e91c010b83795b95b52edf1e3bf989d37",
+                "url": "https://api.github.com/repos/oandermedia/oander-preorder/zipball/8fd5d95227d78969be70a96eb506f2522b6d4bc2",
+                "reference": "8fd5d95227d78969be70a96eb506f2522b6d4bc2",
                 "shasum": ""
             },
             "require": {
@@ -7103,10 +7103,10 @@
             ],
             "description": "Oander Preorder",
             "support": {
-                "source": "https://github.com/oandermedia/oander-preorder/tree/1.0.11",
+                "source": "https://github.com/oandermedia/oander-preorder/tree/1.0.13",
                 "issues": "https://github.com/oandermedia/oander-preorder/issues"
             },
-            "time": "2018-01-23 16:18:35"
+            "time": "2018-02-12 14:04:02"
         },
         {
             "name": "oander/module-price-tooltip",
