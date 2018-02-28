@@ -119,6 +119,7 @@ class Step5Controller extends BaseController
             try {
                 //start migrate data by settings
                 if ($selectedProductTypes) {
+                    Yii::app()->cache->flush();
                     /**
                      * Table: catalog_product_entity
                      */
@@ -224,11 +225,12 @@ class Step5Controller extends BaseController
                                         $removableexistingproductLinks[] = $existingproductLink;
                                     }
                                 }
-                                foreach($removableexistingproductLinks as $removabelexistingporudctLink)
+                                foreach($removableexistingproductLinks as $removeabelexistingporudctLink)
                                 {
-                                    $this->_removeCatalogProductLink($removabelexistingporudctLink);
+                                    $this->_removeCatalogProductLink($removeabelexistingporudctLink);
                                 }
                             }
+                            Yii::app()->cache->flush();
                             //split
                             $productLinkssplits = array_chunk($productLinks,100);
                             foreach($productLinkssplits as $productLinkssplit)
@@ -281,6 +283,7 @@ class Step5Controller extends BaseController
                                         $removabelexistingporudctLink->delete();
                                     }
                                 }
+                                Yii::app()->cache->flush();
                                 //split
                                 $productSuperLinkssplits = array_chunk($productSuperLinks,100);
                                 foreach($productSuperLinkssplits as $productSuperLinkssplit)
@@ -329,6 +332,7 @@ class Step5Controller extends BaseController
                                         $this->_removeCatalogProductSuperAttributes($removabelexistingporudctLink, $mappingStores);
                                     }
                                 }
+                                Yii::app()->cache->flush();
                                 //split
                                 $productSuperAttributessplits = array_chunk($productSuperAttributes,100);
                                 foreach($productSuperAttributessplits as $productSuperAttributessplit)
@@ -376,6 +380,7 @@ class Step5Controller extends BaseController
                                         $removabelexistingporudctLink->delete();
                                     }
                                 }
+                                Yii::app()->cache->flush();
                                 //split
                                 $productRelationssplits = array_chunk($productRelations,100);
                                 foreach($productRelationssplits as $productRelationssplit)
@@ -428,6 +433,7 @@ class Step5Controller extends BaseController
                                         $this->_removeCatalogProductBundleOptions($removabelexistingporudctLink, $mappingWebsites, $mappingStores);
                                     }
                                 }
+                                Yii::app()->cache->flush();
                                 //split
                                 $productBundleOptionssplits = array_chunk($productBundleOptions,100);
                                 foreach($productBundleOptionssplits as $productBundleOptionssplit)

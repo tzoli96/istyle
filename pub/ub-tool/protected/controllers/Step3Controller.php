@@ -197,6 +197,7 @@ class Step3Controller extends BaseController
                      * Table: eav_attribute
                      * we only attributes when all attribute sets and attribute groups was migrated
                      */
+                    Yii::app()->cache->flush();
                     if ($offset1 >= $max1 AND $offset2 >= $max2) {
                         //condition to get data
                         $strSelectedAttrIds = implode(',', $selectedAttrIds);
@@ -762,9 +763,10 @@ class Step3Controller extends BaseController
             $canReset = UBMigrate::RESET_YES;
             if(!is_null($m2Id))
             {
-                $attribute2 = Mage2Attribute::model()->find("attribute_id = {$m2Id}");;
+                $attribute2 = Mage2Attribute::model()->find("attribute_id = {$m2Id}");
                 if(is_null($attribute2))
                 {
+                    $attribute2 = Mage2Attribute::model()->find("attribute_code = {$m2Id}");
                     $query = "DELETE FROM ub_migrate_map_step_3_attribute WHERE m1_id = {$attribute->attribute_id} AND m2_id = {$m2Id} AND entity_name = 'eav_attribute'";
                     Yii::app()->db->createCommand($query)->query();
                     $m2Id = null;

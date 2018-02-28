@@ -110,6 +110,18 @@ class Step4Controller extends BaseController
                 //start migrate data by settings
                 if ($selectedCategoryIds) {
                     //REMOVE NOT NEEDED CATEGORIES
+                    Yii::app()->cache->flush();
+                    $mappings = UBMigrate::getMappingData('catalog_category_entity', $this->stepIndex);
+                    foreach($mappings as $m1_id => $m2_id)
+                    {
+                        if(Mage2CatalogCategoryEntity::model()->count("entity_id = {$m2_id}")>0) {}
+                        else
+                        {
+                            $query = "DELETE FROM ub_migrate_map_step_4 WHERE m2_id = {$m2_id} AND entity_name = 'catalog_category_entity'";
+                            Yii::app()->db->createCommand($query)->query();
+                        }
+                    }
+                    Yii::app()->cache->flush();
                     $condition = 'entity_id > 1';
                     foreach($this->removeablerootcategorym1values() as $removeablerootcategorym1value)
                     {
@@ -133,6 +145,7 @@ class Step4Controller extends BaseController
                         }
                         $this->_removeCatalogCategories($category);
                     }
+                    Yii::app()->cache->flush();
                     //END REMOVE NOT NEEDED CATEGORIES
 
                     //build condition to get data
@@ -142,6 +155,7 @@ class Step4Controller extends BaseController
                         $condition .= " AND path NOT LIKE '1/{$removeablerootcategorym1value}/%'";
                         $condition .= " AND path <> '1/{$removeablerootcategorym1value}'";
                     }
+                    //$condition .= " AND (path like '1/11%' OR path = '1/11')";
                     //get max total
                     $max = Mage1CatalogCategoryEntity::model()->count($condition);
                     $offset = UBMigrate::getCurrentOffset(4, Mage1CatalogCategoryEntity::model()->tableName());
@@ -154,7 +168,7 @@ class Step4Controller extends BaseController
                     //get data by limit and offset
                     $categories = UBMigrate::getListObjects('Mage1CatalogCategoryEntity', $condition, $offset, $this->limit, "level ASC, entity_id ASC");
                     if ($categories) {
-                        $categoriessplits = array_chunk($categories,100);
+                        $categoriessplits = array_chunk($categories,1);
                         foreach($categoriessplits as $categoriessplit)
                         {
                             $this->_migrateCatalogCategories($categoriessplit, $mappingStores);
@@ -162,6 +176,7 @@ class Step4Controller extends BaseController
                             $offset = UBMigrate::getCurrentOffset(4, Mage1CatalogCategoryEntity::model()->tableName());
                         }
                     }
+                    Yii::app()->cache->flush();
                 }
                 //make result to respond
                 if ($this->errors) {
