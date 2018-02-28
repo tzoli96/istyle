@@ -186,7 +186,7 @@ class Product extends MagentoProduct
 
             return $res['file'];
         } catch (\Exception $e) {
-            file_put_contents('var\log\import_missing_images.log',$remoteFileName. PHP_EOL,FILE_APPEND);
+            file_put_contents('import_missing_images.log',$remoteFileName. PHP_EOL,FILE_APPEND);
             return $fileName;
         }
     }

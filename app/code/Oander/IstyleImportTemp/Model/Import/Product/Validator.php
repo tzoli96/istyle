@@ -60,12 +60,12 @@ class Validator extends MagentoValidator
                 break;
             case 'select':
             case 'boolean':
-                $valid = $this->validateOption($attrCode, $attrParams['options'], $rowData[$attrCode]);
+                $valid = $this->validateOption($attrCode, $attrParams['options'], $rowData[$attrCode], $subject);
                 break;
             case 'multiselect':
                 $values = $subject->context->parseMultiselectValues($rowData[$attrCode]);
                 foreach ($values as $value) {
-                    $valid = $this->validateOption($attrCode, $attrParams['options'], $value);
+                    $valid = $this->validateOption($attrCode, $attrParams['options'], $value, $subject);
                     if (!$valid) {
                         break;
                     }
@@ -105,10 +105,10 @@ class Validator extends MagentoValidator
      *
      * @param string $attrCode
      * @param array $possibleOptions
-     * @param string $value
+     * @param string $valuevalidateOption
      * @return bool
      */
-    private function validateOption($attrCode, $possibleOptions, $value)
+    private function validateOption($attrCode, $possibleOptions, $value, $subject)
     {
         if ($value[0] === '"' && substr($value, -1) === '"') {
             $value = str_split($value);
@@ -125,10 +125,10 @@ class Validator extends MagentoValidator
         }
 
         if (!isset($possibleOptions[strtolower($value)])) {
-            $this->_addMessages(
+            $subject->_addMessages(
                 [
                     sprintf(
-                        $this->context->retrieveMessageTemplate(
+                        $subject->context->retrieveMessageTemplate(
                             RowValidatorInterface::ERROR_INVALID_ATTRIBUTE_OPTION
                         ),
                         $attrCode
