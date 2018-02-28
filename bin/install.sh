@@ -1,8 +1,18 @@
 #!/bin/bash
 set -u
 
-### DEPLOYMENT ENVIRONMENT ###
-DEPLOY_ENV="PRODUCTION"
+# ENVIRONMENT VARIABLE
+SG_GROUPS=$(curl -s http://169.254.169.254/latest/meta-data/security-groups)
+if [[ ${SG_GROUPS} =~ "prod" ]];then
+  DEPLOY_ENV="PRODUCTION"
+elif [[ ${SG_GROUPS} =~ "stg" ]];then
+  DEPLOY_ENV="STAGING"
+elif [[ ${SG_GROUPS} =~ "dev" ]];then
+  DEPLOY_ENV="DEVELOPMENT"
+else
+  echo "DEPLOY_ENV VARIABLE NOT SET.. exiting.."
+  exit 1
+fi
 
 # SYSTEM VARIABLES
 WEBROOT="/var/www/istyle.eu/webroot"
@@ -11,7 +21,7 @@ EFS_BLUE="${EFS}/blue"
 EFS_GREEN="${EFS}/green"
 INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
 
-# DEPLOYMENT VARIABLES #
+# DEPLOYMENT VARIABLES
 LANGUAGES=('MK')
 
 # DON'T CHANGE THESE UNLESS YOU KNOW WHAT YOU ARE DOING !!!
@@ -31,7 +41,6 @@ fi
 magento() {
   local MAGENTO_COMMAND="${1}"
   php ${WEBROOT}/bin/magento ${MAGENTO_COMMAND}
-#  su - www-data -c "php ${WEBROOT}/bin/magento ${MAGENTO_COMMAND}"
 }
 
 dbdump() {
@@ -77,15 +86,11 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   echo " * CREATE DIRECTORY SYMLINKS TO GREEN:"
   symlink_check "var" "${WEBROOT}/var" "${EFS_GREEN}/var" "${WEBROOT}/"
   symlink_check "pub/static" "${WEBROOT}/pub/static" "${EFS_GREEN}/pub/static" "${WEBROOT}/pub/"
-  # MEG KELL NEZNI ERRE SZUKSEG VAN-E
-  #symlink_check "var/log" "${WEBROOT}/var/log" "/var/log/magento/log" "${WEBROOT}/var/"
 
   echo
   echo "==== COMPOSER INSTALL ===="
   echo
-  # MEG KELL NEZNI HOGY WWW-DATA USER NEVEBEN EZ MEGY-E...
   cd ${WEBROOT} && composer install
-#  su - www-data -c "cd ${WEBROOT} && composer install"
 
   echo
   echo -n "=== CHECK IF DB UPGRADE NEEDED => "
@@ -121,7 +126,7 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   magento "setup:static-content:deploy hr_HR --theme=Oander/istyle"
   magento "setup:static-content:deploy lv_LV --theme=Oander/istyle"
   magento "setup:static-content:deploy ro_RO --theme=Oander/istyle"
-  magento "setup:static-content:deploy sr_RS --theme=Oander/istyle"
+  magento "setup:static-content:deploy sr_Latn_RS --theme=Oander/istyle"
   magento "setup:static-content:deploy sl_SI --theme=Oander/istyle"
   magento "setup:static-content:deploy cs_CZ --theme=Oander/istyle"
   magento "setup:static-content:deploy sk_SK --theme=Oander/istyle"
@@ -152,9 +157,7 @@ else
   echo
   echo "==== COMPOSER INSTALL ===="
   echo
-  # MEG KELL NEZNI HOGY WWW-DATA USER NEVEBEN EZ MEGY-E...
   cd ${WEBROOT} && composer install
-#  su - www-data -c "cd ${WEBROOT} && composer install"
 
   echo
   echo -n "=== CHECK IF DEPLOYED FLAG EXISTS => "
@@ -171,7 +174,6 @@ else
     echo
     echo "==== MAGENTO UPGRADE :: KEEP-GENERATED ===="
     echo
-    cp ${WEBROOT}/pub/errors/default/maintenance.phtml ${WEBROOT}/pub/errors/default/503.phtml
     if magento "maintenance:enable" && sleep 10; then
       magento "setup:upgrade --keep-generated"
       magento "maintenance:disable" && sleep 15
@@ -202,13 +204,17 @@ if [ "${DEPLOY_ENV}" == "PRODUCTION" ]; then
   done
 fi
 
-chown www-data:www-data -R /var/log/magento
-chown www-data:www-data -R /var/www/istyle.eu/
+# CUSTOM MAINTENANCE PAGE
+cp ${WEBROOT}/pub/errors/default/maintenance.phtml ${WEBROOT}/pub/errors/default/503.phtml
 
 # EZ MAJD NEM FOG KELLENI HA MAR NEM LESZ SIGMANET PROXY..
 if [ "${DEPLOY_ENV}" == "PRODUCTION" ]; then
   cp ${WEBROOT}/nginx.magento.conf ${WEBROOT}/nginx.conf.sample
 fi
+
+# OWNERSHIP FIXES
+chown www-data:www-data -R /var/log/magento
+chown www-data:www-data -R /var/www/istyle.eu/
 
 /etc/init.d/php7.0-fpm restart
 /etc/init.d/nginx restart
@@ -220,3 +226,4 @@ echo "================================================="
 echo
 
 exit 0
+
