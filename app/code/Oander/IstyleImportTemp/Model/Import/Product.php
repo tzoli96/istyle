@@ -181,12 +181,13 @@ class Product extends MagentoProduct
     protected function uploadMediaFiles($fileName, $renameFileOff = false)
     {
         try {
-            $fileName = 'http://istyle.lv/pub/media/catalog/product/'.$fileName;
-            $res = $this->_getUploader()->move($fileName, $renameFileOff);
+            $remoteFileName = 'http://istyle.lv/pub/media/catalog/product/'.$fileName;
+            $res = $this->_getUploader()->move($remoteFileName, $renameFileOff);
 
             return $res['file'];
         } catch (\Exception $e) {
-            return '';
+            file_put_contents('var\log\import_missing_images.log',$remoteFileName. PHP_EOL,FILE_APPEND);
+            return $fileName;
         }
     }
 
