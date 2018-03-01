@@ -766,7 +766,6 @@ class Step3Controller extends BaseController
                 $attribute2 = Mage2Attribute::model()->find("attribute_id = {$m2Id}");
                 if(is_null($attribute2))
                 {
-                    $attribute2 = Mage2Attribute::model()->find("attribute_code = {$m2Id}");
                     $query = "DELETE FROM ub_migrate_map_step_3_attribute WHERE m1_id = {$attribute->attribute_id} AND m2_id = {$m2Id} AND entity_name = 'eav_attribute'";
                     Yii::app()->db->createCommand($query)->query();
                     $m2Id = null;
