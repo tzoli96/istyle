@@ -208,24 +208,40 @@ class BaseController extends Controller
         $this->isCLI = true;
     }
 
-    protected function removenotmergeblewebsite(&$websites)
+    protected function getmigrablewebsitevalues()
     {
-        //Remove MK
-        unset($websites[9]);
+        $mappingWebsites = UBMigrate::getMappingData('core_website', 2);
+        //remove MK
+        if(isset($mappingWebsites[9]))
+        {
+            unset($mappingWebsites[9]);
+        }
+        return $mappingWebsites;
     }
-    protected function removenotmergeblestoregroupes(&$storegroupes)
+
+    protected function getmigrablestorevalues()
     {
         //Remove MK
-        unset($storegroupes[14]);
+        $mappingStores = UBMigrate::getMappingData('core_store', 2);
+        //remove MK
+        if(isset($mappingStores[14]))
+        {
+            unset($mappingStores[14]);
+        }
+        return $mappingStores;
     }
-    protected function removenotmergeblestores(&$stores)
+
+    protected function getmigrablerootcategoryvalues()
     {
-        //Remove MK
-        unset($stores[14]);
-    }
-    protected function removeablerootcategorym1values()
-    {
-        //Remove MK
-        return array(452);
+        $rootcategories = array();
+        foreach($this->getmigrablestorevalues() as $m1_id => $m2_id)
+        {
+            $m2groupe = Mage2StoreGroup::model()->find("default_store_id = {$m2_id}");
+            if(!is_null($m2groupe))
+            {
+                $rootcategories[] = $m2groupe->root_category_id;
+            }
+        }
+        return $rootcategories;
     }
 }

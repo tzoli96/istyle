@@ -122,12 +122,20 @@ class Step4Controller extends BaseController
                         }
                     }
                     Yii::app()->cache->flush();
+                    //build condition to get data
                     $condition = 'entity_id > 1';
-                    foreach($this->removeablerootcategorym1values() as $removeablerootcategorym1value)
+                    $rootcategories = $this->getmigrablerootcategoryvalues();
+                    if(count($rootcategories))
                     {
-                        $m2categoryid = UBMigrate::getM2EntityId(4, 'catalog_category_entity', $removeablerootcategorym1value);
-                        $condition .= " AND path NOT LIKE '1/{$m2categoryid}/%'";
-                        $condition .= " AND path <> '1/{$m2categoryid}'";
+                        $condition .= " AND (";
+                        $conditions = array();
+                        foreach($rootcategories as $rootcategory)
+                        {
+                            $conditions[] = "path LIKE '1/{$rootcategory}%'";
+                            $conditions[] = "path = '1/{$rootcategory}'";
+                        }
+                        $condition .= implode(' OR ', $conditions);
+                        $condition .= ')';
                     }
                     $categories = UBMigrate::getListObjects('Mage2CatalogCategoryEntity', $condition, -1, -1, "level ASC, entity_id ASC");
                     /** @var Mage2CatalogCategoryEntity $category */
@@ -148,13 +156,6 @@ class Step4Controller extends BaseController
                     Yii::app()->cache->flush();
                     //END REMOVE NOT NEEDED CATEGORIES
 
-                    //build condition to get data
-                    $condition = 'entity_id > 1';
-                    foreach($this->removeablerootcategorym1values() as $removeablerootcategorym1value)
-                    {
-                        $condition .= " AND path NOT LIKE '1/{$removeablerootcategorym1value}/%'";
-                        $condition .= " AND path <> '1/{$removeablerootcategorym1value}'";
-                    }
                     //$condition .= " AND (path like '1/11%' OR path = '1/11')";
                     //get max total
                     $max = Mage1CatalogCategoryEntity::model()->count($condition);

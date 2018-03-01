@@ -99,11 +99,11 @@ class Step5Controller extends BaseController
         if ($check['allowed']) {
 
             //get mapping websites
-            $mappingWebsites = UBMigrate::getMappingData('core_website', 2);
-            $this->removenotmergeblewebsite($mappingWebsites);
+            //$mappingWebsites = UBMigrate::getMappingData('core_website', 2);
+            $mappingWebsites = $this->getmigrablewebsitevalues();
             //get mapping stores
-            $mappingStores = UBMigrate::getMappingData('core_store', 2);
-            $this->removenotmergeblestores($mappingStores);
+            //$mappingStores = UBMigrate::getMappingData('core_store', 2);
+            $mappingStores = $this->getmigrablestorevalues();
             //get mapping attributes
             $mappingAttributes = UBMigrate::getMappingData('eav_attribute', '3_attribute');
 
@@ -1754,7 +1754,7 @@ class Step5Controller extends BaseController
                 $category = explode('/',$category->path);
                 if(isset($category[0]))
                 {
-                    if(in_array($category[0],$this->removeablerootcategorym1values()))
+                    if(!in_array($category[0],$this->getmigrablerootcategoryvalues()))
                     {
                         continue;
                     }
