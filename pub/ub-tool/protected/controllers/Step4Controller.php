@@ -102,7 +102,8 @@ class Step4Controller extends BaseController
             }
 
             //get migrated store ids
-            $mappingStores = UBMigrate::getMappingData('core_store', 2);
+            //$mappingStores = UBMigrate::getMappingData('core_store', 2);
+            $mappingStores = $this->getmigrablestorevalues();
             //get setting data
             $settingData = $step->getSettingData();
             $selectedCategoryIds = (isset($settingData['category_ids'])) ? $settingData['category_ids'] : [];
@@ -124,12 +125,12 @@ class Step4Controller extends BaseController
                     Yii::app()->cache->flush();
                     //build condition to get data
                     $condition = 'entity_id > 1';
-                    $rootcategories = $this->getmigrablerootcategoryvalues();
-                    if(count($rootcategories))
+                    $m2rootcategories = $this->getmigrablem2rootcategoryvalues();
+                    if(count($m2rootcategories))
                     {
                         $condition .= " AND (";
                         $conditions = array();
-                        foreach($rootcategories as $rootcategory)
+                        foreach($m2rootcategories as $rootcategory)
                         {
                             $conditions[] = "path LIKE '1/{$rootcategory}%'";
                             $conditions[] = "path = '1/{$rootcategory}'";
@@ -158,6 +159,20 @@ class Step4Controller extends BaseController
 
                     //$condition .= " AND (path like '1/11%' OR path = '1/11')";
                     //get max total
+                    $condition = 'entity_id > 1';
+                    $m1rootcategories = $this->getmigrablem1rootcategoryvalues();
+                    if(count($m1rootcategories))
+                    {
+                        $condition .= " AND (";
+                        $conditions = array();
+                        foreach($m1rootcategories as $rootcategory)
+                        {
+                            $conditions[] = "path LIKE '1/{$rootcategory}%'";
+                            $conditions[] = "path = '1/{$rootcategory}'";
+                        }
+                        $condition .= implode(' OR ', $conditions);
+                        $condition .= ')';
+                    }
                     $max = Mage1CatalogCategoryEntity::model()->count($condition);
                     $offset = UBMigrate::getCurrentOffset(4, Mage1CatalogCategoryEntity::model()->tableName());
                     if ($offset == 0) {

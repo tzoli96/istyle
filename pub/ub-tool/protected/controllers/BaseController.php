@@ -231,7 +231,21 @@ class BaseController extends Controller
         return $mappingStores;
     }
 
-    protected function getmigrablerootcategoryvalues()
+    protected function getmigrablem1rootcategoryvalues()
+    {
+        $rootcategories = array();
+        foreach($this->getmigrablestorevalues() as $m1_id => $m2_id)
+        {
+            $m1groupe = Mage1StoreGroup::model()->find("default_store_id = {$m1_id}");
+            if(!is_null($m1groupe))
+            {
+                $rootcategories[] = $m1groupe->root_category_id;
+            }
+        }
+        return $rootcategories;
+    }
+
+    protected function getmigrablem2rootcategoryvalues()
     {
         $rootcategories = array();
         foreach($this->getmigrablestorevalues() as $m1_id => $m2_id)
