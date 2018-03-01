@@ -102,6 +102,214 @@ class Step6Controller extends BaseController
             }
 
             //get mapping websites
+            //$mappingWebsites = UBMigrate::getMappingData('core_website', 2);
+            $mappingWebsites = $this->getmigrablewebsitevalues();
+            //get migrated website ids
+            $strMigratedWebsiteIds = implode(',', array_keys($mappingWebsites));
+
+            //get mapping stores
+            //$mappingStores = UBMigrate::getMappingData('core_store', 2);
+            $mappingStores = $this->getmigrablestorevalues();
+            //get migrated store ids
+            $strMigratedStoreIds = implode(',', array_keys($mappingStores));
+
+            //get mapping customer groups
+            $mappingCustomerGroups = UBMigrate::getMappingData('customer_group', 6);
+            //get migrated customer group ids
+            $strMigratedCustomerGroupIds = implode(',', array_keys($mappingCustomerGroups));
+
+            //get setting data
+            $settingData = $step->getSettingData();
+            $selectedCustomerGroupIds = (isset($settingData['customer_group_ids'])) ? $settingData['customer_group_ids'] : [];
+
+            //check has keep original ids
+            $keepOriginalId = (isset($settingData['keep_original_id'])) ? $settingData['keep_original_id'] : 0;
+
+            //some variables for paging
+            $max1 = $offset1 = $max2 = $offset2 = 0;
+            try {
+                //start migrate data by settings
+                if ($selectedCustomerGroupIds) {
+                    /**
+                     * Table: customer_group
+                     */
+                    //make condition to get data
+                    $strSelectedCustomerGroupIds = implode(',', $selectedCustomerGroupIds);
+                    $condition = "customer_group_id IN ({$strSelectedCustomerGroupIds})";
+                    //get max total
+                    $max1 = Mage1CustomerGroup::model()->count($condition);
+                    $offset1 = UBMigrate::getCurrentOffset(6, Mage1CustomerGroup::model()->tableName());
+                    if ($offset1 == 0) {
+                        //log for first entry
+                        Yii::log("Start running step #{$this->stepIndex}",'info', 'ub_data_migration');
+                        //update status of this step to migrating
+                        $step->updateStatus(UBMigrate::STATUS_MIGRATING);
+                    }
+                    //get data by limit and offset
+                    $customerGroups = UBMigrate::getListObjects('Mage1CustomerGroup', $condition, $offset1, $this->limit, "customer_group_id ASC");
+                    if ($customerGroups) {
+                        $this->_migrateCustomerGroups($customerGroups, $mappingCustomerGroups);
+                        UBMigrate::updateCurrentOffset(Mage1CustomerGroup::model()->tableName(),$offset1 + count($customerGroups), $this->stepIndex);
+                        $offset1 = UBMigrate::getCurrentOffset($this->stepIndex, Mage1CustomerGroup::model()->tableName());
+                    }
+                    // if has migrated all customer groups selected
+                    if ($offset1 >= $max1) {
+                        //start migrate other data related with a customer group
+                        if ($strMigratedCustomerGroupIds) {
+                            /**
+                             * Table: customer_entity
+                             */
+                            $condition = "group_id IN ({$strMigratedCustomerGroupIds})";
+                            $condition .= " AND (website_id IN ({$strMigratedWebsiteIds}) OR website_id IS NULL)";
+                            $condition .= " AND store_id IN ({$strMigratedStoreIds})";
+
+                            //get max total
+                            $max2 = Mage1CustomerEntity::model()->count($condition);
+                            $offset2 = UBMigrate::getCurrentOffset(6, Mage1CustomerEntity::model()->tableName());
+                            //get data by limit and offset
+                            $customers = UBMigrate::getListObjects('Mage1CustomerEntity', $condition, $offset2, $this->limit, "entity_id ASC");
+                            if ($customers) {
+                                $customerssplits = array_chunk($customers,1);
+                                foreach($customerssplits as $customerssplit) {
+                                    $this->_migrateCustomers2($customerssplit, $mappingWebsites, $mappingStores, $mappingCustomerGroups, false);
+                                    UBMigrate::updateCurrentOffset(Mage1CustomerEntity::model()->tableName(),$offset2 + count($customerssplit), $this->stepIndex);
+                                    $offset2 = UBMigrate::getCurrentOffset($this->stepIndex, Mage1CustomerEntity::model()->tableName());
+                                }
+                            }
+                        }
+                    }
+
+                    /**
+                     * Some tables in customer data structure is system tables
+                     * Because we don't migrate customized customer attributes so we don't care these tables in here.
+                     * //customer_eav_attribute this table was migrated in step #3
+                     * //customer_eav_attribute_website
+                     * //customer_form_attribute
+                     * coming soon
+                     */
+                }
+                //make result to respond
+                if ($this->errors) {
+                    //update step status
+                    $step->updateStatus(UBMigrate::STATUS_ERROR);
+                    $rs['step_status_text'] = $step->getStepStatusText();
+
+                    $strErrors = implode('<br/>', $this->errors);
+                    $rs['errors'] = $strErrors;
+                    Yii::log($rs['errors'], 'error', 'ub_data_migration');
+                } else {
+                    //if all selected data migrated
+                    if ($offset1 >= $max1 AND $offset2 >= $max2) {
+                        //update status of this step to finished
+                        if ($step->updateStatus(UBMigrate::STATUS_FINISHED)) {
+                            //update migrated customer group ids
+                            UBMigrate::updateSetting(6, 'migrated_customer_group_ids', $selectedCustomerGroupIds);
+
+                            //update current offset to max
+                            UBMigrate::updateCurrentOffset(Mage1CustomerGroup::model()->tableName(), $max1, $this->stepIndex);
+                            UBMigrate::updateCurrentOffset(Mage1CustomerEntity::model()->tableName(), $max2, $this->stepIndex);
+
+                            //update result to respond
+                            $rs['status'] = 'done';
+                            $rs['percent_done'] = UBMigrate::getPercentByStatus(UBMigrate::STATUS_FINISHED, [1]);
+                            $rs['step_status_text'] = $step->getStepStatusText();
+                            $rs['message'] = Yii::t('frontend', 'Step #%s migration completed successfully', array('%s' => $this->stepIndex));
+                            Yii::log($rs['message']."\n", 'info', 'ub_data_migration');
+                        }
+                    } else {
+                        //update current offset for next run
+                        if ($max1) {
+                            UBMigrate::updateCurrentOffset(Mage1CustomerGroup::model()->tableName(), ($offset1 + $this->limit), $this->stepIndex);
+                        }
+                        if ($max2) {
+                            UBMigrate::updateCurrentOffset(Mage1CustomerEntity::model()->tableName(), ($offset2 + $this->limit), $this->stepIndex);
+                        }
+
+                        //start calculate percent run ok
+                        $totalSteps = UBMigrate::getTotalStepCanRunMigrate();
+                        $percentOfOnceStep = (1 / $totalSteps) * 100;
+                        $max = ($max2) ? $max2 : $max1;
+                        $n = ceil($max / $this->limit);
+                        $percentUp = ($percentOfOnceStep / 2) / $n;
+                        //end calculate percent run ok
+
+                        //update result to respond
+                        $rs['status'] = 'ok';
+                        $rs['percent_up'] = $percentUp;
+                        //build message
+                        $msg = ($offset1 == 0) ? '[Processing] Step #%s migration completed with' : '[Processing] Step #%s migration completed with';
+                        $data['%s'] = $this->stepIndex;
+                        if (isset($customerGroups) AND $customerGroups) {
+                            $msg .= ' %s1 Customer Groups;';
+                            $data['%s1'] = sizeof($customerGroups);
+                        }
+                        if (isset($customers) AND $customers) {
+                            $msg .= ' %s2 Customers';
+                            $data['%s2'] = sizeof($customers);
+                        }
+                        $rs['message'] = Yii::t('frontend', $msg, $data);
+                        Yii::log($rs['message'], 'info', 'ub_data_migration');
+                    }
+                }
+            } catch (Exception $e) {
+                //update step status
+                $step->updateStatus(UBMigrate::STATUS_ERROR);
+                $rs['step_status_text'] = $step->getStepStatusText();
+
+                $rs['errors'] = $e->getMessage();
+                Yii::log($rs['errors'], 'error', 'ub_data_migration');
+            }
+
+        } else {
+            if ($step->status == UBMigrate::STATUS_PENDING) {
+                $rs['notice'] = Yii::t('frontend', "Step #%s has no settings yet. Navigate back to the UI dashboard to check the setting for step #%s again", array('%s' => $this->stepIndex));
+            } elseif ($step->status == UBMigrate::STATUS_SKIPPING) {
+                $rs['status'] = 'done';
+                $rs['notice'] = Yii::t('frontend', "You marked step #%s as skipped.", array('%s' => $this->stepIndex));
+            } else {
+                if (isset($check['required_finished_step_index'])) {
+                    $rs['notice'] = Yii::t('frontend', "Reminder! Before migrating data in the step #%s1, you have to complete migration in the step #%s2", array('%s1' => $step->sorder, '%s2' => $check['required_finished_step_index']));
+                }
+            }
+        }
+
+        //respond result
+        if ($this->isCLI) {
+            return $rs;
+        } else {
+            echo json_encode($rs);
+            Yii::app()->end();
+        }
+    }
+
+    /**
+     * @todo: Run Migrate data
+     */
+    public function actionRunorig()
+    {
+        //get current step object
+        $step = UBMigrate::model()->find("id = {$this->stepIndex}");
+        $rs = [
+            'step_status_text' => $step->getStepStatusText(),
+            'step_index' => $this->stepIndex,
+            'status' => 'fail',
+            'message' => '',
+            'errors' => '',
+            'offset' => 0
+        ];
+
+        //check can run migrate data
+        $check = $step->canRun();
+        if ($check['allowed']) {
+
+            //check run mode
+            if ($this->runMode == 'rerun') {
+                //reset current offset
+                UBMigrate::updateCurrentOffset(Mage1CustomerGroup::model()->tableName(), 0, $this->stepIndex);
+                UBMigrate::updateCurrentOffset(Mage1CustomerEntity::model()->tableName(), 0, $this->stepIndex);
+            }
+
+            //get mapping websites
             $mappingWebsites = UBMigrate::getMappingData('core_website', 2);
             //get migrated website ids
             $strMigratedWebsiteIds = implode(',', array_keys($mappingWebsites));
@@ -170,23 +378,6 @@ class Step6Controller extends BaseController
                             if ($customers) {
                                 $this->_migrateCustomers($customers, $mappingWebsites, $mappingStores, $mappingCustomerGroups, $keepOriginalId);
                             }
-
-                            $index = UBMigrate::getCurrentOffset(6, 'Mage2CustomerEntityresync');
-                            $temp = $index;
-                            //Migrate addresses
-                            while(($temp<$index + $this->limit)) {
-                                $currentlimit = ($index + $this->limit - $temp);
-                                $customersforaddress = UBMigrate::getListObjects('Mage1CustomerEntity', $condition, $temp, $currentlimit>100?100:$currentlimit, "entity_id ASC");
-                                $this->_migrateAddressesCustomers($customersforaddress, $mappingWebsites, $mappingStores, $mappingCustomerGroups, $keepOriginalId);
-                                $temp = $temp + count($customersforaddress);
-                                $className = "MappingStep6";
-                                $map = $className::model()->find("entity_name = 'Mage2CustomerEntityresync'");
-                                $map->offset = $temp;
-                                $map->m1_id = count($customersforaddress);
-                                $map->save();
-                            }
-                            /*$customersforaddress = UBMigrate::getListObjects('Mage1CustomerEntity', $condition, 0, 1, "entity_id ASC");
-                            $this->_migrateAddressesCustomers($customersforaddress, $mappingWebsites, $mappingStores, $mappingCustomerGroups, $keepOriginalId);*/
                         }
                     }
 
@@ -386,6 +577,16 @@ class Step6Controller extends BaseController
             $groupId2 = isset($mappingCustomerGroups[$customer->group_id]) ? $mappingCustomerGroups[$customer->group_id] : 0;
             //check has migrated
             $m2Id = UBMigrate::getM2EntityId(6, 'customer_entity', $customer->entity_id);
+            if(!is_null($m2Id))
+            {
+                $email2 = addslashes($customer->email);
+                $condition = is_null($websiteId2) ? "email = '{$email2}' AND website_id IS NULL" : "email = '{$email2}' AND website_id = {$websiteId2}";
+                $customer2 = Mage2CustomerEntity::model()->find($condition);
+                if(is_null($customer2))
+                {
+                    continue;
+                }
+            }
             $canReset = UBMigrate::RESET_YES;
             if (is_null($m2Id)) {
                 $email2 = addslashes($customer->email);
@@ -449,23 +650,83 @@ class Step6Controller extends BaseController
         return true;
     }
 
-    private function _migrateAddressesCustomers($customers, $mappingWebsites, $mappingStores, $mappingCustomerGroups, $keepOriginalId)
+    private function _migrateCustomers2($customers, $mappingWebsites, $mappingStores, $mappingCustomerGroups, $keepOriginalId)
     {
         /**
          * Table: customer_entity
          */
         foreach ($customers as $customer) {
+            $websiteId2 = isset($mappingWebsites[$customer->website_id]) ? $mappingWebsites[$customer->website_id] : null;
+            $storeId2 = isset($mappingStores[$customer->store_id]) ? $mappingStores[$customer->store_id] : 0;
+            $groupId2 = isset($mappingCustomerGroups[$customer->group_id]) ? $mappingCustomerGroups[$customer->group_id] : 0;
             //check has migrated
             $m2Id = UBMigrate::getM2EntityId(6, 'customer_entity', $customer->entity_id);
+            if(!is_null($m2Id))
+            {
+                $email2 = addslashes($customer->email);
+                $condition = is_null($websiteId2) ? "email = '{$email2}' AND website_id IS NULL" : "email = '{$email2}' AND website_id = {$websiteId2}";
+                $customer2 = Mage2CustomerEntity::model()->find($condition);
+                if(is_null($customer2))
+                {
+                    continue;
+                }
+            }
             $canReset = UBMigrate::RESET_YES;
-            if ($m2Id) {
+            if (is_null($m2Id)) {
+                $email2 = addslashes($customer->email);
+                $condition = is_null($websiteId2) ? "email = '{$email2}' AND website_id IS NULL" : "email = '{$email2}' AND website_id = {$websiteId2}";
+                $customer2 = Mage2CustomerEntity::model()->find($condition);
+                if (!$customer2) {
+                    //add new
+                    $customer2 = new Mage2CustomerEntity();
+                    foreach ($customer2->attributes as $key => $value) {
+                        if (isset($customer->$key)) {
+                            $customer2->$key = $customer->$key;
+                        }
+                    }
+                    $customer2->entity_id = ($keepOriginalId) ? $customer->entity_id : null;
+                    //because website_id, store_id, group_id was changed
+                    $customer2->website_id = $websiteId2;
+                    $customer2->store_id = $storeId2;
+                    $customer2->group_id = $groupId2;
+                } else {
+                    $canReset = UBMigrate::RESET_NO;
+                }
+            } else {
                 //update
                 $customer2 = Mage2CustomerEntity::model()->find("entity_id = {$m2Id}");
-                //migrate related data
-                if ($customer2->entity_id) {
-                    $flagUpdateCustomer2 = false;
-                    //migrate customer address entity
-                    $this->_migrateCustomerAddressEntity2($customer, $customer2, $flagUpdateCustomer2, $keepOriginalId);
+                $customer2->group_id = $groupId2;
+                $customer2->updated_at = $customer->updated_at;
+                $customer2->is_active = $customer->is_active;
+            }
+            //save/update
+            if (!$customer2->save()) {
+                $this->errors[] = get_class($customer2) . ": " . UBMigrate::getStringErrors($customer2->getErrors());
+            } else {
+                if (is_null($m2Id)) {
+                    //save to map table
+                    UBMigrate::log([
+                        'entity_name' => $customer->tableName(),
+                        'm1_id' => $customer->entity_id,
+                        'm2_id' => $customer2->entity_id,
+                        'm2_model_class' => get_class($customer2),
+                        'm2_key_field' => 'entity_id',
+                        'can_reset' => $canReset,
+                        'step_index' => $this->stepIndex
+                    ]);
+                }
+                $this->_traceInfo();
+            }
+            //migrate related data
+            if ($customer2->entity_id) {
+                $flagUpdateCustomer2 = false;
+                //migrate customer eav data
+                $this->_migrateCustomerEAV($customer, $customer2, $flagUpdateCustomer2, $keepOriginalId);
+                //migrate customer address entity
+                $this->_migrateCustomerAddressEntity2($customer, $customer2, $flagUpdateCustomer2, $keepOriginalId);
+                //update value of some fields in main table has fill values from child tables
+                if ($flagUpdateCustomer2) {
+                    $customer2->update();
                 }
             }
         }
@@ -756,20 +1017,77 @@ class Step6Controller extends BaseController
         if ($addressEntities) {
             foreach ($addressEntities as $addressEntity) {
                 $m2Id = UBMigrate::getM2EntityId('6_customer_address', 'customer_address_entity', $addressEntity->entity_id);
-                $canReset = UBMigrate::RESET_YES;
-                if (!is_null($m2Id)) {
-                    //update
+                if(!is_null($m2Id))
+                {
                     $addressEntity2 = Mage2CustomerAddressEntity::model()->find("entity_id = {$m2Id}");
-                    if(!$addressEntity2->country_id || $addressEntity2->country_id=='0' || $addressEntity2->lastname != 'unknown')
+                    if(is_null($addressEntity2))
                     {
-                        $addressEntity2->postcode = 0;
-                        $addressEntity2->save();
-                        //start migrate child tables
-                        if ($addressEntity2->entity_id) {
-                            //migrate customer address entity eav data
-                            $this->_migrateCustomerAddressEntityEAV2($addressEntity, $addressEntity2, $keepOriginalId);
+                        $query = "DELETE FROM ub_migrate_map_step_6_customer_address WHERE m1_id = {$addressEntity->entity_id} AND m2_id = {$m2Id}";
+                        Yii::app()->db->createCommand($query)->query();
+                        $m2Id = null;
+                    }
+                }
+                $canReset = UBMigrate::RESET_YES;
+                if (is_null($m2Id)) {
+                    $addressEntity2 = new Mage2CustomerAddressEntity();
+                    foreach ($addressEntity2->attributes as $key => $value) {
+                        if (isset($addressEntity->$key)) {
+                            $addressEntity2->$key = $addressEntity->$key;
                         }
                     }
+                    $addressEntity2->entity_id = ($keepOriginalId) ? $addressEntity->entity_id : null;
+                    //because parent id was changed
+                    $addressEntity2->parent_id = $customer2->entity_id;
+                    /**
+                     * some fields is new in Magento2 and required at this table, so we need to do this
+                     * and we will update correct value for them later
+                     */
+                    $addressEntity2->country_id = 0;
+                    $addressEntity2->firstname = 'unknown';
+                    $addressEntity2->lastname = 'unknown';
+                    $addressEntity2->street = 'unknown';
+                    $addressEntity2->telephone = 'unknown';
+                    $addressEntity2->city = 'unknown';
+                } else {
+                    //update
+                    $addressEntity2 = Mage2CustomerAddressEntity::model()->find("entity_id = {$m2Id}");
+                    $addressEntity2->updated_at = $addressEntity->updated_at;
+                    $addressEntity2->is_active = $addressEntity->is_active;
+                }
+                //save/update
+                if ($addressEntity2->save()) {
+                    if (is_null($m2Id)) {
+                        //update to map log
+                        UBMigrate::log([
+                            'entity_name' => $addressEntity->tableName(),
+                            'm1_id' => $addressEntity->entity_id,
+                            'm2_id' => $addressEntity2->entity_id,
+                            'm2_model_class' => get_class($addressEntity2),
+                            'm2_key_field' => 'entity_id',
+                            'can_reset' => $canReset,
+                            'step_index' => "6CustomerAddress"
+                        ]);
+                    }
+                    $this->_traceInfo();
+                    /**
+                     * Because customer_address_entity ids was changed
+                     * we have to re-update the default_billing and default_shipping for each customer migrated here
+                     **/
+                    if ($customer2->default_billing AND ($customer2->default_billing == $addressEntity->entity_id)) {
+                        $customer2->default_billing = $addressEntity2->entity_id;
+                        $flagUpdateCustomer2 = true;
+                    }
+                    if ($customer2->default_shipping AND ($customer2->default_shipping == $addressEntity->entity_id)) {
+                        $customer2->default_shipping = $addressEntity2->entity_id;
+                        $flagUpdateCustomer2 = true;
+                    }
+                } else {
+                    $this->errors[] = get_class($addressEntity2) . ": " . UBMigrate::getStringErrors($addressEntity2->getErrors());
+                }
+                //start migrate child tables
+                if ($addressEntity2->entity_id) {
+                    //migrate customer address entity eav data
+                    $this->_migrateCustomerAddressEntityEAV2($addressEntity, $addressEntity2, $keepOriginalId);
                 }
             }
         }

@@ -46,8 +46,9 @@ class Index extends \Magento\Backend\Block\Template
     
     public function getToolUrl() {
         $pubFolder = \Magento\Framework\App\Filesystem\DirectoryList::PUB;
+        /** @var \Magento\Store\Model\Store $store */
         $store = $this->_storeManager->getStore();
-        $baseUrl = str_replace("/".$store->getCode()."/", '/', $store->getBaseUrl());
+        $baseUrl = str_replace("/".$store->getCode()."/", '/', $store->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_LINK,true));
         $documentRoot = $_SERVER['DOCUMENT_ROOT'];
         if (substr($documentRoot, (strlen($documentRoot) - 3)) == $pubFolder) {
             $toolUrl = $baseUrl . 'ub-tool';

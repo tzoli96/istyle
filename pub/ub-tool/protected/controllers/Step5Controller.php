@@ -143,7 +143,7 @@ class Step5Controller extends BaseController
                         foreach($productssplits as $productssplit)
                         {
                             //migrate product and related data
-                            $this->_migrateCatalogProducts($productssplit, $mappingWebsites, $mappingStores, $keepOriginalId);
+                            $this->_migrateCatalogProducts($productssplit, $mappingWebsites, $mappingStores, false);
                             UBMigrate::updateCurrentOffset(Mage1CatalogProductEntity::model()->tableName(),$offset + count($productssplit), $this->stepIndex);
                             $offset = UBMigrate::getCurrentOffset(5, Mage1CatalogProductEntity::model()->tableName());
                         }
