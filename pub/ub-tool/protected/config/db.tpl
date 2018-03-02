@@ -21,5 +21,15 @@ return array(
             'tablePrefix' => '',
             'class' => 'CDbConnection'
         ),
+        //database of Magento 2 migration LV from
+        'db2' => array(
+        'connectionString' => 'mysql:host=percona;port=3306;dbname=istyle',
+            'emulatePrepare' => true,
+            'username' => 'root',
+            'password' => 'root',
+            'charset' => 'utf8',
+            'tablePrefix' => '',
+            'class' => 'CDbConnection'
+        ),
     )
 );
