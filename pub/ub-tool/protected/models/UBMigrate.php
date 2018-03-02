@@ -1030,6 +1030,7 @@ class UBMigrate extends CActiveRecord
             $m2Id = self::getM2EntityId(4, 'catalog_category_entity', $category->entity_id);
             //check for disable
             $disable = (UBMigrate::isMigrated(4) && $m2Id) ? 'class="read-only" readonly="readonly" onclick="event.preventDefault();"' : '';
+            $disable='';
             $html .= '<li class="'.(!empty($disable) ? 'read-only' : '').'">';
             $html .= '<input type="checkbox" ' . (($checked) ? "{$disable} checked" : '') . ' id="category_' . $category->entity_id . '" name="category_ids[]" value="' . $category->entity_id . '" /> ';
             $iconClass = ($level == 1 && $category->children) ? 'icon-folder-open' : (($category->children) ? 'icon-leaf' : '');

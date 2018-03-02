@@ -1754,7 +1754,7 @@ class Step5Controller extends BaseController
                 $category = explode('/',$category->path);
                 if(isset($category[0]))
                 {
-                    if(!in_array($category[0],$this->getmigrablerootcategoryvalues()))
+                    if(!in_array($category[0],$this->getmigrablem1rootcategoryvalues()))
                     {
                         continue;
                     }
