@@ -65,7 +65,6 @@ atlassian*
 /package.json.sample
 /php.ini.sample
 /app/etc/config.php.sample
-/pub/ub-tool
 /database
 
 
