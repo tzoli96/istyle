@@ -67,7 +67,6 @@ return array (
     'Magento_OfflinePayments' => 1,
     'Magento_SalesRule' => 1,
     'Magento_PageCache' => 1,
-    'Innobyte_Swedbank' => 1,
     'Magento_Vault' => 1,
     'Magento_Persistent' => 1,
     'Magento_ProductAlert' => 1,
@@ -163,5 +162,6 @@ return array (
     'Oander_XtentoOrderExportExtender' => 1,
     'Xtento_XtCore' => 1,
     'Xtento_OrderExport' => 1,
+    'Ubertheme_Ubdatamigration' => 1,
   ),
 );
