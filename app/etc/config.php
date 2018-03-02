@@ -161,8 +161,6 @@ return array (
     'Oander_WarehouseStockOrder' => 1,
     'Oander_CategoryDropdown' => 1,
     'Oander_XtentoOrderExportExtender' => 1,
-    'Rudracomputech_Nestpay' => 1,
-    'Ubertheme_Ubdatamigration' => 1,
     'Xtento_XtCore' => 1,
     'Xtento_OrderExport' => 1,
   ),
