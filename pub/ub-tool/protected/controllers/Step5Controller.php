@@ -1752,9 +1752,9 @@ class Step5Controller extends BaseController
             foreach ($models as $model) {
                 $category = Mage1CatalogCategoryEntity::model()->find("entity_id = {$model->category_id}");
                 $category = explode('/',$category->path);
-                if(isset($category[0]))
+                if(isset($category[1]))
                 {
-                    if(!in_array($category[0],$this->getmigrablem1rootcategoryvalues()))
+                    if(!in_array($category[1],$this->getmigrablem1rootcategoryvalues()))
                     {
                         continue;
                     }
