@@ -1,0 +1,18 @@
+{
+    "name": "oander/module-categoryurlmodifier",
+    "description": "Change Category URL on save to not cross products url",
+    "require": {
+        "php": "7.*"
+    },
+    "type": "magento2-module",
+    "license": "proprietary",
+    "version": "1.0.0",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Oander\\CategoryUrlModifier\\": ""
+        }
+    }
+}

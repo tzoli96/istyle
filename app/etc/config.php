@@ -160,6 +160,7 @@ return array (
     'Oander_WarehouseStockOrder' => 1,
     'Oander_CategoryDropdown' => 1,
     'Oander_XtentoOrderExportExtender' => 1,
+    'Oander_CategoryUrlModifier' => 1,
     'Xtento_XtCore' => 1,
     'Xtento_OrderExport' => 1,
   ),
