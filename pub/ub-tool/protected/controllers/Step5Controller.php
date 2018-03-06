@@ -976,6 +976,7 @@ class Step5Controller extends BaseController
             $canReset = UBMigrate::RESET_YES;
             if (is_null($productId2)) {
                 $product2 = Mage2CatalogProductEntity::model()->find("sku = '".addslashes($product->sku)."'");
+                if(is_null($product2)) continue;
                 if (!$product2) { //add new
                     $product2 = new Mage2CatalogProductEntity();
                     foreach ($product2->attributes as $key => $value) {
