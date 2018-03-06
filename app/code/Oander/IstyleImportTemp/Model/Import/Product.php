@@ -181,7 +181,10 @@ class Product extends MagentoProduct
     protected function uploadMediaFiles($fileName, $renameFileOff = false)
     {
         try {
-            $remoteFileName = 'http://istyle.lv/pub/media/catalog/product/'.$fileName;
+            $remoteFileName = $fileName;
+            if (substr( $fileName, 0, 4 ) !== 'http') {
+                $remoteFileName = 'http://istyle.lv/pub/media/catalog/product/' . $fileName;
+            }
             $res = $this->_getUploader()->move($remoteFileName, $renameFileOff);
 
             return $res['file'];
@@ -206,11 +209,13 @@ class Product extends MagentoProduct
                 $categoryStoreId = $this->storeIds[$rowData[self::COL_STORE_VIEW_CODE]];
                 $categoryStore = $this->storeManager->getStore($categoryStoreId);
                 $this->storeManager->setCurrentStore($categoryStore);
+
+                $categoryIds = $this->categoryProcessor->upsertCategories(
+                    $categoriesString,
+                    $this->getMultipleValueSeparator()
+                );
             }
-            $categoryIds = $this->categoryProcessor->upsertCategories(
-                $categoriesString,
-                $this->getMultipleValueSeparator()
-            );
+
             $this->storeManager->setCurrentStore($currentStore);
             foreach ($this->categoryProcessor->getFailedCategories() as $error) {
                 $this->errorAggregator->addError(
@@ -227,5 +232,39 @@ class Product extends MagentoProduct
         return $categoryIds;
     }
 
+    /**
+     * Check that url_keys are not assigned to other products in DB
+     *
+     * @return void
+     */
+    protected function checkUrlKeyDuplicates()
+    {
+        $resource = $this->getResource();
+        foreach ($this->urlKeys as $storeId => $urlKeys) {
+            if ($storeId !== $this->storeIds['lv_lv']
+                || $storeId !== $this->storeIds['lv_ru']
+            ) {
+                $storeId = $this->storeIds['lv_lv'];
+            }
+
+            $urlKeyDuplicates = $this->_connection->fetchAssoc(
+                $this->_connection->select()->from(
+                    ['url_rewrite' => $resource->getTable('url_rewrite')],
+                    ['request_path', 'store_id']
+                )->joinLeft(
+                    ['cpe' => $resource->getTable('catalog_product_entity')],
+                    "cpe.entity_id = url_rewrite.entity_id"
+                )->where('request_path IN (?)', array_keys($urlKeys))
+                    ->where('store_id IN (?)', $storeId)
+                    ->where('cpe.sku not in (?)', array_values($urlKeys))
+            );
+            foreach ($urlKeyDuplicates as $entityData) {
+                var_dump($storeId);
+                var_dump($entityData['request_path']);
+                $rowNum = $this->rowNumbers[$entityData['store_id']][$entityData['request_path']];
+                $this->addRowError(ValidatorInterface::ERROR_DUPLICATE_URL_KEY, $rowNum);
+            }
+        }
+    }
 
 }

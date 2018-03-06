@@ -5,6 +5,7 @@
  * @author  Tamas Vegvari <tamas.vegvari@oander.hu>
  * @license Oander Media Kft. (http://www.oander.hu)
  */
+
 namespace Oander\IstyleImportTemp\Model\Import\Product\Type;
 
 use Magento\CatalogImportExport\Model\Import\Product\Type\Simple as MagentoSimple;
@@ -21,7 +22,7 @@ class Simple extends MagentoSimple
      * set default values if needed
      *
      * @param array $rowData
-     * @param bool $withDefaultValue
+     * @param bool  $withDefaultValue
      *
      * @return array
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
@@ -48,9 +49,30 @@ class Simple extends MagentoSimple
                     } elseif (!isset($attrParams['options'][strtolower($rowData[$attrCode])])
                         && in_array($rowData[$attrCode], $attrParams['options'])) {
                         $rowData[$attrCode] = array_search($rowData[$attrCode], $attrParams['options']);
+                    } elseif ($attrCode === 'msrp_display_actual_price_type') {
+                        $rowData[$attrCode] = (int)$rowData[$attrCode] - 1;
+                        $rowData[$attrCode] = array_search($rowData[$attrCode], $attrParams['options']);
                     }
 
-                    $resultAttrs[$attrCode] = $attrParams['options'][strtolower($rowData[$attrCode])];
+                    if (!isset($attrParams['options'][strtolower($rowData[$attrCode])])
+                        && strpos($rowData[$attrCode], '"') !== false) {
+                        $rowData[$attrCode] = str_replace('"', '&quot;', $rowData[$attrCode]);
+                    }
+
+                    if (!isset($attrParams['options'][strtolower($rowData[$attrCode])])
+                        && strpos($rowData[$attrCode], '&quot;') !== false) {
+                        $rowData[$attrCode] = str_replace('&quot;', '', $rowData[$attrCode]);
+                    }
+
+                    if (!isset($attrParams['options'][strtolower($rowData[$attrCode])])
+                        && $attrCode === 'config_size' && $rowData[$attrCode] === '0-5 m') {
+                        $rowData[$attrCode] = '0,5 m';
+                    }
+
+                    if (isset($attrParams['options'][strtolower($rowData[$attrCode])])) {
+                        $resultAttrs[$attrCode] = $attrParams['options'][strtolower($rowData[$attrCode])];
+                    }
+
                 } elseif ('multiselect' == $attrParams['type']) {
                     $resultAttrs[$attrCode] = [];
                     foreach ($this->_entityModel->parseMultiselectValues($rowData[$attrCode]) as $value) {
@@ -67,9 +89,30 @@ class Simple extends MagentoSimple
                         } elseif (!isset($attrParams['options'][strtolower($value)])
                             && in_array($value, $attrParams['options'])) {
                             $value = array_search($value, $attrParams['options']);
+                        } elseif ($attrCode === 'msrp_display_actual_price_type') {
+                            $rowData[$attrCode] = (int)$rowData[$attrCode] - 1;
+                            $rowData[$attrCode] = array_search($rowData[$attrCode], $attrParams['options']);
                         }
 
-                        $resultAttrs[$attrCode][] = $attrParams['options'][strtolower($value)];
+                        if (!isset($attrParams['options'][strtolower($rowData[$attrCode])])
+                            && strpos($rowData[$attrCode], '"') !== false) {
+                            $rowData[$attrCode] = str_replace('"', '&quot;', $rowData[$attrCode]);
+                        }
+
+                        if (!isset($attrParams['options'][strtolower($rowData[$attrCode])])
+                            && strpos($rowData[$attrCode], '&quot;') !== false) {
+                            $rowData[$attrCode] = str_replace('&quot;', '', $rowData[$attrCode]);
+                        }
+
+                        if (!isset($attrParams['options'][strtolower($rowData[$attrCode])])
+                            && $attrCode === 'config_size' && $rowData[$attrCode] === '0-5 m') {
+                            $rowData[$attrCode] = '0,5 m';
+                        }
+
+                        if (isset($attrParams['options'][strtolower($rowData[$attrCode])])) {
+                            $resultAttrs[$attrCode][] = $attrParams['options'][strtolower($value)];
+                        }
+
                     }
                     $resultAttrs[$attrCode] = implode(',', $resultAttrs[$attrCode]);
                 } else {

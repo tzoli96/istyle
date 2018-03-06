@@ -18,4 +18,5 @@
     <preference for="Magento\DownloadableImportExport\Model\Import\Product\Type\Downloadable" type="Oander\IstyleImportTemp\Model\Import\Product\Type\Downloadable"/>
     <preference for="Magento\CatalogImportExport\Model\Import\Product\Type\Virtual" type="Oander\IstyleImportTemp\Model\Import\Product\Type\Virtual"/>
     <preference for="Magento\CatalogImportExport\Model\Import\Product" type="Oander\IstyleImportTemp\Model\Import\Product"/>
+    <preference for="Magento\CatalogImportExport\Model\Import\Product\Validator\Media" type="Oander\IstyleImportTemp\Model\Import\Product\Validator\Media"/>
 </config>

@@ -5,6 +5,7 @@
  * @author  Tamas Vegvari <tamas.vegvari@oander.hu>
  * @license Oander Media Kft. (http://www.oander.hu)
  */
+
 namespace Oander\IstyleImportTemp\Model\Import\Product;
 
 use Magento\CatalogImportExport\Model\Import\Product;
@@ -22,8 +23,13 @@ class Validator extends MagentoValidator
      * @SuppressWarnings(PHPMD.CyclomaticComplexity)
      * @SuppressWarnings(PHPMD.NPathComplexity)
      */
-    public function aroundIsAttributeValid(MagentoValidator $subject, callable $proceed, $attrCode, array $attrParams, array $rowData)
-    {
+    public function aroundIsAttributeValid(
+        MagentoValidator $subject,
+        callable $proceed,
+        $attrCode,
+        array $attrParams,
+        array $rowData
+    ) {
         $subject->_rowData = $rowData;
         if (isset($rowData['product_type']) && !empty($attrParams['apply_to'])
             && !in_array($rowData['product_type'], $attrParams['apply_to'])
@@ -43,6 +49,7 @@ class Validator extends MagentoValidator
                     )
                 ]
             );
+
             return $valid;
         }
 
@@ -104,8 +111,9 @@ class Validator extends MagentoValidator
      * Check if value is valid attribute option
      *
      * @param string $attrCode
-     * @param array $possibleOptions
+     * @param array  $possibleOptions
      * @param string $valuevalidateOption
+     *
      * @return bool
      */
     private function validateOption($attrCode, $possibleOptions, $value, $subject)
@@ -122,6 +130,29 @@ class Validator extends MagentoValidator
         } elseif (!isset($possibleOptions[strtolower($value)])
             && in_array($value, $possibleOptions)) {
             $value = array_search($value, $possibleOptions);
+        } elseif ($attrCode === 'msrp_display_actual_price_type') {
+            $value = (int)$value-1;
+            $value = array_search($value, $possibleOptions);
+        }
+
+        if (!isset($possibleOptions[strtolower($value)])
+            && strpos($value, '"') !== false) {
+            $value = str_replace('"','&quot;',$value);
+        }
+
+        if (!isset($possibleOptions[strtolower($value)])
+            && strpos($value, '&quot;') !== false) {
+            $value = str_replace('&quot;','',$value);
+        }
+
+        if (!isset($possibleOptions[strtolower($value)])
+            && ($attrCode === 'maconomy_stock' || $attrCode === 'sale')) {
+            return true;
+        }
+
+        if (!isset($possibleOptions[strtolower($value)])
+            && $attrCode === 'config_size' && $value === '0-5 m') {
+            $value = '0,5 m';
         }
 
         if (!isset($possibleOptions[strtolower($value)])) {
@@ -135,8 +166,10 @@ class Validator extends MagentoValidator
                     )
                 ]
             );
+
             return false;
         }
+
         return true;
     }
 }

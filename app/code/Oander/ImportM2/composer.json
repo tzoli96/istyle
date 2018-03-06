@@ -1,0 +1,21 @@
+{
+    "name": "oander/module-import-m2",
+    "description": "Import M2",
+    "require": {
+        "php": "7.*",
+        "oander/module-base": "*"
+    },
+    "type": "magento2-module",
+    "version": "0.0.1",
+    "license": [
+        "proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Oander\\ImportM2\\": ""
+        }
+    }
+}
