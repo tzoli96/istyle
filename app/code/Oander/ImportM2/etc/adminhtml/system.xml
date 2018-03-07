@@ -20,12 +20,12 @@
                     <source_model>Oander\ImportM2\Model\Config\Source\DonorStoreView</source_model>
                 </field>
                 <field id="start" translate="label comment" type="button" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Start</label>
+                    <label>Import 1</label>
                     <comment><![CDATA[<span style="color:red">IMPORTANT: Save settings before start import!!</span><br/>You can watch import progress at this file: magento_root_dir/var/log/oander/import_m2.log]]></comment>
                     <frontend_model>Oander\ImportM2\Block\Adminhtml\System\Config\Form\Field\StartImport</frontend_model>
                 </field>
                 <field id="start_category" translate="label comment" type="button" sortOrder="120" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Start Category</label>
+                    <label>Import 2</label>
                     <comment><![CDATA[<span style="color:red">IMPORTANT: Save settings before start import!!</span><br/>You can watch import progress at this file: magento_root_dir/var/log/oander/import_m2.log]]></comment>
                     <frontend_model>Oander\ImportM2\Block\Adminhtml\System\Config\Form\Field\StartImportCategory</frontend_model>
                 </field>
