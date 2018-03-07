@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "935a23feb6f41bc45f00614bbe57b403",
+    "content-hash": "6da120485c72be1f4929668f52ae1f8a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
-            "version": "1.25.0",
+            "version": "1.25.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/algolia/algoliasearch-client-php.git",
-                "reference": "0fd6eabe909c3f860ac3ff38f595a735e74ff6da"
+                "reference": "805021ea52630756d2da01d482309a2fdc47d3c0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/0fd6eabe909c3f860ac3ff38f595a735e74ff6da",
-                "reference": "0fd6eabe909c3f860ac3ff38f595a735e74ff6da",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/805021ea52630756d2da01d482309a2fdc47d3c0",
+                "reference": "805021ea52630756d2da01d482309a2fdc47d3c0",
                 "shasum": ""
             },
             "require": {
@@ -54,7 +54,7 @@
             ],
             "description": "Algolia Search API Client for PHP",
             "homepage": "https://github.com/algolia/algoliasearch-client-php",
-            "time": "2017-12-28T08:10:23+00:00"
+            "time": "2018-03-02T13:24:10+00:00"
         },
         {
             "name": "algolia/algoliasearch-magento-2",
@@ -5728,16 +5728,16 @@
         },
         {
             "name": "oander/language-mk-mk",
-            "version": "1.0.12",
+            "version": "1.0.13",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-mk-mk.git",
-                "reference": "18aa76bcd6aeb66c84f3f5bed8b686e420e9e1bc"
+                "reference": "2d2f2165a6631a911548c08072ca017edb033808"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-mk-mk/zipball/18aa76bcd6aeb66c84f3f5bed8b686e420e9e1bc",
-                "reference": "18aa76bcd6aeb66c84f3f5bed8b686e420e9e1bc",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-mk-mk/zipball/2d2f2165a6631a911548c08072ca017edb033808",
+                "reference": "2d2f2165a6631a911548c08072ca017edb033808",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -5751,10 +5751,10 @@
             ],
             "description": "Macedonian language pack for the Magento",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-mk-mk/tree/1.0.12",
+                "source": "https://github.com/oandermedia/oander-language-mk-mk/tree/1.0.13",
                 "issues": "https://github.com/oandermedia/oander-language-mk-mk/issues"
             },
-            "time": "2018-02-02T14:10:07+00:00"
+            "time": "2018-02-21T09:07:05+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
@@ -6175,10 +6175,49 @@
             ],
             "description": "Backend API to Product",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-product/tree/master",
+                "source": "https://github.com/oandermedia/oander-api-product/tree/1.0.22",
                 "issues": "https://github.com/oandermedia/oander-api-product/issues"
             },
             "time": "2018-01-25T16:25:01+00:00"
+        },
+        {
+            "name": "oander/module-api-product-attribute",
+            "version": "1.0.16",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-api-product-attribute.git",
+                "reference": "120b0122a1c2a8deffdd2935213cb001d2d0cffd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-product-attribute/zipball/120b0122a1c2a8deffdd2935213cb001d2d0cffd",
+                "reference": "120b0122a1c2a8deffdd2935213cb001d2d0cffd",
+                "shasum": ""
+            },
+            "require": {
+                "oander/module-api-base": "*",
+                "oander/module-api-gateway": "*",
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\ApiProductAttribute\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander_ApiProductAttribute",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-api-product-attribute/tree/1.0.16",
+                "issues": "https://github.com/oandermedia/oander-api-product-attribute/issues"
+            },
+            "time": "2018-02-15T11:36:26+00:00"
         },
         {
             "name": "oander/module-api-warehouse-manager",
@@ -6371,16 +6410,16 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.16",
+            "version": "1.0.17",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "6f4f4672916c48e0d086dc6567b4c81202544438"
+                "reference": "f0db8ec70a91a7d56346dfca539260df97975a01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/6f4f4672916c48e0d086dc6567b4c81202544438",
-                "reference": "6f4f4672916c48e0d086dc6567b4c81202544438",
+                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/f0db8ec70a91a7d56346dfca539260df97975a01",
+                "reference": "f0db8ec70a91a7d56346dfca539260df97975a01",
                 "shasum": ""
             },
             "require": {
@@ -6401,10 +6440,10 @@
             ],
             "description": "Configurable Product Attribute",
             "support": {
-                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.16",
+                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.17",
                 "issues": "https://github.com/oandermedia/oander-configurable-product-attribute/issues"
             },
-            "time": "2018-02-20T13:01:29+00:00"
+            "time": "2018-03-06T16:29:55+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -7517,16 +7556,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.55",
+            "version": "1.0.62",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "6ac56eef3e5636808c822b178935f9cbf4df0ec9"
+                "reference": "c60683b4030d1266dcdd134e40d5df8b416d7836"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/6ac56eef3e5636808c822b178935f9cbf4df0ec9",
-                "reference": "6ac56eef3e5636808c822b178935f9cbf4df0ec9",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/c60683b4030d1266dcdd134e40d5df8b416d7836",
+                "reference": "c60683b4030d1266dcdd134e40d5df8b416d7836",
                 "shasum": ""
             },
             "require": {
@@ -7544,10 +7583,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.55",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.62",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2018-02-23T12:29:56+00:00"
+            "time": "2018-03-06T16:53:00+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -8061,16 +8100,16 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.34",
+            "version": "v2.8.36",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "d64be24fc1eba62f9daace8a8918f797fc8e87cc"
+                "reference": "f5d2d7dcc33b89e20c2696ea9afcbddf6540081c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/d64be24fc1eba62f9daace8a8918f797fc8e87cc",
-                "reference": "d64be24fc1eba62f9daace8a8918f797fc8e87cc",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/f5d2d7dcc33b89e20c2696ea9afcbddf6540081c",
+                "reference": "f5d2d7dcc33b89e20c2696ea9afcbddf6540081c",
                 "shasum": ""
             },
             "require": {
@@ -8117,20 +8156,20 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-03T07:36:31+00:00"
+            "time": "2018-02-11T16:53:59+00:00"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.8.34",
+            "version": "v2.8.36",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "1f4e8351e0196562f5e8ec584baeceeb8e2e92f6"
+                "reference": "125403a59e4cb4e3ebf46d0162fabcde613d2b97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/1f4e8351e0196562f5e8ec584baeceeb8e2e92f6",
-                "reference": "1f4e8351e0196562f5e8ec584baeceeb8e2e92f6",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/125403a59e4cb4e3ebf46d0162fabcde613d2b97",
+                "reference": "125403a59e4cb4e3ebf46d0162fabcde613d2b97",
                 "shasum": ""
             },
             "require": {
@@ -8166,20 +8205,20 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-03T07:36:31+00:00"
+            "time": "2018-02-19T16:23:47+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.4",
+            "version": "v3.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "613e26310776f49a1773b6737c6bd554b8bc8c6f"
+                "reference": "a479817ce0a9e4adfd7d39c6407c95d97c254625"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/613e26310776f49a1773b6737c6bd554b8bc8c6f",
-                "reference": "613e26310776f49a1773b6737c6bd554b8bc8c6f",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/a479817ce0a9e4adfd7d39c6407c95d97c254625",
+                "reference": "a479817ce0a9e4adfd7d39c6407c95d97c254625",
                 "shasum": ""
             },
             "require": {
@@ -8215,20 +8254,20 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-03T07:37:34+00:00"
+            "time": "2018-03-05T18:28:11+00:00"
         },
         {
             "name": "symfony/process",
-            "version": "v2.8.34",
+            "version": "v2.8.36",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "905efe90024caa75a2fc93f54e14b26f2a099d96"
+                "reference": "756f614c5061729ea245ac6717231f7e3bfb74f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/905efe90024caa75a2fc93f54e14b26f2a099d96",
-                "reference": "905efe90024caa75a2fc93f54e14b26f2a099d96",
+                "url": "https://api.github.com/repos/symfony/process/zipball/756f614c5061729ea245ac6717231f7e3bfb74f9",
+                "reference": "756f614c5061729ea245ac6717231f7e3bfb74f9",
                 "shasum": ""
             },
             "require": {
@@ -8264,7 +8303,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-29T08:54:45+00:00"
+            "time": "2018-02-12T17:44:58+00:00"
         },
         {
             "name": "tedivm/jshrink",
@@ -11097,7 +11136,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.8.34",
+            "version": "v2.8.36",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -11153,16 +11192,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.8.34",
+            "version": "v2.8.36",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "91ad61e6f140b050eba4aa39bc52eece713f2a71"
+                "reference": "3d7cbf34cd75ede7f94b9b990f85bd089e15cd55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/91ad61e6f140b050eba4aa39bc52eece713f2a71",
-                "reference": "91ad61e6f140b050eba4aa39bc52eece713f2a71",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/3d7cbf34cd75ede7f94b9b990f85bd089e15cd55",
+                "reference": "3d7cbf34cd75ede7f94b9b990f85bd089e15cd55",
                 "shasum": ""
             },
             "require": {
@@ -11212,20 +11251,20 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-29T08:55:23+00:00"
+            "time": "2018-02-19T16:23:47+00:00"
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.4",
+            "version": "v3.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "c865551df7c17e63fc1f09f763db04387f91ae4d"
+                "reference": "eb17cfa072cab26537ac37e9c4ece6c0361369af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/c865551df7c17e63fc1f09f763db04387f91ae4d",
-                "reference": "c865551df7c17e63fc1f09f763db04387f91ae4d",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/eb17cfa072cab26537ac37e9c4ece6c0361369af",
+                "reference": "eb17cfa072cab26537ac37e9c4ece6c0361369af",
                 "shasum": ""
             },
             "require": {
@@ -11261,11 +11300,11 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2018-01-03T07:37:34+00:00"
+            "time": "2018-02-17T14:55:25+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.34",
+            "version": "v2.8.36",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
