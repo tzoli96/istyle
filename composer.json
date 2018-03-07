@@ -73,8 +73,6 @@
         "mirasvit/module-report": "1.2.27.1",
         "xtento/module-orderexport": "2.3.9",
         "xtento/module-xtcore": "2.1.0",
-        "anowave/package": "0.0.1",
-        "anowave/ec": "100.0.2",
         "oander/module-cardondeliverypayment": "1.0.0",
         "oander/module-cashonpickuppayment": "1.0.0",
         "amasty/payrestriction": "^2.0",

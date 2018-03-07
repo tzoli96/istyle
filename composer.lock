@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0253adb67a4be16cf305e3ab92674b34",
+    "content-hash": "f22a0799b9e4523222e9a251885b7abc",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -283,80 +283,6 @@
                 "Commercial"
             ],
             "description": "Common Rules by Amasty"
-        },
-        {
-            "name": "anowave/ec",
-            "version": "100.0.2",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/anowave-ec.git",
-                "reference": "9bbeb557457a45ef6c4687d169d3a8090a79924d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/anowave-ec/zipball/9bbeb557457a45ef6c4687d169d3a8090a79924d",
-                "reference": "9bbeb557457a45ef6c4687d169d3a8090a79924d",
-                "shasum": ""
-            },
-            "require": {
-                "anowave/package": "0.0.*",
-                "php": "~5.5.0|~5.6.0|~7.0.0"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Anowave\\Ec\\": ""
-                }
-            },
-            "authors": [
-                {
-                    "name": "Anowave",
-                    "homepage": "https://www.anowave.com"
-                }
-            ],
-            "description": "Magento 2 Google Tag Manager Enhanced Ecommerce (UA) Tracking",
-            "homepage": "http://www.anowave.com/marketplace/magento-2-extensions/magento-2-google-tag-manager-enhanced-ecommerce-ua-tracking/",
-            "support": {
-                "source": "https://github.com/oandermedia/anowave-ec/tree/100.0.2",
-                "issues": "https://github.com/oandermedia/anowave-ec/issues"
-            },
-            "time": "2018-02-06T11:46:49+00:00"
-        },
-        {
-            "name": "anowave/package",
-            "version": "0.0.1",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/anowave-package.git",
-                "reference": "624e390f13a062b38492f231a26602f58cd990f9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/anowave-package/zipball/624e390f13a062b38492f231a26602f58cd990f9",
-                "reference": "624e390f13a062b38492f231a26602f58cd990f9",
-                "shasum": ""
-            },
-            "require": {
-                "php": "~5.5.0|~5.6.0|~7.0.0"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Anowave\\Package\\": ""
-                }
-            },
-            "description": "Anowave Package",
-            "support": {
-                "source": "https://github.com/oandermedia/anowave-package/tree/0.0.1",
-                "issues": "https://github.com/oandermedia/anowave-package/issues"
-            },
-            "time": "2018-02-06T11:53:42+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -7179,7 +7105,7 @@
             ],
             "description": "Backend API to Product",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-product/tree/master",
+                "source": "https://github.com/oandermedia/oander-api-product/tree/1.0.22",
                 "issues": "https://github.com/oandermedia/oander-api-product/issues"
             },
             "time": "2018-01-25T16:25:01+00:00"
