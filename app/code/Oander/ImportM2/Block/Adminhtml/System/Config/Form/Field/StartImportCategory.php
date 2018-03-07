@@ -25,7 +25,7 @@ class StartImportCategory extends Field
     public function getStartUrl()
     {
         return $this->getUrl(
-            'importm2/import/start_category'
+            'importm2/import/category'
         );
     }
 

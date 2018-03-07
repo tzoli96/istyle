@@ -12,41 +12,41 @@ namespace Oander\ImportM2\Model;
 
 use Oander\ImportM2\Helper\Config;
 use Oander\ImportM2\Logger\Logger;
-use Oander\ImportM2\Model\Import\Product as ProductImport;
+use Oander\ImportM2\Model\Import\Category as CategoryImport;
 
 /**
- * Class Import
+ * Class ImportCategory
  *
  * @package Oander\ImportM2\Model
  */
 class ImportCategory extends ImportBase
 {
     /**
-     * @var ProductImport
+     * @var CategoryImport
      */
-    private $productImport;
+    private $categoryImport;
 
     /**
      * Import constructor.
      *
-     * @param Logger        $logger
-     * @param Config        $config
-     * @param ProductImport $productImport
+     * @param Logger         $logger
+     * @param Config         $config
+     * @param CategoryImport $categoryImport
      */
     public function __construct(
         Logger $logger,
         Config $config,
-        ProductImport $productImport
+        CategoryImport $categoryImport
     ) {
         parent::__construct($logger,$config);
-        $this->productImport = $productImport;
+        $this->categoryImport = $categoryImport;
     }
 
     public function execute()
     {
         $this->logger->info('OANDER MAGNETO 2 IMPORT HAS STARTED NOW');
 
-        $this->productImport->execute();
+        $this->categoryImport->execute();
 
         $this->logger->info('OANDER MAGNETO 2 IMPORT HAS JUST FINISHED');
     }
