@@ -126,7 +126,7 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   magento "setup:static-content:deploy hr_HR --theme=Oander/istyle"
   magento "setup:static-content:deploy lv_LV --theme=Oander/istyle"
   magento "setup:static-content:deploy ro_RO --theme=Oander/istyle"
-  magento "setup:static-content:deploy sr_Latn_RS --theme=Oander/istyle"
+  magento "setup:static-content:deploy sr_Cyrl_RS --theme=Oander/istyle"
   magento "setup:static-content:deploy sl_SI --theme=Oander/istyle"
   magento "setup:static-content:deploy cs_CZ --theme=Oander/istyle"
   magento "setup:static-content:deploy sk_SK --theme=Oander/istyle"
@@ -138,7 +138,7 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   echo -n " * CHOWN EFS_GREEN DIR ... "
   if chown www-data:www-data -R ${EFS_GREEN}; then echo OK; else echo FAIL; fi
 
-  echo -n " * COPY THE ENV FILE WITH THE DATABASES TO PRODUCTION FOR CRONJOBS ... "
+  echo -n " * COPY THE ENV FILE WITH THE DATABASES BACK FOR CRONJOBS ... "
   if cp ${EFS}/env/env.php ${WEBROOT}/app/etc/; then echo OK; else echo FAIL; fi
 
   echo " * SET BACK SYMLINKS TO BLUE ... "
@@ -148,7 +148,7 @@ else
   echo
   echo "===== WORKER INSTANCES ====="
   echo
-  echo -n " * CONFIGURE THE ENV FILE WITH THE PRODUCTION DATABASES FOR UPGRADE ... "
+  echo -n " * CONFIGURE THE ENV FILE WITH THE ${DEPLOY_ENV} DATABASES FOR UPGRADE ... "
   if cp ${EFS}/env/env.php ${WEBROOT}/app/etc/; then echo OK; else echo FAIL; fi
 
   echo -n " * DELETE VENDOR DIRECTORY ... "
@@ -205,11 +205,13 @@ if [ "${DEPLOY_ENV}" == "PRODUCTION" ]; then
 fi
 
 # CUSTOM MAINTENANCE PAGE
-cp ${WEBROOT}/pub/errors/default/maintenance.phtml ${WEBROOT}/pub/errors/default/503.phtml
+echo -n " * SETTING UP CUSTOM MAINTENANCE PAGE ... "
+if cp ${WEBROOT}/pub/errors/default/maintenance.phtml ${WEBROOT}/pub/errors/default/503.phtml; then echo OK; else echo FAIL; fi
 
 # EZ MAJD NEM FOG KELLENI HA MAR NEM LESZ SIGMANET PROXY..
 if [ "${DEPLOY_ENV}" == "PRODUCTION" ]; then
-  cp ${WEBROOT}/nginx.magento.conf ${WEBROOT}/nginx.conf.sample
+  echo -n " * COPY CUSTOM NGINX CONFIG FOR MAGENTO ... "
+  if cp ${WEBROOT}/nginx.magento.conf ${WEBROOT}/nginx.conf.sample; then echo OK; else echo FAIL; fi
 fi
 
 # OWNERSHIP FIXES
