@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6da120485c72be1f4929668f52ae1f8a",
+    "content-hash": "81fd00eaa6c529939022d6240b4c4d90",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7370,16 +7370,16 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.2.9",
+            "version": "1.2.10",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "1b591b576917af6f8be4eaee3536e05fdc1c9c89"
+                "reference": "ba9e7974ee5f6a141b4e9294d17a99fddffa91f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/1b591b576917af6f8be4eaee3536e05fdc1c9c89",
-                "reference": "1b591b576917af6f8be4eaee3536e05fdc1c9c89",
+                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/ba9e7974ee5f6a141b4e9294d17a99fddffa91f8",
+                "reference": "ba9e7974ee5f6a141b4e9294d17a99fddffa91f8",
                 "shasum": ""
             },
             "require": {
@@ -7402,10 +7402,10 @@
             ],
             "description": "Warehouse Manager",
             "support": {
-                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.2.9",
+                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.2.10",
                 "issues": "https://github.com/oandermedia/oander-warehouse-manager/issues"
             },
-            "time": "2018-02-01T18:08:29+00:00"
+            "time": "2018-03-06T10:05:05+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
