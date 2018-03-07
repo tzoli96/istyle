@@ -100,9 +100,10 @@ class Category extends ImportBase
 
     public function execute()
     {
-        $this->importProductUrlRewrites();
+        $this->importMissingCategories();
+        /*$this->importProductUrlRewrites();
         $this->importCategoryUrlRewrites();
-        $this->importCategoryAttributes();
+        $this->importCategoryAttributes();*/
     }
 
     private function importProductUrlRewrites()
@@ -160,7 +161,8 @@ class Category extends ImportBase
             foreach ($categoryCollection->getItems() as $category) {
                 $categoryEntity = $this->categoryRepository->get($category->getEntityId(),
                     $this->data->getCurrentStoreId($donorStoreId));
-                $donorUrlRewrites = $this->urlRewriteDonor->getCategoryRewrites($donorStoreId, $categoryEntity->getName());
+                $donorUrlRewrites = $this->urlRewriteDonor->getCategoryRewrites($donorStoreId,
+                    $categoryEntity->getName());
 
                 foreach ($donorUrlRewrites as $donorUrlRewrite) {
 
@@ -172,13 +174,14 @@ class Category extends ImportBase
                             ->setRequestPath($donorUrlRewrite['request_path'])
                             ->setRedirectType($donorUrlRewrite['redirect_type'])
                             ->setDescription($donorUrlRewrite['description'])
-                            ->setTargetPath($this->getCurrentNewCategoryPath($donorUrlRewrite['target_path'], $category->getEntityId()))
+                            ->setTargetPath($this->getCurrentNewCategoryPath($donorUrlRewrite['target_path'],
+                                $category->getEntityId()))
                             ->setEntityId($category->getEntityId());
 
                         $urlRewrite->save();
                     } catch (\Exception $exception) {
                         $this->logger->addError($exception->getMessage() . '- s/name: ' .
-                            $this->data->getCurrentStoreId($donorStoreId).$categoryEntity->getName()
+                            $this->data->getCurrentStoreId($donorStoreId) . $categoryEntity->getName()
                             . ' url: ' . $donorUrlRewrite['request_path']);
                     }
                 }
@@ -210,15 +213,45 @@ class Category extends ImportBase
                 $attributes = $categoryEntity->getCustomAttributes();
                 $isSet = false;
                 foreach ($attributes as $attribute) {
-                    if (!in_array($attribute->getAttributeCode(),$nopeAttrCodes)) {
+                    if (!in_array($attribute->getAttributeCode(), $nopeAttrCodes)) {
                         $donorAttributeValue = $this->categoryDonor->getCategoryAttribute(
-                            $donorStoreId,$categoryEntity->getName(),$attribute->getAttributeCode()
+                            $donorStoreId, $categoryEntity->getName(), $attribute->getAttributeCode()
                         );
 
                         if ($donorAttributeValue !== null && $donorAttributeValue != $attribute->getValue()) {
                             $categoryEntity->setCustomAttribute($attribute->getAttributeCode(), $donorAttributeValue);
                             $isSet = true;
                         }
+                    }
+                }
+
+                if ($isSet) {
+                    $this->categoryRepository->save($categoryEntity);
+                }
+            }
+        }
+    }
+
+    private function importMissingCategories()
+    {
+        foreach ($this->donorStoreIds as $donorStoreId) {
+            /** @var \Magento\Catalog\Model\Category $categoryCollection */
+            $categoryCollection = $this->categoryFactory->create();
+            $categoryCollection = $categoryCollection->getCollection();
+
+            foreach ($categoryCollection->getItems() as $category) {
+                $categoryEntity = $this->categoryRepository->get($category->getEntityId(),
+                    $this->data->getCurrentStoreId($donorStoreId));
+                $attributes = $categoryEntity->getCustomAttributes();
+                $isSet = false;
+                foreach ($attributes as $attribute) {
+                    $donorAttributeValue = $this->categoryDonor->getCategoryAttribute(
+                        $donorStoreId, $categoryEntity->getName(), $attribute->getAttributeCode()
+                    );
+
+                    if ($donorAttributeValue !== null && $donorAttributeValue != $attribute->getValue()) {
+                        $categoryEntity->setCustomAttribute($attribute->getAttributeCode(), $donorAttributeValue);
+                        $isSet = true;
                     }
                 }
 

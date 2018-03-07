@@ -73,5 +73,15 @@ class CategoryDonor extends Donor
         return $attributeValue;
     }
 
+    public function getMissingCategories()
+    {
+        $sql = $this->donorConnection->select()
+            ->from('catalog_category_entity')
+            ->where("path LIKE '1/19%'");
+        $categories = $this->donorConnection->fetchRow($sql);
+
+
+    }
+
 
 }
