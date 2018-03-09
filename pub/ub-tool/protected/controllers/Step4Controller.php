@@ -10,6 +10,7 @@ include_once('BaseController.php');
 class Step4Controller extends BaseController
 {
     protected $stepIndex = 4;
+    protected $mk_menu_substitute_attribute_id = null;
 
     /**
      * @todo: Setting
@@ -82,6 +83,7 @@ class Step4Controller extends BaseController
     public function actionRun()
     {
         $step = UBMigrate::model()->find("id = {$this->stepIndex}");
+        $step->updateStatus(UBMigrate::STATUS_FINISHED);
         $rs = [
             'step_status_text' => $step->getStepStatusText(),
             'step_index' => $this->stepIndex,
@@ -134,6 +136,10 @@ class Step4Controller extends BaseController
             if($mklvattribute->attribute_code=='name')
             {
                 $mknameattributeid = $mklvattribute->attribute_id;
+            }
+            if($mklvattribute->attribute_code=='menu_substitute')
+            {
+                $this->mk_menu_substitute_attribute_id = $mklvattribute->attribute_id;
             }
         }
 
@@ -200,6 +206,23 @@ class Step4Controller extends BaseController
                     }
                     $this->_migrateCatalogCategory($lvlvcategory, $lvmkcategorymapping, $lvrootcategoryidinlv, $storemapping, $lvmkattributemapping);
                 }
+
+                //change categoryids in settings
+                $strStoreIdsMK = implode(',', $storemapping);
+                $lvmkcategorysMK = implode(',', $lvmkcategorymapping);
+                $models = Mage2CatalogCategoryEntityInt::model()->findAll("attribute_id = {$this->mk_menu_substitute_attribute_id} AND entity_id IN ({$lvmkcategorysMK}) AND store_id IN ({$strStoreIdsMK})");
+                foreach($models as $model)
+                {
+                    if(isset($lvmkcategorymapping[$model->value]))
+                    {
+                        $model->value = $lvmkcategorymapping[$model->value];
+                    }
+                    else
+                    {
+                        throw new Exception("No category id:'$model->value.' mapping for menu_substitute as option:" . $model->value_id);
+                    }
+                    $model->update();
+                }
             }
             catch (\Exception $exception)
             {
@@ -208,7 +231,8 @@ class Step4Controller extends BaseController
         }
         if ($this->errors) {
             //update step status
-
+            $step->updateStatus(UBMigrate::STATUS_ERROR);
+            $rs['step_status_text'] = $step->getStepStatusText();
             $strErrors = implode('<br/>', $this->errors);
             $rs['errors'] = $strErrors;
         }
@@ -261,7 +285,7 @@ class Step4Controller extends BaseController
         //re-update path for this category
         $this->_updatePath($category2, $lvmkcategorymapping);
         //migrate category EAV  data
-        $this->_migrateCatalogCategoryEAV($lvlvcategory->entity_id, $category2->entity_id, $storemapping, $lvmkattributemapping);
+        $this->_migrateCatalogCategoryEAV($lvlvcategory->entity_id, $category2->entity_id, $storemapping, $lvmkattributemapping, $lvmkcategorymapping);
 
         return true;
     }
@@ -279,7 +303,7 @@ class Step4Controller extends BaseController
         return $category2->update();
     }
 
-    private function _migrateCatalogCategoryEAV($entityId1, $entityId2, $mappingStores, $lvmkattributemapping)
+    private function _migrateCatalogCategoryEAV($entityId1, $entityId2, $mappingStores, $lvmkattributemapping, $lvmkcategorymapping)
     {
         //get string migrated store ids
         $strStoreIds = implode(',', array_keys($mappingStores));
@@ -305,10 +329,6 @@ class Step4Controller extends BaseController
                 foreach ($models as $model) {
                     $storeId2 = $mappingStores[$model->store_id];
                     $attributeId2 = isset($lvmkattributemapping[$model->attribute_id])?$lvmkattributemapping[$model->attribute_id]['id']:null;
-                    if($model->attribute_id==117)
-                    {
-                        $kuki=$model->value;
-                    }
                     if ($attributeId2) {
                         $condition = "entity_id = {$entityId2} AND attribute_id = {$attributeId2} AND store_id = {$storeId2}";
                         $model2 = $className2::model()->find($condition);
