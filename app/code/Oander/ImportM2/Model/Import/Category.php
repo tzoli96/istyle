@@ -103,7 +103,7 @@ class Category extends ImportBase
         //$this->importMissingCategories();
         $this->importProductUrlRewrites();
         $this->importCategoryUrlRewrites();
-        $this->importCategoryAttributes();
+        //$this->importCategoryAttributes();
     }
 
     private function importProductUrlRewrites()
