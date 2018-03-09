@@ -73,5 +73,21 @@ class CategoryDonor extends Donor
         return $attributeValue;
     }
 
+    public function getMissingCategories($storeId)
+    {
+        $sql = $this->donorConnection->select()
+            ->from('catalog_category_entity')
+            ->joinInner(
+                ['catalog_category_entity_varchar', $this->donorConnection->getTableName('catalog_category_entity_varchar')],
+                'catalog_category_entity_varchar.entity_id = catalog_category_entity.entity_id
+                    AND catalog_category_entity_varchar.store_id = '.$storeId.'
+                    AND catalog_category_entity_varchar.attribute_id = 45',
+                ['value']
+            )
+            ->where("catalog_category_entity.path LIKE '1/19%'");
+
+        return $this->donorConnection->fetchAll($sql);
+    }
+
 
 }
