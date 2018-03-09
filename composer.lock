@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f22a0799b9e4523222e9a251885b7abc",
+    "content-hash": "f91131cf4216f31a795de5cec3beb3f9",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -228,34 +228,6 @@
                 "issues": "https://github.com/oandermedia/amasty-rgrid/issues"
             },
             "time": "2018-02-20T09:25:58+00:00"
-        },
-        {
-            "name": "amasty/shiprestriction",
-            "version": "2.0.3",
-            "dist": {
-                "type": "zip",
-                "url": "https://composer.amasty.com/community/packages/shiprestriction-2.0.3.zip",
-                "reference": null,
-                "shasum": null
-            },
-            "require": {
-                "amasty/base": ">=1.0.8",
-                "amasty/system-common-rules": ">=2.0.3",
-                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|~7.1.0"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Amasty\\Shiprestriction\\": ""
-                }
-            },
-            "license": [
-                "Commercial"
-            ],
-            "description": "Shipping Restrictions By Amasty"
         },
         {
             "name": "amasty/system-common-rules",
@@ -8564,16 +8536,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.62",
+            "version": "1.0.63",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "c60683b4030d1266dcdd134e40d5df8b416d7836"
+                "reference": "c906f249e28a89a0ab3fe42eeccb748d31f33e5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/c60683b4030d1266dcdd134e40d5df8b416d7836",
-                "reference": "c60683b4030d1266dcdd134e40d5df8b416d7836",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/c906f249e28a89a0ab3fe42eeccb748d31f33e5e",
+                "reference": "c906f249e28a89a0ab3fe42eeccb748d31f33e5e",
                 "shasum": ""
             },
             "require": {
@@ -8591,10 +8563,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.62",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.63",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2018-03-06T16:53:00+00:00"
+            "time": "2018-03-07T14:04:03+00:00"
         },
         {
             "name": "oyejorge/less.php",
