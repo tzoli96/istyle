@@ -9,10 +9,10 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <section id="oander_import_m2" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1" sortOrder="124">
+        <section id="oander_import_m2"  translate="label" type="text" sortOrder="450" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Import Magento2</label>
-            <tab>oander</tab>
             <resource>Oander_ImportM2::config</resource>
+            <tab>oander</tab>
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>General</label>
                 <field id="donor_store_view" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
@@ -28,6 +28,11 @@
                     <label>Import 2</label>
                     <comment><![CDATA[<span style="color:red">IMPORTANT: Save settings before start import!!</span><br/>You can watch import progress at this file: magento_root_dir/var/log/oander/import_m2.log]]></comment>
                     <frontend_model>Oander\ImportM2\Block\Adminhtml\System\Config\Form\Field\StartImportCategory</frontend_model>
+                </field>
+                <field id="start_attribute" translate="label comment" type="button" sortOrder="130" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Import 3</label>
+                    <comment><![CDATA[<span style="color:red">IMPORTANT: Save settings before start import!!</span><br/>You can watch import progress at this file: magento_root_dir/var/log/oander/import_m2.log]]></comment>
+                    <frontend_model>Oander\ImportM2\Block\Adminhtml\System\Config\Form\Field\StartImportAttribute</frontend_model>
                 </field>
             </group>
         </section>

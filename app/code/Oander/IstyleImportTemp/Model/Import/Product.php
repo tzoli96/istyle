@@ -259,8 +259,6 @@ class Product extends MagentoProduct
                     ->where('cpe.sku not in (?)', array_values($urlKeys))
             );
             foreach ($urlKeyDuplicates as $entityData) {
-                var_dump($storeId);
-                var_dump($entityData['request_path']);
                 $rowNum = $this->rowNumbers[$entityData['store_id']][$entityData['request_path']];
                 $this->addRowError(ValidatorInterface::ERROR_DUPLICATE_URL_KEY, $rowNum);
             }

@@ -12,29 +12,29 @@ namespace Oander\ImportM2\Controller\Adminhtml\Import;
 
 use Magento\Backend\App\Action;
 use Magento\Framework\App\ResponseInterface;
-use Oander\ImportM2\Model\Import;
+use Oander\ImportM2\Model\ImportAttribute;
 
 /**
- * Class Start
+ * Class Attribute
  *
  * @package Oander\ImportM2\Controller\Adminhtml\Import
  */
-class Start extends Action
+class Attribute extends Action
 {
     /**
-     * @var Import
+     * @var ImportAttribute
      */
     private $import;
 
     /**
      * Start constructor.
      *
-     * @param Action\Context $context
-     * @param Import         $import
+     * @param Action\Context  $context
+     * @param ImportAttribute $import
      */
     public function __construct(
         Action\Context $context,
-        Import $import
+        ImportAttribute $import
     ) {
         $this->import = $import;
         parent::__construct($context);

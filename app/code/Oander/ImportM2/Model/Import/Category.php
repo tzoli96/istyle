@@ -100,10 +100,10 @@ class Category extends ImportBase
 
     public function execute()
     {
-        $this->importMissingCategories();
-        /*$this->importProductUrlRewrites();
+        //$this->importMissingCategories();
+        $this->importProductUrlRewrites();
         $this->importCategoryUrlRewrites();
-        $this->importCategoryAttributes();*/
+        $this->importCategoryAttributes();
     }
 
     private function importProductUrlRewrites()
@@ -232,6 +232,10 @@ class Category extends ImportBase
         }
     }
 
+    /**
+     * @throws \Magento\Framework\Exception\LocalizedException
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     */
     private function importMissingCategories()
     {
         foreach ($this->donorStoreIds as $donorStoreId) {
@@ -239,25 +243,32 @@ class Category extends ImportBase
             $categoryCollection = $this->categoryFactory->create();
             $categoryCollection = $categoryCollection->getCollection();
 
+            $fknCurrCategoryNames = [];
             foreach ($categoryCollection->getItems() as $category) {
                 $categoryEntity = $this->categoryRepository->get($category->getEntityId(),
                     $this->data->getCurrentStoreId($donorStoreId));
-                $attributes = $categoryEntity->getCustomAttributes();
-                $isSet = false;
-                foreach ($attributes as $attribute) {
-                    $donorAttributeValue = $this->categoryDonor->getCategoryAttribute(
-                        $donorStoreId, $categoryEntity->getName(), $attribute->getAttributeCode()
-                    );
 
-                    if ($donorAttributeValue !== null && $donorAttributeValue != $attribute->getValue()) {
-                        $categoryEntity->setCustomAttribute($attribute->getAttributeCode(), $donorAttributeValue);
-                        $isSet = true;
-                    }
+                $pathIds = explode('/',$categoryEntity['path']);
+                foreach ($pathIds as $pathId) {
+                    $categoryEntity2 = $this->categoryRepository->get($pathId,$this->data->getCurrentStoreId($donorStoreId));
+                    $fknCurrCategoryNames[$category->getEntityId()] = $categoryEntity2->getName() . '/';
                 }
+            }
 
-                if ($isSet) {
-                    $this->categoryRepository->save($categoryEntity);
-                }
+            $donorCategories = $this->categoryDonor->getMissingCategories($donorStoreId);
+            $donorCategoriesNames = [];
+            foreach ($donorCategories as $donorCategory) {
+                $donorCategoriesNames[$donorCategory['entity_id']] = $donorCategory['value'];
+            }
+
+
+            foreach ($categoryCollection->getItems() as $category) {
+                $categoryEntity = $this->categoryRepository->get($category->getEntityId(),
+                    $this->data->getCurrentStoreId($donorStoreId));
+
+
+                //$donorCategories = $this->categoryDonor->getMissingCategories($donorStoreId);
+
             }
         }
     }

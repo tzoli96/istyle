@@ -52,4 +52,60 @@ class ProductDonor extends Donor
 
         return $this->donorConnection->fetchAll($sql);
     }
+
+    public function getAttributeLabels($attributeCode, $storeIds)
+    {
+
+        $sql = $this->donorConnection->select()
+            ->from('eav_attribute')
+            ->joinInner(
+                ['eav_attribute_label', $this->donorConnection->getTableName('eav_attribute_label')],
+                'eav_attribute_label.attribute_id = eav_attribute.attribute_id',
+                ['value','store_id']
+            )
+            ->where('eav_attribute_label.store_id IN (?)', $storeIds)
+            ->where('eav_attribute.entity_type_id = ?', 4)
+            ->where('eav_attribute.attribute_code = ?', $attributeCode);
+
+        return $this->donorConnection->fetchAll($sql);
+    }
+
+    public function getSuperAttributes()
+    {
+        $sql = $this->donorConnection->select()
+            ->from('catalog_product_super_attribute')
+            ->joinInner(
+                ['catalog_product_entity', $this->donorConnection->getTableName('catalog_product_entity')],
+                'catalog_product_entity.entity_id = catalog_product_super_attribute.product_id',
+                ['sku']
+            )->joinInner(
+                ['eav_attribute', $this->donorConnection->getTableName('eav_attribute')],
+                'eav_attribute.attribute_id = catalog_product_super_attribute.attribute_id',
+                ['attribute_code']
+            );
+
+        return $this->donorConnection->fetchAll($sql);
+    }
+
+    public function getIdSku()
+    {
+        $sql = $this->donorConnection->select()
+            ->from('catalog_product_entity');
+
+        $productEntities = $this->donorConnection->fetchAll($sql);
+        $skuId = [];
+        foreach ($productEntities as $productEntity) {
+            $skuId[$productEntity['entity_id']] = $productEntity['sku'];
+        }
+
+        return $skuId;
+    }
+
+    public function getSuperLinks()
+    {
+        $sql = $this->donorConnection->select()
+            ->from('catalog_product_super_link');
+
+        return $this->donorConnection->fetchAll($sql);
+    }
 }
