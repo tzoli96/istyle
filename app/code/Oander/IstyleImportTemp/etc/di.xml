@@ -19,4 +19,7 @@
     <preference for="Magento\CatalogImportExport\Model\Import\Product\Type\Virtual" type="Oander\IstyleImportTemp\Model\Import\Product\Type\Virtual"/>
     <preference for="Magento\CatalogImportExport\Model\Import\Product" type="Oander\IstyleImportTemp\Model\Import\Product"/>
     <preference for="Magento\CatalogImportExport\Model\Import\Product\Validator\Media" type="Oander\IstyleImportTemp\Model\Import\Product\Validator\Media"/>
+
+    <preference for="Magento\CustomerImportExport\Model\ResourceModel\Import\Customer\Storage" type="Oander\IstyleImportTemp\Model\ResourceModel\Import\Customer\Storage"/>
+    <preference for="Magento\CustomerImportExport\Model\Import\Customer" type="Oander\IstyleImportTemp\Model\Import\Customer"/>
 </config>
