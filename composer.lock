@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "99fcff1017637407343d3b530114f232",
-    "content-hash": "0f0986aabe3622eee87fdc8ba286672c",
+    "hash": "0774ff9a9c12ce1368e036a3526ea348",
+    "content-hash": "1b033e40f4df919a3a4c635dfd741c19",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8537,16 +8537,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.70",
+            "version": "1.0.44",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "8fe400964738bd520ee3e28058e26fdbb2998830"
+                "reference": "01f30df553f8cad7dd66f89a362707c6a2ccf108"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/8fe400964738bd520ee3e28058e26fdbb2998830",
-                "reference": "8fe400964738bd520ee3e28058e26fdbb2998830",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/01f30df553f8cad7dd66f89a362707c6a2ccf108",
+                "reference": "01f30df553f8cad7dd66f89a362707c6a2ccf108",
                 "shasum": ""
             },
             "require": {
@@ -8564,10 +8564,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.70",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.44",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2018-03-10 10:39:23"
+            "time": "2018-02-02 14:06:29"
         },
         {
             "name": "oyejorge/less.php",
