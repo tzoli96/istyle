@@ -35,8 +35,4 @@
         <plugin name="Oander_IstyleBase::magento_catalog_model_product"
                 type="Oander\IstyleBase\Plugin\Catalog\Model\Product" />
     </type>
-
-    <preference for="Magento\UrlRewrite\Model\Storage\DbStorage" type="Oander\IstyleBase\Model\Storage\DbStorage" />
-    <preference for="Magento\CatalogUrlRewrite\Model\Product\AnchorUrlRewriteGenerator" type="Oander\IstyleBase\Model\Product\AnchorUrlRewriteGenerator" />
-    <preference for="Magento\CatalogUrlRewrite\Model\ProductUrlRewriteGenerator" type="Oander\IstyleBase\Model\ProductUrlRewriteGenerator" />
 </config>
