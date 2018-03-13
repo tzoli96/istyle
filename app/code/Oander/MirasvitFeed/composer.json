@@ -1,0 +1,19 @@
+{
+    "name": "oander/module-mirasvitfeed",
+    "description": "",
+    "require": {
+        "php": "7.*",
+        "mirasvit/module-feed": ">=1.0.62"
+    },
+    "type": "magento2-module",
+    "version": "0.0.1",
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "Oander\\MirasvitFeed\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

@@ -175,5 +175,6 @@ return array (
     'Ubertheme_Ubdatamigration' => 1,
     'Xtento_XtCore' => 1,
     'Xtento_OrderExport' => 1,
+      'Oander_MirasvitFeed' => 1
   ),
 );
