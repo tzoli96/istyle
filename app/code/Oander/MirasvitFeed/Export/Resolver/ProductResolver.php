@@ -79,9 +79,9 @@ class ProductResolver extends \Mirasvit\Feed\Export\Resolver\ProductResolver
     {
         if ($product->getTypeId()==\Magento\Catalog\Model\Product\Type::TYPE_SIMPLE)
         {
-            $url = $product->getProductUrl();
+            $url = $product->getUrlModel()->getUrl($product);
             /** @var Product $parentproduct */
-            $parentproduct = $this->getOnlyParent($product);
+            $parentproduct = $this->getParent($product);
             if($parentproduct)
             {
                 if($parentproduct->getTypeId()==\Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE) {
@@ -96,13 +96,13 @@ class ProductResolver extends \Mirasvit\Feed\Export\Resolver\ProductResolver
                             $params[$code] = $product->getData($code);
                         }
                     }
-                    $url = $parentproduct->getProductUrl() . '?' . http_build_query($params);
+                    $url = $parentproduct->getUrlModel()->getUrl($parentproduct) . '?' . http_build_query($params);
                 }
             }
         }
         else
         {
-            $url = $product->getProductUrl();
+            $url = $product->getUrlModel()->getUrl($product);
         }
 
         return $url;
@@ -139,12 +139,12 @@ class ProductResolver extends \Mirasvit\Feed\Export\Resolver\ProductResolver
             }
             /** @var  $store */
             $websiteid = $this->getFeed()->getStore()->getWebsiteId();
+            $productids = implode(',',$parentIds);
             $select = $this->resource->getConnection()->select()->from(
                 $this->resource->getTableName('catalog_product_website'),
                 ['product_id']
             )->where(
-                "product_id IN (?) and website_id = {$websiteid}",
-                implode(',',$parentIds)
+                "product_id IN ({$productids}) and website_id = {$websiteid}"
             );
             $websiteparentIds = $this->productRelation->getConnection()->fetchCol($select);
             if(count($websiteparentIds))
