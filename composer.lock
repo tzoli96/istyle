@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e69180879e908f73065b76c383fc5c0",
+    "content-hash": "418ee5ac7424e7f11c0bf38f318ba4a2",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6570,16 +6570,16 @@
         },
         {
             "name": "oander/language-lv_lv",
-            "version": "1.0.16",
+            "version": "1.0.18",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-lv-lv.git",
-                "reference": "70818521558077723aa78afe4b1f864b3e5140d9"
+                "reference": "568ca68a74de43c4a40912ef042d37fddd5055e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-lv-lv/zipball/70818521558077723aa78afe4b1f864b3e5140d9",
-                "reference": "70818521558077723aa78afe4b1f864b3e5140d9",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-lv-lv/zipball/568ca68a74de43c4a40912ef042d37fddd5055e7",
+                "reference": "568ca68a74de43c4a40912ef042d37fddd5055e7",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -6593,10 +6593,10 @@
             ],
             "description": "Latvian language pack for the Magento",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-lv-lv/tree/1.0.16",
+                "source": "https://github.com/oandermedia/oander-language-lv-lv/tree/1.0.18",
                 "issues": "https://github.com/oandermedia/oander-language-lv-lv/issues"
             },
-            "time": "2018-03-20T10:12:31+00:00"
+            "time": "2018-03-20T13:54:51+00:00"
         },
         {
             "name": "oander/language-mk-mk",
@@ -6630,16 +6630,16 @@
         },
         {
             "name": "oander/language-ru_ru",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-ru-ru.git",
-                "reference": "2862528670844c1947c79ccde3d420990b047d73"
+                "reference": "bf96d8e0e0d8689e32141126c3ec7d2b5f06a9f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-ru-ru/zipball/2862528670844c1947c79ccde3d420990b047d73",
-                "reference": "2862528670844c1947c79ccde3d420990b047d73",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-ru-ru/zipball/bf96d8e0e0d8689e32141126c3ec7d2b5f06a9f8",
+                "reference": "bf96d8e0e0d8689e32141126c3ec7d2b5f06a9f8",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -6653,10 +6653,10 @@
             ],
             "description": "Russian language pack for the Magento",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-ru-ru/tree/1.0.7",
+                "source": "https://github.com/oandermedia/oander-language-ru-ru/tree/1.0.8",
                 "issues": "https://github.com/oandermedia/oander-language-ru-ru/issues"
             },
-            "time": "2017-11-16T13:41:25+00:00"
+            "time": "2018-03-20T13:55:28+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
@@ -8350,16 +8350,16 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.2.10",
+            "version": "1.2.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "ba9e7974ee5f6a141b4e9294d17a99fddffa91f8"
+                "reference": "0f8a0fa022a5790877710086927a8d3c30ad9c8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/ba9e7974ee5f6a141b4e9294d17a99fddffa91f8",
-                "reference": "ba9e7974ee5f6a141b4e9294d17a99fddffa91f8",
+                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/0f8a0fa022a5790877710086927a8d3c30ad9c8a",
+                "reference": "0f8a0fa022a5790877710086927a8d3c30ad9c8a",
                 "shasum": ""
             },
             "require": {
@@ -8382,10 +8382,10 @@
             ],
             "description": "Warehouse Manager",
             "support": {
-                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.2.10",
+                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.2.12",
                 "issues": "https://github.com/oandermedia/oander-warehouse-manager/issues"
             },
-            "time": "2018-03-06T10:05:05+00:00"
+            "time": "2018-03-20T13:27:41+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
