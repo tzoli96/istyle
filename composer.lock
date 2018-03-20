@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "dcb2daf2248ef0adee5627a0002677a2",
+    "content-hash": "2cdc4bfb7147b57af2296e3609134a1a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -129,16 +129,16 @@
         },
         {
             "name": "amasty/payrestriction",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "dist": {
                 "type": "zip",
-                "url": "https://composer.amasty.com/community/packages/payrestriction-2.0.3.zip",
+                "url": "https://composer.amasty.com/community/packages/payrestriction-2.0.4.zip",
                 "reference": null,
                 "shasum": null
             },
             "require": {
                 "amasty/base": ">=1.0.8",
-                "amasty/system-common-rules": ">=2.0.3",
+                "amasty/system-common-rules": ">=2.0.4",
                 "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|~7.1.0"
             },
             "type": "magento2-module",
@@ -231,10 +231,10 @@
         },
         {
             "name": "amasty/system-common-rules",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "dist": {
                 "type": "zip",
-                "url": "https://composer.amasty.com/community/packages/system-common-rules-2.0.3.zip",
+                "url": "https://composer.amasty.com/community/packages/system-common-rules-2.0.4.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -7464,16 +7464,16 @@
         },
         {
             "name": "oander/module-core-bug-fix",
-            "version": "1.0.15",
+            "version": "1.0.19.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "b2bb89647ce625c4c5c748728a64e2a677dcb922"
+                "reference": "8aaa06a090e6baaf6d4069d218c579f55447b3e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-core-bug-fix/zipball/b2bb89647ce625c4c5c748728a64e2a677dcb922",
-                "reference": "b2bb89647ce625c4c5c748728a64e2a677dcb922",
+                "url": "https://api.github.com/repos/oandermedia/oander-core-bug-fix/zipball/8aaa06a090e6baaf6d4069d218c579f55447b3e6",
+                "reference": "8aaa06a090e6baaf6d4069d218c579f55447b3e6",
                 "shasum": ""
             },
             "require": {
@@ -7493,10 +7493,10 @@
             ],
             "description": "Core bug fixes for Magento 2.x",
             "support": {
-                "source": "https://github.com/oandermedia/oander-core-bug-fix/tree/1.0.15",
+                "source": "https://github.com/oandermedia/oander-core-bug-fix/tree/1.0.19.1",
                 "issues": "https://github.com/oandermedia/oander-core-bug-fix/issues"
             },
-            "time": "2017-12-18T12:02:20+00:00"
+            "time": "2018-03-19T14:35:15+00:00"
         },
         {
             "name": "oander/module-currency-manager",
