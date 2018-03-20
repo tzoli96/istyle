@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2cdc4bfb7147b57af2296e3609134a1a",
+    "content-hash": "2e69180879e908f73065b76c383fc5c0",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6570,16 +6570,16 @@
         },
         {
             "name": "oander/language-lv_lv",
-            "version": "1.0.15",
+            "version": "1.0.16",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-lv-lv.git",
-                "reference": "c73b9ad7521b6a25213932d870317069b7ec5fc8"
+                "reference": "70818521558077723aa78afe4b1f864b3e5140d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-lv-lv/zipball/c73b9ad7521b6a25213932d870317069b7ec5fc8",
-                "reference": "c73b9ad7521b6a25213932d870317069b7ec5fc8",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-lv-lv/zipball/70818521558077723aa78afe4b1f864b3e5140d9",
+                "reference": "70818521558077723aa78afe4b1f864b3e5140d9",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -6593,10 +6593,10 @@
             ],
             "description": "Latvian language pack for the Magento",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-lv-lv/tree/1.0.15",
+                "source": "https://github.com/oandermedia/oander-language-lv-lv/tree/1.0.16",
                 "issues": "https://github.com/oandermedia/oander-language-lv-lv/issues"
             },
-            "time": "2018-02-15T11:29:29+00:00"
+            "time": "2018-03-20T10:12:31+00:00"
         },
         {
             "name": "oander/language-mk-mk",
