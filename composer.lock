@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "614d61997ac37ed12bad420afcc7f9e2",
+    "content-hash": "f453a30ce7a7f10132ed4b0d4a57233b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6630,16 +6630,16 @@
         },
         {
             "name": "oander/language-ru_ru",
-            "version": "1.0.10",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-ru-ru.git",
-                "reference": "bc63170ebb3b6b6fcd0d684ecd726aba7db6526a"
+                "reference": "0ebe77354e90752116b3568fc99a8f1adad7a245"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-ru-ru/zipball/bc63170ebb3b6b6fcd0d684ecd726aba7db6526a",
-                "reference": "bc63170ebb3b6b6fcd0d684ecd726aba7db6526a",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-ru-ru/zipball/0ebe77354e90752116b3568fc99a8f1adad7a245",
+                "reference": "0ebe77354e90752116b3568fc99a8f1adad7a245",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -6653,10 +6653,10 @@
             ],
             "description": "Russian language pack for the Magento",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-ru-ru/tree/1.0.10",
+                "source": "https://github.com/oandermedia/oander-language-ru-ru/tree/1.0.11",
                 "issues": "https://github.com/oandermedia/oander-language-ru-ru/issues"
             },
-            "time": "2018-03-21T14:31:10+00:00"
+            "time": "2018-03-22T12:39:39+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",

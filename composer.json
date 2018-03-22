@@ -11,7 +11,7 @@
         "magento/product-community-edition": "2.1.5",
         "composer/composer": "@alpha",
         "oander/language-lv_lv": "1.0.20",
-        "oander/language-ru_ru": "1.0.10",
+        "oander/language-ru_ru": "1.0.11",
         "oander/language-mk-mk": "1.0.13",
         "oander/module-ajax-catalog": "1.0.5",
         "oander/module-api-base": "1.0.21",
