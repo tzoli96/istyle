@@ -22,8 +22,6 @@ EFS_BUILD="${EFS}/build"
 EFS_PRELIVE="${EFS}/live_$(date +%Y%m%d%H%M)"
 INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
 CODEDEPLOY_BUILD_APP_NAME="istyle-eu-master"
-### CSAK ELSO PROD FUTTATASHOZ!!! ###
-EFS_LIVE="${EFS}/blue"
 
 # DEPLOYMENT VARIABLES
 LANGUAGES=('MK')
@@ -117,7 +115,7 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   if rm -rf ${EFS_BUILD}/pub/static/*; then echo OK; else echo FAIL; fi
 
   echo -n " * RSYNC LIVE FOLDER TO BUILD WITH EXCEPTIONS ... "
-#  EFS_LIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | head -1)"
+  EFS_LIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | head -1)"
   if rsync -au --delete --exclude={"/var/backups/*","/var/log","/var/report/*","/var/di/*","/var/generation/*","/var/view_preprocessed/*","/pub/static/*"} ${EFS_LIVE}/ ${EFS_BUILD}/; then echo OK; else echo FAIL; fi
 
   echo " * CREATE DIRECTORY SYMLINKS TO BUILD:"
@@ -269,7 +267,7 @@ else
     echo
 
     echo -n " * INIT MAINTENANCE MODE MANUALLY ... "
-#    EFS_LIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | head -1)"
+    EFS_LIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | head -1)"
     if touch ${EFS_LIVE}/var/.maintenance.flag && sleep 5; then
       echo OK
       magento "setup:upgrade --keep-generated"
