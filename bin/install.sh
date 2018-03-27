@@ -218,12 +218,15 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   if rsync -au --delete --exclude={"/var/backups/*","/var/log/*","/var/session"} ${EFS_BUILD}/ ${EFS_PRELIVE}/; then echo OK; else echo FAIL; fi
 
   # FOR CRONJOBS
-  echo -n " * COPY THE ENV FILE WITH THE DATABASES BACK FOR CRONJOBS ... "
-  if cp -a ${EFS}/env/env.php ${WEBROOT}/app/etc/; then echo OK; else echo FAIL; fi
-
   echo " * SET SYMLINKS TO PRELIVE FOR CRONJOBS ... "
   symlink_check "var" "${WEBROOT}/var" "${EFS_PRELIVE}/var" "${WEBROOT}/"
   symlink_check "pub/static" "${WEBROOT}/pub/static" "${EFS_PRELIVE}/pub/static" "${WEBROOT}/pub/"
+
+  echo -n " * COPY THE ENV FILE WITH THE DATABASES BACK FOR CRONJOBS ... "
+  if cp -a ${EFS}/env/env.php ${WEBROOT}/app/etc/; then echo OK; else echo FAIL; fi
+
+  echo -n " * COPY THE CONFIG.PHP TO NFS ... "
+  if cp -a ${WEBROOT}/app/etc/config.php ${EFS}/env/; then echo OK; else echo FAIL; fi
 
   echo -n " * CREATE FLAG FOR BLUE/GREEN DEPLOYMENT FIRST INSTANCE CHECK ... "
   if [ -f ${EFS}/deployed.flag ]; then
@@ -278,6 +281,8 @@ else
   else
     echo "NO ==="
     echo
+    echo -n " * COPY THE CONFIG.PHP FROM NFS ... "
+    if cp -a ${EFS}/env/config.php ${WEBROOT}/app/etc/; then echo OK; else echo FAIL; fi
     magento "cache:enable"
   fi
 fi
