@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "88a2cc1b455d924241b45c2be759c7bb",
+    "content-hash": "4cc80342beb8f4aa31cb1ce32c54247b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1017,16 +1017,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.3.0",
+            "version": "6.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699"
+                "reference": "68d0ea14d5a3f42a20e87632a5f84931e2709c90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/f4db5a78a5ea468d4831de7f0bf9d9415e348699",
-                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/68d0ea14d5a3f42a20e87632a5f84931e2709c90",
+                "reference": "68d0ea14d5a3f42a20e87632a5f84931e2709c90",
                 "shasum": ""
             },
             "require": {
@@ -1036,7 +1036,7 @@
             },
             "require-dev": {
                 "ext-curl": "*",
-                "phpunit/phpunit": "^4.0 || ^5.0",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4",
                 "psr/log": "^1.0"
             },
             "suggest": {
@@ -1045,7 +1045,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.2-dev"
+                    "dev-master": "6.3-dev"
                 }
             },
             "autoload": {
@@ -1078,7 +1078,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2017-06-22T18:50:49+00:00"
+            "time": "2018-03-26T16:33:04+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1229,6 +1229,74 @@
                 "issues": "https://github.com/oandermedia/innobyte-checkout-success/issues"
             },
             "time": "2017-12-17T11:02:06+00:00"
+        },
+        {
+            "name": "innobyte/module-dsk",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/innobyte-dsk.git",
+                "reference": "9e60552bed031947ec4704605e9cf197fd9c9db5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/innobyte-dsk/zipball/9e60552bed031947ec4704605e9cf197fd9c9db5",
+                "reference": "9e60552bed031947ec4704605e9cf197fd9c9db5",
+                "shasum": ""
+            },
+            "require": {
+                "magento/module-checkout": "^100.1.2",
+                "php": "7.0.2|7.0.4|~7.0.6"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Innobyte\\DSK\\": ""
+                }
+            },
+            "description": "Innobyte DSK Payment Module",
+            "support": {
+                "source": "https://github.com/oandermedia/innobyte-dsk/tree/0.0.1",
+                "issues": "https://github.com/oandermedia/innobyte-dsk/issues"
+            },
+            "time": "2018-03-07T12:49:01+00:00"
+        },
+        {
+            "name": "innobyte/module-mstart",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/innobyte-mstart.git",
+                "reference": "caa9a006dbc518998552fbf30738a7125eb71c54"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/innobyte-mstart/zipball/caa9a006dbc518998552fbf30738a7125eb71c54",
+                "reference": "caa9a006dbc518998552fbf30738a7125eb71c54",
+                "shasum": ""
+            },
+            "require": {
+                "magento/module-checkout": "^100.1.2",
+                "php": "7.0.2|7.0.4|~7.0.6"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Innobyte\\MStart\\": ""
+                }
+            },
+            "description": "Innobyte MStart Payment Module",
+            "support": {
+                "source": "https://github.com/oandermedia/innobyte-mstart/tree/0.0.1",
+                "issues": "https://github.com/oandermedia/innobyte-mstart/issues"
+            },
+            "time": "2018-03-23T20:06:08+00:00"
         },
         {
             "name": "innobyte/module-nlb",
@@ -6644,16 +6712,16 @@
         },
         {
             "name": "oander/language-lv_lv",
-            "version": "1.0.20",
+            "version": "1.0.24",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-lv-lv.git",
-                "reference": "3b276d69c6b30d5245e7a30abed64f5a76fc5a82"
+                "reference": "bae5881247a75a67f5297e8e9add1b99227043b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-lv-lv/zipball/3b276d69c6b30d5245e7a30abed64f5a76fc5a82",
-                "reference": "3b276d69c6b30d5245e7a30abed64f5a76fc5a82",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-lv-lv/zipball/bae5881247a75a67f5297e8e9add1b99227043b3",
+                "reference": "bae5881247a75a67f5297e8e9add1b99227043b3",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -6667,23 +6735,23 @@
             ],
             "description": "Latvian language pack for the Magento",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-lv-lv/tree/1.0.20",
+                "source": "https://github.com/oandermedia/oander-language-lv-lv/tree/1.0.24",
                 "issues": "https://github.com/oandermedia/oander-language-lv-lv/issues"
             },
-            "time": "2018-03-21T14:30:01+00:00"
+            "time": "2018-03-28T11:47:21+00:00"
         },
         {
             "name": "oander/language-mk-mk",
-            "version": "1.0.13",
+            "version": "1.0.16",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-mk-mk.git",
-                "reference": "2d2f2165a6631a911548c08072ca017edb033808"
+                "reference": "006afc5a008c2978aac3be4e57e13f532a28c019"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-mk-mk/zipball/2d2f2165a6631a911548c08072ca017edb033808",
-                "reference": "2d2f2165a6631a911548c08072ca017edb033808",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-mk-mk/zipball/006afc5a008c2978aac3be4e57e13f532a28c019",
+                "reference": "006afc5a008c2978aac3be4e57e13f532a28c019",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -6697,23 +6765,23 @@
             ],
             "description": "Macedonian language pack for the Magento",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-mk-mk/tree/1.0.13",
+                "source": "https://github.com/oandermedia/oander-language-mk-mk/tree/1.0.16",
                 "issues": "https://github.com/oandermedia/oander-language-mk-mk/issues"
             },
-            "time": "2018-02-21T09:07:05+00:00"
+            "time": "2018-03-28T11:50:31+00:00"
         },
         {
             "name": "oander/language-ru_ru",
-            "version": "1.0.11",
+            "version": "1.0.13",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-ru-ru.git",
-                "reference": "0ebe77354e90752116b3568fc99a8f1adad7a245"
+                "reference": "e72b7be014755d9e150dc04fc58065b0893c6b5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-ru-ru/zipball/0ebe77354e90752116b3568fc99a8f1adad7a245",
-                "reference": "0ebe77354e90752116b3568fc99a8f1adad7a245",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-ru-ru/zipball/e72b7be014755d9e150dc04fc58065b0893c6b5f",
+                "reference": "e72b7be014755d9e150dc04fc58065b0893c6b5f",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -6727,10 +6795,10 @@
             ],
             "description": "Russian language pack for the Magento",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-ru-ru/tree/1.0.11",
+                "source": "https://github.com/oandermedia/oander-language-ru-ru/tree/1.0.13",
                 "issues": "https://github.com/oandermedia/oander-language-ru-ru/issues"
             },
-            "time": "2018-03-22T12:39:39+00:00"
+            "time": "2018-03-28T10:47:07+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
@@ -7464,16 +7532,16 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.18",
+            "version": "1.0.20",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "eef55ad6403e9394855822dcbc1f10b5873eefed"
+                "reference": "6e2ef8cb35d90a02d89c018f6cd0d07bf0331948"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/eef55ad6403e9394855822dcbc1f10b5873eefed",
-                "reference": "eef55ad6403e9394855822dcbc1f10b5873eefed",
+                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/6e2ef8cb35d90a02d89c018f6cd0d07bf0331948",
+                "reference": "6e2ef8cb35d90a02d89c018f6cd0d07bf0331948",
                 "shasum": ""
             },
             "require": {
@@ -7494,10 +7562,10 @@
             ],
             "description": "Configurable Product Attribute",
             "support": {
-                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.18",
+                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.20",
                 "issues": "https://github.com/oandermedia/oander-configurable-product-attribute/issues"
             },
-            "time": "2018-03-07T11:58:45+00:00"
+            "time": "2018-03-27T13:07:54+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -7574,16 +7642,16 @@
         },
         {
             "name": "oander/module-currency-manager",
-            "version": "1.1.1",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-currency-manager.git",
-                "reference": "5edb067182944306b5efa4dc2c16a6aef1ed4ae7"
+                "reference": "a981cf79b263a9533371b3c7784b689258667129"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-currency-manager/zipball/5edb067182944306b5efa4dc2c16a6aef1ed4ae7",
-                "reference": "5edb067182944306b5efa4dc2c16a6aef1ed4ae7",
+                "url": "https://api.github.com/repos/oandermedia/oander-currency-manager/zipball/a981cf79b263a9533371b3c7784b689258667129",
+                "reference": "a981cf79b263a9533371b3c7784b689258667129",
                 "shasum": ""
             },
             "require": {
@@ -7606,10 +7674,10 @@
             ],
             "description": "This module provides currency settings.",
             "support": {
-                "source": "https://github.com/oandermedia/oander-currency-manager/tree/1.1.1",
+                "source": "https://github.com/oandermedia/oander-currency-manager/tree/1.2.1",
                 "issues": "https://github.com/oandermedia/oander-currency-manager/issues"
             },
-            "time": "2017-10-11T10:49:06+00:00"
+            "time": "2018-03-27T13:40:22+00:00"
         },
         {
             "name": "oander/module-customer-file-upload",
@@ -8646,16 +8714,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.74",
+            "version": "1.0.81",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "a71dc628a26a3482bc13b0bf4c6942eb18d524b3"
+                "reference": "6a4ef557ebb7a54f931dbedcf98be7f57ae54b3a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/a71dc628a26a3482bc13b0bf4c6942eb18d524b3",
-                "reference": "a71dc628a26a3482bc13b0bf4c6942eb18d524b3",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/6a4ef557ebb7a54f931dbedcf98be7f57ae54b3a",
+                "reference": "6a4ef557ebb7a54f931dbedcf98be7f57ae54b3a",
                 "shasum": ""
             },
             "require": {
@@ -8673,10 +8741,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.74",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.81",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2018-03-13T14:05:56+00:00"
+            "time": "2018-03-27T14:47:54+00:00"
         },
         {
             "name": "oyejorge/less.php",
