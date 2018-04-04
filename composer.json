@@ -84,7 +84,8 @@
         "godvsdeity/swedbank-payment-portal": "^0.8",
         "oander/module-type-hint-fix": "1.0.1",
         "innobyte/module-mstart": "0.0.1",
-        "innobyte/module-dsk": "0.0.1"
+        "innobyte/module-dsk": "0.0.1",
+        "rudracomputech/module-nestpay": "2.0.3"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
@@ -423,6 +424,10 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/innobyte-dsk.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/rudracomputech-nestpay.git"
         }
     ],
     "extra": {
