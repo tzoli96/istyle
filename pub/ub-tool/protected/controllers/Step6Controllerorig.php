@@ -94,35 +94,22 @@ class Step6Controller extends BaseController
         $check = $step->canRun();
         if ($check['allowed']) {
 
-            //get mapping websites
-            $mappingWebsites = UBMigrate::getMappingData('core_website', 2);
-            $mappingWebsites2 = array();
-            foreach($mappingWebsites as $m1id=>$m2id)
-            {
-                $m2websit = Mage2Website::model()->find("website_id = {$m2id}");
-                if($m2websit->code=='hr' || $m2websit->code=='si')
-                {
-                    $mappingWebsites2[$m1id] = $m2id;
-                }
+            //check run mode
+            if ($this->runMode == 'rerun') {
+                //reset current offset
+                UBMigrate::updateCurrentOffset(Mage1CustomerGroup::model()->tableName(), 0, $this->stepIndex);
+                UBMigrate::updateCurrentOffset(Mage1CustomerEntity::model()->tableName(), 0, $this->stepIndex);
             }
-            $mappingWebsites = $mappingWebsites2;
 
+            //get mapping websites
+            //$mappingWebsites = UBMigrate::getMappingData('core_website', 2);
+            $mappingWebsites = $this->getmigrablewebsitevalues();
             //get migrated website ids
             $strMigratedWebsiteIds = implode(',', array_keys($mappingWebsites));
 
             //get mapping stores
-            $mappingStores = UBMigrate::getMappingData('core_store', 2);
-            $mappingStores2 = array();
-            foreach($mappingStores as $m1id=>$m2id)
-            {
-                $m2store = Mage2Store::model()->find("store_id = {$m2id}");
-                if($m2store->code=='hr_hr' || $m2store->code=='si_si')
-                {
-                    $mappingStores2[$m1id] = $m2id;
-                }
-            }
-            $mappingStores=$mappingStores2;
-
+            //$mappingStores = UBMigrate::getMappingData('core_store', 2);
+            $mappingStores = $this->getmigrablestorevalues();
             //get migrated store ids
             $strMigratedStoreIds = implode(',', array_keys($mappingStores));
 
