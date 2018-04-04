@@ -63,7 +63,7 @@
         "oander/module-wonder-widget": "1.1.15",
         "oander/module-xtento-order-export-extender": "1.0.7",
         "oander/theme-hodor": "1.1.22",
-        "oander/theme-istyle": "1.0.84",
+        "oander/theme-istyle": "1.0.88",
         "algolia/algoliasearch-magento-2": "^1.0",
         "amasty/base": "1.1.1",
         "amasty/promo": "1.3.4",
@@ -76,7 +76,7 @@
         "xtento/module-orderexport": "2.3.9",
         "xtento/module-xtcore": "2.1.0",
         "anowave/package": "0.0.1",
-        "anowave/ec": "100.0.2",
+        "anowave/ec": "100.0.5",
         "oander/module-cardondeliverypayment": "1.0.0",
         "oander/module-cashonpickuppayment": "1.0.0",
         "amasty/payrestriction": "^2.0",
@@ -85,7 +85,8 @@
         "oander/module-type-hint-fix": "1.0.1",
         "innobyte/module-mstart": "0.0.1",
         "innobyte/module-dsk": "0.0.1",
-        "rudracomputech/module-nestpay": "2.0.4"
+        "oander/module-installment-prices": "1.0.4",
+        "rudracomputech/module-nestpay": "2.0.5"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
@@ -424,6 +425,10 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/innobyte-dsk.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/installment-prices.git"
         },
         {
             "type": "vcs",
