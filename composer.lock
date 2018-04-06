@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f6ec9f76725a7a06381aea80d04a039b",
-    "content-hash": "b8fece24ca038ea5c6036688e7622a50",
+    "hash": "8c85c75562257168838843e7ec2efeea",
+    "content-hash": "8e696657d2dd498c4b3bde935155fb50",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6713,16 +6713,16 @@
         },
         {
             "name": "oander/language-hr-hr",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-hr-hr.git",
-                "reference": "01a779b4256b948c2fe2abbc414def152731258d"
+                "reference": "b5feae3781dfab7ac93af6566127e569004bb14d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-hr-hr/zipball/01a779b4256b948c2fe2abbc414def152731258d",
-                "reference": "01a779b4256b948c2fe2abbc414def152731258d",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-hr-hr/zipball/b5feae3781dfab7ac93af6566127e569004bb14d",
+                "reference": "b5feae3781dfab7ac93af6566127e569004bb14d",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -6742,10 +6742,10 @@
             "description": "Croatian language package for Magento 2",
             "homepage": "http://www.oander.hu",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-hr-hr/tree/1.0.1",
+                "source": "https://github.com/oandermedia/oander-language-hr-hr/tree/1.0.2",
                 "issues": "https://github.com/oandermedia/oander-language-hr-hr/issues"
             },
-            "time": "2018-04-04 13:38:33"
+            "time": "2018-04-06 08:32:20"
         },
         {
             "name": "oander/language-lv_lv",
@@ -8052,16 +8052,16 @@
         },
         {
             "name": "oander/module-installment-prices",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/installment-prices.git",
-                "reference": "c4d72164eaebbc99d9beb56b527d9fcc3d42823d"
+                "reference": "501f87b7d1216d783175f30459ee5e51607fb5be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/installment-prices/zipball/c4d72164eaebbc99d9beb56b527d9fcc3d42823d",
-                "reference": "c4d72164eaebbc99d9beb56b527d9fcc3d42823d",
+                "url": "https://api.github.com/repos/oandermedia/installment-prices/zipball/501f87b7d1216d783175f30459ee5e51607fb5be",
+                "reference": "501f87b7d1216d783175f30459ee5e51607fb5be",
                 "shasum": ""
             },
             "require": {
@@ -8082,10 +8082,10 @@
             ],
             "description": "Installment prices displays next to Product Icons",
             "support": {
-                "source": "https://github.com/oandermedia/installment-prices/tree/1.0.5",
+                "source": "https://github.com/oandermedia/installment-prices/tree/1.0.6",
                 "issues": "https://github.com/oandermedia/installment-prices/issues"
             },
-            "time": "2018-04-05 12:45:48"
+            "time": "2018-04-06 08:30:32"
         },
         {
             "name": "oander/module-multislider",
@@ -8824,16 +8824,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.89",
+            "version": "1.0.90",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "d2d69236da782f51970e9ff950d833e692554498"
+                "reference": "d0658caa80e6fbaf68a392885456f0043d84d0ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/d2d69236da782f51970e9ff950d833e692554498",
-                "reference": "d2d69236da782f51970e9ff950d833e692554498",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/d0658caa80e6fbaf68a392885456f0043d84d0ad",
+                "reference": "d0658caa80e6fbaf68a392885456f0043d84d0ad",
                 "shasum": ""
             },
             "require": {
@@ -8851,10 +8851,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.89",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.90",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2018-04-05 09:04:37"
+            "time": "2018-04-06 08:14:21"
         },
         {
             "name": "oyejorge/less.php",
