@@ -79,6 +79,9 @@ echo "   DEPLOY SCRIPT STARTING ON ENV: ${DEPLOY_ENV}  "
 echo "================================================="
 echo
 
+/etc/init.d/php7.0-fpm start
+/etc/init.d/nginx start
+
 # MAIN INSTANCE CHECK AND WORKFLOW
 if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   echo "===== BUILD STAGE ====="
