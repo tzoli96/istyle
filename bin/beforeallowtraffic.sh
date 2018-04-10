@@ -2,8 +2,7 @@
 set -u
 
 EFS="/mnt/istyle-storage/istyle"
-#EFS_LIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | head -1)"
-EFS_LIVE="${EFS}/blue"
+EFS_LIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | head -1)"
 WEBROOT="/var/www/istyle.eu/webroot"
 INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
 
