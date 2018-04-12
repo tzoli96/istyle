@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a25c73cedb8ddc9b254a4909f398644d",
+    "content-hash": "1396a9d8549c40859e60a58ea39fe3f9",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8088,16 +8088,16 @@
         },
         {
             "name": "oander/module-multislider",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-multi-slider.git",
-                "reference": "52d7fbb0861596dea7a2aadf6e90336507e74cc7"
+                "reference": "fa4c19b2fb9f5caf8e66f8c20419fb5b0dd3ecca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-multi-slider/zipball/52d7fbb0861596dea7a2aadf6e90336507e74cc7",
-                "reference": "52d7fbb0861596dea7a2aadf6e90336507e74cc7",
+                "url": "https://api.github.com/repos/oandermedia/oander-multi-slider/zipball/fa4c19b2fb9f5caf8e66f8c20419fb5b0dd3ecca",
+                "reference": "fa4c19b2fb9f5caf8e66f8c20419fb5b0dd3ecca",
                 "shasum": ""
             },
             "require": {
@@ -8118,10 +8118,10 @@
             ],
             "description": "Slider module",
             "support": {
-                "source": "https://github.com/oandermedia/oander-multi-slider/tree/1.2.2",
+                "source": "https://github.com/oandermedia/oander-multi-slider/tree/1.2.3",
                 "issues": "https://github.com/oandermedia/oander-multi-slider/issues"
             },
-            "time": "2018-03-28T14:06:32+00:00"
+            "time": "2018-04-12T08:29:35+00:00"
         },
         {
             "name": "oander/module-name-switcher",
