@@ -10,6 +10,7 @@
     "require": {
         "magento/product-community-edition": "2.1.5",
         "composer/composer": "@alpha",
+        "oander/language-bg-bg": "1.0.4",
         "oander/language-lv_lv": "1.0.24",
         "oander/language-ru_ru": "1.0.13",
         "oander/language-mk-mk": "1.0.16",
@@ -32,7 +33,7 @@
         "oander/module-category-badge": "2.2.1",
         "oander/module-category-dropdown": "1.0.12",
         "oander/module-checkout": "1.0.0",
-        "oander/module-configurable-product-attribute": "1.0.20",
+        "oander/module-configurable-product-attribute": "1.0.23",
         "oander/module-cookie-law": "0.0.2",
         "oander/module-core-bug-fix": "1.0.19.1",
         "oander/module-currency-manager": "1.2.1",
@@ -63,7 +64,7 @@
         "oander/module-wonder-widget": "1.1.15",
         "oander/module-xtento-order-export-extender": "1.0.7",
         "oander/theme-hodor": "1.1.22",
-        "oander/theme-istyle": "1.0.90",
+        "oander/theme-istyle": "1.0.95",
         "algolia/algoliasearch-magento-2": "^1.0",
         "amasty/base": "1.1.1",
         "amasty/promo": "1.3.4",
@@ -140,7 +141,19 @@
         },
         {
             "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-language-bg-bg.git"
+        },
+        {
+            "type": "vcs",
             "url": "git@github.com:oandermedia/oander-language-mk-mk.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-language-sl-si.git"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:oandermedia/oander-language-hr-hr.git"
         },
         {
             "type": "vcs",
@@ -405,14 +418,6 @@
         {
             "type": "vcs",
             "url": "git@github.com:oandermedia/oander-language-ru-ru.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:oandermedia/oander-language-hr-hr.git"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:oandermedia/oander-language-sl-si.git"
         },
         {
             "type": "vcs",

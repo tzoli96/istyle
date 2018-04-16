@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1396a9d8549c40859e60a58ea39fe3f9",
+    "content-hash": "7061f398d6ef41e5cd8fb28fdddc2b88",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6711,6 +6711,42 @@
             "time": "2015-08-09T17:44:44+00:00"
         },
         {
+            "name": "oander/language-bg-bg",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-language-bg-bg.git",
+                "reference": "c9e27dff455871451b05c263661320430702edf5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-bg-bg/zipball/c9e27dff455871451b05c263661320430702edf5",
+                "reference": "c9e27dff455871451b05c263661320430702edf5",
+                "shasum": ""
+            },
+            "type": "magento2-language",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frontend Hype team"
+                }
+            ],
+            "description": "Bulgarian language package for Magento 2",
+            "homepage": "http://www.oander.hu",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-language-bg-bg/tree/1.0.4",
+                "issues": "https://github.com/oandermedia/oander-language-bg-bg/issues"
+            },
+            "time": "2018-04-16T13:15:41+00:00"
+        },
+        {
             "name": "oander/language-hr-hr",
             "version": "1.0.3",
             "source": {
@@ -7604,16 +7640,16 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.20",
+            "version": "1.0.23",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "6e2ef8cb35d90a02d89c018f6cd0d07bf0331948"
+                "reference": "b8af1ed6bb1acf13bf8babde376644feaf438e94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/6e2ef8cb35d90a02d89c018f6cd0d07bf0331948",
-                "reference": "6e2ef8cb35d90a02d89c018f6cd0d07bf0331948",
+                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/b8af1ed6bb1acf13bf8babde376644feaf438e94",
+                "reference": "b8af1ed6bb1acf13bf8babde376644feaf438e94",
                 "shasum": ""
             },
             "require": {
@@ -7634,10 +7670,10 @@
             ],
             "description": "Configurable Product Attribute",
             "support": {
-                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.20",
+                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.23",
                 "issues": "https://github.com/oandermedia/oander-configurable-product-attribute/issues"
             },
-            "time": "2018-03-27T13:07:54+00:00"
+            "time": "2018-04-12T19:20:55+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -8823,16 +8859,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.90",
+            "version": "1.0.95",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "d0658caa80e6fbaf68a392885456f0043d84d0ad"
+                "reference": "63ba0c23d117e5fe50393e437cc206319373793f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/d0658caa80e6fbaf68a392885456f0043d84d0ad",
-                "reference": "d0658caa80e6fbaf68a392885456f0043d84d0ad",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/63ba0c23d117e5fe50393e437cc206319373793f",
+                "reference": "63ba0c23d117e5fe50393e437cc206319373793f",
                 "shasum": ""
             },
             "require": {
@@ -8850,10 +8886,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.90",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.95",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2018-04-06T08:14:21+00:00"
+            "time": "2018-04-12T19:50:06+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -9073,16 +9109,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.10",
+            "version": "2.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "d305b780829ea4252ed9400b3f5937c2c99b51d4"
+                "reference": "7053f06f91b3de78e143d430e55a8f7889efc08b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/d305b780829ea4252ed9400b3f5937c2c99b51d4",
-                "reference": "d305b780829ea4252ed9400b3f5937c2c99b51d4",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/7053f06f91b3de78e143d430e55a8f7889efc08b",
+                "reference": "7053f06f91b3de78e143d430e55a8f7889efc08b",
                 "shasum": ""
             },
             "require": {
@@ -9161,7 +9197,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2018-02-19T04:29:13+00:00"
+            "time": "2018-04-15T16:55:05+00:00"
         },
         {
             "name": "psr/http-message",
