@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7061f398d6ef41e5cd8fb28fdddc2b88",
+    "content-hash": "43a8d3db19e68cc4afdaa9eee2ce8909",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1195,6 +1195,40 @@
                 "url"
             ],
             "time": "2017-03-20T17:10:46+00:00"
+        },
+        {
+            "name": "innobyte/module-bnpparibas",
+            "version": "0.0.4.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/innobyte-bnpparibas.git",
+                "reference": "541315eae46eef108991ef7689c4b3315c8c8e14"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/innobyte-bnpparibas/zipball/541315eae46eef108991ef7689c4b3315c8c8e14",
+                "reference": "541315eae46eef108991ef7689c4b3315c8c8e14",
+                "shasum": ""
+            },
+            "require": {
+                "magento/module-checkout": "^100.1.2",
+                "php": "7.0.2|7.0.4|~7.0.6"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Innobyte\\BNPParibas\\": ""
+                }
+            },
+            "description": "BNP Paribas Payment Module",
+            "support": {
+                "source": "https://github.com/oandermedia/innobyte-bnpparibas/tree/master",
+                "issues": "https://github.com/oandermedia/innobyte-bnpparibas/issues"
+            },
+            "time": "2018-04-17T08:40:45+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
@@ -6712,16 +6746,16 @@
         },
         {
             "name": "oander/language-bg-bg",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-bg-bg.git",
-                "reference": "c9e27dff455871451b05c263661320430702edf5"
+                "reference": "c8172df1a1052690bcf9a8f6c4b2e84c73f6e3b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-bg-bg/zipball/c9e27dff455871451b05c263661320430702edf5",
-                "reference": "c9e27dff455871451b05c263661320430702edf5",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-bg-bg/zipball/c8172df1a1052690bcf9a8f6c4b2e84c73f6e3b4",
+                "reference": "c8172df1a1052690bcf9a8f6c4b2e84c73f6e3b4",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -6741,10 +6775,10 @@
             "description": "Bulgarian language package for Magento 2",
             "homepage": "http://www.oander.hu",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-bg-bg/tree/1.0.4",
+                "source": "https://github.com/oandermedia/oander-language-bg-bg/tree/1.0.5",
                 "issues": "https://github.com/oandermedia/oander-language-bg-bg/issues"
             },
-            "time": "2018-04-16T13:15:41+00:00"
+            "time": "2018-04-17T09:40:42+00:00"
         },
         {
             "name": "oander/language-hr-hr",
