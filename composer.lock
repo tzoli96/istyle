@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d0da106437fbb19e3ed34753f9f877ac",
+    "content-hash": "4bca8129a5d5b8e31e4cb63ed88357e7",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6811,7 +6811,7 @@
             "description": "Croatian language package for Magento 2",
             "homepage": "http://www.oander.hu",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-hr-hr/tree/master",
+                "source": "https://github.com/oandermedia/oander-language-hr-hr/tree/1.0.4",
                 "issues": "https://github.com/oandermedia/oander-language-hr-hr/issues"
             },
             "time": "2018-04-18T07:57:58+00:00"
@@ -8966,16 +8966,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.99",
+            "version": "1.0.101",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "7dd32f7b7811b59ad60a4787e65eb5aa698e1633"
+                "reference": "e25c38a846ede0e682a2a30e3964b4509889a68c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/7dd32f7b7811b59ad60a4787e65eb5aa698e1633",
-                "reference": "7dd32f7b7811b59ad60a4787e65eb5aa698e1633",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/e25c38a846ede0e682a2a30e3964b4509889a68c",
+                "reference": "e25c38a846ede0e682a2a30e3964b4509889a68c",
                 "shasum": ""
             },
             "require": {
@@ -8993,10 +8993,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.99",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.101",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2018-04-18T07:55:34+00:00"
+            "time": "2018-04-18T15:57:06+00:00"
         },
         {
             "name": "oyejorge/less.php",
