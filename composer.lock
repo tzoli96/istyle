@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "43a8d3db19e68cc4afdaa9eee2ce8909",
+    "content-hash": "d0da106437fbb19e3ed34753f9f877ac",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1225,7 +1225,7 @@
             },
             "description": "BNP Paribas Payment Module",
             "support": {
-                "source": "https://github.com/oandermedia/innobyte-bnpparibas/tree/master",
+                "source": "https://github.com/oandermedia/innobyte-bnpparibas/tree/0.0.4.1",
                 "issues": "https://github.com/oandermedia/innobyte-bnpparibas/issues"
             },
             "time": "2018-04-17T08:40:45+00:00"
@@ -6746,16 +6746,16 @@
         },
         {
             "name": "oander/language-bg-bg",
-            "version": "1.0.5",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-bg-bg.git",
-                "reference": "c8172df1a1052690bcf9a8f6c4b2e84c73f6e3b4"
+                "reference": "88cfa4efc74850615ba678e77f200a15346d0b9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-bg-bg/zipball/c8172df1a1052690bcf9a8f6c4b2e84c73f6e3b4",
-                "reference": "c8172df1a1052690bcf9a8f6c4b2e84c73f6e3b4",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-bg-bg/zipball/88cfa4efc74850615ba678e77f200a15346d0b9b",
+                "reference": "88cfa4efc74850615ba678e77f200a15346d0b9b",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -6775,23 +6775,23 @@
             "description": "Bulgarian language package for Magento 2",
             "homepage": "http://www.oander.hu",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-bg-bg/tree/1.0.5",
+                "source": "https://github.com/oandermedia/oander-language-bg-bg/tree/1.0.8",
                 "issues": "https://github.com/oandermedia/oander-language-bg-bg/issues"
             },
-            "time": "2018-04-17T09:40:42+00:00"
+            "time": "2018-04-18T07:45:11+00:00"
         },
         {
             "name": "oander/language-hr-hr",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-hr-hr.git",
-                "reference": "61cf197ea6cdb36f947caa2503073170262b5f86"
+                "reference": "c0abeaeb0f3c6c0a19d75d5f31383f3f0a0fd77f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-hr-hr/zipball/61cf197ea6cdb36f947caa2503073170262b5f86",
-                "reference": "61cf197ea6cdb36f947caa2503073170262b5f86",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-hr-hr/zipball/c0abeaeb0f3c6c0a19d75d5f31383f3f0a0fd77f",
+                "reference": "c0abeaeb0f3c6c0a19d75d5f31383f3f0a0fd77f",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -6811,23 +6811,23 @@
             "description": "Croatian language package for Magento 2",
             "homepage": "http://www.oander.hu",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-hr-hr/tree/1.0.3",
+                "source": "https://github.com/oandermedia/oander-language-hr-hr/tree/master",
                 "issues": "https://github.com/oandermedia/oander-language-hr-hr/issues"
             },
-            "time": "2018-04-09T10:40:24+00:00"
+            "time": "2018-04-18T07:57:58+00:00"
         },
         {
             "name": "oander/language-lv_lv",
-            "version": "1.0.24",
+            "version": "1.0.26",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-lv-lv.git",
-                "reference": "bae5881247a75a67f5297e8e9add1b99227043b3"
+                "reference": "e54951d3a0037352b9018e7abaa8284a69d92d8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-lv-lv/zipball/bae5881247a75a67f5297e8e9add1b99227043b3",
-                "reference": "bae5881247a75a67f5297e8e9add1b99227043b3",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-lv-lv/zipball/e54951d3a0037352b9018e7abaa8284a69d92d8b",
+                "reference": "e54951d3a0037352b9018e7abaa8284a69d92d8b",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -6841,23 +6841,23 @@
             ],
             "description": "Latvian language pack for the Magento",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-lv-lv/tree/1.0.24",
+                "source": "https://github.com/oandermedia/oander-language-lv-lv/tree/1.0.26",
                 "issues": "https://github.com/oandermedia/oander-language-lv-lv/issues"
             },
-            "time": "2018-03-28T11:47:21+00:00"
+            "time": "2018-04-18T08:00:31+00:00"
         },
         {
             "name": "oander/language-mk-mk",
-            "version": "1.0.16",
+            "version": "1.0.17",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-mk-mk.git",
-                "reference": "006afc5a008c2978aac3be4e57e13f532a28c019"
+                "reference": "3223bf0ffba67db613770345f57e43973b61315b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-mk-mk/zipball/006afc5a008c2978aac3be4e57e13f532a28c019",
-                "reference": "006afc5a008c2978aac3be4e57e13f532a28c019",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-mk-mk/zipball/3223bf0ffba67db613770345f57e43973b61315b",
+                "reference": "3223bf0ffba67db613770345f57e43973b61315b",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -6871,10 +6871,10 @@
             ],
             "description": "Macedonian language pack for the Magento",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-mk-mk/tree/1.0.16",
+                "source": "https://github.com/oandermedia/oander-language-mk-mk/tree/1.0.17",
                 "issues": "https://github.com/oandermedia/oander-language-mk-mk/issues"
             },
-            "time": "2018-03-28T11:50:31+00:00"
+            "time": "2018-04-18T07:55:33+00:00"
         },
         {
             "name": "oander/language-ru_ru",
@@ -6908,16 +6908,16 @@
         },
         {
             "name": "oander/language-sl-si",
-            "version": "1.0.3",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-sl-si.git",
-                "reference": "3d924ba31d5a77cc3927ea2099d0e1a2d5d393b9"
+                "reference": "ed1b3decea8aa7885144abd45eb1a74069f5e217"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-sl-si/zipball/3d924ba31d5a77cc3927ea2099d0e1a2d5d393b9",
-                "reference": "3d924ba31d5a77cc3927ea2099d0e1a2d5d393b9",
+                "url": "https://api.github.com/repos/oandermedia/oander-language-sl-si/zipball/ed1b3decea8aa7885144abd45eb1a74069f5e217",
+                "reference": "ed1b3decea8aa7885144abd45eb1a74069f5e217",
                 "shasum": ""
             },
             "type": "magento2-language",
@@ -6937,10 +6937,10 @@
             "description": "Slovenian language package for Magento 2",
             "homepage": "http://www.oander.hu",
             "support": {
-                "source": "https://github.com/oandermedia/oander-language-sl-si/tree/1.0.3",
+                "source": "https://github.com/oandermedia/oander-language-sl-si/tree/1.0.5",
                 "issues": "https://github.com/oandermedia/oander-language-sl-si/issues"
             },
-            "time": "2018-04-10T09:05:14+00:00"
+            "time": "2018-04-18T07:52:19+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
@@ -6978,6 +6978,43 @@
                 "issues": "https://github.com/oandermedia/oander-ajax-catalog/issues"
             },
             "time": "2018-01-05T12:00:40+00:00"
+        },
+        {
+            "name": "oander/module-alternativewidget",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-alternativewidget.git",
+                "reference": "e8c924257b5ecc51eff79faa80d316677daf7899"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-alternativewidget/zipball/e8c924257b5ecc51eff79faa80d316677daf7899",
+                "reference": "e8c924257b5ecc51eff79faa80d316677daf7899",
+                "shasum": ""
+            },
+            "require": {
+                "oander/module-producturlresolver": "^1.0.0",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\Alternativewidget\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Istyle Alternative product widget for Alternative pages",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-alternativewidget/tree/1.0.4",
+                "issues": "https://github.com/oandermedia/oander-alternativewidget/issues"
+            },
+            "time": "2018-04-18T07:21:39+00:00"
         },
         {
             "name": "oander/module-api-base",
@@ -7407,23 +7444,23 @@
         },
         {
             "name": "oander/module-api-warehouse-manager",
-            "version": "1.0.7",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-warehouse-manager.git",
-                "reference": "7b406754a36d210dd5d79b5d31d74ce86a4aae67"
+                "reference": "d00f5f98422bfaa56416f76b875c74c1e04a3e68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-warehouse-manager/zipball/7b406754a36d210dd5d79b5d31d74ce86a4aae67",
-                "reference": "7b406754a36d210dd5d79b5d31d74ce86a4aae67",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-warehouse-manager/zipball/d00f5f98422bfaa56416f76b875c74c1e04a3e68",
+                "reference": "d00f5f98422bfaa56416f76b875c74c1e04a3e68",
                 "shasum": ""
             },
             "require": {
                 "oander/module-api-base": "*",
                 "oander/module-api-gateway": "*",
                 "oander/module-base": "*",
-                "oander/module-warehouse-manager": "*",
+                "oander/module-warehouse-manager": ">=1.3.0",
                 "php": "7.*"
             },
             "type": "magento2-module",
@@ -7440,10 +7477,10 @@
             ],
             "description": "Oander_ApiWarehouseManager",
             "support": {
-                "source": "https://github.com/oandermedia/oander-api-warehouse-manager/tree/1.0.7",
+                "source": "https://github.com/oandermedia/oander-api-warehouse-manager/tree/1.1.0",
                 "issues": "https://github.com/oandermedia/oander-api-warehouse-manager/issues"
             },
-            "time": "2018-01-30T10:47:44+00:00"
+            "time": "2018-04-12T08:45:38+00:00"
         },
         {
             "name": "oander/module-base",
@@ -8522,6 +8559,42 @@
             "time": "2017-09-20T07:34:10+00:00"
         },
         {
+            "name": "oander/module-producturlresolver",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-producturlresolver.git",
+                "reference": "e10b4a65cd4afd8c3eac6c4d5f7558eb3914daa1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-producturlresolver/zipball/e10b4a65cd4afd8c3eac6c4d5f7558eb3914daa1",
+                "reference": "e10b4a65cd4afd8c3eac6c4d5f7558eb3914daa1",
+                "shasum": ""
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\Producturlresolver\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Config product Simple resolver",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-producturlresolver/tree/1.0.0",
+                "issues": "https://github.com/oandermedia/oander-producturlresolver/issues"
+            },
+            "time": "2018-04-09T15:31:35+00:00"
+        },
+        {
             "name": "oander/module-salesforce",
             "version": "1.0.1",
             "source": {
@@ -8707,16 +8780,16 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.2.12",
+            "version": "1.3.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "0f8a0fa022a5790877710086927a8d3c30ad9c8a"
+                "reference": "48343e257825aa5921512eeeb3d75af8e520957c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/0f8a0fa022a5790877710086927a8d3c30ad9c8a",
-                "reference": "0f8a0fa022a5790877710086927a8d3c30ad9c8a",
+                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/48343e257825aa5921512eeeb3d75af8e520957c",
+                "reference": "48343e257825aa5921512eeeb3d75af8e520957c",
                 "shasum": ""
             },
             "require": {
@@ -8739,10 +8812,10 @@
             ],
             "description": "Warehouse Manager",
             "support": {
-                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.2.12",
+                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.3.3",
                 "issues": "https://github.com/oandermedia/oander-warehouse-manager/issues"
             },
-            "time": "2018-03-20T13:27:41+00:00"
+            "time": "2018-04-17T09:52:37+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
@@ -8852,7 +8925,7 @@
             ],
             "description": "Xtento Order Export Extender",
             "support": {
-                "source": "https://github.com/oandermedia/oander-xtento-order-export-extender/tree/1.0.7",
+                "source": "https://github.com/oandermedia/oander-xtento-order-export-extender/tree/1.0.9",
                 "issues": "https://github.com/oandermedia/oander-xtento-order-export-extender/issues"
             },
             "time": "2018-01-29T16:31:04+00:00"
@@ -8893,16 +8966,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.95",
+            "version": "1.0.99",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "63ba0c23d117e5fe50393e437cc206319373793f"
+                "reference": "7dd32f7b7811b59ad60a4787e65eb5aa698e1633"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/63ba0c23d117e5fe50393e437cc206319373793f",
-                "reference": "63ba0c23d117e5fe50393e437cc206319373793f",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/7dd32f7b7811b59ad60a4787e65eb5aa698e1633",
+                "reference": "7dd32f7b7811b59ad60a4787e65eb5aa698e1633",
                 "shasum": ""
             },
             "require": {
@@ -8920,10 +8993,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.95",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.99",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2018-04-12T19:50:06+00:00"
+            "time": "2018-04-18T07:55:34+00:00"
         },
         {
             "name": "oyejorge/less.php",
