@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4bca8129a5d5b8e31e4cb63ed88357e7",
+    "content-hash": "99297a383d4bfdd6aacef8de9e53a4cb",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8780,16 +8780,16 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.3.3",
+            "version": "1.3.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "48343e257825aa5921512eeeb3d75af8e520957c"
+                "reference": "23417a3983c19c67d607fc0af27448708cf6c1ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/48343e257825aa5921512eeeb3d75af8e520957c",
-                "reference": "48343e257825aa5921512eeeb3d75af8e520957c",
+                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/23417a3983c19c67d607fc0af27448708cf6c1ce",
+                "reference": "23417a3983c19c67d607fc0af27448708cf6c1ce",
                 "shasum": ""
             },
             "require": {
@@ -8812,10 +8812,10 @@
             ],
             "description": "Warehouse Manager",
             "support": {
-                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.3.3",
+                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.3.4",
                 "issues": "https://github.com/oandermedia/oander-warehouse-manager/issues"
             },
-            "time": "2018-04-17T09:52:37+00:00"
+            "time": "2018-04-18T17:05:53+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
@@ -8966,16 +8966,16 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.101",
+            "version": "1.0.102",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "e25c38a846ede0e682a2a30e3964b4509889a68c"
+                "reference": "11e71a98a849533d70ce37090d08b19045981de4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/e25c38a846ede0e682a2a30e3964b4509889a68c",
-                "reference": "e25c38a846ede0e682a2a30e3964b4509889a68c",
+                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/11e71a98a849533d70ce37090d08b19045981de4",
+                "reference": "11e71a98a849533d70ce37090d08b19045981de4",
                 "shasum": ""
             },
             "require": {
@@ -8993,10 +8993,10 @@
             ],
             "description": "iStyle M2 Theme",
             "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.101",
+                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.102",
                 "issues": "https://github.com/oandermedia/theme-istyle/issues"
             },
-            "time": "2018-04-18T15:57:06+00:00"
+            "time": "2018-04-18T16:25:08+00:00"
         },
         {
             "name": "oyejorge/less.php",
