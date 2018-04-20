@@ -79,7 +79,7 @@ class ProductResolver extends \Mirasvit\Feed\Export\Resolver\ProductResolver
     {
         if ($product->getTypeId()==\Magento\Catalog\Model\Product\Type::TYPE_SIMPLE)
         {
-            $url = $product->getUrlModel()->getUrl($product);
+            $url = $product->getProductUrl();
             /** @var Product $parentproduct */
             $parentproduct = $this->getParent($product);
             if($parentproduct)
@@ -96,13 +96,13 @@ class ProductResolver extends \Mirasvit\Feed\Export\Resolver\ProductResolver
                             $params[$code] = $product->getData($code);
                         }
                     }
-                    $url = $parentproduct->getUrlModel()->getUrl($parentproduct) . '?' . http_build_query($params);
+                    $url = $parentproduct->getProductUrl() . '?' . http_build_query($params);
                 }
             }
         }
         else
         {
-            $url = $product->getUrlModel()->getUrl($product);
+            $url = $product->getProductUrl();
         }
 
         return $url;
@@ -116,7 +116,6 @@ class ProductResolver extends \Mirasvit\Feed\Export\Resolver\ProductResolver
      */
     public function getParent($product)
     {
-        $magentoEdition = $this->productMetadata->getEdition();
         $select = $this->productRelation->getConnection()->select()->from(
             $this->productRelation->getMainTable(),
             ['parent_id']
@@ -126,25 +125,14 @@ class ProductResolver extends \Mirasvit\Feed\Export\Resolver\ProductResolver
         );
         $parentIds = $this->productRelation->getConnection()->fetchCol($select);
         if (count($parentIds)) {
-            if ($magentoEdition == 'Enterprise') {
-                $parentRowId = $parentIds[0];
-                $select = $this->productRelation->getConnection()->select()->from(
-                    $this->resource->getTableName('catalog_product_entity'),
-                    ['entity_id']
-                )->where(
-                    'row_id = ?',
-                    $parentRowId
-                );
-                $parentIds = $this->productRelation->getConnection()->fetchCol($select);
-            }
             /** @var  $store */
             $websiteid = $this->getFeed()->getStore()->getWebsiteId();
-            $productids = implode(',',$parentIds);
+            $parentIdsstring = implode(',',$parentIds);
             $select = $this->resource->getConnection()->select()->from(
                 $this->resource->getTableName('catalog_product_website'),
                 ['product_id']
             )->where(
-                "product_id IN ({$productids}) and website_id = {$websiteid}"
+                "product_id IN ({$parentIdsstring}) and website_id = {$websiteid}"
             );
             $websiteparentIds = $this->productRelation->getConnection()->fetchCol($select);
             if(count($websiteparentIds))
