@@ -81,7 +81,7 @@ class ProductResolver extends \Mirasvit\Feed\Export\Resolver\ProductResolver
         {
             $url = $product->getProductUrl();
             /** @var Product $parentproduct */
-            $parentproduct = $this->getOnlyParent($product);
+            $parentproduct = $this->getParent($product);
             if($parentproduct)
             {
                 if($parentproduct->getTypeId()==\Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE) {
@@ -116,7 +116,6 @@ class ProductResolver extends \Mirasvit\Feed\Export\Resolver\ProductResolver
      */
     public function getParent($product)
     {
-        $magentoEdition = $this->productMetadata->getEdition();
         $select = $this->productRelation->getConnection()->select()->from(
             $this->productRelation->getMainTable(),
             ['parent_id']
@@ -126,25 +125,14 @@ class ProductResolver extends \Mirasvit\Feed\Export\Resolver\ProductResolver
         );
         $parentIds = $this->productRelation->getConnection()->fetchCol($select);
         if (count($parentIds)) {
-            if ($magentoEdition == 'Enterprise') {
-                $parentRowId = $parentIds[0];
-                $select = $this->productRelation->getConnection()->select()->from(
-                    $this->resource->getTableName('catalog_product_entity'),
-                    ['entity_id']
-                )->where(
-                    'row_id = ?',
-                    $parentRowId
-                );
-                $parentIds = $this->productRelation->getConnection()->fetchCol($select);
-            }
             /** @var  $store */
             $websiteid = $this->getFeed()->getStore()->getWebsiteId();
+            $parentIdsstring = implode(',',$parentIds);
             $select = $this->resource->getConnection()->select()->from(
                 $this->resource->getTableName('catalog_product_website'),
                 ['product_id']
             )->where(
-                "product_id IN (?) and website_id = {$websiteid}",
-                implode(',',$parentIds)
+                "product_id IN ({$parentIdsstring}) and website_id = {$websiteid}"
             );
             $websiteparentIds = $this->productRelation->getConnection()->fetchCol($select);
             if(count($websiteparentIds))
