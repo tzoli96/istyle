@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1fff61250aaa2048ff1fa1d70f9bc8b3",
-    "content-hash": "a1c3bf556f0fc236691fdcf8f6aa33be",
+    "hash": "638aa68ff1872a5fc8373b6e9ee35866",
+    "content-hash": "ba98cb95e731b8f5f471a1af42e60abd",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -265,12 +265,6 @@
                 "url": "git@github.com:oandermedia/anowave-ec.git",
                 "reference": "8793307db575c305b384af4f99d02f2a8ff385c1"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/anowave-ec/zipball/8793307db575c305b384af4f99d02f2a8ff385c1",
-                "reference": "8793307db575c305b384af4f99d02f2a8ff385c1",
-                "shasum": ""
-            },
             "require": {
                 "anowave/package": "0.0.*",
                 "php": "~5.5.0|~5.6.0|~7.0.0"
@@ -292,10 +286,6 @@
             ],
             "description": "Magento 2 Google Tag Manager Enhanced Ecommerce (UA) Tracking",
             "homepage": "http://www.anowave.com/marketplace/magento-2-extensions/magento-2-google-tag-manager-enhanced-ecommerce-ua-tracking/",
-            "support": {
-                "source": "https://github.com/oandermedia/anowave-ec/tree/100.0.5",
-                "issues": "https://github.com/oandermedia/anowave-ec/issues"
-            },
             "time": "2018-04-04 14:16:15"
         },
         {
@@ -305,12 +295,6 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/anowave-package.git",
                 "reference": "624e390f13a062b38492f231a26602f58cd990f9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/anowave-package/zipball/624e390f13a062b38492f231a26602f58cd990f9",
-                "reference": "624e390f13a062b38492f231a26602f58cd990f9",
-                "shasum": ""
             },
             "require": {
                 "php": "~5.5.0|~5.6.0|~7.0.0"
@@ -325,10 +309,6 @@
                 }
             },
             "description": "Anowave Package",
-            "support": {
-                "source": "https://github.com/oandermedia/anowave-package/tree/0.0.1",
-                "issues": "https://github.com/oandermedia/anowave-package/issues"
-            },
             "time": "2018-02-06 11:53:42"
         },
         {
@@ -976,7 +956,7 @@
             "version": "v0.8.30",
             "source": {
                 "type": "git",
-                "url": "https://github.com/godvsdeity/swedbank-payment-portal.git",
+                "url": "git@github.com:godvsdeity/swedbank-payment-portal.git",
                 "reference": "42097fc707d96b4045d7cce7b881dc4e40313f76"
             },
             "dist": {
@@ -1018,16 +998,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.3.2",
+            "version": "6.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "68d0ea14d5a3f42a20e87632a5f84931e2709c90"
+                "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/68d0ea14d5a3f42a20e87632a5f84931e2709c90",
-                "reference": "68d0ea14d5a3f42a20e87632a5f84931e2709c90",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/407b0cb880ace85c9b63c5f9551db498cb2d50ba",
+                "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba",
                 "shasum": ""
             },
             "require": {
@@ -1037,7 +1017,7 @@
             },
             "require-dev": {
                 "ext-curl": "*",
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4 || ^7.0",
                 "psr/log": "^1.0"
             },
             "suggest": {
@@ -1079,7 +1059,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2018-03-26 16:33:04"
+            "time": "2018-04-22 15:46:56"
         },
         {
             "name": "guzzlehttp/promises",
@@ -6753,12 +6733,6 @@
                 "url": "git@github.com:oandermedia/oander-language-bg-bg.git",
                 "reference": "88cfa4efc74850615ba678e77f200a15346d0b9b"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-bg-bg/zipball/88cfa4efc74850615ba678e77f200a15346d0b9b",
-                "reference": "88cfa4efc74850615ba678e77f200a15346d0b9b",
-                "shasum": ""
-            },
             "type": "magento2-language",
             "autoload": {
                 "files": [
@@ -6775,10 +6749,6 @@
             ],
             "description": "Bulgarian language package for Magento 2",
             "homepage": "http://www.oander.hu",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-language-bg-bg/tree/1.0.8",
-                "issues": "https://github.com/oandermedia/oander-language-bg-bg/issues"
-            },
             "time": "2018-04-18 07:45:11"
         },
         {
@@ -6788,12 +6758,6 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-hr-hr.git",
                 "reference": "c0abeaeb0f3c6c0a19d75d5f31383f3f0a0fd77f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-hr-hr/zipball/c0abeaeb0f3c6c0a19d75d5f31383f3f0a0fd77f",
-                "reference": "c0abeaeb0f3c6c0a19d75d5f31383f3f0a0fd77f",
-                "shasum": ""
             },
             "type": "magento2-language",
             "autoload": {
@@ -6811,10 +6775,6 @@
             ],
             "description": "Croatian language package for Magento 2",
             "homepage": "http://www.oander.hu",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-language-hr-hr/tree/1.0.4",
-                "issues": "https://github.com/oandermedia/oander-language-hr-hr/issues"
-            },
             "time": "2018-04-18 07:57:58"
         },
         {
@@ -6824,12 +6784,6 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-lv-lv.git",
                 "reference": "e54951d3a0037352b9018e7abaa8284a69d92d8b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-lv-lv/zipball/e54951d3a0037352b9018e7abaa8284a69d92d8b",
-                "reference": "e54951d3a0037352b9018e7abaa8284a69d92d8b",
-                "shasum": ""
             },
             "type": "magento2-language",
             "autoload": {
@@ -6841,10 +6795,6 @@
                 "proprietary"
             ],
             "description": "Latvian language pack for the Magento",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-language-lv-lv/tree/1.0.26",
-                "issues": "https://github.com/oandermedia/oander-language-lv-lv/issues"
-            },
             "time": "2018-04-18 08:00:31"
         },
         {
@@ -6854,12 +6804,6 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-mk-mk.git",
                 "reference": "3223bf0ffba67db613770345f57e43973b61315b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-mk-mk/zipball/3223bf0ffba67db613770345f57e43973b61315b",
-                "reference": "3223bf0ffba67db613770345f57e43973b61315b",
-                "shasum": ""
             },
             "type": "magento2-language",
             "autoload": {
@@ -6871,10 +6815,6 @@
                 "proprietary"
             ],
             "description": "Macedonian language pack for the Magento",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-language-mk-mk/tree/1.0.17",
-                "issues": "https://github.com/oandermedia/oander-language-mk-mk/issues"
-            },
             "time": "2018-04-18 07:55:33"
         },
         {
@@ -6915,12 +6855,6 @@
                 "url": "git@github.com:oandermedia/oander-language-sl-si.git",
                 "reference": "ed1b3decea8aa7885144abd45eb1a74069f5e217"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-sl-si/zipball/ed1b3decea8aa7885144abd45eb1a74069f5e217",
-                "reference": "ed1b3decea8aa7885144abd45eb1a74069f5e217",
-                "shasum": ""
-            },
             "type": "magento2-language",
             "autoload": {
                 "files": [
@@ -6937,10 +6871,6 @@
             ],
             "description": "Slovenian language package for Magento 2",
             "homepage": "http://www.oander.hu",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-language-sl-si/tree/1.0.5",
-                "issues": "https://github.com/oandermedia/oander-language-sl-si/issues"
-            },
             "time": "2018-04-18 07:52:19"
         },
         {
@@ -6988,12 +6918,6 @@
                 "url": "git@github.com:oandermedia/oander-alternativewidget.git",
                 "reference": "e8c924257b5ecc51eff79faa80d316677daf7899"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-alternativewidget/zipball/e8c924257b5ecc51eff79faa80d316677daf7899",
-                "reference": "e8c924257b5ecc51eff79faa80d316677daf7899",
-                "shasum": ""
-            },
             "require": {
                 "oander/module-producturlresolver": "^1.0.0",
                 "php": "7.*"
@@ -7011,10 +6935,6 @@
                 "proprietary"
             ],
             "description": "Istyle Alternative product widget for Alternative pages",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-alternativewidget/tree/1.0.4",
-                "issues": "https://github.com/oandermedia/oander-alternativewidget/issues"
-            },
             "time": "2018-04-18 07:21:39"
         },
         {
@@ -7718,12 +7638,6 @@
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
                 "reference": "b8af1ed6bb1acf13bf8babde376644feaf438e94"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/b8af1ed6bb1acf13bf8babde376644feaf438e94",
-                "reference": "b8af1ed6bb1acf13bf8babde376644feaf438e94",
-                "shasum": ""
-            },
             "require": {
                 "oander/module-base": "*",
                 "php": "7.*"
@@ -7741,10 +7655,6 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.23",
-                "issues": "https://github.com/oandermedia/oander-configurable-product-attribute/issues"
-            },
             "time": "2018-04-12 19:20:55"
         },
         {
@@ -7792,12 +7702,6 @@
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
                 "reference": "8aaa06a090e6baaf6d4069d218c579f55447b3e6"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-core-bug-fix/zipball/8aaa06a090e6baaf6d4069d218c579f55447b3e6",
-                "reference": "8aaa06a090e6baaf6d4069d218c579f55447b3e6",
-                "shasum": ""
-            },
             "require": {
                 "php": "7.*"
             },
@@ -7814,10 +7718,6 @@
                 "proprietary"
             ],
             "description": "Core bug fixes for Magento 2.x",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-core-bug-fix/tree/1.0.19.1",
-                "issues": "https://github.com/oandermedia/oander-core-bug-fix/issues"
-            },
             "time": "2018-03-19 14:35:15"
         },
         {
@@ -8456,12 +8356,6 @@
                 "url": "git@github.com:oandermedia/oander-preorder.git",
                 "reference": "874deac33a2eff0d287290613cd99b6878c951e5"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-preorder/zipball/874deac33a2eff0d287290613cd99b6878c951e5",
-                "reference": "874deac33a2eff0d287290613cd99b6878c951e5",
-                "shasum": ""
-            },
             "require": {
                 "oander/module-base": "*",
                 "php": "7.*"
@@ -8479,10 +8373,6 @@
                 "proprietary"
             ],
             "description": "Oander Preorder",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-preorder/tree/1.0.15",
-                "issues": "https://github.com/oandermedia/oander-preorder/issues"
-            },
             "time": "2018-02-22 16:56:34"
         },
         {
@@ -8524,16 +8414,16 @@
         },
         {
             "name": "oander/module-product-icons",
-            "version": "1.0.6",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-product-icons.git",
-                "reference": "82f5cfcfe171540617b0bf988ae0ef5eab3a9d55"
+                "reference": "1eca56421b3e78fc0c5900e665bb642c3fc6d956"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-product-icons/zipball/82f5cfcfe171540617b0bf988ae0ef5eab3a9d55",
-                "reference": "82f5cfcfe171540617b0bf988ae0ef5eab3a9d55",
+                "url": "https://api.github.com/repos/oandermedia/oander-product-icons/zipball/1eca56421b3e78fc0c5900e665bb642c3fc6d956",
+                "reference": "1eca56421b3e78fc0c5900e665bb642c3fc6d956",
                 "shasum": ""
             },
             "require": {
@@ -8554,10 +8444,10 @@
             ],
             "description": "Oander Product Icons module",
             "support": {
-                "source": "https://github.com/oandermedia/oander-product-icons/tree/1.0.6",
+                "source": "https://github.com/oandermedia/oander-product-icons/tree/1.1.1",
                 "issues": "https://github.com/oandermedia/oander-product-icons/issues"
             },
-            "time": "2017-09-20 07:34:10"
+            "time": "2018-04-13 08:32:05"
         },
         {
             "name": "oander/module-producturlresolver",
@@ -8781,17 +8671,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.3.4",
+            "version": "1.3.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "23417a3983c19c67d607fc0af27448708cf6c1ce"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-manager/zipball/23417a3983c19c67d607fc0af27448708cf6c1ce",
-                "reference": "23417a3983c19c67d607fc0af27448708cf6c1ce",
-                "shasum": ""
+                "reference": "995bb6c24fd4b71a19718ba6ca34525560c51666"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8812,11 +8696,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-warehouse-manager/tree/1.3.4",
-                "issues": "https://github.com/oandermedia/oander-warehouse-manager/issues"
-            },
-            "time": "2018-04-18 17:05:53"
+            "time": "2018-04-26 12:05:37"
         },
         {
             "name": "oander/module-warehouse-stock-order",
@@ -8901,12 +8781,6 @@
                 "url": "git@github.com:oandermedia/oander-xtento-order-export-extender.git",
                 "reference": "6f5f654b771d51214ba33c847407e1bc308124d1"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-xtento-order-export-extender/zipball/6f5f654b771d51214ba33c847407e1bc308124d1",
-                "reference": "6f5f654b771d51214ba33c847407e1bc308124d1",
-                "shasum": ""
-            },
             "require": {
                 "php": "7.*",
                 "xtento/module-orderexport": "2.3.9",
@@ -8925,10 +8799,6 @@
                 "proprietary"
             ],
             "description": "Xtento Order Export Extender",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-xtento-order-export-extender/tree/1.0.9",
-                "issues": "https://github.com/oandermedia/oander-xtento-order-export-extender/issues"
-            },
             "time": "2018-01-29 16:31:04"
         },
         {
@@ -8973,12 +8843,6 @@
                 "url": "git@github.com:oandermedia/theme-istyle.git",
                 "reference": "11e71a98a849533d70ce37090d08b19045981de4"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/theme-istyle/zipball/11e71a98a849533d70ce37090d08b19045981de4",
-                "reference": "11e71a98a849533d70ce37090d08b19045981de4",
-                "shasum": ""
-            },
             "require": {
                 "oander/module-base": "*",
                 "php": "7.*"
@@ -8993,10 +8857,6 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "support": {
-                "source": "https://github.com/oandermedia/theme-istyle/tree/1.0.102",
-                "issues": "https://github.com/oandermedia/theme-istyle/issues"
-            },
             "time": "2018-04-18 16:25:08"
         },
         {
