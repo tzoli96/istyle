@@ -138,6 +138,10 @@
         {
             "type": "composer",
             "url": "satis.oander.hu"
+        },
+        {
+            "type": "composer",
+            "url": "https://composer.amasty.com/community/"
         }
     ],
     "extra": {
