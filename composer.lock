@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e2de26ac4f9f29a6469a8d7021e8dee8",
+    "content-hash": "7f03113872a4d16c0fc40fb22c19f73c",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7649,11 +7649,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.26",
+            "version": "1.0.26.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "52a8b7868cf44a703d2c3a31a95903d4b85c8373"
+                "reference": "5c96c097f94bebae1ed4d71d5e522f9b6d97b3ae"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7672,7 +7672,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2018-05-02T19:02:00+00:00"
+            "time": "2018-05-03T16:52:04+00:00"
         },
         {
             "name": "oander/module-cookie-law",
