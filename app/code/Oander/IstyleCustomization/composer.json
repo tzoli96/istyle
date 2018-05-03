@@ -1,0 +1,20 @@
+{
+    "name": "oander/module-istylecustomization",
+    "description": "",
+    "require": {
+        "php": "7.*"
+    },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "proprietary"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Oander\\IstyleCustomization\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}
