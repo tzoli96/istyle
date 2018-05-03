@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "922411eb331d4408a4b7a72cea7f54fe",
+    "content-hash": "e2de26ac4f9f29a6469a8d7021e8dee8",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7649,17 +7649,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.23",
+            "version": "1.0.26",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "b8af1ed6bb1acf13bf8babde376644feaf438e94"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-configurable-product-attribute/zipball/b8af1ed6bb1acf13bf8babde376644feaf438e94",
-                "reference": "b8af1ed6bb1acf13bf8babde376644feaf438e94",
-                "shasum": ""
+                "reference": "52a8b7868cf44a703d2c3a31a95903d4b85c8373"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7678,11 +7672,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-configurable-product-attribute/tree/1.0.23",
-                "issues": "https://github.com/oandermedia/oander-configurable-product-attribute/issues"
-            },
-            "time": "2018-04-12T19:20:55+00:00"
+            "time": "2018-05-02T19:02:00+00:00"
         },
         {
             "name": "oander/module-cookie-law",

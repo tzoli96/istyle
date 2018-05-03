@@ -15,28 +15,30 @@
  * @license Oander Media Kft. (http://www.oander.hu)
  */
 
-namespace Oander\IstyleCustomization\Preferences\Magento\Catalog\Block\Category;
+namespace Oander\IstyleCustomization\Block\Product;
 
 /**
- * Class View
- * @package Magento\Catalog\Block\Category
+ * Product View block
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
-class View extends \Magento\Catalog\Block\Category\View
+class View extends \Magento\Catalog\Block\Product\View
 {
     /**
-     * @return $this
+     * Add meta information from product to head block
+     *
+     * @return \Magento\Catalog\Block\Product\View
      */
     protected function _prepareLayout()
     {
-        parent::_prepareLayout();
-        $title = $this->getCurrentCategory()->getMetaTitle();
+        $layout = parent::_prepareLayout();
+        $title = $this->getProduct()->getMetaTitle();
         if ($title) {
             $this->pageConfig->getTitle()->set($title);
         }
         else
         {
-            $this->pageConfig->getTitle()->set($this->getCurrentCategory()->getName());
+            $this->pageConfig->getTitle()->set($this->getProduct()->getName());
         }
-        return $this;
+        return $layout;
     }
 }
