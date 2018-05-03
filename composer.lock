@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "624d83477218474cb040d46dc9091686",
+    "content-hash": "922411eb331d4408a4b7a72cea7f54fe",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -228,6 +228,34 @@
                 "issues": "https://github.com/oandermedia/amasty-rgrid/issues"
             },
             "time": "2018-02-20T09:25:58+00:00"
+        },
+        {
+            "name": "amasty/shiprestriction",
+            "version": "2.0.6",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/community/packages/shiprestriction-2.0.6.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "amasty/base": ">=1.0.8",
+                "amasty/system-common-rules": ">=2.0.5",
+                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|~7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\Shiprestriction\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Shipping Restrictions By Amasty"
         },
         {
             "name": "amasty/system-common-rules",
@@ -6716,11 +6744,11 @@
         },
         {
             "name": "oander/language-bg-bg",
-            "version": "1.0.8",
+            "version": "1.0.10",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-bg-bg.git",
-                "reference": "88cfa4efc74850615ba678e77f200a15346d0b9b"
+                "reference": "4acfbfd9727631e1be26d020ac78dd51a390a75a"
             },
             "type": "magento2-language",
             "autoload": {
@@ -6738,7 +6766,7 @@
             ],
             "description": "Bulgarian language package for Magento 2",
             "homepage": "http://www.oander.hu",
-            "time": "2018-04-18T07:45:11+00:00"
+            "time": "2018-05-03T14:11:27+00:00"
         },
         {
             "name": "oander/language-hr-hr",
@@ -8105,17 +8133,11 @@
         },
         {
             "name": "oander/module-multislider",
-            "version": "1.2.3",
+            "version": "1.2.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-multi-slider.git",
-                "reference": "fa4c19b2fb9f5caf8e66f8c20419fb5b0dd3ecca"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-multi-slider/zipball/fa4c19b2fb9f5caf8e66f8c20419fb5b0dd3ecca",
-                "reference": "fa4c19b2fb9f5caf8e66f8c20419fb5b0dd3ecca",
-                "shasum": ""
+                "reference": "4c2e5ea5ddf7bdb4f94b7942ff46195b604b2248"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8134,11 +8156,7 @@
                 "proprietary"
             ],
             "description": "Slider module",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-multi-slider/tree/1.2.3",
-                "issues": "https://github.com/oandermedia/oander-multi-slider/issues"
-            },
-            "time": "2018-04-12T08:29:35+00:00"
+            "time": "2018-04-26T11:41:59+00:00"
         },
         {
             "name": "oander/module-name-switcher",
@@ -8680,11 +8698,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.3.7",
+            "version": "1.3.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "995bb6c24fd4b71a19718ba6ca34525560c51666"
+                "reference": "bdc60108adb91ef1540f3cfec929db4c9dece871"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8705,7 +8723,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-04-26T12:05:37+00:00"
+            "time": "2018-04-27T13:17:42+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
