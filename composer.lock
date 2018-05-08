@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5cd5211152af7f985e7cc530df9b42a3",
+    "content-hash": "1e72e1468d0b892e1658b46f57bb2283",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6842,12 +6842,6 @@
                 "url": "git@github.com:oandermedia/oander-language-ru-ru.git",
                 "reference": "e72b7be014755d9e150dc04fc58065b0893c6b5f"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-language-ru-ru/zipball/e72b7be014755d9e150dc04fc58065b0893c6b5f",
-                "reference": "e72b7be014755d9e150dc04fc58065b0893c6b5f",
-                "shasum": ""
-            },
             "type": "magento2-language",
             "autoload": {
                 "files": [
@@ -6858,10 +6852,6 @@
                 "proprietary"
             ],
             "description": "Russian language pack for the Magento",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-language-ru-ru/tree/1.0.13",
-                "issues": "https://github.com/oandermedia/oander-language-ru-ru/issues"
-            },
             "time": "2018-03-28T10:47:07+00:00"
         },
         {
@@ -6889,6 +6879,32 @@
             "description": "Slovenian language package for Magento 2",
             "homepage": "http://www.oander.hu",
             "time": "2018-04-18T07:52:19+00:00"
+        },
+        {
+            "name": "oander/language-sr-rs-istyle",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-language-sr-rs-istyle.git",
+                "reference": "ec0b60e6d7ca1a3b86749223923867e5bac0b9fa"
+            },
+            "type": "magento2-language",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frontend Hype team"
+                }
+            ],
+            "description": "Serbian language package for Magento 2",
+            "homepage": "http://www.oander.hu",
+            "time": "2018-05-08T10:02:51+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
@@ -6962,12 +6978,6 @@
                 "url": "git@github.com:oandermedia/oander-api-base.git",
                 "reference": "2b83c59118ccdbe85ed6326bb4432213bcb154c1"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-base/zipball/2b83c59118ccdbe85ed6326bb4432213bcb154c1",
-                "reference": "2b83c59118ccdbe85ed6326bb4432213bcb154c1",
-                "shasum": ""
-            },
             "require": {
                 "oander/module-base": "*",
                 "php": "7.*"
@@ -6985,10 +6995,6 @@
                 "proprietary"
             ],
             "description": "API Base",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-api-base/tree/1.0.21",
-                "issues": "https://github.com/oandermedia/oander-api-base/issues"
-            },
             "time": "2018-02-05T10:02:32+00:00"
         },
         {
@@ -7038,12 +7044,6 @@
                 "url": "git@github.com:oandermedia/oander-api-category.git",
                 "reference": "648e144c93685f84aebd077d05c481c9443b6561"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-category/zipball/648e144c93685f84aebd077d05c481c9443b6561",
-                "reference": "648e144c93685f84aebd077d05c481c9443b6561",
-                "shasum": ""
-            },
             "require": {
                 "oander/module-api-base": "*",
                 "oander/module-api-gateway": "*",
@@ -7063,10 +7063,6 @@
                 "proprietary"
             ],
             "description": "Backend API to Category",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-api-category/tree/1.0.9",
-                "issues": "https://github.com/oandermedia/oander-api-category/issues"
-            },
             "time": "2017-11-27T15:10:27+00:00"
         },
         {
@@ -7116,12 +7112,6 @@
                 "url": "git@github.com:oandermedia/oander-api-customer.git",
                 "reference": "41903ee1f8e485e8e329e77f5562934f2ea8d815"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-customer/zipball/41903ee1f8e485e8e329e77f5562934f2ea8d815",
-                "reference": "41903ee1f8e485e8e329e77f5562934f2ea8d815",
-                "shasum": ""
-            },
             "require": {
                 "oander/module-api-base": "*",
                 "oander/module-api-gateway": "*",
@@ -7141,10 +7131,6 @@
                 "proprietary"
             ],
             "description": "Backend API to Customer",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-api-customer/tree/1.0.6",
-                "issues": "https://github.com/oandermedia/oander-api-customer/issues"
-            },
             "time": "2017-12-04T15:51:28+00:00"
         },
         {
@@ -7154,12 +7140,6 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-gateway.git",
                 "reference": "a258d2932cea89ae9b08fe375adbd946ca26b20e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-gateway/zipball/a258d2932cea89ae9b08fe375adbd946ca26b20e",
-                "reference": "a258d2932cea89ae9b08fe375adbd946ca26b20e",
-                "shasum": ""
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7179,10 +7159,6 @@
                 "proprietary"
             ],
             "description": "The API Gateway module for ERP connections and import solutions.",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-api-gateway/tree/1.0.12",
-                "issues": "https://github.com/oandermedia/oander-api-gateway/issues"
-            },
             "time": "2017-11-30T15:41:39+00:00"
         },
         {
@@ -7192,12 +7168,6 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-image.git",
                 "reference": "b3202de79196ab8044a4e1b0997cc9d7a96b710c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-image/zipball/b3202de79196ab8044a4e1b0997cc9d7a96b710c",
-                "reference": "b3202de79196ab8044a4e1b0997cc9d7a96b710c",
-                "shasum": ""
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7218,10 +7188,6 @@
                 "proprietary"
             ],
             "description": "Backend API to Image",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-api-image/tree/1.0.20",
-                "issues": "https://github.com/oandermedia/oander-api-image/issues"
-            },
             "time": "2017-12-07T12:59:03+00:00"
         },
         {
@@ -7309,12 +7275,6 @@
                 "url": "git@github.com:oandermedia/oander-api-product.git",
                 "reference": "6847aced573815244723b610591ae5483a4cc2ba"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-product/zipball/6847aced573815244723b610591ae5483a4cc2ba",
-                "reference": "6847aced573815244723b610591ae5483a4cc2ba",
-                "shasum": ""
-            },
             "require": {
                 "oander/module-api-base": "*",
                 "oander/module-api-gateway": "*",
@@ -7335,10 +7295,6 @@
                 "proprietary"
             ],
             "description": "Backend API to Product",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-api-product/tree/1.0.22",
-                "issues": "https://github.com/oandermedia/oander-api-product/issues"
-            },
             "time": "2018-01-25T16:25:01+00:00"
         },
         {
@@ -7348,12 +7304,6 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-product-attribute.git",
                 "reference": "120b0122a1c2a8deffdd2935213cb001d2d0cffd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-api-product-attribute/zipball/120b0122a1c2a8deffdd2935213cb001d2d0cffd",
-                "reference": "120b0122a1c2a8deffdd2935213cb001d2d0cffd",
-                "shasum": ""
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7374,10 +7324,6 @@
                 "proprietary"
             ],
             "description": "Oander_ApiProductAttribute",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-api-product-attribute/tree/1.0.16",
-                "issues": "https://github.com/oandermedia/oander-api-product-attribute/issues"
-            },
             "time": "2018-02-15T11:36:26+00:00"
         },
         {
@@ -7719,12 +7665,6 @@
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
                 "reference": "8aaa06a090e6baaf6d4069d218c579f55447b3e6"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-core-bug-fix/zipball/8aaa06a090e6baaf6d4069d218c579f55447b3e6",
-                "reference": "8aaa06a090e6baaf6d4069d218c579f55447b3e6",
-                "shasum": ""
-            },
             "require": {
                 "php": "7.*"
             },
@@ -7741,10 +7681,6 @@
                 "proprietary"
             ],
             "description": "Core bug fixes for Magento 2.x",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-core-bug-fix/tree/1.0.19.1",
-                "issues": "https://github.com/oandermedia/oander-core-bug-fix/issues"
-            },
             "time": "2018-03-19T14:35:15+00:00"
         },
         {
@@ -8778,12 +8714,6 @@
                 "url": "git@github.com:oandermedia/oander-xtento-order-export-extender.git",
                 "reference": "6f5f654b771d51214ba33c847407e1bc308124d1"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-xtento-order-export-extender/zipball/6f5f654b771d51214ba33c847407e1bc308124d1",
-                "reference": "6f5f654b771d51214ba33c847407e1bc308124d1",
-                "shasum": ""
-            },
             "require": {
                 "php": "7.*",
                 "xtento/module-orderexport": "2.3.9",
@@ -8802,10 +8732,6 @@
                 "proprietary"
             ],
             "description": "Xtento Order Export Extender",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-xtento-order-export-extender/tree/1.0.9",
-                "issues": "https://github.com/oandermedia/oander-xtento-order-export-extender/issues"
-            },
             "time": "2018-01-29T16:31:04+00:00"
         },
         {

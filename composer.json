@@ -16,6 +16,7 @@
         "oander/language-mk-mk": "1.0.17",
         "oander/language-sl-si": "1.0.5",
         "oander/language-hr-hr": "1.0.4",
+        "oander/language-sr-rs-istyle": "1.0.3",
         "oander/module-ajax-catalog": "1.0.5",
         "oander/module-api-base": "1.0.21",
         "oander/module-api-cache": "1.0.0",
