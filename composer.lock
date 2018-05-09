@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1e72e1468d0b892e1658b46f57bb2283",
+    "content-hash": "4057cf77a361a10ea42c34b21d78df18",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6882,11 +6882,11 @@
         },
         {
             "name": "oander/language-sr-rs-istyle",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-sr-rs-istyle.git",
-                "reference": "ec0b60e6d7ca1a3b86749223923867e5bac0b9fa"
+                "reference": "b82244c7568ff56e59f582a1bf29d163322f013f"
             },
             "type": "magento2-language",
             "autoload": {
@@ -6904,7 +6904,7 @@
             ],
             "description": "Serbian language package for Magento 2",
             "homepage": "http://www.oander.hu",
-            "time": "2018-05-08T10:02:51+00:00"
+            "time": "2018-05-09T06:48:42+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
