@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "abd60bcc4d2d6368a81932d1f8d20ca0",
+    "content-hash": "b7f81381de4dde993270d36a3c8fb251",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6882,11 +6882,11 @@
         },
         {
             "name": "oander/language-sr-rs-istyle",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-sr-rs-istyle.git",
-                "reference": "9754c8c71072a8a8203d1c34e9e5950e92fc7185"
+                "reference": "e6ce0d0c70ee6d3e249876c15ef986620d562259"
             },
             "type": "magento2-language",
             "autoload": {
@@ -6904,7 +6904,7 @@
             ],
             "description": "Serbian language package for Magento 2",
             "homepage": "http://www.oander.hu",
-            "time": "2018-05-09T11:02:18+00:00"
+            "time": "2018-05-11T09:38:09+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
@@ -8604,11 +8604,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.3.8",
+            "version": "1.3.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "bdc60108adb91ef1540f3cfec929db4c9dece871"
+                "reference": "f1d54485cdf0fbedb513918d91d23fb77dfab6b5"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8629,7 +8629,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-04-27T13:17:42+00:00"
+            "time": "2018-05-02T11:12:52+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
