@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b7f81381de4dde993270d36a3c8fb251",
+    "content-hash": "cef513dd8ad4ae935eb389ee2322fda4",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6882,11 +6882,11 @@
         },
         {
             "name": "oander/language-sr-rs-istyle",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-language-sr-rs-istyle.git",
-                "reference": "e6ce0d0c70ee6d3e249876c15ef986620d562259"
+                "reference": "630afd073bcab1d1cd0b4db17f308ddc0c6f222d"
             },
             "type": "magento2-language",
             "autoload": {
@@ -6904,7 +6904,7 @@
             ],
             "description": "Serbian language package for Magento 2",
             "homepage": "http://www.oander.hu",
-            "time": "2018-05-11T09:38:09+00:00"
+            "time": "2018-05-11T12:24:56+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
