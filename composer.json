@@ -92,7 +92,8 @@
         "oander/module-installment-prices": "1.0.6",
         "rudracomputech/module-nestpay": "2.0.6.2",
         "oander/module-producturlresolver": "1.0.0",
-        "oander/module-alternativewidget": "1.0.4"
+        "oander/module-alternativewidget": "1.0.4",
+        "bigfishpaymentgateway/pmgw": "2.0.1.2"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",

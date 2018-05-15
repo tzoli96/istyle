@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "cef513dd8ad4ae935eb389ee2322fda4",
+    "content-hash": "3d6733e6755d718bc860de10ea879061",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -337,6 +337,76 @@
             },
             "description": "Anowave Package",
             "time": "2018-02-06T11:53:42+00:00"
+        },
+        {
+            "name": "bigfish/paymentgateway",
+            "version": "2.12.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bigfish-hu/payment-gateway-php-sdk.git",
+                "reference": "4342685341c1b278d0d0d1060e5b66c9ebb9c03e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/4342685341c1b278d0d0d1060e5b66c9ebb9c03e",
+                "reference": "4342685341c1b278d0d0d1060e5b66c9ebb9c03e",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~5.3|~7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "BigFish\\": "src/BigFish"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "BIG FISH",
+                    "email": "cafe@bigfish.hu"
+                }
+            ],
+            "description": "BIG FISH Payment Gateway - PHP SDK",
+            "homepage": "https://www.paymentgateway.hu/",
+            "keywords": [
+                "ecommerce",
+                "payment",
+                "webshop"
+            ],
+            "time": "2018-04-26T09:08:56+00:00"
+        },
+        {
+            "name": "bigfishpaymentgateway/pmgw",
+            "version": "2.0.1.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/bigfishpaymentgateway-pmgw.git",
+                "reference": "bc207bd35cf58323ab221571da24f4ddf800e3bf"
+            },
+            "require": {
+                "bigfish/paymentgateway": "2.12.1",
+                "php": "~5.6.0|~7.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Bigfishpaymentgateway\\Pmgw\\": ""
+                }
+            },
+            "license": [
+                "OSL-3.0",
+                "AFL-3.0"
+            ],
+            "description": "BIG FISH Payment Gateway module for Magento 2",
+            "time": "2018-05-15T08:07:43+00:00"
         },
         {
             "name": "braintree/braintree_php",
