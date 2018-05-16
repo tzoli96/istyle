@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ff10c60a400bc01f8596f35f42d116a4",
+    "content-hash": "9178904b09a314d9cb447d638452e0d7",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1300,11 +1300,11 @@
         },
         {
             "name": "innobyte/module-cetelem",
-            "version": "0.0.5",
+            "version": "0.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-cetelem.git",
-                "reference": "d20c6505e62a166e49839c96486fce044530504b"
+                "reference": "26df3793d7cf0a1617cc02fd1cffaa68c44bf0e9"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1320,7 +1320,7 @@
                 }
             },
             "description": "Innobyte Cetelem Module",
-            "time": "2018-05-14T12:53:34+00:00"
+            "time": "2018-05-16T12:13:07+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
@@ -6889,6 +6889,26 @@
             "time": "2018-04-18T07:57:58+00:00"
         },
         {
+            "name": "oander/language-hu_hu-istyle",
+            "version": "1.0.24",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-language-hu-hu-istyle.git",
+                "reference": "c0c85249b8614069a7f2804c37492c8c484425a0"
+            },
+            "type": "magento2-language",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Hungarian language pack for the Magento",
+            "time": "2018-05-16T07:22:42+00:00"
+        },
+        {
             "name": "oander/language-lv_lv",
             "version": "1.0.26",
             "source": {
@@ -8753,11 +8773,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.3.9",
+            "version": "1.3.9.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "f1d54485cdf0fbedb513918d91d23fb77dfab6b5"
+                "reference": "1526fcd639e2f63b001a8d89c9f1541c4b152338"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8778,7 +8798,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-05-02T11:12:52+00:00"
+            "time": "2018-05-16T11:59:43+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
