@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "705e097450d1ec94d1735e8acbefdca6",
+    "content-hash": "6959cc1157a269fb7ebb25b6a7aa9d8d",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8875,11 +8875,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.115",
+            "version": "1.0.116",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "49e301ede70f1d991a7567e88c6347454392d091"
+                "reference": "a163a41bfe77f55a8a1910c42cc285cfdf19a98c"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8895,7 +8895,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-05-22T13:33:01+00:00"
+            "time": "2018-05-24T11:52:46+00:00"
         },
         {
             "name": "oyejorge/less.php",
