@@ -79,6 +79,8 @@ echo "   DEPLOY SCRIPT STARTING ON ENV: ${DEPLOY_ENV}  "
 echo "================================================="
 echo
 
+symlink_check "CREATE DIRECTORY SYMLINK TO UPLOAD FOLDER" "${WEBROOT}/upload" "${EFS}/upload" "${WEBROOT}/"
+
 /etc/init.d/php7.0-fpm start
 /etc/init.d/nginx start
 
@@ -179,7 +181,6 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   echo
 
   symlink_check "CREATE DIRECTORY SYMLINK TO MEDIA FOLDER" "${WEBROOT}/pub/media" "${EFS}/media" "${WEBROOT}/pub/"
-  symlink_check "CREATE DIRECTORY SYMLINK TO UPLOAD FOLDER" "${WEBROOT}/upload" "${EFS}/upload" "${WEBROOT}/"
 
   echo -n " * CHOWN EFS BUILD DIR ... "
   if chown www-data:www-data -R ${EFS_BUILD}; then echo OK; else echo FAIL; fi
@@ -292,7 +293,6 @@ fi
 
 # MAIN SYMLINK SETUP
 symlink_check "CREATE DIRECTORY SYMLINK TO MEDIA FOLDER" "${WEBROOT}/pub/media" "${EFS}/media" "${WEBROOT}/pub/"
-symlink_check "CREATE DIRECTORY SYMLINK TO UPLOAD FOLDER" "${WEBROOT}/upload" "${EFS}/upload" "${WEBROOT}/"
 
 # ONLY NEEDED FOR PRODUCTION ENV IF URL IS USING istyle.eu/xx
 if [ "${DEPLOY_ENV}" == "PRODUCTION" ]; then
