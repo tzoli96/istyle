@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6959cc1157a269fb7ebb25b6a7aa9d8d",
+    "content-hash": "90cfab2c292d5850ac9b67a984f1fda1",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1056,6 +1056,12 @@
                 "url": "git@github.com:godvsdeity/swedbank-payment-portal.git",
                 "reference": "42097fc707d96b4045d7cce7b881dc4e40313f76"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/godvsdeity/swedbank-payment-portal/zipball/42097fc707d96b4045d7cce7b881dc4e40313f76",
+                "reference": "42097fc707d96b4045d7cce7b881dc4e40313f76",
+                "shasum": ""
+            },
             "require": {
                 "doctrine/cache": "^1.6",
                 "guzzlehttp/guzzle": "^5.0|^6.0",
@@ -1082,6 +1088,9 @@
                 "MIT"
             ],
             "description": "The Swedbank Payment Portal API Library provides access to the online banking system through which e-commerce transactions can be initiated and fulfilled by facilitating the exchange of bank data.",
+            "support": {
+                "source": "https://github.com/godvsdeity/swedbank-payment-portal/tree/v0.8.30"
+            },
             "time": "2017-11-09T16:41:43+00:00"
         },
         {
@@ -1355,6 +1364,12 @@
                 "url": "git@github.com:oandermedia/innobyte-dsk.git",
                 "reference": "9e60552bed031947ec4704605e9cf197fd9c9db5"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/innobyte-dsk/zipball/9e60552bed031947ec4704605e9cf197fd9c9db5",
+                "reference": "9e60552bed031947ec4704605e9cf197fd9c9db5",
+                "shasum": ""
+            },
             "require": {
                 "magento/module-checkout": "^100.1.2",
                 "php": "7.0.2|7.0.4|~7.0.6"
@@ -1369,6 +1384,10 @@
                 }
             },
             "description": "Innobyte DSK Payment Module",
+            "support": {
+                "source": "https://github.com/oandermedia/innobyte-dsk/tree/0.0.1",
+                "issues": "https://github.com/oandermedia/innobyte-dsk/issues"
+            },
             "time": "2018-03-07T12:49:01+00:00"
         },
         {
@@ -1378,6 +1397,12 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-mstart.git",
                 "reference": "caa9a006dbc518998552fbf30738a7125eb71c54"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/innobyte-mstart/zipball/caa9a006dbc518998552fbf30738a7125eb71c54",
+                "reference": "caa9a006dbc518998552fbf30738a7125eb71c54",
+                "shasum": ""
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1393,6 +1418,10 @@
                 }
             },
             "description": "Innobyte MStart Payment Module",
+            "support": {
+                "source": "https://github.com/oandermedia/innobyte-mstart/tree/0.0.1",
+                "issues": "https://github.com/oandermedia/innobyte-mstart/issues"
+            },
             "time": "2018-03-23T20:06:08+00:00"
         },
         {
@@ -1437,6 +1466,12 @@
                 "url": "git@github.com:oandermedia/innobyte-swedbank.git",
                 "reference": "b933e41a70c79d6b1da46ce69812463a52b916e9"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/innobyte-swedbank/zipball/b933e41a70c79d6b1da46ce69812463a52b916e9",
+                "reference": "b933e41a70c79d6b1da46ce69812463a52b916e9",
+                "shasum": ""
+            },
             "require": {
                 "godvsdeity/swedbank-payment-portal": "^0.8",
                 "magento/module-checkout": "^100.1.2",
@@ -1452,6 +1487,10 @@
                 }
             },
             "description": "Innobyte Swedbank Module",
+            "support": {
+                "source": "https://github.com/oandermedia/innobyte-swedbank/tree/1.0.0",
+                "issues": "https://github.com/oandermedia/innobyte-swedbank/issues"
+            },
             "time": "2017-11-14T11:20:23+00:00"
         },
         {
@@ -7409,6 +7448,12 @@
                 "url": "git@github.com:oandermedia/oander-api-warehouse-manager.git",
                 "reference": "d00f5f98422bfaa56416f76b875c74c1e04a3e68"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-warehouse-manager/zipball/d00f5f98422bfaa56416f76b875c74c1e04a3e68",
+                "reference": "d00f5f98422bfaa56416f76b875c74c1e04a3e68",
+                "shasum": ""
+            },
             "require": {
                 "oander/module-api-base": "*",
                 "oander/module-api-gateway": "*",
@@ -7429,6 +7474,10 @@
                 "proprietary"
             ],
             "description": "Oander_ApiWarehouseManager",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-api-warehouse-manager/tree/1.1.0",
+                "issues": "https://github.com/oandermedia/oander-api-warehouse-manager/issues"
+            },
             "time": "2018-04-12T08:45:38+00:00"
         },
         {
@@ -7687,17 +7736,11 @@
         },
         {
             "name": "oander/module-cookie-law",
-            "version": "0.0.2",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cookie-law.git",
-                "reference": "24aa79bf88305b81f3c3f4d2a12aaf3e5436dbaa"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-cookie-law/zipball/24aa79bf88305b81f3c3f4d2a12aaf3e5436dbaa",
-                "reference": "24aa79bf88305b81f3c3f4d2a12aaf3e5436dbaa",
-                "shasum": ""
+                "reference": "8df489e47e85d832c22cb066372ef5c8321ac882"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7716,11 +7759,7 @@
                 "proprietary"
             ],
             "description": "Cookie Law",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-cookie-law/tree/0.0.2",
-                "issues": "https://github.com/oandermedia/oander-cookie-law/issues"
-            },
-            "time": "2017-05-26T09:02:44+00:00"
+            "time": "2018-01-02T10:16:30+00:00"
         },
         {
             "name": "oander/module-core-bug-fix",
@@ -7756,6 +7795,12 @@
                 "url": "git@github.com:oandermedia/oander-currency-manager.git",
                 "reference": "a981cf79b263a9533371b3c7784b689258667129"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-currency-manager/zipball/a981cf79b263a9533371b3c7784b689258667129",
+                "reference": "a981cf79b263a9533371b3c7784b689258667129",
+                "shasum": ""
+            },
             "require": {
                 "magento/framework": "*",
                 "magento/module-backend": "*",
@@ -7775,6 +7820,10 @@
                 "proprietary"
             ],
             "description": "This module provides currency settings.",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-currency-manager/tree/1.2.1",
+                "issues": "https://github.com/oandermedia/oander-currency-manager/issues"
+            },
             "time": "2018-03-27T13:40:22+00:00"
         },
         {
@@ -8083,6 +8132,12 @@
                 "url": "git@github.com:oandermedia/installment-prices.git",
                 "reference": "501f87b7d1216d783175f30459ee5e51607fb5be"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/installment-prices/zipball/501f87b7d1216d783175f30459ee5e51607fb5be",
+                "reference": "501f87b7d1216d783175f30459ee5e51607fb5be",
+                "shasum": ""
+            },
             "require": {
                 "oander/module-base": "*",
                 "php": "7.*"
@@ -8100,6 +8155,10 @@
                 "proprietary"
             ],
             "description": "Installment prices displays next to Product Icons",
+            "support": {
+                "source": "https://github.com/oandermedia/installment-prices/tree/1.0.6",
+                "issues": "https://github.com/oandermedia/installment-prices/issues"
+            },
             "time": "2018-04-06T08:30:32+00:00"
         },
         {
@@ -8435,6 +8494,12 @@
                 "url": "git@github.com:oandermedia/oander-producturlresolver.git",
                 "reference": "e10b4a65cd4afd8c3eac6c4d5f7558eb3914daa1"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-producturlresolver/zipball/e10b4a65cd4afd8c3eac6c4d5f7558eb3914daa1",
+                "reference": "e10b4a65cd4afd8c3eac6c4d5f7558eb3914daa1",
+                "shasum": ""
+            },
             "require": {
                 "php": "7.*"
             },
@@ -8451,6 +8516,10 @@
                 "proprietary"
             ],
             "description": "Config product Simple resolver",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-producturlresolver/tree/1.0.0",
+                "issues": "https://github.com/oandermedia/oander-producturlresolver/issues"
+            },
             "time": "2018-04-09T15:31:35+00:00"
         },
         {
@@ -8689,6 +8758,12 @@
                 "url": "git@github.com:oandermedia/oander-type-hint-fix.git",
                 "reference": "15efcaa113bbc90b57b78f1e873de451b60bda48"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-type-hint-fix/zipball/15efcaa113bbc90b57b78f1e873de451b60bda48",
+                "reference": "15efcaa113bbc90b57b78f1e873de451b60bda48",
+                "shasum": ""
+            },
             "require": {
                 "php": "7.*"
             },
@@ -8705,6 +8780,10 @@
                 "proprietary"
             ],
             "description": "Type Hint Fix",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-type-hint-fix/tree/1.0.1",
+                "issues": "https://github.com/oandermedia/oander-type-hint-fix/issues"
+            },
             "time": "2018-03-23T08:14:00+00:00"
         },
         {
@@ -8744,12 +8823,6 @@
                 "url": "git@github.com:oandermedia/oander-warehouse-stock-order.git",
                 "reference": "87a90513306a7c806c82ebe2a060446a7239fb33"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-warehouse-stock-order/zipball/87a90513306a7c806c82ebe2a060446a7239fb33",
-                "reference": "87a90513306a7c806c82ebe2a060446a7239fb33",
-                "shasum": ""
-            },
             "require": {
                 "oander/module-base": "*",
                 "oander/module-warehouse-manager": "*",
@@ -8768,10 +8841,6 @@
                 "proprietary"
             ],
             "description": "Warehouse Stock Order",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-warehouse-stock-order/tree/1.0.2",
-                "issues": "https://github.com/oandermedia/oander-warehouse-stock-order/issues"
-            },
             "time": "2017-05-31T08:51:05+00:00"
         },
         {
