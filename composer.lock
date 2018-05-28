@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "90cfab2c292d5850ac9b67a984f1fda1",
+    "content-hash": "afefa45234d1f8bc88d7102630859c1a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1275,6 +1275,38 @@
             "time": "2017-03-20T17:10:46+00:00"
         },
         {
+            "name": "infobeans/magento2-flatrate5",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/infobeans-flatrate5.git",
+                "reference": "eef8579f729568b7c38b0d5c0a2f9ed8a5115da6"
+            },
+            "require": {
+                "php": "~5.5.22|~5.6.0|7.0.0|7.0.1|7.0.2|7.0.3|7.0.4|~7.0.6"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Infobeans\\FlatRate5\\": ""
+                }
+            },
+            "license": [
+                "OSL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "InfoBeans",
+                    "email": "magentosupport@infobeans.com"
+                }
+            ],
+            "description": "FlatRate5 for Magento 2",
+            "time": "2017-11-04T19:42:01+00:00"
+        },
+        {
             "name": "innobyte/module-bnpparibas",
             "version": "0.0.6",
             "source": {
@@ -1581,16 +1613,16 @@
         },
         {
             "name": "jms/serializer",
-            "version": "1.11.0",
+            "version": "1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "e7c53477ff55c21d1b1db7d062edc050a24f465f"
+                "reference": "1ea5e0ba68b6b38c327eb3adf5888ac74b587e9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/e7c53477ff55c21d1b1db7d062edc050a24f465f",
-                "reference": "e7c53477ff55c21d1b1db7d062edc050a24f465f",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/1ea5e0ba68b6b38c327eb3adf5888ac74b587e9c",
+                "reference": "1ea5e0ba68b6b38c327eb3adf5888ac74b587e9c",
                 "shasum": ""
             },
             "require": {
@@ -1630,7 +1662,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11-dev"
+                    "dev-1.x": "1.11-dev"
                 }
             },
             "autoload": {
@@ -1640,7 +1672,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
@@ -1661,7 +1693,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2018-02-04T17:48:54+00:00"
+            "time": "2018-05-25T17:01:33+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -8788,11 +8820,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.3.9.1",
+            "version": "1.3.10",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "1526fcd639e2f63b001a8d89c9f1541c4b152338"
+                "reference": "ae770e4dba16be7969c7e04efacb0a5dcdf5f103"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8813,15 +8845,15 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-05-16T11:59:43+00:00"
+            "time": "2018-05-24T11:32:48+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-stock-order.git",
-                "reference": "87a90513306a7c806c82ebe2a060446a7239fb33"
+                "reference": "80892ac95c966fbf46f4030c2da86352c026b6a9"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8841,7 +8873,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Stock Order",
-            "time": "2017-05-31T08:51:05+00:00"
+            "time": "2018-05-24T11:38:49+00:00"
         },
         {
             "name": "oander/module-wonder-widget",
@@ -8944,11 +8976,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.116",
+            "version": "1.0.117",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "a163a41bfe77f55a8a1910c42cc285cfdf19a98c"
+                "reference": "683f11082112d559936f7bd1d4b2e2ea7965e4ea"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8964,7 +8996,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-05-24T11:52:46+00:00"
+            "time": "2018-05-28T09:11:36+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -9594,7 +9626,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.8.40",
+            "version": "v2.8.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -9709,7 +9741,7 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.8.40",
+            "version": "v2.8.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
@@ -9772,7 +9804,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.40",
+            "version": "v2.8.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -9832,7 +9864,7 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.8.40",
+            "version": "v2.8.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -9882,7 +9914,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.10",
+            "version": "v3.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -9986,7 +10018,7 @@
         },
         {
             "name": "symfony/process",
-            "version": "v2.8.40",
+            "version": "v2.8.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -10035,7 +10067,7 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.40",
+            "version": "v2.8.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -12860,7 +12892,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.10",
+            "version": "v3.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
