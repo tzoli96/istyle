@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "afefa45234d1f8bc88d7102630859c1a",
+    "content-hash": "b2fc7698dc0a902872086918e9b320db",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1390,17 +1390,11 @@
         },
         {
             "name": "innobyte/module-dsk",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-dsk.git",
-                "reference": "9e60552bed031947ec4704605e9cf197fd9c9db5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/innobyte-dsk/zipball/9e60552bed031947ec4704605e9cf197fd9c9db5",
-                "reference": "9e60552bed031947ec4704605e9cf197fd9c9db5",
-                "shasum": ""
+                "reference": "1f5e37a9961d3c14d89e3320ed3af264bed2810e"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1416,11 +1410,7 @@
                 }
             },
             "description": "Innobyte DSK Payment Module",
-            "support": {
-                "source": "https://github.com/oandermedia/innobyte-dsk/tree/0.0.1",
-                "issues": "https://github.com/oandermedia/innobyte-dsk/issues"
-            },
-            "time": "2018-03-07T12:49:01+00:00"
+            "time": "2018-05-28T13:15:45+00:00"
         },
         {
             "name": "innobyte/module-mstart",
@@ -1464,12 +1454,6 @@
                 "url": "git@github.com:oandermedia/innobyte-nlbpayment.git",
                 "reference": "bde2add91a1b0d48d3543ba63ac05722a0f3f012"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/innobyte-nlbpayment/zipball/bde2add91a1b0d48d3543ba63ac05722a0f3f012",
-                "reference": "bde2add91a1b0d48d3543ba63ac05722a0f3f012",
-                "shasum": ""
-            },
             "require": {
                 "magento/module-checkout": "^100.1.2",
                 "php": "7.0.2|7.0.4|~7.0.6"
@@ -1484,10 +1468,6 @@
                 }
             },
             "description": "Innobyte NLB Payment Module",
-            "support": {
-                "source": "https://github.com/oandermedia/innobyte-nlbpayment/tree/0.0.3",
-                "issues": "https://github.com/oandermedia/innobyte-nlbpayment/issues"
-            },
             "time": "2018-01-30T09:08:54+00:00"
         },
         {
@@ -8014,12 +7994,6 @@
                 "url": "git@github.com:oandermedia/oander-free-shipping-display.git",
                 "reference": "d9629de1ca4022c110c6c82d772764726b1c35a2"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/oander-free-shipping-display/zipball/d9629de1ca4022c110c6c82d772764726b1c35a2",
-                "reference": "d9629de1ca4022c110c6c82d772764726b1c35a2",
-                "shasum": ""
-            },
             "require": {
                 "oander/module-base": "*",
                 "php": "7.*"
@@ -8037,10 +8011,6 @@
                 "proprietary"
             ],
             "description": "Free shipping appears in the Mini Cart",
-            "support": {
-                "source": "https://github.com/oandermedia/oander-free-shipping-display/tree/1.0.2",
-                "issues": "https://github.com/oandermedia/oander-free-shipping-display/issues"
-            },
             "time": "2017-11-23T15:47:06+00:00"
         },
         {
@@ -8729,11 +8699,11 @@
         },
         {
             "name": "oander/module-trustedshop",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-trustedshop.git",
-                "reference": "33d92b90b8dc52aee339dd08cae00eec655caa98"
+                "reference": "09ca1d73260d4bba7e1276c615e155c7a404d907"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8752,7 +8722,7 @@
                 "proprietary"
             ],
             "description": "Árukereső Megbízható Bolt Program",
-            "time": "2018-04-26T16:06:32+00:00"
+            "time": "2018-05-28T11:42:37+00:00"
         },
         {
             "name": "oander/module-trustedshop-warehouse-extension",
