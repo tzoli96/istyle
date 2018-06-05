@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ef517379314941b0c8d67b5ec4a8cda",
+    "content-hash": "786c88748f1c9a7f550a94deaa2dc3c5",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -103,12 +103,6 @@
                 "url": "git@github.com:oandermedia/amasty-base.git",
                 "reference": "a4f3265fca55cf3bd45a39cb2362ef762c00f4c0"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/amasty-base/zipball/a4f3265fca55cf3bd45a39cb2362ef762c00f4c0",
-                "reference": "a4f3265fca55cf3bd45a39cb2362ef762c00f4c0",
-                "shasum": ""
-            },
             "require": {
                 "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|~7.1.0"
             },
@@ -125,10 +119,6 @@
                 "Commercial"
             ],
             "description": "Amasty Base",
-            "support": {
-                "source": "https://github.com/oandermedia/amasty-base/tree/1.1.1",
-                "issues": "https://github.com/oandermedia/amasty-base/issues"
-            },
             "time": "2018-02-20T09:19:24+00:00"
         },
         {
@@ -167,12 +157,6 @@
                 "url": "git@github.com:oandermedia/amasty-promo.git",
                 "reference": "d318f19af6ab6cf1dff86f1c3b920982c44a9782"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/amasty-promo/zipball/d318f19af6ab6cf1dff86f1c3b920982c44a9782",
-                "reference": "d318f19af6ab6cf1dff86f1c3b920982c44a9782",
-                "shasum": ""
-            },
             "require": {
                 "amasty/base": ">=1.0.6",
                 "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|~7.1.0"
@@ -190,10 +174,6 @@
                 "Commercial"
             ],
             "description": "Free Gift by Amasty",
-            "support": {
-                "source": "https://github.com/oandermedia/amasty-promo/tree/1.3.4",
-                "issues": "https://github.com/oandermedia/amasty-promo/issues"
-            },
             "time": "2018-02-20T12:31:58+00:00"
         },
         {
@@ -203,12 +183,6 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/amasty-rgrid.git",
                 "reference": "25e811524ac8685a0446bc0a7cbbad4b0ad5f72e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/amasty-rgrid/zipball/25e811524ac8685a0446bc0a7cbbad4b0ad5f72e",
-                "reference": "25e811524ac8685a0446bc0a7cbbad4b0ad5f72e",
-                "shasum": ""
             },
             "require": {
                 "amasty/base": "*",
@@ -227,10 +201,6 @@
                 "Commercial"
             ],
             "description": "Extended Rules Grid by Amasty",
-            "support": {
-                "source": "https://github.com/oandermedia/amasty-rgrid/tree/1.0.0",
-                "issues": "https://github.com/oandermedia/amasty-rgrid/issues"
-            },
             "time": "2018-02-20T09:25:58+00:00"
         },
         {
@@ -269,12 +239,6 @@
                 "url": "git@github.com:oandermedia/amasty-system-common-rules.git",
                 "reference": "ff60f965e5592dc05ea0fd9289e87d0f7acd4d2a"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://composer.amasty.com/community/packages/system-common-rules-2.1.0.zip",
-                "reference": null,
-                "shasum": null
-            },
             "require": {
                 "amasty/base": ">=1.0.8",
                 "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|~7.1.0"
@@ -291,7 +255,8 @@
             "license": [
                 "Commercial"
             ],
-            "description": "Common Rules by Amasty"
+            "description": "Common Rules by Amasty",
+            "time": "2018-05-29T13:00:15+00:00"
         },
         {
             "name": "anowave/ec",
@@ -502,7 +467,7 @@
         },
         {
             "name": "colinmollenhour/cache-backend-redis",
-            "version": "1.9",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/colinmollenhour/Cm_Cache_Backend_Redis.git",
@@ -534,7 +499,7 @@
             ],
             "description": "Zend_Cache backend using Redis with full support for tags.",
             "homepage": "https://github.com/colinmollenhour/Cm_Cache_Backend_Redis",
-            "time": "2016-05-02T16:23:36+00:00"
+            "time": "2016-10-03T16:55:11+00:00"
         },
         {
             "name": "colinmollenhour/credis",
@@ -1065,12 +1030,6 @@
                 "url": "git@github.com:godvsdeity/swedbank-payment-portal.git",
                 "reference": "42097fc707d96b4045d7cce7b881dc4e40313f76"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/godvsdeity/swedbank-payment-portal/zipball/42097fc707d96b4045d7cce7b881dc4e40313f76",
-                "reference": "42097fc707d96b4045d7cce7b881dc4e40313f76",
-                "shasum": ""
-            },
             "require": {
                 "doctrine/cache": "^1.6",
                 "guzzlehttp/guzzle": "^5.0|^6.0",
@@ -1097,9 +1056,6 @@
                 "MIT"
             ],
             "description": "The Swedbank Payment Portal API Library provides access to the online banking system through which e-commerce transactions can be initiated and fulfilled by facilitating the exchange of bank data.",
-            "support": {
-                "source": "https://github.com/godvsdeity/swedbank-payment-portal/tree/v0.8.30"
-            },
             "time": "2017-11-09T16:41:43+00:00"
         },
         {
@@ -1371,12 +1327,6 @@
                 "url": "git@github.com:oandermedia/innobyte-checkout-success.git",
                 "reference": "811875b3d1935bc2327573de686fe3309ca00138"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/innobyte-checkout-success/zipball/811875b3d1935bc2327573de686fe3309ca00138",
-                "reference": "811875b3d1935bc2327573de686fe3309ca00138",
-                "shasum": ""
-            },
             "require": {
                 "magento/module-checkout": "^100.1.2",
                 "php": "7.0.2|7.0.4|~7.0.6"
@@ -1391,10 +1341,6 @@
                 }
             },
             "description": "Innobyte CheckoutSuccess Module",
-            "support": {
-                "source": "https://github.com/oandermedia/innobyte-checkout-success/tree/0.0.3",
-                "issues": "https://github.com/oandermedia/innobyte-checkout-success/issues"
-            },
             "time": "2017-12-17T11:02:06+00:00"
         },
         {
@@ -1423,11 +1369,11 @@
         },
         {
             "name": "innobyte/module-homecredit",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-home-credit.git",
-                "reference": "abe4a4f9ae9a3e21e9e441d6d709403ad344fe62"
+                "reference": "f0bd8d1ee98622da37778688cdc02e85bdf350fc"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1443,7 +1389,7 @@
                 }
             },
             "description": "Innobyte HomeCredit Module",
-            "time": "2018-05-28T08:47:42+00:00"
+            "time": "2018-06-05T10:14:06+00:00"
         },
         {
             "name": "innobyte/module-mstart",
@@ -1452,12 +1398,6 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-mstart.git",
                 "reference": "caa9a006dbc518998552fbf30738a7125eb71c54"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/innobyte-mstart/zipball/caa9a006dbc518998552fbf30738a7125eb71c54",
-                "reference": "caa9a006dbc518998552fbf30738a7125eb71c54",
-                "shasum": ""
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1473,10 +1413,6 @@
                 }
             },
             "description": "Innobyte MStart Payment Module",
-            "support": {
-                "source": "https://github.com/oandermedia/innobyte-mstart/tree/0.0.1",
-                "issues": "https://github.com/oandermedia/innobyte-mstart/issues"
-            },
             "time": "2018-03-23T20:06:08+00:00"
         },
         {
@@ -1511,12 +1447,6 @@
                 "url": "git@github.com:oandermedia/innobyte-swedbank.git",
                 "reference": "b933e41a70c79d6b1da46ce69812463a52b916e9"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/innobyte-swedbank/zipball/b933e41a70c79d6b1da46ce69812463a52b916e9",
-                "reference": "b933e41a70c79d6b1da46ce69812463a52b916e9",
-                "shasum": ""
-            },
             "require": {
                 "godvsdeity/swedbank-payment-portal": "^0.8",
                 "magento/module-checkout": "^100.1.2",
@@ -1532,10 +1462,6 @@
                 }
             },
             "description": "Innobyte Swedbank Module",
-            "support": {
-                "source": "https://github.com/oandermedia/innobyte-swedbank/tree/1.0.0",
-                "issues": "https://github.com/oandermedia/innobyte-swedbank/issues"
-            },
             "time": "2017-11-14T11:20:23+00:00"
         },
         {
@@ -6731,11 +6657,12 @@
         },
         {
             "name": "mirasvit/module-core",
-            "version": "1.2.48.1",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/mirasvit-core.git",
-                "reference": "43a588b814320f941c7534f68335f70a66cf56f7"
+            "version": "1.2.64",
+            "dist": {
+                "type": "tar",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-core-1.2.64-475ef6.tar",
+                "reference": "423b76c2e8e4701cda781b99b551c68685edd03f",
+                "shasum": null
             },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*"
@@ -6743,72 +6670,76 @@
             "type": "magento2-module",
             "autoload": {
                 "files": [
-                    "registration.php"
+                    "src/Core/registration.php"
                 ],
                 "psr-4": {
-                    "Mirasvit\\Core\\": ""
+                    "Mirasvit\\Core\\": "src/Core"
                 }
             },
             "license": [
                 "proprietary"
             ],
             "description": "Mirasvit Core",
-            "time": "2018-01-04T15:02:15+00:00"
+            "time": "2018-05-23T12:06:14+00:00"
         },
         {
             "name": "mirasvit/module-feed",
-            "version": "1.0.62.1",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/mirasvit-feed.git",
-                "reference": "9662de35c78cee5024dd6d0542d843b60ef0409c"
+            "version": "1.0.69",
+            "dist": {
+                "type": "tar",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-feed-1.0.69-26c6af.tar",
+                "reference": "863b8607aeebee659051e3ae31603cd18148ae97",
+                "shasum": null
             },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*",
                 "mirasvit/module-core": ">=1.2.46",
-                "mirasvit/module-report": ">=1.2.27"
+                "mirasvit/module-report": "~1.3.0"
             },
             "type": "magento2-module",
             "autoload": {
                 "files": [
-                    "registration.php"
+                    "src/Feed/registration.php"
                 ],
                 "psr-4": {
-                    "Mirasvit\\Feed\\": ""
+                    "Mirasvit\\Feed\\": "src/Feed"
                 }
             },
             "license": [
                 "proprietary"
             ],
             "description": "Advanced Product Feeds",
-            "time": "2018-01-04T15:04:08+00:00"
+            "time": "2018-06-04T08:44:22+00:00"
         },
         {
             "name": "mirasvit/module-report",
-            "version": "1.2.27.1",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/mirasvit-report.git",
-                "reference": "30c237683eaa9ee11d10db6476b63ac135c3346a"
+            "version": "1.3.19",
+            "dist": {
+                "type": "tar",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-report-1.3.19-9ceb0f.tar",
+                "reference": "6bf6bf5f625d78ea94dc6edee6101e511836d182",
+                "shasum": null
             },
             "require": {
-                "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*",
-                "mirasvit/module-core": ">=1.2.48"
+                "magento/framework": "100.1.*|101.0.*",
+                "mirasvit/module-core": "^1.2"
             },
             "type": "magento2-module",
             "autoload": {
                 "files": [
-                    "registration.php"
+                    "src/Report/registration.php",
+                    "src/ReportApi/registration.php"
                 ],
                 "psr-4": {
-                    "Mirasvit\\Report\\": ""
+                    "Mirasvit\\Report\\": "src/Report",
+                    "Mirasvit\\ReportApi\\": "src/ReportApi"
                 }
             },
             "license": [
                 "proprietary"
             ],
             "description": "Reports Core",
-            "time": "2018-01-04T15:05:05+00:00"
+            "time": "2018-06-04T12:02:02+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -9909,12 +9840,6 @@
                 "url": "git@github.com:oandermedia/xtento-core.git",
                 "reference": "b1f6631b2ca44b55fb2470971b6ecc8abbfd6810"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/xtento-core/zipball/b1f6631b2ca44b55fb2470971b6ecc8abbfd6810",
-                "reference": "b1f6631b2ca44b55fb2470971b6ecc8abbfd6810",
-                "shasum": ""
-            },
             "require": {
                 "php": "~5.5.22|~5.6.0|7.0.2|7.0.4|~7.0.6|~7.1.0"
             },
@@ -9940,9 +9865,7 @@
             ],
             "description": "XTENTO Core Module",
             "support": {
-                "email": "info@xtento.com",
-                "source": "https://github.com/oandermedia/xtento-core/tree/2.1.0",
-                "issues": "https://github.com/oandermedia/xtento-core/issues"
+                "email": "info@xtento.com"
             },
             "time": "2017-11-15T12:35:36+00:00"
         },
