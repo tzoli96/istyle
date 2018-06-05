@@ -211,33 +211,33 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   if chown www-data:www-data -R /var/log/magento; then echo OK; else echo FAIL; fi
 
   # VALIDATION
-  echo
-  if [ "${DEPLOY_ENV}" == "PRODUCTION" ]; then
-    echo -n " * COPY CUSTOM NGINX CONFIG FOR MAGENTO ... "
-    if cp -a ${WEBROOT}/nginx.magento.conf ${WEBROOT}/nginx.conf.sample; then echo OK; else echo FAIL; fi
-    for LANG_SYMLINK in "${LANGUAGES[@]}"; do
-      symlink_check "CREATE DIRECTORY SYMLINK TO ${LANG_SYMLINK} FOLDER" "${WEBROOT}/pub/${LANG_SYMLINK,,}" "${WEBROOT}/pub" "${WEBROOT}/pub/${LANG_SYMLINK,,}"
-    done
-    php_restart
-    /etc/init.d/nginx reload
-    echo -n " * SERVICE VALIDATION ... "
-    if curl -I -H 'Host: istyle.eu' -H 'X-Forwarded-Proto: https' http://localhost/mk/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
-      echo OK
-    else
-      echo FAIL
-      exit 3
-    fi
-  elif [ "${DEPLOY_ENV}" == "STAGING" ]; then
-    php_restart
-    /etc/init.d/nginx reload
-    echo -n " * SERVICE VALIDATION ... "
-    if curl -I -H 'Host: staging.istyle.mk' -H 'X-Forwarded-Proto: https' http://localhost/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
-      echo OK
-    else
-      echo FAIL
-      exit 3
-    fi
-  fi
+#  echo
+#  if [ "${DEPLOY_ENV}" == "PRODUCTION" ]; then
+#    echo -n " * COPY CUSTOM NGINX CONFIG FOR MAGENTO ... "
+#    if cp -a ${WEBROOT}/nginx.magento.conf ${WEBROOT}/nginx.conf.sample; then echo OK; else echo FAIL; fi
+#    for LANG_SYMLINK in "${LANGUAGES[@]}"; do
+#      symlink_check "CREATE DIRECTORY SYMLINK TO ${LANG_SYMLINK} FOLDER" "${WEBROOT}/pub/${LANG_SYMLINK,,}" "${WEBROOT}/pub" "${WEBROOT}/pub/${LANG_SYMLINK,,}"
+#    done
+#    php_restart
+#    /etc/init.d/nginx reload
+#    echo -n " * SERVICE VALIDATION ... "
+#    if curl -I -H 'Host: istyle.eu' -H 'X-Forwarded-Proto: https' http://localhost/mk/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
+#      echo OK
+#    else
+#      echo FAIL
+#      exit 3
+#    fi
+#  elif [ "${DEPLOY_ENV}" == "STAGING" ]; then
+#    php_restart
+#    /etc/init.d/nginx reload
+#    echo -n " * SERVICE VALIDATION ... "
+#    if curl -I -H 'Host: staging.istyle.mk' -H 'X-Forwarded-Proto: https' http://localhost/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
+#      echo OK
+#    else
+#      echo FAIL
+#      exit 3
+#    fi
+#  fi
 
   echo -n " * RSYNC EFS BUILD FOLDER TO PRELIVE: ${EFS_PRELIVE} ... "
   if rsync -au --delete --exclude={"/var/backups/*","/var/log/*","/var/session"} ${EFS_BUILD}/ ${EFS_PRELIVE}/; then echo OK; else echo FAIL; fi
