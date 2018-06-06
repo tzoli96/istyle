@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "786c88748f1c9a7f550a94deaa2dc3c5",
+    "content-hash": "844c03713f3b85b78dd6080a2285a7eb",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1270,6 +1270,31 @@
             ],
             "description": "FlatRate5 for Magento 2",
             "time": "2017-11-04T19:42:01+00:00"
+        },
+        {
+            "name": "innobyte/magento2-payu",
+            "version": "1.1.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/innobyte-payu.git",
+                "reference": "79dbc93934ffa30e3f8a5afa6ff176132ecd3da1"
+            },
+            "require": {
+                "magento/module-checkout": "100.1.*",
+                "magento/module-quote": "100.1.*",
+                "magento/module-sales": "100.1.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Innobyte\\PayU\\": ""
+                }
+            },
+            "description": "Magento2 PayU module",
+            "time": "2018-06-06T09:26:24+00:00"
         },
         {
             "name": "innobyte/module-bnpparibas",
@@ -6713,11 +6738,11 @@
         },
         {
             "name": "mirasvit/module-report",
-            "version": "1.3.19",
+            "version": "1.3.20",
             "dist": {
                 "type": "tar",
-                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-report-1.3.19-9ceb0f.tar",
-                "reference": "6bf6bf5f625d78ea94dc6edee6101e511836d182",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-report-1.3.20-ca0012.tar",
+                "reference": "cfd147fb841fdea5565049f76c0006bb8ca4a9d4",
                 "shasum": null
             },
             "require": {
@@ -6739,7 +6764,7 @@
                 "proprietary"
             ],
             "description": "Reports Core",
-            "time": "2018-06-04T12:02:02+00:00"
+            "time": "2018-06-06T08:23:32+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -8894,6 +8919,57 @@
                 "x509"
             ],
             "time": "2018-04-15T16:55:05+00:00"
+        },
+        {
+            "name": "plugincompany/customergroupswitching",
+            "version": "100.1.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/plugincompany-customergroupswitching.git",
+                "reference": "58c15a82b6e78c1f45d575d54d619f6b2699267a"
+            },
+            "require": {
+                "php": "~5.6.0|~7.0.2|~7.1",
+                "plugincompany/licensemanager": "~100.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "PluginCompany\\CustomerGroupSwitching\\": ""
+                }
+            },
+            "license": [
+                "Proprietary"
+            ],
+            "time": "2018-05-23T05:36:57+00:00"
+        },
+        {
+            "name": "plugincompany/licensemanager",
+            "version": "100.0.4",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/plugincompany-licensemanager.git",
+                "reference": "d3c374e1f4788b673f8a4768ec17928f9b48cad4"
+            },
+            "require": {
+                "php": "~5.5.22|~5.6|~7.0|~7.1"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "PluginCompany\\LicenseManager\\": ""
+                }
+            },
+            "license": [
+                "custom"
+            ],
+            "time": "2018-05-23T05:38:11+00:00"
         },
         {
             "name": "psr/http-message",

@@ -99,7 +99,10 @@
         "oander/theme-istyle": "dev-staging",
         "rudracomputech/module-nestpay": "2.0.6.2",
         "xtento/module-orderexport": "2.3.9",
-        "xtento/module-xtcore": "2.1.0"
+        "xtento/module-xtcore": "2.1.0",
+        "innobyte/magento2-payu": "1.1.2",
+        "plugincompany/customergroupswitching": "100.1.2",
+        "plugincompany/licensemanager": "100.0.4"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
