@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "80e13424b63ad92a1e51b05661c2164e",
+    "content-hash": "c3e51ec4254a954137ed52c2c20b6b24",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -260,11 +260,11 @@
         },
         {
             "name": "anowave/ec",
-            "version": "100.0.5",
+            "version": "100.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/anowave-ec.git",
-                "reference": "8793307db575c305b384af4f99d02f2a8ff385c1"
+                "reference": "6ac2cb7268396b67609d0af6f421a17e527f2820"
             },
             "require": {
                 "anowave/package": "0.0.*",
@@ -287,15 +287,15 @@
             ],
             "description": "Magento 2 Google Tag Manager Enhanced Ecommerce (UA) Tracking",
             "homepage": "http://www.anowave.com/marketplace/magento-2-extensions/magento-2-google-tag-manager-enhanced-ecommerce-ua-tracking/",
-            "time": "2018-04-04T14:16:15+00:00"
+            "time": "2018-04-20T09:03:01+00:00"
         },
         {
             "name": "anowave/package",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/anowave-package.git",
-                "reference": "624e390f13a062b38492f231a26602f58cd990f9"
+                "reference": "cb1a70d60d36243d760d0a0548f52191c1dfee77"
             },
             "require": {
                 "php": "~5.5.0|~5.6.0|~7.0.0"
@@ -310,7 +310,7 @@
                 }
             },
             "description": "Anowave Package",
-            "time": "2018-02-06T11:53:42+00:00"
+            "time": "2018-04-20T09:05:42+00:00"
         },
         {
             "name": "bigfish/paymentgateway",
@@ -6678,11 +6678,11 @@
         },
         {
             "name": "mirasvit/module-report",
-            "version": "1.3.19",
+            "version": "1.3.21",
             "dist": {
                 "type": "tar",
-                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-report-1.3.19-9ceb0f.tar",
-                "reference": "6bf6bf5f625d78ea94dc6edee6101e511836d182",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-report-1.3.21-cedfe3.tar",
+                "reference": "71e5046098162f5f473896fc5574581c17820c63",
                 "shasum": null
             },
             "require": {
@@ -6704,7 +6704,7 @@
                 "proprietary"
             ],
             "description": "Reports Core",
-            "time": "2018-06-04T12:02:02+00:00"
+            "time": "2018-06-06T14:08:15+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -7671,11 +7671,11 @@
         },
         {
             "name": "oander/module-discount-badge",
-            "version": "1.0.4",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-discount-badge.git",
-                "reference": "207b30e82f57b60739b9faa07255888c3ce62ec8"
+                "reference": "45a098a00b90e27d99488ffc5e1025ee4ad478c7"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7695,7 +7695,7 @@
                 "proprietary"
             ],
             "description": "Extended version of the Oander Category Badge module to show discount badges.",
-            "time": "2017-10-12T12:07:23+00:00"
+            "time": "2018-05-29T08:59:45+00:00"
         },
         {
             "name": "oander/module-dropdown-products",
@@ -8530,11 +8530,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.122",
+            "version": "1.0.123",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "7c3ea29c1b05ab99042e5fbe639875dc21d7ee93"
+                "reference": "82d1b8ac312328920cf03ed38aad2e79bc4b8127"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8550,7 +8550,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-06-05T12:20:11+00:00"
+            "time": "2018-06-07T09:27:34+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -8859,6 +8859,57 @@
                 "x509"
             ],
             "time": "2018-04-15T16:55:05+00:00"
+        },
+        {
+            "name": "plugincompany/customergroupswitching",
+            "version": "100.1.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/plugincompany-customergroupswitching.git",
+                "reference": "58c15a82b6e78c1f45d575d54d619f6b2699267a"
+            },
+            "require": {
+                "php": "~5.6.0|~7.0.2|~7.1",
+                "plugincompany/licensemanager": "~100.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "PluginCompany\\CustomerGroupSwitching\\": ""
+                }
+            },
+            "license": [
+                "Proprietary"
+            ],
+            "time": "2018-05-23T05:36:57+00:00"
+        },
+        {
+            "name": "plugincompany/licensemanager",
+            "version": "100.0.4",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/plugincompany-licensemanager.git",
+                "reference": "d3c374e1f4788b673f8a4768ec17928f9b48cad4"
+            },
+            "require": {
+                "php": "~5.5.22|~5.6|~7.0|~7.1"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "PluginCompany\\LicenseManager\\": ""
+                }
+            },
+            "license": [
+                "custom"
+            ],
+            "time": "2018-05-23T05:38:11+00:00"
         },
         {
             "name": "psr/http-message",
