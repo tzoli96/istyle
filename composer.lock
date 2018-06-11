@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7597441924c269147fd6cb552302b9a3",
+    "content-hash": "90e815e7ef57f8c72678cc793d4270ad",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -261,11 +261,11 @@
         },
         {
             "name": "anowave/ec",
-            "version": "100.0.5",
+            "version": "100.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/anowave-ec.git",
-                "reference": "8793307db575c305b384af4f99d02f2a8ff385c1"
+                "reference": "6ac2cb7268396b67609d0af6f421a17e527f2820"
             },
             "require": {
                 "anowave/package": "0.0.*",
@@ -288,15 +288,15 @@
             ],
             "description": "Magento 2 Google Tag Manager Enhanced Ecommerce (UA) Tracking",
             "homepage": "http://www.anowave.com/marketplace/magento-2-extensions/magento-2-google-tag-manager-enhanced-ecommerce-ua-tracking/",
-            "time": "2018-04-04T14:16:15+00:00"
+            "time": "2018-04-20T09:03:01+00:00"
         },
         {
             "name": "anowave/package",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/anowave-package.git",
-                "reference": "624e390f13a062b38492f231a26602f58cd990f9"
+                "reference": "cb1a70d60d36243d760d0a0548f52191c1dfee77"
             },
             "require": {
                 "php": "~5.5.0|~5.6.0|~7.0.0"
@@ -311,7 +311,7 @@
                 }
             },
             "description": "Anowave Package",
-            "time": "2018-02-06T11:53:42+00:00"
+            "time": "2018-04-20T09:05:42+00:00"
         },
         {
             "name": "bigfish/paymentgateway",
@@ -6792,18 +6792,13 @@
             "version": "1.0.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/mirasvit/module-profiler.git",
-                "reference": "e130fc72d20319d4a1f49412e32e25bf621c38c5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mirasvit/module-profiler/zipball/e130fc72d20319d4a1f49412e32e25bf621c38c5",
-                "reference": "e130fc72d20319d4a1f49412e32e25bf621c38c5",
-                "shasum": ""
+                "url": "git@github.com:oandermedia/mirasvit-profiler.git",
+                "reference": "096cf91c269c53f5166e69b7b4a9e1275358a314"
             },
             "require": {
                 "jdorn/sql-formatter": "^1.2",
-                "magento/framework": "100.*|101.*"
+                "magento/framework": "100.*|101.*",
+                "symfony/yaml": "*"
             },
             "type": "magento2-module",
             "autoload": {
@@ -6814,12 +6809,11 @@
                     "Mirasvit\\Profiler\\": "src/Profiler"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "Magento 2 Profiler",
-            "time": "2017-09-28T09:55:47+00:00"
+            "time": "2018-06-08T10:40:22+00:00"
         },
         {
             "name": "mirasvit/module-report",
@@ -7816,11 +7810,11 @@
         },
         {
             "name": "oander/module-discount-badge",
-            "version": "1.0.4",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-discount-badge.git",
-                "reference": "207b30e82f57b60739b9faa07255888c3ce62ec8"
+                "reference": "45a098a00b90e27d99488ffc5e1025ee4ad478c7"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7840,7 +7834,7 @@
                 "proprietary"
             ],
             "description": "Extended version of the Oander Category Badge module to show discount badges.",
-            "time": "2017-10-12T12:07:23+00:00"
+            "time": "2018-05-29T08:59:45+00:00"
         },
         {
             "name": "oander/module-dropdown-products",
@@ -8623,11 +8617,11 @@
         },
         {
             "name": "oander/module-xtento-order-export-extender",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-xtento-order-export-extender.git",
-                "reference": "6f5f654b771d51214ba33c847407e1bc308124d1"
+                "reference": "c2bfbdb15bc61208f2c427829afabb38ee7194a6"
             },
             "require": {
                 "php": "7.*",
@@ -8647,7 +8641,7 @@
                 "proprietary"
             ],
             "description": "Xtento Order Export Extender",
-            "time": "2018-01-29T16:31:04+00:00"
+            "time": "2018-04-16T15:10:29+00:00"
         },
         {
             "name": "oander/theme-hodor",
@@ -8679,7 +8673,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "cfd5ee35a673b321250decbb8a0ba68f23fc6007"
+                "reference": "be2f557f0a7d42559d72500d425de3cb8f8c2ee3"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8695,7 +8689,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-06-06T14:12:45+00:00"
+            "time": "2018-06-11T10:43:08+00:00"
         },
         {
             "name": "oyejorge/less.php",
