@@ -4,23 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c3e51ec4254a954137ed52c2c20b6b24",
+    "content-hash": "f5a474f383f2b5f8174dcda134dbafb6",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
-            "version": "1.25.1",
+            "version": "1.26.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/algolia/algoliasearch-client-php.git",
-                "reference": "805021ea52630756d2da01d482309a2fdc47d3c0"
+                "reference": "aeb8ab5df50fef94acbee8168382da80539acc9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/805021ea52630756d2da01d482309a2fdc47d3c0",
-                "reference": "805021ea52630756d2da01d482309a2fdc47d3c0",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/aeb8ab5df50fef94acbee8168382da80539acc9a",
+                "reference": "aeb8ab5df50fef94acbee8168382da80539acc9a",
                 "shasum": ""
             },
             "require": {
+                "ext-curl": "*",
                 "ext-mbstring": "*",
                 "php": ">=5.3"
             },
@@ -54,7 +55,7 @@
             ],
             "description": "Algolia Search API Client for PHP",
             "homepage": "https://github.com/algolia/algoliasearch-client-php",
-            "time": "2018-03-02T13:24:10+00:00"
+            "time": "2018-06-07T12:28:42+00:00"
         },
         {
             "name": "algolia/algoliasearch-magento-2",
@@ -1463,6 +1464,41 @@
             },
             "description": "Innobyte Swedbank Module",
             "time": "2017-11-14T11:20:23+00:00"
+        },
+        {
+            "name": "istyle/module-insiacare",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/innobyte-insia-care.git",
+                "reference": "9832601fac69942f218119535976adb64e4d9b19"
+            },
+            "require": {
+                "magento/framework": "100.1.*",
+                "magento/module-backend": "100.1.*",
+                "magento/module-catalog": "101.0.*",
+                "magento/module-catalog-inventory": "100.1.*",
+                "magento/module-checkout": "100.1.*",
+                "magento/module-customer": "100.1.*",
+                "magento/module-eav": "100.1.*",
+                "magento/module-media-storage": "100.1.*",
+                "magento/module-msrp": "100.1.*",
+                "magento/module-quote": "100.1.*",
+                "magento/module-store": "100.1.*",
+                "magento/module-ui": "100.1.*",
+                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Istyle\\InsiaCare\\": ""
+                }
+            },
+            "description": "iSTYLE InsiaCare Module",
+            "time": "2018-04-26T11:18:07+00:00"
         },
         {
             "name": "jms/metadata",
@@ -6678,11 +6714,11 @@
         },
         {
             "name": "mirasvit/module-report",
-            "version": "1.3.21",
+            "version": "1.3.22",
             "dist": {
                 "type": "tar",
-                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-report-1.3.21-cedfe3.tar",
-                "reference": "71e5046098162f5f473896fc5574581c17820c63",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-report-1.3.22-da40cd.tar",
+                "reference": "b7db6f03961891cdca56303990909f062a0e17a3",
                 "shasum": null
             },
             "require": {
@@ -6704,7 +6740,7 @@
                 "proprietary"
             ],
             "description": "Reports Core",
-            "time": "2018-06-06T14:08:15+00:00"
+            "time": "2018-06-08T08:57:07+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -7022,11 +7058,11 @@
         },
         {
             "name": "oander/module-api-base",
-            "version": "1.0.21",
+            "version": "1.0.28",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-base.git",
-                "reference": "2b83c59118ccdbe85ed6326bb4432213bcb154c1"
+                "reference": "a181966c9a33eb79519edfa521be177fde130472"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7045,7 +7081,7 @@
                 "proprietary"
             ],
             "description": "API Base",
-            "time": "2018-02-05T10:02:32+00:00"
+            "time": "2018-04-25T14:27:46+00:00"
         },
         {
             "name": "oander/module-api-cache",
@@ -7078,11 +7114,11 @@
         },
         {
             "name": "oander/module-api-category",
-            "version": "1.0.9",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-category.git",
-                "reference": "648e144c93685f84aebd077d05c481c9443b6561"
+                "reference": "b1256ac9b5ff9ca172789f560d8ac00760d17055"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7103,7 +7139,7 @@
                 "proprietary"
             ],
             "description": "Backend API to Category",
-            "time": "2017-11-27T15:10:27+00:00"
+            "time": "2018-03-13T10:07:05+00:00"
         },
         {
             "name": "oander/module-api-checkout",
@@ -7136,11 +7172,11 @@
         },
         {
             "name": "oander/module-api-customer",
-            "version": "1.0.6",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-customer.git",
-                "reference": "41903ee1f8e485e8e329e77f5562934f2ea8d815"
+                "reference": "e4539c1e3c630f8088a20145fa6095eaa14cf4e7"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7161,15 +7197,15 @@
                 "proprietary"
             ],
             "description": "Backend API to Customer",
-            "time": "2017-12-04T15:51:28+00:00"
+            "time": "2018-03-13T10:08:55+00:00"
         },
         {
             "name": "oander/module-api-gateway",
-            "version": "1.0.12",
+            "version": "1.0.17",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-gateway.git",
-                "reference": "a258d2932cea89ae9b08fe375adbd946ca26b20e"
+                "reference": "fea0ef282b01a755d797e4d38b856c8069fe5d5b"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7189,15 +7225,15 @@
                 "proprietary"
             ],
             "description": "The API Gateway module for ERP connections and import solutions.",
-            "time": "2017-11-30T15:41:39+00:00"
+            "time": "2018-04-26T08:40:20+00:00"
         },
         {
             "name": "oander/module-api-image",
-            "version": "1.0.20",
+            "version": "1.0.26",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-image.git",
-                "reference": "b3202de79196ab8044a4e1b0997cc9d7a96b710c"
+                "reference": "881c42189a9db65a1a16fb1f52ffea9262176192"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7218,7 +7254,7 @@
                 "proprietary"
             ],
             "description": "Backend API to Image",
-            "time": "2017-12-07T12:59:03+00:00"
+            "time": "2018-03-13T10:10:03+00:00"
         },
         {
             "name": "oander/module-api-index",
@@ -7279,11 +7315,11 @@
         },
         {
             "name": "oander/module-api-product",
-            "version": "1.0.22",
+            "version": "1.0.28",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-product.git",
-                "reference": "6847aced573815244723b610591ae5483a4cc2ba"
+                "reference": "e47b17d3b25ede2cdcc2ceb850199bd1734aa808"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7305,15 +7341,15 @@
                 "proprietary"
             ],
             "description": "Backend API to Product",
-            "time": "2018-01-25T16:25:01+00:00"
+            "time": "2018-05-07T11:06:17+00:00"
         },
         {
             "name": "oander/module-api-product-attribute",
-            "version": "1.0.16",
+            "version": "1.0.21",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-product-attribute.git",
-                "reference": "120b0122a1c2a8deffdd2935213cb001d2d0cffd"
+                "reference": "e8e7b3b1b1f6457774b49b56c7e1bac02be09d28"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7334,7 +7370,7 @@
                 "proprietary"
             ],
             "description": "Oander_ApiProductAttribute",
-            "time": "2018-02-15T11:36:26+00:00"
+            "time": "2018-04-26T11:59:13+00:00"
         },
         {
             "name": "oander/module-api-warehouse-manager",
