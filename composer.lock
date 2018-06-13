@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "1137abb3ff478939868815ce2d1fff14",
+    "content-hash": "fe76f402f170cdefd5dab8730b072559",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6795,10 +6795,15 @@
                 "url": "git@github.com:oandermedia/mirasvit-profiler.git",
                 "reference": "096cf91c269c53f5166e69b7b4a9e1275358a314"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mirasvit/module-profiler/zipball/e130fc72d20319d4a1f49412e32e25bf621c38c5",
+                "reference": "e130fc72d20319d4a1f49412e32e25bf621c38c5",
+                "shasum": ""
+            },
             "require": {
                 "jdorn/sql-formatter": "^1.2",
-                "magento/framework": "100.*|101.*",
-                "symfony/yaml": "*"
+                "magento/framework": "100.*|101.*"
             },
             "type": "magento2-module",
             "autoload": {
@@ -6809,11 +6814,12 @@
                     "Mirasvit\\Profiler\\": "src/Profiler"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "Magento 2 Profiler",
-            "time": "2018-06-08T10:40:22+00:00"
+            "time": "2017-09-28T09:55:47+00:00"
         },
         {
             "name": "mirasvit/module-report",
@@ -8135,6 +8141,31 @@
             "time": "2017-05-25T08:49:06+00:00"
         },
         {
+            "name": "oander/module-orderstatuscanceller",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-order-status-canceller.git",
+                "reference": "d1bc48a6f49feca91e91cedb253667236678489f"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\OrderStatusCanceller\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "time": "2018-06-13T12:27:24+00:00"
+        },
+        {
             "name": "oander/module-paypal",
             "version": "1.0.0",
             "source": {
@@ -8673,7 +8704,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "e7083b97760b3934714f4e42a74631f49112ab63"
+                "reference": "01e5e7fa12b0b775ea6f092301be1a16d2062667"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8689,7 +8720,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-06-11T14:11:48+00:00"
+            "time": "2018-06-13T12:06:44+00:00"
         },
         {
             "name": "oyejorge/less.php",
