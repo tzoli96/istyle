@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f5a474f383f2b5f8174dcda134dbafb6",
+    "content-hash": "00da15370afa04d1e254791019426b18",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -357,11 +357,11 @@
         },
         {
             "name": "bigfishpaymentgateway/pmgw",
-            "version": "2.0.1.3",
+            "version": "2.0.1.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/bigfishpaymentgateway-pmgw.git",
-                "reference": "880f168692d3723e52113a4d21688d63ac0aa3f9"
+                "reference": "f8e4dad24a5fa24f9751233272ed8f86a3b8152c"
             },
             "require": {
                 "bigfish/paymentgateway": "2.12.1",
@@ -381,7 +381,7 @@
                 "AFL-3.0"
             ],
             "description": "BIG FISH Payment Gateway module for Magento 2",
-            "time": "2018-05-29T11:29:20+00:00"
+            "time": "2018-06-12T12:32:53+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -8243,11 +8243,11 @@
         },
         {
             "name": "oander/module-salesforce-widget",
-            "version": "1.0.4",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-widget.git",
-                "reference": "3f8745c48b567719093d585d6539a10686c7dfd6"
+                "reference": "70704739fe7cae2e370d7ec4a6ca2826b49364ee"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8267,7 +8267,7 @@
                 "proprietary"
             ],
             "description": "salesforce-widget",
-            "time": "2018-01-02T16:18:57+00:00"
+            "time": "2018-06-12T12:18:34+00:00"
         },
         {
             "name": "oander/module-shipping",
