@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bdeabd50f76cb8df4fd43efa04800ba8",
+    "content-hash": "1137abb3ff478939868815ce2d1fff14",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -261,11 +261,11 @@
         },
         {
             "name": "anowave/ec",
-            "version": "100.0.6",
+            "version": "100.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/anowave-ec.git",
-                "reference": "6ac2cb7268396b67609d0af6f421a17e527f2820"
+                "reference": "ec2af58e0ae47ed592df23b317a6505e955756fd"
             },
             "require": {
                 "anowave/package": "0.0.*",
@@ -288,15 +288,15 @@
             ],
             "description": "Magento 2 Google Tag Manager Enhanced Ecommerce (UA) Tracking",
             "homepage": "http://www.anowave.com/marketplace/magento-2-extensions/magento-2-google-tag-manager-enhanced-ecommerce-ua-tracking/",
-            "time": "2018-04-20T09:03:01+00:00"
+            "time": "2018-06-13T09:08:28+00:00"
         },
         {
             "name": "anowave/package",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/anowave-package.git",
-                "reference": "cb1a70d60d36243d760d0a0548f52191c1dfee77"
+                "reference": "947d6ceb6aa348769384565cc7ba985b0b460cfd"
             },
             "require": {
                 "php": "~5.5.0|~5.6.0|~7.0.0"
@@ -311,7 +311,7 @@
                 }
             },
             "description": "Anowave Package",
-            "time": "2018-04-20T09:05:42+00:00"
+            "time": "2018-06-13T09:12:40+00:00"
         },
         {
             "name": "bigfish/paymentgateway",
@@ -8533,11 +8533,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.3.10.3",
+            "version": "1.3.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "f8bc2bf66918b8481e67bd436399f3e71f6cc629"
+                "reference": "b557637ba78552c95114a528bd5160757ddf0fb7"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8558,7 +8558,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-06-05T09:10:55+00:00"
+            "time": "2018-06-12T21:38:53+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
