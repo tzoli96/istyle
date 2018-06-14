@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe76f402f170cdefd5dab8730b072559",
+    "content-hash": "7ea7b2cffddbb31912c10df03f6c94d7",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6733,11 +6733,11 @@
         },
         {
             "name": "mirasvit/module-core",
-            "version": "1.2.64",
+            "version": "1.2.65",
             "dist": {
                 "type": "tar",
-                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-core-1.2.64-475ef6.tar",
-                "reference": "423b76c2e8e4701cda781b99b551c68685edd03f",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-core-1.2.65-3006c8.tar",
+                "reference": "a92381031b93b8a0cf92d053b5c5c693b2297b4b",
                 "shasum": null
             },
             "require": {
@@ -6756,7 +6756,7 @@
                 "proprietary"
             ],
             "description": "Mirasvit Core",
-            "time": "2018-05-23T12:06:14+00:00"
+            "time": "2018-06-14T06:06:58+00:00"
         },
         {
             "name": "mirasvit/module-feed",
@@ -8142,11 +8142,11 @@
         },
         {
             "name": "oander/module-orderstatuscanceller",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-order-status-canceller.git",
-                "reference": "d1bc48a6f49feca91e91cedb253667236678489f"
+                "reference": "9211587af1fde94423e17389c91873610ec77326"
             },
             "require": {
                 "php": "7.*"
@@ -8163,7 +8163,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2018-06-13T12:27:24+00:00"
+            "time": "2018-06-14T07:55:56+00:00"
         },
         {
             "name": "oander/module-paypal",
