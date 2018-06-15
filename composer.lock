@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "651dc0636e6f91654908a3c34105d60d",
+    "content-hash": "5c7bec124d842181e3226734d6483e7f",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8371,11 +8371,11 @@
         },
         {
             "name": "oander/module-salesforce-widget",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-widget.git",
-                "reference": "70704739fe7cae2e370d7ec4a6ca2826b49364ee"
+                "reference": "3dafb4c5f5003344a050ab5ee745be1bff76327b"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8395,7 +8395,7 @@
                 "proprietary"
             ],
             "description": "salesforce-widget",
-            "time": "2018-06-12T12:18:34+00:00"
+            "time": "2018-06-15T13:02:11+00:00"
         },
         {
             "name": "oander/module-shipping",
