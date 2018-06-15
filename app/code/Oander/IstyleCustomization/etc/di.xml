@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 	<preference for="Magento\Catalog\Block\Product\View"
-				type="Oander\IstyleCustomization\Preferences\Magento\Catalog\Block\Product\View" />
+				type="Oander\IstyleCustomization\Block\Product\View" />
 	<preference for="Magento\Catalog\Block\Category\View"
-				type="Oander\IstyleCustomization\Preferences\Magento\Catalog\Block\Category\View" />
+				type="Oander\IstyleCustomization\Block\Category\View" />
 </config>
