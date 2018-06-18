@@ -44,25 +44,27 @@ class LayoutProcessor
     {
         $showPfpjRegNo = $this->scopeConfig->getValue('customer/address/show_pfpj_reg_no', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
 
-        /*if($showPfpjRegNo == 'req')
+        if($showPfpjRegNo == 'req')
         {
             $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
             ['shippingAddress']['children']['shipping-address-fieldset']['children']['pfpj_reg_no'] = [
                 'component' => 'Magento_Ui/js/form/element/abstract',
                 'config' => [
                     'customScope' => 'shippingAddress',
+                    'customEntry' => null,
                     'template' => 'ui/form/field',
                     'elementTmpl' => 'ui/form/element/input',
-                    'id' => 'pfpj_reg_no'
                 ],
-                'required' => true,
                 'dataScope' => 'shippingAddress.pfpj_reg_no',
                 'label' => __('Registration Number'),
                 'provider' => 'checkoutProvider',
                 'visible' => true,
                 'validation' => ['required-entry' => true],
                 'sortOrder' => 250,
-                'id' => 'pfpj_reg_no'
+                'id' => 'pfpj_reg_no',
+                'options' => [],
+                'filterBy' => null,
+                'customEntry' => null
             ];
         }
         elseif ($showPfpjRegNo == 'opt')
@@ -72,20 +74,22 @@ class LayoutProcessor
                 'component' => 'Magento_Ui/js/form/element/abstract',
                 'config' => [
                     'customScope' => 'shippingAddress',
+                    'customEntry' => null,
                     'template' => 'ui/form/field',
                     'elementTmpl' => 'ui/form/element/input',
-                    'id' => 'pfpj_reg_no'
                 ],
-                'required' => false,
                 'dataScope' => 'shippingAddress.pfpj_reg_no',
                 'label' => __('Registration Number'),
                 'provider' => 'checkoutProvider',
                 'visible' => true,
                 'validation' => [],
                 'sortOrder' => 250,
-                'id' => 'pfpj_reg_no'
+                'id' => 'pfpj_reg_no',
+                'options' => [],
+                'filterBy' => null,
+                'customEntry' => null
             ];
-        }*/
+        }
 
         return $jsLayout;
     }

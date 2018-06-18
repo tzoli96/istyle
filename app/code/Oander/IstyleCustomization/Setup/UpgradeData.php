@@ -103,7 +103,7 @@ class UpgradeData implements UpgradeDataInterface
         $quoteSetup->addAttribute('quote_address', $attributeCode, $attributeParams);
         $salesSetup->addAttribute('order_address', $attributeCode, $attributeParams);
 
-        /*$customerAddress = $eavSetup->getEntityTypeId('customer_address');
+        $customerAddress = $eavSetup->getEntityTypeId('customer_address');
         $attributeIds = [];
         $select = $eavSetup->getSetup()->getConnection()->select()->from(
             ['ea' => $eavSetup->getSetup()->getTable('eav_attribute')],
@@ -126,6 +126,6 @@ class UpgradeData implements UpgradeDataInterface
             ->getSetup()
             ->getConnection()
             ->insertMultiple($eavSetup->getSetup()->getTable('customer_form_attribute'), $data)
-        ;*/
+        ;
     }
 }
