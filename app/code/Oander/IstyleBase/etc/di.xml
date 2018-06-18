@@ -35,4 +35,12 @@
         <plugin name="Oander_IstyleBase::magento_catalog_model_product"
                 type="Oander\IstyleBase\Plugin\Catalog\Model\Product" />
     </type>
+
+    <virtualType name="Magento\Catalog\Pricing\Price\Pool">
+        <arguments>
+            <argument name="prices" xsi:type="array">
+                <item name="old_price" xsi:type="string">Oander\IstyleBase\Pricing\OldPrice</item>
+            </argument>
+        </arguments>
+    </virtualType>
 </config>
