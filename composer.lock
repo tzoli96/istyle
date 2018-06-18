@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c7bec124d842181e3226734d6483e7f",
+    "content-hash": "cd25c76587228d9b6191c1a3b61b308e",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8621,11 +8621,11 @@
         },
         {
             "name": "oander/module-wonder-widget",
-            "version": "1.1.15",
+            "version": "1.1.17",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-wonder-widget.git",
-                "reference": "859f0a3453540e7c608e7c9cdcebd4c778cc7a11"
+                "reference": "4af05333a25704940cae188f34ca0fd4c04b19b2"
             },
             "require": {
                 "oander/module-base": "^1.2.5",
@@ -8644,7 +8644,7 @@
                 "proprietary"
             ],
             "description": "Block Builder to build banners and different kind of Magento blocks by Magento 2 Widget Feature.",
-            "time": "2018-02-09T13:52:32+00:00"
+            "time": "2018-06-18T12:40:48+00:00"
         },
         {
             "name": "oander/module-xtento-order-export-extender",
