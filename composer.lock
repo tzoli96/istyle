@@ -1,23 +1,23 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "content-hash": "5c7bec124d842181e3226734d6483e7f",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
-            "version": "1.26.0",
+            "version": "1.26.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/algolia/algoliasearch-client-php.git",
-                "reference": "aeb8ab5df50fef94acbee8168382da80539acc9a"
+                "reference": "2352c9e27e405eab0ee87aedac53a1ed79cd2578"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/aeb8ab5df50fef94acbee8168382da80539acc9a",
-                "reference": "aeb8ab5df50fef94acbee8168382da80539acc9a",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/2352c9e27e405eab0ee87aedac53a1ed79cd2578",
+                "reference": "2352c9e27e405eab0ee87aedac53a1ed79cd2578",
                 "shasum": ""
             },
             "require": {
@@ -55,7 +55,7 @@
             ],
             "description": "Algolia Search API Client for PHP",
             "homepage": "https://github.com/algolia/algoliasearch-client-php",
-            "time": "2018-06-07T12:28:42+00:00"
+            "time": "2018-06-15T13:38:22+00:00"
         },
         {
             "name": "algolia/algoliasearch-magento-2",
@@ -6795,10 +6795,15 @@
                 "url": "git@github.com:oandermedia/mirasvit-profiler.git",
                 "reference": "096cf91c269c53f5166e69b7b4a9e1275358a314"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mirasvit/module-profiler/zipball/e130fc72d20319d4a1f49412e32e25bf621c38c5",
+                "reference": "e130fc72d20319d4a1f49412e32e25bf621c38c5",
+                "shasum": ""
+            },
             "require": {
                 "jdorn/sql-formatter": "^1.2",
-                "magento/framework": "100.*|101.*",
-                "symfony/yaml": "*"
+                "magento/framework": "100.*|101.*"
             },
             "type": "magento2-module",
             "autoload": {
@@ -6809,11 +6814,12 @@
                     "Mirasvit\\Profiler\\": "src/Profiler"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "Magento 2 Profiler",
-            "time": "2018-06-08T10:40:22+00:00"
+            "time": "2017-09-28T09:55:47+00:00"
         },
         {
             "name": "mirasvit/module-report",
@@ -8698,7 +8704,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "87e01ba708521a41d0ab9d21963dfc025211a277"
+                "reference": "8230465e6064795da0c85d983aa7e3cd761c4eec"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8714,7 +8720,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-06-14T15:33:05+00:00"
+            "time": "2018-06-18T10:53:11+00:00"
         },
         {
             "name": "oyejorge/less.php",
