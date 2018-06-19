@@ -1,23 +1,23 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "00da15370afa04d1e254791019426b18",
+    "content-hash": "a0047fbc99e9636a3b72695516d6f774",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
-            "version": "1.26.1",
+            "version": "1.27.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/algolia/algoliasearch-client-php.git",
-                "reference": "2352c9e27e405eab0ee87aedac53a1ed79cd2578"
+                "reference": "d4e83cd7756bafff1e1cb2adcbf3c08b974dc263"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/2352c9e27e405eab0ee87aedac53a1ed79cd2578",
-                "reference": "2352c9e27e405eab0ee87aedac53a1ed79cd2578",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/d4e83cd7756bafff1e1cb2adcbf3c08b974dc263",
+                "reference": "d4e83cd7756bafff1e1cb2adcbf3c08b974dc263",
                 "shasum": ""
             },
             "require": {
@@ -55,7 +55,7 @@
             ],
             "description": "Algolia Search API Client for PHP",
             "homepage": "https://github.com/algolia/algoliasearch-client-php",
-            "time": "2018-06-15T13:38:22+00:00"
+            "time": "2018-06-19T05:59:53+00:00"
         },
         {
             "name": "algolia/algoliasearch-magento-2",
@@ -261,11 +261,11 @@
         },
         {
             "name": "anowave/ec",
-            "version": "100.0.6",
+            "version": "100.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/anowave-ec.git",
-                "reference": "6ac2cb7268396b67609d0af6f421a17e527f2820"
+                "reference": "ec2af58e0ae47ed592df23b317a6505e955756fd"
             },
             "require": {
                 "anowave/package": "0.0.*",
@@ -288,15 +288,15 @@
             ],
             "description": "Magento 2 Google Tag Manager Enhanced Ecommerce (UA) Tracking",
             "homepage": "http://www.anowave.com/marketplace/magento-2-extensions/magento-2-google-tag-manager-enhanced-ecommerce-ua-tracking/",
-            "time": "2018-04-20T09:03:01+00:00"
+            "time": "2018-06-13T09:08:28+00:00"
         },
         {
             "name": "anowave/package",
-            "version": "0.0.2",
+            "version": "0.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/anowave-package.git",
-                "reference": "cb1a70d60d36243d760d0a0548f52191c1dfee77"
+                "reference": "947d6ceb6aa348769384565cc7ba985b0b460cfd"
             },
             "require": {
                 "php": "~5.5.0|~5.6.0|~7.0.0"
@@ -311,7 +311,7 @@
                 }
             },
             "description": "Anowave Package",
-            "time": "2018-04-20T09:05:42+00:00"
+            "time": "2018-06-13T09:12:40+00:00"
         },
         {
             "name": "bigfish/paymentgateway",
@@ -6714,11 +6714,11 @@
         },
         {
             "name": "mirasvit/module-report",
-            "version": "1.3.22",
+            "version": "1.3.23",
             "dist": {
                 "type": "tar",
-                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-report-1.3.22-da40cd.tar",
-                "reference": "b7db6f03961891cdca56303990909f062a0e17a3",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-report-1.3.23-55cc5e.tar",
+                "reference": "efd76f60adcd628eeb904f149eed89a7c9f7a3ae",
                 "shasum": null
             },
             "require": {
@@ -6740,7 +6740,7 @@
                 "proprietary"
             ],
             "description": "Reports Core",
-            "time": "2018-06-08T08:57:07+00:00"
+            "time": "2018-06-18T15:33:04+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -8243,11 +8243,11 @@
         },
         {
             "name": "oander/module-salesforce-widget",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-widget.git",
-                "reference": "70704739fe7cae2e370d7ec4a6ca2826b49364ee"
+                "reference": "3dafb4c5f5003344a050ab5ee745be1bff76327b"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8267,7 +8267,7 @@
                 "proprietary"
             ],
             "description": "salesforce-widget",
-            "time": "2018-06-12T12:18:34+00:00"
+            "time": "2018-06-15T13:02:11+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -8566,11 +8566,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.123",
+            "version": "1.0.124",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "82d1b8ac312328920cf03ed38aad2e79bc4b8127"
+                "reference": "500df8ab6dd777203e9d54d24ee943863500c672"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8586,7 +8586,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-06-07T09:27:34+00:00"
+            "time": "2018-06-18T10:49:38+00:00"
         },
         {
             "name": "oyejorge/less.php",
