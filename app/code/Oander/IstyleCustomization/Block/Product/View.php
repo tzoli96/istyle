@@ -31,13 +31,14 @@ class View extends \Magento\Catalog\Block\Product\View
     protected function _prepareLayout()
     {
         $layout = parent::_prepareLayout();
-        $title = $this->getProduct()->getMetaTitle();
-        if ($title) {
-            $this->pageConfig->getTitle()->set($title);
-        }
-        else
-        {
-            $this->pageConfig->getTitle()->set($this->getProduct()->getName());
+        $product = $this->getProduct();
+        if($product) {
+            $title = $this->getProduct()->getMetaTitle();
+            if ($title) {
+                $this->pageConfig->getTitle()->set($title);
+            } else {
+                $this->pageConfig->getTitle()->set($this->getProduct()->getName());
+            }
         }
         return $layout;
     }

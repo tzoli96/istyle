@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="customer">
+            <group id="address">
+                <field id="show_pfpj_reg_no" translate="label" type="select" sortOrder="75" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Show PFPJ_REG_NO</label>
+                    <source_model>Magento\Config\Model\Config\Source\Nooptreq</source_model>
+                    <backend_model>Magento\Customer\Model\Config\Backend\Show\Customer</backend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
