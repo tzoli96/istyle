@@ -106,13 +106,14 @@ class UpgradeData implements UpgradeDataInterface
     {
         $this->eavSetup->removeAttribute(Product::ENTITY, OldPrice::PRICE_CODE);
         $this->eavSetup->addAttribute(Product::ENTITY, OldPrice::PRICE_CODE, [
-            'type'          => 'decimal',
-            'backend'       => Price::class,
-            'label'         => 'Old price',
-            'input'         => 'price',
-            'required'      => false,
-            'global'        => ScopedAttributeInterface::SCOPE_GLOBAL,
-            'group'         => 'General'
+            'type'                    => 'decimal',
+            'backend'                 => Price::class,
+            'label'                   => 'Old price',
+            'input'                   => 'price',
+            'required'                => false,
+            'global'                  => ScopedAttributeInterface::SCOPE_GLOBAL,
+            'group'                   => 'General',
+            'used_in_product_listing' => true,
         ]);
     }
 

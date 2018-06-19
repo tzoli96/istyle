@@ -43,4 +43,11 @@
             </argument>
         </arguments>
     </virtualType>
+
+    <preference for="Oander\ConfigurableProductAttribute\Magento\Swatches\Block\Product\Renderer\Configurable"
+                type="Oander\IstyleBase\Magento\ConfigurableProduct\Block\Product\View\Type\Configurable"/>
+
+    <preference for="Oander\DiscountBadge\Model\DiscountCalculator"
+                type="Oander\IstyleBase\DiscountBadge\Model\DiscountCalculator"/>
+
 </config>

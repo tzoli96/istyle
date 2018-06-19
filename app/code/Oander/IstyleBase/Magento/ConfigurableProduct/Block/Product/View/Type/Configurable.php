@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<!--
+<?php
 /**
  *   /$$$$$$   /$$$$$$  /$$   /$$ /$$$$$$$  /$$$$$$$$ /$$$$$$$
  *  /$$__  $$ /$$__  $$| $$$ | $$| $$__  $$| $$_____/| $$__  $$
@@ -40,30 +39,47 @@
  * @author  Gabor Kuti <gabor.kuti@oander.hu>
  * @license Oander Media Kft. (http://www.oander.hu)
  */
--->
-<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
-    <referenceBlock name="render.product.prices">
-        <arguments>
-            <argument name="default" xsi:type="array">
-                <item name="prices" xsi:type="array">
-                    <item name="old_price" xsi:type="array">
-                        <item name="render_template" xsi:type="string">Oander_Istyle::product/price/old_price.phtml</item>
-                    </item>
 
-                    <item name="final_price" xsi:type="array">
-                        <item name="render_class" xsi:type="string">Magento\Catalog\Pricing\Render\FinalPriceBox</item>
-                        <item name="render_template" xsi:type="string">Oander_IstyleBase::product/price/final_price.phtml</item>
-                    </item>
-                </item>
-            </argument>
-            <argument name="configurable" xsi:type="array">
-                <item name="prices" xsi:type="array">
-                    <item name="final_price" xsi:type="array">
-                        <item name="render_template" xsi:type="string">Oander_IstyleBase::configurable_product/price/final_price.phtml</item>
-                    </item>
-                </item>
-            </argument>
-        </arguments>
-    </referenceBlock>
-</layout>
+declare(strict_types=1);
+
+namespace Oander\IstyleBase\Magento\ConfigurableProduct\Block\Product\View\Type;
+
+/**
+ * Class Configurable
+ *
+ * @package Oander\IstyleBase\Magento\ConfigurableProduct\Block\Product\View\Type
+ */
+class Configurable extends \Oander\ConfigurableProductAttribute\Magento\Swatches\Block\Product\Renderer\Configurable
+{
+    /**
+     * @return array
+     */
+    protected function getOptionPrices()
+    {
+        $prices = [];
+        foreach ($this->getAllowProducts() as $product) {
+            $priceInfo = $product->getPriceInfo();
+            $oldPrice = $priceInfo->getPrice('old_price')->getAmount()->getValue();
+
+            $prices[$product->getId()] =
+                [
+                    'oldPrice' => [
+                        'amount' => $this->_registerJsPrice(
+                            $oldPrice ?: $priceInfo->getPrice('regular_price')->getAmount()->getValue()
+                        ),
+                    ],
+                    'basePrice' => [
+                        'amount' => $this->_registerJsPrice(
+                            $priceInfo->getPrice('final_price')->getAmount()->getBaseAmount()
+                        ),
+                    ],
+                    'finalPrice' => [
+                        'amount' => $this->_registerJsPrice(
+                            $priceInfo->getPrice('final_price')->getAmount()->getValue()
+                        ),
+                    ]
+                ];
+        }
+        return $prices;
+    }
+}

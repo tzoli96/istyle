@@ -67,7 +67,6 @@ class OldPrice extends AbstractPrice
     {
         if ($this->value === null) {
             $price = $this->product->getOldPrice();
-            file_put_contents('product-price' . $this->product->getId() . '.txt', print_r($price, true), FILE_APPEND);
             $priceInCurrentCurrency = $this->priceCurrency->convertAndRound($price);
             $this->value = $priceInCurrentCurrency ? (float)$priceInCurrentCurrency : false;
         }
