@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a0047fbc99e9636a3b72695516d6f774",
+    "content-hash": "ea9458a583d669d4daf1515cc3577a22",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6658,11 +6658,11 @@
         },
         {
             "name": "mirasvit/module-core",
-            "version": "1.2.65",
+            "version": "1.2.66",
             "dist": {
                 "type": "tar",
-                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-core-1.2.65-3006c8.tar",
-                "reference": "a92381031b93b8a0cf92d053b5c5c693b2297b4b",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-core-1.2.66-d3ddb5.tar",
+                "reference": "4b77abe9bf14e5160d4f3bb8f4eda07718291f3f",
                 "shasum": null
             },
             "require": {
@@ -6681,7 +6681,7 @@
                 "proprietary"
             ],
             "description": "Mirasvit Core",
-            "time": "2018-06-14T06:06:58+00:00"
+            "time": "2018-06-20T09:56:03+00:00"
         },
         {
             "name": "mirasvit/module-feed",
@@ -6714,11 +6714,11 @@
         },
         {
             "name": "mirasvit/module-report",
-            "version": "1.3.23",
+            "version": "1.3.24",
             "dist": {
                 "type": "tar",
-                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-report-1.3.23-55cc5e.tar",
-                "reference": "efd76f60adcd628eeb904f149eed89a7c9f7a3ae",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-report-1.3.24-4e7209.tar",
+                "reference": "7389ce1e2855c5c17d701699f97c058a64049536",
                 "shasum": null
             },
             "require": {
@@ -6740,7 +6740,7 @@
                 "proprietary"
             ],
             "description": "Reports Core",
-            "time": "2018-06-18T15:33:04+00:00"
+            "time": "2018-06-19T14:17:04+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -7431,11 +7431,11 @@
         },
         {
             "name": "oander/module-cardondeliverypayment",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cardondeliverypayment.git",
-                "reference": "13caa331763e28ab35b5ed707876354aeced8496"
+                "reference": "c4c7295bb666413dcd1f175e80e9eb5d4f244987"
             },
             "type": "library",
             "autoload": {
@@ -7456,15 +7456,15 @@
                 }
             ],
             "description": "Card On Delivery Payment for Istyle",
-            "time": "2018-02-11T19:42:13+00:00"
+            "time": "2018-06-15T12:05:46+00:00"
         },
         {
             "name": "oander/module-cashonpickuppayment",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cashonpickuppayment.git",
-                "reference": "893f404ff5b1302ea2267c64874f439747084389"
+                "reference": "4f8785eff89a5e00d748927d6ed614dd9a6f5a2e"
             },
             "type": "library",
             "autoload": {
@@ -7485,7 +7485,7 @@
                 }
             ],
             "description": "Cash On Pickup Payment for Istyle",
-            "time": "2018-02-11T19:43:54+00:00"
+            "time": "2018-06-15T12:07:11+00:00"
         },
         {
             "name": "oander/module-category-badge",
@@ -8430,11 +8430,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.3.10.3",
+            "version": "1.3.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "f8bc2bf66918b8481e67bd436399f3e71f6cc629"
+                "reference": "b557637ba78552c95114a528bd5160757ddf0fb7"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8455,7 +8455,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-06-05T09:10:55+00:00"
+            "time": "2018-06-12T21:38:53+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
@@ -8487,11 +8487,11 @@
         },
         {
             "name": "oander/module-wonder-widget",
-            "version": "1.1.15",
+            "version": "1.1.17",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-wonder-widget.git",
-                "reference": "859f0a3453540e7c608e7c9cdcebd4c778cc7a11"
+                "reference": "4af05333a25704940cae188f34ca0fd4c04b19b2"
             },
             "require": {
                 "oander/module-base": "^1.2.5",
@@ -8510,15 +8510,15 @@
                 "proprietary"
             ],
             "description": "Block Builder to build banners and different kind of Magento blocks by Magento 2 Widget Feature.",
-            "time": "2018-02-09T13:52:32+00:00"
+            "time": "2018-06-18T12:40:48+00:00"
         },
         {
             "name": "oander/module-xtento-order-export-extender",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-xtento-order-export-extender.git",
-                "reference": "6f5f654b771d51214ba33c847407e1bc308124d1"
+                "reference": "c2bfbdb15bc61208f2c427829afabb38ee7194a6"
             },
             "require": {
                 "php": "7.*",
@@ -8538,7 +8538,7 @@
                 "proprietary"
             ],
             "description": "Xtento Order Export Extender",
-            "time": "2018-01-29T16:31:04+00:00"
+            "time": "2018-04-16T15:10:29+00:00"
         },
         {
             "name": "oander/theme-hodor",
@@ -8566,11 +8566,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.124",
+            "version": "1.0.125",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "500df8ab6dd777203e9d54d24ee943863500c672"
+                "reference": "724b31ca6b8ba6240a76bb3ec8b16c13239fadda"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8586,7 +8586,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-06-18T10:49:38+00:00"
+            "time": "2018-06-20T12:24:23+00:00"
         },
         {
             "name": "oyejorge/less.php",
