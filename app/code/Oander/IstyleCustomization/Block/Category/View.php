@@ -29,13 +29,14 @@ class View extends \Magento\Catalog\Block\Category\View
     protected function _prepareLayout()
     {
         parent::_prepareLayout();
-        $title = $this->getCurrentCategory()->getMetaTitle();
-        if ($title) {
-            $this->pageConfig->getTitle()->set($title);
-        }
-        else
-        {
-            $this->pageConfig->getTitle()->set($this->getCurrentCategory()->getName());
+        $category = $this->getCurrentCategory();
+        if($category) {
+            $title = $this->getCurrentCategory()->getMetaTitle();
+            if ($title) {
+                $this->pageConfig->getTitle()->set($title);
+            } else {
+                $this->pageConfig->getTitle()->set($this->getCurrentCategory()->getName());
+            }
         }
         return $this;
     }
