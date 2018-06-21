@@ -1,7 +1,16 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-	<preference for="Magento\Catalog\Block\Product\View"
-				type="Oander\IstyleCustomization\Block\Product\View" />
-	<preference for="Magento\Catalog\Block\Category\View"
-				type="Oander\IstyleCustomization\Block\Category\View" />
+    <preference for="Magento\Catalog\Block\Product\View"
+                type="Oander\IstyleCustomization\Block\Product\View" />
+    <preference for="Magento\Catalog\Block\Category\View"
+                type="Oander\IstyleCustomization\Block\Category\View" />
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="logProductName" type="Oander\IstyleCustomization\Plugin\Checkout\Model\Checkout\LayoutProcessor" />
+    </type>
+    <type name="Magento\Quote\Model\QuoteRepository\SaveHandler">
+        <plugin name="move_pfpj_reg_no_data_from_extension_attributes_to_flat_table" type="Oander\IstyleCustomization\Plugin\Quote\Model\QuoteRepository\SaveHandler"/>
+    </type>
+    <type name="Magento\Quote\Model\Quote\Address\ToOrderAddress">
+        <plugin name="move_pfpj_reg_no_field_from_quote_address_to_order_address" type="Oander\IstyleCustomization\Plugin\Quote\Model\Quote\Address\ToOrderAddress"/>
+    </type>
 </config>
