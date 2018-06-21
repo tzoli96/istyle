@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71f7c85078a5308c2c0cceb43f81b22a",
+    "content-hash": "ad39a99495bb201ebfe33611ffff7f8a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -357,11 +357,11 @@
         },
         {
             "name": "bigfishpaymentgateway/pmgw",
-            "version": "2.0.1.4",
+            "version": "2.0.1.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/bigfishpaymentgateway-pmgw.git",
-                "reference": "f8e4dad24a5fa24f9751233272ed8f86a3b8152c"
+                "reference": "903a1284407b4e735d38b19c3bd0d5c446011e98"
             },
             "require": {
                 "bigfish/paymentgateway": "2.12.1",
@@ -381,7 +381,7 @@
                 "AFL-3.0"
             ],
             "description": "BIG FISH Payment Gateway module for Magento 2",
-            "time": "2018-06-12T12:32:53+00:00"
+            "time": "2018-06-21T18:56:19+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -1467,11 +1467,11 @@
         },
         {
             "name": "istyle/module-insiacare",
-            "version": "1.0.2",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-insia-care.git",
-                "reference": "05bd025f80fd521b22e5b1feb532750ee7261955"
+                "reference": "f364aefac17a5bcda2857448da9e38f3667a3a1b"
             },
             "require": {
                 "magento/framework": "100.1.*",
@@ -1498,7 +1498,7 @@
                 }
             },
             "description": "iSTYLE InsiaCare Module",
-            "time": "2018-06-20T13:14:26+00:00"
+            "time": "2018-06-21T18:53:18+00:00"
         },
         {
             "name": "jms/metadata",
