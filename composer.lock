@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "46e9718d04345542252b74409fb74e6c",
+    "content-hash": "71f7c85078a5308c2c0cceb43f81b22a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7287,11 +7287,11 @@
         },
         {
             "name": "oander/module-api-order-attachment",
-            "version": "1.0.0",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-order-attachment.git",
-                "reference": "e6c6830d06ad20661584c53dff9666a822f3dee9"
+                "reference": "be3e60bedc1d413c4e9ead52c28143abdf1928bf"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7311,7 +7311,7 @@
                 "proprietary"
             ],
             "description": "Api Gateway Order Attachment",
-            "time": "2017-12-14T16:47:52+00:00"
+            "time": "2018-06-19T14:33:44+00:00"
         },
         {
             "name": "oander/module-api-product",
