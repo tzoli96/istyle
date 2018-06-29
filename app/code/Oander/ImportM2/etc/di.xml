@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Oander_ImportM2
+ *
+ * @author  Tamas Vegvari <tamas.vegvari@oander.hu>
+ * @license Oander Media Kft. (http://www.oander.hu)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Oander\ImportM2\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Oander\ImportM2\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">ImportM2Logger</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Oander\ImportM2\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

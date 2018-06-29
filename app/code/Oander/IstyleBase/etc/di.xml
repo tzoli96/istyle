@@ -36,4 +36,6 @@
                 type="Oander\IstyleBase\Plugin\Catalog\Model\Product" />
     </type>
 
+    <preference for="Oander\WarehouseManager\Model\Indexer\WarehouseItem"
+                type="Oander\IstyleBase\Model\Indexer\WarehouseItem"/>
 </config>

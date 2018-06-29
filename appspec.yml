@@ -26,3 +26,7 @@ hooks:
     - location: bin/install.sh
       timeout: 3600
       runas: root
+  BeforeAllowTraffic:
+    - location: bin/beforeallowtraffic.sh
+      timeout: 300
+      runas: root
