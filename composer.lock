@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db99dc04a3021a054ed979f4ba75793f",
+    "content-hash": "6ed00e356294a33066ae41ff50b9cb8e",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -123,6 +123,33 @@
             "time": "2018-02-20T09:19:24+00:00"
         },
         {
+            "name": "amasty/module-advanced-conditions",
+            "version": "1.3.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/community/packages/module-advanced-conditions-1.3.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "amasty/base": "*",
+                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|~7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\Conditions\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Advanced Conditions by Amasty"
+        },
+        {
             "name": "amasty/payrestriction",
             "version": "2.0.6",
             "dist": {
@@ -152,14 +179,16 @@
         },
         {
             "name": "amasty/promo",
-            "version": "1.3.4",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/amasty-promo.git",
-                "reference": "d318f19af6ab6cf1dff86f1c3b920982c44a9782"
+            "version": "2.2.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/community/packages/promo-2.2.2.zip",
+                "reference": null,
+                "shasum": null
             },
             "require": {
                 "amasty/base": ">=1.0.6",
+                "amasty/module-advanced-conditions": ">=1.3.0",
                 "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|~7.1.0"
             },
             "type": "magento2-module",
@@ -174,8 +203,7 @@
             "license": [
                 "Commercial"
             ],
-            "description": "Free Gift by Amasty",
-            "time": "2018-02-20T12:31:58+00:00"
+            "description": "Free Gift by Amasty"
         },
         {
             "name": "amasty/rgrid",
