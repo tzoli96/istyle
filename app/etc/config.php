@@ -192,7 +192,7 @@ return array (
     'Oander_WarehouseStockOrder' => 1,
     'Oander_CategoryDropdown' => 1,
     'Oander_XtentoOrderExportExtender' => 1,
-    'PluginCompany_CustomerGroupSwitching' => 0,
+    'PluginCompany_CustomerGroupSwitching' => 1,
     'PluginCompany_LicenseManager' => 1,
     'Rudracomputech_Nestpay' => 1,
     'Ubertheme_Ubdatamigration' => 1,
