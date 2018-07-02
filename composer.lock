@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "579cda193ba00dd1516aafb10301a493",
+    "content-hash": "db99dc04a3021a054ed979f4ba75793f",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1273,6 +1273,31 @@
             "time": "2017-11-04T19:42:01+00:00"
         },
         {
+            "name": "innobyte/magento2-payu",
+            "version": "1.1.3",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/innobyte-payu.git",
+                "reference": "7c9d462ff688faa4b81d58ee7d28ab6ec774590a"
+            },
+            "require": {
+                "magento/module-checkout": "100.1.*",
+                "magento/module-quote": "100.1.*",
+                "magento/module-sales": "100.1.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Innobyte\\PayU\\": ""
+                }
+            },
+            "description": "Magento2 PayU module",
+            "time": "2018-06-20T13:06:40+00:00"
+        },
+        {
             "name": "innobyte/module-bnpparibas",
             "version": "0.0.6",
             "source": {
@@ -1442,11 +1467,11 @@
         },
         {
             "name": "innobyte/module-swedbank",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-swedbank.git",
-                "reference": "b933e41a70c79d6b1da46ce69812463a52b916e9"
+                "reference": "77bc1a42abdb41c75731b5744d494dd04f73259d"
             },
             "require": {
                 "godvsdeity/swedbank-payment-portal": "^0.8",
@@ -1463,7 +1488,7 @@
                 }
             },
             "description": "Innobyte Swedbank Module",
-            "time": "2017-11-14T11:20:23+00:00"
+            "time": "2018-06-12T12:44:10+00:00"
         },
         {
             "name": "istyle/module-insiacare",
@@ -6664,6 +6689,12 @@
                 "url": "git@github.com:oandermedia/mirasvit-core.git",
                 "reference": "df5b07875201ea877e23f33d2f07ce8927e81eef"
             },
+            "dist": {
+                "type": "tar",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-core-1.2.67-a4852f.tar",
+                "reference": "e29b467458fe9f18386a670da6c2f99e9c4f109d",
+                "shasum": null
+            },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*"
             },
@@ -6680,7 +6711,7 @@
                 "proprietary"
             ],
             "description": "Mirasvit Core",
-            "time": "2018-06-25T08:56:27+00:00"
+            "time": "2018-06-20T14:29:35+00:00"
         },
         {
             "name": "mirasvit/module-feed",
@@ -6689,6 +6720,12 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-feed.git",
                 "reference": "69276730accf0d52619d47b32883d5e989af30ae"
+            },
+            "dist": {
+                "type": "tar",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-feed-1.0.69-26c6af.tar",
+                "reference": "863b8607aeebee659051e3ae31603cd18148ae97",
+                "shasum": null
             },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*",
@@ -6708,7 +6745,7 @@
                 "proprietary"
             ],
             "description": "Advanced Product Feeds",
-            "time": "2018-06-25T08:52:57+00:00"
+            "time": "2018-06-04T08:44:22+00:00"
         },
         {
             "name": "mirasvit/module-report",
@@ -6717,6 +6754,12 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-report.git",
                 "reference": "eed2055a79dabf569b31c4c051c2ca095a406ebe"
+            },
+            "dist": {
+                "type": "tar",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-report-1.3.25-84c095.tar",
+                "reference": "d563743a75376ae84b9aa67f57f49154f33d8af0",
+                "shasum": null
             },
             "require": {
                 "magento/framework": "100.1.*|101.0.*",
@@ -6737,7 +6780,7 @@
                 "proprietary"
             ],
             "description": "Reports Core",
-            "time": "2018-06-25T09:06:55+00:00"
+            "time": "2018-06-20T13:42:18+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -8539,11 +8582,11 @@
         },
         {
             "name": "oander/theme-hodor",
-            "version": "1.1.22",
+            "version": "dev-istyle",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-hodor.git",
-                "reference": "b26cfe16ede7013d376cf0d6ec007a3aa13abd8c"
+                "reference": "e1603ee66331c87d83e231dcda7d709b47744fc4"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8559,15 +8602,15 @@
                 "proprietary"
             ],
             "description": "Hodor template",
-            "time": "2018-01-02T08:13:27+00:00"
+            "time": "2018-06-25T12:40:24+00:00"
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.128",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "493f60f43f3f997c14c4b3a779731324d6043a7e"
+                "reference": "a12546d74168bfb6baea4e4cd0ff22153c44e531"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8583,7 +8626,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-06-26T11:37:58+00:00"
+            "time": "2018-07-02T11:41:04+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -8895,11 +8938,11 @@
         },
         {
             "name": "plugincompany/customergroupswitching",
-            "version": "100.1.2",
+            "version": "100.1.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/plugincompany-customergroupswitching.git",
-                "reference": "58c15a82b6e78c1f45d575d54d619f6b2699267a"
+                "reference": "f4d905a30639939b020bcf9ea017894818434ea4"
             },
             "require": {
                 "php": "~5.6.0|~7.0.2|~7.1",
@@ -8917,7 +8960,7 @@
             "license": [
                 "Proprietary"
             ],
-            "time": "2018-05-23T05:36:57+00:00"
+            "time": "2018-06-25T14:38:21+00:00"
         },
         {
             "name": "plugincompany/licensemanager",
@@ -12606,6 +12649,8 @@
     "minimum-stability": "alpha",
     "stability-flags": {
         "composer/composer": 15,
+        "oander/theme-hodor": 20,
+        "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,
