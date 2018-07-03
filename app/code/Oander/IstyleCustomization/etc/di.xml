@@ -13,4 +13,10 @@
     <type name="Magento\Quote\Model\Quote\Address\ToOrderAddress">
         <plugin name="move_pfpj_reg_no_field_from_quote_address_to_order_address" type="Oander\IstyleCustomization\Plugin\Quote\Model\Quote\Address\ToOrderAddress"/>
     </type>
+    <type name="Magento\Checkout\Block\Cart\Item\Renderer">
+        <plugin name="simple_name_of_config_product_in_minicart_renderer" type="Oander\IstyleCustomization\Plugin\Checkout\Block\Cart\Item\Renderer"/>
+    </type>
+    <type name="Magento\Checkout\CustomerData\AbstractItem">
+        <plugin name="simple_name_of_config_product_in_cart_abstractitem" type="Oander\IstyleCustomization\Plugin\Checkout\CustomerData\AbstractItem"/>
+    </type>
 </config>
