@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b299963a2c5eb6af686c88c15bc02c21",
+    "content-hash": "6a117caab1fa1a6aad895d819bcda730",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1351,11 +1351,11 @@
         },
         {
             "name": "innobyte/module-cetelem",
-            "version": "0.0.6",
+            "version": "0.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-cetelem.git",
-                "reference": "26df3793d7cf0a1617cc02fd1cffaa68c44bf0e9"
+                "reference": "57e95ddb1126e8393bc54acbb217623f65f4d058"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1371,7 +1371,7 @@
                 }
             },
             "description": "Innobyte Cetelem Module",
-            "time": "2018-05-16T12:13:07+00:00"
+            "time": "2018-06-20T13:44:13+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
@@ -7775,11 +7775,11 @@
         },
         {
             "name": "oander/module-discount-badge",
-            "version": "1.0.9",
+            "version": "1.0.9.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-discount-badge.git",
-                "reference": "45a098a00b90e27d99488ffc5e1025ee4ad478c7"
+                "reference": "872610230b8f26fda6cb68092dddf708f389b9a8"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7799,15 +7799,15 @@
                 "proprietary"
             ],
             "description": "Extended version of the Oander Category Badge module to show discount badges.",
-            "time": "2018-05-29T08:59:45+00:00"
+            "time": "2018-06-27T08:55:03+00:00"
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "b5082dbf57285db021ef159fa58270d95e7e0345"
+                "reference": "00afdaa17ddc3cb04cfe0923c27953a94ed9770c"
             },
             "require": {
                 "php": "7.*"
@@ -7825,7 +7825,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2018-01-31T20:53:36+00:00"
+            "time": "2018-06-27T21:35:17+00:00"
         },
         {
             "name": "oander/module-fancy-filter",
