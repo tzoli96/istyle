@@ -104,7 +104,13 @@
         "plugincompany/licensemanager": "100.0.4",
         "rudracomputech/module-nestpay": "2.0.6.2",
         "xtento/module-orderexport": "2.3.9",
-        "xtento/module-xtcore": "2.1.0"
+        "xtento/module-xtcore": "2.1.0",
+        "oander/module-unity-pickup": "1.0.17",
+        "oander/module-lapker": "1.0.9.1",
+        "oander/module-api-checkout-unity-pickup": "1.0.0",
+        "oander/module-xtento-order-unity-pickup-export": "1.0.0",
+        "oander/module-unity-dpd-cz-pickup": "1.0.0",
+        "oander/module-unity-dpd-sk-pickup": "1.0.0"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
