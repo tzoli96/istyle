@@ -1,5 +1,4 @@
 #!/bin/bash
-set -eu
 
 /etc/init.d/php7.0-fpm stop
 /etc/init.d/nginx stop
