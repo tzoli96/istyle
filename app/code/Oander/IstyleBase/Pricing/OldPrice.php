@@ -72,4 +72,17 @@ class OldPrice extends AbstractPrice
         }
         return $this->value;
     }
+
+    /**
+     * overridden for exclude true
+     *
+     * @return mixed
+     */
+    public function getAmount()
+    {
+        if (!isset($this->amount[$this->getValue()])) {
+            $this->amount[$this->getValue()] = $this->calculator->getAmount($this->getValue(), $this->getProduct(), true);
+        }
+        return $this->amount[$this->getValue()];
+    }
 }
