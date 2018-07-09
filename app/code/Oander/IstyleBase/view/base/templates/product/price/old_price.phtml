@@ -1,0 +1,60 @@
+<?php
+/**
+ *   /$$$$$$   /$$$$$$  /$$   /$$ /$$$$$$$  /$$$$$$$$ /$$$$$$$
+ *  /$$__  $$ /$$__  $$| $$$ | $$| $$__  $$| $$_____/| $$__  $$
+ * | $$  \ $$| $$  \ $$| $$$$| $$| $$  \ $$| $$      | $$  \ $$
+ * | $$  | $$| $$$$$$$$| $$ $$ $$| $$  | $$| $$$$$   | $$$$$$$/
+ * | $$  | $$| $$__  $$| $$  $$$$| $$  | $$| $$__/   | $$__  $$
+ * | $$  | $$| $$  | $$| $$\  $$$| $$  | $$| $$      | $$  \ $$
+ * |  $$$$$$/| $$  | $$| $$ \  $$| $$$$$$$/| $$$$$$$$| $$  | $$
+ *  \______/ |__/  |__/|__/  \__/|_______/ |________/|__/  |__/
+ *
+ *                            ,-~.
+ *                          :  .o \
+ *                          `.   _/`.
+ *                            `.  `. `.
+ *                              `.  ` .`.
+ *                                `.  ``.`.
+ *                        _._.-. -._`.  `.``.
+ *                    _.'            .`.  `. `.
+ *                 _.'            )     \   '
+ *               .'             _.          "
+ *             .'.-.'._     _.-'            "
+ *           ;'       _'-.-'              "
+ *          ; _._.-.-;  `.,,_;  ,..,,,.:"
+ *         %-'      `._.-'   \_/   :;;
+ *                           | |
+ *                           : :
+ *                           | |
+ *                           { }
+ *                            \|
+ *                            ||
+ *                            ||
+ *                            ||
+ *                          _ ;; _
+ *                         "-' ` -"
+ *
+ * Oander_IstyleBase
+ *
+ * @author  Gabor Kuti <gabor.kuti@oander.hu>
+ * @license Oander Media Kft. (http://www.oander.hu)
+ */
+?>
+<?php
+/** @var \Magento\Catalog\Pricing\Render\FinalPriceBox $block */
+/** @var \Oander\IstyleBase\Pricing\OldPrice $oldPrice */
+$oldPrice = $block->getPrice();
+$schema = ($block->getZone() == 'item_view') ? true : false;
+$priceLabel = ($block->getPriceLabel() !== null)
+    ? $block->getPriceLabel()
+    : '';
+?>
+<p class="price-as-configured">
+    <?php /* @escapeNotVerified */ echo $block->renderAmount($oldPrice->getAmount(), [
+        'display_label'     => $priceLabel,
+        'price_id'          => $block->getPriceId('product-price-'),
+        'price_type'        => 'oldPrice',
+        'include_container' => true,
+        'schema' => $schema
+    ]); ?>
+</p>
