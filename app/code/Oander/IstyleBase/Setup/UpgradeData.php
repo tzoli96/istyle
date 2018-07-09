@@ -15,18 +15,23 @@
  * @license Oander Media Kft. (http://www.oander.hu)
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Oander\IstyleBase\Setup;
 
+use Magento\Catalog\Model\Product;
+use Magento\Catalog\Model\Product\Attribute\Backend\Price;
 use Magento\Cms\Api\BlockRepositoryInterface;
 use Magento\Cms\Api\Data\BlockInterface;
 use Magento\Cms\Api\Data\BlockInterfaceFactory;
 use Magento\Cms\Model\Block;
+use Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface;
+use Magento\Eav\Setup\EavSetup;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\UpgradeDataInterface;
 use Oander\Base\Model\Setup\ResourceReaderTrait;
+use Oander\IstyleBase\Pricing\OldPrice;
 
 /**
  * Class UpgradeData
@@ -48,17 +53,25 @@ class UpgradeData implements UpgradeDataInterface
     private $blockRepository;
 
     /**
+     * @var EavSetup
+     */
+    private $eavSetup;
+
+    /**
      * UpgradeData constructor.
      *
      * @param BlockInterfaceFactory    $blockFactory
      * @param BlockRepositoryInterface $blockRepository
+     * @param EavSetup                 $eavSetup
      */
     public function __construct(
         BlockInterfaceFactory $blockFactory,
-        BlockRepositoryInterface $blockRepository
+        BlockRepositoryInterface $blockRepository,
+        EavSetup $eavSetup
     ) {
         $this->blockFactory = $blockFactory;
         $this->blockRepository = $blockRepository;
+        $this->eavSetup = $eavSetup;
     }
 
     /**
@@ -79,7 +92,29 @@ class UpgradeData implements UpgradeDataInterface
             $this->upgrade_1_0_1($setup);
         }
 
+        if ($context->getVersion() && version_compare($context->getVersion(), '1.0.3') < 0) {
+            $this->upgrade_1_0_3($setup);
+        }
+
         $setup->endSetup();
+    }
+
+    /**
+     * @param ModuleDataSetupInterface $setup
+     */
+    public function upgrade_1_0_3(ModuleDataSetupInterface $setup)
+    {
+        $this->eavSetup->removeAttribute(Product::ENTITY, OldPrice::PRICE_CODE);
+        $this->eavSetup->addAttribute(Product::ENTITY, OldPrice::PRICE_CODE, [
+            'type'                    => 'decimal',
+            'backend'                 => Price::class,
+            'label'                   => 'Old price',
+            'input'                   => 'price',
+            'required'                => false,
+            'global'                  => ScopedAttributeInterface::SCOPE_GLOBAL,
+            'group'                   => 'General',
+            'used_in_product_listing' => true,
+        ]);
     }
 
     /**
