@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "41b50af62ced1c818285f7f15f935dd5",
+    "content-hash": "41c8a4641e29df93de96acdaa24a881a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6717,6 +6717,12 @@
                 "url": "git@github.com:oandermedia/mirasvit-core.git",
                 "reference": "df5b07875201ea877e23f33d2f07ce8927e81eef"
             },
+            "dist": {
+                "type": "tar",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-core-1.2.67-a4852f.tar",
+                "reference": "e29b467458fe9f18386a670da6c2f99e9c4f109d",
+                "shasum": null
+            },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*"
             },
@@ -6733,7 +6739,7 @@
                 "proprietary"
             ],
             "description": "Mirasvit Core",
-            "time": "2018-06-25T08:56:27+00:00"
+            "time": "2018-06-20T14:29:35+00:00"
         },
         {
             "name": "mirasvit/module-feed",
@@ -6742,6 +6748,12 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-feed.git",
                 "reference": "69276730accf0d52619d47b32883d5e989af30ae"
+            },
+            "dist": {
+                "type": "tar",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-feed-1.0.69-26c6af.tar",
+                "reference": "863b8607aeebee659051e3ae31603cd18148ae97",
+                "shasum": null
             },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*",
@@ -6761,7 +6773,7 @@
                 "proprietary"
             ],
             "description": "Advanced Product Feeds",
-            "time": "2018-06-25T08:52:57+00:00"
+            "time": "2018-06-04T08:44:22+00:00"
         },
         {
             "name": "mirasvit/module-report",
@@ -6770,6 +6782,12 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-report.git",
                 "reference": "eed2055a79dabf569b31c4c051c2ca095a406ebe"
+            },
+            "dist": {
+                "type": "tar",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-report-1.3.25-84c095.tar",
+                "reference": "d563743a75376ae84b9aa67f57f49154f33d8af0",
+                "shasum": null
             },
             "require": {
                 "magento/framework": "100.1.*|101.0.*",
@@ -6790,7 +6808,7 @@
                 "proprietary"
             ],
             "description": "Reports Core",
-            "time": "2018-06-25T09:06:55+00:00"
+            "time": "2018-06-20T13:42:18+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -7975,6 +7993,33 @@
             ],
             "description": "Oander Google Tag Manager Integration to eCommerce Tracking",
             "time": "2017-01-04T11:34:53+00:00"
+        },
+        {
+            "name": "oander/module-heureka-tracking",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-heureka-tracking.git",
+                "reference": "d1f602f61c9b36cdae28d8720c7c9bede01be478"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\HeurekaTracking\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Magento2 Heureka tracking Module",
+            "time": "2018-07-10T11:45:25+00:00"
         },
         {
             "name": "oander/module-hungarian-newsletter",
