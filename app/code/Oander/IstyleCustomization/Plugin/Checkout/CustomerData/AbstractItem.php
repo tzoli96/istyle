@@ -84,7 +84,9 @@ class AbstractItem
     {
 
         $simpleProduct = $this->productInterface->loadByAttribute('sku', $result['product_sku']);
-        $result['product_name'] = $simpleProduct->getName();
+        if ($simpleProduct) {
+            $result['product_name'] = $simpleProduct->getName();
+        }
 
         return $result;
     }
