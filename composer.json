@@ -21,7 +21,7 @@
         "bigfishpaymentgateway/pmgw": "2.0.1.5",
         "godvsdeity/swedbank-payment-portal": "0.8.30",
         "infobeans/magento2-flatrate5": "1.0.1",
-        "innobyte/magento2-payu": "1.1.4",
+        "innobyte/magento2-payu": "1.1.5",
         "innobyte/module-bnpparibas": "0.0.6",
         "innobyte/module-cetelem": "0.0.7",
         "innobyte/module-checkout-success": "0.0.3",
@@ -110,7 +110,8 @@
         "oander/module-api-checkout-unity-pickup": "1.0.0",
         "oander/module-xtento-order-unity-pickup-export": "1.0.0",
         "oander/module-unity-dpd-cz-pickup": "1.0.0",
-        "oander/module-unity-dpd-sk-pickup": "1.0.0"
+        "oander/module-unity-dpd-sk-pickup": "1.0.0",
+        "oander/module-summit-leasing": "1.0.1"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
