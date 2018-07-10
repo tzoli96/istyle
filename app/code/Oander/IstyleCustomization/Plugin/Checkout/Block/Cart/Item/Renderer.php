@@ -89,7 +89,11 @@ class Renderer
 
         $simpleProduct = $this->productInterface->loadByAttribute('sku', $subject->getProduct()->getSku());
 
-        return $simpleProduct->getName();
+        if ($simpleProduct) {
+            $productName = $simpleProduct->getName();
+        }
+
+        return $productName;
     }
 
 }
