@@ -9198,7 +9198,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "c5c6dfb78ccd635285838e42511c05ad40545e74"
+                "reference": "38138e900c3799c8dd43448589ec195f8d72ad40"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9214,7 +9214,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-07-10 15:36:58"
+            "time": "2018-07-11 10:05:27"
         },
         {
             "name": "oyejorge/less.php",
