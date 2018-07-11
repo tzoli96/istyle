@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "677c6d6df287586321fadbf5a83ba573",
+    "content-hash": "1817f9d3bdde5fc9598fdd5c8d445458",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7864,6 +7864,33 @@
             "time": "2017-01-04T11:34:53+00:00"
         },
         {
+            "name": "oander/module-heureka-tracking",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-heureka-tracking.git",
+                "reference": "d1f602f61c9b36cdae28d8720c7c9bede01be478"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\HeurekaTracking\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Magento2 Heureka tracking Module",
+            "time": "2018-07-10T11:45:25+00:00"
+        },
+        {
             "name": "oander/module-hungarian-newsletter",
             "version": "1.1.1",
             "source": {
@@ -8588,11 +8615,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.131",
+            "version": "1.0.132",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "a72bc8a2ac597629cd58003ac6dbe49391292302"
+                "reference": "d7836944b738942ba3d75030015a939b766092da"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8608,7 +8635,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-07-09T09:32:55+00:00"
+            "time": "2018-07-11T10:47:11+00:00"
         },
         {
             "name": "oyejorge/less.php",
