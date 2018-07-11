@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d11d5944dd47ce0cf8a5223b97cf6047",
+    "content-hash": "10a025e512a44c6852da2b68be6cae62",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7892,6 +7892,35 @@
             ],
             "description": "Email Additional Data",
             "time": "2017-10-06T10:52:40+00:00"
+        },
+        {
+            "name": "oander/module-extra-fee",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-extra-fee.git",
+                "reference": "98768bf19aca4848ed00ebb2660d6ad459bb7887"
+            },
+            "require": {
+                "magento/framework": "*",
+                "magento/magento-composer-installer": "*",
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\ExtraFee\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Extra Fee",
+            "time": "2017-11-29T16:01:40+00:00"
         },
         {
             "name": "oander/module-fancy-filter",
