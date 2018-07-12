@@ -4,6 +4,8 @@
                 type="Oander\IstyleCustomization\Block\Product\View" />
     <preference for="Magento\Catalog\Block\Category\View"
                 type="Oander\IstyleCustomization\Block\Category\View" />
+    <preference for="Magento\CacheInvalidate\Model\PurgeCache"
+                type="Oander\IstyleCustomization\CacheInvalidate\Model\PurgeCache" />
     <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
         <plugin name="logProductName" type="Oander\IstyleCustomization\Plugin\Checkout\Model\Checkout\LayoutProcessor" />
     </type>
