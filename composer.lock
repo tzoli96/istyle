@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "10a025e512a44c6852da2b68be6cae62",
+    "content-hash": "0f7ea8e815a8464abda1e9cd3684bd19",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8432,6 +8432,31 @@
             ],
             "description": "Config product Simple resolver",
             "time": "2018-04-09T15:31:35+00:00"
+        },
+        {
+            "name": "oander/module-safe-category-index",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-safe-category-index.git",
+                "reference": "b13057a7450264892aea78bd020764c08edb913f"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\SafeCategoryIndex\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "time": "2018-07-12T05:25:56+00:00"
         },
         {
             "name": "oander/module-salesforce",
