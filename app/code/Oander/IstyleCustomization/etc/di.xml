@@ -4,8 +4,6 @@
                 type="Oander\IstyleCustomization\Block\Product\View" />
     <preference for="Magento\Catalog\Block\Category\View"
                 type="Oander\IstyleCustomization\Block\Category\View" />
-    <preference for="Magento\CacheInvalidate\Model\PurgeCache"
-                type="Oander\IstyleCustomization\CacheInvalidate\Model\PurgeCache" />
     <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
         <plugin name="logProductName" type="Oander\IstyleCustomization\Plugin\Checkout\Model\Checkout\LayoutProcessor" />
     </type>
@@ -20,5 +18,8 @@
     </type>
     <type name="Magento\Checkout\CustomerData\AbstractItem">
         <plugin name="simple_name_of_config_product_in_cart_abstractitem" type="Oander\IstyleCustomization\Plugin\Checkout\CustomerData\AbstractItem"/>
+    </type>
+    <type name="Magento\CacheInvalidate\Model\PurgeCache">
+        <plugin name="varnish_clear_fix" type="Oander\IstyleCustomization\Plugin\CacheInvalidate\Model\PurgeCache"/>
     </type>
 </config>

@@ -1,8 +1,9 @@
 <?php
 
-namespace Oander\IstyleCustomization\CacheInvalidate\Model;
+namespace Oander\IstyleCustomization\Plugin\CacheInvalidate\Model;
 
 use Magento\Framework\Cache\InvalidateLogger;
+use Magento\CacheInvalidate\Model\PurgeCache as MagentoPurgeCache;
 
 class PurgeCache
 {
@@ -41,13 +42,12 @@ class PurgeCache
     }
 
     /**
-     * Send curl purge request
-     * to invalidate cache by tags pattern
-     *
-     * @param string $tagsPattern
-     * @return bool Return true if successful; otherwise return false
+     * @param MagentoPurgeCache $subject
+     * @param callable $proceed
+     * @param $tagsPattern
+     * @return bool
      */
-    public function aroundSendPurgeRequest($tagsPattern)
+    public function aroundSendPurgeRequest(MagentoPurgeCache $subject, callable $proceed, $tagsPattern)
     {
         $socketAdapter = $this->socketAdapterFactory->create();
         $servers = $this->cacheServer->getUris();
