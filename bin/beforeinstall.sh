@@ -17,7 +17,7 @@ cron_check() {
     sleep 5
   done
   echo " DONE!"
-  echo " * DISABLE CRON .. "
+  echo -n " * DISABLE CRON .. "
   if cp /mnt/istyle-storage/istyle/crontab_off /etc/crontab; then echo OK; else echo FAIL; fi
 }
 

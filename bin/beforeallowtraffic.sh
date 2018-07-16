@@ -33,7 +33,7 @@ if [[ "${INSTANCE_ID}" != "${MASTER_ID}" ]]; then
   if [ -f ${EFS_LIVE}/var/.maintenance.flag ]; then
     echo -n " * DISABLE MAINTENANCE MODE .. "
     if rm ${EFS_LIVE}/var/.maintenance.flag; then echo OK; else echo FAIL; fi
-    echo " * ENABLE CRON .. "
+    echo -n " * ENABLE CRON .. "
     if cp /mnt/istyle-storage/istyle/crontab_on /etc/crontab; then echo OK; else echo FAIL; fi
   fi
 
