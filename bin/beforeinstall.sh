@@ -24,7 +24,7 @@ cron_check
 echo -n "Stop PHP .. "
 if /usr/bin/pkill -9 php; then echo OK; else echo FAIL; fi
 echo -n "Stop Nginx .. "
-/usr/bin/pkill -9 nginx; then echo OK; else echo FAIL; fi
+if /usr/bin/pkill -9 nginx; then echo OK; else echo FAIL; fi
 
 echo -n "Delete and recreate webroot directories .. "
 if [ -d ${WEBROOT} ]; then
