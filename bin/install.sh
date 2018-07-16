@@ -116,10 +116,18 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
     echo " * LATEST CODEDEPLOY BUILD ID: ${LATEST_CODEDEPLOY_BUILD_ID}"
     echo " * LATEST CODEDEPLOY BUILD STATUS: ${LATEST_CODEDEPLOY_BUILD_STATUS}"
     if [[ "${LATEST_CODEDEPLOY_BUILD_STATUS}" == "Succeeded" ]]; then
-      echo -n " * CLEAN UP PREVIOUS LIVE FOLDER ... "
+      echo -n " * CLEANUP PREVIOUS LIVE FOLDER ... "
       EFS_PREVIOUS_LIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | head -1)"
-      if rm -rf $EFS_PREVIOUS_LIVE/; then echo OK; else echo FAIL; fi
+      if rm -rf "${EFS_PREVIOUS_LIVE:?}"/; then echo OK; else echo FAIL; fi
     fi
+#    if [[ "${LATEST_CODEDEPLOY_BUILD_STATUS}" == "Failed" ]]; then
+#      LIVE_DIR_COUNT=$(ls -1 ${EFS}/ | grep -c live_)
+#      if [[ "${LIVE_DIR_COUNT}" = "2" ]]; then
+#        echo -n " * CLEANUP PREVIOUS LIVE FOLDER ... "
+#        EFS_PREVIOUS_LIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | head -1)"
+#        if rm -rf "${EFS_PREVIOUS_LIVE:?}"/; then echo OK; else echo FAIL; fi
+#      fi
+#    fi
   else
     echo "SOMETHING IS WRONG WITH THE AWS COMMAND .. exiting"
     exit 2
@@ -142,7 +150,7 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
 
   echo -n " * RSYNC LIVE FOLDER TO BUILD WITH EXCEPTIONS ... "
   EFS_LIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | head -1)"
-  if rsync -au --delete --exclude={"/var/backups/*","/var/log","/var/report/*","/var/di/*","/var/generation/*","/var/view_preprocessed/*","/pub/static/*"} ${EFS_LIVE}/ ${EFS_BUILD}/; then echo OK; else echo FAIL; fi
+  if rsync -au --delete --exclude={"/var/backups/*","/var/log","/var/report/*","/var/di/*","/var/generation/*","/var/view_preprocessed/*","/pub/static/*","/var/.maintenance.flag"} ${EFS_LIVE}/ ${EFS_BUILD}/; then echo OK; else echo FAIL; fi
 
   echo " * CREATE DIRECTORY SYMLINKS TO BUILD:"
   symlink_check "var" "${WEBROOT}/var" "${EFS_BUILD}/var" "${WEBROOT}/"
