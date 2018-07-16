@@ -19,12 +19,13 @@ cron_check() {
   echo " DONE!"
 }
 
+nfs_check
 cron_check
 
 echo -n "Stop PHP .. "
-if /usr/bin/pkill -9 php; then echo OK; else echo FAIL; fi
+pkill -9 php
 echo -n "Stop Nginx .. "
-if /usr/bin/pkill -9 nginx; then echo OK; else echo FAIL; fi
+pkill -9 nginx
 
 echo -n "Delete and recreate webroot directories .. "
 if [ -d ${WEBROOT} ]; then
