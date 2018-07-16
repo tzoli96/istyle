@@ -11,23 +11,25 @@ nfs_check() {
 }
 
 cron_check() {
-  echo -n "Checking CRON: "
+  echo -n " * CHECKING CRON: "
   while pgrep -x php7.0 > /dev/null; do
     echo -n "."
     sleep 5
   done
   echo " DONE!"
+  echo " * DISABLE CRON .. "
+  if cp /mnt/istyle-storage/istyle/crontab_off /etc/crontab; then echo OK; else echo FAIL; fi
 }
 
 nfs_check
 cron_check
 
-echo -n "Stop PHP .. "
+echo " * STOP PHP .. "
 pkill -9 php
-echo -n "Stop Nginx .. "
+echo " * STOP NGINX .. "
 pkill -9 nginx
 
-echo -n "Delete and recreate webroot directories .. "
+echo -n " * DELETE AND RECREATE WEBROOT DIRECTORIES .. "
 if [ -d ${WEBROOT} ]; then
     rm -rf ${WEBROOT}
     rm -rf ${LOGDIR}

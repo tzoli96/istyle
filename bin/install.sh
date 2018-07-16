@@ -142,7 +142,7 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
 
   echo -n " * RSYNC LIVE FOLDER TO BUILD WITH EXCEPTIONS ... "
   EFS_LIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | head -1)"
-  if rsync -au --delete --exclude={"/var/backups/*","/var/log","/var/report/*","/var/di/*","/var/generation/*","/var/view_preprocessed/*","/pub/static/*"} ${EFS_LIVE}/ ${EFS_BUILD}/; then echo OK; else echo FAIL; fi
+  if rsync -au --delete --exclude={"/var/backups/*","/var/log","/var/report/*","/var/di/*","/var/generation/*","/var/view_preprocessed/*","/pub/static/*","/var/.maintenance.flag"} ${EFS_LIVE}/ ${EFS_BUILD}/; then echo OK; else echo FAIL; fi
 
   echo " * CREATE DIRECTORY SYMLINKS TO BUILD:"
   symlink_check "var" "${WEBROOT}/var" "${EFS_BUILD}/var" "${WEBROOT}/"
