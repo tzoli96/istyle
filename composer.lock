@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e7c4856ebf6fc5213fbcabd083f86828",
+    "content-hash": "7218012aa060a4d7a31bef5425b23ddd",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7696,11 +7696,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.28.4",
+            "version": "1.0.28.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "bb5cb9bae5f5a5c384fe704329be5f955334c120"
+                "reference": "7adc0d72d6f4750aef9fb9bb654e68ef124c951f"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7719,7 +7719,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2018-07-16T17:27:13+00:00"
+            "time": "2018-07-16T21:27:13+00:00"
         },
         {
             "name": "oander/module-cookie-law",
