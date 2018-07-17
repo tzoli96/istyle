@@ -258,6 +258,9 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   echo -n " * COPY THE ENV FILE WITH THE DATABASES BACK FOR CRONJOBS ... "
   if cp -a ${EFS}/env/env.php ${WEBROOT}/app/etc/; then echo OK; else echo FAIL; fi
 
+  echo -n " * ENABLE CRON .. "
+  if cp /mnt/istyle-storage/istyle/crontab_on /etc/crontab; then echo OK; else echo FAIL; fi
+
   echo -n " * COPY THE CONFIG.PHP TO NFS ... "
   if cp -a ${WEBROOT}/app/etc/config.php ${EFS}/env/; then echo OK; else echo FAIL; fi
 
