@@ -11,8 +11,6 @@ namespace Oander\IstyleBase\Model\Indexer;
 use Magento\Catalog\Model\Product;
 use Magento\Catalog\Model\Product\Type;
 use Oander\WarehouseManager\Api\Data\ProductStockInterface;
-use Oander\WarehouseManager\Api\Data\WarehouseInterface;
-use Oander\WarehouseManager\Api\Data\WarehouseItemInterface;
 
 /**
  * Class WarehouseItem
@@ -20,7 +18,6 @@ use Oander\WarehouseManager\Api\Data\WarehouseItemInterface;
  */
 class WarehouseItem extends \Oander\WarehouseManager\Model\Indexer\WarehouseItem
 {
-
     /**
      * @param array $fromWarehouseItemIds
      */
@@ -55,12 +52,13 @@ class WarehouseItem extends \Oander\WarehouseManager\Model\Indexer\WarehouseItem
             ->addAttributeToSelect(Product::TYPE_ID)
             ->addAttributeToFilter(Product::TYPE_ID, ['in' => [Type::TYPE_SIMPLE,Type::TYPE_VIRTUAL,'insurance']]);
 
-        $warehouseItemCollection = $this->warehouseItemApi->getAllWarehouseItem();
-        $warehouseItemProductIds = [];
-        /** @var WarehouseItemInterface $warehouseItem */
-        foreach ($warehouseItemCollection as $warehouseItem) {
-            $warehouseItemProductIds[] = $warehouseItem->getProductId();
+        $websiteIds = [];
+        $websiteCollection = $this->storeManager->getWebsites(true);
+        /** @var WebsiteInterface $website */
+        foreach ($websiteCollection as $website) {
+            $websiteIds[] = $website->getId();
         }
+        $warehouseItemProductIds = $this->warehouseItemApi->getProductIds($websiteIds);
         $warehouseItemProductIds = array_unique($warehouseItemProductIds);
 
         $allEntity = count($productCollection);
@@ -109,46 +107,5 @@ class WarehouseItem extends \Oander\WarehouseManager\Model\Indexer\WarehouseItem
                 }
             }
         }
-    }
-
-    /**
-     * @param array $fromWarehouseItemIds
-     */
-    protected function createWarehouses($fromWarehouseItemIds = [])
-    {
-        $this->writeLog('updateWarehouses', 5, 0, 100);
-        $productCollection = $this->productCollectionFactory->create()
-            ->addAttributeToSelect(Product::TYPE_ID)
-            ->addAttributeToFilter(Product::TYPE_ID, ['in' => [Type::TYPE_SIMPLE,Type::TYPE_VIRTUAL,'insurance']]);
-        $productIds = [];
-        /** @var Product $product */
-        foreach ($productCollection as $product) {
-            $productIds[] = $product->getId();
-        }
-        $productIds = array_unique($productIds);
-
-        $warehouseCollection = $this->warehouseApi->getAllWarehouse();
-        /** @var WarehouseInterface $warehouse */
-        foreach ($warehouseCollection as $warehouse) {
-            $warehouseWebsites = $this->warehouseApi->getByWarehouseWebsitesByWarehouseId($warehouse->getWarehouseId());
-            foreach ($warehouseWebsites as $warehouseWebsite) {
-                $warehouseItemCollection = $this->warehouseItemApi
-                    ->getByWebsiteIdsAndWarehouseIds([$warehouseWebsite[WarehouseInterface::WEBSITE_ID]],
-                        [$warehouse->getWarehouseId()]);
-
-                $warehouseItemProductIds = [];
-                foreach ($warehouseItemCollection as $warehouseItem) {
-                    $warehouseItemProductIds[] = $warehouseItem->getProductId();
-                }
-                $missingWarehouseProducts = array_diff($productIds, $warehouseItemProductIds);
-
-                foreach ($missingWarehouseProducts as $missingWarehouseProduct) {
-                    $missingProduct = $this->productFactory->create()->load($missingWarehouseProduct);
-                    $this->saveWarehouseItems($missingProduct);
-                }
-            }
-        }
-        $this->writeLog('updateWarehouses', 5, 100, 100);
-
     }
 }
