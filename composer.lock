@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3161c5899293e6096855d63236c44ecf",
+    "content-hash": "cd702144e88fc15ffb7e037ea890824b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7611,11 +7611,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.28.1",
+            "version": "1.0.28.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "1ead6df455d6e8a8731abe6215c9946b5d868957"
+                "reference": "7adc0d72d6f4750aef9fb9bb654e68ef124c951f"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7634,7 +7634,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2018-07-12T11:38:32+00:00"
+            "time": "2018-07-16T21:27:13+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -8634,11 +8634,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.132",
+            "version": "1.0.134",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "d7836944b738942ba3d75030015a939b766092da"
+                "reference": "ee63da2fe4633f08c9c93f8cb3e8d4369e972cb2"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8654,7 +8654,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-07-11T10:47:11+00:00"
+            "time": "2018-07-18T08:36:23+00:00"
         },
         {
             "name": "oyejorge/less.php",
