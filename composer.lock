@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a7e8652a008404fe91b752f32b1776f6",
+    "content-hash": "57c68ed3f0229820e4723ad9dc087cd3",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8703,11 +8703,11 @@
         },
         {
             "name": "oander/module-unity-dpd-sk-pickup",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-unity-dpd-sk-pickup.git",
-                "reference": "87c97f752c66f57d8f5c9fed2b77fbfff295a7cc"
+                "reference": "05dd08069347c6794fb5bb94f51b3889c68f6888"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8729,15 +8729,15 @@
                 "proprietary"
             ],
             "description": "Oander Unity Dpd SK Pickup",
-            "time": "2018-07-05T11:15:33+00:00"
+            "time": "2018-07-20T11:33:01+00:00"
         },
         {
             "name": "oander/module-unity-pickup",
-            "version": "1.0.17",
+            "version": "1.0.18.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-unity-pickup.git",
-                "reference": "13ad46426037f94264bd2ea98dbe725903ceb49e"
+                "reference": "5dfce2c5281c440efcd132167e2a6949173fc92a"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8760,7 +8760,7 @@
                 "proprietary"
             ],
             "description": "Oander Unity Pickup",
-            "time": "2018-07-05T15:16:06+00:00"
+            "time": "2018-07-20T12:10:12+00:00"
         },
         {
             "name": "oander/module-warehouse-manager",
