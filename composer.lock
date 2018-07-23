@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "57c68ed3f0229820e4723ad9dc087cd3",
+    "content-hash": "2187f620ef6b4fa3019886fba5846de6",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6717,6 +6717,12 @@
                 "url": "git@github.com:oandermedia/mirasvit-core.git",
                 "reference": "df5b07875201ea877e23f33d2f07ce8927e81eef"
             },
+            "dist": {
+                "type": "tar",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-core-1.2.67-a4852f.tar",
+                "reference": "e29b467458fe9f18386a670da6c2f99e9c4f109d",
+                "shasum": null
+            },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*"
             },
@@ -6733,7 +6739,7 @@
                 "proprietary"
             ],
             "description": "Mirasvit Core",
-            "time": "2018-06-25T08:56:27+00:00"
+            "time": "2018-06-20T14:29:35+00:00"
         },
         {
             "name": "mirasvit/module-feed",
@@ -6742,6 +6748,12 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-feed.git",
                 "reference": "69276730accf0d52619d47b32883d5e989af30ae"
+            },
+            "dist": {
+                "type": "tar",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-feed-1.0.69-26c6af.tar",
+                "reference": "863b8607aeebee659051e3ae31603cd18148ae97",
+                "shasum": null
             },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*",
@@ -6761,7 +6773,7 @@
                 "proprietary"
             ],
             "description": "Advanced Product Feeds",
-            "time": "2018-06-25T08:52:57+00:00"
+            "time": "2018-06-04T08:44:22+00:00"
         },
         {
             "name": "mirasvit/module-report",
@@ -6770,6 +6782,12 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-report.git",
                 "reference": "eed2055a79dabf569b31c4c051c2ca095a406ebe"
+            },
+            "dist": {
+                "type": "tar",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-report-1.3.25-84c095.tar",
+                "reference": "d563743a75376ae84b9aa67f57f49154f33d8af0",
+                "shasum": null
             },
             "require": {
                 "magento/framework": "100.1.*|101.0.*",
@@ -6790,7 +6808,7 @@
                 "proprietary"
             ],
             "description": "Reports Core",
-            "time": "2018-06-25T09:06:55+00:00"
+            "time": "2018-06-20T13:42:18+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -7535,6 +7553,32 @@
             ],
             "description": "Oander Module Abstractions",
             "time": "2017-06-19T13:57:39+00:00"
+        },
+        {
+            "name": "oander/module-bundle",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-bundle.git",
+                "reference": "9952e98d6f144a703626261fe95e6ed0ee0d94d4"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\Bundle\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Bundle product ignore stock quantity",
+            "time": "2018-07-23T12:36:21+00:00"
         },
         {
             "name": "oander/module-cardondeliverypayment",
@@ -8764,14 +8808,15 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.3.17",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "6fd8454eb041802751d974a5bd23aaceae405da6"
+                "reference": "0f0ecd1ad3db3d20df07a0e6936a8fef3e3b0f67"
             },
             "require": {
                 "oander/module-base": "*",
+                "oander/module-bundle": "*",
                 "oander/module-checkout": "*",
                 "oander/module-shipping": "*",
                 "php": "7.*"
@@ -8789,7 +8834,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-07-13T15:07:28+00:00"
+            "time": "2018-07-23T07:43:59+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
@@ -9659,7 +9704,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.8.42",
+            "version": "v2.8.43",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -9774,16 +9819,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.8.42",
+            "version": "v2.8.43",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "0f42a0827d99a867ffd279ae083e7daf1fe42cb7"
+                "reference": "1143ebbfdcc2e6440b01adfb4d36bbd8ac997266"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/0f42a0827d99a867ffd279ae083e7daf1fe42cb7",
-                "reference": "0f42a0827d99a867ffd279ae083e7daf1fe42cb7",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/1143ebbfdcc2e6440b01adfb4d36bbd8ac997266",
+                "reference": "1143ebbfdcc2e6440b01adfb4d36bbd8ac997266",
                 "shasum": ""
             },
             "require": {
@@ -9833,11 +9878,11 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2018-05-25T13:50:34+00:00"
+            "time": "2018-07-11T10:26:22+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.42",
+            "version": "v2.8.43",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -9897,16 +9942,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.8.42",
+            "version": "v2.8.43",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "0f685c099aca7ba86bcc31850186dbfe84a4a8a1"
+                "reference": "5cfc856c5b665ef5de0df796e98c54bef0fe595b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/0f685c099aca7ba86bcc31850186dbfe84a4a8a1",
-                "reference": "0f685c099aca7ba86bcc31850186dbfe84a4a8a1",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/5cfc856c5b665ef5de0df796e98c54bef0fe595b",
+                "reference": "5cfc856c5b665ef5de0df796e98c54bef0fe595b",
                 "shasum": ""
             },
             "require": {
@@ -9943,7 +9988,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2018-06-21T09:24:14+00:00"
+            "time": "2018-07-09T13:24:25+00:00"
         },
         {
             "name": "symfony/finder",
@@ -10051,7 +10096,7 @@
         },
         {
             "name": "symfony/process",
-            "version": "v2.8.42",
+            "version": "v2.8.43",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -10100,7 +10145,7 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.42",
+            "version": "v2.8.43",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
