@@ -115,7 +115,8 @@
         "plugincompany/licensemanager": "100.0.4",
         "rudracomputech/module-nestpay": "2.0.6.2",
         "xtento/module-orderexport": "2.3.9",
-        "xtento/module-xtcore": "2.1.0"
+        "xtento/module-xtcore": "2.1.0",
+        "mirasvit/module-profiler": "1.0.6"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
