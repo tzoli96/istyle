@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b513893df9d0e82ab82825ac33439c5b",
+    "content-hash": "b6c06524bd0dddca3059034cd03a61e6",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6787,21 +6787,16 @@
         },
         {
             "name": "mirasvit/module-profiler",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-profiler.git",
-                "reference": "096cf91c269c53f5166e69b7b4a9e1275358a314"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mirasvit/module-profiler/zipball/e130fc72d20319d4a1f49412e32e25bf621c38c5",
-                "reference": "e130fc72d20319d4a1f49412e32e25bf621c38c5",
-                "shasum": ""
+                "reference": "a98cd98cc0e191b4a379f102e3da4584529618a3"
             },
             "require": {
                 "jdorn/sql-formatter": "^1.2",
-                "magento/framework": "100.*|101.*"
+                "magento/framework": "100.*|101.*",
+                "symfony/yaml": "*"
             },
             "type": "magento2-module",
             "autoload": {
@@ -6812,12 +6807,11 @@
                     "Mirasvit\\Profiler\\": "src/Profiler"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "Magento 2 Profiler",
-            "time": "2017-09-28T09:55:47+00:00"
+            "time": "2018-07-24T08:30:53+00:00"
         },
         {
             "name": "mirasvit/module-report",
@@ -9689,7 +9683,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.12",
+            "version": "v3.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -12651,7 +12645,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.12",
+            "version": "v3.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
