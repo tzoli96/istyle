@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "164815afed47f4b17b0096395edc0d89",
+    "content-hash": "f2015d9d2724433d3580d97538e60104",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1552,6 +1552,56 @@
             },
             "description": "iSTYLE InsiaCare Module",
             "time": "2018-06-21T18:53:18+00:00"
+        },
+        {
+            "name": "jdorn/sql-formatter",
+            "version": "v1.2.17",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jdorn/sql-formatter.git",
+                "reference": "64990d96e0959dff8e059dfcdc1af130728d92bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jdorn/sql-formatter/zipball/64990d96e0959dff8e059dfcdc1af130728d92bc",
+                "reference": "64990d96e0959dff8e059dfcdc1af130728d92bc",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "lib"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeremy Dorn",
+                    "email": "jeremy@jeremydorn.com",
+                    "homepage": "http://jeremydorn.com/"
+                }
+            ],
+            "description": "a PHP SQL highlighting library",
+            "homepage": "https://github.com/jdorn/sql-formatter/",
+            "keywords": [
+                "highlight",
+                "sql"
+            ],
+            "time": "2014-01-12T16:20:24+00:00"
         },
         {
             "name": "jms/metadata",
@@ -6789,12 +6839,6 @@
                 "url": "git@github.com:oandermedia/mirasvit-core.git",
                 "reference": "df5b07875201ea877e23f33d2f07ce8927e81eef"
             },
-            "dist": {
-                "type": "tar",
-                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-core-1.2.67-a4852f.tar",
-                "reference": "e29b467458fe9f18386a670da6c2f99e9c4f109d",
-                "shasum": null
-            },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*"
             },
@@ -6811,7 +6855,7 @@
                 "proprietary"
             ],
             "description": "Mirasvit Core",
-            "time": "2018-06-20T14:29:35+00:00"
+            "time": "2018-06-25T08:56:27+00:00"
         },
         {
             "name": "mirasvit/module-feed",
@@ -6820,12 +6864,6 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-feed.git",
                 "reference": "69276730accf0d52619d47b32883d5e989af30ae"
-            },
-            "dist": {
-                "type": "tar",
-                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-feed-1.0.69-26c6af.tar",
-                "reference": "863b8607aeebee659051e3ae31603cd18148ae97",
-                "shasum": null
             },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*",
@@ -6845,7 +6883,35 @@
                 "proprietary"
             ],
             "description": "Advanced Product Feeds",
-            "time": "2018-06-04T08:44:22+00:00"
+            "time": "2018-06-25T08:52:57+00:00"
+        },
+        {
+            "name": "mirasvit/module-profiler",
+            "version": "1.0.6",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/mirasvit-profiler.git",
+                "reference": "096cf91c269c53f5166e69b7b4a9e1275358a314"
+            },
+            "require": {
+                "jdorn/sql-formatter": "^1.2",
+                "magento/framework": "100.*|101.*",
+                "symfony/yaml": "*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "./registration.php"
+                ],
+                "psr-4": {
+                    "Mirasvit\\Profiler\\": "src/Profiler"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Magento 2 Profiler",
+            "time": "2018-06-08T10:40:22+00:00"
         },
         {
             "name": "mirasvit/module-report",
@@ -6854,12 +6920,6 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-report.git",
                 "reference": "eed2055a79dabf569b31c4c051c2ca095a406ebe"
-            },
-            "dist": {
-                "type": "tar",
-                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-report-1.3.25-84c095.tar",
-                "reference": "d563743a75376ae84b9aa67f57f49154f33d8af0",
-                "shasum": null
             },
             "require": {
                 "magento/framework": "100.1.*|101.0.*",
@@ -6880,7 +6940,7 @@
                 "proprietary"
             ],
             "description": "Reports Core",
-            "time": "2018-06-20T13:42:18+00:00"
+            "time": "2018-06-25T09:06:55+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -8284,6 +8344,110 @@
             "time": "2017-12-14T16:11:28+00:00"
         },
         {
+            "name": "oander/module-ocbase",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-ocbase.git",
+                "reference": "26f47f4d2c0f6b2f23ff4f763a3eb2fa3b730870"
+            },
+            "require": {
+                "oander/module-api-base": "^1.0.21"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\OCBase\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "email": "info@mage2gen.com",
+                    "name": "Mage2Gen"
+                },
+                {
+                    "email": "janos.pinczes@oander.hu",
+                    "name": "János Pinczés"
+                }
+            ],
+            "description": "Oander Connect Base",
+            "time": "2018-07-30T13:31:06+00:00"
+        },
+        {
+            "name": "oander/module-ocevent",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-ocevent.git",
+                "reference": "fdbcc28e1131fe693d91b51d79d92d061f34d2bb"
+            },
+            "require": {
+                "oander/module-ocqueue": "^1.0.2"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\OCEvent\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "email": "janos.pinczes@oander.hu",
+                    "name": "János Pinczés"
+                }
+            ],
+            "description": "Oander Connect Event Manager",
+            "time": "2018-07-30T13:34:26+00:00"
+        },
+        {
+            "name": "oander/module-ocqueue",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-ocqueue.git",
+                "reference": "ba5122e5d46f2f0a3eea50effb8ff1e8c4de7cee"
+            },
+            "require": {
+                "oander/module-ocbase": "^1.0.1"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\OCQueue\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "email": "info@mage2gen.com",
+                    "name": "Mage2Gen"
+                },
+                {
+                    "email": "janos.pinczes@oander.hu",
+                    "name": "János Pinczés"
+                }
+            ],
+            "description": "Queue module for OanderConnect",
+            "time": "2018-07-30T19:13:29+00:00"
+        },
+        {
             "name": "oander/module-order-attachment",
             "version": "1.0.2",
             "source": {
@@ -8599,6 +8763,38 @@
             ],
             "description": "salesforce-widget",
             "time": "2018-06-15T13:02:11+00:00"
+        },
+        {
+            "name": "oander/module-salesforcereservation",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
+                "reference": "fb8bb57d2e8487cc5d97b8f1414febf851491790"
+            },
+            "require": {
+                "oander/module-ocqueue": "^1.0.3"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\SalesforceReservation\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "email": "janos.pinczes@oander.hu",
+                    "name": "János Pinczés"
+                }
+            ],
+            "description": "Salesforce Product Reservation",
+            "time": "2018-07-30T19:16:14+00:00"
         },
         {
             "name": "oander/module-shipping",
