@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "af5dff78fcf1e2fb2ef1eeaff713fd93",
+    "content-hash": "fd623c361b19e59fdb996bca0f0a843d",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1444,6 +1444,30 @@
             },
             "description": "Innobyte HomeCredit Module",
             "time": "2018-06-05T10:14:06+00:00"
+        },
+        {
+            "name": "innobyte/module-inbank",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/innobyte-inbank.git",
+                "reference": "a1d7d25abaad986d41d7da1ea615feb5ae918f24"
+            },
+            "require": {
+                "magento/module-checkout": "^100.1.2",
+                "php": "7.0.2|7.0.4|~7.0.6"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Innobyte\\InBank\\": ""
+                }
+            },
+            "description": "Innobyte InBank Module",
+            "time": "2018-07-30T10:55:31+00:00"
         },
         {
             "name": "innobyte/module-mstart",
