@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4d31af85bcbc4766915c7d0438ccb201",
+    "content-hash": "ad3737448992b18bdf845a9c53bf1be1",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8766,11 +8766,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "2df0e0f136e9df5a77537e3659225b991a179538"
+                "reference": "7c4816ced5540b40a9a6f27ac6844a6fd71c612e"
             },
             "require": {
                 "oander/module-ocqueue": "^1.0.3"
@@ -8794,7 +8794,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-07-31T07:41:01+00:00"
+            "time": "2018-07-31T08:18:46+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -9045,11 +9045,11 @@
         },
         {
             "name": "oander/module-unity-pickup",
-            "version": "1.0.18.1",
+            "version": "1.0.18.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-unity-pickup.git",
-                "reference": "5dfce2c5281c440efcd132167e2a6949173fc92a"
+                "reference": "af1332afcfda38c4a439d1b52e592eb83c0bc33b"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9072,7 +9072,7 @@
                 "proprietary"
             ],
             "description": "Oander Unity Pickup",
-            "time": "2018-07-20T12:10:12+00:00"
+            "time": "2018-07-31T09:54:10+00:00"
         },
         {
             "name": "oander/module-warehouse-manager",
