@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "39206302f821189c199d0bdf1c17f380",
+    "content-hash": "a9f8ef3b3b707c803f2eb60713657080",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9045,11 +9045,11 @@
         },
         {
             "name": "oander/module-unity-pickup",
-            "version": "1.0.18.2",
+            "version": "1.0.18.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-unity-pickup.git",
-                "reference": "af1332afcfda38c4a439d1b52e592eb83c0bc33b"
+                "reference": "40f91e72c6fcc31157017d3c503592e698ca5682"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9072,7 +9072,7 @@
                 "proprietary"
             ],
             "description": "Oander Unity Pickup",
-            "time": "2018-07-31T09:54:10+00:00"
+            "time": "2018-07-31T11:22:10+00:00"
         },
         {
             "name": "oander/module-warehouse-manager",
