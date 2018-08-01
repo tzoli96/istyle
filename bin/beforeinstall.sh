@@ -11,14 +11,14 @@ nfs_check() {
 }
 
 cron_check() {
+  echo -n " * DISABLE CRON .. "
+  if cp /mnt/istyle-storage/istyle/crontab_off /etc/crontab; then echo OK; else echo FAIL; fi
   echo -n " * CHECKING CRON: "
   while pgrep -x php7.0 > /dev/null; do
     echo -n "."
     sleep 5
   done
   echo " DONE!"
-  echo -n " * DISABLE CRON .. "
-  if cp /mnt/istyle-storage/istyle/crontab_off /etc/crontab; then echo OK; else echo FAIL; fi
 }
 
 nfs_check
