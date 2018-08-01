@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f1eaa9186e3912c993f5068cf9209c8",
+    "content-hash": "7bfd57e31b445860ba8f8e4ea4857965",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8387,11 +8387,11 @@
         },
         {
             "name": "oander/module-ocbase",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-ocbase.git",
-                "reference": "26f47f4d2c0f6b2f23ff4f763a3eb2fa3b730870"
+                "reference": "4987fb7337449a92468f3cd422caebd62e308c20"
             },
             "require": {
                 "oander/module-api-base": "^1.0.21"
@@ -8419,7 +8419,7 @@
                 }
             ],
             "description": "Oander Connect Base",
-            "time": "2018-07-30T13:31:06+00:00"
+            "time": "2018-07-31T20:49:04+00:00"
         },
         {
             "name": "oander/module-ocevent",
@@ -8455,14 +8455,14 @@
         },
         {
             "name": "oander/module-ocqueue",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-ocqueue.git",
-                "reference": "ba5122e5d46f2f0a3eea50effb8ff1e8c4de7cee"
+                "reference": "6cd87ffb8ae52d5f6ca6b5eea5e8ca9aebf486d7"
             },
             "require": {
-                "oander/module-ocbase": "^1.0.1"
+                "oander/module-ocbase": "^1.0.2"
             },
             "type": "magento2-module",
             "autoload": {
@@ -8487,7 +8487,7 @@
                 }
             ],
             "description": "Queue module for OanderConnect",
-            "time": "2018-07-30T19:13:29+00:00"
+            "time": "2018-08-01T07:32:02+00:00"
         },
         {
             "name": "oander/module-order-attachment",
@@ -8864,6 +8864,32 @@
             ],
             "description": "Shipping",
             "time": "2018-02-20T13:54:50+00:00"
+        },
+        {
+            "name": "oander/module-stuck-process-remover",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-stuck-process-remover.git",
+                "reference": "aa0f520776ed1fccab1605e42bbb064a29bca957"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\StuckProcessRemover\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Remove all cron and indexer which exceeded the maximum allowed run time",
+            "time": "2018-07-31T15:08:23+00:00"
         },
         {
             "name": "oander/module-summit-leasing",
