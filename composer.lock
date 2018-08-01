@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd623c361b19e59fdb996bca0f0a843d",
+    "content-hash": "0f1eaa9186e3912c993f5068cf9209c8",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9790,6 +9790,29 @@
                 "psr-3"
             ],
             "time": "2016-10-10T12:19:37+00:00"
+        },
+        {
+            "name": "replace/module-buyback-calculator",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/replace-buyback-calculator.git",
+                "reference": "d01d84487234447129cb7403118f7dadd4c124c9"
+            },
+            "require": {
+                "php": "7.0.2|7.0.4|~7.0.6"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Replace\\BuybackCalculator\\": ""
+                }
+            },
+            "description": "Rework Replace Buyback Calculator",
+            "time": "2018-08-01T07:25:44+00:00"
         },
         {
             "name": "rudracomputech/module-nestpay",
