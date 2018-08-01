@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "02adef3879b7fb5557adc4bb379f7976",
+    "content-hash": "a3610019d042728eb7cc03db9b96ec48",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8369,11 +8369,11 @@
         },
         {
             "name": "oander/module-ocbase",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-ocbase.git",
-                "reference": "26f47f4d2c0f6b2f23ff4f763a3eb2fa3b730870"
+                "reference": "4987fb7337449a92468f3cd422caebd62e308c20"
             },
             "require": {
                 "oander/module-api-base": "^1.0.21"
@@ -8401,7 +8401,7 @@
                 }
             ],
             "description": "Oander Connect Base",
-            "time": "2018-07-30T13:31:06+00:00"
+            "time": "2018-07-31T20:49:04+00:00"
         },
         {
             "name": "oander/module-ocevent",
@@ -8437,14 +8437,14 @@
         },
         {
             "name": "oander/module-ocqueue",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-ocqueue.git",
-                "reference": "ba5122e5d46f2f0a3eea50effb8ff1e8c4de7cee"
+                "reference": "6cd87ffb8ae52d5f6ca6b5eea5e8ca9aebf486d7"
             },
             "require": {
-                "oander/module-ocbase": "^1.0.1"
+                "oander/module-ocbase": "^1.0.2"
             },
             "type": "magento2-module",
             "autoload": {
@@ -8469,7 +8469,7 @@
                 }
             ],
             "description": "Queue module for OanderConnect",
-            "time": "2018-07-30T19:13:29+00:00"
+            "time": "2018-08-01T07:32:02+00:00"
         },
         {
             "name": "oander/module-order-attachment",
