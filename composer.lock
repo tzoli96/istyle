@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7bfd57e31b445860ba8f8e4ea4857965",
+    "content-hash": "b1374b2dfe1fa8db79e3d23379a7744e",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6863,12 +6863,6 @@
                 "url": "git@github.com:oandermedia/mirasvit-core.git",
                 "reference": "df5b07875201ea877e23f33d2f07ce8927e81eef"
             },
-            "dist": {
-                "type": "tar",
-                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-core-1.2.67-a4852f.tar",
-                "reference": "e29b467458fe9f18386a670da6c2f99e9c4f109d",
-                "shasum": null
-            },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*"
             },
@@ -6885,7 +6879,7 @@
                 "proprietary"
             ],
             "description": "Mirasvit Core",
-            "time": "2018-06-20T14:29:35+00:00"
+            "time": "2018-06-25T08:56:27+00:00"
         },
         {
             "name": "mirasvit/module-feed",
@@ -6894,12 +6888,6 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-feed.git",
                 "reference": "69276730accf0d52619d47b32883d5e989af30ae"
-            },
-            "dist": {
-                "type": "tar",
-                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-feed-1.0.69-26c6af.tar",
-                "reference": "863b8607aeebee659051e3ae31603cd18148ae97",
-                "shasum": null
             },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*",
@@ -6919,7 +6907,7 @@
                 "proprietary"
             ],
             "description": "Advanced Product Feeds",
-            "time": "2018-06-04T08:44:22+00:00"
+            "time": "2018-06-25T08:52:57+00:00"
         },
         {
             "name": "mirasvit/module-profiler",
@@ -6957,12 +6945,6 @@
                 "url": "git@github.com:oandermedia/mirasvit-report.git",
                 "reference": "eed2055a79dabf569b31c4c051c2ca095a406ebe"
             },
-            "dist": {
-                "type": "tar",
-                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-report-1.3.25-84c095.tar",
-                "reference": "d563743a75376ae84b9aa67f57f49154f33d8af0",
-                "shasum": null
-            },
             "require": {
                 "magento/framework": "100.1.*|101.0.*",
                 "mirasvit/module-core": "^1.2"
@@ -6982,7 +6964,7 @@
                 "proprietary"
             ],
             "description": "Reports Core",
-            "time": "2018-06-20T13:42:18+00:00"
+            "time": "2018-06-25T09:06:55+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -9113,11 +9095,11 @@
         },
         {
             "name": "oander/module-unity-pickup",
-            "version": "1.0.18.3",
+            "version": "1.0.18.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-unity-pickup.git",
-                "reference": "40f91e72c6fcc31157017d3c503592e698ca5682"
+                "reference": "9c7f2b2b78a5e1e7fe1c66fd116109bd723f8543"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9140,7 +9122,7 @@
                 "proprietary"
             ],
             "description": "Oander Unity Pickup",
-            "time": "2018-07-31T11:22:10+00:00"
+            "time": "2018-08-01T15:40:28+00:00"
         },
         {
             "name": "oander/module-warehouse-manager",
@@ -9842,11 +9824,11 @@
         },
         {
             "name": "rudracomputech/module-nestpay",
-            "version": "2.0.6.2",
+            "version": "2.0.6.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/rudracomputech-nestpay.git",
-                "reference": "89c1e34e52bba6536926815ba78d69d6a74f7905"
+                "reference": "0f762aaebb3557546f686e48dd113b8a5a7f5bd9"
             },
             "require": {
                 "php": "7.*"
@@ -9864,7 +9846,7 @@
                 "proprietary"
             ],
             "description": "Nestpay",
-            "time": "2018-05-02T10:28:31+00:00"
+            "time": "2018-08-02T07:51:28+00:00"
         },
         {
             "name": "seld/cli-prompt",
@@ -10063,16 +10045,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.8.43",
+            "version": "v2.8.44",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "93bdf96d0e3c9b29740bf9050e7a996b443c8436"
+                "reference": "06c0be4cdd8363f3ec8d592c9a4d1b981d5052af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/93bdf96d0e3c9b29740bf9050e7a996b443c8436",
-                "reference": "93bdf96d0e3c9b29740bf9050e7a996b443c8436",
+                "url": "https://api.github.com/repos/symfony/config/zipball/06c0be4cdd8363f3ec8d592c9a4d1b981d5052af",
+                "reference": "06c0be4cdd8363f3ec8d592c9a4d1b981d5052af",
                 "shasum": ""
             },
             "require": {
@@ -10116,7 +10098,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2018-05-01T22:52:40+00:00"
+            "time": "2018-07-26T11:13:39+00:00"
         },
         {
             "name": "symfony/console",
@@ -10178,16 +10160,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.8.43",
+            "version": "v2.8.44",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "1143ebbfdcc2e6440b01adfb4d36bbd8ac997266"
+                "reference": "ad2446d39d11c3daaa7f147d957941a187e47357"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/1143ebbfdcc2e6440b01adfb4d36bbd8ac997266",
-                "reference": "1143ebbfdcc2e6440b01adfb4d36bbd8ac997266",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/ad2446d39d11c3daaa7f147d957941a187e47357",
+                "reference": "ad2446d39d11c3daaa7f147d957941a187e47357",
                 "shasum": ""
             },
             "require": {
@@ -10237,20 +10219,20 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2018-07-11T10:26:22+00:00"
+            "time": "2018-07-26T11:13:39+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.43",
+            "version": "v2.8.44",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "9b69aad7d4c086dc94ebade2d5eb9145da5dac8c"
+                "reference": "84ae343f39947aa084426ed1138bb96bf94d1f12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/9b69aad7d4c086dc94ebade2d5eb9145da5dac8c",
-                "reference": "9b69aad7d4c086dc94ebade2d5eb9145da5dac8c",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/84ae343f39947aa084426ed1138bb96bf94d1f12",
+                "reference": "84ae343f39947aa084426ed1138bb96bf94d1f12",
                 "shasum": ""
             },
             "require": {
@@ -10297,20 +10279,20 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2018-04-06T07:35:03+00:00"
+            "time": "2018-07-26T09:03:18+00:00"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.8.43",
+            "version": "v2.8.44",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "5cfc856c5b665ef5de0df796e98c54bef0fe595b"
+                "reference": "2d6a4deccdfa2e4e9f113138b93457b2d0886c15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/5cfc856c5b665ef5de0df796e98c54bef0fe595b",
-                "reference": "5cfc856c5b665ef5de0df796e98c54bef0fe595b",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/2d6a4deccdfa2e4e9f113138b93457b2d0886c15",
+                "reference": "2d6a4deccdfa2e4e9f113138b93457b2d0886c15",
                 "shasum": ""
             },
             "require": {
@@ -10347,20 +10329,20 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2018-07-09T13:24:25+00:00"
+            "time": "2018-07-26T11:13:39+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.13",
+            "version": "v3.4.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "3a8c3de91d2b2c68cd2d665cf9d00f7ef9eaa394"
+                "reference": "8a84fcb207451df0013b2c74cbbf1b62d47b999a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/3a8c3de91d2b2c68cd2d665cf9d00f7ef9eaa394",
-                "reference": "3a8c3de91d2b2c68cd2d665cf9d00f7ef9eaa394",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/8a84fcb207451df0013b2c74cbbf1b62d47b999a",
+                "reference": "8a84fcb207451df0013b2c74cbbf1b62d47b999a",
                 "shasum": ""
             },
             "require": {
@@ -10396,7 +10378,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-06-19T20:52:10+00:00"
+            "time": "2018-07-26T11:19:56+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -10455,16 +10437,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v2.8.43",
+            "version": "v2.8.44",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "542d88b350c42750fdc14e73860ee96dd423e95d"
+                "reference": "cc83afdb5ac99147806b3bb65a3ff1227664f596"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/542d88b350c42750fdc14e73860ee96dd423e95d",
-                "reference": "542d88b350c42750fdc14e73860ee96dd423e95d",
+                "url": "https://api.github.com/repos/symfony/process/zipball/cc83afdb5ac99147806b3bb65a3ff1227664f596",
+                "reference": "cc83afdb5ac99147806b3bb65a3ff1227664f596",
                 "shasum": ""
             },
             "require": {
@@ -10500,20 +10482,20 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2018-05-27T07:40:52+00:00"
+            "time": "2018-07-26T11:13:39+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.43",
+            "version": "v2.8.44",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "51356b7a2ff7c9fd06b2f1681cc463bb62b5c1ff"
+                "reference": "fbf876678e29dc634430dcf0096e216eb0004467"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/51356b7a2ff7c9fd06b2f1681cc463bb62b5c1ff",
-                "reference": "51356b7a2ff7c9fd06b2f1681cc463bb62b5c1ff",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/fbf876678e29dc634430dcf0096e216eb0004467",
+                "reference": "fbf876678e29dc634430dcf0096e216eb0004467",
                 "shasum": ""
             },
             "require": {
@@ -10550,7 +10532,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-05-01T22:52:40+00:00"
+            "time": "2018-07-26T09:03:18+00:00"
         },
         {
             "name": "tedivm/jshrink",
@@ -13313,16 +13295,16 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.13",
+            "version": "v3.4.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "eb17cfa072cab26537ac37e9c4ece6c0361369af"
+                "reference": "deda2765e8dab2fc38492e926ea690f2a681f59d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/eb17cfa072cab26537ac37e9c4ece6c0361369af",
-                "reference": "eb17cfa072cab26537ac37e9c4ece6c0361369af",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/deda2765e8dab2fc38492e926ea690f2a681f59d",
+                "reference": "deda2765e8dab2fc38492e926ea690f2a681f59d",
                 "shasum": ""
             },
             "require": {
@@ -13358,7 +13340,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2018-02-17T14:55:25+00:00"
+            "time": "2018-07-26T10:03:52+00:00"
         },
         {
             "name": "theseer/fdomdocument",

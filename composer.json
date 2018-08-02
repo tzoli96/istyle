@@ -110,7 +110,7 @@
         "oander/module-type-hint-fix": "1.0.1",
         "oander/module-unity-dpd-cz-pickup": "1.0.0",
         "oander/module-unity-dpd-sk-pickup": "1.0.1",
-        "oander/module-unity-pickup": "1.0.18.3",
+        "oander/module-unity-pickup": "1.0.18.4",
         "oander/module-warehouse-manager": "1.4.0",
         "oander/module-warehouse-manager-api-index": "1.0.0",
         "oander/module-warehouse-stock-order": "1.0.3",
@@ -122,7 +122,7 @@
         "plugincompany/customergroupswitching": "100.1.4",
         "plugincompany/licensemanager": "100.0.4",
         "replace/module-buyback-calculator": "1.0.2",
-        "rudracomputech/module-nestpay": "2.0.6.2",
+        "rudracomputech/module-nestpay": "2.0.6.3",
         "xtento/module-orderexport": "2.3.9",
         "xtento/module-xtcore": "2.1.0"
     },
