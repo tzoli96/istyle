@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "013b33bde74370d1c145e324e8478d6f",
+    "content-hash": "dc6f33b72f6d20808b26f5134f8e942b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8603,11 +8603,11 @@
         },
         {
             "name": "oander/module-preorder",
-            "version": "1.0.19",
+            "version": "1.0.21",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-preorder.git",
-                "reference": "6f32f4715192e05410fb088d937c0236ec652c94"
+                "reference": "5c9d5b176089627def817178e594c206d1c2d382"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8626,7 +8626,7 @@
                 "proprietary"
             ],
             "description": "Oander Preorder",
-            "time": "2018-05-08T14:35:42+00:00"
+            "time": "2018-05-22T15:07:05+00:00"
         },
         {
             "name": "oander/module-price-tooltip",
