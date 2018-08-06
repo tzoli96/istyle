@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dc6f33b72f6d20808b26f5134f8e942b",
+    "content-hash": "a76aad8bfc95b45b05c297f26f23638a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9035,11 +9035,11 @@
         },
         {
             "name": "oander/module-unity-dpd-cz-pickup",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-unity-dpd-cz-pickup.git",
-                "reference": "8e56accb8006b71d000acab857504f40d84d30a8"
+                "reference": "7096190cc5c853f7a427d3b26f2e0ddde8ed4574"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9061,15 +9061,15 @@
                 "proprietary"
             ],
             "description": "Oander Unity Dpd CZ Pickup",
-            "time": "2018-07-05T15:01:58+00:00"
+            "time": "2018-08-06T16:06:29+00:00"
         },
         {
             "name": "oander/module-unity-dpd-sk-pickup",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-unity-dpd-sk-pickup.git",
-                "reference": "05dd08069347c6794fb5bb94f51b3889c68f6888"
+                "reference": "f6d1b8dc2dd866a7deac7cca4e2ebc176d758184"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9091,7 +9091,7 @@
                 "proprietary"
             ],
             "description": "Oander Unity Dpd SK Pickup",
-            "time": "2018-07-20T11:33:01+00:00"
+            "time": "2018-08-06T16:06:44+00:00"
         },
         {
             "name": "oander/module-unity-pickup",
@@ -10382,25 +10382,28 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.8.0",
+            "version": "v1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "7cc359f1b7b80fc25ed7796be7d96adc9b354bae"
+                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/7cc359f1b7b80fc25ed7796be7d96adc9b354bae",
-                "reference": "7cc359f1b7b80fc25ed7796be7d96adc9b354bae",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/e3d826245268269cd66f8326bd8bc066687b4a19",
+                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
+            "suggest": {
+                "ext-ctype": "For best performance"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.8-dev"
+                    "dev-master": "1.9-dev"
                 }
             },
             "autoload": {
@@ -10433,7 +10436,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2018-04-30T19:57:29+00:00"
+            "time": "2018-08-06T14:22:27+00:00"
         },
         {
             "name": "symfony/process",
