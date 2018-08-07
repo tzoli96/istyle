@@ -110,7 +110,13 @@ class Simple extends \Amasty\Promo\Plugin\Block\Product\Simple
             foreach ($tierPricesList as $tierPrice) {
                 $tierPrices[] = $tierPrice['price']->getValue();
             }
-            $oldPrice = $product->getPriceInfo()->getPrice('old_price')->getAmount()->getValue();
+
+            try {
+                $oldPrice = $product->getPriceInfo()->getPrice('old_price')->getAmount()->getValue();
+            } catch (\Throwable $exception) {
+                $oldPrice = false;
+            }
+
             $config = [
                 'productId' => $product->getId(),
                 'priceFormat' => $this->localeFormat->getPriceFormat(),
