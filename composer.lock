@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c66d3b0787189216d2ad463b84cd1e8e",
+    "content-hash": "cf5938fe50edcac8a9d1ad622959acb8",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7301,11 +7301,11 @@
         },
         {
             "name": "oander/module-api-gateway",
-            "version": "1.0.17",
+            "version": "1.0.19",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-gateway.git",
-                "reference": "fea0ef282b01a755d797e4d38b856c8069fe5d5b"
+                "reference": "5fd73a233e68095a41b3851734b4e78712e67d12"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7325,7 +7325,7 @@
                 "proprietary"
             ],
             "description": "The API Gateway module for ERP connections and import solutions.",
-            "time": "2018-04-26T08:40:20+00:00"
+            "time": "2018-07-04T13:18:05+00:00"
         },
         {
             "name": "oander/module-api-image",
@@ -8425,6 +8425,32 @@
             "time": "2018-02-20T13:54:50+00:00"
         },
         {
+            "name": "oander/module-stuck-process-remover",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-stuck-process-remover.git",
+                "reference": "aa0f520776ed1fccab1605e42bbb064a29bca957"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\StuckProcessRemover\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Remove all cron and indexer which exceeded the maximum allowed run time",
+            "time": "2018-07-31T15:08:23+00:00"
+        },
+        {
             "name": "oander/module-test-base",
             "version": "1.0.1",
             "source": {
@@ -8694,11 +8720,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.135",
+            "version": "1.0.136",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "731f59f396862dc705a5b2f74aa236b7c4cca27e"
+                "reference": "862e5d1e7154abb645a86267e425c4ab17df9f24"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8714,7 +8740,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-08-01T08:20:08+00:00"
+            "time": "2018-08-06T09:53:58+00:00"
         },
         {
             "name": "oyejorge/less.php",
