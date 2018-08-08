@@ -31,7 +31,7 @@ fi
 if [[ "${INSTANCE_ID}" != "${MASTER_ID}" ]]; then
   sleep $[ ( $RANDOM % 10 ) + 1 ].$[ ( $RANDOM % 1000 ) + 1 ]
   if [ -f ${EFS_LIVE}/var/.maintenance.flag ]; then
-    echo -n " * DISABLE MAINTENANCE MODE ... "
+    echo -n " * DISABLE MAINTENANCE MODE .. "
     if rm ${EFS_LIVE}/var/.maintenance.flag; then echo OK; else echo FAIL; fi
   fi
 
