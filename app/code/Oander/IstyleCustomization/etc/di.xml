@@ -22,4 +22,7 @@
     <type name="Magento\CacheInvalidate\Model\PurgeCache">
         <plugin name="varnish_clear_fix" type="Oander\IstyleCustomization\Plugin\CacheInvalidate\Model\PurgeCache"/>
     </type>
+    <type name="Magento\Bundle\Helper\Catalog\Product\Configuration">
+        <plugin name="bundle_product_price_display_in_cart_fix" type="Oander\IstyleCustomization\Plugin\Bundle\Helper\Catalog\Product\Configuration"/>
+    </type>
 </config>
