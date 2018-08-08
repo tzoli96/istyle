@@ -71,6 +71,15 @@ $schema = ($block->getZone() == 'item_view') ? true : false;
         'schema' => $schema
     ]); ?>
     </div>
+    <div class="old-price sly-old-price no-display">
+        <?php /* @escapeNotVerified */ echo $block->renderAmount($priceModel->getAmount(), [
+            'display_label'     => __('Regular Price'),
+            'price_id'          => $block->getPriceId('old-price-' . $idSuffix),
+            'price_type'        => 'oldPrice',
+            'include_container' => true,
+            'skip_adjustments'  => true
+        ]); ?>
+    </div>
 <?php endif; ?>
 <?php endif ?>
 
