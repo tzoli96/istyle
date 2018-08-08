@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a4e30d11ed88c2601c4c4c2f33b50601",
+    "content-hash": "73efd5a5864629af8876676300122de4",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7393,11 +7393,11 @@
         },
         {
             "name": "oander/module-api-checkout",
-            "version": "1.3.0",
+            "version": "1.3.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-checkout.git",
-                "reference": "31ab76963195f546a1329ab14cc6815428886910"
+                "reference": "cbcce800c9771c0f7abf58ee8697114a308ce6ab"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7418,7 +7418,7 @@
                 "proprietary"
             ],
             "description": "API Checkout module.",
-            "time": "2018-01-18T16:39:49+00:00"
+            "time": "2018-08-08T15:54:49+00:00"
         },
         {
             "name": "oander/module-api-checkout-unity-pickup",
@@ -7482,11 +7482,11 @@
         },
         {
             "name": "oander/module-api-gateway",
-            "version": "1.0.19",
+            "version": "1.0.20",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-gateway.git",
-                "reference": "5fd73a233e68095a41b3851734b4e78712e67d12"
+                "reference": "3c21935df9b2db65435bb8b8bf14de2991059246"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7506,7 +7506,7 @@
                 "proprietary"
             ],
             "description": "The API Gateway module for ERP connections and import solutions.",
-            "time": "2018-07-04T13:18:05+00:00"
+            "time": "2018-08-08T15:26:33+00:00"
         },
         {
             "name": "oander/module-api-image",
