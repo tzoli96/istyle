@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf5938fe50edcac8a9d1ad622959acb8",
+    "content-hash": "1a72b6a09676765e0a94d66bef33c9a8",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -59,16 +59,16 @@
         },
         {
             "name": "algolia/algoliasearch-magento-2",
-            "version": "1.7.1",
+            "version": "1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/algolia/algoliasearch-magento-2.git",
-                "reference": "d7482b561eb2f3fe41867c83fef130fd08f8c728"
+                "reference": "395f1893d0cf41d2eaf7c9380f76185e0697569d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/algolia/algoliasearch-magento-2/zipball/d7482b561eb2f3fe41867c83fef130fd08f8c728",
-                "reference": "d7482b561eb2f3fe41867c83fef130fd08f8c728",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-magento-2/zipball/395f1893d0cf41d2eaf7c9380f76185e0697569d",
+                "reference": "395f1893d0cf41d2eaf7c9380f76185e0697569d",
                 "shasum": ""
             },
             "require": {
@@ -94,7 +94,7 @@
                 "MIT"
             ],
             "description": "Algolia Search integration for Magento 2",
-            "time": "2018-07-23T13:06:09+00:00"
+            "time": "2018-08-09T12:58:49+00:00"
         },
         {
             "name": "amasty/base",
@@ -6732,6 +6732,78 @@
             "time": "2017-02-27T21:19:07+00:00"
         },
         {
+            "name": "mageplaza/module-core",
+            "version": "1.3.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/module-core.git",
+                "reference": "2c77797f99b865b2b472d0644da121f8a38e75c1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/2c77797f99b865b2b472d0644da121f8a38e75c1",
+                "reference": "2c77797f99b865b2b472d0644da121f8a38e75c1",
+                "shasum": ""
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\Core\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "Mageplaza Core for Magento 2",
+            "time": "2018-07-17T07:59:48+00:00"
+        },
+        {
+            "name": "mageplaza/module-gdpr",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/mageplaza-gdpr.git",
+                "reference": "5941fee81d69a1f4b61a9e04a388409d792404aa"
+            },
+            "require": {
+                "mageplaza/module-core": "^1.3.11"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\Gdpr\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "GDPR for Magento 2",
+            "time": "2018-07-30T07:52:12+00:00"
+        },
+        {
             "name": "mirasvit/module-core",
             "version": "1.2.67",
             "source": {
@@ -7530,6 +7602,32 @@
             "time": "2017-06-19T13:57:39+00:00"
         },
         {
+            "name": "oander/module-bundle",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-bundle.git",
+                "reference": "9952e98d6f144a703626261fe95e6ed0ee0d94d4"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\Bundle\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Bundle product ignore stock quantity",
+            "time": "2018-07-23T12:36:21+00:00"
+        },
+        {
             "name": "oander/module-cardondeliverypayment",
             "version": "1.0.1",
             "source": {
@@ -7835,11 +7933,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "00afdaa17ddc3cb04cfe0923c27953a94ed9770c"
+                "reference": "4529edd1cf917e78b90b4ec03c9b29948892be90"
             },
             "require": {
                 "php": "7.*"
@@ -7857,7 +7955,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2018-06-27T21:35:17+00:00"
+            "time": "2018-08-02T15:14:03+00:00"
         },
         {
             "name": "oander/module-fancy-filter",
@@ -8584,14 +8682,15 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.3.12",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "f4d96eaf337ce4ec0f7370a3833fc6b73b19b21b"
+                "reference": "b454f2db2af28810d144a78c7bed7901358efec7"
             },
             "require": {
                 "oander/module-base": "*",
+                "oander/module-bundle": "*",
                 "oander/module-checkout": "*",
                 "oander/module-shipping": "*",
                 "php": "7.*"
@@ -8609,7 +8708,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-06-21T14:47:12+00:00"
+            "time": "2018-08-07T10:30:38+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
@@ -8720,11 +8819,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.136",
+            "version": "1.0.137",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "862e5d1e7154abb645a86267e425c4ab17df9f24"
+                "reference": "9c0f6b3787f756326f4884a2e02896c6f44e6f5a"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8740,7 +8839,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-08-06T09:53:58+00:00"
+            "time": "2018-08-13T13:51:50+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -9758,25 +9857,28 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.8.0",
+            "version": "v1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "7cc359f1b7b80fc25ed7796be7d96adc9b354bae"
+                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/7cc359f1b7b80fc25ed7796be7d96adc9b354bae",
-                "reference": "7cc359f1b7b80fc25ed7796be7d96adc9b354bae",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/e3d826245268269cd66f8326bd8bc066687b4a19",
+                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
+            "suggest": {
+                "ext-ctype": "For best performance"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.8-dev"
+                    "dev-master": "1.9-dev"
                 }
             },
             "autoload": {
@@ -9809,7 +9911,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2018-04-30T19:57:29+00:00"
+            "time": "2018-08-06T14:22:27+00:00"
         },
         {
             "name": "symfony/process",
