@@ -229,7 +229,7 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
     php_restart
     /etc/init.d/nginx reload
     echo -n " * SERVICE VALIDATION ... "
-    if curl -I -H 'Host: istyle.eu' -H 'X-Forwarded-Proto: https' http://localhost/mk/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
+    if curl -I -H 'Host: istyle.hu' -H 'X-Forwarded-Proto: https' http://localhost/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
       echo OK
     else
       echo FAIL
@@ -239,7 +239,7 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
     php_restart
     /etc/init.d/nginx reload
     echo -n " * SERVICE VALIDATION ... "
-    if curl -I -H 'Host: staging.istyle.mk' -H 'X-Forwarded-Proto: https' http://localhost/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
+    if curl -I -H 'Host: staging.istyle.hu' -H 'X-Forwarded-Proto: https' http://localhost/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
       echo OK
     else
       echo FAIL
