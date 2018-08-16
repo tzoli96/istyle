@@ -100,7 +100,7 @@ return array (
     'Innobyte_HomeCredit' => 1,
     'Magento_SalesInventory' => 1,
     'Amasty_Shiprestriction' => 1,
-    'Innobyte_InBank' => 0,
+    'Innobyte_InBank' => 1,
     'Magento_SampleData' => 0,
     'Magento_CatalogSearch' => 1,
     'Magento_Integration' => 1,
