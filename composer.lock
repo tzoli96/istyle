@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fddc84556e532c231d993d6863ca6867",
+    "content-hash": "19e6f9ad5999c876d61259f3c64cd2bd",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9860,11 +9860,11 @@
         },
         {
             "name": "rudracomputech/module-nestpay",
-            "version": "2.0.6.3",
+            "version": "2.0.6.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/rudracomputech-nestpay.git",
-                "reference": "0f762aaebb3557546f686e48dd113b8a5a7f5bd9"
+                "reference": "33c4736aa34ced2d4ba2018592efa616d0966690"
             },
             "require": {
                 "php": "7.*"
@@ -9882,7 +9882,7 @@
                 "proprietary"
             ],
             "description": "Nestpay",
-            "time": "2018-08-02T07:51:28+00:00"
+            "time": "2018-08-16T14:53:12+00:00"
         },
         {
             "name": "seld/cli-prompt",
