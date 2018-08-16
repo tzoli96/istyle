@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6b7958c50c8be7aba6a143e4f2422258",
+    "content-hash": "ac128868d4480eed05c2d2e6ba923872",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9162,11 +9162,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "b454f2db2af28810d144a78c7bed7901358efec7"
+                "reference": "faae8af905c76c05929af47917341ffdc962ede9"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9188,7 +9188,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-08-07T10:30:38+00:00"
+            "time": "2018-08-15T15:33:09+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
@@ -9361,7 +9361,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "80a4d75b2375995bb8edbae7356cd3135fd1d8e2"
+                "reference": "6a82611c3361aa6812a55de5dd03c7c0e88399f3"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9377,7 +9377,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-08-13T11:25:32+00:00"
+            "time": "2018-08-16T07:53:39+00:00"
         },
         {
             "name": "oyejorge/less.php",
