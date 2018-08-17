@@ -9636,11 +9636,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-<<<<<<< HEAD
             "time": "2018-08-16T15:44:38+00:00"
-=======
-            "time": "2018-08-16 15:44:38"
->>>>>>> fc2fbb58d0ac71b2143b089a7604b8ff70c50b0a
         },
         {
             "name": "oyejorge/less.php",
