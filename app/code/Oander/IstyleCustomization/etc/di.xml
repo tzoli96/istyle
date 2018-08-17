@@ -22,4 +22,6 @@
     <type name="Magento\Bundle\Helper\Catalog\Product\Configuration">
         <plugin name="bundle_product_price_display_in_cart_fix" type="Oander\IstyleCustomization\Plugin\Bundle\Helper\Catalog\Product\Configuration"/>
     </type>
+    <preference for="Anowave\Ec\Block\Plugin"
+                type="Oander\IstyleCustomization\Block\Plugin" />
 </config>
