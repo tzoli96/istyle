@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f8a9e7c729646f5229568947fa70a20c",
+    "content-hash": "e97d489ebdf0342ca7bc69d5c9f1f2cc",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1302,11 +1302,11 @@
         },
         {
             "name": "innobyte/magento2-payu",
-            "version": "1.1.5",
+            "version": "1.1.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-payu.git",
-                "reference": "a416e6a58f1ee7efed8eeddd975cba50e8926216"
+                "reference": "67a47529a1a1b4fdebe9fa841ee6c53e10b614ee"
             },
             "require": {
                 "magento/module-checkout": "100.1.*",
@@ -1323,7 +1323,7 @@
                 }
             },
             "description": "Magento2 PayU module",
-            "time": "2018-07-10T09:14:21+00:00"
+            "time": "2018-08-21T12:17:20+00:00"
         },
         {
             "name": "innobyte/module-bnpparibas",
@@ -1444,30 +1444,6 @@
             },
             "description": "Innobyte HomeCredit Module",
             "time": "2018-06-26T12:49:14+00:00"
-        },
-        {
-            "name": "innobyte/module-inbank",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/innobyte-inbank.git",
-                "reference": "a1d7d25abaad986d41d7da1ea615feb5ae918f24"
-            },
-            "require": {
-                "magento/module-checkout": "^100.1.2",
-                "php": "7.0.2|7.0.4|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Innobyte\\InBank\\": ""
-                }
-            },
-            "description": "Innobyte InBank Module",
-            "time": "2018-07-30T10:55:31+00:00"
         },
         {
             "name": "innobyte/module-mstart",
@@ -6863,12 +6839,6 @@
                 "url": "git@github.com:oandermedia/mirasvit-core.git",
                 "reference": "df5b07875201ea877e23f33d2f07ce8927e81eef"
             },
-            "dist": {
-                "type": "tar",
-                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-core-1.2.67-a4852f.tar",
-                "reference": "e29b467458fe9f18386a670da6c2f99e9c4f109d",
-                "shasum": null
-            },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*"
             },
@@ -6885,7 +6855,7 @@
                 "proprietary"
             ],
             "description": "Mirasvit Core",
-            "time": "2018-06-20T14:29:35+00:00"
+            "time": "2018-06-25T08:56:27+00:00"
         },
         {
             "name": "mirasvit/module-feed",
@@ -6894,12 +6864,6 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-feed.git",
                 "reference": "69276730accf0d52619d47b32883d5e989af30ae"
-            },
-            "dist": {
-                "type": "tar",
-                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-feed-1.0.69-26c6af.tar",
-                "reference": "863b8607aeebee659051e3ae31603cd18148ae97",
-                "shasum": null
             },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*",
@@ -6919,7 +6883,7 @@
                 "proprietary"
             ],
             "description": "Advanced Product Feeds",
-            "time": "2018-06-04T08:44:22+00:00"
+            "time": "2018-06-25T08:52:57+00:00"
         },
         {
             "name": "mirasvit/module-profiler",
@@ -6957,12 +6921,6 @@
                 "url": "git@github.com:oandermedia/mirasvit-report.git",
                 "reference": "eed2055a79dabf569b31c4c051c2ca095a406ebe"
             },
-            "dist": {
-                "type": "tar",
-                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-report-1.3.25-84c095.tar",
-                "reference": "d563743a75376ae84b9aa67f57f49154f33d8af0",
-                "shasum": null
-            },
             "require": {
                 "magento/framework": "100.1.*|101.0.*",
                 "mirasvit/module-core": "^1.2"
@@ -6982,7 +6940,7 @@
                 "proprietary"
             ],
             "description": "Reports Core",
-            "time": "2018-06-20T13:42:18+00:00"
+            "time": "2018-06-25T09:06:55+00:00"
         },
         {
             "name": "monolog/monolog",
