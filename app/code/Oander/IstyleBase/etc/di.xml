@@ -55,4 +55,7 @@
 
     <preference for="Amasty\Promo\Plugin\Block\Product\Simple"
                 type="Oander\IstyleBase\Amasty\Promo\Plugin\Block\Product\Simple"/>
+
+    <preference for="Oander\OrderAttachment\Magento\Sales\Model\Order\Email\SenderBuilder"
+                type="Oander\IstyleBase\Magento\Sales\Model\Order\Email\SenderBuilder"/>
 </config>
