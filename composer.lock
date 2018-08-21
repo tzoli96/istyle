@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "27ce6a984039e752b9e3f6bf44f36bf2",
+    "content-hash": "f8a9e7c729646f5229568947fa70a20c",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6863,6 +6863,12 @@
                 "url": "git@github.com:oandermedia/mirasvit-core.git",
                 "reference": "df5b07875201ea877e23f33d2f07ce8927e81eef"
             },
+            "dist": {
+                "type": "tar",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-core-1.2.67-a4852f.tar",
+                "reference": "e29b467458fe9f18386a670da6c2f99e9c4f109d",
+                "shasum": null
+            },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*"
             },
@@ -6879,7 +6885,7 @@
                 "proprietary"
             ],
             "description": "Mirasvit Core",
-            "time": "2018-06-25T08:56:27+00:00"
+            "time": "2018-06-20T14:29:35+00:00"
         },
         {
             "name": "mirasvit/module-feed",
@@ -6888,6 +6894,12 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-feed.git",
                 "reference": "69276730accf0d52619d47b32883d5e989af30ae"
+            },
+            "dist": {
+                "type": "tar",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-feed-1.0.69-26c6af.tar",
+                "reference": "863b8607aeebee659051e3ae31603cd18148ae97",
+                "shasum": null
             },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*",
@@ -6907,7 +6919,7 @@
                 "proprietary"
             ],
             "description": "Advanced Product Feeds",
-            "time": "2018-06-25T08:52:57+00:00"
+            "time": "2018-06-04T08:44:22+00:00"
         },
         {
             "name": "mirasvit/module-profiler",
@@ -6945,6 +6957,12 @@
                 "url": "git@github.com:oandermedia/mirasvit-report.git",
                 "reference": "eed2055a79dabf569b31c4c051c2ca095a406ebe"
             },
+            "dist": {
+                "type": "tar",
+                "url": "https://33949:Z7O4RW92YH@packages.mirasvit.com//downloads/mirasvit-module-report-1.3.25-84c095.tar",
+                "reference": "d563743a75376ae84b9aa67f57f49154f33d8af0",
+                "shasum": null
+            },
             "require": {
                 "magento/framework": "100.1.*|101.0.*",
                 "mirasvit/module-core": "^1.2"
@@ -6964,7 +6982,7 @@
                 "proprietary"
             ],
             "description": "Reports Core",
-            "time": "2018-06-25T09:06:55+00:00"
+            "time": "2018-06-20T13:42:18+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -8583,6 +8601,32 @@
             ],
             "description": "Save Order Comment to Order",
             "time": "2017-05-25T08:49:06+00:00"
+        },
+        {
+            "name": "oander/module-order-status-label",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/order-status-label.git",
+                "reference": "08acbcc6b24d4194e2f58e77f7561836f6b10fa1"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\OrderStatusLabel\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Order status label patch",
+            "time": "2018-08-21T10:44:03+00:00"
         },
         {
             "name": "oander/module-paypal",
