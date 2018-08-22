@@ -65,6 +65,57 @@ class Plugin extends \Anowave\Ec\Block\Plugin
     private $canApply = false;
 
     /**
+     * Plugin constructor.
+     * @param \Magento\Framework\App\Config\ScopeConfigInterface $coreConfig
+     * @param \Magento\Framework\Registry $registry
+     * @param \Anowave\Ec\Helper\Data $helper
+     * @param \Magento\Checkout\Model\Cart $cart
+     * @param \Magento\Catalog\Api\ProductRepositoryInterface $productRepository
+     * @param \Magento\Catalog\Model\CategoryRepository $categoryRepository
+     * @param \Anowave\Ec\Model\Apply $apply
+     * @param \Anowave\Ec\Model\Cache $cache
+     * @param \Anowave\Ec\Helper\Datalayer $dataLayer
+     * @param \Anowave\Ec\Helper\Attributes $attributes
+     * @param \Anowave\Ec\Helper\Bridge $bridge
+     */
+    public function __construct(
+        \Magento\Framework\App\Config\ScopeConfigInterface $coreConfig,
+        \Magento\Framework\Registry $registry,
+        \Anowave\Ec\Helper\Data $helper,
+        \Magento\Checkout\Model\Cart $cart,
+        \Magento\Catalog\Api\ProductRepositoryInterface $productRepository,
+        \Magento\Catalog\Model\CategoryRepository $categoryRepository,
+        \Anowave\Ec\Model\Apply $apply,
+        \Anowave\Ec\Model\Cache $cache,
+        \Anowave\Ec\Helper\Datalayer $dataLayer,
+        \Anowave\Ec\Helper\Attributes $attributes,
+        \Anowave\Ec\Helper\Bridge $bridge)
+    {
+        parent::__construct(
+            $coreConfig,
+            $registry,
+            $helper,
+            $cart,
+            $productRepository,
+            $categoryRepository,
+            $apply,
+            $cache,
+            $dataLayer,
+            $attributes,
+            $bridge);
+
+        /**
+         * Check if tracking should be applied
+         *
+         * @var Boolean
+         */
+        $this->canApply = $apply->canApply
+        (
+            $this->_helper->filter('Anowave\Ec\Block\Track')
+        );
+    }
+
+    /**
      * @param \Magento\Framework\View\Element\Template $block
      * @param $content
      * @return string
@@ -109,3 +160,4 @@ class Plugin extends \Anowave\Ec\Block\Plugin
         return $content;
     }
 }
+
