@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ee3a12811a0684290306b95d739cc40",
+    "content-hash": "7bc5cf72b4628d2263cc4019b5118624",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8350,11 +8350,11 @@
         },
         {
             "name": "oander/module-maintenance",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-maintenance.git",
-                "reference": "df59a4e048684a9a0b04926584ed860a5485b033"
+                "reference": "8e0336da1b95eb200aa2a37fa64f2b3f48a61c41"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8373,7 +8373,7 @@
                 "proprietary"
             ],
             "description": "Oander Maintenance Module",
-            "time": "2018-08-23T10:57:42+00:00"
+            "time": "2018-08-23T12:17:12+00:00"
         },
         {
             "name": "oander/module-multislider",
