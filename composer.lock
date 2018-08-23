@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "44a7956603166136ef364543b6e6f464",
+    "content-hash": "cfe81360a165516a3c99bb8603f4ff86",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8148,6 +8148,33 @@
             ],
             "description": "Installment prices displays next to Product Icons",
             "time": "2018-04-06T08:30:32+00:00"
+        },
+        {
+            "name": "oander/module-maintenance",
+            "version": "1.0.6",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-maintenance.git",
+                "reference": "8e0336da1b95eb200aa2a37fa64f2b3f48a61c41"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\Maintenance\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Maintenance Module",
+            "time": "2018-08-23T12:17:12+00:00"
         },
         {
             "name": "oander/module-multislider",
