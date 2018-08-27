@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c29c805671e01181f535e8178e10f395",
+    "content-hash": "0f7ccdd0b562aca96806427524a1e7c4",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7967,11 +7967,11 @@
         },
         {
             "name": "oander/module-core-bug-fix",
-            "version": "1.0.28",
+            "version": "1.0.32",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "c856d2c7c5c3d39e28abd4b43d8471ef19d7e40e"
+                "reference": "33fb64575495d9619d75ea073153b38e1b0392a5"
             },
             "require": {
                 "php": "7.*"
@@ -7989,7 +7989,7 @@
                 "proprietary"
             ],
             "description": "Core bug fixes for Magento 2.x",
-            "time": "2018-05-22T12:46:59+00:00"
+            "time": "2018-08-27T09:30:12+00:00"
         },
         {
             "name": "oander/module-currency-manager",
