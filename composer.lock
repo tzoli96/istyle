@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "c29c805671e01181f535e8178e10f395",
@@ -9408,7 +9408,7 @@
                 "proprietary"
             ],
             "description": "Hodor template",
-            "time": "2018-06-25 12:40:24"
+            "time": "2018-06-25T12:40:24+00:00"
         },
         {
             "name": "oander/theme-istyle",
@@ -9416,7 +9416,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "d3c7a0eae79f747df4382742c9084c982f11a21c"
+                "reference": "fced811078a17d856a982f60153de222ad0e52b0"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9432,7 +9432,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-08-22 08:25:33"
+            "time": "2018-08-27T09:02:05+00:00"
         },
         {
             "name": "oyejorge/less.php",
