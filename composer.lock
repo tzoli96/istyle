@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4caa9fd8ef08e5a03c54c175ee2e5d38",
+    "content-hash": "d8cfff112164d979f2880c52db39a218",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1444,6 +1444,30 @@
             },
             "description": "Innobyte HomeCredit Module",
             "time": "2018-06-26T12:49:14+00:00"
+        },
+        {
+            "name": "innobyte/module-inbank",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/innobyte-inbank.git",
+                "reference": "53ec4f69500638065208119acbf304596b7a94f6"
+            },
+            "require": {
+                "magento/module-checkout": "^100.1.2",
+                "php": "7.0.2|7.0.4|~7.0.6"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Innobyte\\InBank\\": ""
+                }
+            },
+            "description": "Innobyte InBank Module",
+            "time": "2018-08-28T14:40:33+00:00"
         },
         {
             "name": "innobyte/module-mstart",
@@ -7743,11 +7767,11 @@
         },
         {
             "name": "oander/module-cartbutton",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cartbutton.git",
-                "reference": "d67380fec00a2619b4835e36617446e1fc44d702"
+                "reference": "a96aaf5e6c0d043b82288dd99fa3f7df02e3ba36"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7768,11 +7792,11 @@
                 },
                 {
                     "email": "janos.pinczes@oander.hu",
-                    "name": "János Pinczés"
+                    "name": "Janos Pinczes"
                 }
             ],
             "description": "Helper to display cart button",
-            "time": "2018-08-16T14:22:04+00:00"
+            "time": "2018-08-22T18:39:04+00:00"
         },
         {
             "name": "oander/module-cashonpickuppayment",
@@ -7967,11 +7991,11 @@
         },
         {
             "name": "oander/module-core-bug-fix",
-            "version": "1.0.28",
+            "version": "1.0.32",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "c856d2c7c5c3d39e28abd4b43d8471ef19d7e40e"
+                "reference": "9d2006fe571e00b0dd39968bf90b7e5e16f05802"
             },
             "require": {
                 "php": "7.*"
@@ -7989,7 +8013,7 @@
                 "proprietary"
             ],
             "description": "Core bug fixes for Magento 2.x",
-            "time": "2018-05-22T12:46:59+00:00"
+            "time": "2018-08-27T11:45:19+00:00"
         },
         {
             "name": "oander/module-currency-manager",
@@ -9416,7 +9440,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "fced811078a17d856a982f60153de222ad0e52b0"
+                "reference": "5450ec96866663a943adc2738900db8db305b4ef"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9432,7 +9456,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-08-27T09:02:05+00:00"
+            "time": "2018-08-28T08:22:59+00:00"
         },
         {
             "name": "oyejorge/less.php",
