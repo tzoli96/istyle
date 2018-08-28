@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f7ccdd0b562aca96806427524a1e7c4",
+    "content-hash": "4caa9fd8ef08e5a03c54c175ee2e5d38",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7967,11 +7967,11 @@
         },
         {
             "name": "oander/module-core-bug-fix",
-            "version": "1.0.32",
+            "version": "1.0.28",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "33fb64575495d9619d75ea073153b38e1b0392a5"
+                "reference": "c856d2c7c5c3d39e28abd4b43d8471ef19d7e40e"
             },
             "require": {
                 "php": "7.*"
@@ -7989,7 +7989,7 @@
                 "proprietary"
             ],
             "description": "Core bug fixes for Magento 2.x",
-            "time": "2018-08-27T09:30:12+00:00"
+            "time": "2018-05-22T12:46:59+00:00"
         },
         {
             "name": "oander/module-currency-manager",
@@ -8077,11 +8077,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "4529edd1cf917e78b90b4ec03c9b29948892be90"
+                "reference": "453fc2f8772da6f12282549b87e56c9c6394a7ea"
             },
             "require": {
                 "php": "7.*"
@@ -8099,7 +8099,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2018-08-02T15:14:03+00:00"
+            "time": "2018-08-27T14:32:02+00:00"
         },
         {
             "name": "oander/module-email-additional-data",
@@ -8879,11 +8879,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "fb21b59a0c18a41aafb2a91e2c116acf32a41a70"
+                "reference": "d07742503af0d2a425e90533b8c7d64aca925421"
             },
             "require": {
                 "oander/module-cartbutton": "*",
@@ -8909,7 +8909,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-08-17T09:26:23+00:00"
+            "time": "2018-08-27T14:33:46+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -9217,11 +9217,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.4",
+            "version": "1.4.4.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "20eba05f2b3cf49609b44be5a95eb04a03729afe"
+                "reference": "56bf70403be7f22c84daf01f70589a602011ab1d"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9243,7 +9243,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-08-17T11:22:55+00:00"
+            "time": "2018-08-21T02:40:41+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
@@ -10136,7 +10136,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.8.44",
+            "version": "v2.8.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -10251,7 +10251,7 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.8.44",
+            "version": "v2.8.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
@@ -10314,7 +10314,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.44",
+            "version": "v2.8.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -10374,16 +10374,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.8.44",
+            "version": "v2.8.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "2d6a4deccdfa2e4e9f113138b93457b2d0886c15"
+                "reference": "0b252f4e25b7da17abb5a98eb60755b71d082c9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/2d6a4deccdfa2e4e9f113138b93457b2d0886c15",
-                "reference": "2d6a4deccdfa2e4e9f113138b93457b2d0886c15",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/0b252f4e25b7da17abb5a98eb60755b71d082c9c",
+                "reference": "0b252f4e25b7da17abb5a98eb60755b71d082c9c",
                 "shasum": ""
             },
             "require": {
@@ -10420,11 +10420,11 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2018-07-26T11:13:39+00:00"
+            "time": "2018-08-07T09:12:42+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.14",
+            "version": "v3.4.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -10531,16 +10531,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v2.8.44",
+            "version": "v2.8.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "cc83afdb5ac99147806b3bb65a3ff1227664f596"
+                "reference": "4be278e19064c3492095de50c9e375caae569ae1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/cc83afdb5ac99147806b3bb65a3ff1227664f596",
-                "reference": "cc83afdb5ac99147806b3bb65a3ff1227664f596",
+                "url": "https://api.github.com/repos/symfony/process/zipball/4be278e19064c3492095de50c9e375caae569ae1",
+                "reference": "4be278e19064c3492095de50c9e375caae569ae1",
                 "shasum": ""
             },
             "require": {
@@ -10576,11 +10576,11 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2018-07-26T11:13:39+00:00"
+            "time": "2018-08-03T09:45:57+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.44",
+            "version": "v2.8.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -13389,7 +13389,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.14",
+            "version": "v3.4.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
