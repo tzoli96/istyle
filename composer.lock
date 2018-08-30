@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0555786bf1850e992e025230779231f8",
+    "content-hash": "94e8dbf8b0b90b4e0b82dd6704200ed9",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1623,56 +1623,6 @@
             },
             "description": "iSTYLE InsiaCare Module",
             "time": "2018-06-21T18:53:18+00:00"
-        },
-        {
-            "name": "jdorn/sql-formatter",
-            "version": "v1.2.17",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jdorn/sql-formatter.git",
-                "reference": "64990d96e0959dff8e059dfcdc1af130728d92bc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jdorn/sql-formatter/zipball/64990d96e0959dff8e059dfcdc1af130728d92bc",
-                "reference": "64990d96e0959dff8e059dfcdc1af130728d92bc",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.3.x-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "lib"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jeremy Dorn",
-                    "email": "jeremy@jeremydorn.com",
-                    "homepage": "http://jeremydorn.com/"
-                }
-            ],
-            "description": "a PHP SQL highlighting library",
-            "homepage": "https://github.com/jdorn/sql-formatter/",
-            "keywords": [
-                "highlight",
-                "sql"
-            ],
-            "time": "2014-01-12T16:20:24+00:00"
         },
         {
             "name": "jms/metadata",
@@ -6957,34 +6907,6 @@
             "time": "2018-06-25T08:52:57+00:00"
         },
         {
-            "name": "mirasvit/module-profiler",
-            "version": "1.0.6",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/mirasvit-profiler.git",
-                "reference": "096cf91c269c53f5166e69b7b4a9e1275358a314"
-            },
-            "require": {
-                "jdorn/sql-formatter": "^1.2",
-                "magento/framework": "100.*|101.*",
-                "symfony/yaml": "*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "./registration.php"
-                ],
-                "psr-4": {
-                    "Mirasvit\\Profiler\\": "src/Profiler"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Magento 2 Profiler",
-            "time": "2018-06-08T10:40:22+00:00"
-        },
-        {
             "name": "mirasvit/module-report",
             "version": "1.3.25",
             "source": {
@@ -7984,11 +7906,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.28.7",
+            "version": "1.0.28.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "3dca847463e0c0e853b910a52e8b1c8879c6fdc8"
+                "reference": "179aab5c265a0776c4c6904a9d7b241517b6cc58"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8007,7 +7929,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2018-08-02T10:25:32+00:00"
+            "time": "2018-08-30T08:47:34+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -8571,11 +8493,11 @@
         },
         {
             "name": "oander/module-ocqueue",
-            "version": "1.0.5",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-ocqueue.git",
-                "reference": "3280cdcc7339c9bde534b87b5a4afbc4343ad151"
+                "reference": "6cd87ffb8ae52d5f6ca6b5eea5e8ca9aebf486d7"
             },
             "require": {
                 "oander/module-ocbase": "^1.0.2"
@@ -8603,7 +8525,7 @@
                 }
             ],
             "description": "Queue module for OanderConnect",
-            "time": "2018-08-30T15:17:36+00:00"
+            "time": "2018-08-01T07:32:02+00:00"
         },
         {
             "name": "oander/module-order-attachment",
@@ -9488,7 +9410,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "9ece488f8542ac5b67afb1caf9e7c15e54f86178"
+                "reference": "d1c6059b2c3868e904ee2940db630bb998358033"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9504,7 +9426,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-08-30T13:56:23+00:00"
+            "time": "2018-08-29T09:53:15+00:00"
         },
         {
             "name": "oyejorge/less.php",
