@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94e8dbf8b0b90b4e0b82dd6704200ed9",
+    "content-hash": "e8d5a7c3fe9bc0b7277efef66f1550ac",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8493,11 +8493,11 @@
         },
         {
             "name": "oander/module-ocqueue",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-ocqueue.git",
-                "reference": "6cd87ffb8ae52d5f6ca6b5eea5e8ca9aebf486d7"
+                "reference": "3280cdcc7339c9bde534b87b5a4afbc4343ad151"
             },
             "require": {
                 "oander/module-ocbase": "^1.0.2"
@@ -8525,7 +8525,7 @@
                 }
             ],
             "description": "Queue module for OanderConnect",
-            "time": "2018-08-01T07:32:02+00:00"
+            "time": "2018-08-30T15:17:36+00:00"
         },
         {
             "name": "oander/module-order-attachment",
@@ -9410,7 +9410,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "d1c6059b2c3868e904ee2940db630bb998358033"
+                "reference": "9ece488f8542ac5b67afb1caf9e7c15e54f86178"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9426,7 +9426,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-08-29T09:53:15+00:00"
+            "time": "2018-08-30T13:56:23+00:00"
         },
         {
             "name": "oyejorge/less.php",
