@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e8d5a7c3fe9bc0b7277efef66f1550ac",
+    "content-hash": "1fa1990bbd4d263bdecb33e3a4e0ccc2",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7960,11 +7960,11 @@
         },
         {
             "name": "oander/module-core-bug-fix",
-            "version": "1.0.32",
+            "version": "1.0.28.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "9d2006fe571e00b0dd39968bf90b7e5e16f05802"
+                "reference": "8215c0519db58f8648d5cffd81f71895fb4964ad"
             },
             "require": {
                 "php": "7.*"
@@ -7982,7 +7982,7 @@
                 "proprietary"
             ],
             "description": "Core bug fixes for Magento 2.x",
-            "time": "2018-08-27T11:45:19+00:00"
+            "time": "2018-07-12T13:45:19+00:00"
         },
         {
             "name": "oander/module-currency-manager",
@@ -8818,11 +8818,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "f292180d5dca7418c92178135939da7e2ecf2027"
+                "reference": "667288d71eca92fb73b1a58217d1475b28cac3c8"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8841,7 +8841,7 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2018-01-02T16:18:57+00:00"
+            "time": "2018-08-30T12:56:49+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -8873,16 +8873,17 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.0.10",
+            "version": "1.0.14",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "ba1e3d1be1897a79710cfa31a34a90e40accaf11"
+                "reference": "1ea991228f729c28af86a259fb5bfe9eb65248c1"
             },
             "require": {
                 "oander/module-cartbutton": "*",
                 "oander/module-ocqueue": "^1.0.3",
-                "oander/module-producturlresolver": "^1.0.0"
+                "oander/module-producturlresolver": "^1.0.0",
+                "oander/module-salesforce": "*"
             },
             "type": "magento2-module",
             "autoload": {
@@ -8903,7 +8904,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-08-29T12:13:21+00:00"
+            "time": "2018-08-31T05:50:18+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -9410,7 +9411,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "9ece488f8542ac5b67afb1caf9e7c15e54f86178"
+                "reference": "1cc9ef8bc68fa115a535735a184dad0b4692b185"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9426,7 +9427,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-08-30T13:56:23+00:00"
+            "time": "2018-08-31T05:50:55+00:00"
         },
         {
             "name": "oyejorge/less.php",
