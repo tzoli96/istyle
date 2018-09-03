@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "85b358d72fe80ebbe857a87629ad1707",
+    "content-hash": "6c7ffc59f0658d740e1d5c760d8ffe46",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8425,11 +8425,11 @@
         },
         {
             "name": "oander/module-ocbase",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-ocbase.git",
-                "reference": "b07839b4888b98c711a4bd8beaa0b00c90676dd2"
+                "reference": "3e88a8fa0fb7657fdfc30caace7d648f016ccf94"
             },
             "require": {
                 "oander/module-api-base": "^1.0.21"
@@ -8457,7 +8457,7 @@
                 }
             ],
             "description": "Oander Connect Base",
-            "time": "2018-08-08T19:40:21+00:00"
+            "time": "2018-09-03T01:49:09+00:00"
         },
         {
             "name": "oander/module-ocevent",
