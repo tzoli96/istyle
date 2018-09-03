@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c7ffc59f0658d740e1d5c760d8ffe46",
+    "content-hash": "30cedbf912ea6379e536d81c039b0ce5",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8493,11 +8493,11 @@
         },
         {
             "name": "oander/module-ocqueue",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-ocqueue.git",
-                "reference": "ef0253c8f8714d84d6f555d65a7cc6d6977b4870"
+                "reference": "e7741acb47e6f3c68d8a1fa41d09cbd4698f2ae9"
             },
             "require": {
                 "oander/module-ocbase": "^1.0.2"
@@ -8525,7 +8525,7 @@
                 }
             ],
             "description": "Queue module for OanderConnect",
-            "time": "2018-08-31T11:48:39+00:00"
+            "time": "2018-09-03T06:55:44+00:00"
         },
         {
             "name": "oander/module-order-attachment",
