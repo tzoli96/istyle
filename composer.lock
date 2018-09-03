@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5f3bc18d40df9cec6f0d266473c434fe",
+    "content-hash": "f72084e01807c2e9cce6db64e9984cdf",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -124,10 +124,10 @@
         },
         {
             "name": "amasty/module-advanced-conditions",
-            "version": "1.3.2",
+            "version": "1.3.3",
             "dist": {
                 "type": "zip",
-                "url": "https://composer.amasty.com/community/packages/module-advanced-conditions-1.3.2.zip",
+                "url": "https://composer.amasty.com/community/packages/module-advanced-conditions-1.3.3.zip",
                 "reference": null,
                 "shasum": null
             },
@@ -7362,11 +7362,11 @@
         },
         {
             "name": "oander/module-api-checkout",
-            "version": "1.3.1",
+            "version": "1.3.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-checkout.git",
-                "reference": "cbcce800c9771c0f7abf58ee8697114a308ce6ab"
+                "reference": "24121e3813579d0763fba4c4368c4928cec21ad0"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7387,7 +7387,7 @@
                 "proprietary"
             ],
             "description": "API Checkout module.",
-            "time": "2018-08-08T15:54:49+00:00"
+            "time": "2018-09-03T14:10:12+00:00"
         },
         {
             "name": "oander/module-api-checkout-unity-pickup",
@@ -8873,11 +8873,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.0.16",
+            "version": "1.0.18",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "d2d0ac5b4e119aea8f1240e5f733a0393735a7e0"
+                "reference": "3acf34fea2d22ba1b8fbed33073888917403e22e"
             },
             "require": {
                 "oander/module-cartbutton": "*",
@@ -8904,7 +8904,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-08-31T12:42:42+00:00"
+            "time": "2018-09-03T15:22:34+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -9411,7 +9411,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "be7df69e5af8b306b872b9359850a63f22d42db2"
+                "reference": "dc29bf0b01f9bd9e8e7c82b7b157a8604d870d40"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9427,7 +9427,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-08-31T07:21:44+00:00"
+            "time": "2018-09-03T13:28:01+00:00"
         },
         {
             "name": "oyejorge/less.php",
