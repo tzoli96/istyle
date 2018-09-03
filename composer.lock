@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "30cedbf912ea6379e536d81c039b0ce5",
+    "content-hash": "bc1a3a9a9e8a25da9e5a055f5768115d",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1591,11 +1591,11 @@
         },
         {
             "name": "istyle/module-insiacare",
-            "version": "1.0.4",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-insia-care.git",
-                "reference": "f364aefac17a5bcda2857448da9e38f3667a3a1b"
+                "reference": "4459de03132bfd6aaad00d39c025a45f4a421bf3"
             },
             "require": {
                 "magento/framework": "100.1.*",
@@ -1622,7 +1622,7 @@
                 }
             },
             "description": "iSTYLE InsiaCare Module",
-            "time": "2018-06-21T18:53:18+00:00"
+            "time": "2018-09-03T08:15:32+00:00"
         },
         {
             "name": "jms/metadata",
