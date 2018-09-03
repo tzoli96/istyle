@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f9e1af0201eef5d50585addf91a2bec3",
+    "content-hash": "5f3bc18d40df9cec6f0d266473c434fe",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7277,11 +7277,11 @@
         },
         {
             "name": "oander/module-api-base",
-            "version": "1.0.28",
+            "version": "1.0.30",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-base.git",
-                "reference": "a181966c9a33eb79519edfa521be177fde130472"
+                "reference": "21cb467cbe92d3bfee5db55b8979a850194315a9"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7300,7 +7300,7 @@
                 "proprietary"
             ],
             "description": "API Base",
-            "time": "2018-04-25T14:27:46+00:00"
+            "time": "2018-09-03T09:18:32+00:00"
         },
         {
             "name": "oander/module-api-cache",
@@ -8425,11 +8425,11 @@
         },
         {
             "name": "oander/module-ocbase",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-ocbase.git",
-                "reference": "3e88a8fa0fb7657fdfc30caace7d648f016ccf94"
+                "reference": "3262335adec38f0ad971762d695638c211919e8d"
             },
             "require": {
                 "oander/module-api-base": "^1.0.21"
@@ -8457,7 +8457,7 @@
                 }
             ],
             "description": "Oander Connect Base",
-            "time": "2018-09-03T01:49:09+00:00"
+            "time": "2018-09-03T09:08:37+00:00"
         },
         {
             "name": "oander/module-ocevent",
@@ -8493,11 +8493,11 @@
         },
         {
             "name": "oander/module-ocqueue",
-            "version": "1.0.7",
+            "version": "1.0.10",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-ocqueue.git",
-                "reference": "e7741acb47e6f3c68d8a1fa41d09cbd4698f2ae9"
+                "reference": "b8e6ed175cf080a5bfd9d445ae3e0fef1c814698"
             },
             "require": {
                 "oander/module-ocbase": "^1.0.2"
@@ -8525,7 +8525,7 @@
                 }
             ],
             "description": "Queue module for OanderConnect",
-            "time": "2018-09-03T06:55:44+00:00"
+            "time": "2018-09-03T09:51:03+00:00"
         },
         {
             "name": "oander/module-order-attachment",
