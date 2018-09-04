@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "44a7956603166136ef364543b6e6f464",
+    "content-hash": "e3a47ac39d8e7a9da74c239d2ab27684",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1274,11 +1274,11 @@
         },
         {
             "name": "innobyte/magento2-payu",
-            "version": "1.1.5",
+            "version": "1.1.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-payu.git",
-                "reference": "a416e6a58f1ee7efed8eeddd975cba50e8926216"
+                "reference": "67a47529a1a1b4fdebe9fa841ee6c53e10b614ee"
             },
             "require": {
                 "magento/module-checkout": "100.1.*",
@@ -1295,7 +1295,7 @@
                 }
             },
             "description": "Magento2 PayU module",
-            "time": "2018-07-10T09:14:21+00:00"
+            "time": "2018-08-21T12:17:20+00:00"
         },
         {
             "name": "innobyte/module-bnpparibas",
@@ -1524,56 +1524,6 @@
             },
             "description": "iSTYLE InsiaCare Module",
             "time": "2018-06-21T18:53:18+00:00"
-        },
-        {
-            "name": "jdorn/sql-formatter",
-            "version": "v1.2.17",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jdorn/sql-formatter.git",
-                "reference": "64990d96e0959dff8e059dfcdc1af130728d92bc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jdorn/sql-formatter/zipball/64990d96e0959dff8e059dfcdc1af130728d92bc",
-                "reference": "64990d96e0959dff8e059dfcdc1af130728d92bc",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.3.x-dev"
-                }
-            },
-            "autoload": {
-                "classmap": [
-                    "lib"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jeremy Dorn",
-                    "email": "jeremy@jeremydorn.com",
-                    "homepage": "http://jeremydorn.com/"
-                }
-            ],
-            "description": "a PHP SQL highlighting library",
-            "homepage": "https://github.com/jdorn/sql-formatter/",
-            "keywords": [
-                "highlight",
-                "sql"
-            ],
-            "time": "2014-01-12T16:20:24+00:00"
         },
         {
             "name": "jms/metadata",
@@ -6858,34 +6808,6 @@
             "time": "2018-06-25T08:52:57+00:00"
         },
         {
-            "name": "mirasvit/module-profiler",
-            "version": "1.0.7",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/mirasvit-profiler.git",
-                "reference": "a98cd98cc0e191b4a379f102e3da4584529618a3"
-            },
-            "require": {
-                "jdorn/sql-formatter": "^1.2",
-                "magento/framework": "100.*|101.*",
-                "symfony/yaml": "*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "./registration.php"
-                ],
-                "psr-4": {
-                    "Mirasvit\\Profiler\\": "src/Profiler"
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Magento 2 Profiler",
-            "time": "2018-07-24T08:30:53+00:00"
-        },
-        {
             "name": "mirasvit/module-report",
             "version": "1.3.25",
             "source": {
@@ -7769,11 +7691,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.28.7",
+            "version": "1.0.28.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "3dca847463e0c0e853b910a52e8b1c8879c6fdc8"
+                "reference": "179aab5c265a0776c4c6904a9d7b241517b6cc58"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7792,7 +7714,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2018-08-02T10:25:32+00:00"
+            "time": "2018-08-30T08:47:34+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -8150,6 +8072,33 @@
             "time": "2018-04-06T08:30:32+00:00"
         },
         {
+            "name": "oander/module-maintenance",
+            "version": "1.0.7",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-maintenance.git",
+                "reference": "b0a7f368426a78de7650995ebf1d6745955ae382"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\Maintenance\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Maintenance Module",
+            "time": "2018-08-27T06:12:39+00:00"
+        },
+        {
             "name": "oander/module-multislider",
             "version": "1.2.4",
             "source": {
@@ -8439,6 +8388,31 @@
             ],
             "description": "Config product Simple resolver",
             "time": "2018-04-09T15:31:35+00:00"
+        },
+        {
+            "name": "oander/module-safe-category-index",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-safe-category-index.git",
+                "reference": "b13057a7450264892aea78bd020764c08edb913f"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\SafeCategoryIndex\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "time": "2018-07-12T05:25:56+00:00"
         },
         {
             "name": "oander/module-salesforce",
@@ -9520,7 +9494,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.8.44",
+            "version": "v2.8.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -9635,7 +9609,7 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.8.44",
+            "version": "v2.8.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
@@ -9698,7 +9672,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.44",
+            "version": "v2.8.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -9758,16 +9732,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.8.44",
+            "version": "v2.8.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "2d6a4deccdfa2e4e9f113138b93457b2d0886c15"
+                "reference": "0b252f4e25b7da17abb5a98eb60755b71d082c9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/2d6a4deccdfa2e4e9f113138b93457b2d0886c15",
-                "reference": "2d6a4deccdfa2e4e9f113138b93457b2d0886c15",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/0b252f4e25b7da17abb5a98eb60755b71d082c9c",
+                "reference": "0b252f4e25b7da17abb5a98eb60755b71d082c9c",
                 "shasum": ""
             },
             "require": {
@@ -9804,11 +9778,11 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2018-07-26T11:13:39+00:00"
+            "time": "2018-08-07T09:12:42+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.14",
+            "version": "v3.4.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -9915,16 +9889,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v2.8.44",
+            "version": "v2.8.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "cc83afdb5ac99147806b3bb65a3ff1227664f596"
+                "reference": "4be278e19064c3492095de50c9e375caae569ae1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/cc83afdb5ac99147806b3bb65a3ff1227664f596",
-                "reference": "cc83afdb5ac99147806b3bb65a3ff1227664f596",
+                "url": "https://api.github.com/repos/symfony/process/zipball/4be278e19064c3492095de50c9e375caae569ae1",
+                "reference": "4be278e19064c3492095de50c9e375caae569ae1",
                 "shasum": ""
             },
             "require": {
@@ -9960,11 +9934,11 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2018-07-26T11:13:39+00:00"
+            "time": "2018-08-03T09:45:57+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.44",
+            "version": "v2.8.45",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -12773,7 +12747,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.14",
+            "version": "v3.4.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
