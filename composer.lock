@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f379fc91a13721fa049a7f1a6b36ea9f",
+    "content-hash": "74f0ba410d6e0caffb8c1d1d0c34fb0a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8493,11 +8493,11 @@
         },
         {
             "name": "oander/module-ocqueue",
-            "version": "1.0.10",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-ocqueue.git",
-                "reference": "b8e6ed175cf080a5bfd9d445ae3e0fef1c814698"
+                "reference": "35349ceba3cc841db4d6ea8bc24f62ea224c21f0"
             },
             "require": {
                 "oander/module-ocbase": "^1.0.2"
@@ -8525,7 +8525,7 @@
                 }
             ],
             "description": "Queue module for OanderConnect",
-            "time": "2018-09-03T09:51:03+00:00"
+            "time": "2018-09-04T15:51:21+00:00"
         },
         {
             "name": "oander/module-order-attachment",
@@ -8873,11 +8873,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.0.21",
+            "version": "1.0.22",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "c138594674c3a9fa3e7dc0ccfcbececa00fefdf7"
+                "reference": "c48ed580c7ea81aaa710a29112e05e868b7f9f25"
             },
             "require": {
                 "oander/module-cartbutton": "*",
@@ -8904,7 +8904,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-09-04T11:17:06+00:00"
+            "time": "2018-09-04T15:49:06+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -9411,7 +9411,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "95a6c1e6cf9686c7cfba584bd78d11c2075efc4c"
+                "reference": "d7ae115ae7b2d23f6f58305410fa3bd5e9a9c2bc"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9427,7 +9427,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-09-03T15:49:13+00:00"
+            "time": "2018-09-04T14:10:16+00:00"
         },
         {
             "name": "oyejorge/less.php",
