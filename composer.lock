@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "62cbb9afaf9a281b4a7ebd474110b162",
+    "content-hash": "8b8c51ad5b55f57f4306249ef9dda2c2",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8873,11 +8873,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.0.25",
+            "version": "1.0.26",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "35e866edfce216c438b20831e05c8e7a4728bc04"
+                "reference": "65272c09d47f6ff72096825070f5e2c2dd11ba20"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -8905,7 +8905,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-09-05T12:17:18+00:00"
+            "time": "2018-09-06T07:09:01+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -9412,7 +9412,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "33748f2cfc53e09b9454f04fe5f4891b9a817ffc"
+                "reference": "8df8a97e946cb2187f3f9788aaf034c0dc6aca78"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9428,7 +9428,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-09-05T15:47:40+00:00"
+            "time": "2018-09-06T08:03:26+00:00"
         },
         {
             "name": "oyejorge/less.php",
