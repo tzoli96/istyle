@@ -25,4 +25,7 @@
     <type name="Magento\Bundle\Helper\Catalog\Product\Configuration">
         <plugin name="bundle_product_price_display_in_cart_fix" type="Oander\IstyleCustomization\Plugin\Bundle\Helper\Catalog\Product\Configuration"/>
     </type>
+    <type name="Magento\Framework\Filter\Template">
+        <plugin name="framework_filter_template_tostring" type="Oander\IstyleCustomization\Plugin\Framework\Filter\Template"/>
+    </type>
 </config>
