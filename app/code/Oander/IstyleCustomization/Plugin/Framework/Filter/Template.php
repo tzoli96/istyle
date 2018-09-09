@@ -24,6 +24,6 @@ class Template
         {
             $value = $value->getText();
         }
-        return $value;
+        return [$value];
     }
 }
