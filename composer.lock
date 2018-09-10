@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "53fc16755b521a9d0a39567ac00a01d5",
+    "content-hash": "b6d99fc6c2f34d4c88d48932b35aa686",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8873,11 +8873,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.0.30",
+            "version": "1.0.32",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "40ba4cecbd5d5857f7fc1635c5853e9fc0551e72"
+                "reference": "48958af2646e527a06cd046d19bd7187abf685dd"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -8905,7 +8905,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-09-07T12:52:41+00:00"
+            "time": "2018-09-10T11:27:26+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -9412,7 +9412,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "89c83dbd1a485ffc7d78f3f00ea1eeec8cf5b533"
+                "reference": "072b4fad439468e461dd0272a608bc37d5d67a2b"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9428,7 +9428,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-09-07T14:45:48+00:00"
+            "time": "2018-09-10T11:23:48+00:00"
         },
         {
             "name": "oyejorge/less.php",
