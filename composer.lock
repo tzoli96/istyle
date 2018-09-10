@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e3c804615d94d80af29a518d942efaa",
+    "content-hash": "614ee3c91357af93d03af76f18917704",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7152,11 +7152,11 @@
         },
         {
             "name": "oander/module-api-base",
-            "version": "1.0.28",
+            "version": "1.0.30",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-base.git",
-                "reference": "a181966c9a33eb79519edfa521be177fde130472"
+                "reference": "21cb467cbe92d3bfee5db55b8979a850194315a9"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7175,7 +7175,7 @@
                 "proprietary"
             ],
             "description": "API Base",
-            "time": "2018-04-25T14:27:46+00:00"
+            "time": "2018-09-03T09:18:32+00:00"
         },
         {
             "name": "oander/module-api-cache",
@@ -7237,11 +7237,11 @@
         },
         {
             "name": "oander/module-api-checkout",
-            "version": "1.3.0",
+            "version": "1.3.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-checkout.git",
-                "reference": "31ab76963195f546a1329ab14cc6815428886910"
+                "reference": "a035406b3f908548981ce009b67d63c19d956480"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7262,7 +7262,7 @@
                 "proprietary"
             ],
             "description": "API Checkout module.",
-            "time": "2018-01-18T16:39:49+00:00"
+            "time": "2018-09-05T09:32:38+00:00"
         },
         {
             "name": "oander/module-api-customer",
@@ -7295,11 +7295,11 @@
         },
         {
             "name": "oander/module-api-gateway",
-            "version": "1.0.19",
+            "version": "1.0.20",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-gateway.git",
-                "reference": "5fd73a233e68095a41b3851734b4e78712e67d12"
+                "reference": "3c21935df9b2db65435bb8b8bf14de2991059246"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7319,7 +7319,7 @@
                 "proprietary"
             ],
             "description": "The API Gateway module for ERP connections and import solutions.",
-            "time": "2018-07-04T13:18:05+00:00"
+            "time": "2018-08-08T15:26:33+00:00"
         },
         {
             "name": "oander/module-api-image",
@@ -7577,6 +7577,39 @@
             ],
             "description": "Card On Delivery Payment for Istyle",
             "time": "2018-06-15T12:05:46+00:00"
+        },
+        {
+            "name": "oander/module-cartbutton",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-cartbutton.git",
+                "reference": "48c3f87be255d6d286aa5a3eed78a606f49932a6"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\CartButton\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "email": "info@mage2gen.com",
+                    "name": "Mage2Gen"
+                },
+                {
+                    "email": "janos.pinczes@oander.hu",
+                    "name": "Janos Pinczes"
+                }
+            ],
+            "description": "Helper to display cart button",
+            "time": "2018-09-03T09:17:04+00:00"
         },
         {
             "name": "oander/module-cashonpickuppayment",
@@ -7855,11 +7888,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "4529edd1cf917e78b90b4ec03c9b29948892be90"
+                "reference": "453fc2f8772da6f12282549b87e56c9c6394a7ea"
             },
             "require": {
                 "php": "7.*"
@@ -7877,7 +7910,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2018-08-02T15:14:03+00:00"
+            "time": "2018-08-27T14:32:02+00:00"
         },
         {
             "name": "oander/module-fancy-filter",
@@ -8153,6 +8186,110 @@
             "time": "2017-12-14T16:11:28+00:00"
         },
         {
+            "name": "oander/module-ocbase",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-ocbase.git",
+                "reference": "3262335adec38f0ad971762d695638c211919e8d"
+            },
+            "require": {
+                "oander/module-api-base": "^1.0.21"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\OCBase\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "email": "info@mage2gen.com",
+                    "name": "Mage2Gen"
+                },
+                {
+                    "email": "janos.pinczes@oander.hu",
+                    "name": "János Pinczés"
+                }
+            ],
+            "description": "Oander Connect Base",
+            "time": "2018-09-03T09:08:37+00:00"
+        },
+        {
+            "name": "oander/module-ocevent",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-ocevent.git",
+                "reference": "fdbcc28e1131fe693d91b51d79d92d061f34d2bb"
+            },
+            "require": {
+                "oander/module-ocqueue": "^1.0.2"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\OCEvent\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "email": "janos.pinczes@oander.hu",
+                    "name": "János Pinczés"
+                }
+            ],
+            "description": "Oander Connect Event Manager",
+            "time": "2018-07-30T13:34:26+00:00"
+        },
+        {
+            "name": "oander/module-ocqueue",
+            "version": "1.0.11",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-ocqueue.git",
+                "reference": "35349ceba3cc841db4d6ea8bc24f62ea224c21f0"
+            },
+            "require": {
+                "oander/module-ocbase": "^1.0.2"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\OCQueue\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "email": "info@mage2gen.com",
+                    "name": "Mage2Gen"
+                },
+                {
+                    "email": "janos.pinczes@oander.hu",
+                    "name": "János Pinczés"
+                }
+            ],
+            "description": "Queue module for OanderConnect",
+            "time": "2018-09-04T15:51:21+00:00"
+        },
+        {
             "name": "oander/module-order-attachment",
             "version": "1.0.2",
             "source": {
@@ -8284,14 +8421,15 @@
         },
         {
             "name": "oander/module-preorder",
-            "version": "1.0.19",
+            "version": "1.0.23",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-preorder.git",
-                "reference": "6f32f4715192e05410fb088d937c0236ec652c94"
+                "reference": "6d6a6bfd11f9fe6b7f82ca3c39a9aa179317ba67"
             },
             "require": {
                 "oander/module-base": "*",
+                "oander/module-cartbutton": "*",
                 "php": "7.*"
             },
             "type": "magento2-module",
@@ -8307,7 +8445,7 @@
                 "proprietary"
             ],
             "description": "Oander Preorder",
-            "time": "2018-05-08T14:35:42+00:00"
+            "time": "2018-08-17T09:35:12+00:00"
         },
         {
             "name": "oander/module-price-tooltip",
@@ -8416,11 +8554,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.0.1",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "f292180d5dca7418c92178135939da7e2ecf2027"
+                "reference": "6270a727df4cae5a85fd4428189da3d8160a7ec2"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8439,7 +8577,7 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2018-01-02T16:18:57+00:00"
+            "time": "2018-09-04T08:04:54+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -8468,6 +8606,42 @@
             ],
             "description": "salesforce-widget",
             "time": "2018-06-15T13:02:11+00:00"
+        },
+        {
+            "name": "oander/module-salesforcereservation",
+            "version": "1.0.33",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
+                "reference": "3ee4b0fe4bb3bad4bc6ff7393979cb90c75f49df"
+            },
+            "require": {
+                "oander/module-api-checkout": ">=1.0.12",
+                "oander/module-cartbutton": "*",
+                "oander/module-ocqueue": "^1.0.3",
+                "oander/module-producturlresolver": "^1.0.0",
+                "oander/module-salesforce": "*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\SalesforceReservation\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "email": "janos.pinczes@oander.hu",
+                    "name": "János Pinczés"
+                }
+            ],
+            "description": "Salesforce Product Reservation",
+            "time": "2018-09-10T14:18:41+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -8656,11 +8830,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.1",
+            "version": "1.4.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "b454f2db2af28810d144a78c7bed7901358efec7"
+                "reference": "8009320aceb86c65b14ebb51be40af79b0ac41fe"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8682,7 +8856,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-08-07T10:30:38+00:00"
+            "time": "2018-09-10T12:24:44+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
@@ -8793,11 +8967,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.140",
+            "version": "1.0.141",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "6e8898e61b53e7af23ee65f8d80ea62f6b984b31"
+                "reference": "9f4807b5f8a16c65d087fba6184411e77f9c8d72"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8813,7 +8987,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-09-05T15:49:15+00:00"
+            "time": "2018-09-10T15:48:01+00:00"
         },
         {
             "name": "oyejorge/less.php",
