@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "68e2ec5536f304bd5a20d2a091008fe8",
+    "content-hash": "93c784ed91c90c2dd5f63dfa75a8cd24",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8344,11 +8344,11 @@
         },
         {
             "name": "oander/module-maintenance",
-            "version": "1.0.7",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-maintenance.git",
-                "reference": "b0a7f368426a78de7650995ebf1d6745955ae382"
+                "reference": "de3f6b5b66e353b536f6431dbfb549e65c2943f2"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8367,7 +8367,7 @@
                 "proprietary"
             ],
             "description": "Oander Maintenance Module",
-            "time": "2018-08-27T06:12:39+00:00"
+            "time": "2018-09-11T10:36:37+00:00"
         },
         {
             "name": "oander/module-multislider",
@@ -9404,7 +9404,7 @@
                 "proprietary"
             ],
             "description": "Hodor template",
-            "time": "2018-06-25T12:40:24+00:00"
+            "time": "2018-06-25 12:40:24"
         },
         {
             "name": "oander/theme-istyle",
@@ -9412,7 +9412,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "4e6896910c4e9a1fe1a08dd8e6940251e1e01ab8"
+                "reference": "93f796591dd895bb9ba690007e3053adb96c24fc"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9428,7 +9428,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-09-11T09:13:32+00:00"
+            "time": "2018-09-11 10:38:45"
         },
         {
             "name": "oyejorge/less.php",
