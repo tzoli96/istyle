@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c957384ab25da44c0b02c060de4d092c",
+    "content-hash": "c7b346e3d50eeba6757567c1de955d72",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8106,11 +8106,11 @@
         },
         {
             "name": "oander/module-maintenance",
-            "version": "1.0.9",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-maintenance.git",
-                "reference": "de3f6b5b66e353b536f6431dbfb549e65c2943f2"
+                "reference": "b0a7f368426a78de7650995ebf1d6745955ae382"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8129,7 +8129,7 @@
                 "proprietary"
             ],
             "description": "Oander Maintenance Module",
-            "time": "2018-09-11T10:36:37+00:00"
+            "time": "2018-08-27T06:12:39+00:00"
         },
         {
             "name": "oander/module-multislider",
