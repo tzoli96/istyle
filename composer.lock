@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "03ca98fc2e026fea07deeede1fbc40d0",
+    "content-hash": "75d4c86b9e5de3d1600e4e93d0fa2c79",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7736,11 +7736,11 @@
         },
         {
             "name": "oander/module-cartbutton",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cartbutton.git",
-                "reference": "48c3f87be255d6d286aa5a3eed78a606f49932a6"
+                "reference": "e933fed1ad3f8a86ea6cb1c12c494a8a944c0030"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7765,7 +7765,7 @@
                 }
             ],
             "description": "Helper to display cart button",
-            "time": "2018-09-03T09:17:04+00:00"
+            "time": "2018-09-11T20:14:45+00:00"
         },
         {
             "name": "oander/module-cashonpickuppayment",
@@ -8818,11 +8818,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "6270a727df4cae5a85fd4428189da3d8160a7ec2"
+                "reference": "4135ec07d8264c9f523924548869aeb944e709a4"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8841,7 +8841,7 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2018-09-04T08:04:54+00:00"
+            "time": "2018-09-11T20:28:17+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -8873,11 +8873,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.0.35",
+            "version": "1.0.36",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "3459d58978b37509c115d2e57e955b6f3ac98d57"
+                "reference": "585782759db765752a6aa0164159e99d72dda486"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -8905,7 +8905,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-09-11T09:07:04+00:00"
+            "time": "2018-09-11T20:10:57+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -9404,7 +9404,7 @@
                 "proprietary"
             ],
             "description": "Hodor template",
-            "time": "2018-06-25 12:40:24"
+            "time": "2018-06-25T12:40:24+00:00"
         },
         {
             "name": "oander/theme-istyle",
@@ -9412,7 +9412,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "93f796591dd895bb9ba690007e3053adb96c24fc"
+                "reference": "44ebe8d3ce2a76f24989183a23a33318d389bbf8"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9428,7 +9428,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-09-11 10:38:45"
+            "time": "2018-09-11T12:59:16+00:00"
         },
         {
             "name": "oyejorge/less.php",
