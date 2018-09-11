@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7cc8f68dd173ca40d0e674997f692cca",
+    "content-hash": "3018a011981fe73538ba0f14f26df09a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8106,11 +8106,11 @@
         },
         {
             "name": "oander/module-maintenance",
-            "version": "1.0.9",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-maintenance.git",
-                "reference": "de3f6b5b66e353b536f6431dbfb549e65c2943f2"
+                "reference": "b0a7f368426a78de7650995ebf1d6745955ae382"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8129,7 +8129,7 @@
                 "proprietary"
             ],
             "description": "Oander Maintenance Module",
-            "time": "2018-09-11T10:36:37+00:00"
+            "time": "2018-08-27T06:12:39+00:00"
         },
         {
             "name": "oander/module-multislider",
@@ -8609,11 +8609,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.0.36",
+            "version": "1.0.37",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "585782759db765752a6aa0164159e99d72dda486"
+                "reference": "7ef7ea66c50f90c3424b12fa7a9bb653e94b32ff"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -8641,7 +8641,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-09-11T20:10:57+00:00"
+            "time": "2018-09-11T22:04:49+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -8967,11 +8967,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.144",
+            "version": "1.0.146",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "db300895a4047c279e8dea924a5b41e5ff657b31"
+                "reference": "caae6ba2eb575c90b8ee09688a41eeb72f62bde4"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8987,7 +8987,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-09-11T19:10:50+00:00"
+            "time": "2018-09-11T22:13:56+00:00"
         },
         {
             "name": "oyejorge/less.php",
