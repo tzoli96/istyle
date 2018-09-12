@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "75d4c86b9e5de3d1600e4e93d0fa2c79",
+    "content-hash": "b88c6705856eb0814738a687eca952a1",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1398,11 +1398,11 @@
         },
         {
             "name": "innobyte/module-cetelem",
-            "version": "0.0.7",
+            "version": "0.0.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-cetelem.git",
-                "reference": "57e95ddb1126e8393bc54acbb217623f65f4d058"
+                "reference": "777b6028cbe1008baa9fccecb07e4d3e879547d1"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1418,7 +1418,7 @@
                 }
             },
             "description": "Innobyte Cetelem Module",
-            "time": "2018-06-20T13:44:13+00:00"
+            "time": "2018-09-12T09:40:27+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
@@ -8608,6 +8608,31 @@
             "time": "2018-08-21T10:44:03+00:00"
         },
         {
+            "name": "oander/module-orderstatuscanceller",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-order-status-canceller.git",
+                "reference": "9211587af1fde94423e17389c91873610ec77326"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\OrderStatusCanceller\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "time": "2018-06-14T07:55:56+00:00"
+        },
+        {
             "name": "oander/module-paypal",
             "version": "1.0.0",
             "source": {
@@ -8873,11 +8898,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.0.36",
+            "version": "1.0.38",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "585782759db765752a6aa0164159e99d72dda486"
+                "reference": "796f2d0c1b92fa987324f391726a0c25035098d9"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -8905,7 +8930,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-09-11T20:10:57+00:00"
+            "time": "2018-09-12T08:59:42+00:00"
         },
         {
             "name": "oander/module-shipping",

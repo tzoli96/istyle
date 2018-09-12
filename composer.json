@@ -23,7 +23,7 @@
         "infobeans/magento2-flatrate5": "1.0.1",
         "innobyte/magento2-payu": "1.1.6",
         "innobyte/module-bnpparibas": "0.0.6",
-        "innobyte/module-cetelem": "0.0.7",
+        "innobyte/module-cetelem": "0.0.8",
         "innobyte/module-checkout-success": "0.0.3",
         "innobyte/module-dsk": "0.0.2",
         "innobyte/module-homecredit": "1.0.2",
@@ -100,7 +100,7 @@
         "oander/module-producturlresolver": "1.0.0",
         "oander/module-safe-category-index": "1.0.0",
         "oander/module-salesforce": "1.0.4",
-        "oander/module-salesforcereservation": "1.0.36",
+        "oander/module-salesforcereservation": "1.0.38",
         "oander/module-salesforce-widget": "1.0.7",
         "oander/module-shipping": "1.0.3",
         "oander/module-stuck-process-remover": "1.0.0",
@@ -127,7 +127,8 @@
         "rudracomputech/module-nestpay": "2.0.6.4",
         "xtento/module-orderexport": "2.3.9",
         "xtento/module-xtcore": "2.1.0",
-        "innobyte/module-inbank": "1.0.1"
+        "innobyte/module-inbank": "1.0.1",
+        "oander/module-orderstatuscanceller": "1.0.3"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
