@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3018a011981fe73538ba0f14f26df09a",
+    "content-hash": "d57fdd39afdcb8ba2c3cf018912579df",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8106,11 +8106,11 @@
         },
         {
             "name": "oander/module-maintenance",
-            "version": "1.0.7",
+            "version": "1.0.9.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-maintenance.git",
-                "reference": "b0a7f368426a78de7650995ebf1d6745955ae382"
+                "reference": "dce10566f93fe77ed010a58f10a7b26ed90731d5"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8129,7 +8129,7 @@
                 "proprietary"
             ],
             "description": "Oander Maintenance Module",
-            "time": "2018-08-27T06:12:39+00:00"
+            "time": "2018-09-11T12:18:55+00:00"
         },
         {
             "name": "oander/module-multislider",
@@ -8609,11 +8609,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.0.37",
+            "version": "1.0.38",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "7ef7ea66c50f90c3424b12fa7a9bb653e94b32ff"
+                "reference": "796f2d0c1b92fa987324f391726a0c25035098d9"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -8641,7 +8641,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-09-11T22:04:49+00:00"
+            "time": "2018-09-12T08:59:42+00:00"
         },
         {
             "name": "oander/module-shipping",
