@@ -21,7 +21,7 @@ use Magento\Catalog\Model\Locator\LocatorInterface;
 use Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\AbstractModifier;
 
 /**
- * Class Attributes
+ * Class ReadOnlyAttributes
  * @package Oander\IstyleCustomization\Ui\DataProvider\Product\Form\Modifier
  */
 class ReadOnlyAttributes extends AbstractModifier
