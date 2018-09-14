@@ -20,7 +20,7 @@ permissions:
 hooks:
   BeforeInstall:
     - location: bin/beforeinstall.sh
-      timeout: 180
+      timeout: 3600
       runas: root
   AfterInstall:
     - location: bin/install.sh
