@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a0dba2d38302907f09f27348b551358",
+    "content-hash": "46fe139183de4155409735c985a3bdbf",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8123,11 +8123,11 @@
         },
         {
             "name": "oander/module-fancy-filter",
-            "version": "1.3.1.6",
+            "version": "1.3.1.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-fancy-filter.git",
-                "reference": "6061a8262ad9bb2e6a264c5dc907394186745899"
+                "reference": "aaf8d999dff6d5f55309ab4b6c84b52fa61c0e61"
             },
             "require": {
                 "oander/module-ajax-catalog": "*",
@@ -8147,7 +8147,7 @@
                 "proprietary"
             ],
             "description": "Filter by checkboxes on Catalog list",
-            "time": "2018-07-31T11:30:21+00:00"
+            "time": "2018-09-12T15:25:12+00:00"
         },
         {
             "name": "oander/module-free-shipping-display",
@@ -9437,7 +9437,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "44ebe8d3ce2a76f24989183a23a33318d389bbf8"
+                "reference": "a9b100f9cf8a46c6f794a8ffc4186d16076c5ab6"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9453,7 +9453,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-09-11T12:59:16+00:00"
+            "time": "2018-09-13T14:48:52+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -9936,11 +9936,11 @@
         },
         {
             "name": "rudracomputech/module-nestpay",
-            "version": "2.0.6.4",
+            "version": "2.0.6.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/rudracomputech-nestpay.git",
-                "reference": "33c4736aa34ced2d4ba2018592efa616d0966690"
+                "reference": "e6a965c9da33867772dd021d8246a926f3174ca5"
             },
             "require": {
                 "php": "7.*"
@@ -9958,7 +9958,7 @@
                 "proprietary"
             ],
             "description": "Nestpay",
-            "time": "2018-08-16T14:53:12+00:00"
+            "time": "2018-09-14T09:29:59+00:00"
         },
         {
             "name": "seld/cli-prompt",
