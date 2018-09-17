@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d57fdd39afdcb8ba2c3cf018912579df",
+    "content-hash": "0c1af0d5b81dbf907235373aa7437819",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8223,11 +8223,11 @@
         },
         {
             "name": "oander/module-ocevent",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-ocevent.git",
-                "reference": "fdbcc28e1131fe693d91b51d79d92d061f34d2bb"
+                "reference": "e61d00f95ee843cbb074cf32c97046ed4ed8ca72"
             },
             "require": {
                 "oander/module-ocqueue": "^1.0.2"
@@ -8251,15 +8251,15 @@
                 }
             ],
             "description": "Oander Connect Event Manager",
-            "time": "2018-07-30T13:34:26+00:00"
+            "time": "2018-09-14T13:34:08+00:00"
         },
         {
             "name": "oander/module-ocqueue",
-            "version": "1.0.11",
+            "version": "1.0.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-ocqueue.git",
-                "reference": "35349ceba3cc841db4d6ea8bc24f62ea224c21f0"
+                "reference": "9aaada817ba4f9042a3d04c83524030be922d6ff"
             },
             "require": {
                 "oander/module-ocbase": "^1.0.2"
@@ -8287,7 +8287,7 @@
                 }
             ],
             "description": "Queue module for OanderConnect",
-            "time": "2018-09-04T15:51:21+00:00"
+            "time": "2018-09-14T13:38:05+00:00"
         },
         {
             "name": "oander/module-order-attachment",
@@ -8609,11 +8609,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.0.38",
+            "version": "1.0.39",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "796f2d0c1b92fa987324f391726a0c25035098d9"
+                "reference": "11b22487333e09f607bebe97d4baa24532e64f8e"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -8641,7 +8641,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-09-12T08:59:42+00:00"
+            "time": "2018-09-14T13:30:14+00:00"
         },
         {
             "name": "oander/module-shipping",
