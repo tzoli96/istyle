@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "17d1ec3761aa0c55c43fddb956192148",
+    "content-hash": "e470688dc90ead97eaaa6c65bfa8e8c3",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8898,11 +8898,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.0.39",
+            "version": "1.0.40",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "11b22487333e09f607bebe97d4baa24532e64f8e"
+                "reference": "55414cc3f8399009b1a95055ab49885258d6a246"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -8930,7 +8930,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-09-14T13:30:14+00:00"
+            "time": "2018-09-17T15:29:34+00:00"
         },
         {
             "name": "oander/module-shipping",
