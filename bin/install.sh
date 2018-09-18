@@ -327,7 +327,7 @@ fi
 
 # COPY UPLOADED FILES FROM NFS TO THE WEBROOT FOR REWRITES
 echo -n " * COPY UPLOADED FILES FOR REWRITES FROM NFS TO THE WEBROOT ... "
-if rsync -auz ${EFS}/rewrite/ ${WEBROOT}/; then echo OK; else echo FAIL; fi
+if rsync -a ${EFS}/rewrite/ ${WEBROOT}/; then echo OK; else echo FAIL; fi
 
 # MAIN SYMLINK SETUP
 symlink_check "CREATE DIRECTORY SYMLINK TO MEDIA FOLDER" "${WEBROOT}/pub/media" "${EFS}/media" "${WEBROOT}/pub/"
