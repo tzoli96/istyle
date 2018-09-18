@@ -100,7 +100,7 @@
         "oander/module-producturlresolver": "1.0.0",
         "oander/module-safe-category-index": "1.0.0",
         "oander/module-salesforce": "1.0.4",
-        "oander/module-salesforcereservation": "1.0.40",
+        "oander/module-salesforcereservation": "1.0.41",
         "oander/module-salesforce-widget": "1.0.7",
         "oander/module-shipping": "1.0.3",
         "oander/module-stuck-process-remover": "1.0.0",
