@@ -67,10 +67,13 @@ class ReadOnlyAttributes extends AbstractModifier
      */
     public function modifyMeta(array $meta)
     {
+        $product = $this->locator->getProduct();
 
-        $sku = $this->locator->getProduct()->getSku();
+        $dateCompass = new \DateTime($product->getCreatedAt());
+        $dateCompass->modify('+5 minutes');
+        $currentDate = new \DateTime();
 
-        if($sku != null) {
+        if($product->getSku() != null && $currentDate > $dateCompass) {
 
             $attribute = 'sku';
 
