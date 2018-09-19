@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f8e6d56e4fef93030babd0c44b5c8c0d",
+    "content-hash": "f7f996f5b0d0cdff092ead9cf6b8a3ee",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -59,16 +59,16 @@
         },
         {
             "name": "algolia/algoliasearch-magento-2",
-            "version": "1.8.0",
+            "version": "1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/algolia/algoliasearch-magento-2.git",
-                "reference": "93aee803a4b8e6bf85d819ee6c49d7a6a5f50763"
+                "reference": "395f1893d0cf41d2eaf7c9380f76185e0697569d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/algolia/algoliasearch-magento-2/zipball/93aee803a4b8e6bf85d819ee6c49d7a6a5f50763",
-                "reference": "93aee803a4b8e6bf85d819ee6c49d7a6a5f50763",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-magento-2/zipball/395f1893d0cf41d2eaf7c9380f76185e0697569d",
+                "reference": "395f1893d0cf41d2eaf7c9380f76185e0697569d",
                 "shasum": ""
             },
             "require": {
@@ -94,7 +94,7 @@
                 "MIT"
             ],
             "description": "Algolia Search integration for Magento 2",
-            "time": "2018-09-18T10:01:10+00:00"
+            "time": "2018-08-09T12:58:49+00:00"
         },
         {
             "name": "amasty/base",
@@ -7736,11 +7736,11 @@
         },
         {
             "name": "oander/module-cartbutton",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cartbutton.git",
-                "reference": "e933fed1ad3f8a86ea6cb1c12c494a8a944c0030"
+                "reference": "5cb6436480f544d33f4064d4fbb89e2ce992b803"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7756,16 +7756,12 @@
             ],
             "authors": [
                 {
-                    "email": "info@mage2gen.com",
-                    "name": "Mage2Gen"
-                },
-                {
                     "email": "janos.pinczes@oander.hu",
                     "name": "Janos Pinczes"
                 }
             ],
             "description": "Helper to display cart button",
-            "time": "2018-09-11T20:14:45+00:00"
+            "time": "2018-09-17T19:33:09+00:00"
         },
         {
             "name": "oander/module-cashonpickuppayment",
@@ -8898,11 +8894,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.0.42",
+            "version": "1.0.43",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "c596925ab6b4a25bb9b2f2aaf64f2e338d0f5290"
+                "reference": "93a75713cd6c7b4ef675be5c5bc1872eec1e21e1"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -8930,7 +8926,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-09-18T13:47:45+00:00"
+            "time": "2018-09-19T08:29:46+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -9437,7 +9433,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "a855cff5c1b3d474595a18387ec2528531ddf06f"
+                "reference": "58439d6565413e69144ce65ecc4ed315a4c5087b"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9453,7 +9449,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-09-18T13:05:40+00:00"
+            "time": "2018-09-19T08:26:48+00:00"
         },
         {
             "name": "oyejorge/less.php",
