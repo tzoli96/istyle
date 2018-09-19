@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fd405296fd20c6e1ba90b0bb316ae57a",
+    "content-hash": "449c32bdea37f8a01e19ea159e925514",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7580,11 +7580,11 @@
         },
         {
             "name": "oander/module-cartbutton",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cartbutton.git",
-                "reference": "e933fed1ad3f8a86ea6cb1c12c494a8a944c0030"
+                "reference": "5cb6436480f544d33f4064d4fbb89e2ce992b803"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7600,16 +7600,12 @@
             ],
             "authors": [
                 {
-                    "email": "info@mage2gen.com",
-                    "name": "Mage2Gen"
-                },
-                {
                     "email": "janos.pinczes@oander.hu",
                     "name": "Janos Pinczes"
                 }
             ],
             "description": "Helper to display cart button",
-            "time": "2018-09-11T20:14:45+00:00"
+            "time": "2018-09-17T19:33:09+00:00"
         },
         {
             "name": "oander/module-cashonpickuppayment",
@@ -7914,11 +7910,11 @@
         },
         {
             "name": "oander/module-fancy-filter",
-            "version": "1.3.1.5",
+            "version": "1.3.1.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-fancy-filter.git",
-                "reference": "d06b2601783dcece269445e39bcccdbb2d1b7751"
+                "reference": "aaf8d999dff6d5f55309ab4b6c84b52fa61c0e61"
             },
             "require": {
                 "oander/module-ajax-catalog": "*",
@@ -7938,7 +7934,7 @@
                 "proprietary"
             ],
             "description": "Filter by checkboxes on Catalog list",
-            "time": "2018-07-11T19:44:10+00:00"
+            "time": "2018-09-12T15:25:12+00:00"
         },
         {
             "name": "oander/module-free-shipping-display",
@@ -8609,11 +8605,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.0.41",
+            "version": "1.0.47",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "7e850463a1e3e217a67364c8104ff52cf0731794"
+                "reference": "e876893159deb5540c356f7991a0e17699e3830e"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -8641,7 +8637,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-09-18T06:32:08+00:00"
+            "time": "2018-09-19T13:55:46+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -8967,11 +8963,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.146",
+            "version": "1.0.147",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "caae6ba2eb575c90b8ee09688a41eeb72f62bde4"
+                "reference": "1959ebf1d995d6dc472b0a358489bf2d7b748a64"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8987,7 +8983,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-09-11T22:13:56+00:00"
+            "time": "2018-09-19T13:45:42+00:00"
         },
         {
             "name": "oyejorge/less.php",
