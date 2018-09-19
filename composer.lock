@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "03f23d0d20fbeed982bd160da6e695c4",
+    "content-hash": "0a9e1471bed4956415d69deb0423cd30",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8894,11 +8894,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.0.46",
+            "version": "1.0.48",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "a9e3847d874184a7be484713657269e6eeee6807"
+                "reference": "3105c4cf9017fedf3d0325ecc97ebb703fcd2dd6"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -8926,7 +8926,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-09-19T12:09:32+00:00"
+            "time": "2018-09-19T15:33:54+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -9234,11 +9234,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.4.1",
+            "version": "1.4.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "56bf70403be7f22c84daf01f70589a602011ab1d"
+                "reference": "8009320aceb86c65b14ebb51be40af79b0ac41fe"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9260,7 +9260,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-08-21T02:40:41+00:00"
+            "time": "2018-09-10T12:24:44+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
