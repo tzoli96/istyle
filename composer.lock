@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "88986697b02ae09226113620e164a2f9",
+    "content-hash": "9364aad24f47ffe2e15fe1b42b433634",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1050,6 +1050,39 @@
                 "parser"
             ],
             "time": "2014-09-09T13:34:57+00:00"
+        },
+        {
+            "name": "fancourier/magento2-shipping",
+            "version": "2.1.12",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/fancourie-customshipping.git",
+                "reference": "c40c5aa537ee56531c35fef0bb8f276461d18112"
+            },
+            "require": {
+                "php": "~5.5.0|~5.6.0|~7.0.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "FANCourier\\Shipping\\": ""
+                }
+            },
+            "license": [
+                "OSL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "FAN Courier",
+                    "email": "programare@fancourier.ro",
+                    "homepage": "https://www.fancourier.ro"
+                }
+            ],
+            "description": "Shipping for Magento 2",
+            "time": "2018-09-24T09:12:12+00:00"
         },
         {
             "name": "godvsdeity/swedbank-payment-portal",
@@ -9234,11 +9267,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.7",
+            "version": "1.4.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "aa231a12152d032d36af55dd476f7c05ef7bbb8f"
+                "reference": "64185115968cc58489201c6d6d6dab706301d025"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9260,7 +9293,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-09-20T14:22:35+00:00"
+            "time": "2018-09-24T10:22:24+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
