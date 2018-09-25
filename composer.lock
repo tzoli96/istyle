@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9364aad24f47ffe2e15fe1b42b433634",
+    "content-hash": "8e2d062841e498836b77d283582d93ef",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8400,11 +8400,11 @@
         },
         {
             "name": "oander/module-multislider",
-            "version": "1.2.4",
+            "version": "1.2.7.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-multi-slider.git",
-                "reference": "4c2e5ea5ddf7bdb4f94b7942ff46195b604b2248"
+                "reference": "5960a2672bf9663ec32283de086d7d83eda40254"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8423,7 +8423,7 @@
                 "proprietary"
             ],
             "description": "Slider module",
-            "time": "2018-04-26T11:41:59+00:00"
+            "time": "2018-09-25T12:21:53+00:00"
         },
         {
             "name": "oander/module-name-switcher",
@@ -9458,7 +9458,7 @@
                 "proprietary"
             ],
             "description": "Hodor template",
-            "time": "2018-06-25T12:40:24+00:00"
+            "time": "2018-06-25 12:40:24"
         },
         {
             "name": "oander/theme-istyle",
@@ -9482,7 +9482,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-09-24T16:30:47+00:00"
+            "time": "2018-09-24 16:30:47"
         },
         {
             "name": "oyejorge/less.php",
