@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8dc1734d58c818e7e09d79c76a2dafe4",
+    "content-hash": "8d6eaaaf5f66dee06ac8684694cf609f",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9669,11 +9669,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "dev-develop",
+            "version": "dev-cz_iphone_evening",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "8d606c678ba02526d4e33b6983d968ee12137be7"
+                "reference": "95952cfaf1c5effe143b2e4ed88bb817767cf711"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9689,7 +9689,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-09-26T14:10:30+00:00"
+            "time": "2018-09-28T15:15:01+00:00"
         },
         {
             "name": "oyejorge/less.php",
