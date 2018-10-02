@@ -54,7 +54,7 @@
         "oander/module-api-image": "1.0.26",
         "oander/module-api-index": "1.0.1",
         "oander/module-api-order-attachment": "1.0.2",
-        "oander/module-api-product": "1.0.28",
+        "oander/module-api-product": "1.0.29",
         "oander/module-api-product-attribute": "1.0.21",
         "oander/module-api-warehouse-manager": "1.1.0",
         "oander/module-base": "1.2.6",

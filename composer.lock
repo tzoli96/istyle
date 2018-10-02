@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9a885b1301c9bc0f0a35abfd1e8dec2",
+    "content-hash": "a225ef53f023737e1f0e9f426201c1d5",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7409,11 +7409,11 @@
         },
         {
             "name": "oander/module-api-product",
-            "version": "1.0.28",
+            "version": "1.0.29",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-product.git",
-                "reference": "e47b17d3b25ede2cdcc2ceb850199bd1734aa808"
+                "reference": "2f89bbbf9bff6a01fbaf9a205f5f67b182c25c63"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7435,7 +7435,7 @@
                 "proprietary"
             ],
             "description": "Backend API to Product",
-            "time": "2018-05-07T11:06:17+00:00"
+            "time": "2018-10-02T10:19:02+00:00"
         },
         {
             "name": "oander/module-api-product-attribute",
