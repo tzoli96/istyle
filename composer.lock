@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8639140be08c7aa2b1cdc552e81b1f5a",
+    "content-hash": "f89cba3f58372a0592866e49a56b9caa",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7598,11 +7598,11 @@
         },
         {
             "name": "oander/module-api-product",
-            "version": "1.0.28",
+            "version": "1.0.29",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-product.git",
-                "reference": "e47b17d3b25ede2cdcc2ceb850199bd1734aa808"
+                "reference": "2f89bbbf9bff6a01fbaf9a205f5f67b182c25c63"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7624,7 +7624,7 @@
                 "proprietary"
             ],
             "description": "Backend API to Product",
-            "time": "2018-05-07T11:06:17+00:00"
+            "time": "2018-10-02T10:19:02+00:00"
         },
         {
             "name": "oander/module-api-product-attribute",
@@ -7769,11 +7769,11 @@
         },
         {
             "name": "oander/module-cartbutton",
-            "version": "1.0.6",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cartbutton.git",
-                "reference": "5cb6436480f544d33f4064d4fbb89e2ce992b803"
+                "reference": "e933fed1ad3f8a86ea6cb1c12c494a8a944c0030"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7789,12 +7789,16 @@
             ],
             "authors": [
                 {
+                    "email": "info@mage2gen.com",
+                    "name": "Mage2Gen"
+                },
+                {
                     "email": "janos.pinczes@oander.hu",
                     "name": "Janos Pinczes"
                 }
             ],
             "description": "Helper to display cart button",
-            "time": "2018-09-17T19:33:09+00:00"
+            "time": "2018-09-11T20:14:45+00:00"
         },
         {
             "name": "oander/module-cashonpickuppayment",
@@ -8152,11 +8156,11 @@
         },
         {
             "name": "oander/module-fancy-filter",
-            "version": "1.3.1.9",
+            "version": "1.3.1.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-fancy-filter.git",
-                "reference": "aaf8d999dff6d5f55309ab4b6c84b52fa61c0e61"
+                "reference": "d06b2601783dcece269445e39bcccdbb2d1b7751"
             },
             "require": {
                 "oander/module-ajax-catalog": "*",
@@ -8176,7 +8180,7 @@
                 "proprietary"
             ],
             "description": "Filter by checkboxes on Catalog list",
-            "time": "2018-09-12T15:25:12+00:00"
+            "time": "2018-07-11T19:44:10+00:00"
         },
         {
             "name": "oander/module-free-shipping-display",
@@ -8490,11 +8494,11 @@
         },
         {
             "name": "oander/module-ocevent",
-            "version": "1.0.3",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-ocevent.git",
-                "reference": "e61d00f95ee843cbb074cf32c97046ed4ed8ca72"
+                "reference": "fdbcc28e1131fe693d91b51d79d92d061f34d2bb"
             },
             "require": {
                 "oander/module-ocqueue": "^1.0.2"
@@ -8518,15 +8522,15 @@
                 }
             ],
             "description": "Oander Connect Event Manager",
-            "time": "2018-09-14T13:34:08+00:00"
+            "time": "2018-07-30T13:34:26+00:00"
         },
         {
             "name": "oander/module-ocqueue",
-            "version": "1.0.12",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-ocqueue.git",
-                "reference": "9aaada817ba4f9042a3d04c83524030be922d6ff"
+                "reference": "35349ceba3cc841db4d6ea8bc24f62ea224c21f0"
             },
             "require": {
                 "oander/module-ocbase": "^1.0.2"
@@ -8554,7 +8558,7 @@
                 }
             ],
             "description": "Queue module for OanderConnect",
-            "time": "2018-09-14T13:38:05+00:00"
+            "time": "2018-09-04T15:51:21+00:00"
         },
         {
             "name": "oander/module-order-attachment",
@@ -9466,7 +9470,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "9cdaba81c8dbd449f34427d4dfa32ec0ba99ac71"
+                "reference": "6471999fc4053909aa888440f531c19a70253751"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9482,7 +9486,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-10-01T13:02:35+00:00"
+            "time": "2018-10-02T11:04:38+00:00"
         },
         {
             "name": "oyejorge/less.php",
