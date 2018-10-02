@@ -11,11 +11,8 @@
  *
  * @license Oander Media Kft. (http://www.oander.hu)
  */
-
 declare(strict_types=1);
-
 namespace Oander\IstyleCustomization\Enum;
-
 /**
  * Class ProductTypeEnum
  *

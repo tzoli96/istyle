@@ -12,11 +12,9 @@
  * Oander_Maintenance
  * @license Oander Media Kft. (http://www.oander.hu)
  */
-
 declare(strict_types=1);
 
 namespace Oander\IstyleCustomization\Observer;
-
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
@@ -31,7 +29,6 @@ class ApiProductObserver implements ObserverInterface
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
         $eventName = $observer->getEvent()->getName();
-
         if ($eventName === 'api_product_attribute_set_before') {
             $product = $observer->getEvent()->getData('product');
             $attributes = $observer->getEvent()->getData('attributes');
@@ -39,7 +36,6 @@ class ApiProductObserver implements ObserverInterface
             $observer->getEvent()->setData('attributes', $attributes);
         }
     }
-
     private function apiProductAttributeSetBeforeHandler($product, $attributes)
     {
         if (isset($attributes['type_id'])) {
@@ -48,7 +44,6 @@ class ApiProductObserver implements ObserverInterface
                 unset($attributes['type_id']);
             }
         }
-
         return $attributes;
     }
 }
