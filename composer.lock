@@ -7858,19 +7858,11 @@
         },
         {
             "name": "oander/module-category-dropdown",
-<<<<<<< HEAD
             "version": "1.0.14.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-category-dropdown.git",
                 "reference": "6795c461a3b8396d6377fd9032709760fe8a2d4e"
-=======
-            "version": "1.0.14.2",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-category-dropdown.git",
-                "reference": "01ad849d15bdddb66b358e2dd89bf89666d60573"
->>>>>>> 1e71ed7157aab490962773f42db57cccb028e55a
             },
             "require": {
                 "oander/module-base": "*",
@@ -7890,11 +7882,7 @@
                 "proprietary"
             ],
             "description": "Oander Category Dropdown module",
-<<<<<<< HEAD
             "time": "2018-10-03T11:18:45+00:00"
-=======
-            "time": "2018-09-24T09:59:15+00:00"
->>>>>>> 1e71ed7157aab490962773f42db57cccb028e55a
         },
         {
             "name": "oander/module-checkout",
