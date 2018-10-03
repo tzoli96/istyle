@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fce6ddfc8d9eed8b8a25f98b68dd51aa",
+    "content-hash": "c309fc61ec61ef43c52d5c669531c7fd",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9170,11 +9170,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.149",
+            "version": "1.0.150",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "6d245cc80772c0b5812acedd77cb7031142e2927"
+                "reference": "00b611cdc4b306e72d15d3fb0464c8ab92f682a2"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9190,7 +9190,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-10-03T08:24:45+00:00"
+            "time": "2018-10-03T13:18:23+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10159,16 +10159,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.16",
+            "version": "v3.4.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "e8db87d755e14271e920e31ba834a4ae99483232"
+                "reference": "54ba444dddc5bd5708a34bd095ea67c6eb54644d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/e8db87d755e14271e920e31ba834a4ae99483232",
-                "reference": "e8db87d755e14271e920e31ba834a4ae99483232",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/54ba444dddc5bd5708a34bd095ea67c6eb54644d",
+                "reference": "54ba444dddc5bd5708a34bd095ea67c6eb54644d",
                 "shasum": ""
             },
             "require": {
@@ -10204,7 +10204,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-09-21T12:47:54+00:00"
+            "time": "2018-10-03T08:46:40+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -13132,16 +13132,16 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.16",
+            "version": "v3.4.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "deda2765e8dab2fc38492e926ea690f2a681f59d"
+                "reference": "05e52a39de52ba690aebaed462b2bc8a9649f0a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/deda2765e8dab2fc38492e926ea690f2a681f59d",
-                "reference": "deda2765e8dab2fc38492e926ea690f2a681f59d",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/05e52a39de52ba690aebaed462b2bc8a9649f0a4",
+                "reference": "05e52a39de52ba690aebaed462b2bc8a9649f0a4",
                 "shasum": ""
             },
             "require": {
@@ -13177,7 +13177,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2018-07-26T10:03:52+00:00"
+            "time": "2018-10-02T12:28:39+00:00"
         },
         {
             "name": "theseer/fdomdocument",
