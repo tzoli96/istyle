@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8bb064d44f7c0ac09725b9289a68168f",
+    "content-hash": "a4ec9451ede85ff0b82d38e099432edd",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7255,12 +7255,12 @@
             "time": "2017-11-22T15:20:31+00:00"
         },
         {
-            "name": "oander/module-ajax-captian-hook",
+            "name": "oander/module-ajax-captain-hook",
             "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "git@github.com:oandermedia/oander-ajax-captian-hook.git",
-                "reference": "f058ece767ff40140e722454c0af29385eaced2d"
+                "url": "git@github.com:oandermedia/module-ajax-captain-hook.git",
+                "reference": "c2fcebf852aea799340b5dda603ac2d2c9765987"
             },
             "require": {
                 "php": "7.*"
@@ -7271,14 +7271,14 @@
                     "registration.php"
                 ],
                 "psr-4": {
-                    "Oander\\AjaxCaptianHook\\": ""
+                    "Oander\\AjaxCaptainHook\\": ""
                 }
             },
             "license": [
                 "proprietary"
             ],
             "description": "Try 'hook' to all AJAX requests on a page.",
-            "time": "2018-10-03T15:58:01+00:00"
+            "time": "2018-10-05T12:09:12+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
@@ -7795,11 +7795,11 @@
         },
         {
             "name": "oander/module-cartbutton",
-            "version": "1.0.8",
+            "version": "1.0.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cartbutton.git",
-                "reference": "b4487137d6ff5159c66787f6a90cb1d92d817ef1"
+                "reference": "b0e739afd10f33e31f3549db6ddf76dd295ac5c8"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7820,7 +7820,7 @@
                 }
             ],
             "description": "Helper to display cart button",
-            "time": "2018-10-03T16:09:39+00:00"
+            "time": "2018-10-05T12:02:36+00:00"
         },
         {
             "name": "oander/module-cashonpickuppayment",
@@ -9293,11 +9293,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.9",
+            "version": "1.4.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "9ce84cffb4594390ced31c53b622270becbc650f"
+                "reference": "ea110abfc55181eb25aa3edde7b4140663e05a0d"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9319,7 +9319,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-10-03T16:25:54+00:00"
+            "time": "2018-10-05T12:05:47+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
