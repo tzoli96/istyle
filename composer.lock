@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb2ea85171b5f4819176ce4622e02f48",
+    "content-hash": "57a2471556910c5b4e7febc15fc7d9a1",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8015,11 +8015,11 @@
         },
         {
             "name": "oander/module-core-bug-fix",
-            "version": "1.0.33",
+            "version": "dev-istyle",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "d0825e733bf100371efef53575d75aadbb8b73e2"
+                "reference": "68834517aeaf3e8193cc44a03360090a3408006d"
             },
             "require": {
                 "php": "7.*"
@@ -8037,7 +8037,7 @@
                 "proprietary"
             ],
             "description": "Core bug fixes for Magento 2.x",
-            "time": "2018-10-08T13:58:55+00:00"
+            "time": "2018-10-09T09:11:30+00:00"
         },
         {
             "name": "oander/module-currency-manager",
@@ -9492,7 +9492,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "8f55852e7ed682c11d31374687c3743d1413b09b"
+                "reference": "acb87dced0735b70ab1de886672d3c580675f938"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9508,7 +9508,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-10-03T14:13:53+00:00"
+            "time": "2018-10-09T09:21:59+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -13557,6 +13557,7 @@
     "minimum-stability": "alpha",
     "stability-flags": {
         "composer/composer": 15,
+        "oander/module-core-bug-fix": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
