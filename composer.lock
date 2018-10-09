@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7e3c804615d94d80af29a518d942efaa",
+    "content-hash": "31eecaeed2ba66493f6ccc86558e4fb6",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1239,6 +1239,53 @@
                 "url"
             ],
             "time": "2017-03-20T17:10:46+00:00"
+        },
+        {
+            "name": "heureka/overenozakazniky",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/heureka/overeno-zakazniky.git",
+                "reference": "c4f551dde7605eac45bc7e872a10156c4d4b0f85"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/heureka/overeno-zakazniky/zipball/c4f551dde7605eac45bc7e872a10156c4d4b0f85",
+                "reference": "c4f551dde7605eac45bc7e872a10156c4d4b0f85",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.4",
+                "phpunit/phpunit": "~4.8.0"
+            },
+            "suggest": {
+                "ext-curl": "Simplifies the library usage (you don't have to provide your own requester)"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Heureka\\": [
+                        "src/",
+                        "tests"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Heureka.cz",
+                    "email": "podpora@heureka.cz"
+                }
+            ],
+            "description": "Heureka 'Ověřeno zákazníky' (ShopCertification) service API implementation",
+            "abandoned": "heureka/overeno-zakazniky",
+            "time": "2016-11-07T11:49:51+00:00"
         },
         {
             "name": "infobeans/magento2-flatrate5",
@@ -7152,11 +7199,11 @@
         },
         {
             "name": "oander/module-api-base",
-            "version": "1.0.28",
+            "version": "1.0.30",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-base.git",
-                "reference": "a181966c9a33eb79519edfa521be177fde130472"
+                "reference": "21cb467cbe92d3bfee5db55b8979a850194315a9"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7175,7 +7222,7 @@
                 "proprietary"
             ],
             "description": "API Base",
-            "time": "2018-04-25T14:27:46+00:00"
+            "time": "2018-09-03T09:18:32+00:00"
         },
         {
             "name": "oander/module-api-cache",
@@ -7237,11 +7284,11 @@
         },
         {
             "name": "oander/module-api-checkout",
-            "version": "1.3.0",
+            "version": "1.3.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-checkout.git",
-                "reference": "31ab76963195f546a1329ab14cc6815428886910"
+                "reference": "a035406b3f908548981ce009b67d63c19d956480"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7262,7 +7309,7 @@
                 "proprietary"
             ],
             "description": "API Checkout module.",
-            "time": "2018-01-18T16:39:49+00:00"
+            "time": "2018-09-05T09:32:38+00:00"
         },
         {
             "name": "oander/module-api-customer",
@@ -7295,11 +7342,11 @@
         },
         {
             "name": "oander/module-api-gateway",
-            "version": "1.0.19",
+            "version": "1.0.20",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-gateway.git",
-                "reference": "5fd73a233e68095a41b3851734b4e78712e67d12"
+                "reference": "3c21935df9b2db65435bb8b8bf14de2991059246"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7319,7 +7366,7 @@
                 "proprietary"
             ],
             "description": "The API Gateway module for ERP connections and import solutions.",
-            "time": "2018-07-04T13:18:05+00:00"
+            "time": "2018-08-08T15:26:33+00:00"
         },
         {
             "name": "oander/module-api-image",
@@ -7579,6 +7626,35 @@
             "time": "2018-06-15T12:05:46+00:00"
         },
         {
+            "name": "oander/module-cartbutton",
+            "version": "1.0.6",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-cartbutton.git",
+                "reference": "5cb6436480f544d33f4064d4fbb89e2ce992b803"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\CartButton\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "email": "janos.pinczes@oander.hu",
+                    "name": "Janos Pinczes"
+                }
+            ],
+            "description": "Helper to display cart button",
+            "time": "2018-09-17T19:33:09+00:00"
+        },
+        {
             "name": "oander/module-cashonpickuppayment",
             "version": "1.0.1",
             "source": {
@@ -7745,11 +7821,11 @@
         },
         {
             "name": "oander/module-core-bug-fix",
-            "version": "1.0.28",
+            "version": "dev-istyle",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "c856d2c7c5c3d39e28abd4b43d8471ef19d7e40e"
+                "reference": "68834517aeaf3e8193cc44a03360090a3408006d"
             },
             "require": {
                 "php": "7.*"
@@ -7767,7 +7843,7 @@
                 "proprietary"
             ],
             "description": "Core bug fixes for Magento 2.x",
-            "time": "2018-05-22T12:46:59+00:00"
+            "time": "2018-10-09T09:11:30+00:00"
         },
         {
             "name": "oander/module-currency-manager",
@@ -7855,11 +7931,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.0.5",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "4529edd1cf917e78b90b4ec03c9b29948892be90"
+                "reference": "453fc2f8772da6f12282549b87e56c9c6394a7ea"
             },
             "require": {
                 "php": "7.*"
@@ -7877,15 +7953,15 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2018-08-02T15:14:03+00:00"
+            "time": "2018-08-27T14:32:02+00:00"
         },
         {
             "name": "oander/module-fancy-filter",
-            "version": "1.3.1.5",
+            "version": "1.3.1.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-fancy-filter.git",
-                "reference": "d06b2601783dcece269445e39bcccdbb2d1b7751"
+                "reference": "aaf8d999dff6d5f55309ab4b6c84b52fa61c0e61"
             },
             "require": {
                 "oander/module-ajax-catalog": "*",
@@ -7905,7 +7981,7 @@
                 "proprietary"
             ],
             "description": "Filter by checkboxes on Catalog list",
-            "time": "2018-07-11T19:44:10+00:00"
+            "time": "2018-09-12T15:25:12+00:00"
         },
         {
             "name": "oander/module-free-shipping-display",
@@ -7964,13 +8040,14 @@
         },
         {
             "name": "oander/module-heureka-tracking",
-            "version": "1.0.1",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-heureka-tracking.git",
-                "reference": "d1f602f61c9b36cdae28d8720c7c9bede01be478"
+                "reference": "79b775a20d7af53f2cc3ed6e69262db71ad5122d"
             },
             "require": {
+                "heureka/overenozakazniky": "3.0.0",
                 "oander/module-base": "*",
                 "php": "7.*"
             },
@@ -7987,7 +8064,7 @@
                 "proprietary"
             ],
             "description": "Magento2 Heureka tracking Module",
-            "time": "2018-07-10T11:45:25+00:00"
+            "time": "2018-08-29T09:32:21+00:00"
         },
         {
             "name": "oander/module-hungarian-newsletter",
@@ -8073,11 +8150,11 @@
         },
         {
             "name": "oander/module-maintenance",
-            "version": "1.0.7",
+            "version": "1.0.9.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-maintenance.git",
-                "reference": "b0a7f368426a78de7650995ebf1d6745955ae382"
+                "reference": "dce10566f93fe77ed010a58f10a7b26ed90731d5"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8096,7 +8173,7 @@
                 "proprietary"
             ],
             "description": "Oander Maintenance Module",
-            "time": "2018-08-27T06:12:39+00:00"
+            "time": "2018-09-11T12:18:55+00:00"
         },
         {
             "name": "oander/module-multislider",
@@ -8151,6 +8228,110 @@
             ],
             "description": "This module provides a feature to switch the last name and first name with each other",
             "time": "2017-12-14T16:11:28+00:00"
+        },
+        {
+            "name": "oander/module-ocbase",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-ocbase.git",
+                "reference": "3262335adec38f0ad971762d695638c211919e8d"
+            },
+            "require": {
+                "oander/module-api-base": "^1.0.21"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\OCBase\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "email": "info@mage2gen.com",
+                    "name": "Mage2Gen"
+                },
+                {
+                    "email": "janos.pinczes@oander.hu",
+                    "name": "János Pinczés"
+                }
+            ],
+            "description": "Oander Connect Base",
+            "time": "2018-09-03T09:08:37+00:00"
+        },
+        {
+            "name": "oander/module-ocevent",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-ocevent.git",
+                "reference": "e61d00f95ee843cbb074cf32c97046ed4ed8ca72"
+            },
+            "require": {
+                "oander/module-ocqueue": "^1.0.2"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\OCEvent\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "email": "janos.pinczes@oander.hu",
+                    "name": "János Pinczés"
+                }
+            ],
+            "description": "Oander Connect Event Manager",
+            "time": "2018-09-14T13:34:08+00:00"
+        },
+        {
+            "name": "oander/module-ocqueue",
+            "version": "1.0.12",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-ocqueue.git",
+                "reference": "9aaada817ba4f9042a3d04c83524030be922d6ff"
+            },
+            "require": {
+                "oander/module-ocbase": "^1.0.2"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\OCQueue\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "email": "info@mage2gen.com",
+                    "name": "Mage2Gen"
+                },
+                {
+                    "email": "janos.pinczes@oander.hu",
+                    "name": "János Pinczés"
+                }
+            ],
+            "description": "Queue module for OanderConnect",
+            "time": "2018-09-14T13:38:05+00:00"
         },
         {
             "name": "oander/module-order-attachment",
@@ -8284,14 +8465,15 @@
         },
         {
             "name": "oander/module-preorder",
-            "version": "1.0.19",
+            "version": "1.0.23",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-preorder.git",
-                "reference": "6f32f4715192e05410fb088d937c0236ec652c94"
+                "reference": "6d6a6bfd11f9fe6b7f82ca3c39a9aa179317ba67"
             },
             "require": {
                 "oander/module-base": "*",
+                "oander/module-cartbutton": "*",
                 "php": "7.*"
             },
             "type": "magento2-module",
@@ -8307,7 +8489,7 @@
                 "proprietary"
             ],
             "description": "Oander Preorder",
-            "time": "2018-05-08T14:35:42+00:00"
+            "time": "2018-08-17T09:35:12+00:00"
         },
         {
             "name": "oander/module-price-tooltip",
@@ -8416,11 +8598,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.0.1",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "f292180d5dca7418c92178135939da7e2ecf2027"
+                "reference": "e0f4e27be31d5ea84a18415da9bea32dcb6f1956"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8439,7 +8621,7 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2018-01-02T16:18:57+00:00"
+            "time": "2018-09-28T19:29:15+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -8468,6 +8650,42 @@
             ],
             "description": "salesforce-widget",
             "time": "2018-06-15T13:02:11+00:00"
+        },
+        {
+            "name": "oander/module-salesforcereservation",
+            "version": "1.1.3",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
+                "reference": "f3368968d747aabf6693eefae41a8c4df63fa4e5"
+            },
+            "require": {
+                "oander/module-api-checkout": ">=1.0.12",
+                "oander/module-cartbutton": "*",
+                "oander/module-ocqueue": "^1.0.3",
+                "oander/module-producturlresolver": "^1.0.0",
+                "oander/module-salesforce": "*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\SalesforceReservation\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "email": "janos.pinczes@oander.hu",
+                    "name": "János Pinczés"
+                }
+            ],
+            "description": "Salesforce Product Reservation",
+            "time": "2018-10-01T14:49:01+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -8656,11 +8874,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.1",
+            "version": "1.4.6.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "b454f2db2af28810d144a78c7bed7901358efec7"
+                "reference": "e22c4333ba926ef32dbc33a42c2b5dd308b4b004"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8682,7 +8900,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-08-07T10:30:38+00:00"
+            "time": "2018-09-24T21:34:50+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
@@ -8793,11 +9011,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.140",
+            "version": "1.0.150",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "6e8898e61b53e7af23ee65f8d80ea62f6b984b31"
+                "reference": "00b611cdc4b306e72d15d3fb0464c8ab92f682a2"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8813,7 +9031,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-09-05T15:49:15+00:00"
+            "time": "2018-10-03T13:18:23+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -9494,16 +9712,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.8.45",
+            "version": "v2.8.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "06c0be4cdd8363f3ec8d592c9a4d1b981d5052af"
+                "reference": "fb3469266daaa67a1e6d42fc78fa6cdc254689f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/06c0be4cdd8363f3ec8d592c9a4d1b981d5052af",
-                "reference": "06c0be4cdd8363f3ec8d592c9a4d1b981d5052af",
+                "url": "https://api.github.com/repos/symfony/config/zipball/fb3469266daaa67a1e6d42fc78fa6cdc254689f6",
+                "reference": "fb3469266daaa67a1e6d42fc78fa6cdc254689f6",
                 "shasum": ""
             },
             "require": {
@@ -9547,7 +9765,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2018-07-26T11:13:39+00:00"
+            "time": "2018-09-08T12:44:02+00:00"
         },
         {
             "name": "symfony/console",
@@ -9609,16 +9827,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.8.45",
+            "version": "v2.8.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "ad2446d39d11c3daaa7f147d957941a187e47357"
+                "reference": "84219396d1a79d149a5a9d5f71afaf48dcfde7d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/ad2446d39d11c3daaa7f147d957941a187e47357",
-                "reference": "ad2446d39d11c3daaa7f147d957941a187e47357",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/84219396d1a79d149a5a9d5f71afaf48dcfde7d0",
+                "reference": "84219396d1a79d149a5a9d5f71afaf48dcfde7d0",
                 "shasum": ""
             },
             "require": {
@@ -9668,11 +9886,11 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2018-07-26T11:13:39+00:00"
+            "time": "2018-09-08T12:44:02+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.45",
+            "version": "v2.8.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -9732,16 +9950,16 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.8.45",
+            "version": "v2.8.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "0b252f4e25b7da17abb5a98eb60755b71d082c9c"
+                "reference": "91f194c5ec8d2ad5ce417a218ce3c46909e92f4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/0b252f4e25b7da17abb5a98eb60755b71d082c9c",
-                "reference": "0b252f4e25b7da17abb5a98eb60755b71d082c9c",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/91f194c5ec8d2ad5ce417a218ce3c46909e92f4d",
+                "reference": "91f194c5ec8d2ad5ce417a218ce3c46909e92f4d",
                 "shasum": ""
             },
             "require": {
@@ -9778,20 +9996,20 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2018-08-07T09:12:42+00:00"
+            "time": "2018-09-24T08:04:37+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.15",
+            "version": "v3.4.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "8a84fcb207451df0013b2c74cbbf1b62d47b999a"
+                "reference": "54ba444dddc5bd5708a34bd095ea67c6eb54644d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/8a84fcb207451df0013b2c74cbbf1b62d47b999a",
-                "reference": "8a84fcb207451df0013b2c74cbbf1b62d47b999a",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/54ba444dddc5bd5708a34bd095ea67c6eb54644d",
+                "reference": "54ba444dddc5bd5708a34bd095ea67c6eb54644d",
                 "shasum": ""
             },
             "require": {
@@ -9827,7 +10045,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-07-26T11:19:56+00:00"
+            "time": "2018-10-03T08:46:40+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -9889,16 +10107,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v2.8.45",
+            "version": "v2.8.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "4be278e19064c3492095de50c9e375caae569ae1"
+                "reference": "f09e21b7c5aba06c47bbfad9cbcf13ac7f0db0a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/4be278e19064c3492095de50c9e375caae569ae1",
-                "reference": "4be278e19064c3492095de50c9e375caae569ae1",
+                "url": "https://api.github.com/repos/symfony/process/zipball/f09e21b7c5aba06c47bbfad9cbcf13ac7f0db0a6",
+                "reference": "f09e21b7c5aba06c47bbfad9cbcf13ac7f0db0a6",
                 "shasum": ""
             },
             "require": {
@@ -9934,20 +10152,20 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2018-08-03T09:45:57+00:00"
+            "time": "2018-09-06T17:11:15+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.45",
+            "version": "v2.8.46",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "fbf876678e29dc634430dcf0096e216eb0004467"
+                "reference": "5baf0f821b14eee8ca415e6a0361a9fa140c002c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/fbf876678e29dc634430dcf0096e216eb0004467",
-                "reference": "fbf876678e29dc634430dcf0096e216eb0004467",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/5baf0f821b14eee8ca415e6a0361a9fa140c002c",
+                "reference": "5baf0f821b14eee8ca415e6a0361a9fa140c002c",
                 "shasum": ""
             },
             "require": {
@@ -9984,7 +10202,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-07-26T09:03:18+00:00"
+            "time": "2018-08-29T13:11:53+00:00"
         },
         {
             "name": "tedivm/jshrink",
@@ -12747,16 +12965,16 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.15",
+            "version": "v3.4.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "deda2765e8dab2fc38492e926ea690f2a681f59d"
+                "reference": "05e52a39de52ba690aebaed462b2bc8a9649f0a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/deda2765e8dab2fc38492e926ea690f2a681f59d",
-                "reference": "deda2765e8dab2fc38492e926ea690f2a681f59d",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/05e52a39de52ba690aebaed462b2bc8a9649f0a4",
+                "reference": "05e52a39de52ba690aebaed462b2bc8a9649f0a4",
                 "shasum": ""
             },
             "require": {
@@ -12792,7 +13010,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2018-07-26T10:03:52+00:00"
+            "time": "2018-10-02T12:28:39+00:00"
         },
         {
             "name": "theseer/fdomdocument",
@@ -12839,6 +13057,7 @@
     "minimum-stability": "alpha",
     "stability-flags": {
         "composer/composer": 15,
+        "oander/module-core-bug-fix": 20,
         "oander/theme-hodor": 20,
         "phpmd/phpmd": 0
     },

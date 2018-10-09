@@ -166,30 +166,30 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   echo " * DISABLE MAGENTO CACHE:"
   magento "cache:disable"
 
-  echo
-  echo -n "=== CHECK IF DB UPGRADE NEEDED => "
-  if magento "setup:db:status" | grep -q "up to date"; then
-    echo "MAGENTO UPGRADE WITHOUT DB CHANGE ==="
-    echo
-    magento "setup:upgrade"
-  else
-    echo "UPGRADE WITH DB CHANGE ==="
-    echo
-    echo "=== COPY DATABASES ==="
-    echo
-    # EZEN LEHET GYORSITANI HA CSAK A MINIMALIS MUKODESHEZ SZUKSEGES ADATOK KERULNEK CSAK AT..
+#  echo
+#  echo -n "=== CHECK IF DB UPGRADE NEEDED => "
+#  if magento "setup:db:status" | grep -q "up to date"; then
+#    echo "MAGENTO UPGRADE WITHOUT DB CHANGE ==="
+#    echo
+#    magento "setup:upgrade"
+#  else
+#    echo "UPGRADE WITH DB CHANGE ==="
+#    echo
+#    echo "=== COPY DATABASES ==="
+#    echo
+#    # EZEN LEHET GYORSITANI HA CSAK A MINIMALIS MUKODESHEZ SZUKSEGES ADATOK KERULNEK CSAK AT..
 #    echo -n " Main DB: ${DATABASES[0]} ... "
 #    mysql -e "DROP DATABASE \`${DATABASES[1]}\`; CREATE DATABASE \`${DATABASES[1]}\`;"
 #    mysqldump --skip-add-drop-table --no-data ${DATABASES[0]} | sed 's/`istylem2`@`%`/`root`@`%`/g' | mysql ${DATABASES[1]}
 #    if mysqldump --single-transaction ${DATABASES[0]} weee_tax theme product_alert_price eav_entity_type core_config_data setup_module store store_group store_website | sed 's/`istylem2`@`%`/`root`@`%`/g' | mysql ${DATABASES[1]}; then echo OK; else echo FAIL; fi
-    dbdump ${DATABASES[0]} ${DATABASES[1]}
-    dbdump ${DATABASES[2]} ${DATABASES[3]}
-    dbdump ${DATABASES[4]} ${DATABASES[5]}
+#    dbdump ${DATABASES[0]} ${DATABASES[1]}
+#    dbdump ${DATABASES[2]} ${DATABASES[3]}
+#    dbdump ${DATABASES[4]} ${DATABASES[5]}
     echo
     echo "==== MAGENTO UPGRADE ===="
     echo
     magento "setup:upgrade"
-  fi
+#  fi
 
   echo
   echo "==== COMPILE STATIC CONTENTS ===="
@@ -322,6 +322,12 @@ else
     magento "cache:enable"
   fi
 fi
+
+## GENERAL STUFF ##
+
+# COPY UPLOADED FILES FROM NFS TO THE WEBROOT FOR REWRITES
+echo -n " * COPY UPLOADED FILES FOR REWRITES FROM NFS TO THE WEBROOT ... "
+if rsync -a ${EFS}/rewrite/ ${WEBROOT}/; then echo OK; else echo FAIL; fi
 
 # MAIN SYMLINK SETUP
 symlink_check "CREATE DIRECTORY SYMLINK TO MEDIA FOLDER" "${WEBROOT}/pub/media" "${EFS}/media" "${WEBROOT}/pub/"

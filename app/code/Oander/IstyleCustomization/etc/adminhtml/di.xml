@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *   /$$$$$$   /$$$$$$  /$$   /$$ /$$$$$$$  /$$$$$$$$ /$$$$$$$
+ *  /$$__  $$ /$$__  $$| $$$ | $$| $$__  $$| $$_____/| $$__  $$
+ * | $$  \ $$| $$  \ $$| $$$$| $$| $$  \ $$| $$      | $$  \ $$
+ * | $$  | $$| $$$$$$$$| $$ $$ $$| $$  | $$| $$$$$   | $$$$$$$/
+ * | $$  | $$| $$__  $$| $$  $$$$| $$  | $$| $$__/   | $$__  $$
+ * | $$  | $$| $$  | $$| $$\  $$$| $$  | $$| $$      | $$  \ $$
+ * |  $$$$$$/| $$  | $$| $$ \  $$| $$$$$$$/| $$$$$$$$| $$  | $$
+ *  \______/ |__/  |__/|__/  \__/|_______/ |________/|__/  |__/
+ *
+ * Oander_IstyleCustomization
+ *
+ * @author  Róbert Betlen  <robert.betlen@oander.hu>
+ * @license Oander Media Kft. (http://www.oander.hu)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="sap_product" xsi:type="array">
+                    <item name="class" xsi:type="string">Oander\IstyleCustomization\Ui\DataProvider\Product\Form\Modifier\ReadOnlyAttributes</item>
+                    <item name="sortOrder" xsi:type="number">1000</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

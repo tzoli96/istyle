@@ -24,4 +24,9 @@
     </type>
     <preference for="Anowave\Ec\Block\Plugin"
                 type="Oander\IstyleCustomization\Block\Plugin" />
+    <type name="Magento\Framework\Filter\Template">
+        <plugin name="framework_filter_template_tostring" type="Oander\IstyleCustomization\Plugin\Framework\Filter\Template"/>
+    </type>
+    <preference for="Xtento\OrderExport\Model\Export\Data\Shared\Items"
+                type="Oander\IstyleCustomization\Model\Export\Data\Shared\Items" />
 </config>
