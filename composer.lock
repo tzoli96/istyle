@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9a885b1301c9bc0f0a35abfd1e8dec2",
+    "content-hash": "31eecaeed2ba66493f6ccc86558e4fb6",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1239,6 +1239,53 @@
                 "url"
             ],
             "time": "2017-03-20T17:10:46+00:00"
+        },
+        {
+            "name": "heureka/overenozakazniky",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/heureka/overeno-zakazniky.git",
+                "reference": "c4f551dde7605eac45bc7e872a10156c4d4b0f85"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/heureka/overeno-zakazniky/zipball/c4f551dde7605eac45bc7e872a10156c4d4b0f85",
+                "reference": "c4f551dde7605eac45bc7e872a10156c4d4b0f85",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.4",
+                "phpunit/phpunit": "~4.8.0"
+            },
+            "suggest": {
+                "ext-curl": "Simplifies the library usage (you don't have to provide your own requester)"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Heureka\\": [
+                        "src/",
+                        "tests"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Heureka.cz",
+                    "email": "podpora@heureka.cz"
+                }
+            ],
+            "description": "Heureka 'Ověřeno zákazníky' (ShopCertification) service API implementation",
+            "abandoned": "heureka/overeno-zakazniky",
+            "time": "2016-11-07T11:49:51+00:00"
         },
         {
             "name": "infobeans/magento2-flatrate5",
@@ -7774,11 +7821,11 @@
         },
         {
             "name": "oander/module-core-bug-fix",
-            "version": "1.0.28",
+            "version": "dev-istyle",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "c856d2c7c5c3d39e28abd4b43d8471ef19d7e40e"
+                "reference": "68834517aeaf3e8193cc44a03360090a3408006d"
             },
             "require": {
                 "php": "7.*"
@@ -7796,7 +7843,7 @@
                 "proprietary"
             ],
             "description": "Core bug fixes for Magento 2.x",
-            "time": "2018-05-22T12:46:59+00:00"
+            "time": "2018-10-09T09:11:30+00:00"
         },
         {
             "name": "oander/module-currency-manager",
@@ -7993,13 +8040,14 @@
         },
         {
             "name": "oander/module-heureka-tracking",
-            "version": "1.0.1",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-heureka-tracking.git",
-                "reference": "d1f602f61c9b36cdae28d8720c7c9bede01be478"
+                "reference": "79b775a20d7af53f2cc3ed6e69262db71ad5122d"
             },
             "require": {
+                "heureka/overenozakazniky": "3.0.0",
                 "oander/module-base": "*",
                 "php": "7.*"
             },
@@ -8016,7 +8064,7 @@
                 "proprietary"
             ],
             "description": "Magento2 Heureka tracking Module",
-            "time": "2018-07-10T11:45:25+00:00"
+            "time": "2018-08-29T09:32:21+00:00"
         },
         {
             "name": "oander/module-hungarian-newsletter",
@@ -8963,11 +9011,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "dev-cz_iphone_evening",
+            "version": "1.0.150",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "95952cfaf1c5effe143b2e4ed88bb817767cf711"
+                "reference": "00b611cdc4b306e72d15d3fb0464c8ab92f682a2"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8983,7 +9031,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-09-28T15:15:01+00:00"
+            "time": "2018-10-03T13:18:23+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -9952,16 +10000,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.16",
+            "version": "v3.4.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "e8db87d755e14271e920e31ba834a4ae99483232"
+                "reference": "54ba444dddc5bd5708a34bd095ea67c6eb54644d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/e8db87d755e14271e920e31ba834a4ae99483232",
-                "reference": "e8db87d755e14271e920e31ba834a4ae99483232",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/54ba444dddc5bd5708a34bd095ea67c6eb54644d",
+                "reference": "54ba444dddc5bd5708a34bd095ea67c6eb54644d",
                 "shasum": ""
             },
             "require": {
@@ -9997,7 +10045,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-09-21T12:47:54+00:00"
+            "time": "2018-10-03T08:46:40+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -12917,16 +12965,16 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.16",
+            "version": "v3.4.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "deda2765e8dab2fc38492e926ea690f2a681f59d"
+                "reference": "05e52a39de52ba690aebaed462b2bc8a9649f0a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/deda2765e8dab2fc38492e926ea690f2a681f59d",
-                "reference": "deda2765e8dab2fc38492e926ea690f2a681f59d",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/05e52a39de52ba690aebaed462b2bc8a9649f0a4",
+                "reference": "05e52a39de52ba690aebaed462b2bc8a9649f0a4",
                 "shasum": ""
             },
             "require": {
@@ -12962,7 +13010,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2018-07-26T10:03:52+00:00"
+            "time": "2018-10-02T12:28:39+00:00"
         },
         {
             "name": "theseer/fdomdocument",
@@ -13009,8 +13057,8 @@
     "minimum-stability": "alpha",
     "stability-flags": {
         "composer/composer": 15,
+        "oander/module-core-bug-fix": 20,
         "oander/theme-hodor": 20,
-        "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,
