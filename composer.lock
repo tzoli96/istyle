@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "57a2471556910c5b4e7febc15fc7d9a1",
+    "content-hash": "fa30973340062bae9498564d06485ef0",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7256,11 +7256,11 @@
         },
         {
             "name": "oander/module-ajax-captain-hook",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-ajax-captain-hook.git",
-                "reference": "c2fcebf852aea799340b5dda603ac2d2c9765987"
+                "reference": "64a84efa10db8dedbb861595fd5dc08617f6c0dc"
             },
             "require": {
                 "php": "7.*"
@@ -7278,7 +7278,7 @@
                 "proprietary"
             ],
             "description": "Try 'hook' to all AJAX requests on a page.",
-            "time": "2018-10-05T12:09:12+00:00"
+            "time": "2018-10-07T08:15:25+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
@@ -7795,11 +7795,11 @@
         },
         {
             "name": "oander/module-cartbutton",
-            "version": "1.0.9",
+            "version": "1.0.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cartbutton.git",
-                "reference": "b0e739afd10f33e31f3549db6ddf76dd295ac5c8"
+                "reference": "60064b2d3109cbbb1b40e86e435b05cbb28112bf"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7820,7 +7820,7 @@
                 }
             ],
             "description": "Helper to display cart button",
-            "time": "2018-10-05T12:02:36+00:00"
+            "time": "2018-10-11T09:36:01+00:00"
         },
         {
             "name": "oander/module-cashonpickuppayment",
@@ -9293,11 +9293,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.12",
+            "version": "1.4.14",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "ea110abfc55181eb25aa3edde7b4140663e05a0d"
+                "reference": "d2b1d8935c9792ec65225f22b0b33aa68bca36c3"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9319,7 +9319,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-10-05T12:05:47+00:00"
+            "time": "2018-10-11T09:21:42+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
@@ -9492,7 +9492,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "acb87dced0735b70ab1de886672d3c580675f938"
+                "reference": "bc7bb6f1a2af417b2aa44dfcf3d8357ad733bc4a"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9508,7 +9508,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-10-09T09:21:59+00:00"
+            "time": "2018-10-11T09:36:20+00:00"
         },
         {
             "name": "oyejorge/less.php",
