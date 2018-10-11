@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "79426a3e24744539842b4a2008b637e6",
+    "content-hash": "959ed95ca0a8d0b0b0d3a19ae454d9a5",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8440,6 +8440,32 @@
             "time": "2017-05-25T08:49:06+00:00"
         },
         {
+            "name": "oander/module-order-status-label",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/order-status-label.git",
+                "reference": "08acbcc6b24d4194e2f58e77f7561836f6b10fa1"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\OrderStatusLabel\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Order status label patch",
+            "time": "2018-08-21T10:44:03+00:00"
+        },
+        {
             "name": "oander/module-paypal",
             "version": "1.0.0",
             "source": {
@@ -8926,11 +8952,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.14",
+            "version": "1.4.14.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "d2b1d8935c9792ec65225f22b0b33aa68bca36c3"
+                "reference": "0c482f20841c5994d4e32f1d7d1ccf7d417a3fcd"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8952,7 +8978,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-10-11T09:21:42+00:00"
+            "time": "2018-10-11T11:26:40+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
