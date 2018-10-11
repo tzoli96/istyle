@@ -33,12 +33,12 @@ class ImgTagHelper
      */
     public function __construct(
         Repository $assetRepo,
-        StoreManagerInterface $storeManager,
-        Template $template)
+        StoreManagerInterface $storeManager)
+        //Template $template)
     {
         $this->assetRepo = $assetRepo;
         $this->storeManager = $storeManager;
-        $this->template = $template;
+        //$this->template = $template;
     }
 
     /**
@@ -51,9 +51,13 @@ class ImgTagHelper
             $theme = $this->theme->getThemePath();
         }
 
-        $this->placeholderPath = $this->template->getViewFileUrl(
+        $this->placeholderPath = "{{view url='Oander/istyle::images/iSTYLE-logo-1200.png'}}";
+
+
+
+        /*$this->template->getViewFileUrl(
             self::LAZY_LOAD_PLACEHOLDER_IMAGE,
-            ['theme' => $theme]);
+            ['theme' => $theme]);*/
     }
 
     /**

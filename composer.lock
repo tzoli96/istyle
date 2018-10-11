@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa30973340062bae9498564d06485ef0",
+    "content-hash": "fbe509cee8cd4a2bdbe92d5194f1af63",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9293,11 +9293,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.14",
+            "version": "1.4.14.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "d2b1d8935c9792ec65225f22b0b33aa68bca36c3"
+                "reference": "9194b073445818c704a18cc4582ee2bcd79aff3c"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9319,7 +9319,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-10-11T09:21:42+00:00"
+            "time": "2018-10-11T11:45:28+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
@@ -9492,7 +9492,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "bc7bb6f1a2af417b2aa44dfcf3d8357ad733bc4a"
+                "reference": "568299ba987a75e5516fb30a9f4bb50bfec85c7f"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9508,7 +9508,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-10-11T09:36:20+00:00"
+            "time": "2018-10-11T10:51:01+00:00"
         },
         {
             "name": "oyejorge/less.php",
