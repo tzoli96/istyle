@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "31eecaeed2ba66493f6ccc86558e4fb6",
+    "content-hash": "0ddc58aafb28a17f5f7ecd21d7133722",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7144,6 +7144,32 @@
             "time": "2018-05-11T12:24:56+00:00"
         },
         {
+            "name": "oander/module-ajax-captain-hook",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/module-ajax-captain-hook.git",
+                "reference": "64a84efa10db8dedbb861595fd5dc08617f6c0dc"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\AjaxCaptainHook\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Try 'hook' to all AJAX requests on a page.",
+            "time": "2018-10-07T08:15:25+00:00"
+        },
+        {
             "name": "oander/module-ajax-catalog",
             "version": "1.0.5",
             "source": {
@@ -7627,11 +7653,11 @@
         },
         {
             "name": "oander/module-cartbutton",
-            "version": "1.0.6",
+            "version": "1.0.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cartbutton.git",
-                "reference": "5cb6436480f544d33f4064d4fbb89e2ce992b803"
+                "reference": "60064b2d3109cbbb1b40e86e435b05cbb28112bf"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7652,7 +7678,7 @@
                 }
             ],
             "description": "Helper to display cart button",
-            "time": "2018-09-17T19:33:09+00:00"
+            "time": "2018-10-11T09:36:01+00:00"
         },
         {
             "name": "oander/module-cashonpickuppayment",
@@ -7764,6 +7790,32 @@
             ],
             "description": "It makes Magento Checkout to a better place.",
             "time": "2017-04-11T09:25:36+00:00"
+        },
+        {
+            "name": "oander/module-configurable-product",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-configurable-product.git",
+                "reference": "4dcc648db5732bf49b3bf510aeb7b241dd5909a0"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\ConfigurableProduct\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Configurable product handler",
+            "time": "2018-08-17T07:31:46+00:00"
         },
         {
             "name": "oander/module-configurable-product-attribute",
@@ -8388,6 +8440,32 @@
             "time": "2017-05-25T08:49:06+00:00"
         },
         {
+            "name": "oander/module-order-status-label",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/order-status-label.git",
+                "reference": "08acbcc6b24d4194e2f58e77f7561836f6b10fa1"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\OrderStatusLabel\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Order status label patch",
+            "time": "2018-08-21T10:44:03+00:00"
+        },
+        {
             "name": "oander/module-paypal",
             "version": "1.0.0",
             "source": {
@@ -8465,15 +8543,15 @@
         },
         {
             "name": "oander/module-preorder",
-            "version": "1.0.23",
+            "version": "1.0.24",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-preorder.git",
-                "reference": "6d6a6bfd11f9fe6b7f82ca3c39a9aa179317ba67"
+                "reference": "ebded5e4b4852396c3bc37611d9167761e2315d4"
             },
             "require": {
                 "oander/module-base": "*",
-                "oander/module-cartbutton": "*",
+                "oander/module-cartbutton": ">=1.0.12",
                 "php": "7.*"
             },
             "type": "magento2-module",
@@ -8489,7 +8567,7 @@
                 "proprietary"
             ],
             "description": "Oander Preorder",
-            "time": "2018-08-17T09:35:12+00:00"
+            "time": "2018-10-12T06:46:14+00:00"
         },
         {
             "name": "oander/module-price-tooltip",
@@ -8874,11 +8952,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.6.2",
+            "version": "1.4.14.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "e22c4333ba926ef32dbc33a42c2b5dd308b4b004"
+                "reference": "9194b073445818c704a18cc4582ee2bcd79aff3c"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8900,7 +8978,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-09-24T21:34:50+00:00"
+            "time": "2018-10-11T11:45:28+00:00"
         },
         {
             "name": "oander/module-warehouse-stock-order",
@@ -9011,11 +9089,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.150",
+            "version": "1.0.152",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "00b611cdc4b306e72d15d3fb0464c8ab92f682a2"
+                "reference": "158e3865bdfab537956bd5e90a0d26b601691a6a"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9031,7 +9109,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-10-03T13:18:23+00:00"
+            "time": "2018-10-11T10:00:31+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -9490,12 +9568,35 @@
             "time": "2016-10-10T12:19:37+00:00"
         },
         {
+            "name": "replace/module-buyback-calculator",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/replace-buyback-calculator.git",
+                "reference": "d01d84487234447129cb7403118f7dadd4c124c9"
+            },
+            "require": {
+                "php": "7.0.2|7.0.4|~7.0.6"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Replace\\BuybackCalculator\\": ""
+                }
+            },
+            "description": "Rework Replace Buyback Calculator",
+            "time": "2018-08-01T07:25:44+00:00"
+        },
+        {
             "name": "rudracomputech/module-nestpay",
-            "version": "2.0.6.2",
+            "version": "2.0.6.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/rudracomputech-nestpay.git",
-                "reference": "89c1e34e52bba6536926815ba78d69d6a74f7905"
+                "reference": "e6a965c9da33867772dd021d8246a926f3174ca5"
             },
             "require": {
                 "php": "7.*"
@@ -9513,7 +9614,7 @@
                 "proprietary"
             ],
             "description": "Nestpay",
-            "time": "2018-05-02T10:28:31+00:00"
+            "time": "2018-09-14T09:29:59+00:00"
         },
         {
             "name": "seld/cli-prompt",
