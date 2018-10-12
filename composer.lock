@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6b4bdd2290c8a67bee5b1b8873cdae47",
+    "content-hash": "0ddc58aafb28a17f5f7ecd21d7133722",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8543,15 +8543,15 @@
         },
         {
             "name": "oander/module-preorder",
-            "version": "1.0.23",
+            "version": "1.0.24",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-preorder.git",
-                "reference": "6d6a6bfd11f9fe6b7f82ca3c39a9aa179317ba67"
+                "reference": "ebded5e4b4852396c3bc37611d9167761e2315d4"
             },
             "require": {
                 "oander/module-base": "*",
-                "oander/module-cartbutton": "*",
+                "oander/module-cartbutton": ">=1.0.12",
                 "php": "7.*"
             },
             "type": "magento2-module",
@@ -8567,7 +8567,7 @@
                 "proprietary"
             ],
             "description": "Oander Preorder",
-            "time": "2018-08-17T09:35:12+00:00"
+            "time": "2018-10-12T06:46:14+00:00"
         },
         {
             "name": "oander/module-price-tooltip",
