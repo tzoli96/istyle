@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<oander_categories>
+			<topmenu>
+				<use_topmenu_block>0</use_topmenu_block>
+			</topmenu>
+		</oander_categories>
+	</default>
+</config>
