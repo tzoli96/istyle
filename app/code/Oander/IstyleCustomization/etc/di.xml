@@ -32,4 +32,7 @@
                 type="Oander\IstyleCustomization\Block\Plugin" />
     <preference for="Xtento\OrderExport\Model\Export\Data\Shared\Items"
                 type="Oander\IstyleCustomization\Model\Export\Data\Shared\Items" />
+    <preference for="Oander\CategoryDropdown\Magento\Theme\Block\Html\Topmenu"
+                type="Oander\IstyleCustomization\Block\Html\Topmenu" />
+
 </config>
