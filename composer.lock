@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fbe509cee8cd4a2bdbe92d5194f1af63",
+    "content-hash": "fa3b486262b4869c602c185f60339880",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1431,11 +1431,11 @@
         },
         {
             "name": "innobyte/module-cetelem",
-            "version": "0.0.8",
+            "version": "0.0.8.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-cetelem.git",
-                "reference": "777b6028cbe1008baa9fccecb07e4d3e879547d1"
+                "reference": "d9205ae0f181642d2af4fd1f2540a01e1377cd14"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1451,7 +1451,7 @@
                 }
             },
             "description": "Innobyte Cetelem Module",
-            "time": "2018-09-12T09:40:27+00:00"
+            "time": "2018-10-13T07:56:16+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
