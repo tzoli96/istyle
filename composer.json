@@ -51,7 +51,7 @@
         "oander/module-api-checkout": "1.3.3",
         "oander/module-api-checkout-unity-pickup": "1.0.0",
         "oander/module-api-customer": "1.0.8",
-        "oander/module-api-gateway": "1.0.20",
+        "oander/module-api-gateway": "1.0.22",
         "oander/module-api-image": "1.0.26",
         "oander/module-api-index": "1.0.1",
         "oander/module-api-order-attachment": "1.0.2",

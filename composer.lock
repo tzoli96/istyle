@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa3b486262b4869c602c185f60339880",
+    "content-hash": "f9f117dfa8d61532139272509d89ba0e",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7510,11 +7510,11 @@
         },
         {
             "name": "oander/module-api-gateway",
-            "version": "1.0.20",
+            "version": "1.0.22",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-gateway.git",
-                "reference": "3c21935df9b2db65435bb8b8bf14de2991059246"
+                "reference": "bb46e38b63022a6f592e0173c9aa9402df40498d"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7534,7 +7534,7 @@
                 "proprietary"
             ],
             "description": "The API Gateway module for ERP connections and import solutions.",
-            "time": "2018-08-08T15:26:33+00:00"
+            "time": "2018-10-13T11:59:11+00:00"
         },
         {
             "name": "oander/module-api-image",
