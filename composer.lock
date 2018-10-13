@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "221f11cde1596cae407bc1ad0079fb65",
+    "content-hash": "98dcc20a4003a37478fa39b723f97c81",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7368,11 +7368,11 @@
         },
         {
             "name": "oander/module-api-gateway",
-            "version": "1.0.21",
+            "version": "1.0.22",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-gateway.git",
-                "reference": "8323e4f90aa76bb94a746d400476b4ae60c6b029"
+                "reference": "bb46e38b63022a6f592e0173c9aa9402df40498d"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7392,7 +7392,7 @@
                 "proprietary"
             ],
             "description": "The API Gateway module for ERP connections and import solutions.",
-            "time": "2018-10-12T09:21:29+00:00"
+            "time": "2018-10-13T11:59:11+00:00"
         },
         {
             "name": "oander/module-api-image",
