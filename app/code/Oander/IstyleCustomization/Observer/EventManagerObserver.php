@@ -23,8 +23,9 @@ class EventManagerObserver implements ObserverInterface
 {
     private $imgTagHelper;
 
-    public function __construct(ImgTagHelper $imgTagHelper)
-    {
+    public function __construct(
+        ImgTagHelper $imgTagHelper
+    ) {
         $this->imgTagHelper = $imgTagHelper;
     }
 

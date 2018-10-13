@@ -31,14 +31,18 @@ class ImgTagHelper
      * @param StoreManagerInterface $storeManager
      * @param Template $template
      */
+
     public function __construct(
-        Repository $assetRepo,
-        StoreManagerInterface $storeManager)
+        Repository $assetRepo
+        //StoreManagerInterface $storeManager,
         //Template $template)
-    {
+    ) {
         $this->assetRepo = $assetRepo;
-        $this->storeManager = $storeManager;
+        //$this->storeManager = $storeManager;
         //$this->template = $template;
+        //$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        //$this->template = $objectManager->create(\Magento\Framework\View\Element\Template::class);
+        //$this->setPlaceholderPath();
     }
 
     /**
@@ -51,13 +55,16 @@ class ImgTagHelper
             $theme = $this->theme->getThemePath();
         }
 
-        $this->placeholderPath = "{{view url='Oander/istyle::images/iSTYLE-logo-1200.png'}}";
+        //$this->placeholderPath = "{{view url='Oander/istyle::images/iSTYLE-logo-1200.png'}}";
 
+        $params = array_merge(['_secure' => true], ['theme' => $theme]);
+        $this->placeholderPath = $this->assetRepo->getUrlWithParams(self::LAZY_LOAD_PLACEHOLDER_IMAGE, $params);
 
-
-        /*$this->template->getViewFileUrl(
+        /*
+        $this->placeholderPath = $this->template->getViewFileUrl(
             self::LAZY_LOAD_PLACEHOLDER_IMAGE,
-            ['theme' => $theme]);*/
+            ['theme' => $theme]);
+        */
     }
 
     /**
@@ -73,10 +80,14 @@ class ImgTagHelper
 
     /**
      * @param string $html
+     * @param null $placeholder
      * @return string
      */
-    public function processImgTags(string $html): string
+    public function processImgTags(string $html, $placeholder = null): string
     {
+        if ($placeholder) {
+            $this->placeholderPath = $placeholder;
+        }
         $origImgTags = $this->getImgTagsFromHtml($html);
         if (!empty($origImgTags)) {
             foreach ($origImgTags as $origImgTag) {
@@ -107,6 +118,9 @@ class ImgTagHelper
      */
     public function addNewSrcAttribute(string $imgTag): string
     {
+        if (empty($this->placeholderPath)) {
+            $this->setPlaceholderPath();
+        }
         return str_replace('data-src', 'src="'.$this->placeholderPath.'" data-src', $imgTag);
     }
 
