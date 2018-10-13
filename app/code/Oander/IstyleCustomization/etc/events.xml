@@ -18,4 +18,11 @@
     <event name="api_product_attribute_set_before">
         <observer name="api_product_attribute_set_before_observer" instance="Oander\IstyleCustomization\Observer\ApiProductObserver" />
     </event>
+    <!--<event name="ajax_captain_hook_event">
+        <observer name="istyle_customization_ajax_captain_hook_event" instance="Oander\IstyleCustomization\Observer\AjaxCaptainHookEvent" />
+    </event>
+    <event name="ajax_captain_hook_js_call">
+        <observer name="istyle_customization_ajax_captain_hook_common_js_event" instance="Oander\IstyleCustomization\Observer\AjaxCaptainHookJsEvent" />
+        <observer name="istyle_customization_ajax_captain_hook_common_js_event_loader" instance="Oander\IstyleCustomization\Observer\AjaxCaptainHookJsEventLoader" />
+    </event>-->
 </config>
