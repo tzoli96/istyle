@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e54e123951fba07ab6dd639ef6a66a7",
+    "content-hash": "f1fb1f7850667e1d57096908e6ddd86c",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7220,11 +7220,11 @@
         },
         {
             "name": "oander/module-ajax-captain-hook",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-ajax-captain-hook.git",
-                "reference": "64a84efa10db8dedbb861595fd5dc08617f6c0dc"
+                "reference": "9db2164864954c34e5f72aa110b9e8d209924123"
             },
             "require": {
                 "php": "7.*"
@@ -7242,7 +7242,7 @@
                 "proprietary"
             ],
             "description": "Try 'hook' to all AJAX requests on a page.",
-            "time": "2018-10-07T08:15:25+00:00"
+            "time": "2018-10-12T18:24:10+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
@@ -7925,11 +7925,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.30",
+            "version": "1.0.30.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "829a84462f277b280522ec3c2719a715b0652eee"
+                "reference": "8207fa3565cdfda19d83d0084d542ffc5d9970d1"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7948,7 +7948,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2018-10-15T14:05:11+00:00"
+            "time": "2018-10-15T16:05:40+00:00"
         },
         {
             "name": "oander/module-cookie-law",
