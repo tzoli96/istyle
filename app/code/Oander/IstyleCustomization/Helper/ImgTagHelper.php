@@ -11,11 +11,10 @@ class ImgTagHelper
 {
     const LAZY_LOAD_CLASS = 'b-lazy';
     const LAZY_LOAD_PLACEHOLDER_THEME = 'Oander/istyle';
-    const LAZY_LOAD_PLACEHOLDER_IMAGE = 'images/iSTYLE-logo-1200.png';
+    const LAZY_LOAD_PLACEHOLDER_IMAGE = 'images/istyle_lazyload.png';
 
     private $assetRepo;
     private $placeholderPath;
-    private $storeManager;
     /**
      * @var Template
      */
@@ -34,15 +33,8 @@ class ImgTagHelper
 
     public function __construct(
         Repository $assetRepo
-        //StoreManagerInterface $storeManager,
-        //Template $template)
     ) {
         $this->assetRepo = $assetRepo;
-        //$this->storeManager = $storeManager;
-        //$this->template = $template;
-        //$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        //$this->template = $objectManager->create(\Magento\Framework\View\Element\Template::class);
-        //$this->setPlaceholderPath();
     }
 
     /**
@@ -55,16 +47,8 @@ class ImgTagHelper
             $theme = $this->theme->getThemePath();
         }
 
-        //$this->placeholderPath = "{{view url='Oander/istyle::images/iSTYLE-logo-1200.png'}}";
-
         $params = array_merge(['_secure' => true], ['theme' => $theme]);
         $this->placeholderPath = $this->assetRepo->getUrlWithParams(self::LAZY_LOAD_PLACEHOLDER_IMAGE, $params);
-
-        /*
-        $this->placeholderPath = $this->template->getViewFileUrl(
-            self::LAZY_LOAD_PLACEHOLDER_IMAGE,
-            ['theme' => $theme]);
-        */
     }
 
     /**
