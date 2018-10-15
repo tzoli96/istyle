@@ -34,6 +34,7 @@ class AjaxCaptainHookEvent implements ObserverInterface
     const OUTPUT_NAME1 = 'price';
     const OUTPUT_NAME2 = 'oldprice';
     const OUTPUT_NAME3 = 'configprices';
+    const OUTPUT_NAME4 = 'productviewconfig';
 
     /**
      * @var \Oander\ConfigurableProductAttribute\Magento\Swatches\Block\Product\Renderer\Configurable
@@ -45,6 +46,12 @@ class AjaxCaptainHookEvent implements ObserverInterface
     private $jsonDecoder;
 
     /**
+     * @var \Magento\Catalog\Block\Product\View
+     */
+    private $productView;
+
+
+    /**
      * AjaxCaptianHookEvent constructor.
      * @param \Oander\ConfigurableProductAttribute\Magento\Swatches\Block\Product\Renderer\Configurable $configurable
      * @param DecoderInterface $jsonDecoder
@@ -52,11 +59,13 @@ class AjaxCaptainHookEvent implements ObserverInterface
 
     public function __construct(
         \Oander\ConfigurableProductAttribute\Magento\Swatches\Block\Product\Renderer\Configurable $configurable,
+        \Magento\Catalog\Block\Product\View $productView,
         DecoderInterface $jsonDecoder
     )
     {
         $this->configurable = $configurable;
         $this->jsonDecoder = $jsonDecoder;
+        $this->productView = $productView;
     }
 
     /**
@@ -72,6 +81,8 @@ class AjaxCaptainHookEvent implements ObserverInterface
         if(!$disableprice) {
             /** @var \Magento\Catalog\Model\Product $product */
             $product = $input->getData('product');
+            $productViewConfig = $this->jsonDecoder->decode($this->productView->getJsonConfig());
+
             /** @var \Magento\Catalog\Model\Product|null $realproduct */
             $realproduct = $input->getData('realproduct');
             if ($product->getTypeId() == 'simple') {
@@ -84,7 +95,8 @@ class AjaxCaptainHookEvent implements ObserverInterface
                             array(
                                 self::OUTPUT_NAME1 => $product->getFinalPrice(),
                                 self::OUTPUT_NAME2 => $product->getPrice(),
-                                self::OUTPUT_NAME3 => $jsonData
+                                self::OUTPUT_NAME3 => $jsonData,
+                                self::OUTPUT_NAME4 => $productViewConfig,
                             )
                         );
                     }
@@ -94,6 +106,7 @@ class AjaxCaptainHookEvent implements ObserverInterface
                         array(
                             self::OUTPUT_NAME1 => $product->getFinalPrice(),
                             self::OUTPUT_NAME2 => $product->getPrice(),
+                            self::OUTPUT_NAME4 => $productViewConfig,
                         )
                     );
                 }
@@ -106,7 +119,8 @@ class AjaxCaptainHookEvent implements ObserverInterface
                         array(
                             self::OUTPUT_NAME1 => $product->getFinalPrice(),
                             self::OUTPUT_NAME2 => $product->getPrice(),
-                            self::OUTPUT_NAME3 => $jsonData
+                            self::OUTPUT_NAME3 => $jsonData,
+                            self::OUTPUT_NAME4 => $productViewConfig,
                         )
                     );
                 } else {
@@ -115,6 +129,7 @@ class AjaxCaptainHookEvent implements ObserverInterface
                         array(
                             self::OUTPUT_NAME1 => $product->getFinalPrice(),
                             self::OUTPUT_NAME2 => $product->getPrice(),
+                            self::OUTPUT_NAME4 => $productViewConfig,
                         )
                     );
                 }

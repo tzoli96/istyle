@@ -43,15 +43,40 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
         $product = $observer->getData('product');
 
         if ($product->getTypeId() == 'simple') {
+            $output->setData('dependences',
+                array_merge($output->getData('dependences'),
+                    ['priceUtils' => 'Magento_Catalog/js/price-utils']
+                )
+            );
             $output->setData('js',
                 array_merge($output->getData('js'),
                     [AjaxCaptainHookEvent::OUTPUT_NAME =>
                         'if(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\']!== undefined)
                         {
-                            var productInfoPrice = jQuery(\'#oander-product-info-price\'); 
+                            var finalPrice = response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\'].price;
+                            var oldPrice = 10000;
+                            var productInfoPrice = jQuery("#oander-product-info-price");
+                            var stickyHeader = jQuery("#product-sticky-header");
                             
-                            productInfoPrice.find(\'#regular-price\').html(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\'].price);
-                            productInfoPrice.find(\'#old-price\').html(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\'].oldprice);
+                            // Base price (product-info-right)
+                            if (finalPrice < oldPrice) {
+                                productInfoPrice.find("#old-price").show();
+                                productInfoPrice.find("#final-price").removeClass("regular-price").addClass("special-price");
+                            }
+                            
+                            productInfoPrice.find(\'#final-price\').html(priceUtils.formatPrice(finalPrice, {}));
+                            productInfoPrice.find(\'#old-price\').html(priceUtils.formatPrice(oldPrice, {}));
+                            
+                            // Sticky header prices
+                            if (jQuery("#product-sticky-header").length > 0) {
+                                if (finalPrice < oldPrice) {
+                                    stickyHeader.find("#sticky-old-price").show();
+                                    stickyHeader.find("#sticky-final-price").removeClass("regular-price").addClass("special-price");                                
+                                }
+                                
+                                stickyHeader.find(\'#sticky-final-price\').html(priceUtils.formatPrice(finalPrice, {}));
+                                stickyHeader.find(\'#sticky-old-price\').html(priceUtils.formatPrice(oldPrice, {}));
+                            }
                         }'
                     ]
                 )
@@ -66,11 +91,12 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
             $output->setData('js',
                 array_merge($output->getData('js'),
                     [AjaxCaptainHookEvent::OUTPUT_NAME =>
-                        'if(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\']!== undefined)
+                        "if(response['" . AjaxCaptainHookEvent::OUTPUT_NAME . "'] !== undefined)
                         {
-                             jQuery(\'[data-role="swatch-options"]\').data(\'mageSwatchRenderer\').setConfig(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\']);
-                             '. self::HAS_PRICE . ' = true;
-                        }'
+                             jQuery('[data-role=priceBox]').data('magePriceBox').setConfig(response['" . AjaxCaptainHookEvent::OUTPUT_NAME . "']['".AjaxCaptainHookEvent::OUTPUT_NAME4."']);
+                             jQuery('[data-role=swatch-options]').data('mageSwatchRenderer').setConfig(response['" . AjaxCaptainHookEvent::OUTPUT_NAME . "']);
+                             " . self::HAS_PRICE . " = true;
+                        }"
                     ]
                 )
             );

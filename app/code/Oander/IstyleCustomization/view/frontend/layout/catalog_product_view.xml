@@ -12,10 +12,10 @@
         <referenceBlock name="product.info.addto" template="Magento_Catalog::product/view/addto.phtml"/>
         <referenceBlock name="product.info.addtocart.additional" template="Magento_Catalog::product/view/addtocart.phtml"/>
 
-        <!--<referenceBlock name="product.price.final" remove="true"/>
+        <referenceBlock name="product.price.final" remove="true"/>
         <referenceContainer name="product.info.price">
             <block class="Magento\Framework\View\Element\Template" name="product.price.final.customization"
                    template="Oander_IstyleCustomization::product/price/skeleton.phtml" after="product.info.sku" />
-        </referenceContainer>-->
+        </referenceContainer>
     </body>
 </page>
