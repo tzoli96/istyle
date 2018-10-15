@@ -42,7 +42,7 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
          */
         $product = $observer->getData('product');
 
-        if ($product !== null && $product->getTypeId() == 'simple') {
+        if ($product->getTypeId() == 'simple') {
             $output->setData('dependences',
                 array_merge($output->getData('dependences'),
                     ['priceUtils' => 'Magento_Catalog/js/price-utils']
