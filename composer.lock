@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f9f117dfa8d61532139272509d89ba0e",
+    "content-hash": "4a8a5694a60bb02fd9910ece73e9d603",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1085,42 +1085,6 @@
             "time": "2018-10-01T08:43:27+00:00"
         },
         {
-            "name": "godvsdeity/swedbank-payment-portal",
-            "version": "v0.8.30",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:godvsdeity/swedbank-payment-portal.git",
-                "reference": "42097fc707d96b4045d7cce7b881dc4e40313f76"
-            },
-            "require": {
-                "doctrine/cache": "^1.6",
-                "guzzlehttp/guzzle": "^5.0|^6.0",
-                "jms/serializer": "^1.1",
-                "symfony/config": "^2.8|^3.0",
-                "symfony/dependency-injection": "^2.8|^3.0",
-                "symfony/yaml": "~2.8|~3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "SwedbankPaymentPortal\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "The Swedbank Payment Portal API Library provides access to the online banking system through which e-commerce transactions can be initiated and fulfilled by facilitating the exchange of bank data.",
-            "time": "2017-11-09T16:41:43+00:00"
-        },
-        {
             "name": "guzzlehttp/guzzle",
             "version": "6.3.3",
             "source": {
@@ -1599,16 +1563,16 @@
         },
         {
             "name": "innobyte/module-swedbank",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-swedbank.git",
-                "reference": "77bc1a42abdb41c75731b5744d494dd04f73259d"
+                "reference": "8ae8eac757a0b4ab40499ee70452abf5909f942e"
             },
             "require": {
-                "godvsdeity/swedbank-payment-portal": "^0.8",
                 "magento/module-checkout": "^100.1.2",
-                "php": "7.0.2|7.0.4|~7.0.6"
+                "php": "7.0.2|7.0.4|~7.0.6",
+                "swedbank-spp/swedbank-payment-portal": "^0.9"
             },
             "type": "magento2-module",
             "autoload": {
@@ -1620,7 +1584,7 @@
                 }
             },
             "description": "Innobyte Swedbank Module",
-            "time": "2018-06-12T12:44:10+00:00"
+            "time": "2018-10-15T10:47:05+00:00"
         },
         {
             "name": "istyle/module-insiacare",
@@ -10209,6 +10173,44 @@
             "description": "An extendable framework for version control hooks.",
             "abandoned": "phpro/grumphp",
             "time": "2014-09-22T08:40:36+00:00"
+        },
+        {
+            "name": "swedbank-spp/swedbank-payment-portal",
+            "version": "v0.9.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Swedbank-SPP/swedbank-payment-portal.git",
+                "reference": "f2ad95fb0f293fc85ef4e95456b5469e9228754f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Swedbank-SPP/swedbank-payment-portal/zipball/f2ad95fb0f293fc85ef4e95456b5469e9228754f",
+                "reference": "f2ad95fb0f293fc85ef4e95456b5469e9228754f",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/cache": "^1.6",
+                "guzzlehttp/guzzle": "^5.0|^6.0",
+                "jms/serializer": "^1.1",
+                "symfony/config": "^2.8|^3.0|^4.0",
+                "symfony/dependency-injection": "^2.8|^3.0|^4.0",
+                "symfony/yaml": "~2.8|~3.0|~4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SwedbankPaymentPortal\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "The Swedbank Payment Portal API Library provides access to the online banking system through which e-commerce transactions can be initiated and fulfilled by facilitating the exchange of bank data.",
+            "time": "2018-03-29T09:21:28+00:00"
         },
         {
             "name": "symfony/config",
