@@ -86,8 +86,7 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
                 array_merge($output->getData('dependences'),
                     [
                         '$ms' => 'Magento_Swatches/js/swatch-renderer',
-                        '$os' => 'Oander_ConfigurableProductAttribute/js/swatch-renderer',
-                        'domReady' => '!domReady'
+                        '$os' => 'oanderSwatchRenderer'
                     ]
                 )
             );
@@ -95,15 +94,12 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
             $output->setData('js',
                 array_merge($output->getData('js'),
                     [AjaxCaptainHookEvent::OUTPUT_NAME =>
-                        "if(response['" . AjaxCaptainHookEvent::OUTPUT_NAME . "'] !== undefined)
+                        'if(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\'] !== undefined)
                         {
-                             // @todo
-                             setTimeout(function () {
-                                 jQuery('[data-role=priceBox]').data('magePriceBox').setConfig(response['" . AjaxCaptainHookEvent::OUTPUT_NAME . "']['".AjaxCaptainHookEvent::OUTPUT_NAME4."']);
-                                 jQuery('[data-role=swatch-options]').data('mageSwatchRenderer').setConfig(response['" . AjaxCaptainHookEvent::OUTPUT_NAME . "']);
-                                 " . self::HAS_PRICE . " = true;
-                             }, 2000);
-                        }"
+                             jQuery(\'[data-role=priceBox]\').data(\'magePriceBox\').setConfig(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\'][\''.AjaxCaptainHookEvent::OUTPUT_NAME4.'\']);
+                             jQuery(\'[data-role=swatch-options]\').data(\'mageOanderSwatchRenderer\').setConfig(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\']);
+                             ' . self::HAS_PRICE . ' = true;
+                        }'
                     ]
                 )
             );
