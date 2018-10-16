@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ddc58aafb28a17f5f7ecd21d7133722",
+    "content-hash": "2b4a057eecc7f4d5ca566c50b5701df0",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8979,34 +8979,6 @@
             ],
             "description": "Warehouse Manager",
             "time": "2018-10-11T11:45:28+00:00"
-        },
-        {
-            "name": "oander/module-warehouse-stock-order",
-            "version": "1.0.3",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-warehouse-stock-order.git",
-                "reference": "80892ac95c966fbf46f4030c2da86352c026b6a9"
-            },
-            "require": {
-                "oander/module-base": "*",
-                "oander/module-warehouse-manager": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\WarehouseStockOrder\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Warehouse Stock Order",
-            "time": "2018-05-24T11:38:49+00:00"
         },
         {
             "name": "oander/module-wonder-widget",
