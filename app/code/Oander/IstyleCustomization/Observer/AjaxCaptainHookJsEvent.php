@@ -84,7 +84,10 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
         } else {
             $output->setData('dependences',
                 array_merge($output->getData('dependences'),
-                    ['$os' => 'Oander_ConfigurableProductAttribute/js/swatch-renderer']
+                    [
+                        '$ms' => 'Magento_Swatches/js/swatch-renderer',
+                        '$os' => 'Oander_ConfigurableProductAttribute/js/swatch-renderer'
+                    ]
                 )
             );
 
