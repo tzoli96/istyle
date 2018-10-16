@@ -49,23 +49,31 @@ class AjaxCaptainHookEvent implements ObserverInterface
      * @var \Magento\Catalog\Block\Product\View
      */
     private $productView;
+    /**
+     * @var \Magento\Catalog\Helper\Data
+     */
+    private $catalogHelper;
 
 
     /**
      * AjaxCaptianHookEvent constructor.
      * @param \Oander\ConfigurableProductAttribute\Magento\Swatches\Block\Product\Renderer\Configurable $configurable
+     * @param \Magento\Catalog\Block\Product\View $productView
+     * @param \Magento\Catalog\Helper\Data $catalogHelper
      * @param DecoderInterface $jsonDecoder
      */
 
     public function __construct(
         \Oander\ConfigurableProductAttribute\Magento\Swatches\Block\Product\Renderer\Configurable $configurable,
         \Magento\Catalog\Block\Product\View $productView,
+        \Magento\Catalog\Helper\Data $catalogHelper,
         DecoderInterface $jsonDecoder
     )
     {
         $this->configurable = $configurable;
         $this->jsonDecoder = $jsonDecoder;
         $this->productView = $productView;
+        $this->catalogHelper = $catalogHelper;
     }
 
     /**
@@ -81,6 +89,8 @@ class AjaxCaptainHookEvent implements ObserverInterface
         if(!$disableprice) {
             /** @var \Magento\Catalog\Model\Product $product */
             $product = $input->getData('product');
+            $finalprice = (int)$this->catalogHelper->getTaxPrice($product, $product->getFinalPrice(), true);
+            $price = (int)$this->catalogHelper->getTaxPrice($product, $product->getPrice(), true);
             $productViewConfig = $this->jsonDecoder->decode($this->productView->getJsonConfig());
 
             /** @var \Magento\Catalog\Model\Product|null $realproduct */
@@ -93,8 +103,8 @@ class AjaxCaptainHookEvent implements ObserverInterface
                         $output->setData(
                             self::OUTPUT_NAME,
                             array(
-                                self::OUTPUT_NAME1 => $product->getFinalPrice(),
-                                self::OUTPUT_NAME2 => $product->getPrice(),
+                                self::OUTPUT_NAME1 => $finalprice,
+                                self::OUTPUT_NAME2 => $price,
                                 self::OUTPUT_NAME3 => $jsonData,
                                 self::OUTPUT_NAME4 => $productViewConfig,
                             )
@@ -104,8 +114,8 @@ class AjaxCaptainHookEvent implements ObserverInterface
                     $output->setData(
                         self::OUTPUT_NAME,
                         array(
-                            self::OUTPUT_NAME1 => $product->getFinalPrice(),
-                            self::OUTPUT_NAME2 => $product->getPrice(),
+                            self::OUTPUT_NAME1 => $finalprice,
+                            self::OUTPUT_NAME2 => $price,
                             self::OUTPUT_NAME4 => $productViewConfig,
                         )
                     );
@@ -117,8 +127,8 @@ class AjaxCaptainHookEvent implements ObserverInterface
                     $output->setData(
                         self::OUTPUT_NAME,
                         array(
-                            self::OUTPUT_NAME1 => $product->getFinalPrice(),
-                            self::OUTPUT_NAME2 => $product->getPrice(),
+                            self::OUTPUT_NAME1 => $finalprice,
+                            self::OUTPUT_NAME2 => $price,
                             self::OUTPUT_NAME3 => $jsonData,
                             self::OUTPUT_NAME4 => $productViewConfig,
                         )
@@ -127,8 +137,8 @@ class AjaxCaptainHookEvent implements ObserverInterface
                     $output->setData(
                         self::OUTPUT_NAME,
                         array(
-                            self::OUTPUT_NAME1 => $product->getFinalPrice(),
-                            self::OUTPUT_NAME2 => $product->getPrice(),
+                            self::OUTPUT_NAME1 => $finalprice,
+                            self::OUTPUT_NAME2 => $price,
                             self::OUTPUT_NAME4 => $productViewConfig,
                         )
                     );

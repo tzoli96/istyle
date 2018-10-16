@@ -54,7 +54,7 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
                         'if(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\']!== undefined)
                         {
                             var finalPrice = response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\'].price;
-                            var oldPrice = 10000;
+                            var oldPrice = response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\'].oldprice;
                             var productInfoPrice = jQuery("#oander-product-info-price");
                             var stickyHeader = jQuery("#product-sticky-header");
                             
