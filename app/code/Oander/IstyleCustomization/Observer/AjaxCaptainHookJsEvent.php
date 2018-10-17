@@ -54,7 +54,7 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
                         'if(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\']!== undefined)
                         {
                             var finalPrice = response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\'].price;
-                            var oldPrice = 10000;
+                            var oldPrice = response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\'].oldprice;
                             var productInfoPrice = jQuery("#oander-product-info-price");
                             var stickyHeader = jQuery("#product-sticky-header");
                             
@@ -84,19 +84,22 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
         } else {
             $output->setData('dependences',
                 array_merge($output->getData('dependences'),
-                    ['$os' => 'Oander_ConfigurableProductAttribute/js/swatch-renderer']
+                    [
+                        '$ms' => 'Magento_Swatches/js/swatch-renderer',
+                        '$os' => 'oanderSwatchRenderer'
+                    ]
                 )
             );
 
             $output->setData('js',
                 array_merge($output->getData('js'),
                     [AjaxCaptainHookEvent::OUTPUT_NAME =>
-                        "if(response['" . AjaxCaptainHookEvent::OUTPUT_NAME . "'] !== undefined)
+                        'if(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\'] !== undefined)
                         {
-                             jQuery('[data-role=priceBox]').data('magePriceBox').setConfig(response['" . AjaxCaptainHookEvent::OUTPUT_NAME . "']['".AjaxCaptainHookEvent::OUTPUT_NAME4."']);
-                             jQuery('[data-role=swatch-options]').data('mageSwatchRenderer').setConfig(response['" . AjaxCaptainHookEvent::OUTPUT_NAME . "']);
-                             " . self::HAS_PRICE . " = true;
-                        }"
+                             jQuery(\'[data-role=priceBox]\').data(\'magePriceBox\').setConfig(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\'][\''.AjaxCaptainHookEvent::OUTPUT_NAME4.'\']);
+                             jQuery(\'[data-role=swatch-options]\').data(\'mageOanderSwatchRenderer\').setConfig(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\']);
+                             ' . self::HAS_PRICE . ' = true;
+                        }'
                     ]
                 )
             );
