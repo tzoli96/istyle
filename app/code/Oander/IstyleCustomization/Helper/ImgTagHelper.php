@@ -145,7 +145,7 @@ class ImgTagHelper
     public function getImgTagsFromHtml(string $html): array
     {
         $imgTags = [];
-        preg_match_all('/<img.*[\/|"|]>/', $html, $imgTags);
+        preg_match_all('/<img[^>]* src=\"([^\"]*)\"[^>]*>/', $html, $imgTags);
         $imgTags = call_user_func('array_merge', $imgTags[0]);
 
         return $imgTags;
