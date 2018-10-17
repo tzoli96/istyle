@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b2aa8e4aee4f6f7acb23562a113de50",
+    "content-hash": "d0473ac0eaa90a3bea2ca823f06ecc39",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7926,11 +7926,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.30.3",
+            "version": "1.0.30.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "b33fd949ff31743307774b78df2d21fce4944696"
+                "reference": "24c9093202b6987e1d932b5842c0c13e2aa5cb48"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7949,7 +7949,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2018-10-17T09:19:15+00:00"
+            "time": "2018-10-17T14:39:46+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -9268,11 +9268,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.159",
+            "version": "1.0.161",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "0dc4dc49cec1f7138f3fd16d285a32f11e9ec909"
+                "reference": "5fe5cc8e343eb130fef5498c35173295ad20824a"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9288,7 +9288,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-10-17T13:06:45+00:00"
+            "time": "2018-10-17T14:46:24+00:00"
         },
         {
             "name": "oyejorge/less.php",
