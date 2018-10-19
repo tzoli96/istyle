@@ -81,6 +81,7 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
                     ]
                 )
             );
+        } elseif ($product->getTypeId() == 'bundle') {
         } else {
             $output->setData('dependences',
                 array_merge($output->getData('dependences'),

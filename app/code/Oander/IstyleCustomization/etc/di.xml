@@ -1,11 +1,9 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Magento\Catalog\Block\Product\View"
-                type="Oander\IstyleCustomization\Block\Product\View" />
-    <preference for="Magento\Catalog\Block\Category\View"
-                type="Oander\IstyleCustomization\Block\Category\View" />
+    <preference for="Magento\Catalog\Block\Product\View" type="Oander\IstyleCustomization\Block\Product\View"/>
+    <preference for="Magento\Catalog\Block\Category\View" type="Oander\IstyleCustomization\Block\Category\View"/>
     <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
-        <plugin name="logProductName" type="Oander\IstyleCustomization\Plugin\Checkout\Model\Checkout\LayoutProcessor" />
+        <plugin name="logProductName" type="Oander\IstyleCustomization\Plugin\Checkout\Model\Checkout\LayoutProcessor"/>
     </type>
     <type name="Magento\Quote\Model\QuoteRepository\SaveHandler">
         <plugin name="move_pfpj_reg_no_data_from_extension_attributes_to_flat_table" type="Oander\IstyleCustomization\Plugin\Quote\Model\QuoteRepository\SaveHandler"/>
@@ -22,14 +20,12 @@
     <type name="Magento\Bundle\Helper\Catalog\Product\Configuration">
         <plugin name="bundle_product_price_display_in_cart_fix" type="Oander\IstyleCustomization\Plugin\Bundle\Helper\Catalog\Product\Configuration"/>
     </type>
-    <preference for="Anowave\Ec\Block\Plugin"
-                type="Oander\IstyleCustomization\Block\Plugin" />
+    <preference for="Anowave\Ec\Block\Plugin" type="Oander\IstyleCustomization\Block\Plugin"/>
     <type name="Magento\Framework\Filter\Template">
         <plugin name="framework_filter_template_tostring" type="Oander\IstyleCustomization\Plugin\Framework\Filter\Template"/>
     </type>
-    <preference for="Xtento\OrderExport\Model\Export\Data\Shared\Items"
-                type="Oander\IstyleCustomization\Model\Export\Data\Shared\Items" />
-    <preference for="Oander\CategoryDropdown\Magento\Theme\Block\Html\Topmenu"
-                type="Oander\IstyleCustomization\Block\Html\Topmenu" />
-
+    <preference for="Xtento\OrderExport\Model\Export\Data\Shared\Items" type="Oander\IstyleCustomization\Model\Export\Data\Shared\Items"/>
+    <preference for="Oander\CategoryDropdown\Magento\Theme\Block\Html\Topmenu" type="Oander\IstyleCustomization\Block\Html\Topmenu"/>
+    <preference for="Magento\Catalog\Model\Indexer\Product\Flat\TableBuilder" type="Oander\IstyleCustomization\Model\Indexer\Product\Flat\TableBuilder"/>
+    <preference for="Magento\Catalog\Model\Indexer\Product\Flat\FlatTableBuilder" type="Oander\IstyleCustomization\Model\Indexer\Product\Flat\FlatTableBuilder"/>
 </config>
