@@ -11,7 +11,7 @@ class ImgTagHelper
 {
     const LAZY_LOAD_CLASS = 'b-lazy';
     const LAZY_LOAD_PLACEHOLDER_THEME = 'Oander/istyle';
-    const LAZY_LOAD_PLACEHOLDER_IMAGE = 'svg/loader.svg';
+    const LAZY_LOAD_PLACEHOLDER_IMAGE = 'images/placeholder.png';
 
     private $assetRepo;
     private $placeholderPath;
