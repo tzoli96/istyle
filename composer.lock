@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ade96b6b520990cc7df12389c8a0e03e",
+    "content-hash": "6f109f968994cb748097ff7db9df42b8",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7647,11 +7647,11 @@
         },
         {
             "name": "oander/module-api-warehouse-manager",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-warehouse-manager.git",
-                "reference": "d00f5f98422bfaa56416f76b875c74c1e04a3e68"
+                "reference": "2aa56ad157b507878543f83bf59aac2f97976250"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7673,7 +7673,7 @@
                 "proprietary"
             ],
             "description": "Oander_ApiWarehouseManager",
-            "time": "2018-04-12T08:45:38+00:00"
+            "time": "2018-10-19T14:42:21+00:00"
         },
         {
             "name": "oander/module-base",
@@ -9284,11 +9284,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.15.1",
+            "version": "1.4.16",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "2c12d9b81e073cd8b0f965b6af7c05f90da6a678"
+                "reference": "aed3e4e821fa8116e2cf60d423cd5c0c54a17760"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9310,7 +9310,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-10-15T15:19:01+00:00"
+            "time": "2018-10-19T14:42:07+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
