@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *   /$$$$$$   /$$$$$$  /$$   /$$ /$$$$$$$  /$$$$$$$$ /$$$$$$$
+ *  /$$__  $$ /$$__  $$| $$$ | $$| $$__  $$| $$_____/| $$__  $$
+ * | $$  \ $$| $$  \ $$| $$$$| $$| $$  \ $$| $$      | $$  \ $$
+ * | $$  | $$| $$$$$$$$| $$ $$ $$| $$  | $$| $$$$$   | $$$$$$$/
+ * | $$  | $$| $$__  $$| $$  $$$$| $$  | $$| $$__/   | $$__  $$
+ * | $$  | $$| $$  | $$| $$\  $$$| $$  | $$| $$      | $$  \ $$
+ * |  $$$$$$/| $$  | $$| $$ \  $$| $$$$$$$/| $$$$$$$$| $$  | $$
+ *  \______/ |__/  |__/|__/  \__/|_______/ |________/|__/  |__/
+ *
+ * Oander_Maintenance
+ * @license Oander Media Kft. (http://www.oander.hu)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="model_load_after">
+        <observer name="after_dispatch_observer" instance="Oander\IstyleCustomization\Observer\EventManagerObserver" />
+    </event>
+</config>

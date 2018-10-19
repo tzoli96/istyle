@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ddc58aafb28a17f5f7ecd21d7133722",
+    "content-hash": "4c53245b36e9e6a6b8c11b8d873f4287",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7145,11 +7145,11 @@
         },
         {
             "name": "oander/module-ajax-captain-hook",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-ajax-captain-hook.git",
-                "reference": "64a84efa10db8dedbb861595fd5dc08617f6c0dc"
+                "reference": "9db2164864954c34e5f72aa110b9e8d209924123"
             },
             "require": {
                 "php": "7.*"
@@ -7167,7 +7167,7 @@
                 "proprietary"
             ],
             "description": "Try 'hook' to all AJAX requests on a page.",
-            "time": "2018-10-07T08:15:25+00:00"
+            "time": "2018-10-12T18:24:10+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
@@ -7368,11 +7368,11 @@
         },
         {
             "name": "oander/module-api-gateway",
-            "version": "1.0.20",
+            "version": "1.0.22",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-gateway.git",
-                "reference": "3c21935df9b2db65435bb8b8bf14de2991059246"
+                "reference": "bb46e38b63022a6f592e0173c9aa9402df40498d"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7392,7 +7392,7 @@
                 "proprietary"
             ],
             "description": "The API Gateway module for ERP connections and import solutions.",
-            "time": "2018-08-08T15:26:33+00:00"
+            "time": "2018-10-13T11:59:11+00:00"
         },
         {
             "name": "oander/module-api-image",
@@ -7653,11 +7653,11 @@
         },
         {
             "name": "oander/module-cartbutton",
-            "version": "1.0.12",
+            "version": "1.0.15",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cartbutton.git",
-                "reference": "60064b2d3109cbbb1b40e86e435b05cbb28112bf"
+                "reference": "a231396f6a07376d4ba8014517e1458ae8557ed0"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7678,7 +7678,7 @@
                 }
             ],
             "description": "Helper to display cart button",
-            "time": "2018-10-11T09:36:01+00:00"
+            "time": "2018-10-15T14:04:36+00:00"
         },
         {
             "name": "oander/module-cashonpickuppayment",
@@ -7819,11 +7819,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.28.9",
+            "version": "1.0.30.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "179aab5c265a0776c4c6904a9d7b241517b6cc58"
+                "reference": "08d77d589f5e874a9e4efddfa05770a603154415"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7842,7 +7842,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2018-08-30T08:47:34+00:00"
+            "time": "2018-10-16T14:38:31+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -8952,11 +8952,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.14.2",
+            "version": "1.4.15.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "9194b073445818c704a18cc4582ee2bcd79aff3c"
+                "reference": "2c12d9b81e073cd8b0f965b6af7c05f90da6a678"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8978,35 +8978,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-10-11T11:45:28+00:00"
-        },
-        {
-            "name": "oander/module-warehouse-stock-order",
-            "version": "1.0.3",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-warehouse-stock-order.git",
-                "reference": "80892ac95c966fbf46f4030c2da86352c026b6a9"
-            },
-            "require": {
-                "oander/module-base": "*",
-                "oander/module-warehouse-manager": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\WarehouseStockOrder\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Warehouse Stock Order",
-            "time": "2018-05-24T11:38:49+00:00"
+            "time": "2018-10-15T15:19:01+00:00"
         },
         {
             "name": "oander/module-wonder-widget",
@@ -9089,11 +9061,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.152",
+            "version": "1.0.158",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "158e3865bdfab537956bd5e90a0d26b601691a6a"
+                "reference": "7c9b573798334ab16781d1b72eb82f8f61ca8e2f"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9109,7 +9081,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-10-11T10:00:31+00:00"
+            "time": "2018-10-17T09:01:19+00:00"
         },
         {
             "name": "oyejorge/less.php",
