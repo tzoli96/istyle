@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6f109f968994cb748097ff7db9df42b8",
+    "content-hash": "ebe68f5c9057b98579986f77a9b50976",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6467,12 +6467,6 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
-                "reference": null,
-                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
-            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -7759,11 +7753,11 @@
         },
         {
             "name": "oander/module-cartbutton",
-            "version": "1.0.15",
+            "version": "1.0.17",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cartbutton.git",
-                "reference": "a231396f6a07376d4ba8014517e1458ae8557ed0"
+                "reference": "36c2a4586101668b3ccd5db9f1e18014ffa486b4"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7784,7 +7778,7 @@
                 }
             ],
             "description": "Helper to display cart button",
-            "time": "2018-10-15T14:04:36+00:00"
+            "time": "2018-10-21T09:31:10+00:00"
         },
         {
             "name": "oander/module-cashonpickuppayment",
@@ -7925,11 +7919,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.30.2",
+            "version": "1.0.30.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "08d77d589f5e874a9e4efddfa05770a603154415"
+                "reference": "a1c0d51812024a319e95c647e75779e4134cb461"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7948,7 +7942,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2018-10-16T14:38:31+00:00"
+            "time": "2018-10-19T13:29:00+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -8169,11 +8163,11 @@
         },
         {
             "name": "oander/module-fancy-filter",
-            "version": "1.3.1.5",
+            "version": "1.3.1.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-fancy-filter.git",
-                "reference": "d06b2601783dcece269445e39bcccdbb2d1b7751"
+                "reference": "aaf8d999dff6d5f55309ab4b6c84b52fa61c0e61"
             },
             "require": {
                 "oander/module-ajax-catalog": "*",
@@ -8193,7 +8187,7 @@
                 "proprietary"
             ],
             "description": "Filter by checkboxes on Catalog list",
-            "time": "2018-07-11T19:44:10+00:00"
+            "time": "2018-09-12T15:25:12+00:00"
         },
         {
             "name": "oander/module-free-shipping-display",
@@ -8756,15 +8750,15 @@
         },
         {
             "name": "oander/module-preorder",
-            "version": "1.0.23",
+            "version": "1.0.24",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-preorder.git",
-                "reference": "6d6a6bfd11f9fe6b7f82ca3c39a9aa179317ba67"
+                "reference": "ebded5e4b4852396c3bc37611d9167761e2315d4"
             },
             "require": {
                 "oander/module-base": "*",
-                "oander/module-cartbutton": "*",
+                "oander/module-cartbutton": ">=1.0.12",
                 "php": "7.*"
             },
             "type": "magento2-module",
@@ -8780,7 +8774,7 @@
                 "proprietary"
             ],
             "description": "Oander Preorder",
-            "time": "2018-08-17T09:35:12+00:00"
+            "time": "2018-10-12T06:46:14+00:00"
         },
         {
             "name": "oander/module-price-tooltip",
@@ -8944,11 +8938,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.5",
+            "version": "1.1.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "5ff773c5bb40cbc780da30da510cf682ac55c680"
+                "reference": "f043a19ccdfed9f4312771b579f5c6a5df658b4b"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -8976,7 +8970,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-10-02T10:51:38+00:00"
+            "time": "2018-10-19T11:26:01+00:00"
         },
         {
             "name": "oander/module-shipping",
