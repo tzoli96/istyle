@@ -1,9 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+    "hash": "acbb1a65aa45142787d073b42f1a90e7",
     "content-hash": "ebe68f5c9057b98579986f77a9b50976",
     "packages": [
         {
@@ -55,7 +56,7 @@
             ],
             "description": "Algolia Search API Client for PHP",
             "homepage": "https://github.com/algolia/algoliasearch-client-php",
-            "time": "2018-06-19T05:59:53+00:00"
+            "time": "2018-06-19 05:59:53"
         },
         {
             "name": "algolia/algoliasearch-magento-2",
@@ -94,7 +95,7 @@
                 "MIT"
             ],
             "description": "Algolia Search integration for Magento 2",
-            "time": "2018-09-27T14:19:55+00:00"
+            "time": "2018-09-27 14:19:55"
         },
         {
             "name": "amasty/base",
@@ -120,7 +121,7 @@
                 "Commercial"
             ],
             "description": "Amasty Base",
-            "time": "2018-02-20T09:19:24+00:00"
+            "time": "2018-02-20 09:19:24"
         },
         {
             "name": "amasty/module-advanced-conditions",
@@ -230,7 +231,7 @@
                 "Commercial"
             ],
             "description": "Extended Rules Grid by Amasty",
-            "time": "2018-02-20T09:25:58+00:00"
+            "time": "2018-02-20 09:25:58"
         },
         {
             "name": "amasty/shiprestriction",
@@ -285,7 +286,7 @@
                 "Commercial"
             ],
             "description": "Common Rules by Amasty",
-            "time": "2018-05-29T13:00:15+00:00"
+            "time": "2018-05-29 13:00:15"
         },
         {
             "name": "anowave/ec",
@@ -316,7 +317,7 @@
             ],
             "description": "Magento 2 Google Tag Manager Enhanced Ecommerce (UA) Tracking",
             "homepage": "http://www.anowave.com/marketplace/magento-2-extensions/magento-2-google-tag-manager-enhanced-ecommerce-ua-tracking/",
-            "time": "2018-06-13T09:08:28+00:00"
+            "time": "2018-06-13 09:08:28"
         },
         {
             "name": "anowave/package",
@@ -339,7 +340,7 @@
                 }
             },
             "description": "Anowave Package",
-            "time": "2018-06-13T09:12:40+00:00"
+            "time": "2018-06-13 09:12:40"
         },
         {
             "name": "bigfish/paymentgateway",
@@ -381,7 +382,7 @@
                 "payment",
                 "webshop"
             ],
-            "time": "2018-04-26T09:08:56+00:00"
+            "time": "2018-04-26 09:08:56"
         },
         {
             "name": "bigfishpaymentgateway/pmgw",
@@ -409,7 +410,7 @@
                 "AFL-3.0"
             ],
             "description": "BIG FISH Payment Gateway module for Magento 2",
-            "time": "2018-06-21T18:56:19+00:00"
+            "time": "2018-06-21 18:56:19"
         },
         {
             "name": "braintree/braintree_php",
@@ -456,7 +457,7 @@
                 }
             ],
             "description": "Braintree PHP Client Library",
-            "time": "2015-11-19T19:14:47+00:00"
+            "time": "2015-11-19 19:14:47"
         },
         {
             "name": "colinmollenhour/cache-backend-file",
@@ -492,7 +493,7 @@
             ],
             "description": "The stock Zend_Cache_Backend_File backend has extremely poor performance for cleaning by tags making it become unusable as the number of cached items increases. This backend makes many changes resulting in a huge performance boost, especially for tag cleaning.",
             "homepage": "https://github.com/colinmollenhour/Cm_Cache_Backend_File",
-            "time": "2016-05-02T16:24:47+00:00"
+            "time": "2016-05-02 16:24:47"
         },
         {
             "name": "colinmollenhour/cache-backend-redis",
@@ -528,7 +529,7 @@
             ],
             "description": "Zend_Cache backend using Redis with full support for tags.",
             "homepage": "https://github.com/colinmollenhour/Cm_Cache_Backend_Redis",
-            "time": "2016-10-03T16:55:11+00:00"
+            "time": "2016-10-03 16:55:11"
         },
         {
             "name": "colinmollenhour/credis",
@@ -567,7 +568,7 @@
             ],
             "description": "Credis is a lightweight interface to the Redis key-value store which wraps the phpredis library when available for better performance.",
             "homepage": "https://github.com/colinmollenhour/credis",
-            "time": "2015-11-28T01:20:04+00:00"
+            "time": "2015-11-28 01:20:04"
         },
         {
             "name": "colinmollenhour/php-redis-session-abstract",
@@ -605,7 +606,7 @@
             ],
             "description": "A Redis-based session handler with optimistic locking",
             "homepage": "https://github.com/colinmollenhour/php-redis-session-abstract",
-            "time": "2016-08-04T18:05:51+00:00"
+            "time": "2016-08-04 18:05:51"
         },
         {
             "name": "composer/composer",
@@ -680,7 +681,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2016-03-03T15:15:10+00:00"
+            "time": "2016-03-03 15:15:10"
         },
         {
             "name": "composer/semver",
@@ -742,7 +743,7 @@
                 "validation",
                 "versioning"
             ],
-            "time": "2016-08-30T16:08:34+00:00"
+            "time": "2016-08-30 16:08:34"
         },
         {
             "name": "composer/spdx-licenses",
@@ -803,7 +804,7 @@
                 "spdx",
                 "validator"
             ],
-            "time": "2018-04-30T10:33:04+00:00"
+            "time": "2018-04-30 10:33:04"
         },
         {
             "name": "doctrine/annotations",
@@ -871,7 +872,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2017-02-24T16:22:25+00:00"
+            "time": "2017-02-24 16:22:25"
         },
         {
             "name": "doctrine/cache",
@@ -941,7 +942,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2017-07-22T12:49:21+00:00"
+            "time": "2017-07-22 12:49:21"
         },
         {
             "name": "doctrine/instantiator",
@@ -995,7 +996,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-06-14T21:17:01+00:00"
+            "time": "2015-06-14 21:17:01"
         },
         {
             "name": "doctrine/lexer",
@@ -1049,7 +1050,7 @@
                 "lexer",
                 "parser"
             ],
-            "time": "2014-09-09T13:34:57+00:00"
+            "time": "2014-09-09 13:34:57"
         },
         {
             "name": "fancourier/customshipping",
@@ -1082,7 +1083,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2018-10-01T08:43:27+00:00"
+            "time": "2018-10-01 08:43:27"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -1147,7 +1148,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2018-04-22T15:46:56+00:00"
+            "time": "2018-04-22 15:46:56"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1198,7 +1199,7 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2016-12-20T10:07:11+00:00"
+            "time": "2016-12-20 10:07:11"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -1263,7 +1264,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-03-20T17:10:46+00:00"
+            "time": "2017-03-20 17:10:46"
         },
         {
             "name": "heureka/overenozakazniky",
@@ -1310,7 +1311,7 @@
             ],
             "description": "Heureka 'Ověřeno zákazníky' (ShopCertification) service API implementation",
             "abandoned": "heureka/overeno-zakazniky",
-            "time": "2016-11-07T11:49:51+00:00"
+            "time": "2016-11-07 11:49:51"
         },
         {
             "name": "infobeans/magento2-flatrate5",
@@ -1342,7 +1343,7 @@
                 }
             ],
             "description": "FlatRate5 for Magento 2",
-            "time": "2017-11-04T19:42:01+00:00"
+            "time": "2017-11-04 19:42:01"
         },
         {
             "name": "innobyte/magento2-payu",
@@ -1367,7 +1368,7 @@
                 }
             },
             "description": "Magento2 PayU module",
-            "time": "2018-08-21T12:17:20+00:00"
+            "time": "2018-08-21 12:17:20"
         },
         {
             "name": "innobyte/module-bnpparibas",
@@ -1391,7 +1392,7 @@
                 }
             },
             "description": "BNP Paribas Payment Module",
-            "time": "2018-04-18T11:51:51+00:00"
+            "time": "2018-04-18 11:51:51"
         },
         {
             "name": "innobyte/module-cetelem",
@@ -1415,7 +1416,7 @@
                 }
             },
             "description": "Innobyte Cetelem Module",
-            "time": "2018-10-13T07:56:16+00:00"
+            "time": "2018-10-13 07:56:16"
         },
         {
             "name": "innobyte/module-checkout-success",
@@ -1439,7 +1440,7 @@
                 }
             },
             "description": "Innobyte CheckoutSuccess Module",
-            "time": "2017-12-17T11:02:06+00:00"
+            "time": "2017-12-17 11:02:06"
         },
         {
             "name": "innobyte/module-dsk",
@@ -1463,7 +1464,7 @@
                 }
             },
             "description": "Innobyte DSK Payment Module",
-            "time": "2018-05-28T13:15:45+00:00"
+            "time": "2018-05-28 13:15:45"
         },
         {
             "name": "innobyte/module-homecredit",
@@ -1487,7 +1488,7 @@
                 }
             },
             "description": "Innobyte HomeCredit Module",
-            "time": "2018-06-26T12:49:14+00:00"
+            "time": "2018-06-26 12:49:14"
         },
         {
             "name": "innobyte/module-inbank",
@@ -1511,7 +1512,7 @@
                 }
             },
             "description": "Innobyte InBank Module",
-            "time": "2018-08-28T14:40:33+00:00"
+            "time": "2018-08-28 14:40:33"
         },
         {
             "name": "innobyte/module-mstart",
@@ -1535,7 +1536,7 @@
                 }
             },
             "description": "Innobyte MStart Payment Module",
-            "time": "2018-03-23T20:06:08+00:00"
+            "time": "2018-03-23 20:06:08"
         },
         {
             "name": "innobyte/module-nlb",
@@ -1559,7 +1560,7 @@
                 }
             },
             "description": "Innobyte NLB Payment Module",
-            "time": "2018-01-30T09:08:54+00:00"
+            "time": "2018-01-30 09:08:54"
         },
         {
             "name": "innobyte/module-swedbank",
@@ -1584,7 +1585,7 @@
                 }
             },
             "description": "Innobyte Swedbank Module",
-            "time": "2018-10-15T10:47:05+00:00"
+            "time": "2018-10-15 10:47:05"
         },
         {
             "name": "istyle/module-insiacare",
@@ -1619,7 +1620,7 @@
                 }
             },
             "description": "iSTYLE InsiaCare Module",
-            "time": "2018-06-21T18:53:18+00:00"
+            "time": "2018-06-21 18:53:18"
         },
         {
             "name": "jms/metadata",
@@ -1670,7 +1671,7 @@
                 "xml",
                 "yaml"
             ],
-            "time": "2016-12-05T10:18:33+00:00"
+            "time": "2016-12-05 10:18:33"
         },
         {
             "name": "jms/parser-lib",
@@ -1705,7 +1706,7 @@
                 "Apache2"
             ],
             "description": "A library for easily creating recursive-descent parsers.",
-            "time": "2012-11-18T18:08:43+00:00"
+            "time": "2012-11-18 18:08:43"
         },
         {
             "name": "jms/serializer",
@@ -1789,7 +1790,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2018-07-25T13:58:54+00:00"
+            "time": "2018-07-25 13:58:54"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -1855,7 +1856,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2016-01-25T15:43:01+00:00"
+            "time": "2016-01-25 15:43:01"
         },
         {
             "name": "league/climate",
@@ -1904,7 +1905,7 @@
                 "php",
                 "terminal"
             ],
-            "time": "2015-01-18T14:31:58+00:00"
+            "time": "2015-01-18 14:31:58"
         },
         {
             "name": "magento/composer",
@@ -2224,7 +2225,7 @@
                 "composer-installer",
                 "magento"
             ],
-            "time": "2017-12-29T16:45:24+00:00"
+            "time": "2017-12-29 16:45:24"
         },
         {
             "name": "magento/magento2-base",
@@ -6775,7 +6776,7 @@
                 "ZF1",
                 "framework"
             ],
-            "time": "2017-02-27T21:19:07+00:00"
+            "time": "2017-02-27 21:19:07"
         },
         {
             "name": "mageplaza/module-core",
@@ -6813,7 +6814,7 @@
                 }
             ],
             "description": "Mageplaza Core for Magento 2",
-            "time": "2018-07-17T07:59:48+00:00"
+            "time": "2018-07-17 07:59:48"
         },
         {
             "name": "mageplaza/module-gdpr",
@@ -6847,7 +6848,7 @@
                 }
             ],
             "description": "GDPR for Magento 2",
-            "time": "2018-07-30T07:52:12+00:00"
+            "time": "2018-07-30 07:52:12"
         },
         {
             "name": "mirasvit/module-core",
@@ -6873,7 +6874,7 @@
                 "proprietary"
             ],
             "description": "Mirasvit Core",
-            "time": "2018-06-25T08:56:27+00:00"
+            "time": "2018-06-25 08:56:27"
         },
         {
             "name": "mirasvit/module-feed",
@@ -6901,7 +6902,7 @@
                 "proprietary"
             ],
             "description": "Advanced Product Feeds",
-            "time": "2018-06-25T08:52:57+00:00"
+            "time": "2018-06-25 08:52:57"
         },
         {
             "name": "mirasvit/module-report",
@@ -6930,7 +6931,7 @@
                 "proprietary"
             ],
             "description": "Reports Core",
-            "time": "2018-06-25T09:06:55+00:00"
+            "time": "2018-06-25 09:06:55"
         },
         {
             "name": "monolog/monolog",
@@ -7006,7 +7007,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-08-09T17:44:44+00:00"
+            "time": "2015-08-09 17:44:44"
         },
         {
             "name": "oander/language-bg-bg",
@@ -7032,7 +7033,7 @@
             ],
             "description": "Bulgarian language package for Magento 2",
             "homepage": "http://www.oander.hu",
-            "time": "2018-05-03T14:11:27+00:00"
+            "time": "2018-05-03 14:11:27"
         },
         {
             "name": "oander/language-hr-hr",
@@ -7058,7 +7059,7 @@
             ],
             "description": "Croatian language package for Magento 2",
             "homepage": "http://www.oander.hu",
-            "time": "2018-04-18T07:57:58+00:00"
+            "time": "2018-04-18 07:57:58"
         },
         {
             "name": "oander/language-hu_hu-istyle",
@@ -7078,7 +7079,7 @@
                 "proprietary"
             ],
             "description": "Hungarian language pack for the Magento",
-            "time": "2018-05-16T07:22:42+00:00"
+            "time": "2018-05-16 07:22:42"
         },
         {
             "name": "oander/language-lv_lv",
@@ -7098,7 +7099,7 @@
                 "proprietary"
             ],
             "description": "Latvian language pack for the Magento",
-            "time": "2018-04-18T08:00:31+00:00"
+            "time": "2018-04-18 08:00:31"
         },
         {
             "name": "oander/language-mk-mk",
@@ -7118,7 +7119,7 @@
                 "proprietary"
             ],
             "description": "Macedonian language pack for the Magento",
-            "time": "2018-04-18T07:55:33+00:00"
+            "time": "2018-04-18 07:55:33"
         },
         {
             "name": "oander/language-ru_ru",
@@ -7138,7 +7139,7 @@
                 "proprietary"
             ],
             "description": "Russian language pack for the Magento",
-            "time": "2018-03-28T10:47:07+00:00"
+            "time": "2018-03-28 10:47:07"
         },
         {
             "name": "oander/language-sl-si",
@@ -7164,7 +7165,7 @@
             ],
             "description": "Slovenian language package for Magento 2",
             "homepage": "http://www.oander.hu",
-            "time": "2018-04-18T07:52:19+00:00"
+            "time": "2018-04-18 07:52:19"
         },
         {
             "name": "oander/language-sr-rs-istyle",
@@ -7190,7 +7191,7 @@
             ],
             "description": "Serbian language package for Magento 2",
             "homepage": "http://www.oander.hu",
-            "time": "2018-05-11T12:24:56+00:00"
+            "time": "2018-05-11 12:24:56"
         },
         {
             "name": "oander/library-pick-pack-pont",
@@ -7216,7 +7217,7 @@
                 "proprietary"
             ],
             "description": "Oander Pick Pack Pont Library",
-            "time": "2017-11-22T15:20:31+00:00"
+            "time": "2017-11-22 15:20:31"
         },
         {
             "name": "oander/module-ajax-captain-hook",
@@ -7242,7 +7243,7 @@
                 "proprietary"
             ],
             "description": "Try 'hook' to all AJAX requests on a page.",
-            "time": "2018-10-12T18:24:10+00:00"
+            "time": "2018-10-12 18:24:10"
         },
         {
             "name": "oander/module-ajax-catalog",
@@ -7269,7 +7270,7 @@
                 "proprietary"
             ],
             "description": "Catalog via ajax.",
-            "time": "2018-01-05T12:00:40+00:00"
+            "time": "2018-01-05 12:00:40"
         },
         {
             "name": "oander/module-alternativewidget",
@@ -7296,7 +7297,7 @@
                 "proprietary"
             ],
             "description": "Istyle Alternative product widget for Alternative pages",
-            "time": "2018-04-18T07:21:39+00:00"
+            "time": "2018-04-18 07:21:39"
         },
         {
             "name": "oander/module-api-base",
@@ -7323,7 +7324,7 @@
                 "proprietary"
             ],
             "description": "API Base",
-            "time": "2018-09-03T09:18:32+00:00"
+            "time": "2018-09-03 09:18:32"
         },
         {
             "name": "oander/module-api-cache",
@@ -7352,7 +7353,7 @@
                 "proprietary"
             ],
             "description": "Backend API to Flush Cache",
-            "time": "2017-11-27T15:42:24+00:00"
+            "time": "2017-11-27 15:42:24"
         },
         {
             "name": "oander/module-api-category",
@@ -7381,7 +7382,7 @@
                 "proprietary"
             ],
             "description": "Backend API to Category",
-            "time": "2018-03-13T10:07:05+00:00"
+            "time": "2018-03-13 10:07:05"
         },
         {
             "name": "oander/module-api-checkout",
@@ -7410,7 +7411,7 @@
                 "proprietary"
             ],
             "description": "API Checkout module.",
-            "time": "2018-09-05T09:32:38+00:00"
+            "time": "2018-09-05 09:32:38"
         },
         {
             "name": "oander/module-api-checkout-unity-pickup",
@@ -7441,7 +7442,7 @@
                 "proprietary"
             ],
             "description": "API Checkout Unity Pickup module.",
-            "time": "2018-01-05T12:55:20+00:00"
+            "time": "2018-01-05 12:55:20"
         },
         {
             "name": "oander/module-api-customer",
@@ -7470,7 +7471,7 @@
                 "proprietary"
             ],
             "description": "Backend API to Customer",
-            "time": "2018-10-03T08:39:02+00:00"
+            "time": "2018-10-03 08:39:02"
         },
         {
             "name": "oander/module-api-gateway",
@@ -7498,7 +7499,7 @@
                 "proprietary"
             ],
             "description": "The API Gateway module for ERP connections and import solutions.",
-            "time": "2018-10-13T11:59:11+00:00"
+            "time": "2018-10-13 11:59:11"
         },
         {
             "name": "oander/module-api-image",
@@ -7527,7 +7528,7 @@
                 "proprietary"
             ],
             "description": "Backend API to Image",
-            "time": "2018-03-13T10:10:03+00:00"
+            "time": "2018-03-13 10:10:03"
         },
         {
             "name": "oander/module-api-index",
@@ -7556,7 +7557,7 @@
                 "proprietary"
             ],
             "description": "Backend API to Reindex",
-            "time": "2017-11-27T15:42:24+00:00"
+            "time": "2017-11-27 15:42:24"
         },
         {
             "name": "oander/module-api-order-attachment",
@@ -7584,7 +7585,7 @@
                 "proprietary"
             ],
             "description": "Api Gateway Order Attachment",
-            "time": "2018-06-19T14:33:44+00:00"
+            "time": "2018-06-19 14:33:44"
         },
         {
             "name": "oander/module-api-product",
@@ -7614,7 +7615,7 @@
                 "proprietary"
             ],
             "description": "Backend API to Product",
-            "time": "2018-10-02T10:19:02+00:00"
+            "time": "2018-10-02 10:19:02"
         },
         {
             "name": "oander/module-api-product-attribute",
@@ -7643,7 +7644,7 @@
                 "proprietary"
             ],
             "description": "Oander_ApiProductAttribute",
-            "time": "2018-04-26T11:59:13+00:00"
+            "time": "2018-04-26 11:59:13"
         },
         {
             "name": "oander/module-api-warehouse-manager",
@@ -7673,7 +7674,7 @@
                 "proprietary"
             ],
             "description": "Oander_ApiWarehouseManager",
-            "time": "2018-10-19T14:42:21+00:00"
+            "time": "2018-10-19 14:42:21"
         },
         {
             "name": "oander/module-base",
@@ -7700,7 +7701,7 @@
                 "proprietary"
             ],
             "description": "Oander Module Abstractions",
-            "time": "2017-06-19T13:57:39+00:00"
+            "time": "2017-06-19 13:57:39"
         },
         {
             "name": "oander/module-bundle",
@@ -7726,7 +7727,7 @@
                 "proprietary"
             ],
             "description": "Bundle product ignore stock quantity",
-            "time": "2018-07-23T12:36:21+00:00"
+            "time": "2018-07-23 12:36:21"
         },
         {
             "name": "oander/module-cardondeliverypayment",
@@ -7755,7 +7756,7 @@
                 }
             ],
             "description": "Card On Delivery Payment for Istyle",
-            "time": "2018-06-15T12:05:46+00:00"
+            "time": "2018-06-15 12:05:46"
         },
         {
             "name": "oander/module-cartbutton",
@@ -7784,7 +7785,7 @@
                 }
             ],
             "description": "Helper to display cart button",
-            "time": "2018-10-21T09:31:10+00:00"
+            "time": "2018-10-21 09:31:10"
         },
         {
             "name": "oander/module-cashonpickuppayment",
@@ -7813,7 +7814,7 @@
                 }
             ],
             "description": "Cash On Pickup Payment for Istyle",
-            "time": "2018-06-15T12:07:11+00:00"
+            "time": "2018-06-15 12:07:11"
         },
         {
             "name": "oander/module-category-badge",
@@ -7840,7 +7841,7 @@
                 "proprietary"
             ],
             "description": "Upload badges from category admin pages.",
-            "time": "2017-03-28T08:22:44+00:00"
+            "time": "2017-03-28 08:22:44"
         },
         {
             "name": "oander/module-category-dropdown",
@@ -7868,7 +7869,7 @@
                 "proprietary"
             ],
             "description": "Oander Category Dropdown module",
-            "time": "2018-10-03T11:18:45+00:00"
+            "time": "2018-10-03 11:18:45"
         },
         {
             "name": "oander/module-checkout",
@@ -7895,7 +7896,7 @@
                 "proprietary"
             ],
             "description": "It makes Magento Checkout to a better place.",
-            "time": "2017-04-11T09:25:36+00:00"
+            "time": "2017-04-11 09:25:36"
         },
         {
             "name": "oander/module-configurable-product",
@@ -7921,7 +7922,7 @@
                 "proprietary"
             ],
             "description": "Configurable product handler",
-            "time": "2018-08-17T07:31:46+00:00"
+            "time": "2018-08-17 07:31:46"
         },
         {
             "name": "oander/module-configurable-product-attribute",
@@ -7948,7 +7949,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2018-10-19T13:29:00+00:00"
+            "time": "2018-10-19 13:29:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -7975,7 +7976,7 @@
                 "proprietary"
             ],
             "description": "Cookie Law",
-            "time": "2018-01-02T10:16:30+00:00"
+            "time": "2018-01-02 10:16:30"
         },
         {
             "name": "oander/module-core-bug-fix",
@@ -8001,7 +8002,7 @@
                 "proprietary"
             ],
             "description": "Core bug fixes for Magento 2.x",
-            "time": "2018-10-09T09:11:30+00:00"
+            "time": "2018-10-09 09:11:30"
         },
         {
             "name": "oander/module-currency-manager",
@@ -8030,7 +8031,7 @@
                 "proprietary"
             ],
             "description": "This module provides currency settings.",
-            "time": "2018-03-27T13:40:22+00:00"
+            "time": "2018-03-27 13:40:22"
         },
         {
             "name": "oander/module-customer-file-upload",
@@ -8057,7 +8058,7 @@
                 "proprietary"
             ],
             "description": "Customer upload file",
-            "time": "2018-10-01T10:35:28+00:00"
+            "time": "2018-10-01 10:35:28"
         },
         {
             "name": "oander/module-discount-badge",
@@ -8085,7 +8086,7 @@
                 "proprietary"
             ],
             "description": "Extended version of the Oander Category Badge module to show discount badges.",
-            "time": "2018-06-27T08:55:03+00:00"
+            "time": "2018-06-27 08:55:03"
         },
         {
             "name": "oander/module-dropdown-products",
@@ -8111,7 +8112,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2018-08-27T14:32:02+00:00"
+            "time": "2018-08-27 14:32:02"
         },
         {
             "name": "oander/module-email-additional-data",
@@ -8138,7 +8139,7 @@
                 "proprietary"
             ],
             "description": "Email Additional Data",
-            "time": "2017-10-06T10:52:40+00:00"
+            "time": "2017-10-06 10:52:40"
         },
         {
             "name": "oander/module-extension-exterminator",
@@ -8165,7 +8166,7 @@
                 "proprietary"
             ],
             "description": "Oander Extension Exterminator module",
-            "time": "2018-10-15T13:05:31+00:00"
+            "time": "2018-10-15 13:05:31"
         },
         {
             "name": "oander/module-fancy-filter",
@@ -8193,7 +8194,7 @@
                 "proprietary"
             ],
             "description": "Filter by checkboxes on Catalog list",
-            "time": "2018-09-12T15:25:12+00:00"
+            "time": "2018-09-12 15:25:12"
         },
         {
             "name": "oander/module-free-shipping-display",
@@ -8220,7 +8221,7 @@
                 "proprietary"
             ],
             "description": "Free shipping appears in the Mini Cart",
-            "time": "2018-05-02T13:09:02+00:00"
+            "time": "2018-05-02 13:09:02"
         },
         {
             "name": "oander/module-google-tag-manager",
@@ -8248,7 +8249,7 @@
                 "proprietary"
             ],
             "description": "Oander Google Tag Manager Integration to eCommerce Tracking",
-            "time": "2017-01-04T11:34:53+00:00"
+            "time": "2017-01-04 11:34:53"
         },
         {
             "name": "oander/module-heureka-tracking",
@@ -8276,7 +8277,7 @@
                 "proprietary"
             ],
             "description": "Magento2 Heureka tracking Module",
-            "time": "2018-08-29T09:32:21+00:00"
+            "time": "2018-08-29 09:32:21"
         },
         {
             "name": "oander/module-hungarian-newsletter",
@@ -8304,7 +8305,7 @@
                 "proprietary"
             ],
             "description": "Newsletter modifications for Hungarian roles",
-            "time": "2017-04-12T09:11:56+00:00"
+            "time": "2017-04-12 09:11:56"
         },
         {
             "name": "oander/module-indexer",
@@ -8331,7 +8332,7 @@
                 "proprietary"
             ],
             "description": "It runs Magento Reindex via the Cron API",
-            "time": "2017-01-26T12:48:44+00:00"
+            "time": "2017-01-26 12:48:44"
         },
         {
             "name": "oander/module-installment-prices",
@@ -8358,7 +8359,7 @@
                 "proprietary"
             ],
             "description": "Installment prices displays next to Product Icons",
-            "time": "2018-04-06T08:30:32+00:00"
+            "time": "2018-04-06 08:30:32"
         },
         {
             "name": "oander/module-lapker",
@@ -8386,7 +8387,7 @@
                 "proprietary"
             ],
             "description": "Oander Lapker integration",
-            "time": "2018-06-20T08:17:43+00:00"
+            "time": "2018-06-20 08:17:43"
         },
         {
             "name": "oander/module-maintenance",
@@ -8413,7 +8414,7 @@
                 "proprietary"
             ],
             "description": "Oander Maintenance Module",
-            "time": "2018-09-11T12:18:55+00:00"
+            "time": "2018-09-11 12:18:55"
         },
         {
             "name": "oander/module-multislider",
@@ -8440,7 +8441,7 @@
                 "proprietary"
             ],
             "description": "Slider module",
-            "time": "2018-09-25T12:21:53+00:00"
+            "time": "2018-09-25 12:21:53"
         },
         {
             "name": "oander/module-name-switcher",
@@ -8467,7 +8468,7 @@
                 "proprietary"
             ],
             "description": "This module provides a feature to switch the last name and first name with each other",
-            "time": "2017-12-14T16:11:28+00:00"
+            "time": "2017-12-14 16:11:28"
         },
         {
             "name": "oander/module-ocbase",
@@ -8503,7 +8504,7 @@
                 }
             ],
             "description": "Oander Connect Base",
-            "time": "2018-09-03T09:08:37+00:00"
+            "time": "2018-09-03 09:08:37"
         },
         {
             "name": "oander/module-ocevent",
@@ -8535,7 +8536,7 @@
                 }
             ],
             "description": "Oander Connect Event Manager",
-            "time": "2018-09-14T13:34:08+00:00"
+            "time": "2018-09-14 13:34:08"
         },
         {
             "name": "oander/module-ocqueue",
@@ -8571,7 +8572,7 @@
                 }
             ],
             "description": "Queue module for OanderConnect",
-            "time": "2018-09-14T13:38:05+00:00"
+            "time": "2018-09-14 13:38:05"
         },
         {
             "name": "oander/module-order-attachment",
@@ -8598,7 +8599,7 @@
                 "proprietary"
             ],
             "description": "Order Attachment",
-            "time": "2017-12-15T09:55:59+00:00"
+            "time": "2017-12-15 09:55:59"
         },
         {
             "name": "oander/module-order-comment",
@@ -8625,7 +8626,7 @@
                 "proprietary"
             ],
             "description": "Save Order Comment to Order",
-            "time": "2017-05-25T08:49:06+00:00"
+            "time": "2017-05-25 08:49:06"
         },
         {
             "name": "oander/module-order-status-label",
@@ -8651,7 +8652,7 @@
                 "proprietary"
             ],
             "description": "Order status label patch",
-            "time": "2018-08-21T10:44:03+00:00"
+            "time": "2018-08-21 10:44:03"
         },
         {
             "name": "oander/module-orderstatuscanceller",
@@ -8676,7 +8677,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2018-06-14T07:55:56+00:00"
+            "time": "2018-06-14 07:55:56"
         },
         {
             "name": "oander/module-paypal",
@@ -8703,7 +8704,7 @@
                 "proprietary"
             ],
             "description": "Oander PayPal",
-            "time": "2017-01-04T11:42:27+00:00"
+            "time": "2017-01-04 11:42:27"
         },
         {
             "name": "oander/module-pleisty",
@@ -8725,7 +8726,7 @@
                     "Oander\\Pleisty\\": ""
                 }
             },
-            "time": "2018-05-02T19:05:35+00:00"
+            "time": "2018-05-02 19:05:35"
         },
         {
             "name": "oander/module-pos-locations",
@@ -8752,7 +8753,7 @@
                 "proprietary"
             ],
             "description": "Oander POS Locations module",
-            "time": "2018-09-26T09:46:09+00:00"
+            "time": "2018-09-26 09:46:09"
         },
         {
             "name": "oander/module-preorder",
@@ -8780,7 +8781,7 @@
                 "proprietary"
             ],
             "description": "Oander Preorder",
-            "time": "2018-10-12T06:46:14+00:00"
+            "time": "2018-10-12 06:46:14"
         },
         {
             "name": "oander/module-price-tooltip",
@@ -8807,7 +8808,7 @@
                 "proprietary"
             ],
             "description": "Oander Price Tooltip module",
-            "time": "2017-05-30T12:26:11+00:00"
+            "time": "2017-05-30 12:26:11"
         },
         {
             "name": "oander/module-product-icons",
@@ -8834,7 +8835,7 @@
                 "proprietary"
             ],
             "description": "Oander Product Icons module",
-            "time": "2018-04-13T08:32:05+00:00"
+            "time": "2018-04-13 08:32:05"
         },
         {
             "name": "oander/module-producturlresolver",
@@ -8860,7 +8861,7 @@
                 "proprietary"
             ],
             "description": "Config product Simple resolver",
-            "time": "2018-04-09T15:31:35+00:00"
+            "time": "2018-04-09 15:31:35"
         },
         {
             "name": "oander/module-safe-category-index",
@@ -8885,7 +8886,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2018-07-12T05:25:56+00:00"
+            "time": "2018-07-12 05:25:56"
         },
         {
             "name": "oander/module-salesforce",
@@ -8912,7 +8913,7 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2018-09-28T19:29:15+00:00"
+            "time": "2018-09-28 19:29:15"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -8940,7 +8941,7 @@
                 "proprietary"
             ],
             "description": "salesforce-widget",
-            "time": "2018-06-15T13:02:11+00:00"
+            "time": "2018-06-15 13:02:11"
         },
         {
             "name": "oander/module-salesforcereservation",
@@ -8976,7 +8977,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-10-19T11:26:01+00:00"
+            "time": "2018-10-19 11:26:01"
         },
         {
             "name": "oander/module-shipping",
@@ -9003,7 +9004,7 @@
                 "proprietary"
             ],
             "description": "Shipping",
-            "time": "2018-02-20T13:54:50+00:00"
+            "time": "2018-02-20 13:54:50"
         },
         {
             "name": "oander/module-stuck-process-remover",
@@ -9029,7 +9030,7 @@
                 "proprietary"
             ],
             "description": "Remove all cron and indexer which exceeded the maximum allowed run time",
-            "time": "2018-07-31T15:08:23+00:00"
+            "time": "2018-07-31 15:08:23"
         },
         {
             "name": "oander/module-summit-leasing",
@@ -9057,7 +9058,7 @@
                 "proprietary"
             ],
             "description": "Magento2 Summit Leasing Payment Module",
-            "time": "2018-04-16T08:33:38+00:00"
+            "time": "2018-04-16 08:33:38"
         },
         {
             "name": "oander/module-test-base",
@@ -9083,7 +9084,7 @@
                 "proprietary"
             ],
             "description": "Test Base",
-            "time": "2017-06-19T13:25:11+00:00"
+            "time": "2017-06-19 13:25:11"
         },
         {
             "name": "oander/module-translateextended",
@@ -9108,7 +9109,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2018-05-22T08:02:45+00:00"
+            "time": "2018-05-22 08:02:45"
         },
         {
             "name": "oander/module-trustedshop",
@@ -9135,7 +9136,7 @@
                 "proprietary"
             ],
             "description": "Árukereső Megbízható Bolt Program",
-            "time": "2018-05-28T11:42:37+00:00"
+            "time": "2018-05-28 11:42:37"
         },
         {
             "name": "oander/module-trustedshop-warehouse-extension",
@@ -9163,7 +9164,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Extension for Árukereső Megbízható Bolt Program",
-            "time": "2018-05-16T07:30:24+00:00"
+            "time": "2018-05-16 07:30:24"
         },
         {
             "name": "oander/module-type-hint-fix",
@@ -9189,7 +9190,7 @@
                 "proprietary"
             ],
             "description": "Type Hint Fix",
-            "time": "2018-03-23T08:14:00+00:00"
+            "time": "2018-03-23 08:14:00"
         },
         {
             "name": "oander/module-unity-dpd-cz-pickup",
@@ -9219,7 +9220,7 @@
                 "proprietary"
             ],
             "description": "Oander Unity Dpd CZ Pickup",
-            "time": "2018-08-06T16:06:29+00:00"
+            "time": "2018-08-06 16:06:29"
         },
         {
             "name": "oander/module-unity-dpd-sk-pickup",
@@ -9249,7 +9250,7 @@
                 "proprietary"
             ],
             "description": "Oander Unity Dpd SK Pickup",
-            "time": "2018-08-06T16:06:44+00:00"
+            "time": "2018-08-06 16:06:44"
         },
         {
             "name": "oander/module-unity-pickup",
@@ -9280,7 +9281,7 @@
                 "proprietary"
             ],
             "description": "Oander Unity Pickup",
-            "time": "2018-09-18T09:51:10+00:00"
+            "time": "2018-09-18 09:51:10"
         },
         {
             "name": "oander/module-warehouse-manager",
@@ -9310,7 +9311,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-10-19T14:42:07+00:00"
+            "time": "2018-10-19 14:42:07"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
@@ -9338,7 +9339,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager + Api Index",
-            "time": "2018-07-11T18:29:22+00:00"
+            "time": "2018-07-11 18:29:22"
         },
         {
             "name": "oander/module-wonder-widget",
@@ -9365,7 +9366,7 @@
                 "proprietary"
             ],
             "description": "Block Builder to build banners and different kind of Magento blocks by Magento 2 Widget Feature.",
-            "time": "2018-06-18T12:40:48+00:00"
+            "time": "2018-06-18 12:40:48"
         },
         {
             "name": "oander/module-xtento-order-export-extender",
@@ -9393,7 +9394,7 @@
                 "proprietary"
             ],
             "description": "Xtento Order Export Extender",
-            "time": "2018-04-16T15:10:29+00:00"
+            "time": "2018-04-16 15:10:29"
         },
         {
             "name": "oander/module-xtento-order-unity-pickup-export",
@@ -9423,7 +9424,7 @@
                 "proprietary"
             ],
             "description": "Xtento Order Unity Pickup Export",
-            "time": "2018-01-08T11:34:04+00:00"
+            "time": "2018-01-08 11:34:04"
         },
         {
             "name": "oander/theme-hodor",
@@ -9447,7 +9448,7 @@
                 "proprietary"
             ],
             "description": "Hodor template",
-            "time": "2018-06-25T12:40:24+00:00"
+            "time": "2018-06-25 12:40:24"
         },
         {
             "name": "oander/theme-istyle",
@@ -9455,7 +9456,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "f9dce4c04c8d370a8429dddd0a194390643b52b3"
+                "reference": "53cb8bf58d7db63d0a561fa5779a618d0c60f00b"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9471,7 +9472,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-10-25T09:31:44+00:00"
+            "time": "2018-10-26 10:35:14"
         },
         {
             "name": "oyejorge/less.php",
@@ -9533,7 +9534,7 @@
                 "php",
                 "stylesheet"
             ],
-            "time": "2017-03-28T22:19:25+00:00"
+            "time": "2017-03-28 22:19:25"
         },
         {
             "name": "pelago/emogrifier",
@@ -9589,7 +9590,7 @@
             ],
             "description": "Converts CSS styles into inline style attributes in your HTML code",
             "homepage": "http://www.pelagodesign.com/sidecar/emogrifier/",
-            "time": "2015-05-15T11:37:51+00:00"
+            "time": "2015-05-15 11:37:51"
         },
         {
             "name": "phpcollection/phpcollection",
@@ -9637,7 +9638,7 @@
                 "sequence",
                 "set"
             ],
-            "time": "2015-05-17T12:39:23+00:00"
+            "time": "2015-05-17 12:39:23"
         },
         {
             "name": "phpoption/phpoption",
@@ -9687,7 +9688,7 @@
                 "php",
                 "type"
             ],
-            "time": "2015-07-25T16:39:46+00:00"
+            "time": "2015-07-25 16:39:46"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -9779,7 +9780,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2018-04-15T16:55:05+00:00"
+            "time": "2018-04-15 16:55:05"
         },
         {
             "name": "plugincompany/customergroupswitching",
@@ -9805,7 +9806,7 @@
             "license": [
                 "Proprietary"
             ],
-            "time": "2018-06-25T14:38:21+00:00"
+            "time": "2018-06-25 14:38:21"
         },
         {
             "name": "plugincompany/licensemanager",
@@ -9830,7 +9831,7 @@
             "license": [
                 "custom"
             ],
-            "time": "2018-05-23T05:38:11+00:00"
+            "time": "2018-05-23 05:38:11"
         },
         {
             "name": "psr/http-message",
@@ -9880,7 +9881,7 @@
                 "request",
                 "response"
             ],
-            "time": "2016-08-06T14:39:51+00:00"
+            "time": "2016-08-06 14:39:51"
         },
         {
             "name": "psr/log",
@@ -9927,7 +9928,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10T12:19:37+00:00"
+            "time": "2016-10-10 12:19:37"
         },
         {
             "name": "replace/module-buyback-calculator",
@@ -9950,7 +9951,7 @@
                 }
             },
             "description": "Rework Replace Buyback Calculator",
-            "time": "2018-08-01T07:25:44+00:00"
+            "time": "2018-08-01 07:25:44"
         },
         {
             "name": "rudracomputech/module-nestpay",
@@ -9976,7 +9977,7 @@
                 "proprietary"
             ],
             "description": "Nestpay",
-            "time": "2018-09-14T09:29:59+00:00"
+            "time": "2018-09-14 09:29:59"
         },
         {
             "name": "seld/cli-prompt",
@@ -10024,7 +10025,7 @@
                 "input",
                 "prompt"
             ],
-            "time": "2017-03-18T11:32:45+00:00"
+            "time": "2017-03-18 11:32:45"
         },
         {
             "name": "seld/jsonlint",
@@ -10073,7 +10074,7 @@
                 "parser",
                 "validator"
             ],
-            "time": "2018-01-24T12:46:19+00:00"
+            "time": "2018-01-24 12:46:19"
         },
         {
             "name": "seld/phar-utils",
@@ -10117,7 +10118,7 @@
             "keywords": [
                 "phra"
             ],
-            "time": "2015-10-13T18:44:15+00:00"
+            "time": "2015-10-13 18:44:15"
         },
         {
             "name": "sjparkinson/static-review",
@@ -10171,7 +10172,7 @@
             ],
             "description": "An extendable framework for version control hooks.",
             "abandoned": "phpro/grumphp",
-            "time": "2014-09-22T08:40:36+00:00"
+            "time": "2014-09-22 08:40:36"
         },
         {
             "name": "swedbank-spp/swedbank-payment-portal",
@@ -10209,7 +10210,7 @@
                 "MIT"
             ],
             "description": "The Swedbank Payment Portal API Library provides access to the online banking system through which e-commerce transactions can be initiated and fulfilled by facilitating the exchange of bank data.",
-            "time": "2018-03-29T09:21:28+00:00"
+            "time": "2018-03-29 09:21:28"
         },
         {
             "name": "symfony/config",
@@ -10266,7 +10267,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2018-09-08T12:44:02+00:00"
+            "time": "2018-09-08 12:44:02"
         },
         {
             "name": "symfony/console",
@@ -10324,7 +10325,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2015-07-26T09:08:40+00:00"
+            "time": "2015-07-26 09:08:40"
         },
         {
             "name": "symfony/dependency-injection",
@@ -10387,7 +10388,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2018-09-08T12:44:02+00:00"
+            "time": "2018-09-08 12:44:02"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -10447,7 +10448,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2018-07-26T09:03:18+00:00"
+            "time": "2018-07-26 09:03:18"
         },
         {
             "name": "symfony/filesystem",
@@ -10497,7 +10498,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2018-09-24T08:04:37+00:00"
+            "time": "2018-09-24 08:04:37"
         },
         {
             "name": "symfony/finder",
@@ -10546,7 +10547,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-03T08:46:40+00:00"
+            "time": "2018-10-03 08:46:40"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -10604,7 +10605,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2018-08-06T14:22:27+00:00"
+            "time": "2018-08-06 14:22:27"
         },
         {
             "name": "symfony/process",
@@ -10653,7 +10654,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2018-09-06T17:11:15+00:00"
+            "time": "2018-09-06 17:11:15"
         },
         {
             "name": "symfony/yaml",
@@ -10703,7 +10704,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-08-29T13:11:53+00:00"
+            "time": "2018-08-29 13:11:53"
         },
         {
             "name": "tedivm/jshrink",
@@ -10749,7 +10750,7 @@
                 "javascript",
                 "minifier"
             ],
-            "time": "2014-11-11T03:54:14+00:00"
+            "time": "2014-11-11 03:54:14"
         },
         {
             "name": "tubalmartin/cssmin",
@@ -10793,7 +10794,7 @@
                 "minify",
                 "yui"
             ],
-            "time": "2014-09-22T08:08:50+00:00"
+            "time": "2014-09-22 08:08:50"
         },
         {
             "name": "xtento/module-orderexport",
@@ -10831,7 +10832,7 @@
             "support": {
                 "email": "info@xtento.com"
             },
-            "time": "2017-11-15T12:38:33+00:00"
+            "time": "2017-11-15 12:38:33"
         },
         {
             "name": "xtento/module-xtcore",
@@ -10868,7 +10869,7 @@
             "support": {
                 "email": "info@xtento.com"
             },
-            "time": "2017-11-15T12:35:36+00:00"
+            "time": "2017-11-15 12:35:36"
         },
         {
             "name": "zendframework/zend-code",
@@ -10921,7 +10922,7 @@
                 "code",
                 "zf2"
             ],
-            "time": "2015-05-11T16:17:05+00:00"
+            "time": "2015-05-11 16:17:05"
         },
         {
             "name": "zendframework/zend-config",
@@ -10978,7 +10979,7 @@
                 "config",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-console",
@@ -11028,7 +11029,7 @@
                 "console",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-crypt",
@@ -11080,7 +11081,7 @@
                 "crypt",
                 "zf2"
             ],
-            "time": "2015-11-23T16:33:27+00:00"
+            "time": "2015-11-23 16:33:27"
         },
         {
             "name": "zendframework/zend-di",
@@ -11131,7 +11132,7 @@
                 "di",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-escaper",
@@ -11176,7 +11177,7 @@
                 "escaper",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-eventmanager",
@@ -11222,7 +11223,7 @@
                 "eventmanager",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-filter",
@@ -11278,7 +11279,7 @@
                 "filter",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-form",
@@ -11349,7 +11350,7 @@
                 "form",
                 "zf2"
             ],
-            "time": "2015-09-09T19:11:05+00:00"
+            "time": "2015-09-09 19:11:05"
         },
         {
             "name": "zendframework/zend-http",
@@ -11400,7 +11401,7 @@
                 "http",
                 "zf2"
             ],
-            "time": "2015-09-14T16:11:20+00:00"
+            "time": "2015-09-14 16:11:20"
         },
         {
             "name": "zendframework/zend-i18n",
@@ -11464,7 +11465,7 @@
                 "i18n",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-inputfilter",
@@ -11515,7 +11516,7 @@
                 "inputfilter",
                 "zf2"
             ],
-            "time": "2015-09-09T15:44:54+00:00"
+            "time": "2015-09-09 15:44:54"
         },
         {
             "name": "zendframework/zend-json",
@@ -11569,7 +11570,7 @@
                 "json",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-loader",
@@ -11614,7 +11615,7 @@
                 "loader",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-log",
@@ -11676,7 +11677,7 @@
                 "logging",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-math",
@@ -11727,7 +11728,7 @@
                 "math",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-modulemanager",
@@ -11785,7 +11786,7 @@
                 "modulemanager",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-mvc",
@@ -11873,7 +11874,7 @@
                 "mvc",
                 "zf2"
             ],
-            "time": "2015-09-14T16:32:50+00:00"
+            "time": "2015-09-14 16:32:50"
         },
         {
             "name": "zendframework/zend-serializer",
@@ -11926,7 +11927,7 @@
                 "serializer",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-server",
@@ -11973,7 +11974,7 @@
                 "server",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-servicemanager",
@@ -12023,7 +12024,7 @@
                 "servicemanager",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-soap",
@@ -12075,7 +12076,7 @@
                 "soap",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-stdlib",
@@ -12130,7 +12131,7 @@
                 "stdlib",
                 "zf2"
             ],
-            "time": "2015-07-21T13:55:46+00:00"
+            "time": "2015-07-21 13:55:46"
         },
         {
             "name": "zendframework/zend-text",
@@ -12177,7 +12178,7 @@
                 "text",
                 "zf2"
             ],
-            "time": "2015-05-07T14:55:31+00:00"
+            "time": "2015-05-07 14:55:31"
         },
         {
             "name": "zendframework/zend-uri",
@@ -12225,7 +12226,7 @@
                 "uri",
                 "zf2"
             ],
-            "time": "2015-09-14T16:17:10+00:00"
+            "time": "2015-09-14 16:17:10"
         },
         {
             "name": "zendframework/zend-validator",
@@ -12290,7 +12291,7 @@
                 "validator",
                 "zf2"
             ],
-            "time": "2015-09-08T21:04:17+00:00"
+            "time": "2015-09-08 21:04:17"
         },
         {
             "name": "zendframework/zend-view",
@@ -12367,7 +12368,7 @@
                 "view",
                 "zf2"
             ],
-            "time": "2015-06-16T15:22:37+00:00"
+            "time": "2015-06-16 15:22:37"
         }
     ],
     "packages-dev": [
@@ -12428,7 +12429,7 @@
             ],
             "description": "A tool to automatically fix PHP code style",
             "abandoned": "friendsofphp/php-cs-fixer",
-            "time": "2017-09-11T14:11:16+00:00"
+            "time": "2017-09-11 14:11:16"
         },
         {
             "name": "lusitanian/oauth",
@@ -12495,7 +12496,7 @@
                 "oauth",
                 "security"
             ],
-            "time": "2015-10-07T00:20:04+00:00"
+            "time": "2015-10-07 00:20:04"
         },
         {
             "name": "pdepend/pdepend",
@@ -12535,7 +12536,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2015-10-16T08:49:58+00:00"
+            "time": "2015-10-16 08:49:58"
         },
         {
             "name": "phpmd/phpmd",
@@ -12600,7 +12601,7 @@
                 "phpmd",
                 "pmd"
             ],
-            "time": "2016-11-23T20:33:32+00:00"
+            "time": "2016-11-23 20:33:32"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -12662,7 +12663,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-10-06T15:47:00+00:00"
+            "time": "2015-10-06 15:47:00"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -12707,7 +12708,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2013-10-10T15:34:57+00:00"
+            "time": "2013-10-10 15:34:57"
         },
         {
             "name": "phpunit/php-text-template",
@@ -12748,7 +12749,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2015-06-21T13:50:34+00:00"
+            "time": "2015-06-21 13:50:34"
         },
         {
             "name": "phpunit/php-timer",
@@ -12797,7 +12798,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2017-02-26T11:10:40+00:00"
+            "time": "2017-02-26 11:10:40"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -12846,7 +12847,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-12-04T08:55:13+00:00"
+            "time": "2017-12-04 08:55:13"
         },
         {
             "name": "phpunit/phpunit",
@@ -12920,7 +12921,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-05-02T07:13:40+00:00"
+            "time": "2014-05-02 07:13:40"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -12976,7 +12977,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2015-10-02T06:51:40+00:00"
+            "time": "2015-10-02 06:51:40"
         },
         {
             "name": "sebastian/comparator",
@@ -13040,7 +13041,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2017-01-29T09:50:25+00:00"
+            "time": "2017-01-29 09:50:25"
         },
         {
             "name": "sebastian/diff",
@@ -13092,7 +13093,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2017-05-22T07:24:03+00:00"
+            "time": "2017-05-22 07:24:03"
         },
         {
             "name": "sebastian/environment",
@@ -13142,7 +13143,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2016-08-18T05:49:44+00:00"
+            "time": "2016-08-18 05:49:44"
         },
         {
             "name": "sebastian/exporter",
@@ -13209,7 +13210,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2016-06-17T09:04:28+00:00"
+            "time": "2016-06-17 09:04:28"
         },
         {
             "name": "sebastian/finder-facade",
@@ -13248,7 +13249,7 @@
             ],
             "description": "FinderFacade is a convenience wrapper for Symfony's Finder component.",
             "homepage": "https://github.com/sebastianbergmann/finder-facade",
-            "time": "2017-11-18T17:31:49+00:00"
+            "time": "2017-11-18 17:31:49"
         },
         {
             "name": "sebastian/phpcpd",
@@ -13299,7 +13300,7 @@
             ],
             "description": "Copy/Paste Detector (CPD) for PHP code.",
             "homepage": "https://github.com/sebastianbergmann/phpcpd",
-            "time": "2013-11-08T09:05:42+00:00"
+            "time": "2013-11-08 09:05:42"
         },
         {
             "name": "sebastian/recursion-context",
@@ -13352,7 +13353,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2016-10-03T07:41:43+00:00"
+            "time": "2016-10-03 07:41:43"
         },
         {
             "name": "sebastian/version",
@@ -13387,7 +13388,7 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2015-06-21T13:59:46+00:00"
+            "time": "2015-06-21 13:59:46"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -13462,7 +13463,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2014-05-01T03:07:07+00:00"
+            "time": "2014-05-01 03:07:07"
         },
         {
             "name": "symfony/stopwatch",
@@ -13511,7 +13512,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-02T12:28:39+00:00"
+            "time": "2018-10-02 12:28:39"
         },
         {
             "name": "theseer/fdomdocument",
@@ -13551,7 +13552,7 @@
             ],
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
-            "time": "2017-06-30T11:53:12+00:00"
+            "time": "2017-06-30 11:53:12"
         }
     ],
     "aliases": [],
