@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a329a54c80b7c6dba354744ba2aded6",
+    "content-hash": "9a3cf50b0b13ec914e40eba4ba7b182b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1395,11 +1395,11 @@
         },
         {
             "name": "innobyte/module-cetelem",
-            "version": "0.0.8.1",
+            "version": "0.0.8.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-cetelem.git",
-                "reference": "d9205ae0f181642d2af4fd1f2540a01e1377cd14"
+                "reference": "71d34dea807d2612c332298a3a525dbf65962b7f"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1415,7 +1415,7 @@
                 }
             },
             "description": "Innobyte Cetelem Module",
-            "time": "2018-10-13T07:56:16+00:00"
+            "time": "2018-10-29T09:14:05+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
@@ -6471,12 +6471,6 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
-                "reference": null,
-                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
-            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
