@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "08036bbc8ff168d20eed48893e1cc77b",
+    "content-hash": "70fb5e590b126666f016371ce36f07d4",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6422,12 +6422,6 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
-                "reference": null,
-                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
-            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -8735,11 +8729,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.6",
+            "version": "1.1.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "f043a19ccdfed9f4312771b579f5c6a5df658b4b"
+                "reference": "63fdba1c7f1ce46206274bc4137a25675e4fb2ad"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -8767,7 +8761,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-10-19T11:26:01+00:00"
+            "time": "2018-10-29T10:56:16+00:00"
         },
         {
             "name": "oander/module-shipping",
