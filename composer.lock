@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9fd29e6581afbbd159f7fa6ba8bf8782",
+    "content-hash": "bba27f3cb688708324c95d4962b654b2",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6471,6 +6471,12 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
+                "reference": null,
+                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
+            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -7501,11 +7507,11 @@
         },
         {
             "name": "oander/module-api-gateway",
-            "version": "1.0.22",
+            "version": "1.0.23",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-gateway.git",
-                "reference": "bb46e38b63022a6f592e0173c9aa9402df40498d"
+                "reference": "ec4c039adbc78f325589173b2b048a949df0b86b"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7525,7 +7531,7 @@
                 "proprietary"
             ],
             "description": "The API Gateway module for ERP connections and import solutions.",
-            "time": "2018-10-13T11:59:11+00:00"
+            "time": "2018-10-29T13:37:20+00:00"
         },
         {
             "name": "oander/module-api-image",
