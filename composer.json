@@ -128,7 +128,7 @@
         "rudracomputech/module-nestpay": "2.0.6.5",
         "xtento/module-orderexport": "2.3.9",
         "xtento/module-xtcore": "2.1.0",
-        "innobyte/module-inbank": "1.0.1",
+        "innobyte/module-inbank": "1.0.1.1",
         "oander/module-orderstatuscanceller": "1.0.3",
         "fancourier/customshipping":"2.1.14"
     },
