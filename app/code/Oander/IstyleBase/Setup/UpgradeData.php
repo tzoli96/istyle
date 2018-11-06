@@ -92,6 +92,10 @@ class UpgradeData implements UpgradeDataInterface
             $this->upgrade_1_0_1($setup);
         }
 
+        if ($context->getVersion() && version_compare($context->getVersion(), '1.0.2') < 0) {
+            $this->upgrade_1_0_2($setup);
+        }
+
         if ($context->getVersion() && version_compare($context->getVersion(), '1.0.3') < 0) {
             $this->upgrade_1_0_3($setup);
         }
@@ -101,6 +105,24 @@ class UpgradeData implements UpgradeDataInterface
         }
 
         $setup->endSetup();
+    }
+
+    /**
+     * @param ModuleDataSetupInterface $setup
+     */
+    public function upgrade_1_0_2(ModuleDataSetupInterface $setup)
+    {
+        $this->eavSetup->removeAttribute(Product::ENTITY, OldPrice::PRICE_CODE);
+        $this->eavSetup->addAttribute(Product::ENTITY, OldPrice::PRICE_CODE, [
+            'type'                    => 'decimal',
+            'backend'                 => Price::class,
+            'label'                   => 'Old price',
+            'input'                   => 'price',
+            'required'                => false,
+            'global'                  => ScopedAttributeInterface::SCOPE_GLOBAL,
+            'group'                   => 'General',
+            'used_in_product_listing' => true,
+        ]);
     }
 
 

@@ -34,5 +34,10 @@
                 type="Oander\IstyleCustomization\Model\Export\Data\Shared\Items" />
     <preference for="Oander\CategoryDropdown\Magento\Theme\Block\Html\Topmenu"
                 type="Oander\IstyleCustomization\Block\Html\Topmenu" />
-
+    <type name="Magento\Quote\Model\QuoteRepository\SaveHandler">
+        <plugin name="move_pfpj_reg_no_data_from_extension_attributes_to_flat_table" type="Oander\IstyleCustomization\Plugin\Quote\Model\QuoteRepository\SaveHandler"/>
+    </type>
+    <type name="Magento\Quote\Model\Quote\Address\ToOrderAddress">
+        <plugin name="move_pfpj_reg_no_field_from_quote_address_to_order_address" type="Oander\IstyleCustomization\Plugin\Quote\Model\Quote\Address\ToOrderAddress"/>
+    </type>
 </config>
