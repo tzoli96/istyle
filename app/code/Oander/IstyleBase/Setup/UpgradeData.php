@@ -92,10 +92,6 @@ class UpgradeData implements UpgradeDataInterface
             $this->upgrade_1_0_1($setup);
         }
 
-        if ($context->getVersion() && version_compare($context->getVersion(), '1.0.2') < 0) {
-            $this->upgrade_1_0_2($setup);
-        }
-
         if ($context->getVersion() && version_compare($context->getVersion(), '1.0.3') < 0) {
             $this->upgrade_1_0_3($setup);
         }
@@ -104,32 +100,17 @@ class UpgradeData implements UpgradeDataInterface
             $this->upgrade_1_0_4($setup);
         }
 
+        if ($context->getVersion() && version_compare($context->getVersion(), '1.0.5') < 0) {
+            $this->upgrade_1_0_5($setup);
+        }
+
         $setup->endSetup();
     }
 
     /**
      * @param ModuleDataSetupInterface $setup
      */
-    public function upgrade_1_0_2(ModuleDataSetupInterface $setup)
-    {
-        $this->eavSetup->removeAttribute(Product::ENTITY, OldPrice::PRICE_CODE);
-        $this->eavSetup->addAttribute(Product::ENTITY, OldPrice::PRICE_CODE, [
-            'type'                    => 'decimal',
-            'backend'                 => Price::class,
-            'label'                   => 'Old price',
-            'input'                   => 'price',
-            'required'                => false,
-            'global'                  => ScopedAttributeInterface::SCOPE_GLOBAL,
-            'group'                   => 'General',
-            'used_in_product_listing' => true,
-        ]);
-    }
-
-
-    /**
-     * @param ModuleDataSetupInterface $setup
-     */
-    public function upgrade_1_0_4(ModuleDataSetupInterface $setup)
+    public function upgrade_1_0_5(ModuleDataSetupInterface $setup)
     {
         $this->eavSetup->removeAttribute(Product::ENTITY, OldPrice::PRICE_CODE);
         $this->eavSetup->addAttribute(Product::ENTITY, OldPrice::PRICE_CODE, [
@@ -142,6 +123,24 @@ class UpgradeData implements UpgradeDataInterface
             'global'                  => ScopedAttributeInterface::SCOPE_WEBSITE,
             'used_in_product_listing' => true,
             'group'                   => 'General'
+        ]);
+    }
+
+    /**
+     * @param ModuleDataSetupInterface $setup
+     */
+    public function upgrade_1_0_4(ModuleDataSetupInterface $setup)
+    {
+        $this->eavSetup->removeAttribute(Product::ENTITY, OldPrice::PRICE_CODE);
+        $this->eavSetup->addAttribute(Product::ENTITY, OldPrice::PRICE_CODE, [
+            'type'                    => 'decimal',
+            'backend'                 => Price::class,
+            'label'                   => 'Old price',
+            'input'                   => 'price',
+            'required'                => false,
+            'global'                  => ScopedAttributeInterface::SCOPE_GLOBAL,
+            'group'                   => 'General',
+            'used_in_product_listing' => true,
         ]);
     }
 
