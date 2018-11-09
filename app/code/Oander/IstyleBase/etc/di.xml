@@ -38,4 +38,19 @@
 
     <preference for="Oander\WarehouseManager\Model\Indexer\WarehouseItem"
                 type="Oander\IstyleBase\Model\Indexer\WarehouseItem"/>
+
+    <virtualType name="Magento\Catalog\Pricing\Price\Pool">
+        <arguments>
+            <argument name="prices" xsi:type="array">
+                <item name="old_price" xsi:type="string">Oander\IstyleBase\Pricing\OldPrice</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <preference for="Oander\ConfigurableProductAttribute\Magento\Swatches\Block\Product\Renderer\Configurable"
+                type="Oander\IstyleBase\Magento\ConfigurableProduct\Block\Product\View\Type\Configurable"/>
+
+    <preference for="Oander\DiscountBadge\Model\DiscountCalculator"
+                type="Oander\IstyleBase\DiscountBadge\Model\DiscountCalculator"/>
+
 </config>
