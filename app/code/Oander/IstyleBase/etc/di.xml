@@ -53,4 +53,6 @@
     <preference for="Oander\DiscountBadge\Model\DiscountCalculator"
                 type="Oander\IstyleBase\DiscountBadge\Model\DiscountCalculator"/>
 
+    <preference for="Amasty\Promo\Plugin\Block\Product\Simple"
+                type="Oander\IstyleBase\Amasty\Promo\Plugin\Block\Product\Simple"/>
 </config>
