@@ -23,7 +23,6 @@ class FinalPrice extends \Magento\Catalog\Pricing\Price\FinalPrice
 
         if ((float)$oldPrice > (float)$price
             && (float)$finalPriceTmp === (float)$price
-            && (float)$finalPrice === (float)$oldPrice
         ) {
             $finalPrice = $price;
         }
