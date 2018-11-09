@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5f7c7ab787660adcbf91aeeb810487fd",
+    "content-hash": "06273abd250e74d024d31b056e1a5bd7",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6427,6 +6427,12 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
+                "reference": null,
+                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
+            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -9016,11 +9022,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.18",
+            "version": "1.4.19",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "04ec1f2f5fff7458fe4cf74c0fb0e7af7304e3f2"
+                "reference": "db6341aa2c6176c57e3fb8faac02dea3df97089e"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9042,7 +9048,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-10-26T12:32:23+00:00"
+            "time": "2018-11-09T09:57:30+00:00"
         },
         {
             "name": "oander/module-wonder-widget",
