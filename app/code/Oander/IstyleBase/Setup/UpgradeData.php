@@ -15,23 +15,17 @@
  * @license Oander Media Kft. (http://www.oander.hu)
  */
 
-declare(strict_types=1);
-
 namespace Oander\IstyleBase\Setup;
 
-use Magento\Catalog\Model\Product;
-use Magento\Catalog\Model\Product\Attribute\Backend\Price;
 use Magento\Cms\Api\BlockRepositoryInterface;
 use Magento\Cms\Api\Data\BlockInterface;
 use Magento\Cms\Api\Data\BlockInterfaceFactory;
 use Magento\Cms\Model\Block;
-use Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface;
 use Magento\Eav\Setup\EavSetup;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\UpgradeDataInterface;
 use Oander\Base\Model\Setup\ResourceReaderTrait;
-use Oander\IstyleBase\Pricing\OldPrice;
 
 /**
  * Class UpgradeData
