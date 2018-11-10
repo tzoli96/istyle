@@ -18,14 +18,12 @@ declare(strict_types = 1);
 
 namespace Oander\IstyleBase\Plugin\Catalog\Model;
 
-use Magento\Framework\Exception\NoSuchEntityException;
-
 /**
  * Class Product
  *
  * @package Oander\IstyleBase\Plugin\Catalog\Model
  */
-class Product extends \Magento\Catalog\Model\Product
+class Product
 {
     /**
      * @param             $subject
@@ -54,26 +52,5 @@ class Product extends \Magento\Catalog\Model\Product
         }else{
             return false;
         }
-    }
-
-    /**
-     * Get product status
-     *
-     * @return int
-     */
-    public function aroundGetStatus($subject, \Closure $method)
-    {
-        $status = $subject->_getData(\Magento\Catalog\Model\Product::STATUS);
-
-        if ($status === null) {
-            try {
-                $defaultStatus = $subject->metadataService->get(\Magento\Catalog\Model\Product::STATUS);
-                $status = $defaultStatus->getDefaultValue();
-            } catch (NoSuchEntityException $e) {
-                $status = \Magento\Catalog\Model\Product\Attribute\Source\Status::STATUS_ENABLED;
-            }
-        }
-
-        return $status;
     }
 }
