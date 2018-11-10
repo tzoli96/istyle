@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8bdfc6d4d5c83b902bba5c0ed8cb442c",
+    "content-hash": "5fe6dbb2555e262391aaffce130e7412",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6476,12 +6476,6 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
-                "reference": null,
-                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
-            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -7282,11 +7276,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.7",
+            "version": "1.0.8.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "5f6b166150c3f53d65d43b9f5a1fabd528bb8ed7"
+                "reference": "dd0c6f9c28857e760d7e7197f1e34bbc5ec9eb02"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7307,7 +7301,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2018-11-07T18:47:02+00:00"
+            "time": "2018-11-09T15:53:10+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
@@ -9493,7 +9487,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "4f56fb2a4c3d06a9bbe01b3230333876ecd9afc7"
+                "reference": "683ed23dce315606794b0d2b640f1c96a46ae9b8"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9509,7 +9503,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-11-08T09:25:19+00:00"
+            "time": "2018-11-09T13:27:30+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -9969,11 +9963,11 @@
         },
         {
             "name": "replace/module-buyback-calculator",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/replace-buyback-calculator.git",
-                "reference": "d01d84487234447129cb7403118f7dadd4c124c9"
+                "reference": "d410e2cd0700fc4dba80ac9d08e5ce758ac62100"
             },
             "require": {
                 "php": "7.0.2|7.0.4|~7.0.6"
@@ -9988,7 +9982,7 @@
                 }
             },
             "description": "Rework Replace Buyback Calculator",
-            "time": "2018-08-01T07:25:44+00:00"
+            "time": "2018-11-09T13:24:49+00:00"
         },
         {
             "name": "rudracomputech/module-nestpay",
