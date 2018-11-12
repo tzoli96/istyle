@@ -31,9 +31,10 @@ class View
             'div.sidebar.main'
         ];
 
+        $isEnabled = $this->algoliaConfigHelper->isInstantEnabled($this->storeManager->getStore()->getId());
         $remove = $this->algoliaConfigHelper->replaceCategories($this->storeManager->getStore()->getId());
 
-        if ($remove) {
+        if ($isEnabled && $remove) {
             $layout = $page->getLayout();
             foreach ($removedLayouts as $removedLayout) {
                 $layout->unsetElement($removedLayout);
