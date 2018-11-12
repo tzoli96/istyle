@@ -7947,7 +7947,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "68834517aeaf3e8193cc44a03360090a3408006d"
+                "reference": "d762ae3cfec3908cacfe046960bc30541c12fe35"
             },
             "require": {
                 "php": "7.*"
@@ -7965,7 +7965,7 @@
                 "proprietary"
             ],
             "description": "Core bug fixes for Magento 2.x",
-            "time": "2018-10-09T09:11:30+00:00"
+            "time": "2018-11-12T16:07:19+00:00"
         },
         {
             "name": "oander/module-currency-manager",
