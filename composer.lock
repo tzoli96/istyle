@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "13ee65f9e9e588ad09db99a5013c4445",
+    "content-hash": "275ff6840b5f667df54ef8a1714caa2a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8532,11 +8532,11 @@
         },
         {
             "name": "oander/module-istyleaws",
-            "version": "1.0.4",
+            "version": "1.0.4.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-istyleaws.git",
-                "reference": "07bded619bd9a9a62f38fc57fe7853d0e4e2b427"
+                "reference": "c76595af17772f6080e22b42543ac948b832d4f3"
             },
             "require": {
                 "aws/aws-sdk-php": "3.71",
@@ -8561,7 +8561,7 @@
                 }
             ],
             "description": "Control Istyle Aws from magento",
-            "time": "2018-11-12T14:38:43+00:00"
+            "time": "2018-11-12T15:13:15+00:00"
         },
         {
             "name": "oander/module-lapker",
