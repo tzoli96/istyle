@@ -25,7 +25,10 @@ class OrderExportAfter implements ObserverInterface
                  */
                 $storeManager = $objectManager->create('\Magento\Store\Model\StoreManagerInterface');
                 $store = $storeManager->getStore($result['store_id']);
-                if (in_array($store->getCode(), ['cz_cz', 'sk_sk'])) {
+                if (isset($result['billing_address_id'])
+                    && isset($result['billing_address_id']['entity_id'])
+                    && in_array($store->getCode(), ['cz_cz', 'sk_sk'])
+                ) {
                     $billingAddress = $objectManager->create('\Magento\Sales\Model\Order\Address')->load($result['billing_address_id']['entity_id']);
                     if ($billingAddress) {
                         $companyRegistrationNumber = $billingAddress->getData('pfpj_reg_no');
