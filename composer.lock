@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0f6fa1397c9d57680cfba1db4be6e43a",
+    "content-hash": "229d1635b091fd99fe612eef34cc344b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6559,6 +6559,12 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
+                "reference": null,
+                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
+            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -7758,11 +7764,11 @@
         },
         {
             "name": "oander/module-api-product",
-            "version": "1.0.30",
+            "version": "1.0.31",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-product.git",
-                "reference": "33f55c9e85fa79b17e992be4c2038109eaedd0ad"
+                "reference": "ac3cd6844172a43a450ffdce48eb469c28e111ff"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7784,7 +7790,7 @@
                 "proprietary"
             ],
             "description": "Backend API to Product",
-            "time": "2018-10-29T08:20:05+00:00"
+            "time": "2018-11-12T10:28:43+00:00"
         },
         {
             "name": "oander/module-api-product-attribute",
