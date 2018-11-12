@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "229d1635b091fd99fe612eef34cc344b",
+    "content-hash": "13ee65f9e9e588ad09db99a5013c4445",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6559,12 +6559,6 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
-                "reference": null,
-                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
-            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -8538,11 +8532,11 @@
         },
         {
             "name": "oander/module-istyleaws",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-istyleaws.git",
-                "reference": "369b6b78f0461ef39da58b68c2d23254ad6431d2"
+                "reference": "07bded619bd9a9a62f38fc57fe7853d0e4e2b427"
             },
             "require": {
                 "aws/aws-sdk-php": "3.71",
@@ -8567,7 +8561,7 @@
                 }
             ],
             "description": "Control Istyle Aws from magento",
-            "time": "2018-11-11T21:56:15+00:00"
+            "time": "2018-11-12T14:38:43+00:00"
         },
         {
             "name": "oander/module-lapker",
@@ -9664,7 +9658,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "683ed23dce315606794b0d2b640f1c96a46ae9b8"
+                "reference": "d4c2b870b9a56ea89ef11a071a26846fbe3aa8dc"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9680,7 +9674,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-11-09T13:27:30+00:00"
+            "time": "2018-11-12T12:23:36+00:00"
         },
         {
             "name": "oyejorge/less.php",
