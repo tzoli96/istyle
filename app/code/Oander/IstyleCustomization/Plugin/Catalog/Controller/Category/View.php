@@ -6,11 +6,17 @@ namespace Oander\IstyleCustomization\Plugin\Catalog\Controller\Category;
 class View
 {
     protected $scopeConfig;
+    protected $algoliaConfigHelper;
+    protected $storeManager;
 
     public function __construct(
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
+        \Algolia\AlgoliaSearch\Helper\ConfigHelper $algoliaConfigHelper,
+        \Magento\Store\Model\StoreManagerInterface $storeManager
     ) {
         $this->scopeConfig = $scopeConfig;
+        $this->algoliaConfigHelper = $algoliaConfigHelper;
+        $this->storeManager = $storeManager;
     }
 
     /**
@@ -25,12 +31,11 @@ class View
             'div.sidebar.main'
         ];
 
-        $remove = (bool)$this->scopeConfig->getValue('algoliasearch_instant/instant/replace_categories', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+        $remove = $this->algoliaConfigHelper->replaceCategories($this->storeManager->getStore()->getId());
 
         if ($remove) {
             $layout = $page->getLayout();
             foreach ($removedLayouts as $removedLayout) {
-                //$block = $layout->getBlock($removedLayout);
                 $layout->unsetElement($removedLayout);
             }
         }
