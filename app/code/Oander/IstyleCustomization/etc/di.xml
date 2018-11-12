@@ -40,4 +40,8 @@
     </type>
     <preference for="Magento\Catalog\Model\Indexer\Product\Flat\TableBuilder" type="Oander\IstyleCustomization\Model\Indexer\Product\Flat\TableBuilder"/>
     <preference for="Magento\Catalog\Model\Indexer\Product\Flat\FlatTableBuilder" type="Oander\IstyleCustomization\Model\Indexer\Product\Flat\FlatTableBuilder"/>
+
+    <type name="\Magento\Catalog\Controller\Category\View">
+        <plugin name="remove_unnecessary_blocks" type="Oander\IstyleCustomization\Plugin\Catalog\Controller\Category\View"/>
+    </type>
 </config>
