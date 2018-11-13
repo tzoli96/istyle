@@ -31,4 +31,7 @@
     <type name="\Magento\Catalog\Controller\Category\View">
         <plugin name="remove_unnecessary_blocks" type="Oander\IstyleCustomization\Plugin\Catalog\Controller\Category\View"/>
     </type>
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="api_gateway_cache_clear_fix" type="Oander\IstyleCustomization\Plugin\Catalog\Model\Product"/>
+    </type>
 </config>
