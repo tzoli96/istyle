@@ -27,7 +27,6 @@
     </type>
     <preference for="Oander\WarehouseManager\Model\Indexer\WarehouseItem" type="Oander\IstyleBase\Model\Indexer\WarehouseItem"/>
     <preference for="Oander\DiscountBadge\Model\DiscountCalculator" type="Oander\IstyleBase\DiscountBadge\Model\DiscountCalculator"/>
-    <preference for="Amasty\Promo\Plugin\Block\Product\Simple" type="Oander\IstyleBase\Amasty\Promo\Plugin\Block\Product\Simple"/>
     <preference for="Oander\OrderAttachment\Magento\Sales\Model\Order\Email\SenderBuilder" type="Oander\IstyleBase\Magento\Sales\Model\Order\Email\SenderBuilder"/>
     <virtualType name="Magento\Catalog\Pricing\Price\Pool">
         <arguments>
