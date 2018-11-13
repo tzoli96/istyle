@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c7616a0576ad37919e1bc5661793946f",
+    "content-hash": "95388f88e0715093621888c3d7f5471b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7207,11 +7207,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.8.3",
+            "version": "1.0.9.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "688a357c62bdd2a3b1f4c9c980152925345be6af"
+                "reference": "155ff8868f707f94260ee2af558da4db5810b2b7"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7232,7 +7232,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2018-11-13T16:01:37+00:00"
+            "time": "2018-11-13T17:39:48+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
@@ -9022,11 +9022,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.19.1",
+            "version": "1.4.20",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "19898657353f02e27c869a36d4622f3f7043f79b"
+                "reference": "d88f364da05836a83408110cdd8308505fb7022a"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9048,7 +9048,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-11-13T16:41:43+00:00"
+            "time": "2018-11-13T17:32:44+00:00"
         },
         {
             "name": "oander/module-wonder-widget",
@@ -9131,11 +9131,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.168",
+            "version": "1.0.169",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "7dcbcd56c0e54707849e9bb1fd471da9252c5553"
+                "reference": "01066d66e4acdf219c1184ae39d3f66fc3a06d53"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9151,7 +9151,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-11-12T12:20:40+00:00"
+            "time": "2018-11-13T17:37:04+00:00"
         },
         {
             "name": "oyejorge/less.php",
