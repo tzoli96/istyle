@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a0b0d65919efc8aeb083645ba426505f",
+    "content-hash": "c92d724be7db37f876dc9070d04694c6",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7201,11 +7201,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.7",
+            "version": "1.0.9.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "5f6b166150c3f53d65d43b9f5a1fabd528bb8ed7"
+                "reference": "862bea78e457f8087a94a118c4bc112d72c95401"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7226,7 +7226,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2018-11-07T18:47:02+00:00"
+            "time": "2018-11-13T22:20:38+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
