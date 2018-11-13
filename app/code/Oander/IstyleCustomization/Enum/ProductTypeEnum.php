@@ -1,5 +1,4 @@
-<?xml version="1.0" ?>
-<!--
+<?php
 /**
  *   /$$$$$$   /$$$$$$  /$$   /$$ /$$$$$$$  /$$$$$$$$ /$$$$$$$
  *  /$$__  $$ /$$__  $$| $$$ | $$| $$__  $$| $$_____/| $$__  $$
@@ -10,12 +9,17 @@
  * |  $$$$$$/| $$  | $$| $$ \  $$| $$$$$$$/| $$$$$$$$| $$  | $$
  *  \______/ |__/  |__/|__/  \__/|_______/ |________/|__/  |__/
  *
- * Oander_IstyleBase
- *
- * @author  János Pinczés <janos.pinczes@oander.hu>
  * @license Oander Media Kft. (http://www.oander.hu)
  */
--->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-	<module name="Oander_MirasvitFeed" setup_version="1.0.1"/>
-</config>
+declare(strict_types=1);
+
+namespace Oander\IstyleCustomization\Enum;
+/**
+ * Class ProductTypeEnum
+ *
+ * @package Oander\IstyleCustomization\Enum
+ */
+final class ProductTypeEnum
+{
+    const PRODUCT_TYPE_ID_INSURANCE = 'insurance';
+}

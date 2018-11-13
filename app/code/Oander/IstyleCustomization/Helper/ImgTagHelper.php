@@ -11,7 +11,7 @@ class ImgTagHelper
 {
     const LAZY_LOAD_CLASS = 'b-lazy';
     const LAZY_LOAD_PLACEHOLDER_THEME = 'Oander/istyle';
-    const LAZY_LOAD_PLACEHOLDER_IMAGE = 'svg/loader.svg';
+    const LAZY_LOAD_PLACEHOLDER_IMAGE = 'images/placeholder.png';
 
     private $assetRepo;
     private $placeholderPath;
@@ -145,9 +145,11 @@ class ImgTagHelper
     public function getImgTagsFromHtml(string $html): array
     {
         $imgTags = [];
-        preg_match_all('/<img.*[\/|"|]>/', $html, $imgTags);
+        preg_match_all('/<img[^>]* src=\"([^\"]*)\"[^>]*>/', $html, $imgTags);
         $imgTags = call_user_func('array_merge', $imgTags[0]);
 
         return $imgTags;
     }
 }
+
+

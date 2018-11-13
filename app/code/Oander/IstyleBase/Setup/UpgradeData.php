@@ -15,14 +15,13 @@
  * @license Oander Media Kft. (http://www.oander.hu)
  */
 
-declare(strict_types = 1);
-
 namespace Oander\IstyleBase\Setup;
 
 use Magento\Cms\Api\BlockRepositoryInterface;
 use Magento\Cms\Api\Data\BlockInterface;
 use Magento\Cms\Api\Data\BlockInterfaceFactory;
 use Magento\Cms\Model\Block;
+use Magento\Eav\Setup\EavSetup;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\UpgradeDataInterface;
@@ -48,17 +47,25 @@ class UpgradeData implements UpgradeDataInterface
     private $blockRepository;
 
     /**
+     * @var EavSetup
+     */
+    private $eavSetup;
+
+    /**
      * UpgradeData constructor.
      *
      * @param BlockInterfaceFactory    $blockFactory
      * @param BlockRepositoryInterface $blockRepository
+     * @param EavSetup                 $eavSetup
      */
     public function __construct(
         BlockInterfaceFactory $blockFactory,
-        BlockRepositoryInterface $blockRepository
+        BlockRepositoryInterface $blockRepository,
+        EavSetup $eavSetup
     ) {
         $this->blockFactory = $blockFactory;
         $this->blockRepository = $blockRepository;
+        $this->eavSetup = $eavSetup;
     }
 
     /**
@@ -81,6 +88,7 @@ class UpgradeData implements UpgradeDataInterface
 
         $setup->endSetup();
     }
+
 
     /**
      * @param ModuleDataSetupInterface $setup

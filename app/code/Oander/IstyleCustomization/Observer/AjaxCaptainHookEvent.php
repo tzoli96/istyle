@@ -89,8 +89,12 @@ class AjaxCaptainHookEvent implements ObserverInterface
         if(!$disableprice) {
             /** @var \Magento\Catalog\Model\Product $product */
             $product = $input->getData('product');
-            $finalprice = (int)$this->catalogHelper->getTaxPrice($product, $product->getFinalPrice(), true);
-            $price = (int)$this->catalogHelper->getTaxPrice($product, $product->getPrice(), true);
+            /*$finalprice = (int)round($this->catalogHelper->getTaxPrice($product, $product->getFinalPrice(), true);
+            $price = (int)$this->catalogHelper->getTaxPrice($product, $product->getPrice(), true);*/
+            $price = $product->getPriceInfo()->getPrice('regular_price');
+            $finalprice = $product->getPriceInfo()->getPrice('final_price');
+            $price = $this->_registerJsPrice($price->getAmount()->getValue());
+            $finalprice = $this->_registerJsPrice($finalprice->getAmount()->getValue());
             $productViewConfig = $this->jsonDecoder->decode($this->productView->getJsonConfig());
 
             /** @var \Magento\Catalog\Model\Product|null $realproduct */
@@ -145,5 +149,16 @@ class AjaxCaptainHookEvent implements ObserverInterface
                 }
             }
         }
+    }
+
+    /**
+     * Replace ',' on '.' for js
+     *
+     * @param float $price
+     * @return string
+     */
+    protected function _registerJsPrice($price)
+    {
+        return str_replace(',', '.', $price);
     }
 }

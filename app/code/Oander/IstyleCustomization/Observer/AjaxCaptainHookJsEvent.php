@@ -59,7 +59,7 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
                             var stickyHeader = jQuery("#product-sticky-header");
                             
                             // Base price (product-info-right)
-                            if (finalPrice < oldPrice) {
+                            if (parseFloat(finalPrice) < parseFloat(oldPrice)) {
                                 productInfoPrice.find("#old-price").show();
                                 productInfoPrice.find("#final-price").removeClass("regular-price").addClass("special-price");
                             }
@@ -69,7 +69,7 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
                             
                             // Sticky header prices
                             if (jQuery("#product-sticky-header").length > 0) {
-                                if (finalPrice < oldPrice) {
+                                if (parseFloat(finalPrice) < parseFloat(oldPrice)) {
                                     stickyHeader.find("#sticky-old-price").show();
                                     stickyHeader.find("#sticky-final-price").removeClass("regular-price").addClass("special-price");                                
                                 }
@@ -81,12 +81,14 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
                     ]
                 )
             );
+        } elseif ($product->getTypeId() == 'bundle') {
         } else {
             $output->setData('dependences',
                 array_merge($output->getData('dependences'),
                     [
                         '$ms' => 'Magento_Swatches/js/swatch-renderer',
-                        '$os' => 'oanderSwatchRenderer'
+                        '$os' => 'oanderSwatchRenderer',
+                        'priceUtils' => 'Magento_Catalog/js/price-utils'
                     ]
                 )
             );
@@ -95,10 +97,11 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
                 array_merge($output->getData('js'),
                     [AjaxCaptainHookEvent::OUTPUT_NAME =>
                         'if(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\'] !== undefined)
-                        {
-                             jQuery(\'[data-role=priceBox]\').data(\'magePriceBox\').setConfig(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\'][\''.AjaxCaptainHookEvent::OUTPUT_NAME4.'\']);
+                        {            
+                             jQuery(\'#product-view-top\').find(\'[data-role=priceBox]\').data(\'magePriceBox\').setConfig(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\'][\''.AjaxCaptainHookEvent::OUTPUT_NAME4.'\']);
                              jQuery(\'[data-role=swatch-options]\').data(\'mageOanderSwatchRenderer\').setConfig(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\']);
                              ' . self::HAS_PRICE . ' = true;
+                        
                         }'
                     ]
                 )

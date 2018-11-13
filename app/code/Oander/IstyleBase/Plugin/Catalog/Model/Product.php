@@ -15,7 +15,9 @@
  * @license Oander Media Kft. (http://www.oander.hu)
  */
 declare(strict_types = 1);
+
 namespace Oander\IstyleBase\Plugin\Catalog\Model;
+
 /**
  * Class Product
  *
