@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c92d724be7db37f876dc9070d04694c6",
+    "content-hash": "fdbc6c015e4ecd4176a148dd4ddd14ce",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6427,6 +6427,12 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
+                "reference": null,
+                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
+            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -7830,11 +7836,11 @@
         },
         {
             "name": "oander/module-checkout",
-            "version": "1.0.0",
+            "version": "1.0.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-checkout.git",
-                "reference": "9f4fbad23268f7a9fcfad59cde00e637ec64d866"
+                "reference": "0d0da16f0690d8f30a111ecf4968e70406bca7c9"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7853,7 +7859,7 @@
                 "proprietary"
             ],
             "description": "It makes Magento Checkout to a better place.",
-            "time": "2017-04-11T09:25:36+00:00"
+            "time": "2018-11-14T09:16:35+00:00"
         },
         {
             "name": "oander/module-configurable-product",
