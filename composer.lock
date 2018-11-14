@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ef04fd3cd576bc0e1c0d1dbea1cb25d1",
+    "content-hash": "7a840f6817186b5d2773a338124cb089",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6427,12 +6427,6 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
-                "reference": null,
-                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
-            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -7207,11 +7201,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.7",
+            "version": "1.0.9.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "5f6b166150c3f53d65d43b9f5a1fabd528bb8ed7"
+                "reference": "862bea78e457f8087a94a118c4bc112d72c95401"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7232,7 +7226,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2018-11-07T18:47:02+00:00"
+            "time": "2018-11-13T22:20:38+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
@@ -7579,11 +7573,11 @@
         },
         {
             "name": "oander/module-api-warehouse-manager",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-warehouse-manager.git",
-                "reference": "d00f5f98422bfaa56416f76b875c74c1e04a3e68"
+                "reference": "2aa56ad157b507878543f83bf59aac2f97976250"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7605,7 +7599,7 @@
                 "proprietary"
             ],
             "description": "Oander_ApiWarehouseManager",
-            "time": "2018-04-12T08:45:38+00:00"
+            "time": "2018-10-19T14:42:21+00:00"
         },
         {
             "name": "oander/module-base",
@@ -7836,11 +7830,11 @@
         },
         {
             "name": "oander/module-checkout",
-            "version": "1.0.0",
+            "version": "1.0.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-checkout.git",
-                "reference": "9f4fbad23268f7a9fcfad59cde00e637ec64d866"
+                "reference": "0d0da16f0690d8f30a111ecf4968e70406bca7c9"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7859,7 +7853,7 @@
                 "proprietary"
             ],
             "description": "It makes Magento Checkout to a better place.",
-            "time": "2017-04-11T09:25:36+00:00"
+            "time": "2018-11-14T09:16:35+00:00"
         },
         {
             "name": "oander/module-configurable-product",
@@ -9022,11 +9016,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.19",
+            "version": "1.4.20",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "db6341aa2c6176c57e3fb8faac02dea3df97089e"
+                "reference": "d88f364da05836a83408110cdd8308505fb7022a"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9048,7 +9042,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-11-09T09:57:30+00:00"
+            "time": "2018-11-13T17:32:44+00:00"
         },
         {
             "name": "oander/module-wonder-widget",
@@ -9131,11 +9125,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.168",
+            "version": "1.0.173",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "7dcbcd56c0e54707849e9bb1fd471da9252c5553"
+                "reference": "59d8ac31daab9d44942a27c018b1781442b3900c"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9151,7 +9145,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-11-12T12:20:40+00:00"
+            "time": "2018-11-14T12:57:16+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -9611,11 +9605,11 @@
         },
         {
             "name": "replace/module-buyback-calculator",
-            "version": "1.0.2",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/replace-buyback-calculator.git",
-                "reference": "d01d84487234447129cb7403118f7dadd4c124c9"
+                "reference": "db82033b69e075bd35f65295dccb37b2dc080e57"
             },
             "require": {
                 "php": "7.0.2|7.0.4|~7.0.6"
@@ -9630,7 +9624,7 @@
                 }
             },
             "description": "Rework Replace Buyback Calculator",
-            "time": "2018-08-01T07:25:44+00:00"
+            "time": "2018-11-09T15:08:19+00:00"
         },
         {
             "name": "rudracomputech/module-nestpay",
