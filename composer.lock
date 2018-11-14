@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fdbc6c015e4ecd4176a148dd4ddd14ce",
+    "content-hash": "7a840f6817186b5d2773a338124cb089",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6427,12 +6427,6 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
-                "reference": null,
-                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
-            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -9131,11 +9125,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.171",
+            "version": "1.0.173",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "8687bbf49e866d480d85960e84fdc8ab36451265"
+                "reference": "59d8ac31daab9d44942a27c018b1781442b3900c"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9151,7 +9145,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-11-13T19:12:45+00:00"
+            "time": "2018-11-14T12:57:16+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -9611,11 +9605,11 @@
         },
         {
             "name": "replace/module-buyback-calculator",
-            "version": "1.0.2",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/replace-buyback-calculator.git",
-                "reference": "d01d84487234447129cb7403118f7dadd4c124c9"
+                "reference": "db82033b69e075bd35f65295dccb37b2dc080e57"
             },
             "require": {
                 "php": "7.0.2|7.0.4|~7.0.6"
@@ -9630,7 +9624,7 @@
                 }
             },
             "description": "Rework Replace Buyback Calculator",
-            "time": "2018-08-01T07:25:44+00:00"
+            "time": "2018-11-09T15:08:19+00:00"
         },
         {
             "name": "rudracomputech/module-nestpay",
