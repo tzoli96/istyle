@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7a840f6817186b5d2773a338124cb089",
+    "content-hash": "775234fb343c9e3f77b3cacb4ab481d4",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6427,6 +6427,12 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
+                "reference": null,
+                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
+            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -7400,11 +7406,11 @@
         },
         {
             "name": "oander/module-api-gateway",
-            "version": "1.0.23",
+            "version": "1.0.24",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-gateway.git",
-                "reference": "ec4c039adbc78f325589173b2b048a949df0b86b"
+                "reference": "acea2bffdc51243ea13387a4ee457edfd6970d2a"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7424,7 +7430,7 @@
                 "proprietary"
             ],
             "description": "The API Gateway module for ERP connections and import solutions.",
-            "time": "2018-10-29T13:37:20+00:00"
+            "time": "2018-11-14T13:55:30+00:00"
         },
         {
             "name": "oander/module-api-image",
@@ -7573,11 +7579,11 @@
         },
         {
             "name": "oander/module-api-warehouse-manager",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-warehouse-manager.git",
-                "reference": "2aa56ad157b507878543f83bf59aac2f97976250"
+                "reference": "6f31b311eaf68518aaf2273adcca3a5f66a003f2"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7599,7 +7605,7 @@
                 "proprietary"
             ],
             "description": "Oander_ApiWarehouseManager",
-            "time": "2018-10-19T14:42:21+00:00"
+            "time": "2018-11-14T16:04:20+00:00"
         },
         {
             "name": "oander/module-base",
