@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "775234fb343c9e3f77b3cacb4ab481d4",
+    "content-hash": "f0b23b2b98c11bade708f8ec4a0a9438",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6427,12 +6427,6 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
-                "reference": null,
-                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
-            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -7207,11 +7201,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.9.2",
+            "version": "1.0.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "862bea78e457f8087a94a118c4bc112d72c95401"
+                "reference": "4104aaa99cd9ec699ce446e1a52d3426fdd2eba3"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7232,7 +7226,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2018-11-13T22:20:38+00:00"
+            "time": "2018-11-16T14:21:55+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
