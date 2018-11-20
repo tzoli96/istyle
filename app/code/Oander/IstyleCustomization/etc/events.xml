@@ -25,12 +25,6 @@
         <observer name="istyle_customization_ajax_captain_hook_common_js_event" instance="Oander\IstyleCustomization\Observer\AjaxCaptainHookJsEvent" />
         <observer name="istyle_customization_ajax_captain_hook_common_js_event_loader" instance="Oander\IstyleCustomization\Observer\AjaxCaptainHookJsEventLoader" />
     </event>
-
-    <event name="oander_xtento_order_export_after">
-        <observer name="oander_xtento_order_export_after_customization"
-                  instance="Oander\IstyleCustomization\Observer\OrderExportAfter" />
-    </event>
-
     <event name="controller_front_send_response_before">
         <observer name="istyle_customization_cms_page_event" instance="Oander\IstyleCustomization\Observer\CmsPageEvent" />
     </event>
