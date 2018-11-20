@@ -174,6 +174,7 @@ return array (
     'Oander_Indexer' => 1,
     'Oander_IndexerRangeBugFix' => 1,
     'Oander_InstallmentPrices' => 1,
+    'Oander_IstyleAws' => 1,
     'Oander_IstyleBase' => 1,
     'Oander_IstyleCustomization' => 1,
     'Oander_IstyleImportTemp' => 1,
