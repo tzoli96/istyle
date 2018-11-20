@@ -31,5 +31,7 @@
                   instance="Oander\IstyleCustomization\Observer\OrderExportAfter" />
     </event>
 
-
+    <event name="controller_front_send_response_before">
+        <observer name="istyle_customization_cms_page_event" instance="Oander\IstyleCustomization\Observer\CmsPageEvent" />
+    </event>
 </config>
