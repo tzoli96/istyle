@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e62393e5c41fa3b4af12937dc6d8c24a",
+    "content-hash": "d0d220631c98e575c3abf746dce4a64f",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1458,11 +1458,11 @@
         },
         {
             "name": "innobyte/module-cetelem",
-            "version": "0.0.7",
+            "version": "0.0.7.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-cetelem.git",
-                "reference": "57e95ddb1126e8393bc54acbb217623f65f4d058"
+                "reference": "c0500f90242ac7ccbb7cbb4602b6afeeb77625f3"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1478,7 +1478,7 @@
                 }
             },
             "description": "Innobyte Cetelem Module",
-            "time": "2018-06-20T13:44:13+00:00"
+            "time": "2018-11-21T09:46:36+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
@@ -6510,12 +6510,6 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
-                "reference": null,
-                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
-            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -9302,11 +9296,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.176",
+            "version": "1.0.177",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "af868e264e9ad519cbbd9686186694e3d845f1c8"
+                "reference": "7495804afc081bdcde90e3a2c0e9182cdcf68f78"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9322,7 +9316,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-11-20T13:41:03+00:00"
+            "time": "2018-11-21T09:51:31+00:00"
         },
         {
             "name": "oyejorge/less.php",
