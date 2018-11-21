@@ -25,6 +25,7 @@
         <plugin name="framework_filter_template_tostring" type="Oander\IstyleCustomization\Plugin\Framework\Filter\Template"/>
     </type>
     <preference for="Xtento\OrderExport\Model\Export\Data\Shared\Items" type="Oander\IstyleCustomization\Model\Export\Data\Shared\Items"/>
+    <preference for="Xtento\OrderExport\Model\Export\Data\Order\General" type="Oander\IstyleCustomization\Model\Export\Data\Order\General"/>
     <preference for="Oander\CategoryDropdown\Magento\Theme\Block\Html\Topmenu" type="Oander\IstyleCustomization\Block\Html\Topmenu"/>
     <preference for="Magento\Catalog\Model\Indexer\Product\Flat\TableBuilder" type="Oander\IstyleCustomization\Model\Indexer\Product\Flat\TableBuilder"/>
     <preference for="Magento\Catalog\Model\Indexer\Product\Flat\FlatTableBuilder" type="Oander\IstyleCustomization\Model\Indexer\Product\Flat\FlatTableBuilder"/>
