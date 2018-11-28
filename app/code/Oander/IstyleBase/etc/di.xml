@@ -38,4 +38,5 @@
     <preference for="Oander\DiscountBadge\Model\DiscountCalculator" type="Oander\IstyleBase\DiscountBadge\Model\DiscountCalculator"/>
     <preference for="Magento\Catalog\Pricing\Price\RegularPrice" type="Oander\IstyleBase\Pricing\RegularPrice"/>
     <preference for="Magento\Catalog\Pricing\Price\FinalPrice" type="Oander\IstyleBase\Pricing\FinalPrice"/>
+    <preference for="Magento\Eav\Model\Entity\AttributeCache" type="Oander\IstyleBase\Model\Entity\AttributeCache"/>
 </config>
