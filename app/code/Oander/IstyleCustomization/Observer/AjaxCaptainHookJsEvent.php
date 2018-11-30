@@ -76,6 +76,7 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
                                 
                                 stickyHeader.find(\'#sticky-final-price\').html(priceUtils.formatPrice(finalPrice, {}));
                                 stickyHeader.find(\'#sticky-old-price\').html(priceUtils.formatPrice(oldPrice, {}));
+                                jQuery(\'#product-view-top\').find(\'[data-role=priceBox]\').data(\'magePriceBox\').setConfig(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\'][\''.AjaxCaptainHookEvent::OUTPUT_NAME4.'\']);
                             }
                         }'
                     ]
@@ -98,7 +99,6 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
                     [AjaxCaptainHookEvent::OUTPUT_NAME =>
                         'if(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\'] !== undefined)
                         {            
-                             jQuery(\'#product-view-top\').find(\'[data-role=priceBox]\').data(\'magePriceBox\').setConfig(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\'][\''.AjaxCaptainHookEvent::OUTPUT_NAME4.'\']);
                              jQuery(\'[data-role=swatch-options]\').data(\'mageOanderSwatchRenderer\').setConfig(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\']);
                              ' . self::HAS_PRICE . ' = true;
                         
