@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e291bb9269f1548167a88c57914f2009",
+    "content-hash": "1afb8c63e588c47913dc70a173a4e639",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -2032,6 +2032,29 @@
                 "terminal"
             ],
             "time": "2015-01-18T14:31:58+00:00"
+        },
+        {
+            "name": "leanpay/payment",
+            "version": "0.0.2.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/leanpay-payment.git",
+                "reference": "122f14d19514f2a2bb243b8b205ae7155cd092ee"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Leanpay\\Payment\\": ""
+                }
+            },
+            "description": "N/A",
+            "time": "2018-11-30T12:13:40+00:00"
         },
         {
             "name": "magento/composer",
@@ -6594,6 +6617,12 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
+                "reference": null,
+                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
+            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -8151,6 +8180,12 @@
                 "url": "git@github.com:oandermedia/oander-checkout.git",
                 "reference": "9f4fbad23268f7a9fcfad59cde00e637ec64d866"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-checkout/zipball/9f4fbad23268f7a9fcfad59cde00e637ec64d866",
+                "reference": "9f4fbad23268f7a9fcfad59cde00e637ec64d866",
+                "shasum": ""
+            },
             "require": {
                 "oander/module-base": "*",
                 "php": "7.*"
@@ -8168,6 +8203,10 @@
                 "proprietary"
             ],
             "description": "It makes Magento Checkout to a better place.",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-checkout/tree/1.0.0",
+                "issues": "https://github.com/oandermedia/oander-checkout/issues"
+            },
             "time": "2017-04-11T09:25:36+00:00"
         },
         {

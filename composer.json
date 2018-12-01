@@ -131,7 +131,8 @@
         "xtento/module-xtcore": "2.1.0",
         "innobyte/module-inbank": "1.0.1.1",
         "oander/module-orderstatuscanceller": "1.0.3",
-        "fancourier/customshipping":"2.1.14"
+        "fancourier/customshipping":"2.1.14",
+        "leanpay/payment":"0.0.2.1"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
