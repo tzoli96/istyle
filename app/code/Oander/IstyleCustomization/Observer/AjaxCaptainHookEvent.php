@@ -100,7 +100,7 @@ class AjaxCaptainHookEvent implements ObserverInterface
 
             /** @var \Magento\Catalog\Model\Product|null $realproduct */
             $realproduct = $input->getData('realproduct');
-            if ($product->getTypeId() == 'simple') {
+            if ($product->getTypeId() == 'simple' || $product->getTypeId() == 'virtual') {
                 if ($realproduct) {
                     if ($realproduct->getTypeId() == \Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE) {
                         $this->configurable->setData('product', $realproduct);
