@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "df507be74b8e449bd0362028435c417c",
+    "content-hash": "b3a8422300c50aba638e2f3390e40bcf",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1521,11 +1521,11 @@
         },
         {
             "name": "innobyte/module-cetelem",
-            "version": "1.0.0.2",
+            "version": "1.0.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-cetelem.git",
-                "reference": "e935eef934536f5df029c29624cf678339a59f1f"
+                "reference": "c82f40ca509c224d07feb20675461de58db71a5b"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1541,7 +1541,7 @@
                 }
             },
             "description": "Innobyte Cetelem Module",
-            "time": "2018-11-27T10:26:28+00:00"
+            "time": "2018-12-04T10:34:35+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
@@ -7481,11 +7481,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.13",
+            "version": "1.0.13.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "6851edda2ddbd43d472addead0c20b8f66681ebe"
+                "reference": "0427d299d3cfd56257fe748a7b61f11b82d77235"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7506,7 +7506,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2018-12-02T14:16:49+00:00"
+            "time": "2018-12-04T09:23:51+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
