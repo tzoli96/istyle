@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f10fea3bb0dc50c3bbf579feecd2bddd",
+    "content-hash": "df507be74b8e449bd0362028435c417c",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1173,6 +1173,42 @@
             "time": "2018-10-01T08:43:27+00:00"
         },
         {
+            "name": "godvsdeity/swedbank-payment-portal",
+            "version": "v0.8.30",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:godvsdeity/swedbank-payment-portal.git",
+                "reference": "42097fc707d96b4045d7cce7b881dc4e40313f76"
+            },
+            "require": {
+                "doctrine/cache": "^1.6",
+                "guzzlehttp/guzzle": "^5.0|^6.0",
+                "jms/serializer": "^1.1",
+                "symfony/config": "^2.8|^3.0",
+                "symfony/dependency-injection": "^2.8|^3.0",
+                "symfony/yaml": "~2.8|~3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SwedbankPaymentPortal\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "The Swedbank Payment Portal API Library provides access to the online banking system through which e-commerce transactions can be initiated and fulfilled by facilitating the exchange of bank data.",
+            "time": "2017-11-09T16:41:43+00:00"
+        },
+        {
             "name": "guzzlehttp/guzzle",
             "version": "6.3.3",
             "source": {
@@ -1290,32 +1326,33 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.4.2",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
+                "reference": "53662d6688033a5eccde987bdd5a4a98ebe2d952"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
-                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/53662d6688033a5eccde987bdd5a4a98ebe2d952",
+                "reference": "53662d6688033a5eccde987bdd5a4a98ebe2d952",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0",
-                "psr/http-message": "~1.0"
+                "psr/http-message": "~1.0",
+                "ralouphie/getallheaders": "^2.0.5"
             },
             "provide": {
                 "psr/http-message-implementation": "1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "1.5-dev"
                 }
             },
             "autoload": {
@@ -1345,13 +1382,14 @@
             "keywords": [
                 "http",
                 "message",
+                "psr-7",
                 "request",
                 "response",
                 "stream",
                 "uri",
                 "url"
             ],
-            "time": "2017-03-20T17:10:46+00:00"
+            "time": "2018-12-03T05:07:51+00:00"
         },
         {
             "name": "heureka/overenozakazniky",
@@ -6582,6 +6620,12 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
+                "reference": null,
+                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
+            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -8064,12 +8108,44 @@
             "time": "2018-10-03T11:18:45+00:00"
         },
         {
-            "name": "oander/module-checkout",
+            "name": "oander/module-cdninvalidator",
             "version": "1.0.0",
             "source": {
                 "type": "git",
+                "url": "git@github.com:oandermedia/oander-cdninvalidator.git",
+                "reference": "914ad250f19d56761d74368aa62726c01c1475e2"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\CDNInvalidator\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "email": "janos.pinczes@oander.hu",
+                    "name": "János Pinczés"
+                }
+            ],
+            "description": "Invalidate CDN content",
+            "time": "2018-11-03T17:34:45+00:00"
+        },
+        {
+            "name": "oander/module-checkout",
+            "version": "1.0.1.1",
+            "source": {
+                "type": "git",
                 "url": "git@github.com:oandermedia/oander-checkout.git",
-                "reference": "9f4fbad23268f7a9fcfad59cde00e637ec64d866"
+                "reference": "0d0da16f0690d8f30a111ecf4968e70406bca7c9"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8088,7 +8164,7 @@
                 "proprietary"
             ],
             "description": "It makes Magento Checkout to a better place.",
-            "time": "2017-04-11T09:25:36+00:00"
+            "time": "2018-11-14T09:16:35+00:00"
         },
         {
             "name": "oander/module-configurable-product",
@@ -8118,11 +8194,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.30.10",
+            "version": "1.0.30.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "0710f78088dc192738d8b7ebd6cab8af1ad43dac"
+                "reference": "00afedb9f209527b5ce03d3d5ffdee04259e67f6"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8141,7 +8217,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2018-11-27T13:01:39+00:00"
+            "time": "2018-11-30T10:28:03+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -9510,11 +9586,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.20",
+            "version": "1.4.23",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "d88f364da05836a83408110cdd8308505fb7022a"
+                "reference": "1ecd62e7f9d8019d089dbe2b02b4c7622221e03e"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9536,7 +9612,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-11-13T17:32:44+00:00"
+            "time": "2018-11-23T20:08:32+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
@@ -10156,12 +10232,52 @@
             "time": "2018-11-20T15:27:04+00:00"
         },
         {
+            "name": "ralouphie/getallheaders",
+            "version": "2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ralouphie/getallheaders.git",
+                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7.0",
+                "satooshi/php-coveralls": ">=1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/getallheaders.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                }
+            ],
+            "description": "A polyfill for getallheaders.",
+            "time": "2016-02-11T07:05:27+00:00"
+        },
+        {
             "name": "replace/module-buyback-calculator",
-            "version": "1.0.3",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/replace-buyback-calculator.git",
-                "reference": "d410e2cd0700fc4dba80ac9d08e5ce758ac62100"
+                "reference": "db82033b69e075bd35f65295dccb37b2dc080e57"
             },
             "require": {
                 "php": "7.0.2|7.0.4|~7.0.6"
@@ -10176,7 +10292,7 @@
                 }
             },
             "description": "Rework Replace Buyback Calculator",
-            "time": "2018-11-09T13:24:49+00:00"
+            "time": "2018-11-09T15:08:19+00:00"
         },
         {
             "name": "rudracomputech/module-nestpay",
