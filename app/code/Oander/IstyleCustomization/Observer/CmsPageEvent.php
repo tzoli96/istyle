@@ -24,6 +24,7 @@ class CmsPageEvent implements ObserverInterface
                 $response = $observer->getEvent()->getResponse();
 
                 $content = $response->getContent();
+
                 if (preg_match('~<body[^>]*>(.*?)</body>~si', $content, $body)) {
                     if (empty($body[1])) {
                         $response->setHeader('Pragma', 'no-cache');

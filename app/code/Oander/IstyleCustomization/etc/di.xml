@@ -46,4 +46,5 @@
     <type name="Magento\Catalog\Model\Product">
         <plugin name="api_gateway_cache_clear_fix" type="Oander\IstyleCustomization\Plugin\Catalog\Model\Product"/>
     </type>
+    <preference for="Magento\CatalogWidget\Model\Rule\Condition\Product" type="Oander\IstyleCustomization\Model\Rule\Condition\Product"/>
 </config>
