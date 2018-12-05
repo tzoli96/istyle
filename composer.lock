@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b3a8422300c50aba638e2f3390e40bcf",
+    "content-hash": "7b78a76aae6b1b4e9b615149ed44395f",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -2038,11 +2038,11 @@
         },
         {
             "name": "leanpay/payment",
-            "version": "0.0.2.1",
+            "version": "0.0.2.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/leanpay-payment.git",
-                "reference": "122f14d19514f2a2bb243b8b205ae7155cd092ee"
+                "reference": "a68c5853d0309262b6fa9c5ef57a08f1b00854c5"
             },
             "require": {
                 "php": "7.*"
@@ -2057,7 +2057,7 @@
                 }
             },
             "description": "N/A",
-            "time": "2018-11-30T12:13:40+00:00"
+            "time": "2018-12-05T14:12:39+00:00"
         },
         {
             "name": "magento/composer",
