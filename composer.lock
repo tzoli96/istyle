@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e6d9909ba4594c735d68f54ff04ee4c",
+    "content-hash": "2861aaa225a1029d52809cda4ab80655",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1472,11 +1472,11 @@
         },
         {
             "name": "innobyte/magento2-payu",
-            "version": "1.1.7",
+            "version": "1.1.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-payu.git",
-                "reference": "13f8b256ed44cc1a1fd182aa9ea438cb0e21f1d2"
+                "reference": "06a5e9f015f897dda073a0d381c49c60516865c1"
             },
             "require": {
                 "magento/module-checkout": ">=100",
@@ -1493,7 +1493,7 @@
                 }
             },
             "description": "Magento2 PayU module",
-            "time": "2018-12-11T09:33:45+00:00"
+            "time": "2018-12-11T11:55:27+00:00"
         },
         {
             "name": "innobyte/module-bnpparibas",
