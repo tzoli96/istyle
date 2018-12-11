@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4db535cd902e76fa839212776d332d43",
+    "content-hash": "4e6d9909ba4594c735d68f54ff04ee4c",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1472,16 +1472,16 @@
         },
         {
             "name": "innobyte/magento2-payu",
-            "version": "1.1.6",
+            "version": "1.1.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-payu.git",
-                "reference": "67a47529a1a1b4fdebe9fa841ee6c53e10b614ee"
+                "reference": "13f8b256ed44cc1a1fd182aa9ea438cb0e21f1d2"
             },
             "require": {
-                "magento/module-checkout": "100.1.*",
-                "magento/module-quote": "100.1.*",
-                "magento/module-sales": "100.1.*"
+                "magento/module-checkout": ">=100",
+                "magento/module-quote": ">=100",
+                "magento/module-sales": ">=100"
             },
             "type": "magento2-module",
             "autoload": {
@@ -1493,7 +1493,7 @@
                 }
             },
             "description": "Magento2 PayU module",
-            "time": "2018-08-21T12:17:20+00:00"
+            "time": "2018-12-11T09:33:45+00:00"
         },
         {
             "name": "innobyte/module-bnpparibas",
@@ -9782,7 +9782,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "0917addcaa3a847178eb8b8b2f18b2a54b355699"
+                "reference": "e899113a28fe0835c3fb7b0e03a4841e860ef5ef"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9798,7 +9798,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-12-06T14:02:44+00:00"
+            "time": "2018-12-11T08:26:48+00:00"
         },
         {
             "name": "oyejorge/less.php",
