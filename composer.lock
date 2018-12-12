@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf78d1de6e286c46d72602e28ac35344",
+    "content-hash": "ae5912d9478ac0a718c48fa115f0e36b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6620,12 +6620,6 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
-                "reference": null,
-                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
-            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -7650,37 +7644,6 @@
             "time": "2018-09-05T09:32:38+00:00"
         },
         {
-            "name": "oander/module-api-checkout-unity-pickup",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-api-checkout-unity-pickup.git",
-                "reference": "48213e7df8610f82b4977e51ffe49552f5915271"
-            },
-            "require": {
-                "oander/module-api-base": "*",
-                "oander/module-api-checkout": "*",
-                "oander/module-api-gateway": "*",
-                "oander/module-base": "*",
-                "oander/module-unity-pickup": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\ApiCheckoutUnityPickup\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "API Checkout Unity Pickup module.",
-            "time": "2018-01-05T12:55:20+00:00"
-        },
-        {
             "name": "oander/module-api-customer",
             "version": "1.0.10",
             "source": {
@@ -8194,11 +8157,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.30.12",
+            "version": "1.0.30.13",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "00afedb9f209527b5ce03d3d5ffdee04259e67f6"
+                "reference": "5c42561d1ccebdccb0675a5e68c54f2b60cc6df2"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8217,7 +8180,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2018-11-30T10:28:03+00:00"
+            "time": "2018-12-12T10:14:10+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -9216,11 +9179,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.1.1",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "ec1b903ccac8d22962d6e054f0e3dc1a0237fedc"
+                "reference": "e0f4e27be31d5ea84a18415da9bea32dcb6f1956"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9239,35 +9202,7 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2018-12-12T14:04:29+00:00"
-        },
-        {
-            "name": "oander/module-salesforce-service",
-            "version": "0.0.3.1",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "36f45dfdb94052ae8f6b0c7b515fd16af05124ad"
-            },
-            "require": {
-                "oander/module-base": "*",
-                "oander/module-salesforce": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\SalesforceService\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Salesforce Service appointment reservation",
-            "time": "2018-12-12T15:34:51+00:00"
+            "time": "2018-09-28T19:29:15+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -9547,97 +9482,6 @@
             "time": "2018-03-23T08:14:00+00:00"
         },
         {
-            "name": "oander/module-unity-dpd-cz-pickup",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-unity-dpd-cz-pickup.git",
-                "reference": "7096190cc5c853f7a427d3b26f2e0ddde8ed4574"
-            },
-            "require": {
-                "oander/module-base": "*",
-                "oander/module-lapker": "*",
-                "oander/module-test-base": "*",
-                "oander/module-unity-pickup": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\UnityDpdCZPickup\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Oander Unity Dpd CZ Pickup",
-            "time": "2018-08-06T16:06:29+00:00"
-        },
-        {
-            "name": "oander/module-unity-dpd-sk-pickup",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-unity-dpd-sk-pickup.git",
-                "reference": "f6d1b8dc2dd866a7deac7cca4e2ebc176d758184"
-            },
-            "require": {
-                "oander/module-base": "*",
-                "oander/module-lapker": "*",
-                "oander/module-test-base": "*",
-                "oander/module-unity-pickup": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\UnityDpdSKPickup\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Oander Unity Dpd SK Pickup",
-            "time": "2018-08-06T16:06:44+00:00"
-        },
-        {
-            "name": "oander/module-unity-pickup",
-            "version": "1.0.18.6",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-unity-pickup.git",
-                "reference": "f5c849de495113a2d8b9fb5e7e9e5994e7607d0c"
-            },
-            "require": {
-                "oander/module-base": "*",
-                "oander/module-checkout": "*",
-                "oander/module-email-additional-data": "*",
-                "oander/module-shipping": "*",
-                "oander/module-test-base": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\UnityPickup\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Oander Unity Pickup",
-            "time": "2018-09-18T09:51:10+00:00"
-        },
-        {
             "name": "oander/module-warehouse-manager",
             "version": "1.4.23",
             "source": {
@@ -9751,36 +9595,6 @@
             "time": "2018-04-16T15:10:29+00:00"
         },
         {
-            "name": "oander/module-xtento-order-unity-pickup-export",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-xtento-order-unity-pickup-export.git",
-                "reference": "365809185fb6795f112d34b5939695623b52738e"
-            },
-            "require": {
-                "oander/module-unity-pickup": "1.*",
-                "oander/module-xtento-order-export-extender": "^1.0.4",
-                "php": "7.*",
-                "xtento/module-orderexport": "2.3.9",
-                "xtento/module-xtcore": "~2.0"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\XtentoOrderUnityPickupExport\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Xtento Order Unity Pickup Export",
-            "time": "2018-01-08T11:34:04+00:00"
-        },
-        {
             "name": "oander/theme-hodor",
             "version": "dev-istyle",
             "source": {
@@ -9810,7 +9624,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "a0e5d7bd78e0129e793731bac61869ce04b8d764"
+                "reference": "918fa9418eeeaefc9425c5d67e5cce8a04e0dddb"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9826,7 +9640,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-12-12T14:38:15+00:00"
+            "time": "2018-12-12T10:20:23+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10326,11 +10140,11 @@
         },
         {
             "name": "replace/module-buyback-calculator",
-            "version": "1.0.5",
+            "version": "1.0.5.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/replace-buyback-calculator.git",
-                "reference": "db82033b69e075bd35f65295dccb37b2dc080e57"
+                "reference": "734f645b83f44aa17eb8222c5fcd6deb8320c685"
             },
             "require": {
                 "php": "7.0.2|7.0.4|~7.0.6"
@@ -10345,7 +10159,7 @@
                 }
             },
             "description": "Rework Replace Buyback Calculator",
-            "time": "2018-11-09T15:08:19+00:00"
+            "time": "2018-12-12T10:14:45+00:00"
         },
         {
             "name": "rudracomputech/module-nestpay",
