@@ -95,11 +95,12 @@ class AjaxCaptainHookEvent implements ObserverInterface
             $finalprice = $product->getPriceInfo()->getPrice('final_price');
             $price = $this->_registerJsPrice($price->getAmount()->getValue());
             $finalprice = $this->_registerJsPrice($finalprice->getAmount()->getValue());
+            $this->productView->getProduct()->setData('has_options', 1);
             $productViewConfig = $this->jsonDecoder->decode($this->productView->getJsonConfig());
 
             /** @var \Magento\Catalog\Model\Product|null $realproduct */
             $realproduct = $input->getData('realproduct');
-            if ($product->getTypeId() == 'simple') {
+            if ($product->getTypeId() == 'simple' || $product->getTypeId() == 'virtual') {
                 if ($realproduct) {
                     if ($realproduct->getTypeId() == \Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE) {
                         $this->configurable->setData('product', $realproduct);

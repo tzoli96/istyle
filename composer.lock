@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d0d220631c98e575c3abf746dce4a64f",
+    "content-hash": "53a68049c5d0d066fa509a6e9ede8fa9",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1265,32 +1265,33 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.4.2",
+            "version": "1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
+                "reference": "9f83dded91781a01c63574e387eaa769be769115"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
-                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/9f83dded91781a01c63574e387eaa769be769115",
+                "reference": "9f83dded91781a01c63574e387eaa769be769115",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0",
-                "psr/http-message": "~1.0"
+                "psr/http-message": "~1.0",
+                "ralouphie/getallheaders": "^2.0.5"
             },
             "provide": {
                 "psr/http-message-implementation": "1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "1.5-dev"
                 }
             },
             "autoload": {
@@ -1320,13 +1321,14 @@
             "keywords": [
                 "http",
                 "message",
+                "psr-7",
                 "request",
                 "response",
                 "stream",
                 "uri",
                 "url"
             ],
-            "time": "2017-03-20T17:10:46+00:00"
+            "time": "2018-12-04T20:46:45+00:00"
         },
         {
             "name": "heureka/overenozakazniky",
@@ -1409,16 +1411,16 @@
         },
         {
             "name": "innobyte/magento2-payu",
-            "version": "1.1.6",
+            "version": "1.1.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-payu.git",
-                "reference": "67a47529a1a1b4fdebe9fa841ee6c53e10b614ee"
+                "reference": "06a5e9f015f897dda073a0d381c49c60516865c1"
             },
             "require": {
-                "magento/module-checkout": "100.1.*",
-                "magento/module-quote": "100.1.*",
-                "magento/module-sales": "100.1.*"
+                "magento/module-checkout": ">=100",
+                "magento/module-quote": ">=100",
+                "magento/module-sales": ">=100"
             },
             "type": "magento2-module",
             "autoload": {
@@ -1430,7 +1432,7 @@
                 }
             },
             "description": "Magento2 PayU module",
-            "time": "2018-08-21T12:17:20+00:00"
+            "time": "2018-12-11T11:55:27+00:00"
         },
         {
             "name": "innobyte/module-bnpparibas",
@@ -1530,11 +1532,11 @@
         },
         {
             "name": "innobyte/module-homecredit",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-home-credit.git",
-                "reference": "f0bd8d1ee98622da37778688cdc02e85bdf350fc"
+                "reference": "88b9f4d5aee0d440369521e409d815d115e73851"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1550,7 +1552,7 @@
                 }
             },
             "description": "Innobyte HomeCredit Module",
-            "time": "2018-06-05T10:14:06+00:00"
+            "time": "2018-06-26T12:49:14+00:00"
         },
         {
             "name": "innobyte/module-mstart",
@@ -6510,6 +6512,12 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
+                "reference": null,
+                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
+            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -7538,11 +7546,11 @@
         },
         {
             "name": "oander/module-api-gateway",
-            "version": "1.0.24",
+            "version": "1.0.25.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-gateway.git",
-                "reference": "acea2bffdc51243ea13387a4ee457edfd6970d2a"
+                "reference": "7a215c245692e214928961572b24c95e42736a49"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7562,7 +7570,7 @@
                 "proprietary"
             ],
             "description": "The API Gateway module for ERP connections and import solutions.",
-            "time": "2018-11-14T13:55:30+00:00"
+            "time": "2018-11-27T10:08:17+00:00"
         },
         {
             "name": "oander/module-api-image",
@@ -7823,11 +7831,11 @@
         },
         {
             "name": "oander/module-cartbutton",
-            "version": "1.0.17",
+            "version": "1.0.19",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cartbutton.git",
-                "reference": "36c2a4586101668b3ccd5db9f1e18014ffa486b4"
+                "reference": "a0c194d8f4bacd990d85bb10ba201bab25d540bf"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7848,7 +7856,7 @@
                 }
             ],
             "description": "Helper to display cart button",
-            "time": "2018-10-21T09:31:10+00:00"
+            "time": "2018-11-28T09:13:26+00:00"
         },
         {
             "name": "oander/module-cashonpickuppayment",
@@ -8021,11 +8029,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.30.7",
+            "version": "1.0.30.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "8dfd9367ec01fd4288dd3f9478f31aec074126a5"
+                "reference": "00afedb9f209527b5ce03d3d5ffdee04259e67f6"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8044,7 +8052,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2018-10-30T10:58:18+00:00"
+            "time": "2018-11-30T10:28:03+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -8377,11 +8385,11 @@
         },
         {
             "name": "oander/module-installment-prices",
-            "version": "1.0.6",
+            "version": "1.0.6.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/installment-prices.git",
-                "reference": "501f87b7d1216d783175f30459ee5e51607fb5be"
+                "reference": "cc694427b26c1cdf04a800822cc403018c53b267"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8400,7 +8408,7 @@
                 "proprietary"
             ],
             "description": "Installment prices displays next to Product Icons",
-            "time": "2018-04-06T08:30:32+00:00"
+            "time": "2018-11-27T13:29:11+00:00"
         },
         {
             "name": "oander/module-istyleaws",
@@ -9187,11 +9195,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.20",
+            "version": "1.4.23",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "d88f364da05836a83408110cdd8308505fb7022a"
+                "reference": "1ecd62e7f9d8019d089dbe2b02b4c7622221e03e"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9213,7 +9221,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2018-11-13T17:32:44+00:00"
+            "time": "2018-11-23T20:08:32+00:00"
         },
         {
             "name": "oander/module-wonder-widget",
@@ -9296,11 +9304,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.177",
+            "version": "1.0.179",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "7495804afc081bdcde90e3a2c0e9182cdcf68f78"
+                "reference": "0d04bc92a164658f8ba2e0c82d1efcb46a994f26"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9316,7 +9324,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-11-21T09:51:31+00:00"
+            "time": "2018-11-30T10:11:28+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -9729,16 +9737,16 @@
         },
         {
             "name": "psr/log",
-            "version": "1.0.2",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
+                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
-                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
+                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
                 "shasum": ""
             },
             "require": {
@@ -9772,7 +9780,47 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10T12:19:37+00:00"
+            "time": "2018-11-20T15:27:04+00:00"
+        },
+        {
+            "name": "ralouphie/getallheaders",
+            "version": "2.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ralouphie/getallheaders.git",
+                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+                "reference": "5601c8a83fbba7ef674a7369456d12f1e0d0eafa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7.0",
+                "satooshi/php-coveralls": ">=1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/getallheaders.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                }
+            ],
+            "description": "A polyfill for getallheaders.",
+            "time": "2016-02-11T07:05:27+00:00"
         },
         {
             "name": "replace/module-buyback-calculator",
@@ -10020,16 +10068,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.8.47",
+            "version": "v2.8.49",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "506aaec58da5b042ec23f7de5cc866eb4b57a21e"
+                "reference": "7dd5f5040dc04c118d057fb5886563963eb70011"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/506aaec58da5b042ec23f7de5cc866eb4b57a21e",
-                "reference": "506aaec58da5b042ec23f7de5cc866eb4b57a21e",
+                "url": "https://api.github.com/repos/symfony/config/zipball/7dd5f5040dc04c118d057fb5886563963eb70011",
+                "reference": "7dd5f5040dc04c118d057fb5886563963eb70011",
                 "shasum": ""
             },
             "require": {
@@ -10073,7 +10121,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-30T16:24:01+00:00"
+            "time": "2018-11-26T09:38:12+00:00"
         },
         {
             "name": "symfony/console",
@@ -10135,16 +10183,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.8.47",
+            "version": "v2.8.49",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "8b7508c6af29f69426d2931466db2144d0f8105c"
+                "reference": "a2f40df187f0053bc361bcea3b27ff2b85744d9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/8b7508c6af29f69426d2931466db2144d0f8105c",
-                "reference": "8b7508c6af29f69426d2931466db2144d0f8105c",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/a2f40df187f0053bc361bcea3b27ff2b85744d9f",
+                "reference": "a2f40df187f0053bc361bcea3b27ff2b85744d9f",
                 "shasum": ""
             },
             "require": {
@@ -10194,20 +10242,20 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-20T20:20:36+00:00"
+            "time": "2018-11-11T11:18:13+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.47",
+            "version": "v2.8.49",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
-                "reference": "76494bc38ff38d90d01913d23b5271acd4d78dd3"
+                "reference": "a77e974a5fecb4398833b0709210e3d5e334ffb0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/76494bc38ff38d90d01913d23b5271acd4d78dd3",
-                "reference": "76494bc38ff38d90d01913d23b5271acd4d78dd3",
+                "url": "https://api.github.com/repos/symfony/event-dispatcher/zipball/a77e974a5fecb4398833b0709210e3d5e334ffb0",
+                "reference": "a77e974a5fecb4398833b0709210e3d5e334ffb0",
                 "shasum": ""
             },
             "require": {
@@ -10254,20 +10302,20 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-20T23:16:31+00:00"
+            "time": "2018-11-21T14:20:20+00:00"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.8.47",
+            "version": "v2.8.49",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "56a92481a4969b234b1647b1fd1170281e80e2ca"
+                "reference": "7ae46872dad09dffb7fe1e93a0937097339d0080"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/56a92481a4969b234b1647b1fd1170281e80e2ca",
-                "reference": "56a92481a4969b234b1647b1fd1170281e80e2ca",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/7ae46872dad09dffb7fe1e93a0937097339d0080",
+                "reference": "7ae46872dad09dffb7fe1e93a0937097339d0080",
                 "shasum": ""
             },
             "require": {
@@ -10304,20 +10352,20 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-02T03:12:00+00:00"
+            "time": "2018-11-11T11:18:13+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.18",
+            "version": "v3.4.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "54ba444dddc5bd5708a34bd095ea67c6eb54644d"
+                "reference": "6cf2be5cbd0e87aa35c01f80ae0bf40b6798e442"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/54ba444dddc5bd5708a34bd095ea67c6eb54644d",
-                "reference": "54ba444dddc5bd5708a34bd095ea67c6eb54644d",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/6cf2be5cbd0e87aa35c01f80ae0bf40b6798e442",
+                "reference": "6cf2be5cbd0e87aa35c01f80ae0bf40b6798e442",
                 "shasum": ""
             },
             "require": {
@@ -10353,7 +10401,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-03T08:46:40+00:00"
+            "time": "2018-11-11T19:48:54+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -10415,16 +10463,16 @@
         },
         {
             "name": "symfony/process",
-            "version": "v2.8.47",
+            "version": "v2.8.49",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "a15cb61190c6fe37168600922e82295eb5e5449b"
+                "reference": "c3591a09c78639822b0b290d44edb69bf9f05dc8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/a15cb61190c6fe37168600922e82295eb5e5449b",
-                "reference": "a15cb61190c6fe37168600922e82295eb5e5449b",
+                "url": "https://api.github.com/repos/symfony/process/zipball/c3591a09c78639822b0b290d44edb69bf9f05dc8",
+                "reference": "c3591a09c78639822b0b290d44edb69bf9f05dc8",
                 "shasum": ""
             },
             "require": {
@@ -10460,20 +10508,20 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-05T07:35:28+00:00"
+            "time": "2018-11-11T11:18:13+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.47",
+            "version": "v2.8.49",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "0e16589861f192dbffb19b06683ce3ef58f7f99d"
+                "reference": "02c1859112aa779d9ab394ae4f3381911d84052b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/0e16589861f192dbffb19b06683ce3ef58f7f99d",
-                "reference": "0e16589861f192dbffb19b06683ce3ef58f7f99d",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/02c1859112aa779d9ab394ae4f3381911d84052b",
+                "reference": "02c1859112aa779d9ab394ae4f3381911d84052b",
                 "shasum": ""
             },
             "require": {
@@ -10510,7 +10558,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-02T16:27:16+00:00"
+            "time": "2018-11-11T11:18:13+00:00"
         },
         {
             "name": "tedivm/jshrink",
@@ -13273,16 +13321,16 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.18",
+            "version": "v3.4.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "05e52a39de52ba690aebaed462b2bc8a9649f0a4"
+                "reference": "0f43969ab2718de55c1c1158dce046668079788d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/05e52a39de52ba690aebaed462b2bc8a9649f0a4",
-                "reference": "05e52a39de52ba690aebaed462b2bc8a9649f0a4",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/0f43969ab2718de55c1c1158dce046668079788d",
+                "reference": "0f43969ab2718de55c1c1158dce046668079788d",
                 "shasum": ""
             },
             "require": {
@@ -13318,7 +13366,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-02T12:28:39+00:00"
+            "time": "2018-11-11T19:48:54+00:00"
         },
         {
             "name": "theseer/fdomdocument",
