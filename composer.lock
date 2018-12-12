@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "377233c121e9c5079b303e6b875a63cd",
+    "content-hash": "cf78d1de6e286c46d72602e28ac35344",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9216,11 +9216,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "e0f4e27be31d5ea84a18415da9bea32dcb6f1956"
+                "reference": "ec1b903ccac8d22962d6e054f0e3dc1a0237fedc"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9239,7 +9239,35 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2018-09-28T19:29:15+00:00"
+            "time": "2018-12-12T14:04:29+00:00"
+        },
+        {
+            "name": "oander/module-salesforce-service",
+            "version": "0.0.3.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-salesforce-service.git",
+                "reference": "36f45dfdb94052ae8f6b0c7b515fd16af05124ad"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "oander/module-salesforce": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\SalesforceService\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Salesforce Service appointment reservation",
+            "time": "2018-12-12T15:34:51+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -9782,7 +9810,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "1d1f0cc3ecb018ec4adf4a53267b204728f212de"
+                "reference": "a0e5d7bd78e0129e793731bac61869ce04b8d764"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9798,7 +9826,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-12-11T13:49:11+00:00"
+            "time": "2018-12-12T14:38:15+00:00"
         },
         {
             "name": "oyejorge/less.php",
