@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ed690d2494451893a99cc394febe497",
+    "content-hash": "53a68049c5d0d066fa509a6e9ede8fa9",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7293,32 +7293,6 @@
             "time": "2018-05-11T12:24:56+00:00"
         },
         {
-            "name": "oander/library-pick-pack-pont",
-            "version": "1.0.7",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-pick-pack-pont.git",
-                "reference": "855722dba3c51eb799b3b85a28131d3a43601ef1"
-            },
-            "require": {
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\PickPackPontLib\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Oander Pick Pack Pont Library",
-            "time": "2017-11-22T15:20:31+00:00"
-        },
-        {
             "name": "oander/module-ajax-captain-hook",
             "version": "1.0.2",
             "source": {
@@ -7540,37 +7514,6 @@
             ],
             "description": "API Checkout module.",
             "time": "2018-09-05T09:32:38+00:00"
-        },
-        {
-            "name": "oander/module-api-checkout-unity-pickup",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-api-checkout-unity-pickup.git",
-                "reference": "48213e7df8610f82b4977e51ffe49552f5915271"
-            },
-            "require": {
-                "oander/module-api-base": "*",
-                "oander/module-api-checkout": "*",
-                "oander/module-api-gateway": "*",
-                "oander/module-base": "*",
-                "oander/module-unity-pickup": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\ApiCheckoutUnityPickup\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "API Checkout Unity Pickup module.",
-            "time": "2018-01-05T12:55:20+00:00"
         },
         {
             "name": "oander/module-api-customer",
@@ -8275,33 +8218,6 @@
             "time": "2018-08-27T14:32:02+00:00"
         },
         {
-            "name": "oander/module-email-additional-data",
-            "version": "1.0.5",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-email-additional-data.git",
-                "reference": "34f6694f574d472086518e5c59f6b513d8c9a43a"
-            },
-            "require": {
-                "oander/module-base": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\EmailAdditionalData\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Email Additional Data",
-            "time": "2017-10-06T10:52:40+00:00"
-        },
-        {
             "name": "oander/module-fancy-filter",
             "version": "1.3.1.9",
             "source": {
@@ -8526,34 +8442,6 @@
             ],
             "description": "Control Istyle Aws from magento",
             "time": "2018-11-20T09:26:07+00:00"
-        },
-        {
-            "name": "oander/module-lapker",
-            "version": "1.0.9.1",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-lapker.git",
-                "reference": "34652ce38129ed3a5d733b52ec82a18469365836"
-            },
-            "require": {
-                "oander/library-pick-pack-pont": "*",
-                "oander/module-base": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\Lapker\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Oander Lapker integration",
-            "time": "2018-06-20T08:17:43+00:00"
         },
         {
             "name": "oander/module-maintenance",
@@ -9306,97 +9194,6 @@
             "time": "2018-03-23T08:14:00+00:00"
         },
         {
-            "name": "oander/module-unity-dpd-cz-pickup",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-unity-dpd-cz-pickup.git",
-                "reference": "7096190cc5c853f7a427d3b26f2e0ddde8ed4574"
-            },
-            "require": {
-                "oander/module-base": "*",
-                "oander/module-lapker": "*",
-                "oander/module-test-base": "*",
-                "oander/module-unity-pickup": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\UnityDpdCZPickup\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Oander Unity Dpd CZ Pickup",
-            "time": "2018-08-06T16:06:29+00:00"
-        },
-        {
-            "name": "oander/module-unity-dpd-sk-pickup",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-unity-dpd-sk-pickup.git",
-                "reference": "f6d1b8dc2dd866a7deac7cca4e2ebc176d758184"
-            },
-            "require": {
-                "oander/module-base": "*",
-                "oander/module-lapker": "*",
-                "oander/module-test-base": "*",
-                "oander/module-unity-pickup": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\UnityDpdSKPickup\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Oander Unity Dpd SK Pickup",
-            "time": "2018-08-06T16:06:44+00:00"
-        },
-        {
-            "name": "oander/module-unity-pickup",
-            "version": "1.0.18.6",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-unity-pickup.git",
-                "reference": "f5c849de495113a2d8b9fb5e7e9e5994e7607d0c"
-            },
-            "require": {
-                "oander/module-base": "*",
-                "oander/module-checkout": "*",
-                "oander/module-email-additional-data": "*",
-                "oander/module-shipping": "*",
-                "oander/module-test-base": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\UnityPickup\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Oander Unity Pickup",
-            "time": "2018-09-18T09:51:10+00:00"
-        },
-        {
             "name": "oander/module-warehouse-manager",
             "version": "1.4.23",
             "source": {
@@ -9480,36 +9277,6 @@
             ],
             "description": "Xtento Order Export Extender",
             "time": "2018-04-16T15:10:29+00:00"
-        },
-        {
-            "name": "oander/module-xtento-order-unity-pickup-export",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-xtento-order-unity-pickup-export.git",
-                "reference": "365809185fb6795f112d34b5939695623b52738e"
-            },
-            "require": {
-                "oander/module-unity-pickup": "1.*",
-                "oander/module-xtento-order-export-extender": "^1.0.4",
-                "php": "7.*",
-                "xtento/module-orderexport": "2.3.9",
-                "xtento/module-xtcore": "~2.0"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\XtentoOrderUnityPickupExport\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Xtento Order Unity Pickup Export",
-            "time": "2018-01-08T11:34:04+00:00"
         },
         {
             "name": "oander/theme-hodor",
