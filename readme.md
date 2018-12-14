@@ -1,6 +1,6 @@
 # iStyle M2   
 
-**Utoljára frissítve:** 2018.11.20.
+**Utoljára frissítve:** 2018.12.14.
  
 
 * [Sass-lint](#sass-lint)
