@@ -36,6 +36,6 @@ if [[ "${INSTANCE_ID}" != "${MASTER_ID}" ]]; then
   fi
 
   echo " * MAGENTO CACHE FLUSH: "
-  sudo -u www-data php ${WEBROOT}/bin/magento cache:flush
+  #sudo -u www-data php ${WEBROOT}/bin/magento cache:flush
 fi
 
