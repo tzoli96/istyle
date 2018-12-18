@@ -131,7 +131,7 @@
         "rudracomputech/module-nestpay": "2.0.6.5",
         "xtento/module-orderexport": "2.3.9",
         "xtento/module-xtcore": "2.1.0",
-        "oander/module-grenke": "1.0.0"
+        "oander/module-grenke": "1.0.1"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
