@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "10fa9c9358566aa6fbcbe647fb9ee911",
+    "content-hash": "d6bc73035c135ffe8dc5e6cbf27010b0",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9387,11 +9387,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.1.5",
+            "version": "1.1.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "6fe53fb6f35e73318c5e034c2f9f02345d95c24e"
+                "reference": "c6e40c362c716e1774c553e23b660c650ab8d5db"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9410,15 +9410,15 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2018-12-15T13:06:48+00:00"
+            "time": "2019-01-02T16:22:00+00:00"
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.5",
+            "version": "0.0.3.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "379176e7bc756629a221a4ae60d470c2a4e63414"
+                "reference": "a5490ab9e549724abfe3fbb22ffa8d7ccb9d671d"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9438,7 +9438,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2019-01-02T13:24:48+00:00"
+            "time": "2019-01-02T16:54:25+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -9470,11 +9470,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.11",
+            "version": "1.1.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "41baf5bcbf58c479b2333f8f6f3d8d759f787aca"
+                "reference": "0bc4c33dde58d76cb2727981b5d45f6e07b6af7a"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9502,7 +9502,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-12-11T14:18:51+00:00"
+            "time": "2019-01-02T16:19:08+00:00"
         },
         {
             "name": "oander/module-shipping",
