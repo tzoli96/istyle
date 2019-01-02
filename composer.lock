@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d92340d06c7688adc0a869205158a0f1",
+    "content-hash": "6166005afbee7f4bf8b3cae4b1d1f77b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6620,12 +6620,6 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
-                "reference": null,
-                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
-            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -7907,6 +7901,32 @@
             ],
             "description": "Oander_ApiWarehouseManager",
             "time": "2018-11-14T16:04:20+00:00"
+        },
+        {
+            "name": "oander/module-applepay",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-applepay.git",
+                "reference": "00783c0ac332ae377267ed72d085b343e7879cb8"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\ApplePay\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Apple Pay payment method",
+            "time": "2019-01-02T11:06:20+00:00"
         },
         {
             "name": "oander/module-base",
@@ -9685,7 +9705,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "aa2375e62d6b8e323131305ef1d21210d831a4fe"
+                "reference": "3036bfa46d7790fdc63bcfa9e6f0cb30ad421a9e"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9701,7 +9721,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-12-17T11:50:12+00:00"
+            "time": "2018-12-20T08:28:01+00:00"
         },
         {
             "name": "oyejorge/less.php",
