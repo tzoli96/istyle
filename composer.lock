@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "53a68049c5d0d066fa509a6e9ede8fa9",
+    "content-hash": "d588ebf57f696c207f3069fdb0f4219a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6512,12 +6512,6 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
-                "reference": null,
-                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
-            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -6896,11 +6890,11 @@
         },
         {
             "name": "mirasvit/module-core",
-            "version": "1.2.67",
+            "version": "1.2.74",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-core.git",
-                "reference": "df5b07875201ea877e23f33d2f07ce8927e81eef"
+                "reference": "0766545184164ca79af74548ac9708cd471ec25a"
             },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*"
@@ -6908,25 +6902,25 @@
             "type": "magento2-module",
             "autoload": {
                 "files": [
-                    "src/Core/registration.php"
+                    "registration.php"
                 ],
                 "psr-4": {
-                    "Mirasvit\\Core\\": "src/Core"
+                    "Mirasvit\\Core\\": ""
                 }
             },
             "license": [
                 "proprietary"
             ],
             "description": "Mirasvit Core",
-            "time": "2018-06-25T08:56:27+00:00"
+            "time": "2018-12-18T10:18:35+00:00"
         },
         {
             "name": "mirasvit/module-feed",
-            "version": "1.0.69",
+            "version": "1.0.83",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-feed.git",
-                "reference": "69276730accf0d52619d47b32883d5e989af30ae"
+                "reference": "b5e0274ea3d86856b5ec0c0f0ed28130f5471515"
             },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*",
@@ -6936,25 +6930,53 @@
             "type": "magento2-module",
             "autoload": {
                 "files": [
-                    "src/Feed/registration.php"
+                    "registration.php"
                 ],
                 "psr-4": {
-                    "Mirasvit\\Feed\\": "src/Feed"
+                    "Mirasvit\\Feed\\": ""
                 }
             },
             "license": [
                 "proprietary"
             ],
             "description": "Advanced Product Feeds",
-            "time": "2018-06-25T08:52:57+00:00"
+            "time": "2018-12-18T10:13:33+00:00"
         },
         {
             "name": "mirasvit/module-report",
-            "version": "1.3.25",
+            "version": "1.3.44",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-report.git",
-                "reference": "eed2055a79dabf569b31c4c051c2ca095a406ebe"
+                "reference": "2f4eba792fa40af75f58e4842b4059ee2989d69b"
+            },
+            "require": {
+                "magento/framework": "100.1.*|101.0.*",
+                "mirasvit/module-core": "^1.2",
+                "mirasvit/module-report-api": ">=1.0.11"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mirasvit\\Report\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Reports Core",
+            "time": "2018-12-18T10:12:29+00:00"
+        },
+        {
+            "name": "mirasvit/module-report-api",
+            "version": "1.3.18.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/mirasvit-report-api.git",
+                "reference": "a60c0accc8865356726e3a30bd267bf6706e377f"
             },
             "require": {
                 "magento/framework": "100.1.*|101.0.*",
@@ -6963,19 +6985,18 @@
             "type": "magento2-module",
             "autoload": {
                 "files": [
-                    "src/Report/registration.php",
-                    "src/ReportApi/registration.php"
+                    "registration.php"
                 ],
                 "psr-4": {
-                    "Mirasvit\\Report\\": "src/Report",
-                    "Mirasvit\\ReportApi\\": "src/ReportApi"
+                    "Mirasvit\\Report\\": "",
+                    "Mirasvit\\ReportApi\\": ""
                 }
             },
             "license": [
                 "proprietary"
             ],
             "description": "Reports Core",
-            "time": "2018-06-25T09:06:55+00:00"
+            "time": "2018-06-01T09:13:40+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -9304,11 +9325,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.179",
+            "version": "1.0.180",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "0d04bc92a164658f8ba2e0c82d1efcb46a994f26"
+                "reference": "d2f8a42bf3dd27d25d1610c0a81d36b831484819"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9324,7 +9345,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2018-11-30T10:11:28+00:00"
+            "time": "2019-01-04T09:25:31+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -9544,16 +9565,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.12",
+            "version": "2.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "8814dc7841db159daed0b32c2b08fb7e03c6afe7"
+                "reference": "42603ce3f42a27f7e14e54feab95db7b680ad473"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/8814dc7841db159daed0b32c2b08fb7e03c6afe7",
-                "reference": "8814dc7841db159daed0b32c2b08fb7e03c6afe7",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/42603ce3f42a27f7e14e54feab95db7b680ad473",
+                "reference": "42603ce3f42a27f7e14e54feab95db7b680ad473",
                 "shasum": ""
             },
             "require": {
@@ -9632,7 +9653,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2018-11-04T05:45:48+00:00"
+            "time": "2018-12-16T17:45:25+00:00"
         },
         {
             "name": "plugincompany/customergroupswitching",
@@ -9824,11 +9845,11 @@
         },
         {
             "name": "replace/module-buyback-calculator",
-            "version": "1.0.5",
+            "version": "1.0.5.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/replace-buyback-calculator.git",
-                "reference": "db82033b69e075bd35f65295dccb37b2dc080e57"
+                "reference": "734f645b83f44aa17eb8222c5fcd6deb8320c685"
             },
             "require": {
                 "php": "7.0.2|7.0.4|~7.0.6"
@@ -9843,7 +9864,7 @@
                 }
             },
             "description": "Rework Replace Buyback Calculator",
-            "time": "2018-11-09T15:08:19+00:00"
+            "time": "2018-12-12T10:14:45+00:00"
         },
         {
             "name": "rudracomputech/module-nestpay",
