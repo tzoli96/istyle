@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0a2b63f5eb915f7c6ed2d3e0c1e918a1",
+    "content-hash": "624dbe2a2c1346cf63b76bf91585e770",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6620,6 +6620,12 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
+                "reference": null,
+                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
+            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -8536,11 +8542,11 @@
         },
         {
             "name": "oander/module-heureka-tracking",
-            "version": "1.1.0",
+            "version": "1.1.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-heureka-tracking.git",
-                "reference": "79b775a20d7af53f2cc3ed6e69262db71ad5122d"
+                "reference": "77693341a0ae75a478298e1f28c70e6eaebc139a"
             },
             "require": {
                 "heureka/overenozakazniky": "3.0.0",
@@ -8560,7 +8566,7 @@
                 "proprietary"
             ],
             "description": "Magento2 Heureka tracking Module",
-            "time": "2018-08-29T09:32:21+00:00"
+            "time": "2019-01-08T13:04:27+00:00"
         },
         {
             "name": "oander/module-hungarian-newsletter",
@@ -9679,7 +9685,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "34d2e85ac79fbcec4ed46a5f6dccfc582b7a9d15"
+                "reference": "93bd8c19e6b34f47f32813be9af4551be472ffd1"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9695,7 +9701,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-01-07T16:11:01+00:00"
+            "time": "2019-01-08T12:04:17+00:00"
         },
         {
             "name": "oyejorge/less.php",
