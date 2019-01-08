@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec7d2d94719a7e90f2efef1eb6f07212",
+    "content-hash": "ce415a1260dff951cf4dbace2d77951e",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7901,32 +7901,6 @@
             ],
             "description": "Oander_ApiWarehouseManager",
             "time": "2018-11-14T16:04:20+00:00"
-        },
-        {
-            "name": "oander/module-applepay",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-applepay.git",
-                "reference": "c3d83aa74dbf5aa3d4bf9d7416bb951cee7bd235"
-            },
-            "require": {
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "psr-4": {
-                    "Oander\\ApplePay\\": ""
-                },
-                "files": [
-                    "registration.php"
-                ]
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Apple Pay payment method",
-            "time": "2019-01-03T05:55:27+00:00"
         },
         {
             "name": "oander/module-base",
