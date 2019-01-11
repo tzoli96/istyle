@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "624dbe2a2c1346cf63b76bf91585e770",
+    "content-hash": "cf8f4278c1c2081981b92d681ab895ae",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6620,12 +6620,6 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
-                "reference": null,
-                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
-            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -7455,11 +7449,11 @@
         },
         {
             "name": "oander/module-ajax-captain-hook",
-            "version": "1.0.2",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-ajax-captain-hook.git",
-                "reference": "9db2164864954c34e5f72aa110b9e8d209924123"
+                "reference": "ae0bd8af398fdf199994769c595489bba4c0a56f"
             },
             "require": {
                 "php": "7.*"
@@ -7477,7 +7471,7 @@
                 "proprietary"
             ],
             "description": "Try 'hook' to all AJAX requests on a page.",
-            "time": "2018-10-12T18:24:10+00:00"
+            "time": "2019-01-11T08:25:08+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
@@ -9685,7 +9679,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "93bd8c19e6b34f47f32813be9af4551be472ffd1"
+                "reference": "6a73b6e880c3c74a3e7b0aacfb78d9b2a1aecbaf"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9701,7 +9695,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-01-08T12:04:17+00:00"
+            "time": "2019-01-10T13:57:25+00:00"
         },
         {
             "name": "oyejorge/less.php",
