@@ -28,8 +28,6 @@ use Oander\IstyleCustomization\Observer\AjaxCaptainHookEvent;
  */
 class AjaxCaptainHookJsEvent implements ObserverInterface
 {
-    const HAS_PRICE = 'window.productview.hasPrice';
-
     /**
      * @param \Magento\Framework\Event\Observer $observer
      */
@@ -100,29 +98,10 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
                         'if(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\'] !== undefined)
                         {            
                              jQuery(\'[data-role=swatch-options]\').data(\'mageOanderSwatchRenderer\').setConfig(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\']);
-                             ' . self::HAS_PRICE . ' = true;
-                        
                         }'
                     ]
                 )
             );
         }
-
-        $output->setData('commonjs',
-            array_merge($output->getData('commonjs'),
-                [AjaxCaptainHookEvent::OUTPUT_NAME => "window.productview=[];"]
-            )
-        );
-
-        $output->setData('commonfunctionjs',
-            array_merge($output->getData('commonfunctionjs'),
-                [AjaxCaptainHookEvent::OUTPUT_NAME =>
-                    "if(" . self::HAS_PRICE . "!== undefined)
-                        {
-                            otherdata.push('" . AjaxCaptainHookEvent::INPUT_DISABLEPRICE . "');
-                        }"
-                ]
-            )
-        );
     }
 }

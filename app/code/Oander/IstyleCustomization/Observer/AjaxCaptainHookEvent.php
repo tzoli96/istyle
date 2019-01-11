@@ -28,7 +28,6 @@ use \Magento\Framework\Json\DecoderInterface;
  */
 class AjaxCaptainHookEvent implements ObserverInterface
 {
-    const INPUT_DISABLEPRICE = 'disableprice';
     const OUTPUT_NAME = 'price';
 
     const OUTPUT_NAME1 = 'price';
@@ -85,8 +84,8 @@ class AjaxCaptainHookEvent implements ObserverInterface
         $output = $observer->getData('output');
         /** @var \Magento\Catalog\Model\Product $product */
         $params = $input->getData('params');
-        $disableprice = isset($params['data'])?(is_array($params['data'])?in_array(self::INPUT_DISABLEPRICE, $params['data']):false):false;
-        if(!$disableprice) {
+        $firstload = isset($params['data'])?(is_array($params['data'])?in_array(\Oander\AjaxCaptainHook\Observer\AjaxCaptainHookJsEventFirstLoad::INPUT_FIRSTLOAD, $params['data']):false):false;
+        if($firstload) {
             /** @var \Magento\Catalog\Model\Product $product */
             $product = $input->getData('product');
             /*$finalprice = (int)round($this->catalogHelper->getTaxPrice($product, $product->getFinalPrice(), true);

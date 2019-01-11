@@ -20,9 +20,11 @@
     </event>
     <event name="ajax_captain_hook_event">
         <observer name="istyle_customization_ajax_captain_hook_event" instance="Oander\IstyleCustomization\Observer\AjaxCaptainHookEvent" />
+        <observer name="istyle_customization_ajax_captain_hook_event_product_default" instance="Oander\IstyleCustomization\Observer\AjaxCaptainHookEventProductDefault" />
     </event>
     <event name="ajax_captain_hook_js_call">
         <observer name="istyle_customization_ajax_captain_hook_common_js_event" instance="Oander\IstyleCustomization\Observer\AjaxCaptainHookJsEvent" />
+        <observer name="istyle_customization_ajax_captain_hook_common_js_event_product_default" instance="Oander\IstyleCustomization\Observer\AjaxCaptainHookJsEventProductDefault" />
         <!--<observer name="istyle_customization_ajax_captain_hook_common_js_event_loader" instance="Oander\IstyleCustomization\Observer\AjaxCaptainHookJsEventLoader" />-->
     </event>
     <event name="controller_front_send_response_before">

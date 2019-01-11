@@ -9,9 +9,9 @@
  * |  $$$$$$/| $$  | $$| $$ \  $$| $$$$$$$/| $$$$$$$$| $$  | $$
  *  \______/ |__/  |__/|__/  \__/|_______/ |________/|__/  |__/
  *
- * Oander_AjaxCaptianHook
+ * Oander_IstyleCustomization
  *
- * @author  Róbert Betlen <robert.betlen@oander.hu>
+ * @author  János Pinczés <janos.pinczes.hu>
  * @license Oander Media Kft. (http://www.oander.hu)
  */
 
@@ -20,34 +20,29 @@ declare(strict_types=1);
 namespace Oander\IstyleCustomization\Observer;
 
 use Magento\Framework\Event\ObserverInterface;
-use Oander\IstyleCustomization\Observer\AjaxCaptainHookEvent;
+use Oander\IstyleCustomization\Observer\AjaxCaptainHookEventProductDefault;
 
 /**
- * Class AjaxCaptainHookJsEventLoader
+ * Class AjaxCaptainHookJsEventProductDefault
  * @package Oander\IstyleCustomization\Observer
  */
-class AjaxCaptainHookJsEventLoader implements ObserverInterface
+class AjaxCaptainHookJsEventProductDefault implements ObserverInterface
 {
     /**
      * @param \Magento\Framework\Event\Observer $observer
      */
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
+
         $output = $observer->getData('output');
-
-        $output->setData('commonfunctionjs',
-            array_merge($output->getData('commonfunctionjs'),
-                ['Loader' =>
-                    'jQuery(".product-info-right").addClass("is-loading");'
-                ]
-            )
-        );
-
 
         $output->setData('js',
             array_merge($output->getData('js'),
-                ['Loader' =>
-                    'jQuery(".product-info-right").removeClass("is-loading");'
+                [AjaxCaptainHookEventProductDefault::OUTPUT_NAME =>
+                    'if(response[\'' . AjaxCaptainHookEventProductDefault::OUTPUT_NAME . '\'] !== undefined)
+                        {            
+                             jQuery(\'[data-role=swatch-options]\').data(\'mageOanderSwatchRenderer\').setDefaultOption(response[\'' . AjaxCaptainHookEventProductDefault::OUTPUT_NAME . '\'].' . AjaxCaptainHookEventProductDefault::OUTPUT_NAME2 . ', response[\'' . AjaxCaptainHookEventProductDefault::OUTPUT_NAME . '\'].' . AjaxCaptainHookEventProductDefault::OUTPUT_NAME1 . ');
+                        }'
                 ]
             )
         );
