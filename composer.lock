@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf8f4278c1c2081981b92d681ab895ae",
+    "content-hash": "9979bc3bb58bae794eb861aec3739815",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8184,11 +8184,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.30.19",
+            "version": "1.0.30.20",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "33c35e7f312f224c72b6eb6f4f78b75534937f59"
+                "reference": "885b577f1e62e7e080921d10491246b791ef7235"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8207,7 +8207,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2019-01-08T11:09:39+00:00"
+            "time": "2019-01-11T10:24:23+00:00"
         },
         {
             "name": "oander/module-cookie-law",
