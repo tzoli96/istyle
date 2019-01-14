@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e8df626cdbe3ef9ed37169cba96d15f2",
+    "content-hash": "92802359bf79137fc97cba92ad7442a8",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1521,11 +1521,11 @@
         },
         {
             "name": "innobyte/module-cetelem",
-            "version": "1.0.0.3",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-cetelem.git",
-                "reference": "c82f40ca509c224d07feb20675461de58db71a5b"
+                "reference": "033bbfd9a2334d296490fc4717dea8f6e436c6ec"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1541,7 +1541,7 @@
                 }
             },
             "description": "Innobyte Cetelem Module",
-            "time": "2018-12-04T10:34:35+00:00"
+            "time": "2019-01-14T13:17:39+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
@@ -7508,11 +7508,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.16.1",
+            "version": "1.0.17.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "a44d3524749c3c1dd0a8e1e7f4cd1e96536620dd"
+                "reference": "9c0704279cf3fbc085f6d821746225210121b878"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7533,7 +7533,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2019-01-14T09:33:57+00:00"
+            "time": "2019-01-14T13:16:42+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
@@ -9213,11 +9213,11 @@
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.8",
+            "version": "0.0.3.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "1fddd2bd230fc0ae9c7e5f720675a49fa203efac"
+                "reference": "e1ccd6f74be7d43d72be63df525bdec36c64f05c"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9237,7 +9237,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2019-01-04T11:04:34+00:00"
+            "time": "2019-01-14T12:29:50+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
