@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "897db1f950658a876ebe5f133da41070",
+    "content-hash": "f9db5f2a9207a545c8a35f1413552dc8",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1665,11 +1665,11 @@
         },
         {
             "name": "innobyte/module-nlb",
-            "version": "0.0.3",
+            "version": "0.0.4.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-nlbpayment.git",
-                "reference": "bde2add91a1b0d48d3543ba63ac05722a0f3f012"
+                "reference": "0c8e15832f22450a844caa7d41c5f68eb6e84b04"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1685,7 +1685,7 @@
                 }
             },
             "description": "Innobyte NLB Payment Module",
-            "time": "2018-01-30T09:08:54+00:00"
+            "time": "2019-01-14T09:51:00+00:00"
         },
         {
             "name": "innobyte/module-swedbank",
@@ -6620,6 +6620,12 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
+                "reference": null,
+                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
+            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -8345,32 +8351,6 @@
             ],
             "description": "Extended version of the Oander Category Badge module to show discount badges.",
             "time": "2018-06-27T08:55:03+00:00"
-        },
-        {
-            "name": "oander/module-dropdown-products",
-            "version": "1.0.6",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "453fc2f8772da6f12282549b87e56c9c6394a7ea"
-            },
-            "require": {
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\DropdownProducts\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Oander Dropdown Products module",
-            "time": "2018-08-27T14:32:02+00:00"
         },
         {
             "name": "oander/module-email-additional-data",
