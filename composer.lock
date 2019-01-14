@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bed760285fcd1b2cb5b0c276c826162c",
+    "content-hash": "122caa4aec3593e64a219214df5c4c25",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1580,11 +1580,11 @@
         },
         {
             "name": "innobyte/module-nlb",
-            "version": "0.0.3",
+            "version": "0.0.4.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-nlbpayment.git",
-                "reference": "bde2add91a1b0d48d3543ba63ac05722a0f3f012"
+                "reference": "0c8e15832f22450a844caa7d41c5f68eb6e84b04"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1600,7 +1600,7 @@
                 }
             },
             "description": "Innobyte NLB Payment Module",
-            "time": "2018-01-30T09:08:54+00:00"
+            "time": "2019-01-14T09:51:00+00:00"
         },
         {
             "name": "innobyte/module-swedbank",
@@ -6512,6 +6512,12 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
+                "reference": null,
+                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
+            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
