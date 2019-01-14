@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "92802359bf79137fc97cba92ad7442a8",
+    "content-hash": "d6d6d25f662de4e0ae9f5dd78fb63244",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8353,6 +8353,32 @@
             "time": "2018-06-27T08:55:03+00:00"
         },
         {
+            "name": "oander/module-dropdown-products",
+            "version": "1.0.6",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-dropdown-products.git",
+                "reference": "453fc2f8772da6f12282549b87e56c9c6394a7ea"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\DropdownProducts\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Dropdown Products module",
+            "time": "2018-08-27T14:32:02+00:00"
+        },
+        {
             "name": "oander/module-email-additional-data",
             "version": "1.0.5",
             "source": {
@@ -9659,7 +9685,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "5d55809bfacac5aae2e914beea555eee68a40613"
+                "reference": "8446ba20dd03f3b085675b8be3aa34b63c5ce202"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9675,7 +9701,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-01-11T13:11:10+00:00"
+            "time": "2019-01-14T13:32:35+00:00"
         },
         {
             "name": "oyejorge/less.php",
