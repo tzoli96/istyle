@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "273b3152236ffa8dfa6919ec3759c445",
+    "content-hash": "f6d981906c725c9d9a515427a80528ca",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -2058,6 +2058,34 @@
             },
             "description": "N/A",
             "time": "2018-12-05T16:36:11+00:00"
+        },
+        {
+            "name": "magemojo/splitdb",
+            "version": "1.6.1.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/magemojo-splitdb.git",
+                "reference": "59a1b52ef385096e7de6df94e6a7d287f86c7846"
+            },
+            "require": {
+                "magento/magento-composer-installer": "*",
+                "php": "~5.6.0|~7.0.0|~7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "MageMojo\\SplitDb\\": ""
+                }
+            },
+            "license": [
+                "OSL-3.0",
+                "AFL-3.0"
+            ],
+            "description": "Use an alternative connection to use SELECT queries",
+            "time": "2018-04-26T21:12:39+00:00"
         },
         {
             "name": "magento/composer",
@@ -9233,11 +9261,11 @@
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.10",
+            "version": "0.0.3.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "e50408e8637a2fd06d1fcfa73e1c3e1a5ebb677d"
+                "reference": "01102de12af58623f0d30fe83fac4b7a368201e8"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9257,7 +9285,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2019-01-15T10:11:23+00:00"
+            "time": "2019-01-15T10:40:14+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
