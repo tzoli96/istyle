@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d6d6d25f662de4e0ae9f5dd78fb63244",
+    "content-hash": "273b3152236ffa8dfa6919ec3759c445",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6620,12 +6620,6 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
-                "reference": null,
-                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
-            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -9239,11 +9233,11 @@
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.9",
+            "version": "0.0.3.10",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "e1ccd6f74be7d43d72be63df525bdec36c64f05c"
+                "reference": "e50408e8637a2fd06d1fcfa73e1c3e1a5ebb677d"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9263,7 +9257,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2019-01-14T12:29:50+00:00"
+            "time": "2019-01-15T10:11:23+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
