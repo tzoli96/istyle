@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d588ebf57f696c207f3069fdb0f4219a",
+    "content-hash": "122caa4aec3593e64a219214df5c4c25",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1580,11 +1580,11 @@
         },
         {
             "name": "innobyte/module-nlb",
-            "version": "0.0.3",
+            "version": "0.0.4.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-nlbpayment.git",
-                "reference": "bde2add91a1b0d48d3543ba63ac05722a0f3f012"
+                "reference": "0c8e15832f22450a844caa7d41c5f68eb6e84b04"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1600,7 +1600,7 @@
                 }
             },
             "description": "Innobyte NLB Payment Module",
-            "time": "2018-01-30T09:08:54+00:00"
+            "time": "2019-01-14T09:51:00+00:00"
         },
         {
             "name": "innobyte/module-swedbank",
@@ -6512,6 +6512,12 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
+                "reference": null,
+                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
+            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -7315,11 +7321,11 @@
         },
         {
             "name": "oander/module-ajax-captain-hook",
-            "version": "1.0.2",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-ajax-captain-hook.git",
-                "reference": "9db2164864954c34e5f72aa110b9e8d209924123"
+                "reference": "ae0bd8af398fdf199994769c595489bba4c0a56f"
             },
             "require": {
                 "php": "7.*"
@@ -7337,7 +7343,7 @@
                 "proprietary"
             ],
             "description": "Try 'hook' to all AJAX requests on a page.",
-            "time": "2018-10-12T18:24:10+00:00"
+            "time": "2019-01-11T08:25:08+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
@@ -7681,11 +7687,11 @@
         },
         {
             "name": "oander/module-api-product",
-            "version": "1.0.30",
+            "version": "1.0.31",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-product.git",
-                "reference": "33f55c9e85fa79b17e992be4c2038109eaedd0ad"
+                "reference": "ac3cd6844172a43a450ffdce48eb469c28e111ff"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7707,7 +7713,7 @@
                 "proprietary"
             ],
             "description": "Backend API to Product",
-            "time": "2018-10-29T08:20:05+00:00"
+            "time": "2018-11-12T10:28:43+00:00"
         },
         {
             "name": "oander/module-api-product-attribute",
@@ -8050,11 +8056,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.30.12",
+            "version": "1.0.30.20",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "00afedb9f209527b5ce03d3d5ffdee04259e67f6"
+                "reference": "885b577f1e62e7e080921d10491246b791ef7235"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8073,7 +8079,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2018-11-30T10:28:03+00:00"
+            "time": "2019-01-11T10:24:23+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -8323,11 +8329,11 @@
         },
         {
             "name": "oander/module-heureka-tracking",
-            "version": "1.1.0",
+            "version": "1.1.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-heureka-tracking.git",
-                "reference": "79b775a20d7af53f2cc3ed6e69262db71ad5122d"
+                "reference": "77693341a0ae75a478298e1f28c70e6eaebc139a"
             },
             "require": {
                 "heureka/overenozakazniky": "3.0.0",
@@ -8347,7 +8353,7 @@
                 "proprietary"
             ],
             "description": "Magento2 Heureka tracking Module",
-            "time": "2018-08-29T09:32:21+00:00"
+            "time": "2019-01-08T13:04:27+00:00"
         },
         {
             "name": "oander/module-hungarian-newsletter",
@@ -9325,11 +9331,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.180",
+            "version": "1.0.182",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "d2f8a42bf3dd27d25d1610c0a81d36b831484819"
+                "reference": "8e44948a670054c95710714cbde700f9eaed1b87"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9345,7 +9351,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-01-04T09:25:31+00:00"
+            "time": "2019-01-09T13:01:14+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10377,16 +10383,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.20",
+            "version": "v3.4.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "6cf2be5cbd0e87aa35c01f80ae0bf40b6798e442"
+                "reference": "3f2a2ab6315dd7682d4c16dcae1e7b95c8b8555e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/6cf2be5cbd0e87aa35c01f80ae0bf40b6798e442",
-                "reference": "6cf2be5cbd0e87aa35c01f80ae0bf40b6798e442",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/3f2a2ab6315dd7682d4c16dcae1e7b95c8b8555e",
+                "reference": "3f2a2ab6315dd7682d4c16dcae1e7b95c8b8555e",
                 "shasum": ""
             },
             "require": {
@@ -10422,7 +10428,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2018-11-11T19:48:54+00:00"
+            "time": "2019-01-01T13:45:19+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -13342,16 +13348,16 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.20",
+            "version": "v3.4.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "0f43969ab2718de55c1c1158dce046668079788d"
+                "reference": "af55d31cb58c5452d2c160655fa1968b872a8084"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/0f43969ab2718de55c1c1158dce046668079788d",
-                "reference": "0f43969ab2718de55c1c1158dce046668079788d",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/af55d31cb58c5452d2c160655fa1968b872a8084",
+                "reference": "af55d31cb58c5452d2c160655fa1968b872a8084",
                 "shasum": ""
             },
             "require": {
@@ -13387,7 +13393,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2018-11-11T19:48:54+00:00"
+            "time": "2019-01-01T13:45:19+00:00"
         },
         {
             "name": "theseer/fdomdocument",
