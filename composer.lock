@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb7070c081ce5de555307cbca28e8fd9",
+    "content-hash": "25fef786d0e373d8602cec760ffe3655",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6648,6 +6648,12 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
+                "reference": null,
+                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
+            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -8376,11 +8382,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.0.6",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "453fc2f8772da6f12282549b87e56c9c6394a7ea"
+                "reference": "822698014b9d770901bab32cc5438bd8bf3bde6d"
             },
             "require": {
                 "php": "7.*"
@@ -8398,7 +8404,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2018-08-27T14:32:02+00:00"
+            "time": "2019-01-17T04:21:17+00:00"
         },
         {
             "name": "oander/module-email-additional-data",
@@ -9317,11 +9323,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.12",
+            "version": "1.1.12.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "0bc4c33dde58d76cb2727981b5d45f6e07b6af7a"
+                "reference": "fafa47dcacf6bd2293785394d4d43ac531b985a3"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9349,7 +9355,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2019-01-02T16:19:08+00:00"
+            "time": "2019-01-17T04:41:25+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -9707,7 +9713,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "5defeb81f7f81f9e34d126710820add6cdc32715"
+                "reference": "b95cb18f6377e26541af789fbfeb08f4bb086152"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9723,7 +9729,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-01-16T14:58:57+00:00"
+            "time": "2019-01-17T04:29:52+00:00"
         },
         {
             "name": "oyejorge/less.php",
