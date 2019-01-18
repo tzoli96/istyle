@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "29b202c4ccc0e93675d929cefacdcf9a",
+    "content-hash": "4453b57ada551733f9a944c1bd0cc66f",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7502,11 +7502,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.17.2",
+            "version": "1.0.17.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "a90421ff45c33da49517632273fadfc224770d54"
+                "reference": "c2faa990056259ad19d0d575bf2881cd2ab0e469"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7527,7 +7527,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2019-01-16T15:17:47+00:00"
+            "time": "2019-01-18T15:01:33+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
@@ -7901,6 +7901,32 @@
             ],
             "description": "Oander_ApiWarehouseManager",
             "time": "2018-11-14T16:04:20+00:00"
+        },
+        {
+            "name": "oander/module-applepay",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-applepay.git",
+                "reference": "c3d83aa74dbf5aa3d4bf9d7416bb951cee7bd235"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\ApplePay\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Apple Pay payment method",
+            "time": "2019-01-03T05:55:27+00:00"
         },
         {
             "name": "oander/module-base",
@@ -9233,11 +9259,11 @@
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.15",
+            "version": "0.0.3.17",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "5c217ff26d5f28d637309a6b2860c86d2dda365c"
+                "reference": "3658b4157099efd1047aaf80f64cc165174743cd"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9257,7 +9283,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2019-01-17T07:57:41+00:00"
+            "time": "2019-01-18T13:49:24+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
