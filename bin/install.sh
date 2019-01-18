@@ -17,11 +17,13 @@ fi
 
 # SYSTEM VARIABLES
 WEBROOT="/var/www/istyle.eu/webroot"
+LOGDIR="/var/log/magento"
 EFS="/mnt/istyle-storage/istyle"
 EFS_BUILD="${EFS}/build"
 EFS_PRELIVE="${EFS}/live_$(date +%Y%m%d%H%M)"
 INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
 CODEDEPLOY_BUILD_APP_NAME="istyle-eu-master"
+SLACK_WEBHOOK="https://hooks.slack.com/services/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"
 
 # DEPLOYMENT VARIABLES
 LANGUAGES=('MK')
@@ -30,9 +32,11 @@ LANGUAGES=('MK')
 if [ "${DEPLOY_ENV}" == "PRODUCTION" ]; then
   MASTER_ID="i-0a57263aca752890a"
   DATABASES=('istyle' 'istyle_upg' 'istyle-warehousemanager' 'istylewh_upg' 'istyle-apigateway' 'istyleapi_upg')
+  WAF_IDS=('12513a30-1fbf-44e3-ba52-5974a6db6f46' '2309ba7b-c63a-4565-a3e1-5af541eb8694' '6e81ab64-f9e6-4bbf-963f-eea8d912357c' 'a7896f03-ca34-4385-b48b-bf7dff193147' 'ba4a71a8-1364-45a3-ba0a-65e91c8c5927' 'bad20f7d-08da-435b-9c4b-47aadbfdad01' 'ce148ce2-a8d1-4389-8850-93156757fc6c' 'd638c88e-9bc5-45c9-81a4-4519c762686c' 'da1d4a90-4b05-405a-8fcc-d14f8a1131ed' 'fa50b7da-fcae-4b37-84b2-802d011b0d45')
 elif [ "${DEPLOY_ENV}" == "STAGING" ]; then
   MASTER_ID="i-07102058010aa5695"
   DATABASES=('istyle-stg' 'istyle-stg-upg' 'istyle-warehousemanager-stg' 'istyle-warehousemanager-stg-upg' 'istyle-apigateway-stg' 'istyle-apigateway-stg-upg')
+  WAF_IDS=('f3254e59-5c96-47dc-9255-9f8429932044' '339503d9-c260-4ff7-9459-1e2aebcfc1f0')
 else
   # DEVELOPMENT #
   MASTER_ID=""
@@ -40,8 +44,32 @@ else
 fi
 
 # FUNCTIONS
-php_restart() {
-   /etc/init.d/php7.0-fpm restart
+send_to_slack() {
+  local MESSAGE="${1}"
+  echo "$MESSAGE"
+  PAYLOAD="payload={
+    \"channel\": \"#istyle-collab\",
+    \"username\": \"$(hostname)\",
+    \"text\": \"$MESSAGE\"
+    }"
+  curl -X POST --data-urlencode "${PAYLOAD}" ${SLACK_WEBHOOK} &> /dev/null
+}
+
+restart_services() {
+  echo -n " * STOP PHP .. "
+  if pkill -9 php; then echo OK; else echo FAIL; fi
+  echo -n " * STOP NGINX .. "
+  if pkill -9 nginx; then echo OK; else echo FAIL; fi
+
+  if ! /etc/init.d/php7.0-fpm restart &> /dev/null; then
+     send_to_slack "SOMETHING IS WRONG WITH THE PHP PROCESS, PLEASE CHECK!"
+     exit 102
+  fi
+
+  if ! /etc/init.d/nginx restart &> /dev/null; then
+     send_to_slack "SOMETHING IS WRONG WITH THE NGINX PROCESS, PLEASE CHECK!"
+     exit 103
+  fi
 }
 
 magento() {
@@ -93,6 +121,27 @@ symlink_check() {
   if ln -s "${WHAT_TO_LINK}" "${WHERE_TO_LINK}"; then echo OK; else echo FAIL; fi
 }
 
+maintenance_action() {
+  local ACTION="${1^^}"
+  if [ "${ACTION}" == "BLOCK" ]; then MODE_ACTION="ENABLE"; else MODE_ACTION="DISABLE"; fi
+
+  send_to_slack " * ${MODE_ACTION} MAINTENANCE MODE IN CDN WAF"
+  for WAF_ID in "${WAF_IDS[@]}"; do
+    WAF_TOKEN=$(aws waf get-change-token --output text)
+    if [[ -n ${WAF_TOKEN// } ]]; then
+      if aws waf update-web-acl --web-acl-id ${WAF_ID} --change-token ${WAF_TOKEN} --default-action Type="$ACTION" &> /dev/null; then
+        echo "   - ${WAF_ID} .. OK"
+      else
+        send_to_slack "   - ${WAF_ID} .. FAILED"
+      fi
+    sleep 2
+    else
+      send_to_slack "SOMETHING IS WRONG WITH THE WAF TOKENS, PLEASE CHECK."
+      return 123
+    fi
+  done
+}
+
 
 echo
 echo "================================================="
@@ -100,10 +149,9 @@ echo "   DEPLOY SCRIPT STARTING ON ENV: ${DEPLOY_ENV}  "
 echo "================================================="
 echo
 
-symlink_check "CREATE DIRECTORY SYMLINK TO UPLOAD FOLDER" "${WEBROOT}/upload" "${EFS}/upload" "${WEBROOT}/"
+send_to_slack "### DEPLOY STARTED  ###"
 
-/etc/init.d/php7.0-fpm start
-/etc/init.d/nginx start
+symlink_check "CREATE DIRECTORY SYMLINK TO UPLOAD FOLDER" "${WEBROOT}/upload" "${EFS}/upload" "${WEBROOT}/"
 
 # MAIN INSTANCE CHECK AND WORKFLOW
 if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
@@ -120,16 +168,8 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
       EFS_PREVIOUS_LIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | head -1)"
       if rm -rf "${EFS_PREVIOUS_LIVE:?}"/; then echo OK; else echo FAIL; fi
     fi
-#    if [[ "${LATEST_CODEDEPLOY_BUILD_STATUS}" == "Failed" ]]; then
-#      LIVE_DIR_COUNT=$(ls -1 ${EFS}/ | grep -c live_)
-#      if [[ "${LIVE_DIR_COUNT}" = "2" ]]; then
-#        echo -n " * CLEANUP PREVIOUS LIVE FOLDER ... "
-#        EFS_PREVIOUS_LIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | head -1)"
-#        if rm -rf "${EFS_PREVIOUS_LIVE:?}"/; then echo OK; else echo FAIL; fi
-#      fi
-#    fi
   else
-    echo "SOMETHING IS WRONG WITH THE AWS COMMAND .. exiting"
+    send_to_slack "SOMETHING IS WRONG WITH THE AWS COMMAND .. exiting"
     exit 2
   fi
 
@@ -155,7 +195,6 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   echo " * CREATE DIRECTORY SYMLINKS TO BUILD:"
   symlink_check "var" "${WEBROOT}/var" "${EFS_BUILD}/var" "${WEBROOT}/"
   symlink_check "pub/static" "${WEBROOT}/pub/static" "${EFS_BUILD}/pub/static" "${WEBROOT}/pub/"
-  php_restart
 
   echo
   echo "==== COMPOSER INSTALL ===="
@@ -195,18 +234,18 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   echo "==== COMPILE STATIC CONTENTS ===="
   echo
   magento "setup:di:compile"
-  magento "setup:static-content:deploy hu_HU --theme=Magento/backend --theme=Oander/istyle"
-  magento "setup:static-content:deploy en_US --theme=Magento/backend"
-  magento "setup:static-content:deploy mk_MK --theme=Oander/istyle"
-  magento "setup:static-content:deploy bg_BG --theme=Oander/istyle"
-  magento "setup:static-content:deploy hr_HR --theme=Oander/istyle"
-  magento "setup:static-content:deploy lv_LV --theme=Oander/istyle"
-  magento "setup:static-content:deploy ro_RO --theme=Oander/istyle"
-  magento "setup:static-content:deploy ru_RU --theme=Oander/istyle"
-  magento "setup:static-content:deploy sr_Cyrl_RS --theme=Oander/istyle"
-  magento "setup:static-content:deploy sl_SI --theme=Oander/istyle"
-  magento "setup:static-content:deploy cs_CZ --theme=Oander/istyle"
-  magento "setup:static-content:deploy sk_SK --theme=Oander/istyle"
+  magento "setup:static-content:deploy hu_HU --theme=Magento/backend --theme=Oander/istyle" &
+  magento "setup:static-content:deploy en_US --theme=Magento/backend" &
+  magento "setup:static-content:deploy mk_MK --theme=Oander/istyle" &
+  magento "setup:static-content:deploy bg_BG --theme=Oander/istyle" &
+  magento "setup:static-content:deploy hr_HR --theme=Oander/istyle" &
+  magento "setup:static-content:deploy lv_LV --theme=Oander/istyle" &
+  magento "setup:static-content:deploy ro_RO --theme=Oander/istyle" &
+  magento "setup:static-content:deploy ru_RU --theme=Oander/istyle" &
+  magento "setup:static-content:deploy sr_Cyrl_RS --theme=Oander/istyle" &
+  magento "setup:static-content:deploy sl_SI --theme=Oander/istyle" &
+  magento "setup:static-content:deploy cs_CZ --theme=Oander/istyle" &
+  magento "setup:static-content:deploy sk_SK --theme=Oander/istyle" &
   echo
 
   symlink_check "CREATE DIRECTORY SYMLINK TO MEDIA FOLDER" "${WEBROOT}/pub/media" "${EFS}/media" "${WEBROOT}/pub/"
@@ -226,23 +265,19 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
     for LANG_SYMLINK in "${LANGUAGES[@]}"; do
       symlink_check "CREATE DIRECTORY SYMLINK TO ${LANG_SYMLINK} FOLDER" "${WEBROOT}/pub/${LANG_SYMLINK,,}" "${WEBROOT}/pub" "${WEBROOT}/pub/${LANG_SYMLINK,,}"
     done
-    php_restart
     /etc/init.d/nginx reload
-    echo -n " * SERVICE VALIDATION ... "
-    if curl -I -H 'Host: istyle.hu' -H 'X-Forwarded-Proto: https' http://localhost/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
-      echo OK
+    if curl -I -H 'Host: istyle.eu' -H 'X-Forwarded-Proto: https' http://localhost/mk/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
+      send_to_slack " * SERVICE VALIDATION ... OK"
     else
-      echo FAIL
+      send_to_slack " * SERVICE VALIDATION ... FAIL"
       exit 3
     fi
   elif [ "${DEPLOY_ENV}" == "STAGING" ]; then
-    php_restart
     /etc/init.d/nginx reload
-    echo -n " * SERVICE VALIDATION ... "
-    if curl -I -H 'Host: staging.istyle.hu' -H 'X-Forwarded-Proto: https' http://localhost/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
-      echo OK
+    if curl -I -H 'Host: staging.istyle.mk' -H 'X-Forwarded-Proto: https' http://localhost/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
+      send_to_slack " * SERVICE VALIDATION ... OK"
     else
-      echo FAIL
+      send_to_slack " * SERVICE VALIDATION ... FAIL"
       exit 3
     fi
   fi
@@ -263,6 +298,9 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
 
   echo -n " * COPY THE CONFIG.PHP TO NFS ... "
   if cp -a ${WEBROOT}/app/etc/config.php ${EFS}/env/; then echo OK; else echo FAIL; fi
+
+  echo -n " * MODIFY PHP-CLI CONFIG BACK .. "
+  if cp ${EFS}/php-orig.conf /etc/php/7.0/cli/php.ini; then echo OK; else echo FAIL; fi
 
   echo -n " * CREATE FLAG FOR BLUE/GREEN DEPLOYMENT FIRST INSTANCE CHECK ... "
   if [ -f ${EFS}/deployed.flag ]; then
@@ -291,7 +329,6 @@ else
   echo " * CREATE DIRECTORY SYMLINKS TO PRELIVE: ${EFS_PRELIVE} ... "
   symlink_check "var" "${WEBROOT}/var" "${EFS_PRELIVE}/var" "${WEBROOT}/"
   symlink_check "pub/static" "${WEBROOT}/pub/static" "${EFS_PRELIVE}/pub/static" "${WEBROOT}/pub/"
-  php_restart
 
   echo
   echo -n "=== CHECK IF DEPLOYED FLAG EXISTS => "
@@ -305,15 +342,11 @@ else
     echo "==== MAGENTO UPGRADE :: KEEP-GENERATED ===="
     echo
 
-    echo -n " * INIT MAINTENANCE MODE MANUALLY ... "
-    EFS_LIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | head -1)"
-    if touch ${EFS_LIVE}/var/.maintenance.flag && sleep 5; then
-      echo OK
+    if maintenance_action block; then
       magento "setup:upgrade --keep-generated"
       magento "cache:enable"
-    else
-      echo FAIL
     fi
+
   else
     echo "NO ==="
     echo
@@ -350,11 +383,10 @@ if [ "${DEPLOY_ENV}" == "PRODUCTION" ]; then
 fi
 
 # OWNERSHIP FIXES
-chown www-data:www-data -R /var/log/magento
+chown www-data:www-data -R ${LOGDIR}
 chown www-data:www-data -R ${WEBROOT}
 
-php_restart
-/etc/init.d/nginx restart
+restart_services
 
 echo
 echo "================================================="
