@@ -1,6 +1,8 @@
 #!/bin/bash
 set -u
 
+export PATH=/root/.local/bin:$PATH
+
 EFS="/mnt/istyle-storage/istyle"
 EFS_LIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | head -1)"
 WEBROOT="/var/www/istyle.eu/webroot"

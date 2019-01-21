@@ -1,6 +1,8 @@
 #!/bin/bash
 set -u
 
+export PATH=/root/.local/bin:$PATH
+
 SLACK_WEBHOOK="https://hooks.slack.com/services/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"
 EFS="/mnt/istyle-storage/istyle"
 WEBROOT="/var/www/istyle.eu/"
