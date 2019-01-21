@@ -43,38 +43,27 @@ cron_check() {
     echo -n "."
     sleep 5
   done
+  
+  echo -n " * STOP PHP .. "
+  if pkill -9 php; then echo OK; else echo FAIL; fi
 }
 
 recreate_dirs() {
-echo -n " * DELETE AND RECREATE WEBROOT DIRECTORIES .. "
-if [ -d ${WEBROOT} ]; then
-  rm -rf ${WEBROOT}
-  mkdir -p ${WEBROOT}
-fi
-
-if [ ! -d ${LOGDIR}/log/oander ]; then
-  mkdir -p ${LOGDIR}/log/oander
-fi
-
-chown www-data:www-data -R ${LOGDIR}
-chown www-data:www-data -R ${WEBROOT}
-}
-
-restart_services() {
-  echo -n " * STOP PHP .. "
-  if pkill -9 php; then echo OK; else echo FAIL; fi
   echo -n " * STOP NGINX .. "
   if pkill -9 nginx; then echo OK; else echo FAIL; fi
 
-  if ! /etc/init.d/php7.0-fpm restart &> /dev/null; then
-     send_to_slack "SOMETHING IS WRONG WITH THE PHP PROCESS, PLEASE CHECK!"
-     exit 102
+  echo -n " * DELETE AND RECREATE WEBROOT DIRECTORIES .. "
+  if [ -d ${WEBROOT} ]; then
+    rm -rf ${WEBROOT}
+    mkdir -p ${WEBROOT}
   fi
-  
-  if ! /etc/init.d/nginx restart &> /dev/null; then
-     send_to_slack "SOMETHING IS WRONG WITH THE NGINX PROCESS, PLEASE CHECK!"
-     exit 103
+
+  if [ ! -d ${LOGDIR}/log/oander ]; then
+    mkdir -p ${LOGDIR}/log/oander
   fi
+
+  chown www-data:www-data -R ${LOGDIR}
+  chown www-data:www-data -R ${WEBROOT}
 }
 
 
@@ -84,7 +73,4 @@ if recreate_dirs; then echo "OK"; fi
 
 echo -n " * MODIFY PHP-CLI CONFIG FOR DEPLOY .. "
 if cp ${EFS}/php-deploy.conf /etc/php/7.0/cli/php.ini; then echo OK; else echo FAIL; fi
-
-restart_services
-
 

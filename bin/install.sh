@@ -151,6 +151,8 @@ echo
 
 send_to_slack "### DEPLOY STARTED  ###"
 
+restart_services
+
 symlink_check "CREATE DIRECTORY SYMLINK TO UPLOAD FOLDER" "${WEBROOT}/upload" "${EFS}/upload" "${WEBROOT}/"
 
 # MAIN INSTANCE CHECK AND WORKFLOW
