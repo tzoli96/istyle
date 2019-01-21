@@ -22,7 +22,6 @@ EFS="/mnt/istyle-storage/istyle"
 EFS_BUILD="${EFS}/build"
 EFS_PRELIVE="${EFS}/live_$(date +%Y%m%d%H%M)"
 INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
-CODEDEPLOY_BUILD_APP_NAME="istyle-eu-master"
 SLACK_WEBHOOK="https://hooks.slack.com/services/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"
 
 # DEPLOYMENT VARIABLES
@@ -159,21 +158,6 @@ symlink_check "CREATE DIRECTORY SYMLINK TO UPLOAD FOLDER" "${WEBROOT}/upload" "$
 if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   echo "===== BUILD STAGE ====="
   echo
-
-  LATEST_CODEDEPLOY_BUILD_ID=$(aws deploy list-deployments --application-name ${CODEDEPLOY_BUILD_APP_NAME} --deployment-group-name ${DEPLOY_ENV,,} --query "deployments" --output text | awk '{print $2}' | head -1)
-  LATEST_CODEDEPLOY_BUILD_STATUS=$(aws deploy get-deployment --deployment-id ${LATEST_CODEDEPLOY_BUILD_ID} --query "deploymentInfo.[status]" --output text)
-  if [[ "${LATEST_CODEDEPLOY_BUILD_STATUS}" =~ ^(Succeeded|Failed|Stopped)$ ]]; then
-    echo " * LATEST CODEDEPLOY BUILD ID: ${LATEST_CODEDEPLOY_BUILD_ID}"
-    echo " * LATEST CODEDEPLOY BUILD STATUS: ${LATEST_CODEDEPLOY_BUILD_STATUS}"
-    if [[ "${LATEST_CODEDEPLOY_BUILD_STATUS}" == "Succeeded" ]]; then
-      echo -n " * CLEANUP PREVIOUS LIVE FOLDER ... "
-      EFS_PREVIOUS_LIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | head -1)"
-      if rm -rf "${EFS_PREVIOUS_LIVE:?}"/; then echo OK; else echo FAIL; fi
-    fi
-  else
-    send_to_slack "SOMETHING IS WRONG WITH THE AWS COMMAND .. exiting"
-    exit 2
-  fi
 
   echo -n " * COPY THE ENV FILE WITH THE DATABASES FOR UPGRADE ... "
   if cp -a ${EFS}/env/upgrade_env.php ${WEBROOT}/app/etc/env.php; then echo OK; else echo FAIL; fi
@@ -354,6 +338,7 @@ else
     echo
     echo -n " * COPY THE CONFIG.PHP FROM NFS ... "
     if cp -a ${EFS}/env/config.php ${WEBROOT}/app/etc/; then echo OK; else echo FAIL; fi
+
     magento "cache:enable"
   fi
 fi

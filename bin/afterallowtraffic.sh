@@ -4,7 +4,7 @@ set -u
 export PATH=/root/.local/bin:$PATH
 
 EFS="/mnt/istyle-storage/istyle"
-EFS_LIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | head -1)"
+EFS_LIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | tail -1)"
 WEBROOT="/var/www/istyle.eu/webroot"
 INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
 
@@ -70,6 +70,10 @@ if [[ "${INSTANCE_ID}" != "${MASTER_ID}" ]]; then
 
   echo -n " * MODIFY PHP-CLI CONFIG BACK .. "
   if cp ${EFS}/php-orig.conf /etc/php/7.0/cli/php.ini; then echo OK; else echo FAIL; fi
+
+  echo -n " * COPY THE PRELIVE NFS DIR NAME TO A FILE ... "
+  echo ${EFS_LIVE} | awk -F "/" '{print $NF}' > ${EFS}/current_live
+  [ $? -eq 0 ] && echo OK || echo FAIL
 
   echo " * MAGENTO CACHE FLUSH: "
   if sudo -u www-data php ${WEBROOT}/bin/magento cache:flush; then
