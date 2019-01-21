@@ -14,6 +14,7 @@ use Magento\Framework\App\ResourceConnection;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Catalog\Model\ResourceModel\Product\Relation as ProductRelation;
+use Magento\Store\Model\StoreManagerInterface;
 
 /**
  * Class ProductSaveAfter
@@ -42,23 +43,31 @@ class ProductSaveAfter implements ObserverInterface
     protected $resource;
 
     /**
+     * @var StoreManagerInterface
+     */
+    protected $storeManager;
+
+    /**
      * ProductSaveAfter constructor.
      *
      * @param ProductRepositoryInterface $productRepository
      * @param ProductRelation            $productRelation
      * @param ProductFactory             $productFactory
      * @param ResourceConnection         $resource
+     * @param StoreManagerInterface      $storeManager
      */
     public function __construct(
         ProductRepositoryInterface $productRepository,
         ProductRelation $productRelation,
         ProductFactory $productFactory,
-        ResourceConnection $resource
+        ResourceConnection $resource,
+        StoreManagerInterface $storeManager
     ) {
         $this->productRepository = $productRepository;
         $this->productRelation = $productRelation;
         $this->productFactory = $productFactory;
         $this->resource = $resource;
+        $this->storeManager = $storeManager;
     }
 
     /**
@@ -70,16 +79,25 @@ class ProductSaveAfter implements ObserverInterface
      */
     public function execute(Observer $observer)
     {
+
+        $storeId = 0;
+        if (isset($_POST['current_store_id'])) {
+            $storeId = (int)$_POST['current_store_id'];
+        }
+        $store = $this->storeManager->getStore($storeId);
+        $this->storeManager->setCurrentStore($store);
+        $websiteId = $store->getWebsiteId();
+
         /** @var Product $product */
         $product = $observer->getProduct();
-        // TODO check product save before status too
-        if ($product->getTypeId() == Type::TYPE_SIMPLE && $product->getStatus() == Status::STATUS_ENABLED) {
+
+        if ($product->getTypeId() == Type::TYPE_SIMPLE && $product->getStatus() == Status::STATUS_DISABLED) {
 
             /** @var Product $parentProduct */
-            $parentProducts = $this->getParents($product);
+            $parentProducts = $this->getParents($product, $websiteId);
             foreach ($parentProducts as $parentProduct) {
                 if ($parentProduct && $parentProduct->getTypeId() == Configurable::TYPE_CODE
-                    && $parentProduct->getStatus() == Status::STATUS_DISABLED
+                    && $parentProduct->getStatus() == Status::STATUS_ENABLED
                 ) {
                     $childrenProducts = $parentProduct->getTypeInstance()->getUsedProducts($parentProduct);
                     $isAllChildrenProductsDisabled = true;
@@ -91,8 +109,11 @@ class ProductSaveAfter implements ObserverInterface
                     }
 
                     if ($isAllChildrenProductsDisabled) {
+
+                        $parentProduct->setStoreId($storeId);
                         $parentProduct->setStatus(Status::STATUS_DISABLED);
                         $this->productRepository->save($parentProduct);
+
                     }
                 }
             }
@@ -106,7 +127,7 @@ class ProductSaveAfter implements ObserverInterface
      * @return array
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function getParents($product)
+    public function getParents($product, $websiteId)
     {
         $parents = [];
 
@@ -118,25 +139,13 @@ class ProductSaveAfter implements ObserverInterface
             $product->getId()
         );
         $parentIds = $this->productRelation->getConnection()->fetchCol($select);
-        if (count($parentIds)) {
-            /** @var  $store */
-            $websiteIds = $product->getWebsiteIds();
-            $websiteIdsString = implode(',', $websiteIds);
-            $parentIdsString = implode(',', $parentIds);
-            $select = $this->resource->getConnection()->select()->from(
-                $this->resource->getTableName('catalog_product_website'),
-                ['product_id']
-            )->where(
-                "product_id IN ({$parentIdsString}) and website_id IN {$websiteIdsString}"
-            );
 
-            $parentIds = $this->productRelation->getConnection()->fetchCol($select);
-            if (count($parentIds)) {
-                foreach ($parentIds as $parentId) {
-                    $parents[] = $this->productFactory->create()->load($parentId);
-                }
+        if (count($parentIds)) {
+            foreach ($parentIds as $parentId) {
+                $parents[] = $this->productFactory->create()->load($parentId);
             }
         }
+
 
         return $parents;
     }
