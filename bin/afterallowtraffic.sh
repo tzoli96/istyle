@@ -7,6 +7,7 @@ EFS="/mnt/istyle-storage/istyle"
 EFS_LIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | tail -1)"
 WEBROOT="/var/www/istyle.eu/webroot"
 INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+SLACK_WEBHOOK="https://hooks.slack.com/services/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"
 
 # ENVIRONMENT VARIABLE
 SG_GROUPS=$(curl -s http://169.254.169.254/latest/meta-data/security-groups)

@@ -158,7 +158,7 @@ echo "   DEPLOY SCRIPT STARTING ON ENV: ${DEPLOY_ENV}  "
 echo "================================================="
 echo
 
-send_to_slack " * DEPLOY STARTED :: https://eu-central-1.console.aws.amazon.com/cloudwatch/home?region=eu-central-1#logEventViewer:group=CodeDeploy_LogGroup;stream=${MASTER_ID}"
+send_to_slack " * DEPLOY STARTED :: https://eu-central-1.console.aws.amazon.com/cloudwatch/home?region=eu-central-1#logEventViewer:group=CodeDeploy_LogGroup;stream=${INSTANCE_ID}"
 
 restart_services
 
