@@ -56,9 +56,18 @@ send_to_slack() {
 
 restart_services() {
   echo -n " * STOP PHP .. "
-  if pkill -9 php; then echo OK; else echo FAIL; fi
+  if pgrep php; then
+    if pkill -9 php; then echo OK; else echo FAIL; fi
+  else
+    echo "DONE"
+  fi
+
   echo -n " * STOP NGINX .. "
-  if pkill -9 nginx; then echo OK; else echo FAIL; fi
+  if pgrep nginx; then
+    if pkill -9 nginx; then echo OK; else echo FAIL; fi
+  else
+    echo "DONE"
+  fi
 
   if ! /etc/init.d/php7.0-fpm restart &> /dev/null; then
      send_to_slack "SOMETHING IS WRONG WITH THE PHP PROCESS, PLEASE CHECK!"
@@ -220,18 +229,18 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   echo "==== COMPILE STATIC CONTENTS ===="
   echo
   magento "setup:di:compile"
-  magento "setup:static-content:deploy hu_HU --theme=Magento/backend --theme=Oander/istyle" &
-  magento "setup:static-content:deploy en_US --theme=Magento/backend" &
-  magento "setup:static-content:deploy mk_MK --theme=Oander/istyle" &
-  magento "setup:static-content:deploy bg_BG --theme=Oander/istyle" &
-  magento "setup:static-content:deploy hr_HR --theme=Oander/istyle" &
-  magento "setup:static-content:deploy lv_LV --theme=Oander/istyle" &
-  magento "setup:static-content:deploy ro_RO --theme=Oander/istyle" &
-  magento "setup:static-content:deploy ru_RU --theme=Oander/istyle" &
-  magento "setup:static-content:deploy sr_Cyrl_RS --theme=Oander/istyle" &
-  magento "setup:static-content:deploy sl_SI --theme=Oander/istyle" &
-  magento "setup:static-content:deploy cs_CZ --theme=Oander/istyle" &
-  magento "setup:static-content:deploy sk_SK --theme=Oander/istyle" &
+  magento "setup:static-content:deploy hu_HU --theme=Magento/backend --theme=Oander/istyle"
+  magento "setup:static-content:deploy en_US --theme=Magento/backend"
+  magento "setup:static-content:deploy mk_MK --theme=Oander/istyle"
+  magento "setup:static-content:deploy bg_BG --theme=Oander/istyle"
+  magento "setup:static-content:deploy hr_HR --theme=Oander/istyle"
+  magento "setup:static-content:deploy lv_LV --theme=Oander/istyle"
+  magento "setup:static-content:deploy ro_RO --theme=Oander/istyle"
+#  magento "setup:static-content:deploy ru_RU --theme=Oander/istyle"
+  magento "setup:static-content:deploy sr_Cyrl_RS --theme=Oander/istyle"
+  magento "setup:static-content:deploy sl_SI --theme=Oander/istyle"
+  magento "setup:static-content:deploy cs_CZ --theme=Oander/istyle"
+  magento "setup:static-content:deploy sk_SK --theme=Oander/istyle"
   echo
 
   symlink_check "CREATE DIRECTORY SYMLINK TO MEDIA FOLDER" "${WEBROOT}/pub/media" "${EFS}/media" "${WEBROOT}/pub/"

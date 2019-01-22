@@ -55,12 +55,20 @@ cron_check() {
   done
 
   echo -n " * STOP PHP .. "
-  if pkill -9 php; then echo OK; else echo FAIL; fi
+  if pgrep php; then
+    if pkill -9 php; then echo OK; else echo FAIL; fi
+  else
+    echo "DONE"
+  fi
 }
 
 recreate_dirs() {
   echo -n " * STOP NGINX .. "
-  if pkill -9 nginx; then echo OK; else echo FAIL; fi
+  if pgrep nginx; then
+    if pkill -9 nginx; then echo OK; else echo FAIL; fi
+  else
+    echo "DONE"
+  fi
 
   echo -n " * DELETE AND RECREATE WEBROOT DIRECTORIES .. "
   if [ -d ${WEBROOT} ]; then
