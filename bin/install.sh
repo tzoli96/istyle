@@ -56,14 +56,14 @@ send_to_slack() {
 
 restart_services() {
   echo -n " * STOP PHP .. "
-  if pgrep php; then
+  if pgrep php &> /dev/null; then
     if pkill -9 php; then echo OK; else echo FAIL; fi
   else
     echo "DONE"
   fi
 
   echo -n " * STOP NGINX .. "
-  if pgrep nginx; then
+  if pgrep nginx &> /dev/null; then
     if pkill -9 nginx; then echo OK; else echo FAIL; fi
   else
     echo "DONE"
@@ -157,7 +157,7 @@ echo "   DEPLOY SCRIPT STARTING ON ENV: ${DEPLOY_ENV}  "
 echo "================================================="
 echo
 
-send_to_slack "### DEPLOY STARTED  ###"
+send_to_slack " * DEPLOY STARTED :: https://eu-central-1.console.aws.amazon.com/cloudwatch/home?region=eu-central-1#logEventViewer:group=CodeDeploy_LogGroup;stream=${MASTER_ID}"
 
 restart_services
 

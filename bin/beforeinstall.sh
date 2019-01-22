@@ -21,6 +21,7 @@ send_to_slack() {
 }
 
 nfs_check() {
+  sleep 30
   if [ ! -f ${EFS}/.nfs.check ]; then
     if ! mount -a; then
       send_to_slack "SOMETHING IS WRONG WITH THE NFS MOUNT, PLEASE CHECK!"
@@ -55,7 +56,7 @@ cron_check() {
   done
 
   echo -n " * STOP PHP .. "
-  if pgrep php; then
+  if pgrep php &> /dev/null; then
     if pkill -9 php; then echo OK; else echo FAIL; fi
   else
     echo "DONE"
@@ -64,7 +65,7 @@ cron_check() {
 
 recreate_dirs() {
   echo -n " * STOP NGINX .. "
-  if pgrep nginx; then
+  if pgrep nginx &> /dev/null; then
     if pkill -9 nginx; then echo OK; else echo FAIL; fi
   else
     echo "DONE"
