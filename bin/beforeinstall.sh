@@ -39,6 +39,7 @@ cron_check() {
     echo -n "."
     sleep 5
   done
+  echo " DONE!"
 
   echo -n " * STOP PHP .. "
   if pgrep php &> /dev/null; then
@@ -72,7 +73,7 @@ recreate_dirs() {
 
 
 nfs_check
-if cron_check; then echo " DONE!"; fi
+cron_check
 if recreate_dirs; then echo "OK"; fi
 
 echo -n " * MODIFY PHP-CLI CONFIG FOR DEPLOY .. "

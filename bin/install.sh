@@ -21,6 +21,7 @@ LOGDIR="/var/log/magento"
 EFS="/mnt/istyle-storage/istyle"
 EFS_BUILD="${EFS}/build"
 EFS_PRELIVE="${EFS}/live_$(date +%Y%m%d%H%M)"
+CURRENT_LIVE=$(<${EFS}/current_live)
 INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
 SLACK_WEBHOOK="https://hooks.slack.com/services/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"
 
