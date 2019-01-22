@@ -168,6 +168,21 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   echo "===== BUILD STAGE ====="
   echo
 
+  echo -n " * REMOVE PREVIOUS LIVE NFS FOLDERS .. "
+  find ${EFS} -maxdepth 1 -iname "live_*" -not -iname ${CURRENT_LIVE} -exec rm -rf {} \;
+  if [ $? -eq 0 ]; then
+    echo OK
+  else
+    send_to_slack "SOMETHING IS WRONG WITH DELETING THE PREVIOUS NFS FOLDERS, PLEASE CHECK!"
+    exit 101
+  fi
+
+  LIVE_DIR_COUNT=$(ls -1 ${EFS}/ | grep -c live_)
+  if [[ "${LIVE_DIR_COUNT}" != "1" ]]; then
+    send_to_slack "SOMETHING IS WRONG WITH THE NFS LIVE FOLDERS, PLEASE CHECK!"
+    exit 102
+  fi
+
   echo -n " * COPY THE ENV FILE WITH THE DATABASES FOR UPGRADE ... "
   if cp -a ${EFS}/env/upgrade_env.php ${WEBROOT}/app/etc/env.php; then echo OK; else echo FAIL; fi
 

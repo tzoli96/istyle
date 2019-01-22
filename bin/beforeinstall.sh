@@ -28,21 +28,6 @@ nfs_check() {
       exit 100
     fi
   fi
-
-  echo -n " * REMOVE PREVIOUS LIVE NFS FOLDERS .. "
-  find ${EFS} -maxdepth 1 -iname "live_*" -not -iname ${CURRENT_LIVE} -exec rm -rf {} \;
-  if [ $? -eq 0 ]; then
-    echo OK
-  else
-    send_to_slack "SOMETHING IS WRONG WITH DELETING THE PREVIOUS NFS FOLDERS, PLEASE CHECK!"
-    exit 101
-  fi
-
-  LIVE_DIR_COUNT=$(ls -1 ${EFS}/ | grep -c live_)
-  if [[ "${LIVE_DIR_COUNT}" != "1" ]]; then
-    send_to_slack "SOMETHING IS WRONG WITH THE NFS LIVE FOLDERS, PLEASE CHECK!"
-    exit 102
-  fi
 }
 
 cron_check() {
