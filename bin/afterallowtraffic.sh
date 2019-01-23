@@ -50,17 +50,20 @@ maintenance_action() {
 
   send_to_slack " * ${MODE_ACTION} MAINTENANCE MODE IN CDN WAF"
   for WAF_ID in "${WAF_IDS[@]}"; do
-    WAF_TOKEN=$(aws waf get-change-token --output text)
-    if [[ -n ${WAF_TOKEN// } ]]; then
-      if aws waf update-web-acl --web-acl-id ${WAF_ID} --change-token ${WAF_TOKEN} --default-action Type="$ACTION" &> /dev/null; then
-        echo "   - ${WAF_ID} .. OK"
+    WAF_DEFAULT_ACTION=$(aws waf get-web-acl --web-acl-id ${WAF_ID} --output text | grep DEFAULTACTION | cut -f2)
+    if [[ "${WAF_DEFAULT_ACTION}" != "${ACTION}" ]]; then
+      WAF_TOKEN=$(aws waf get-change-token --output text)
+      if [[ -n ${WAF_TOKEN// } ]]; then
+        if aws waf update-web-acl --web-acl-id ${WAF_ID} --change-token ${WAF_TOKEN} --default-action Type="$ACTION" &> /dev/null; then
+          send_to_slack "   - ${WAF_ID} .. OK"
+        else
+          send_to_slack "   - ${WAF_ID} .. FAILED"
+        fi
+      sleep 2
       else
-        send_to_slack "   - ${WAF_ID} .. FAILED"
+        send_to_slack "SOMETHING IS WRONG WITH THE WAF TOKENS, PLEASE CHECK."
+        return 123
       fi
-    sleep 2
-    else
-      send_to_slack "SOMETHING IS WRONG WITH THE WAF TOKENS, PLEASE CHECK."
-      return 123
     fi
   done
 }
