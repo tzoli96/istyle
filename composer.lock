@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ccd2eacce31344d5c64cc314f77d456b",
+    "content-hash": "7c6b5831250c485d68f60b5d5a56c741",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8632,11 +8632,11 @@
         },
         {
             "name": "oander/module-grenke",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-grenke.git",
-                "reference": "297780b7472c84a0c6e10b0e479a22c506e263c6"
+                "reference": "b4c54b31dee46e7b02d29e9757b682ef48fca541"
             },
             "require": {
                 "php": "7.*"
@@ -8653,7 +8653,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2018-12-19T07:59:13+00:00"
+            "time": "2019-01-23T11:33:37+00:00"
         },
         {
             "name": "oander/module-heureka-tracking",
@@ -9880,7 +9880,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "1725eef312585d3c4b4b060544926f5e8089663b"
+                "reference": "ca69dfaafdaf547d1d388e7bc7c43fb9c659927c"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9896,7 +9896,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-01-21T14:55:15+00:00"
+            "time": "2019-01-23T13:52:43+00:00"
         },
         {
             "name": "oyejorge/less.php",
