@@ -7,14 +7,22 @@ EFS="/mnt/istyle-storage/istyle"
 EFS_LIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | tail -1)"
 WEBROOT="/var/www/istyle.eu/webroot"
 INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+SELENIUM_ID="i-00a99d503de806802"
+SELENIUM_NAME="selenium.istyle.local"
+SELENIUM_SCRIPT="/home/ubuntu/selitest.py"
+SELENIUM_TEST_USER="janos.pinczes@oander.hu"
+SELENIUM_TEST_PASS="QWEasd123"
+SELENIUM_TEST_URL="/lead-trend-twist-cable-protector.html?color=470"
 SLACK_WEBHOOK="https://hooks.slack.com/services/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"
 
-# ENVIRONMENT VARIABLE
+# ENVIRONMENT VARIABLES
 SG_GROUPS=$(curl -s http://169.254.169.254/latest/meta-data/security-groups)
 if [[ ${SG_GROUPS} =~ "prod" ]];then
   DEPLOY_ENV="PRODUCTION"
+  SELENIUM_TEST_DOMAIN="https://istyle.hu"
 elif [[ ${SG_GROUPS} =~ "stg" ]];then
   DEPLOY_ENV="STAGING"
+  SELENIUM_TEST_DOMAIN="https://staging.istyle.hu"
 elif [[ ${SG_GROUPS} =~ "dev" ]];then
   DEPLOY_ENV="DEVELOPMENT"
 else
@@ -59,7 +67,6 @@ maintenance_action() {
         else
           send_to_slack "   - ${WAF_ID} .. FAILED"
         fi
-      sleep 2
       else
         send_to_slack "SOMETHING IS WRONG WITH THE WAF TOKENS, PLEASE CHECK."
         return 123
@@ -70,19 +77,46 @@ maintenance_action() {
 
 
 if [[ "${INSTANCE_ID}" != "${MASTER_ID}" ]]; then
-  maintenance_action allow
+  echo
+  echo -n "=== CHECK IF TESTING FLAG EXISTS => "
+  sleep $[ ( $RANDOM % 10 ) + 1 ].$[ ( $RANDOM % 1000 ) + 1 ]
+  if [ -f ${EFS}/testing.flag ]; then
+    echo "YES ==="
+    echo -n " * REMOVE TESTING FLAG ... "
+    if rm ${EFS}/testing.flag; then echo OK; else echo FAIL; fi
 
-  echo -n " * MODIFY PHP-CLI CONFIG BACK .. "
-  if cp ${EFS}/php-orig.conf /etc/php/7.0/cli/php.ini; then echo OK; else echo FAIL; fi
+    # RUN SELENIUM TESTS
+    ssh ${SELENIUM_NAME} python ${SELENIUM_SCRIPT} ${SELENIUM_TEST_DOMAIN} ${SELENIUM_TEST_USER} ${SELENIUM_TEST_PASS} ${SELENIUM_TEST_URL}
+    if [ $? -eq 0 ]; then
+      send_to_slack "SELENIUM TESTS :: OK"
 
-  echo -n " * COPY THE PRELIVE NFS DIR NAME TO A FILE ... "
-  echo ${EFS_LIVE} | awk -F "/" '{print $NF}' > ${EFS}/current_live
-  [ $? -eq 0 ] && echo OK || echo FAIL
+      # TURN MAINTENANCE OFF
+      maintenance_action allow
 
-  echo " * MAGENTO CACHE FLUSH: "
-  if sudo -u www-data php ${WEBROOT}/bin/magento cache:flush; then
-    send_to_slack "### DEPLOY DONE ###"
+      INSTANCE_STATUS=$(aws ec2 describe-instances --instance-ids ${SELENIUM_ID} --output text | grep STATE | head -1 | cut -f3)
+      if [[ "${INSTANCE_STATUS}" == "running" ]]; then
+      echo -n " * STOP SELENIUM INSTANCE ... "
+      if aws ec2 stop-instances --instance-ids ${SELENIUM_ID} &> /dev/null; then echo OK; else echo FAIL; fi
+      fi
+
+      echo -n " * MODIFY PHP-CLI CONFIG BACK .. "
+      if cp ${EFS}/php-orig.conf /etc/php/7.0/cli/php.ini; then echo OK; else echo FAIL; fi
+
+      echo -n " * COPY THE PRELIVE NFS DIR NAME TO A FILE ... "
+      echo ${EFS_LIVE} | awk -F "/" '{print $NF}' > ${EFS}/current_live
+      [ $? -eq 0 ] && echo OK || echo FAIL
+
+      echo " * MAGENTO CACHE FLUSH: "
+      if sudo -u www-data php ${WEBROOT}/bin/magento cache:flush; then
+      send_to_slack "### DEPLOY DONE ###"
+      fi
+    else
+      send_to_slack "SELENIUM TESTS :: FAILED"
+      exit 200
+    fi
+  else
+    echo "NO ==="
+    echo
   fi
-
 fi
 

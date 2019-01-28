@@ -23,6 +23,7 @@ EFS_BUILD="${EFS}/build"
 EFS_PRELIVE="${EFS}/live_$(date +%Y%m%d%H%M)"
 CURRENT_LIVE=$(<${EFS}/current_live)
 INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+SELENIUM_ID="i-00a99d503de806802"
 SLACK_WEBHOOK="https://hooks.slack.com/services/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"
 
 # DEPLOYMENT VARIABLES
@@ -145,7 +146,6 @@ maintenance_action() {
         else
           send_to_slack "   - ${WAF_ID} .. FAILED"
         fi
-      sleep 2
       else
         send_to_slack "SOMETHING IS WRONG WITH THE WAF TOKENS, PLEASE CHECK."
         return 123
@@ -171,6 +171,12 @@ symlink_check "CREATE DIRECTORY SYMLINK TO UPLOAD FOLDER" "${WEBROOT}/upload" "$
 if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   echo "===== BUILD STAGE ====="
   echo
+
+  INSTANCE_STATUS=$(aws ec2 describe-instances --instance-ids ${SELENIUM_ID} --output text | grep STATE | head -1 | cut -f3)
+  if [[ "${INSTANCE_STATUS}" == "stopped" ]]; then
+    echo -n " * START SELENIUM INSTANCE ... "
+    if aws ec2 start-instances --instance-ids ${SELENIUM_ID} &> /dev/null; then echo OK; else echo FAIL; fi
+  fi
 
   echo -n " * REMOVE PREVIOUS LIVE NFS FOLDERS .. "
   find ${EFS} -maxdepth 1 -iname "live_*" -not -iname ${CURRENT_LIVE} -exec rm -rf {} \;
@@ -280,7 +286,7 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
       symlink_check "CREATE DIRECTORY SYMLINK TO ${LANG_SYMLINK} FOLDER" "${WEBROOT}/pub/${LANG_SYMLINK,,}" "${WEBROOT}/pub" "${WEBROOT}/pub/${LANG_SYMLINK,,}"
     done
     /etc/init.d/nginx reload
-    if curl -I -H 'Host: istyle.eu' -H 'X-Forwarded-Proto: https' http://localhost/mk/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
+    if curl -I -H 'Host: istyle.hu' -H 'X-Forwarded-Proto: https' http://localhost/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
       send_to_slack " * SERVICE VALIDATION ... OK"
     else
       send_to_slack " * SERVICE VALIDATION ... FAIL"
@@ -288,7 +294,7 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
     fi
   elif [ "${DEPLOY_ENV}" == "STAGING" ]; then
     /etc/init.d/nginx reload
-    if curl -I -H 'Host: staging.istyle.mk' -H 'X-Forwarded-Proto: https' http://localhost/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
+    if curl -I -H 'Host: staging.istyle.hu' -H 'X-Forwarded-Proto: https' http://localhost/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
       send_to_slack " * SERVICE VALIDATION ... OK"
     else
       send_to_slack " * SERVICE VALIDATION ... FAIL"
@@ -359,6 +365,15 @@ else
     if maintenance_action block; then
       magento "setup:upgrade --keep-generated"
       magento "cache:enable"
+    fi
+
+    echo
+    echo -n " * CREATE FLAG FOR THE TESTING ... "
+    if [ -f ${EFS}/testing.flag ]; then
+     echo DONE
+    else
+     touch ${EFS}/testing.flag
+     echo OK
     fi
 
   else
