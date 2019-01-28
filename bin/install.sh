@@ -363,6 +363,7 @@ else
     echo
 
     if maintenance_action block; then
+      send_to_slack " * MAGENTO SETUP UPGRADE RUNNING ON INSTANCE :: ${INSTANCE_ID}"
       magento "setup:upgrade --keep-generated"
       magento "cache:enable"
     fi
