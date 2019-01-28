@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7c6b5831250c485d68f60b5d5a56c741",
+    "content-hash": "6a391ebc7eec582b588b8d45679cf3e2",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8353,7 +8353,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "d762ae3cfec3908cacfe046960bc30541c12fe35"
+                "reference": "fe5e753064401987b5d330dfc75bc96c51795ae2"
             },
             "require": {
                 "php": "7.*"
@@ -8371,7 +8371,7 @@
                 "proprietary"
             ],
             "description": "Core bug fixes for Magento 2.x",
-            "time": "2018-11-12T16:07:19+00:00"
+            "time": "2019-01-24T11:29:24+00:00"
         },
         {
             "name": "oander/module-currency-manager",
@@ -9387,11 +9387,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.1.8",
+            "version": "1.1.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "c6e40c362c716e1774c553e23b660c650ab8d5db"
+                "reference": "b95458ddf6e920fb38738bd0b53d9b47570846e2"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9410,15 +9410,15 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2019-01-02T16:22:00+00:00"
+            "time": "2019-01-25T19:33:44+00:00"
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.18",
+            "version": "0.0.3.20",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "37264f4cc0c13fe174b95673591e0d52e72e3c58"
+                "reference": "639453530c3b4d7de7821c98f45b5abfe6aab21b"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9438,7 +9438,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2019-01-22T09:21:47+00:00"
+            "time": "2019-01-28T09:38:10+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -9880,7 +9880,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "ca69dfaafdaf547d1d388e7bc7c43fb9c659927c"
+                "reference": "e4446bf1c09841ad42e2f2a972b7e3c593287ac3"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9896,7 +9896,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-01-23T13:52:43+00:00"
+            "time": "2019-01-25T08:28:04+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10116,16 +10116,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.13",
+            "version": "2.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "42603ce3f42a27f7e14e54feab95db7b680ad473"
+                "reference": "8ebfcadbf30524aeb75b2c446bc2519d5b321478"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/42603ce3f42a27f7e14e54feab95db7b680ad473",
-                "reference": "42603ce3f42a27f7e14e54feab95db7b680ad473",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/8ebfcadbf30524aeb75b2c446bc2519d5b321478",
+                "reference": "8ebfcadbf30524aeb75b2c446bc2519d5b321478",
                 "shasum": ""
             },
             "require": {
@@ -10204,7 +10204,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2018-12-16T17:45:25+00:00"
+            "time": "2019-01-27T19:37:29+00:00"
         },
         {
             "name": "plugincompany/customergroupswitching",
