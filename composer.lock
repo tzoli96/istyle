@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a391ebc7eec582b588b8d45679cf3e2",
+    "content-hash": "ce4a83e7595ce4a3185e894dde3fd398",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -240,6 +240,11 @@
         {
             "name": "amasty/shiprestriction",
             "version": "2.0.6",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/amasty-shiprestriction.git",
+                "reference": "3370bb88bbb506445284b4f7c11fc6aaff4fec02"
+            },
             "dist": {
                 "type": "zip",
                 "url": "https://composer.amasty.com/community/packages/shiprestriction-2.0.6.zip",
@@ -9238,11 +9243,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.1.9",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "b95458ddf6e920fb38738bd0b53d9b47570846e2"
+                "reference": "3b0989b548fa4d6749d37a9bfca9b0c008e80483"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9261,15 +9266,15 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2019-01-25T19:33:44+00:00"
+            "time": "2019-01-29T11:08:06+00:00"
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.20",
+            "version": "0.0.3.21",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "639453530c3b4d7de7821c98f45b5abfe6aab21b"
+                "reference": "c0291fab49939b5e8639e4eefef3f4060b2a1e50"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9289,7 +9294,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2019-01-28T09:38:10+00:00"
+            "time": "2019-01-29T12:32:06+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
