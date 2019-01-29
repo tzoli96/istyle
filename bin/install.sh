@@ -87,35 +87,6 @@ magento() {
   php ${WEBROOT}/bin/magento ${MAGENTO_COMMAND}
 }
 
-dbdump() {
-  local ORIGINAL_DB="${1}"
-  local UPGRADE_DB="${2}"
-  echo -n " ${ORIGINAL_DB} ... "
-  mysql -e "DROP DATABASE \`${UPGRADE_DB}\`; CREATE DATABASE \`${UPGRADE_DB}\`;"
-  if mysqldump --single-transaction ${ORIGINAL_DB} | sed 's/`istylem2`@`%`/`root`@`%`/g' | mysql ${UPGRADE_DB}; then
-    echo OK
-  else
-    echo "FAILED, dumping again after 60sec.."
-    sleep 60
-    echo -n " ${ORIGINAL_DB} ... "
-    mysql -e "DROP DATABASE \`${UPGRADE_DB}\`; CREATE DATABASE \`${UPGRADE_DB}\`;"
-    if mysqldump --single-transaction ${ORIGINAL_DB} | sed 's/`istylem2`@`%`/`root`@`%`/g' | mysql ${UPGRADE_DB}; then
-      echo OK
-    else
-      echo "FAILED, dumping again after 120sec.."
-      sleep 120
-      echo -n " ${ORIGINAL_DB} ... "
-      mysql -e "DROP DATABASE \`${UPGRADE_DB}\`; CREATE DATABASE \`${UPGRADE_DB}\`;"
-      if mysqldump --single-transaction ${ORIGINAL_DB} | sed 's/`istylem2`@`%`/`root`@`%`/g' | mysql ${UPGRADE_DB}; then
-        echo OK
-      else
-        echo "FAILED .. exiting"
-        exit 3
-      fi
-    fi
-  fi
-}
-
 symlink_check() {
   local NOTES="${1}"
   local PATH_TO="${2}"
@@ -129,6 +100,20 @@ symlink_check() {
     rm -rf "${PATH_TO}"
   fi
   if ln -s "${WHAT_TO_LINK}" "${WHERE_TO_LINK}"; then echo OK; else echo FAIL; fi
+}
+
+validation() {
+  local STATE="${1^^}"
+  local SITE_NAME="${2}"
+  if curl -I -H \'Host: ${SITE_NAME}\' -H 'X-Forwarded-Proto: https' http://localhost/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
+    send_to_slack " * SERVICE VALIDATION @ ${STATE} ... OK"
+  else
+    send_to_slack " * SERVICE VALIDATION @ ${STATE} ... FAILED"
+    if [ "$(ls -A $WEBROOT/var/report)" ]; then
+      cat $WEBROOT/var/report/$(ls -t $WEBROOT/var/report/ | head -1)
+    fi
+    exit 3
+  fi
 }
 
 maintenance_action() {
@@ -197,14 +182,10 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   if cp -a ${EFS}/env/upgrade_env.php ${WEBROOT}/app/etc/env.php; then echo OK; else echo FAIL; fi
 
   echo " * MANUALLY CLEANUP GENERATED MAGENTO FOLDERS: "
-  echo -n " * /var/di ... "
-  if rm -rf ${EFS_BUILD}/var/di/*; then echo OK; else echo FAIL; fi
-  echo -n " * /var/generation ... "
-  if rm -rf ${EFS_BUILD}/var/generation/*; then echo OK; else echo FAIL; fi
-  echo -n " * /var/view_preprocessed ... "
-  if rm -rf ${EFS_BUILD}/var/view_preprocessed/*; then echo OK; else echo FAIL; fi
-  echo -n " * /var/report ... "
-  if rm -rf ${EFS_BUILD}/var/report/*; then echo OK; else echo FAIL; fi
+  for FOLDER_NAME in di generation view_preprocessed report; do
+    echo -n " * /var/${FOLDER_NAME} ... "
+    if rm -rf ${EFS_BUILD}/var/${FOLDER_NAME}/*; then echo OK; else echo FAIL; fi
+  done
   echo -n " * /pub/static ... "
   if rm -rf ${EFS_BUILD}/pub/static/*; then echo OK; else echo FAIL; fi
 
@@ -224,31 +205,10 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
 
   echo " * DISABLE MAGENTO CACHE:"
   magento "cache:disable"
-
-#  echo
-#  echo -n "=== CHECK IF DB UPGRADE NEEDED => "
-#  if magento "setup:db:status" | grep -q "up to date"; then
-#    echo "MAGENTO UPGRADE WITHOUT DB CHANGE ==="
-#    echo
-#    magento "setup:upgrade"
-#  else
-#    echo "UPGRADE WITH DB CHANGE ==="
-#    echo
-#    echo "=== COPY DATABASES ==="
-#    echo
-#    # EZEN LEHET GYORSITANI HA CSAK A MINIMALIS MUKODESHEZ SZUKSEGES ADATOK KERULNEK CSAK AT..
-#    echo -n " Main DB: ${DATABASES[0]} ... "
-#    mysql -e "DROP DATABASE \`${DATABASES[1]}\`; CREATE DATABASE \`${DATABASES[1]}\`;"
-#    mysqldump --skip-add-drop-table --no-data ${DATABASES[0]} | sed 's/`istylem2`@`%`/`root`@`%`/g' | mysql ${DATABASES[1]}
-#    if mysqldump --single-transaction ${DATABASES[0]} weee_tax theme product_alert_price eav_entity_type core_config_data setup_module store store_group store_website | sed 's/`istylem2`@`%`/`root`@`%`/g' | mysql ${DATABASES[1]}; then echo OK; else echo FAIL; fi
-#    dbdump ${DATABASES[0]} ${DATABASES[1]}
-#    dbdump ${DATABASES[2]} ${DATABASES[3]}
-#    dbdump ${DATABASES[4]} ${DATABASES[5]}
-    echo
-    echo "==== MAGENTO UPGRADE ===="
-    echo
-    magento "setup:upgrade"
-#  fi
+  echo
+  echo "==== MAGENTO UPGRADE ===="
+  echo
+  magento "setup:upgrade"
 
   echo
   echo "==== COMPILE STATIC CONTENTS ===="
@@ -277,29 +237,12 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   echo -n " * CHOWN VAR/LOG DIR ... "
   if chown www-data:www-data -R /var/log/magento; then echo OK; else echo FAIL; fi
 
-  # VALIDATION
+  # VALIDATION @ BUILD
   echo
   if [ "${DEPLOY_ENV}" == "PRODUCTION" ]; then
-    echo -n " * COPY CUSTOM NGINX CONFIG FOR MAGENTO ... "
-    if cp -a ${WEBROOT}/nginx.magento.conf ${WEBROOT}/nginx.conf.sample; then echo OK; else echo FAIL; fi
-    for LANG_SYMLINK in "${LANGUAGES[@]}"; do
-      symlink_check "CREATE DIRECTORY SYMLINK TO ${LANG_SYMLINK} FOLDER" "${WEBROOT}/pub/${LANG_SYMLINK,,}" "${WEBROOT}/pub" "${WEBROOT}/pub/${LANG_SYMLINK,,}"
-    done
-    /etc/init.d/nginx reload
-    if curl -I -H 'Host: istyle.hu' -H 'X-Forwarded-Proto: https' http://localhost/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
-      send_to_slack " * SERVICE VALIDATION ... OK"
-    else
-      send_to_slack " * SERVICE VALIDATION ... FAIL"
-      exit 3
-    fi
+    validation build istyle.hu
   elif [ "${DEPLOY_ENV}" == "STAGING" ]; then
-    /etc/init.d/nginx reload
-    if curl -I -H 'Host: staging.istyle.hu' -H 'X-Forwarded-Proto: https' http://localhost/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
-      send_to_slack " * SERVICE VALIDATION ... OK"
-    else
-      send_to_slack " * SERVICE VALIDATION ... FAIL"
-      exit 3
-    fi
+    validation build staging.istyle.hu
   fi
 
   echo -n " * RSYNC EFS BUILD FOLDER TO PRELIVE: ${EFS_PRELIVE} ... "
@@ -368,6 +311,14 @@ else
       magento "cache:enable"
     fi
 
+    # VALIDATION @ BLUE/GREEN
+    echo
+    if [ "${DEPLOY_ENV}" == "PRODUCTION" ]; then
+      validation bluegreen istyle.hu
+    elif [ "${DEPLOY_ENV}" == "STAGING" ]; then
+      validation bluegreen staging.istyle.hu
+    fi
+
     echo
     echo -n " * CREATE FLAG FOR THE TESTING ... "
     if [ -f ${EFS}/testing.flag ]; then
@@ -396,16 +347,16 @@ if rsync -a ${EFS}/rewrite/ ${WEBROOT}/; then echo OK; else echo FAIL; fi
 # MAIN SYMLINK SETUP
 symlink_check "CREATE DIRECTORY SYMLINK TO MEDIA FOLDER" "${WEBROOT}/pub/media" "${EFS}/media" "${WEBROOT}/pub/"
 
+# CUSTOM MAINTENANCE PAGE
+echo -n " * SETTING UP CUSTOM MAINTENANCE PAGE ... "
+if cp -a ${WEBROOT}/pub/errors/default/maintenance.phtml ${WEBROOT}/pub/errors/default/503.phtml; then echo OK; else echo FAIL; fi
+
 # ONLY NEEDED FOR PRODUCTION ENV IF URL IS USING istyle.eu/xx
 if [ "${DEPLOY_ENV}" == "PRODUCTION" ]; then
   for LANG_SYMLINK in "${LANGUAGES[@]}"; do
     symlink_check "CREATE DIRECTORY SYMLINK TO ${LANG_SYMLINK} FOLDER" "${WEBROOT}/pub/${LANG_SYMLINK,,}" "${WEBROOT}/pub" "${WEBROOT}/pub/${LANG_SYMLINK,,}"
   done
 fi
-
-# CUSTOM MAINTENANCE PAGE
-echo -n " * SETTING UP CUSTOM MAINTENANCE PAGE ... "
-if cp -a ${WEBROOT}/pub/errors/default/maintenance.phtml ${WEBROOT}/pub/errors/default/503.phtml; then echo OK; else echo FAIL; fi
 
 # EZ MAJD NEM FOG KELLENI HA MAR NEM LESZ SIGMANET PROXY..
 if [ "${DEPLOY_ENV}" == "PRODUCTION" ]; then
