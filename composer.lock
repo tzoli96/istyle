@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "122caa4aec3593e64a219214df5c4c25",
+    "content-hash": "45f25179c11e7da2670aec810dcf2802",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -212,6 +212,11 @@
         {
             "name": "amasty/shiprestriction",
             "version": "2.0.6",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/amasty-shiprestriction.git",
+                "reference": "3370bb88bbb506445284b4f7c11fc6aaff4fec02"
+            },
             "dist": {
                 "type": "zip",
                 "url": "https://composer.amasty.com/community/packages/shiprestriction-2.0.6.zip",
@@ -6512,12 +6517,6 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
-                "reference": null,
-                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
-            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -8114,7 +8113,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "d762ae3cfec3908cacfe046960bc30541c12fe35"
+                "reference": "f4604e52066036eee58e5eb87baa5b3099367aac"
             },
             "require": {
                 "php": "7.*"
@@ -8132,7 +8131,7 @@
                 "proprietary"
             ],
             "description": "Core bug fixes for Magento 2.x",
-            "time": "2018-11-12T16:07:19+00:00"
+            "time": "2019-01-28T14:40:59+00:00"
         },
         {
             "name": "oander/module-currency-manager",
@@ -8946,11 +8945,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "e0f4e27be31d5ea84a18415da9bea32dcb6f1956"
+                "reference": "3b0989b548fa4d6749d37a9bfca9b0c008e80483"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8969,7 +8968,35 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2018-09-28T19:29:15+00:00"
+            "time": "2019-01-29T11:08:06+00:00"
+        },
+        {
+            "name": "oander/module-salesforce-service",
+            "version": "0.0.3.23",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-salesforce-service.git",
+                "reference": "60d4d010feb0b830d072c0dd054bb2b6ae4712e0"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "oander/module-salesforce": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\SalesforceService\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Salesforce Service appointment reservation",
+            "time": "2019-01-29T15:44:32+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -9571,16 +9598,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.13",
+            "version": "2.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "42603ce3f42a27f7e14e54feab95db7b680ad473"
+                "reference": "8ebfcadbf30524aeb75b2c446bc2519d5b321478"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/42603ce3f42a27f7e14e54feab95db7b680ad473",
-                "reference": "42603ce3f42a27f7e14e54feab95db7b680ad473",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/8ebfcadbf30524aeb75b2c446bc2519d5b321478",
+                "reference": "8ebfcadbf30524aeb75b2c446bc2519d5b321478",
                 "shasum": ""
             },
             "require": {
@@ -9659,7 +9686,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2018-12-16T17:45:25+00:00"
+            "time": "2019-01-27T19:37:29+00:00"
         },
         {
             "name": "plugincompany/customergroupswitching",
