@@ -50,7 +50,7 @@ send_to_slack() {
   echo "$MESSAGE"
   PAYLOAD="payload={
     \"channel\": \"#istyle-collab\",
-    \"username\": \"$(hostname)\",
+    \"username\": \"${INSTANCE_ID}\",
     \"text\": \"$MESSAGE\"
     }"
   curl -X POST --data-urlencode "${PAYLOAD}" ${SLACK_WEBHOOK} &> /dev/null
@@ -135,7 +135,7 @@ maintenance_action() {
   local ACTION="${1^^}"
   if [ "${ACTION}" == "BLOCK" ]; then MODE_ACTION="ENABLE"; else MODE_ACTION="DISABLE"; fi
 
-  send_to_slack " * ${MODE_ACTION} MAINTENANCE MODE IN CDN WAF"
+  send_to_slack " * ${MODE_ACTION} MAINTENANCE MODE"
   for WAF_ID in "${WAF_IDS[@]}"; do
     WAF_DEFAULT_ACTION=$(aws waf get-web-acl --web-acl-id ${WAF_ID} --output text | grep DEFAULTACTION | cut -f2)
     if [[ "${WAF_DEFAULT_ACTION}" != "${ACTION}" ]]; then

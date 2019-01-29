@@ -7,14 +7,13 @@ SLACK_WEBHOOK="https://hooks.slack.com/services/T031S2192/BFFAPSLMN/Bp3iJd9swVtO
 EFS="/mnt/istyle-storage/istyle"
 WEBROOT="/var/www/istyle.eu/"
 LOGDIR="/var/log/magento"
-CURRENT_LIVE=$(<${EFS}/current_live)
 
 send_to_slack() {
   local MESSAGE="${1}"
   echo "$MESSAGE"
   PAYLOAD="payload={
     \"channel\": \"#istyle-collab\",
-    \"username\": \"$(hostname)\",
+    \"username\": \"${INSTANCE_ID}\",
     \"text\": \"$MESSAGE\"
     }"
   curl -X POST --data-urlencode "${PAYLOAD}" ${SLACK_WEBHOOK} &> /dev/null

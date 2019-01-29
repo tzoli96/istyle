@@ -46,7 +46,7 @@ send_to_slack() {
   echo "$MESSAGE"
   PAYLOAD="payload={
     \"channel\": \"#istyle-collab\",
-    \"username\": \"$(hostname)\",
+    \"username\": \"${INSTANCE_ID}\",
     \"text\": \"$MESSAGE\"
     }"
   curl -X POST --data-urlencode "${PAYLOAD}" ${SLACK_WEBHOOK} &> /dev/null
@@ -56,7 +56,7 @@ maintenance_action() {
   local ACTION="${1^^}"
   if [ "${ACTION}" == "BLOCK" ]; then MODE_ACTION="ENABLE"; else MODE_ACTION="DISABLE"; fi
 
-  send_to_slack " * ${MODE_ACTION} MAINTENANCE MODE IN CDN WAF"
+  send_to_slack " * ${MODE_ACTION} MAINTENANCE MODE"
   for WAF_ID in "${WAF_IDS[@]}"; do
     WAF_DEFAULT_ACTION=$(aws waf get-web-acl --web-acl-id ${WAF_ID} --output text | grep DEFAULTACTION | cut -f2)
     if [[ "${WAF_DEFAULT_ACTION}" != "${ACTION}" ]]; then
@@ -78,6 +78,10 @@ maintenance_action() {
 
 if [[ "${INSTANCE_ID}" != "${MASTER_ID}" ]]; then
   echo
+  echo -n " * COPY THE PRELIVE NFS DIR NAME TO A FILE ... "
+  echo ${EFS_LIVE} | awk -F "/" '{print $NF}' > ${EFS}/current_live
+  [ $? -eq 0 ] && echo OK || echo FAIL
+
   echo -n "=== CHECK IF TESTING FLAG EXISTS => "
   sleep $[ ( $RANDOM % 10 ) + 1 ].$[ ( $RANDOM % 1000 ) + 1 ]
   if [ -f ${EFS}/testing.flag ]; then
@@ -101,10 +105,6 @@ if [[ "${INSTANCE_ID}" != "${MASTER_ID}" ]]; then
 
       echo -n " * MODIFY PHP-CLI CONFIG BACK .. "
       if cp ${EFS}/php-orig.conf /etc/php/7.0/cli/php.ini; then echo OK; else echo FAIL; fi
-
-      echo -n " * COPY THE PRELIVE NFS DIR NAME TO A FILE ... "
-      echo ${EFS_LIVE} | awk -F "/" '{print $NF}' > ${EFS}/current_live
-      [ $? -eq 0 ] && echo OK || echo FAIL
 
       echo " * MAGENTO CACHE FLUSH: "
       if sudo -u www-data php ${WEBROOT}/bin/magento cache:flush; then
