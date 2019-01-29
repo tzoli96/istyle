@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ce4a83e7595ce4a3185e894dde3fd398",
+    "content-hash": "403fcb1eaa37367b585a172dcbf1dafa",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8547,31 +8547,6 @@
             "time": "2017-01-04T11:34:53+00:00"
         },
         {
-            "name": "oander/module-grenke",
-            "version": "1.0.3",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/module-grenke.git",
-                "reference": "b4c54b31dee46e7b02d29e9757b682ef48fca541"
-            },
-            "require": {
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "psr-4": {
-                    "Oander\\Grenke\\": ""
-                },
-                "files": [
-                    "registration.php"
-                ]
-            },
-            "license": [
-                "proprietary"
-            ],
-            "time": "2019-01-23T11:33:37+00:00"
-        },
-        {
             "name": "oander/module-heureka-tracking",
             "version": "1.1.0.1",
             "source": {
@@ -9270,11 +9245,11 @@
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.21",
+            "version": "0.0.3.22",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "c0291fab49939b5e8639e4eefef3f4060b2a1e50"
+                "reference": "ece03ae900dc0c675fbfaaa091412c73788a7af6"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9294,7 +9269,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2019-01-29T12:32:06+00:00"
+            "time": "2019-01-29T13:31:35+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",

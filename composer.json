@@ -109,7 +109,7 @@
         "oander/module-producturlresolver": "1.0.1",
         "oander/module-safe-category-index": "1.0.0",
         "oander/module-salesforce": "1.2.0",
-        "oander/module-salesforce-service": "0.0.3.21",
+        "oander/module-salesforce-service": "0.0.3.22",
         "oander/module-salesforce-widget": "1.0.7",
         "oander/module-salesforcereservation": "1.1.12.1",
         "oander/module-shipping": "1.0.3",
@@ -131,8 +131,7 @@
         "replace/module-buyback-calculator": "1.0.5.1",
         "rudracomputech/module-nestpay": "2.0.6.5",
         "xtento/module-orderexport": "2.3.9",
-        "xtento/module-xtcore": "2.1.0",
-        "oander/module-grenke": "1.0.3"
+        "xtento/module-xtcore": "2.1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
