@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9e2e1e32169db46a437ebc7712759c3d",
+    "content-hash": "be9c11f66688489aaffeb141839db09b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8972,11 +8972,11 @@
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.23",
+            "version": "0.0.3.24",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "60d4d010feb0b830d072c0dd054bb2b6ae4712e0"
+                "reference": "50c8ddba47da318fcc9aea02b48d48518c57ed2c"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8996,7 +8996,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2019-01-29T15:44:32+00:00"
+            "time": "2019-01-30T10:13:57+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -9358,11 +9358,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.183",
+            "version": "1.0.184",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "47169dc4392c539df9f099e314bf09bcee63e23a"
+                "reference": "2ed45a129b2d1a00ad78b5fa34b64185b5999409"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9378,7 +9378,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-01-30T08:43:01+00:00"
+            "time": "2019-01-30T10:25:17+00:00"
         },
         {
             "name": "oyejorge/less.php",
