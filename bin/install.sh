@@ -238,11 +238,36 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   if chown www-data:www-data -R /var/log/magento; then echo OK; else echo FAIL; fi
 
   # VALIDATION @ BUILD
+#  echo
+#  if [ "${DEPLOY_ENV}" == "PRODUCTION" ]; then
+#    validation build istyle.hu
+#  elif [ "${DEPLOY_ENV}" == "STAGING" ]; then
+#    validation build staging.istyle.hu
+#  fi
+
+  # VALIDATION
   echo
   if [ "${DEPLOY_ENV}" == "PRODUCTION" ]; then
-    validation build istyle.hu
+    echo -n " * COPY CUSTOM NGINX CONFIG FOR MAGENTO ... "
+    if cp -a ${WEBROOT}/nginx.magento.conf ${WEBROOT}/nginx.conf.sample; then echo OK; else echo FAIL; fi
+    for LANG_SYMLINK in "${LANGUAGES[@]}"; do
+      symlink_check "CREATE DIRECTORY SYMLINK TO ${LANG_SYMLINK} FOLDER" "${WEBROOT}/pub/${LANG_SYMLINK,,}" "${WEBROOT}/pub" "${WEBROOT}/pub/${LANG_SYMLINK,,}"
+    done
+    /etc/init.d/nginx reload
+    if curl -I -H 'Host: istyle.hu' -H 'X-Forwarded-Proto: https' http://localhost/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
+      send_to_slack " * SERVICE VALIDATION @ BUILD ... OK"
+    else
+      send_to_slack " * SERVICE VALIDATION @ BUILD ... FAIL"
+      exit 3
+    fi
   elif [ "${DEPLOY_ENV}" == "STAGING" ]; then
-    validation build staging.istyle.hu
+    /etc/init.d/nginx reload
+    if curl -I -H 'Host: staging.istyle.hu' -H 'X-Forwarded-Proto: https' http://localhost/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
+      send_to_slack " * SERVICE VALIDATION @ BUILD ... OK"
+    else
+      send_to_slack " * SERVICE VALIDATION @ BUILD ... FAIL"
+      exit 3
+    fi
   fi
 
   echo -n " * RSYNC EFS BUILD FOLDER TO PRELIVE: ${EFS_PRELIVE} ... "
@@ -312,12 +337,38 @@ else
     fi
 
     # VALIDATION @ BLUE/GREEN
-    echo
-    if [ "${DEPLOY_ENV}" == "PRODUCTION" ]; then
-      validation bluegreen istyle.hu
-    elif [ "${DEPLOY_ENV}" == "STAGING" ]; then
-      validation bluegreen staging.istyle.hu
+#    echo
+#    if [ "${DEPLOY_ENV}" == "PRODUCTION" ]; then
+#      validation bluegreen istyle.hu
+#    elif [ "${DEPLOY_ENV}" == "STAGING" ]; then
+#      validation bluegreen staging.istyle.hu
+#    fi
+
+   sleep 3
+  # VALIDATION
+  echo
+  if [ "${DEPLOY_ENV}" == "PRODUCTION" ]; then
+    echo -n " * COPY CUSTOM NGINX CONFIG FOR MAGENTO ... "
+    if cp -a ${WEBROOT}/nginx.magento.conf ${WEBROOT}/nginx.conf.sample; then echo OK; else echo FAIL; fi
+    for LANG_SYMLINK in "${LANGUAGES[@]}"; do
+      symlink_check "CREATE DIRECTORY SYMLINK TO ${LANG_SYMLINK} FOLDER" "${WEBROOT}/pub/${LANG_SYMLINK,,}" "${WEBROOT}/pub" "${WEBROOT}/pub/${LANG_SYMLINK,,}"
+    done
+    /etc/init.d/nginx reload
+    if curl -I -H 'Host: istyle.hu' -H 'X-Forwarded-Proto: https' http://localhost/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
+      send_to_slack " * SERVICE VALIDATION @ BLUEGREEN ... OK"
+    else
+      send_to_slack " * SERVICE VALIDATION @ BLUEEGREEN ... FAIL"
+      exit 3
     fi
+  elif [ "${DEPLOY_ENV}" == "STAGING" ]; then
+    /etc/init.d/nginx reload
+    if curl -I -H 'Host: staging.istyle.hu' -H 'X-Forwarded-Proto: https' http://localhost/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
+      send_to_slack " * SERVICE VALIDATION @ BLUEGREEN ... OK"
+    else
+      send_to_slack " * SERVICE VALIDATION @ BLUEGREEN ... FAIL"
+      exit 3
+    fi
+  fi
 
     echo
     echo -n " * CREATE FLAG FOR THE TESTING ... "
