@@ -23,6 +23,7 @@ EFS_BUILD="${EFS}/build"
 EFS_PRELIVE="${EFS}/live_$(date +%Y%m%d%H%M)"
 CURRENT_LIVE=$(<${EFS}/current_live)
 INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+INSTANCE_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
 SELENIUM_ID="i-00a99d503de806802"
 SLACK_WEBHOOK="https://hooks.slack.com/services/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"
 
@@ -47,11 +48,11 @@ fi
 # FUNCTIONS
 send_to_slack() {
   local MESSAGE="${1}"
-  echo "$MESSAGE"
+  echo "${MESSAGE}"
   PAYLOAD="payload={
     \"channel\": \"#istyle-collab\",
-    \"username\": \"${INSTANCE_ID}\",
-    \"text\": \"$MESSAGE\"
+    \"username\": \"${INSTANCE_ID} :: ${INSTANCE_IP}\",
+    \"text\": \"${MESSAGE}\"
     }"
   curl -X POST --data-urlencode "${PAYLOAD}" ${SLACK_WEBHOOK} &> /dev/null
 }
@@ -120,7 +121,7 @@ maintenance_action() {
   local ACTION="${1^^}"
   if [ "${ACTION}" == "BLOCK" ]; then MODE_ACTION="ENABLE"; else MODE_ACTION="DISABLE"; fi
 
-  send_to_slack " * ${MODE_ACTION} MAINTENANCE MODE"
+  send_to_slack " * ${MODE_ACTION} MAINTENANCE MODE:"
   for WAF_ID in "${WAF_IDS[@]}"; do
     WAF_DEFAULT_ACTION=$(aws waf get-web-acl --web-acl-id ${WAF_ID} --output text | grep DEFAULTACTION | cut -f2)
     if [[ "${WAF_DEFAULT_ACTION}" != "${ACTION}" ]]; then
@@ -154,6 +155,7 @@ symlink_check "CREATE DIRECTORY SYMLINK TO UPLOAD FOLDER" "${WEBROOT}/upload" "$
 
 # MAIN INSTANCE CHECK AND WORKFLOW
 if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
+  echo
   echo "===== BUILD STAGE ====="
   echo
 
@@ -240,11 +242,19 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   # VALIDATION @ BUILD
   echo
   if [ "${DEPLOY_ENV}" == "PRODUCTION" ]; then
+    echo -n " * COPY CUSTOM NGINX CONFIG FOR MAGENTO ... "
+    if cp -a ${WEBROOT}/nginx.magento.conf ${WEBROOT}/nginx.conf.sample; then echo OK; else echo FAIL; fi
+    for LANG_SYMLINK in "${LANGUAGES[@]}"; do
+      symlink_check "CREATE DIRECTORY SYMLINK TO ${LANG_SYMLINK} FOLDER" "${WEBROOT}/pub/${LANG_SYMLINK,,}" "${WEBROOT}/pub" "${WEBROOT}/pub/${LANG_SYMLINK,,}"
+    done
+    /etc/init.d/nginx reload
     validation build istyle.hu
   elif [ "${DEPLOY_ENV}" == "STAGING" ]; then
+    /etc/init.d/nginx reload
     validation build staging.istyle.hu
   fi
 
+  echo
   echo -n " * RSYNC EFS BUILD FOLDER TO PRELIVE: ${EFS_PRELIVE} ... "
   if rsync -au --delete --exclude={"/var/backups/*","/var/log/*","/var/session"} ${EFS_BUILD}/ ${EFS_PRELIVE}/; then echo OK; else echo FAIL; fi
 
@@ -257,7 +267,7 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   if cp -a ${EFS}/env/env.php ${WEBROOT}/app/etc/; then echo OK; else echo FAIL; fi
 
   echo -n " * ENABLE CRON .. "
-  if cp /mnt/istyle-storage/istyle/crontab_on /etc/crontab; then echo OK; else echo FAIL; fi
+  if cp ${EFS}/crontab_on /etc/crontab; then echo OK; else echo FAIL; fi
 
   echo -n " * COPY THE CONFIG.PHP TO NFS ... "
   if cp -a ${WEBROOT}/app/etc/config.php ${EFS}/env/; then echo OK; else echo FAIL; fi
@@ -287,6 +297,7 @@ else
   echo
   cd ${WEBROOT} && composer install
   chown www-data:www-data -R ${WEBROOT}
+  echo
 
   EFS_PRELIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | tail -1)"
   echo " * CREATE DIRECTORY SYMLINKS TO PRELIVE: ${EFS_PRELIVE} ... "
@@ -306,7 +317,6 @@ else
     echo
 
     if maintenance_action block; then
-      send_to_slack " * MAGENTO SETUP UPGRADE RUNNING ON INSTANCE :: ${INSTANCE_ID}"
       magento "setup:upgrade --keep-generated"
       magento "cache:enable"
     fi
@@ -314,8 +324,15 @@ else
     # VALIDATION @ BLUE/GREEN
     echo
     if [ "${DEPLOY_ENV}" == "PRODUCTION" ]; then
+      echo -n " * COPY CUSTOM NGINX CONFIG FOR MAGENTO ... "
+      if cp -a ${WEBROOT}/nginx.magento.conf ${WEBROOT}/nginx.conf.sample; then echo OK; else echo FAIL; fi
+      for LANG_SYMLINK in "${LANGUAGES[@]}"; do
+        symlink_check "CREATE DIRECTORY SYMLINK TO ${LANG_SYMLINK} FOLDER" "${WEBROOT}/pub/${LANG_SYMLINK,,}" "${WEBROOT}/pub" "${WEBROOT}/pub/${LANG_SYMLINK,,}"
+      done
+      /etc/init.d/nginx reload
       validation bluegreen istyle.hu
     elif [ "${DEPLOY_ENV}" == "STAGING" ]; then
+      /etc/init.d/nginx reload
       validation bluegreen staging.istyle.hu
     fi
 
