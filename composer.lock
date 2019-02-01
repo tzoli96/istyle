@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "403fcb1eaa37367b585a172dcbf1dafa",
+    "content-hash": "a332bd3be5abc6786c70003dc673ffdc",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6625,12 +6625,6 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
-                "reference": null,
-                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
-            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -9218,11 +9212,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.2.0",
+            "version": "1.2.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "3b0989b548fa4d6749d37a9bfca9b0c008e80483"
+                "reference": "356e1efa9b60650f1daa9ae11d0b056b43d2fbad"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9241,7 +9235,7 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2019-01-29T11:08:06+00:00"
+            "time": "2019-02-01T10:07:12+00:00"
         },
         {
             "name": "oander/module-salesforce-service",
@@ -10869,7 +10863,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "backendtea@gmail.com"
+                    "email": "BackEndTea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
