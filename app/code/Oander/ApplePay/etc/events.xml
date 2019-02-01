@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+	<event name="ajax_captain_hook_js_call">
+		<observer instance="Oander\ApplePay\Observer\CaptainHookJsEvent" name="oander_applepay_observer_ajax_captainhookjscall"/>
+	</event>
+</config>

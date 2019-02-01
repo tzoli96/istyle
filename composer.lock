@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a332bd3be5abc6786c70003dc673ffdc",
+    "content-hash": "1357893a0c5ec989e2276f5f4a5959fd",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6625,6 +6625,12 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
+            "dist": {
+                "type": "zip",
+                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
+                "reference": null,
+                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
+            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -7906,32 +7912,6 @@
             ],
             "description": "Oander_ApiWarehouseManager",
             "time": "2018-11-14T16:04:20+00:00"
-        },
-        {
-            "name": "oander/module-applepay",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-applepay.git",
-                "reference": "c3d83aa74dbf5aa3d4bf9d7416bb951cee7bd235"
-            },
-            "require": {
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "psr-4": {
-                    "Oander\\ApplePay\\": ""
-                },
-                "files": [
-                    "registration.php"
-                ]
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Apple Pay payment method",
-            "time": "2019-01-03T05:55:27+00:00"
         },
         {
             "name": "oander/module-base",
@@ -10863,7 +10843,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "BackEndTea@gmail.com"
+                    "email": "backendtea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",

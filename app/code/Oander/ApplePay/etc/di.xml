@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *   /$$$$$$   /$$$$$$  /$$   /$$ /$$$$$$$  /$$$$$$$$ /$$$$$$$
+ *  /$$__  $$ /$$__  $$| $$$ | $$| $$__  $$| $$_____/| $$__  $$
+ * | $$  \ $$| $$  \ $$| $$$$| $$| $$  \ $$| $$      | $$  \ $$
+ * | $$  | $$| $$$$$$$$| $$ $$ $$| $$  | $$| $$$$$   | $$$$$$$/
+ * | $$  | $$| $$__  $$| $$  $$$$| $$  | $$| $$__/   | $$__  $$
+ * | $$  | $$| $$  | $$| $$\  $$$| $$  | $$| $$      | $$  \ $$
+ * |  $$$$$$/| $$  | $$| $$ \  $$| $$$$$$$/| $$$$$$$$| $$  | $$
+ *  \______/ |__/  |__/|__/  \__/|_______/ |________/|__/  |__/
+ *
+ * Oander_ApplePay
+ *
+ * @author  János Pinczes <janos.pinczes@oander.hu>
+ * @license Oander Media Kft. (http://www.oander.hu)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Oander\CartButton\Model\CartButtonProviderDefault">
+        <plugin name="oander_applepay_model_cartbuttonproviderdefault" type="Oander\ApplePay\Plugin\CartButton\Model\CartButtonProviderDefault"/>
+    </type>
+</config>

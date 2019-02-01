@@ -1,0 +1,20 @@
+{
+    "name": "oander/module-applepay",
+    "description": "Apple Pay payment method",
+    "require": {
+        "php": "7.*"
+    },
+    "type": "magento2-module",
+    "version": "1.0.2",
+    "license": [
+        "proprietary"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Oander\\ApplePay\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

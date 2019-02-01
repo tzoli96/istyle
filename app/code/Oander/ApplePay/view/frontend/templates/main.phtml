@@ -1,0 +1,111 @@
+<?php /** @var $block \Oander\ApplePay\Block\Main */ ?>
+<div id="applepay-object" data-mage-init='{"applePay": <?php /* @escapeNotVerified */ echo $block->getJsonConfig() ?>}'></div>
+
+<script type="text/javascript">
+    require(['jquery'],function($) {
+        var selectors = {
+            minicart: '[data-block="minicart"]',
+            checkoutbutton: '#top-cart-btn-checkout',
+            applepayObject: '#applepay-object'
+        };
+
+        $(document).on('applePayTrigger', function() {
+            //alert(3);
+            console.log($(selectors.applepayObject).data('mageApplepay').canUseApplePay() +'main');
+            if($(selectors.applepayObject).data('mageApplepay').canUseApplePay()) {
+                //alert(4);
+                var minicart = $(selectors.minicart);
+                var applepaybutton = '<div lang="cz" class="applepaybutton apple-pay-button-with-text apple-pay-button-black-with-text" style="-webkit-appearance: -apple-pay-button; -apple-pay-button-type: buy;">\n' +
+                    '  <span class="text">Buy</span>\n' +
+                    '  <span class="logo"></span>\n' +
+                    '</div>' +
+                    '<style>@supports (-webkit-appearance: -apple-pay-button) {\n' +
+                    '    .apple-pay-button-with-text {\n' +
+                    '        display: inline-block;\n' +
+                    '        -webkit-appearance: -apple-pay-button;\n' +
+                    '        -apple-pay-button-type: buy;\n' +
+                    '    }\n' +
+                    '    .apple-pay-button-with-text > * {\n' +
+                    '        display: none;\n' +
+                    '    }\n' +
+                    '    .apple-pay-button-black-with-text {\n' +
+                    '        -apple-pay-button-style: black;\n' +
+                    '    }\n' +
+                    '    .apple-pay-button-white-with-text {\n' +
+                    '        -apple-pay-button-style: white;\n' +
+                    '    }\n' +
+                    '    .apple-pay-button-white-with-line-with-text {\n' +
+                    '        -apple-pay-button-style: white-outline;\n' +
+                    '    }\n' +
+                    '}\n' +
+                    '\n' +
+                    '@supports not (-webkit-appearance: -apple-pay-button) {\n' +
+                    '    .apple-pay-button-with-text {\n' +
+                    '        --apple-pay-scale: 1; /* (height / 32) */\n' +
+                    '        display: inline-flex;\n' +
+                    'cursor: hand;        ' +
+                    'justify-content: center;\n' +
+                    '        font-size: 12px;\n' +
+                    '        border-radius: 5px;\n' +
+                    '        padding: 0px;\n' +
+                    '        box-sizing: border-box;\n' +
+                    '        min-width: 200px;\n' +
+                    '        min-height: 32px;\n' +
+                    '        max-height: 64px;\n' +
+                    '    }\n' +
+                    '    .apple-pay-button-black-with-text {\n' +
+                    '        background-color: black;\n' +
+                    '        color: white;\n' +
+                    '    }\n' +
+                    '    .apple-pay-button-white-with-text {\n' +
+                    '        background-color: white;\n' +
+                    '        color: black;\n' +
+                    '    }\n' +
+                    '    .apple-pay-button-white-with-line-with-text {\n' +
+                    '        background-color: white;\n' +
+                    '        color: black;\n' +
+                    '        border: .5px solid black;\n' +
+                    '    }\n' +
+                    '    .apple-pay-button-with-text.apple-pay-button-black-with-text > .logo {\n' +
+                    '        background-image: -webkit-named-image(apple-pay-logo-white);\n' +
+                    '        background-color: black;\n' +
+                    '    }\n' +
+                    '    .apple-pay-button-with-text.apple-pay-button-white-with-text > .logo {\n' +
+                    '        background-image: -webkit-named-image(apple-pay-logo-black);\n' +
+                    '        background-color: white;\n' +
+                    '    }\n' +
+                    '    .apple-pay-button-with-text.apple-pay-button-white-with-line-with-text > .logo {\n' +
+                    '        background-image: -webkit-named-image(apple-pay-logo-black);\n' +
+                    '        background-color: white;\n' +
+                    '    }\n' +
+                    '    .apple-pay-button-with-text > .text {\n' +
+                    '        font-family: -apple-system;\n' +
+                    '        font-size: calc(1em * var(--apple-pay-scale));\n' +
+                    '        font-weight: 300;\n' +
+                    '        align-self: center;\n' +
+                    '        margin-right: calc(2px * var(--apple-pay-scale));\n' +
+                    '    }\n' +
+                    '    .apple-pay-button-with-text > .logo {\n' +
+                    '        width: calc(35px * var(--scale));\n' +
+                    '        height: 100%;\n' +
+                    '        background-size: 100% 60%;\n' +
+                    '        background-repeat: no-repeat;\n' +
+                    '        background-position: 0 50%;\n' +
+                    '        margin-left: calc(2px * var(--apple-pay-scale));\n' +
+                    '        border: none;\n' +
+                    '    }\n' +
+                    '}</style>';
+                var checkoutlink = '<a href="javascript:jQuery(\'#top-cart-btn-checkout\').trigger(\'click\');">Ez a valós checkout link</a>';
+
+                minicart.on('contentUpdated', function () {
+                    var checkoutbutton = $(selectors.checkoutbutton);
+                    if (checkoutbutton.is(":visible")) {
+                        checkoutbutton.hide();
+                        checkoutbutton.parent().append(applepaybutton);
+                        checkoutbutton.parent().append(checkoutlink);
+                    }
+                });
+            }
+        });
+    });
+</script>
