@@ -5,9 +5,19 @@
 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 $helper = $objectManager->create('Magento\Catalog\Helper\Data');
 ?>
-<div id="addcartbutton-replace"></div>
+<div id="addcartbutton-apple-pay"></div>
+<div id="addcartbutton-original">
+    <button form="product_addtocart_form" id="product-addtocart-button"
+            class="btn btn-primary action tocart oander-product-addtocart-button js-oander-product-addtocart-button"
+            value="<?php echo $helper->getTaxPrice($block->getProduct(), $block->getProduct()->getFinalPrice(), true) ?>">
+        <?php /* @escapeNotVerified */ echo __('Add to Cart'); ?>
+        <img class="oander-product-addtocart-button-loader"
+             src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('svg/loader-white.svg'); ?>"
+             alt="<?php /* @escapeNotVerified */ echo __('Loading...'); ?>">
+    </button>
+</div>
 <script type="text/javascript">
-    require(["jquery"], function ($) {
+    require(["jquery",'Oander_ApplePay/js/button'], function ($,button) {
         var selectors = {
             minicart: '[data-block="minicart"]',
             checkoutbutton: '#top-cart-btn-checkout',
@@ -15,103 +25,18 @@ $helper = $objectManager->create('Magento\Catalog\Helper\Data');
         };
 
         $(document).on('applePayTrigger', function() {
-            //alert(1);
-            console.log($(selectors.applepayObject).data('mageApplepay').canUseApplePay() +'product');
-            if($(selectors.applepayObject).data('mageApplepay').canUseApplePay()) {
-                //alert(2);
-                $('#addcartbutton-replace').html(
-                    '<div lang="cz" class="applepaybutton-js apple-pay-button-with-text apple-pay-button-black-with-text" style="-webkit-appearance: -apple-pay-button; -apple-pay-button-type: buy;">\n' +
-                    '  <span class="text">Buy</span>\n' +
-                    '  <span class="logo"></span>\n' +
-                    '</div>' +
-                    '<style>@supports (-webkit-appearance: -apple-pay-button) {\n' +
-                    '    .apple-pay-button-with-text {\n' +
-                    '        display: inline-block;\n' +
-                    '        -webkit-appearance: -apple-pay-button;\n' +
-                    '        -apple-pay-button-type: buy;\n' +
-                    '    }\n' +
-                    '    .apple-pay-button-with-text > * {\n' +
-                    '        display: none;\n' +
-                    '    }\n' +
-                    '    .apple-pay-button-black-with-text {\n' +
-                    '        -apple-pay-button-style: black;\n' +
-                    '    }\n' +
-                    '    .apple-pay-button-white-with-text {\n' +
-                    '        -apple-pay-button-style: white;\n' +
-                    '    }\n' +
-                    '    .apple-pay-button-white-with-line-with-text {\n' +
-                    '        -apple-pay-button-style: white-outline;\n' +
-                    '    }\n' +
-                    '}\n' +
-                    '\n' +
-                    '@supports not (-webkit-appearance: -apple-pay-button) {\n' +
-                    '    .apple-pay-button-with-text {\n' +
-                    '        --apple-pay-scale: 1; /* (height / 32) */\n' +
-                    '        display: inline-flex;\n' +
-                    'cursor: hand;        ' +
-                    'justify-content: center;\n' +
-                    '        font-size: 12px;\n' +
-                    '        border-radius: 5px;\n' +
-                    '        padding: 0px;\n' +
-                    '        box-sizing: border-box;\n' +
-                    '        min-width: 200px;\n' +
-                    '        min-height: 32px;\n' +
-                    '        max-height: 64px;\n' +
-                    '    }\n' +
-                    '    .apple-pay-button-black-with-text {\n' +
-                    '        background-color: black;\n' +
-                    '        color: white;\n' +
-                    '    }\n' +
-                    '    .apple-pay-button-white-with-text {\n' +
-                    '        background-color: white;\n' +
-                    '        color: black;\n' +
-                    '    }\n' +
-                    '    .apple-pay-button-white-with-line-with-text {\n' +
-                    '        background-color: white;\n' +
-                    '        color: black;\n' +
-                    '        border: .5px solid black;\n' +
-                    '    }\n' +
-                    '    .apple-pay-button-with-text.apple-pay-button-black-with-text > .logo {\n' +
-                    '        background-image: -webkit-named-image(apple-pay-logo-white);\n' +
-                    '        background-color: black;\n' +
-                    '    }\n' +
-                    '    .apple-pay-button-with-text.apple-pay-button-white-with-text > .logo {\n' +
-                    '        background-image: -webkit-named-image(apple-pay-logo-black);\n' +
-                    '        background-color: white;\n' +
-                    '    }\n' +
-                    '    .apple-pay-button-with-text.apple-pay-button-white-with-line-with-text > .logo {\n' +
-                    '        background-image: -webkit-named-image(apple-pay-logo-black);\n' +
-                    '        background-color: white;\n' +
-                    '    }\n' +
-                    '    .apple-pay-button-with-text > .text {\n' +
-                    '        font-family: -apple-system;\n' +
-                    '        font-size: calc(1em * var(--apple-pay-scale));\n' +
-                    '        font-weight: 300;\n' +
-                    '        align-self: center;\n' +
-                    '        margin-right: calc(2px * var(--apple-pay-scale));\n' +
-                    '    }\n' +
-                    '    .apple-pay-button-with-text > .logo {\n' +
-                    '        width: calc(35px * var(--scale));\n' +
-                    '        height: 100%;\n' +
-                    '        background-size: 100% 60%;\n' +
-                    '        background-repeat: no-repeat;\n' +
-                    '        background-position: 0 50%;\n' +
-                    '        margin-left: calc(2px * var(--apple-pay-scale));\n' +
-                    '        border: none;\n' +
-                    '    }\n' +
-                    '}</style>'+
-                    '<button form="product_addtocart_form" id="product-addtocart-button" ' +
-                    'class="btn btn-primary action tocart oander-product-addtocart-button js-oander-product-addtocart-button" ' +
-                    'value="<?php echo $helper->getTaxPrice($block->getProduct(), $block->getProduct()->getFinalPrice(), true) ?>"><?php /* @escapeNotVerified */ echo __('Add to Cart'); ?><img class="oander-product-addtocart-button-loader" src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('svg/loader-white.svg'); ?>" alt="<?php /* @escapeNotVerified */ echo __('Loading...'); ?>"></button>');
-            }
-            else
-            {
-                $('#addcartbutton-replace').html(
-                    '<button form="product_addtocart_form" id="product-addtocart-button" ' +
-                    'class="btn btn-primary action tocart oander-product-addtocart-button js-oander-product-addtocart-button" ' +
-                    'value="<?php echo $helper->getTaxPrice($block->getProduct(), $block->getProduct()->getFinalPrice(), true) ?>"><?php /* @escapeNotVerified */ echo __('Add to Cart'); ?><img class="oander-product-addtocart-button-loader" src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('svg/loader-white.svg'); ?>" alt="<?php /* @escapeNotVerified */ echo __('Loading...'); ?>"></button>');
-            }
-
+            changebutton();
         });
+
+        if(window.applePay!=='undefined')
+            if(window.applePay.init!=='undefined')
+                changebutton();
+
+        function changebutton() {
+            var applePay = $(selectors.applepayObject).data('mageApplepay');
+            if(applePay.canUseApplePay()) {
+                button.init(document.getElementById('addcartbutton-apple-pay'),applePay);
+            }
+        };
     });
 </script>

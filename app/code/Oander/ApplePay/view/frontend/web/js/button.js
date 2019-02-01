@@ -10,7 +10,7 @@ define(
         'braintree',
         'braintreeApplePay',
         'mage/translate'
-        ],
+    ],
     function (
         Component,
         ko,
@@ -26,10 +26,12 @@ define(
         return {
             init: function (element, context) {
                 // No element or context
+                console.log('B0');
+                console.dir(element);
+                console.dir(context);
                 if (!element || !context) {
                     return;
                 }
-
                 // Context must implement these methods
                 if (typeof context.getClientToken !== 'function') {
                     console.error("Braintree ApplePay Context passed does not provide a getClientToken method", context);
@@ -41,10 +43,12 @@ define(
                 }
                 if (typeof context.startPlaceOrder !== 'function') {
                     console.error("Braintree ApplePay Context passed does not provide a startPlaceOrder method", context);
+                    console.error("Braintree ApplePay Context passed does not provide a startPlaceOrder method", context);
                     return;
                 }
 
                 if (this.deviceSupported() === false) {
+                    console.error("device NONO", context);
                     return;
                 }
 
@@ -56,6 +60,7 @@ define(
                         console.error('Error creating client:', clientErr);
                         return;
                     }
+                    console.log('B1');
 
                     applePay.create({
                         client: clientInstance
@@ -65,7 +70,7 @@ define(
                             console.error('Braintree ApplePay Error creating applePayInstance:', applePayErr);
                             return;
                         }
-
+                        console.log('B2');
                         // Create a button within the KO element, as apple pay can only be instantiated through
                         // a valid on click event (ko onclick bind interferes with this).
                         var el = document.createElement('div');
