@@ -39,7 +39,7 @@ class Main extends Template
 
     public function getQuoteURL()
     {
-        return $this->getUrl(\Oander\ApplePay\Controller\Ajax\PaymentRequest::ROUTE);
+        return ''; //return $this->getUrl(\Oander\ApplePay\Controller\Ajax\PaymentRequest::ROUTE);
     }
 
     public function getMerchantId()
@@ -50,7 +50,7 @@ class Main extends Template
     public function getJsonConfig()
     {
         $config = $this->paymentConfig->getPaymentAllConfig();
-        $config['quoteDetailsURL'] = $this->getUrl(\Oander\ApplePay\Controller\Ajax\PaymentRequest::ROUTE);
+        $config['quoteDetailsURL'] = ''; // $config['quoteDetailsURL'] = $this->getUrl(\Oander\ApplePay\Controller\Ajax\PaymentRequest::ROUTE);
         $config['version'] = 4;
         $config['countryCode'] = $this->paymentConfig->getCountryCode();
         $config['languageCode'] = $this->paymentConfig->getLanguageCode();
