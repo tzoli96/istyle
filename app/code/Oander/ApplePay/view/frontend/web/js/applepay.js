@@ -10,57 +10,62 @@ define(
 
         $.widget('mage.applepay', {
             options: {
-                quoteURL: null,
-                merchantId: null,
+                //generalconfig
+                quoteDetailsURL: null,
+                version: null,
                 countryCode: null,
-                merchantCapabilities: [],
-                supportedNetworks: [],
+                languageCode: null,
+                currencyCode: null,
                 clientToken: null,
-                merchantName: null
+                //Paymentconfigs
+                merchantName: null,
+                merchantId: null,
+                merchantCapabilities: [],
+                supportedNetworks: []
             },
             request: {
-                countryCode: 'CZ',
-                currencyCode: 'CZK',
-                merchantCapabilities: ['supports3DS'],
+                countryCode: null,
+                currencyCode: null,
+                merchantCapabilities: null,//['supports3DS'],
                 /* shippingMethods: [
-                     {
-                         label: 'Free Standard Shipping',
-                         amount: '0.00',
-                         detail: 'Arrives in 5-7 days',
-                         identifier: 'standardShipping'
-                     },
-                     {
-                         label: 'Express Shipping',
-                         amount: '1.00',
-                         detail: 'Arrives in 2-3 days',
-                         identifier: 'expressShipping'
-                     }
+                 {
+                 label: 'Free Standard Shipping',
+                 amount: '0.00',
+                 detail: 'Arrives in 5-7 days',
+                 identifier: 'standardShipping'
+                 },
+                 {
+                 label: 'Express Shipping',
+                 amount: '1.00',
+                 detail: 'Arrives in 2-3 days',
+                 identifier: 'expressShipping'
+                 }
                  ],*/
                 //shippingType: ['shipping', 'storePickup'] ,
-                supportedNetworks: ['visa', 'masterCard', 'amex', 'discover'],
+                supportedNetworks: null,//['visa', 'masterCard', 'amex', 'discover'],
                 /* requiredBillingContactFields: [
-                     'postalAddress',
-                     'name',
-                     'phoneticName'
+                 'postalAddress',
+                 'name',
+                 'phoneticName'
                  ],
                  requiredShippingContactFields: [
-                     'postalAddress',
-                     'name',
-                     'phone',
-                     'email'
+                 'postalAddress',
+                 'name',
+                 'phone',
+                 'email'
                  ],*/
                 /*lineItems: [
-                    {
-                        label: 'Sales Tax',
-                        amount: '0.00',
-                        type: 'final'
-                    },
-                    {
-                        label: 'Shipping',
-                        amount: '1.99',
-                        type: 'final'
-                    }
-                ],*/
+                 {
+                 label: 'Sales Tax',
+                 amount: '0.00',
+                 type: 'final'
+                 },
+                 {
+                 label: 'Shipping',
+                 amount: '1.99',
+                 type: 'final'
+                 }
+                 ],*/
                 total: {
                     label: 'test',//this.options['merchantName'],
                     amount: '1.99',
@@ -76,6 +81,8 @@ define(
                 window.applePay = {};
                 window.applePay.init = true;
                 $(document).trigger('applePayTrigger');
+                this.request.merchantCapabilities = this.options.merchantCapabilities;
+                this.request.supportedNetworks = this.options.supportedNetworks;
             },
 
             canUseApplePay: function() {
@@ -103,17 +110,21 @@ define(
                 return false;
             },
 
-            requestQuoteDetails: function (productid) {
-                var url = this.options['quoteDetailsURL'];
-                var data = [];
+            requestQuoteDetails: function (data) {
+                var widget = this;
+                var url = this.options.quoteDetailsURL;
                 $.ajax({
                     method: "POST",
                     url: url,
-                    data: data
+                    data: data,
+                    async: false
                 }).done(function(response) {
-                    console.log(response);
+                    widget.request.countryCode = widget.options.countryCode;
+                    widget.request.currencyCode = widget.options.currencyCode;
+                    widget.request.merchantCapabilities = widget.options.merchantCapabilities;
+                    widget.request.supportedNetworks = widget.options.supportedNetworks;
+                    widget.request['total'] = response['total'];
                 });
-                $.ajax()
             },
 
             /**
@@ -121,13 +132,17 @@ define(
              * @returns null|string
              */
             getClientToken: function () {
-                return this.options['clientToken'];
+                return this.options.clientToken;
             },
 
             /**
              * Payment request data
              */
-            getPaymentRequest: function () {
+            getPaymentRequest: function (element) {
+                if (element.hasAttribute("data-productid")) {
+                    this.requestQuoteDetails({'type' : 'product', 'product' : $(element).data("productid")})
+                }
+                console.log(this.request);
                 return this.request;
             },
 
@@ -145,7 +160,7 @@ define(
              * Merchant display name
              */
             getDisplayName: function () {
-                return this.options['merchantName'];
+                return this.options.merchantName;
             },
 
             /**

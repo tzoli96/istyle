@@ -132,7 +132,6 @@ class GenerateQuote extends \Magento\Framework\App\Action\Action
      */
     public function execute()
     {
-        $this->customerSession->loginById(274081);
         $data = ['success' => true, 'message' => '', 'id' => null, 'address' => null];
         try {
             $requestData = $this->getRequest()->getParams();
@@ -176,6 +175,9 @@ class GenerateQuote extends \Magento\Framework\App\Action\Action
                     }
                 }
                 $data['carrierrates'] = $output;
+                $data['total']['label'] = 'Price Amount';
+                $data['total']['amount'] = $quote->getGrandTotal();
+                $data['total']['type'] = 'final';
             }
             else
             {

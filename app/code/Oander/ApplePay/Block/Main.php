@@ -39,7 +39,7 @@ class Main extends Template
 
     public function getQuoteURL()
     {
-        return $this->getUrl(\Oander\ApplePay\Controller\Ajax\GenerateQuote::ROUTE);
+        return $this->getUrl(\Oander\ApplePay\Controller\Ajax\PaymentRequest::ROUTE);
     }
 
     public function getMerchantId()
@@ -50,14 +50,12 @@ class Main extends Template
     public function getJsonConfig()
     {
         $config = $this->paymentConfig->getPaymentAllConfig();
-        $config['quoteDetailsURL'] = $this->getUrl(\Oander\ApplePay\Controller\Ajax\GenerateQuote::ROUTE);
+        $config['quoteDetailsURL'] = $this->getUrl(\Oander\ApplePay\Controller\Ajax\PaymentRequest::ROUTE);
         $config['version'] = 4;
         $config['countryCode'] = $this->paymentConfig->getCountryCode();
         $config['languageCode'] = $this->paymentConfig->getLanguageCode();
         $config['currencyCode'] = $this->paymentConfig->getCurrencyCode();
         $config['clientToken'] = $this->paymentConfig->getClientToken();
-        $config['merchantName'] = $this->paymentConfig->getMerchantName();
-        $config['merchantId'] = $this->paymentConfig->getMerchantId();
         return \Zend_Json::encode($config);
     }
 }
