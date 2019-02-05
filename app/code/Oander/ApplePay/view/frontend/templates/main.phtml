@@ -8,14 +8,6 @@
             originallink: '#apple-pay-original-link'
         };
 
-        /*$(document).on('applePayTrigger', function() {
-            changebutton();
-        });
-
-        if(typeof window.applePay!=='undefined')
-            if(typeof window.applePay.init!=='undefined')
-                changebutton();*/
-
         var minicart = $(selectors.minicart);
         var checkoutlink = '<div id=\'minicar-original-link\'><a id=\'apple-pay-original-link\' href="javascript:jQuery(\'#top-cart-btn-checkout\').trigger(\'click\');">Ez a valós checkout link</a>';
         var applepaycontainer = '<div id=\'minicar-applepay\'></div>';
@@ -23,20 +15,14 @@
             var originallink = $(selectors.originallink);
             if (originallink.length === 0) {
                 var applePay = $(selectors.applepayObject).data('mageApplepay');
-                var checkoutbutton = $(selectors.checkoutbutton);
-                checkoutbutton.hide();
-                checkoutbutton.parent().append(applepaycontainer);
-                checkoutbutton.parent().append(checkoutlink);
-                button.init(document.getElementById('minicar-applepay'),applePay);
+                if(applePay.canUseApplePay()) {
+                    var checkoutbutton = $(selectors.checkoutbutton);
+                    checkoutbutton.hide();
+                    checkoutbutton.parent().append(applepaycontainer);
+                    checkoutbutton.parent().append(checkoutlink);
+                    button.init(document.getElementById('minicar-applepay'), applePay);
+                }
             }
         });
-
-        function changebutton() {
-            var applePay = $(selectors.applepayObject).data('mageApplepay');
-            if(applePay.canUseApplePay()) {
-                var checkoutbutton = $(selectors.checkoutbutton);
-                button.init(checkoutbutton[0],applePay);
-            }
-        }
     });
 </script>

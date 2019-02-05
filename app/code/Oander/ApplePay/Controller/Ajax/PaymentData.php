@@ -71,6 +71,10 @@ class PaymentData extends \Magento\Framework\App\Action\Action
      * @var \Oander\ApplePay\Helper\PaymentConfig
      */
     private $paymentConfig;
+    /**
+     * @var \Magento\Framework\App\Config\ScopeConfigInterface
+     */
+    private $scopeConfig;
 
     /**
      * Constructor
@@ -89,6 +93,7 @@ class PaymentData extends \Magento\Framework\App\Action\Action
      * @param \Magento\Quote\Model\Cart\ShippingMethodConverter $converter
      * @param \Magento\Tax\Helper\Data $taxHelper
      * @param \Magento\Checkout\Model\Cart $cart
+     * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
      * @param \Oander\ApplePay\Helper\PaymentConfig $paymentConfig
      */
     public function __construct(
@@ -106,6 +111,7 @@ class PaymentData extends \Magento\Framework\App\Action\Action
         \Magento\Quote\Model\Cart\ShippingMethodConverter $converter,
         \Magento\Tax\Helper\Data $taxHelper,
         \Magento\Checkout\Model\Cart $cart,
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Oander\ApplePay\Helper\PaymentConfig $paymentConfig
     ) {
         parent::__construct($context);
@@ -124,6 +130,7 @@ class PaymentData extends \Magento\Framework\App\Action\Action
         $this->taxHelper = $taxHelper;
         $this->cart = $cart;
         $this->paymentConfig = $paymentConfig;
+        $this->scopeConfig = $scopeConfig;
     }
 
     /**
@@ -133,7 +140,7 @@ class PaymentData extends \Magento\Framework\App\Action\Action
      */
     public function execute()
     {
-        $data = ['success' => true, 'message' => '', 'id' => null, 'address' => null];
+        $data = ['success' => true, 'message' => '', 'id' => null];
         try {
             $requestData = $this->getRequest()->getParams();
             $quote = false;
@@ -153,8 +160,8 @@ class PaymentData extends \Magento\Framework\App\Action\Action
             if($quote)
             {
                 $data['id'] = $quote->getId();
-                $data['applepaydata']['shippingContact'] = $this->transformAddress($quote->getShippingAddress()->getData());
-                $data['applepaydata']['billingContact'] = $this->transformAddress($quote->getShippingAddress()->getData());
+                $data['applepaydata']['shippingContact'] = $this->transformAddress($quote->getShippingAddress());
+                $data['applepaydata']['billingContact'] = $this->transformAddress($quote->getShippingAddress());
                 $output = null;
                 $shippingAddress = $quote->getShippingAddress();
                 $shippingAddress->collectShippingRates();
@@ -263,6 +270,8 @@ class PaymentData extends \Magento\Framework\App\Action\Action
             }
             $product = $this->_initProduct($data);
             $quote->addProduct($product);
+            $this->setCountryId($quote->getShippingAddress());
+            $this->setCountryId($quote->getBillingAddress());
             $quote->getShippingAddress()->setCollectShippingRates(true);
             $quote->collectTotals();
             $this->quoteRepository->save($quote);
@@ -324,6 +333,8 @@ class PaymentData extends \Magento\Framework\App\Action\Action
             $quote->getShippingAddress()->setPostcode(null);
             $quote->getBillingAddress()->setPostcode(null);
         }
+        $this->setCountryId($quote->getShippingAddress());
+        $this->setCountryId($quote->getBillingAddress());
         $quote->getShippingAddress()->setCollectShippingRates(true);
         $quote->collectTotals();
         $this->quoteRepository->save($quote);
@@ -385,5 +396,16 @@ class PaymentData extends \Magento\Framework\App\Action\Action
         $result['locality'] = $address->getCity();
         $result['administrativeArea'] = $address->getRegion();
         return $result;
+    }
+
+    /**
+     * @param $address Address
+     */
+    private function setCountryId($address)
+    {
+        if($address->getCountryId()==null) {
+            $countryid = $this->scopeConfig->getValue('general/country/default', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+            $address->setCountryId($countryid);
+        }
     }
 }
