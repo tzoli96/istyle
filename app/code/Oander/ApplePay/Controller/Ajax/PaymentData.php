@@ -5,11 +5,12 @@ namespace Oander\ApplePay\Controller\Ajax;
 
 use Magento\Framework\Exception\NoSuchEntityException;
 use Oander\ApplePay\Enum\GenerateQuote\Type as GenerateQuoteTypeEnum;
+use Magento\Quote\Model\Quote\Address;
 
-class GenerateQuote extends \Magento\Framework\App\Action\Action
+class PaymentData extends \Magento\Framework\App\Action\Action
 {
 
-    const ROUTE = 'applepay/ajax/generateQuote';
+    const ROUTE = 'applepay/ajax/paymentData';
 
     const PARAM_TYPE = 'type';
     const PARAM_PRODUCTID = 'product';
@@ -152,8 +153,8 @@ class GenerateQuote extends \Magento\Framework\App\Action\Action
             if($quote)
             {
                 $data['id'] = $quote->getId();
-                $data['address']['shipping'] = $quote->getShippingAddress()->getData();
-                $data['address']['billing'] = $quote->getShippingAddress()->getData();
+                $data['applepaydata']['shippingContact'] = $this->transformAddress($quote->getShippingAddress()->getData());
+                $data['applepaydata']['billingContact'] = $this->transformAddress($quote->getShippingAddress()->getData());
                 $output = null;
                 $shippingAddress = $quote->getShippingAddress();
                 $shippingAddress->collectShippingRates();
@@ -174,10 +175,11 @@ class GenerateQuote extends \Magento\Framework\App\Action\Action
                         }
                     }
                 }
-                $data['carrierrates'] = $output;
-                $data['total']['label'] = 'Price Amount';
-                $data['total']['amount'] = $quote->getGrandTotal();
-                $data['total']['type'] = 'final';
+                $data['applepaydata']['shippingMethods'] = $output;
+                $data['applepaydata']['total']['label'] = 'Price Amount';
+                $data['applepaydata']['total']['amount'] = $quote->getGrandTotal();
+                $data['applepaydata']['total']['type'] = 'final';
+                $data['applepaydata']['shippingMethods'][] = ['label' => 'Ez csak teszt', 'detail' => 'Details', 'amount' => 100, 'identifier' => 'test'];
             }
             else
             {
@@ -363,5 +365,25 @@ class GenerateQuote extends \Magento\Framework\App\Action\Action
             $rateModel->getAddress(),
             $rateModel->getAddress()->getQuote()->getCustomerTaxClassId()
         );
+    }
+
+    /**
+     * @param $address Address
+     * @return array
+     */
+    private function transformAddress($address)
+    {
+        $result = [];
+        $result['phoneNumber'] = $address->getTelephone();
+        $result['emailAddress'] = $address->getEmail();
+        $result['givenName'] = $address->getFirstname();
+        $result['familyName'] = $address->getLastname();
+        $result['addressLines'] = $address->getStreet();
+        $result['postalCode'] = $address->getPostcode();
+        $result['country'] = $address->getCountry();
+        $result['countryCode'] = $address->getCountryId();
+        $result['locality'] = $address->getCity();
+        $result['administrativeArea'] = $address->getRegion();
+        return $result;
     }
 }

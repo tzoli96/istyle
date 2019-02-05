@@ -23,7 +23,8 @@ define(
                 merchant_capabilities: [],
                 supported_networks: []
             },
-            request: {
+            ajaxResponse: null,
+            baseRequest: {
                 countryCode: null,
                 currencyCode: null,
                 merchantCapabilities: null,//['supports3DS'],
@@ -43,17 +44,18 @@ define(
                  ],*/
                 //shippingType: ['shipping', 'storePickup'] ,
                 supportedNetworks: null, //['visa', 'masterCard', 'amex', 'discover'],
-                /* requiredBillingContactFields: [
-                 'postalAddress',
-                 'name',
-                 'phoneticName'
-                 ],
-                 requiredShippingContactFields: [
-                 'postalAddress',
-                 'name',
-                 'phone',
-                 'email'
-                 ],*/
+                requiredBillingContactFields: [
+                    'phone',
+                    'email',
+                    'name',
+                    'postalAddress'
+                ],
+                requiredShippingContactFields: [
+                    'phone',
+                    'email',
+                    'name',
+                    'postalAddress'
+                ]
                 /*lineItems: [
                  {
                  label: 'Sales Tax',
@@ -65,12 +67,12 @@ define(
                  amount: '1.99',
                  type: 'final'
                  }
-                 ],*/
-                total: {
-                    label: 'test',//this.options['merchantName'],
-                    amount: '1.99',
-                    type: 'final'
-                }
+                 ],
+                 total: {
+                 label: 'test',//this.options['merchantName'],
+                 amount: '1.99',
+                 type: 'final'
+                 }*/
             },
 
             /**
@@ -81,10 +83,10 @@ define(
                 window.applePay = {};
                 window.applePay.init = true;
                 $(document).trigger('applePayTrigger');
-                this.request.countryCode = this.options.countryCode;
-                this.request.currencyCode = this.options.currencyCode;
-                this.request.merchantCapabilities = this.options.merchant_capabilities;
-                this.request.supportedNetworks = this.options.supported_networks;
+                this.baseRequest.countryCode = this.options.countryCode;
+                this.baseRequest.currencyCode = this.options.currencyCode;
+                this.baseRequest.merchantCapabilities = this.options.merchant_capabilities;
+                this.baseRequest.supportedNetworks = this.options.supported_networks;
             },
 
             canUseApplePay: function() {
@@ -122,8 +124,9 @@ define(
                     async: false
                 }).done(function(response) {
                     console.log(response);
-                    widget.request['total'] = response['total'];
-                    widget.request['total']['label'] = widget.options.merchant_name;
+                    widget.ajaxResponse = response;
+                    widget.ajaxResponse.total.label = widget.options.merchant_name;
+                    widget._updateTotal();
                 });
             },
 
@@ -139,11 +142,35 @@ define(
              * Payment request data
              */
             getPaymentRequest: function (element) {
+                this.ajaxResponse = {};
                 if (element.hasAttribute("data-productid")) {
                     this.requestQuoteDetails({'type' : 'product', 'product' : $(element).data("productid")})
                 }
-                console.log(this.request);
-                return this.request;
+                else
+                {
+                    this.requestQuoteDetails({'type' : 'quote'})
+                }
+                return $.extend(this.baseRequest, this.ajaxResponse['applepaydata']);
+            },
+
+            /**
+             * change Total on ShippingSelection
+             */
+            onShippingMethodSelect: function (event, session) {
+                console.log(event);
+                var newTotal = null;
+                var update = {};
+
+                update.newLineItems = [{
+                    label: event.shippingMethod.label,
+                    amount: event.shippingMethod.amount,
+                    type: 'final'
+                }];
+                console.log(this._getOriginalTotal());
+                update.newTotal = this._getOriginalTotal();
+                update.newTotal.amount = update.newTotal.amount + parseFloat(event.shippingMethod.amount);
+                console.log(update);
+                session.completeShippingMethodSelection(update);
             },
 
             /**
@@ -153,7 +180,7 @@ define(
                 this.setPaymentMethodNonce(nonce);
                 this.placeOrder();
 
-                session.completePayment(ApplePaySession.STATUS_SUCCESS);
+                session.completePayment(session.STATUS_SUCCESS);
             },
 
             /**
@@ -170,6 +197,13 @@ define(
             _destroy: function() {
                 this._placeholder.remove();
                 this._off($(window));
+            },
+
+            /**
+             * Internal get original total with modified label
+             */
+            _getOriginalTotal: function() {
+                return $.extend({},this.ajaxResponse.applepaydata.total);
             }
         });
 
