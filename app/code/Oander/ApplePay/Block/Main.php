@@ -51,6 +51,7 @@ class Main extends Template
     {
         $config = $this->paymentConfig->getPaymentAllConfig();
         $config['quoteDetailsURL'] = $this->getUrl(\Oander\ApplePay\Controller\Ajax\PaymentData::ROUTE);
+        $config['placeOrderURL'] = $this->getUrl(\Oander\ApplePay\Controller\Ajax\Payment::ROUTE);
         $config['version'] = 4;
         $config['countryCode'] = $this->paymentConfig->getCountryCode();
         $config['languageCode'] = $this->paymentConfig->getLanguageCode();

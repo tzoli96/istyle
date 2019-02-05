@@ -3,26 +3,44 @@
 
 namespace Oander\ApplePay\Controller\Ajax;
 
+use Magento\Framework\Exception\NoSuchEntityException;
+
 class Payment extends \Magento\Framework\App\Action\Action
 {
+    const ROUTE = 'applepay/ajax/payment';
 
     protected $resultPageFactory;
     protected $jsonHelper;
+    /**
+     * @var \Magento\Quote\Api\CartRepositoryInterface
+     */
+    private $quoteRepository;
+    /**
+     * @var \Oander\ApplePay\Helper\ApplePay
+     */
+    private $applePayHelper;
 
     /**
      * Constructor
      *
-     * @param \Magento\Framework\App\Action\Context  $context
+     * @param \Magento\Framework\App\Action\Context $context
+     * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
      * @param \Magento\Framework\Json\Helper\Data $jsonHelper
+     * @param \Magento\Quote\Api\CartRepositoryInterface $quoteRepository
+     * @param \Oander\ApplePay\Helper\ApplePay $applePayHelper
      */
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory,
-        \Magento\Framework\Json\Helper\Data $jsonHelper
+        \Magento\Framework\Json\Helper\Data $jsonHelper,
+        \Magento\Quote\Api\CartRepositoryInterface $quoteRepository,
+        \Oander\ApplePay\Helper\ApplePay $applePayHelper
     ) {
         $this->resultPageFactory = $resultPageFactory;
         $this->jsonHelper = $jsonHelper;
         parent::__construct($context);
+        $this->quoteRepository = $quoteRepository;
+        $this->applePayHelper = $applePayHelper;
     }
 
     /**
@@ -33,12 +51,25 @@ class Payment extends \Magento\Framework\App\Action\Action
     public function execute()
     {
         try {
+            $data = ['success' => true, 'message' => '', 'id' => null];
+            $token = $this->getRequest()->getParam('token', null);
+            $quoteid = $this->getRequest()->getParam('quoteid', null);
+            $billingContact = $this->getRequest()->getParam('billingContact', null);
+            $shippingContact = $this->getRequest()->getParam('shippingContact', null);
+
+            /** @var \Magento\Quote\Model\Quote $quote */
+            $quote = $this->quoteRepository->get($quoteid);
+            $this->applePayHelper->setAddressByApplePayData($quote->getShippingAddress(), $shippingContact);
+            $this->applePayHelper->setAddressByApplePayData($quote->getBillingAddress(), $billingContact);
+
            // $validationData = $this->jsonHelper->jsonDecode($this->getRequest()->getContent());
             // $validationData['validationUrl']
             $session = $this->getAppleSession();
             //var_dump($session);die;
 
             return $this->jsonResponse($session);
+        }catch (NoSuchEntityException $e) { //No Quote like that
+            return $this->jsonResponse($e->getMessage());
         } catch (\Magento\Framework\Exception\LocalizedException $e) {
             return $this->jsonResponse($e->getMessage());
         } catch (\Exception $e) {

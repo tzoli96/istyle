@@ -75,6 +75,10 @@ class PaymentData extends \Magento\Framework\App\Action\Action
      * @var \Magento\Framework\App\Config\ScopeConfigInterface
      */
     private $scopeConfig;
+    /**
+     * @var \Oander\ApplePay\Helper\ApplePay
+     */
+    private $applePayHelper;
 
     /**
      * Constructor
@@ -95,6 +99,7 @@ class PaymentData extends \Magento\Framework\App\Action\Action
      * @param \Magento\Checkout\Model\Cart $cart
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
      * @param \Oander\ApplePay\Helper\PaymentConfig $paymentConfig
+     * @param \Oander\ApplePay\Helper\ApplePay $applePayHelper
      */
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
@@ -112,7 +117,8 @@ class PaymentData extends \Magento\Framework\App\Action\Action
         \Magento\Tax\Helper\Data $taxHelper,
         \Magento\Checkout\Model\Cart $cart,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
-        \Oander\ApplePay\Helper\PaymentConfig $paymentConfig
+        \Oander\ApplePay\Helper\PaymentConfig $paymentConfig,
+        \Oander\ApplePay\Helper\ApplePay $applePayHelper
     ) {
         parent::__construct($context);
         $this->resultPageFactory = $resultPageFactory;
@@ -131,6 +137,7 @@ class PaymentData extends \Magento\Framework\App\Action\Action
         $this->cart = $cart;
         $this->paymentConfig = $paymentConfig;
         $this->scopeConfig = $scopeConfig;
+        $this->applePayHelper = $applePayHelper;
     }
 
     /**
@@ -160,9 +167,12 @@ class PaymentData extends \Magento\Framework\App\Action\Action
             if($quote)
             {
                 $data['id'] = $quote->getId();
-                $data['applepaydata']['shippingContact'] = $this->transformAddress($quote->getShippingAddress());
-                $data['applepaydata']['billingContact'] = $this->transformAddress($quote->getShippingAddress());
+                if($quote->getShippingAddress()->getFirstname()!=null)
+                    $data['applepaydata']['shippingContact'] = $this->applePayHelper->getAddressToApplePayData($quote->getShippingAddress());
+                if($quote->getShippingAddress()->getFirstname()!=null)
+                    $data['applepaydata']['billingContact'] = $this->applePayHelper->getAddressToApplePayData($quote->getShippingAddress());
                 $output = null;
+                $output[] = ['label' => 'Ez csak teszt', 'detail' => 'Details', 'amount' => 200, 'identifier' => 'test'];
                 $shippingAddress = $quote->getShippingAddress();
                 $shippingAddress->collectShippingRates();
                 $shippingRates = $shippingAddress->getGroupedAllShippingRates();
@@ -173,12 +183,13 @@ class PaymentData extends \Magento\Framework\App\Action\Action
                             $titles = [];
                             $titles[] = $rate->getCarrierTitle();
                             $titles[] = $rate->getMethodTitle();
-                            $output[] = [
+                            $outputElement = [
                                 'label' => implode('-', array_filter($titles)),
                                 'detail' => '',
                                 'amount' => $this->store->getBaseCurrency()->convert($this->getShippingPriceWithFlag($rate, true), $quote->getQuoteCurrencyCode()),
                                 'identifier' => $rate->getCarrier() . '->' . $rate->getMethod()
                             ];
+                            $output[] = $outputElement;
                         }
                     }
                 }
@@ -186,7 +197,6 @@ class PaymentData extends \Magento\Framework\App\Action\Action
                 $data['applepaydata']['total']['label'] = 'Price Amount';
                 $data['applepaydata']['total']['amount'] = $quote->getGrandTotal();
                 $data['applepaydata']['total']['type'] = 'final';
-                $data['applepaydata']['shippingMethods'][] = ['label' => 'Ez csak teszt', 'detail' => 'Details', 'amount' => 100, 'identifier' => 'test'];
             }
             else
             {
@@ -376,26 +386,6 @@ class PaymentData extends \Magento\Framework\App\Action\Action
             $rateModel->getAddress(),
             $rateModel->getAddress()->getQuote()->getCustomerTaxClassId()
         );
-    }
-
-    /**
-     * @param $address Address
-     * @return array
-     */
-    private function transformAddress($address)
-    {
-        $result = [];
-        $result['phoneNumber'] = $address->getTelephone();
-        $result['emailAddress'] = $address->getEmail();
-        $result['givenName'] = $address->getFirstname();
-        $result['familyName'] = $address->getLastname();
-        $result['addressLines'] = $address->getStreet();
-        $result['postalCode'] = $address->getPostcode();
-        $result['country'] = $address->getCountry();
-        $result['countryCode'] = $address->getCountryId();
-        $result['locality'] = $address->getCity();
-        $result['administrativeArea'] = $address->getRegion();
-        return $result;
     }
 
     /**
