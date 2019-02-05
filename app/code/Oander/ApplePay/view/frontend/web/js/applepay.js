@@ -18,10 +18,10 @@ define(
                 currencyCode: null,
                 clientToken: null,
                 //Paymentconfigs
-                merchantName: null,
-                merchantId: null,
-                merchantCapabilities: [],
-                supportedNetworks: []
+                merchant_name: null,
+                merchant_id: null,
+                merchant_capabilities: [],
+                supported_networks: []
             },
             request: {
                 countryCode: null,
@@ -42,7 +42,7 @@ define(
                  }
                  ],*/
                 //shippingType: ['shipping', 'storePickup'] ,
-                supportedNetworks: null,//['visa', 'masterCard', 'amex', 'discover'],
+                supportedNetworks: null, //['visa', 'masterCard', 'amex', 'discover'],
                 /* requiredBillingContactFields: [
                  'postalAddress',
                  'name',
@@ -81,8 +81,10 @@ define(
                 window.applePay = {};
                 window.applePay.init = true;
                 $(document).trigger('applePayTrigger');
-                this.request.merchantCapabilities = this.options.merchantCapabilities;
-                this.request.supportedNetworks = this.options.supportedNetworks;
+                this.request.countryCode = this.options.countryCode;
+                this.request.currencyCode = this.options.currencyCode;
+                this.request.merchantCapabilities = this.options.merchant_capabilities;
+                this.request.supportedNetworks = this.options.supported_networks;
             },
 
             canUseApplePay: function() {
@@ -97,7 +99,7 @@ define(
                     }
                     else
                     {
-                        if(!ApplePaySession.canMakePaymentsWithActiveCard(this.options.merchantId))
+                        if(!ApplePaySession.canMakePaymentsWithActiveCard(this.options.merchant_id))
                         {
                             console.log('AP - No active card in Wallet');
                         }
@@ -119,11 +121,9 @@ define(
                     data: data,
                     async: false
                 }).done(function(response) {
-                    widget.request.countryCode = widget.options.countryCode;
-                    widget.request.currencyCode = widget.options.currencyCode;
-                    widget.request.merchantCapabilities = widget.options.merchantCapabilities;
-                    widget.request.supportedNetworks = widget.options.supportedNetworks;
+                    console.log(response);
                     widget.request['total'] = response['total'];
+                    widget.request['total']['label'] = widget.options.merchant_name;
                 });
             },
 
@@ -160,7 +160,7 @@ define(
              * Merchant display name
              */
             getDisplayName: function () {
-                return this.options.merchantName;
+                return this.options.merchant_name;
             },
 
             /**
