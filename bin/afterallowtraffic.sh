@@ -91,6 +91,9 @@ if [[ "${INSTANCE_ID}" != "${MASTER_ID}" ]]; then
     echo -n " * REMOVE TESTING FLAG ... "
     if rm ${EFS}/testing.flag; then echo OK; else echo FAIL; fi
 
+    echo -n " * COPY THE TEST SCRIPT TO THE SELENIUM MACHINE ... "
+    if scp ${WEBROOT}/deploytest/selitest.py ${SELENIUM_NAME}:/home/ubuntu/ &> /dev/null; then echo OK; else echo FAIL; fi
+
     # RUN SELENIUM TESTS
     ssh ${SELENIUM_NAME} python ${SELENIUM_SCRIPT} ${SELENIUM_TEST_DOMAIN} ${SELENIUM_TEST_USER} ${SELENIUM_TEST_PASS} ${SELENIUM_TEST_URL}
     if [ $? -eq 0 ]; then
