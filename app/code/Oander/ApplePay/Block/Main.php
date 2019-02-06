@@ -47,7 +47,44 @@ class Main extends Template
         return $this->paymentConfig->getMerchantId();
     }
 
-    public function getJsonConfig()
+    /**
+     * Braintree's API token
+     * @return string|null
+     */
+    public function getClientToken()
+    {
+        return $this->paymentConfig->getClientToken();
+    }
+
+    /**
+     * Merchant name to display in popup
+     * @return string
+     */
+    public function getMerchantName()
+    {
+        return $this->paymentConfig->getMerchantName();
+    }
+
+    /**
+     * URL To success page
+     * @return string
+     */
+    public function getActionSuccess()
+    {
+        return $this->getUrl('checkout/onepage/success', ['_secure' => true]);
+    }
+
+    public function getStoreCode()
+    {
+        return $this->_storeManager->getStore()->getCode();
+    }
+
+    public function getQuoteDetailsURL()
+    {
+        $this->getUrl(\Oander\ApplePay\Controller\Ajax\PaymentData::ROUTE);
+    }
+
+    /*public function getJsonConfig()
     {
         $config = $this->paymentConfig->getPaymentAllConfig();
         $config['quoteDetailsURL'] = $this->getUrl(\Oander\ApplePay\Controller\Ajax\PaymentData::ROUTE);
@@ -58,5 +95,5 @@ class Main extends Template
         $config['currencyCode'] = $this->paymentConfig->getCurrencyCode();
         $config['clientToken'] = $this->paymentConfig->getClientToken();
         return \Zend_Json::encode($config);
-    }
+    }*/
 }

@@ -1,0 +1,28 @@
+<?php /** @var $block \Oander\ApplePay\Block\Main */ ?>
+<div id="applepay-object" data-mage-init='{"applePay": <?php /* @escapeNotVerified */ echo $block->getJsonConfig() ?>}'></div><script type="text/javascript">
+    require(['jquery', 'Oander_ApplePay/js/button'],function($, button) {
+        var selectors = {
+            minicart: '[data-block="minicart"]',
+            checkoutbutton: '#top-cart-btn-checkout',
+            applepayObject: '#applepay-object',
+            originallink: '#apple-pay-original-link'
+        };
+
+        var minicart = $(selectors.minicart);
+        var checkoutlink = '<div id=\'minicar-original-link\'><a id=\'apple-pay-original-link\' href="javascript:jQuery(\'#top-cart-btn-checkout\').trigger(\'click\');">Ez a valós checkout link</a>';
+        var applepaycontainer = '<div id=\'minicar-applepay\'></div>';
+        minicart.on('contentUpdated', function () {
+            var originallink = $(selectors.originallink);
+            if (originallink.length === 0) {
+                var applePay = $(selectors.applepayObject).data('mageApplepay');
+                if(applePay.canUseApplePay()) {
+                    var checkoutbutton = $(selectors.checkoutbutton);
+                    checkoutbutton.hide();
+                    checkoutbutton.parent().append(applepaycontainer);
+                    checkoutbutton.parent().append(checkoutlink);
+                    button.init(document.getElementById('minicar-applepay'), applePay);
+                }
+            }
+        });
+    });
+</script>
