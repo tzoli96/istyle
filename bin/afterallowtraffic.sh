@@ -91,6 +91,9 @@ if [[ "${INSTANCE_ID}" != "${MASTER_ID}" ]]; then
     echo -n " * REMOVE TESTING FLAG ... "
     if rm ${EFS}/testing.flag; then echo OK; else echo FAIL; fi
 
+    echo " * MAGENTO CACHE FLUSH: "
+    if sudo -u www-data php ${WEBROOT}/bin/magento cache:flush; then
+
     echo -n " * COPY THE TEST SCRIPT TO THE SELENIUM MACHINE ... "
     if scp ${WEBROOT}/deploytest/selitest.py ${SELENIUM_NAME}:/home/ubuntu/ &> /dev/null; then echo OK; else echo FAIL; fi
 
@@ -113,8 +116,6 @@ if [[ "${INSTANCE_ID}" != "${MASTER_ID}" ]]; then
       echo -n " * MODIFY PHP-CLI CONFIG BACK .. "
       if cp ${EFS}/php-orig.conf /etc/php/7.0/cli/php.ini; then echo OK; else echo FAIL; fi
 
-      echo " * MAGENTO CACHE FLUSH: "
-      if sudo -u www-data php ${WEBROOT}/bin/magento cache:flush; then
       echo
       send_to_slack "### DEPLOY FINISHED SUCCESSFULLY ###"
       echo
