@@ -81,7 +81,7 @@ class Main extends Template
 
     public function getQuoteDetailsURL()
     {
-        $this->getUrl(\Oander\ApplePay\Controller\Ajax\PaymentData::ROUTE);
+        return $this->getUrl(\Oander\ApplePay\Controller\Ajax\PaymentData::ROUTE);
     }
 
     /*public function getJsonConfig()

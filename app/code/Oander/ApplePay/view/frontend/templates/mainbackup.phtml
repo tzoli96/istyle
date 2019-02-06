@@ -1,5 +1,6 @@
 <?php /** @var $block \Oander\ApplePay\Block\Main */ ?>
-<div id="applepay-object" data-mage-init='{"applePay": <?php /* @escapeNotVerified */ echo $block->getJsonConfig() ?>}'></div><script type="text/javascript">
+<div id="applepay-object" data-mage-init='{"applePay": <?php /* @escapeNotVerified */ echo $block->getJsonConfig() ?>}'></div>
+<script type="text/javascript">
     require(['jquery', 'Oander_ApplePay/js/button'],function($, button) {
         var selectors = {
             minicart: '[data-block="minicart"]',

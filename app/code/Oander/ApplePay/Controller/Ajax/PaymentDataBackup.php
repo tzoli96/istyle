@@ -167,8 +167,36 @@ class PaymentData extends \Magento\Framework\App\Action\Action
             if($quote)
             {
                 $data['id'] = $quote->getId();
-                $data['isLoggedIn'] = $this->customerSession->isLoggedIn();
-                $data['total'] = $quote->getGrandTotal();
+                if($quote->getShippingAddress()->getFirstname()!=null)
+                    $data['applepaydata']['shippingContact'] = $this->applePayHelper->getAddressToApplePayData($quote->getShippingAddress());
+                if($quote->getShippingAddress()->getFirstname()!=null)
+                    $data['applepaydata']['billingContact'] = $this->applePayHelper->getAddressToApplePayData($quote->getShippingAddress());
+                $output = null;
+                $output[] = ['label' => 'Ez csak teszt', 'detail' => 'Details', 'amount' => 200, 'identifier' => 'test'];
+                $shippingAddress = $quote->getShippingAddress();
+                $shippingAddress->collectShippingRates();
+                $shippingRates = $shippingAddress->getGroupedAllShippingRates();
+                $enabledshippingmethods = $this->paymentConfig->getEnabledShippingMethods();
+                foreach ($shippingRates as $carrierRates) {
+                    foreach ($carrierRates as $rate) {
+                        if(in_array($rate->getCarrier(),$enabledshippingmethods)) {
+                            $titles = [];
+                            $titles[] = $rate->getCarrierTitle();
+                            $titles[] = $rate->getMethodTitle();
+                            $outputElement = [
+                                'label' => implode('-', array_filter($titles)),
+                                'detail' => '',
+                                'amount' => $this->store->getBaseCurrency()->convert($this->getShippingPriceWithFlag($rate, true), $quote->getQuoteCurrencyCode()),
+                                'identifier' => $rate->getCarrier() . '->' . $rate->getMethod()
+                            ];
+                            $output[] = $outputElement;
+                        }
+                    }
+                }
+                $data['applepaydata']['shippingMethods'] = $output;
+                $data['applepaydata']['total']['label'] = 'Price Amount';
+                $data['applepaydata']['total']['amount'] = $quote->getGrandTotal();
+                $data['applepaydata']['total']['type'] = 'final';
             }
             else
             {
@@ -281,6 +309,45 @@ class PaymentData extends \Magento\Framework\App\Action\Action
         {
             throw new \Exception('No active Quote');
         }
+        if($this->customerSession->isLoggedIn())
+        {
+            $billingAddressId = $this->customerSession->getCustomerData()->getDefaultBilling();
+            $shippingAddressId = $this->customerSession->getCustomerData()->getDefaultShipping();
+            try {
+                if($shippingAddressId)
+                {
+                    $quote->getShippingAddress()->importCustomerAddressData($this->addressRepository->getById($shippingAddressId));
+                }
+                else
+                {
+                    $quote->getShippingAddress()->setPostcode(null);
+                }
+            } catch (\Exception $e) {
+                $quote->getShippingAddress()->setPostcode(null);
+            }
+            try {
+                if($billingAddressId)
+                {
+                    $quote->getBillingAddress()->importCustomerAddressData($this->addressRepository->getById($billingAddressId));
+                }
+                else
+                {
+                    $quote->getBillingAddress()->setPostcode(null);
+                }
+            } catch (\Exception $e) {
+                $quote->getBillingAddress()->setPostcode(null);
+            }
+        }
+        else
+        {
+            $quote->getShippingAddress()->setPostcode(null);
+            $quote->getBillingAddress()->setPostcode(null);
+        }
+        $this->setCountryId($quote->getShippingAddress());
+        $this->setCountryId($quote->getBillingAddress());
+        $quote->getShippingAddress()->setCollectShippingRates(true);
+        $quote->collectTotals();
+        $this->quoteRepository->save($quote);
         return $quote;
 
     }

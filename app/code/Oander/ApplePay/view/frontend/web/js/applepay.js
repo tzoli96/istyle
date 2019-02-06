@@ -7,16 +7,16 @@ define(
         'uiComponent',
         'Oander_ApplePay/js/button',
         'Oander_ApplePay/js/api',
-        'Magento_Customer/js/model/customer',
         'mage/translate',
+        'jquery',
         'domReady!'
     ],
     function (
         Component,
         button,
         buttonApi,
-        customer,
-        $t
+        $t,
+        $
     ) {
         'use strict';
 
@@ -29,6 +29,7 @@ define(
                 actionSuccess: null,
                 storeCode: "default"
             },
+            details: null,
 
             /**
              * @returns {Object}
@@ -39,13 +40,15 @@ define(
                     this.displayName = $t('Store');
                 }
 
+                var details = this.requestQuoteDetails({'type' : 'quote'});
+
                 var api = new buttonApi();
                 api.setGrandTotalAmount(parseFloat(this.grandTotalAmount).toFixed(2));
                 api.setClientToken(this.clientToken);
                 api.setDisplayName(this.displayName);
                 api.setQuoteId(this.quoteId);
                 api.setActionSuccess(this.actionSuccess);
-                api.setIsLoggedIn(customer.isLoggedIn);
+                api.setIsLoggedIn(this.details.isLoggedIn);
                 api.setStoreCode(this.storeCode);
 
                 // Attach the button
@@ -55,6 +58,19 @@ define(
                 );
 
                 return this;
+            },
+
+            requestQuoteDetails: function (data) {
+                var widget = this;
+                var url = this.quoteDetailsURL;
+                $.ajax({
+                    method: "POST",
+                    url: url,
+                    data: data,
+                    async: false
+                }).done(function(response) {
+                    widget.details = response;
+                });
             }
         });
     }
