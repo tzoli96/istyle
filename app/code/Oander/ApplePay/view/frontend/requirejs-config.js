@@ -6,6 +6,7 @@
 var config = {
     map: {
         "*": {
+            applePay:  'Oander_ApplePay/js/applepay',
             braintree: 'https://js.braintreegateway.com/web/3.32.0/js/client.min.js'
         }
     },

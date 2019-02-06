@@ -1,7 +1,6 @@
 <?php /** @var $block \Oander\ApplePay\Block\Main */ ?>
 <?php
 $config = [
-    "Oander_ApplePay/js/applepay" => [
     'quoteDetailsURL' => $block->getQuoteDetailsURL(),
     //'id' => $id,
     'clientToken' => $block->getClientToken(),
@@ -10,10 +9,9 @@ $config = [
     //'grandTotalAmount' => $block->getAmount(),
     //'isLoggedIn' => $block->isCustomerLoggedIn(),
     'storeCode' => $block->getStorecode(),
-    ]
 ];
 ?>
-<div id="applepay-object" data-mage-init='<?php /* @noEscape */ echo json_encode($config); ?>'></div>
+<div id="applepay-object" data-mage-init='{"applePay": <?php /* @escapeNotVerified */ echo json_encode($config) ?>}'>
 <script type="text/javascript">
     require(['jquery', 'Oander_ApplePay/js/button'],function($, button) {
         var selectors = {
@@ -29,6 +27,7 @@ $config = [
         minicart.on('contentUpdated', function () {
             var originallink = $(selectors.originallink);
             if (originallink.length === 0) {
+                debugger;
                 var applePay = $(selectors.applepayObject).data('mageApplepay');
                 if(applePay.canUseApplePay()) {
                     var checkoutbutton = $(selectors.checkoutbutton);

@@ -4,7 +4,6 @@
  */
 define(
     [
-        'uiComponent',
         'Oander_ApplePay/js/button',
         'Oander_ApplePay/js/api',
         'mage/translate',
@@ -12,16 +11,15 @@ define(
         'domReady!'
     ],
     function (
-        Component,
         button,
         buttonApi,
         $t,
         $
     ) {
+
         'use strict';
 
-        return Component.extend({
-
+        $.widget('mage.applepay', {
             defaults: {
                 quoteDetailsURL: null,
                 clientToken: null,
@@ -60,6 +58,31 @@ define(
                 return this;
             },
 
+            canUseApplePay: function() {
+                if (!window.ApplePaySession)
+                {
+                    console.log('AP - This device does not support Apple Pay');
+                }
+                else
+                {
+                    if (!ApplePaySession.canMakePayments()) {
+                        console.log('AP - This device is not capable of making Apple Pay payments');
+                    }
+                    else
+                    {
+                        if(!ApplePaySession.canMakePaymentsWithActiveCard(this.options.merchant_id))
+                        {
+                            console.log('AP - No active card in Wallet');
+                        }
+                        else
+                        {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            },
+
             requestQuoteDetails: function (data) {
                 var widget = this;
                 var url = this.quoteDetailsURL;
@@ -73,5 +96,6 @@ define(
                 });
             }
         });
-    }
-);
+
+        return $.mage.applepay;
+    });
