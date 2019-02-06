@@ -79,6 +79,10 @@ class PaymentData extends \Magento\Framework\App\Action\Action
      * @var \Oander\ApplePay\Helper\ApplePay
      */
     private $applePayHelper;
+    /**
+     * @var \Magento\Quote\Model\QuoteIdMaskFactory
+     */
+    private $quoteIdMaskFactory;
 
     /**
      * Constructor
@@ -98,6 +102,7 @@ class PaymentData extends \Magento\Framework\App\Action\Action
      * @param \Magento\Tax\Helper\Data $taxHelper
      * @param \Magento\Checkout\Model\Cart $cart
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
+     * @param \Magento\Quote\Model\QuoteIdMaskFactory $quoteIdMaskFactory
      * @param \Oander\ApplePay\Helper\PaymentConfig $paymentConfig
      * @param \Oander\ApplePay\Helper\ApplePay $applePayHelper
      */
@@ -117,6 +122,7 @@ class PaymentData extends \Magento\Framework\App\Action\Action
         \Magento\Tax\Helper\Data $taxHelper,
         \Magento\Checkout\Model\Cart $cart,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
+        \Magento\Quote\Model\QuoteIdMaskFactory $quoteIdMaskFactory,
         \Oander\ApplePay\Helper\PaymentConfig $paymentConfig,
         \Oander\ApplePay\Helper\ApplePay $applePayHelper
     ) {
@@ -138,6 +144,7 @@ class PaymentData extends \Magento\Framework\App\Action\Action
         $this->paymentConfig = $paymentConfig;
         $this->scopeConfig = $scopeConfig;
         $this->applePayHelper = $applePayHelper;
+        $this->quoteIdMaskFactory = $quoteIdMaskFactory;
     }
 
     /**
@@ -166,7 +173,9 @@ class PaymentData extends \Magento\Framework\App\Action\Action
             }
             if($quote)
             {
-                $data['id'] = $quote->getId();
+                $quoteIdMask = $this->quoteIdMaskFactory->create();
+                $maskid = $quoteIdMask->load($quote->getId(), 'quote_id')->getMaskedId();
+                $data['id'] = $maskid;
                 $data['isLoggedIn'] = $this->customerSession->isLoggedIn();
                 $data['total'] = $quote->getGrandTotal();
             }
@@ -205,6 +214,7 @@ class PaymentData extends \Magento\Framework\App\Action\Action
     {
         if(count($data))
         {
+            /** @var \Magento\Quote\Model\Quote $quote */
             $quote = $this->quoteFactory->create();
             $quote->setIsSuperMode(true);
             $quote->setIsActive(false);

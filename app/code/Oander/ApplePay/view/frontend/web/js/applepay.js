@@ -20,7 +20,7 @@ define(
         'use strict';
 
         $.widget('mage.applepay', {
-            defaults: {
+            options: {
                 quoteDetailsURL: null,
                 clientToken: null,
                 displayName: null,
@@ -32,30 +32,33 @@ define(
             /**
              * @returns {Object}
              */
-            initialize: function () {
+            _init: function () {
                 this._super();
-                if (!this.displayName) {
-                    this.displayName = $t('Store');
+                if (!this.options.displayName) {
+                    this.options.displayName = $t('Store');
                 }
 
                 var details = this.requestQuoteDetails({'type' : 'quote'});
 
+                return this;
+            },
+
+            addMiniCartButton: function (element) {
+                console.log(this.details.id);
                 var api = new buttonApi();
-                api.setGrandTotalAmount(parseFloat(this.grandTotalAmount).toFixed(2));
-                api.setClientToken(this.clientToken);
-                api.setDisplayName(this.displayName);
-                api.setQuoteId(this.quoteId);
-                api.setActionSuccess(this.actionSuccess);
+                api.setGrandTotalAmount(parseFloat(this.details.total).toFixed(2));
+                api.setClientToken(this.options.clientToken);
+                api.setDisplayName(this.options.displayName);
+                api.setQuoteId(this.details.id);
+                api.setActionSuccess(this.options.actionSuccess);
                 api.setIsLoggedIn(this.details.isLoggedIn);
-                api.setStoreCode(this.storeCode);
+                api.setStoreCode(this.options.storeCode);
 
                 // Attach the button
                 button.init(
-                    document.getElementById(this.id),
+                    element,
                     api
                 );
-
-                return this;
             },
 
             canUseApplePay: function() {
@@ -85,7 +88,7 @@ define(
 
             requestQuoteDetails: function (data) {
                 var widget = this;
-                var url = this.quoteDetailsURL;
+                var url = this.options.quoteDetailsURL;
                 $.ajax({
                     method: "POST",
                     url: url,

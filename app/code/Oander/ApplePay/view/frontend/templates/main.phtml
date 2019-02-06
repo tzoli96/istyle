@@ -27,14 +27,13 @@ $config = [
         minicart.on('contentUpdated', function () {
             var originallink = $(selectors.originallink);
             if (originallink.length === 0) {
-                debugger;
                 var applePay = $(selectors.applepayObject).data('mageApplepay');
                 if(applePay.canUseApplePay()) {
                     var checkoutbutton = $(selectors.checkoutbutton);
                     checkoutbutton.hide();
                     checkoutbutton.parent().append(applepaycontainer);
                     checkoutbutton.parent().append(checkoutlink);
-                    button.init(document.getElementById('minicar-applepay'), applePay);
+                    applePay.addMiniCartButton(document.getElementById('minicar-applepay'));
                 }
             }
         });
