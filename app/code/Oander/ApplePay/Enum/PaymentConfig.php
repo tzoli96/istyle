@@ -10,7 +10,7 @@ namespace Oander\ApplePay\Enum;
  */
 final class PaymentConfig
 {
-    const PAYMENT_SETTINGS_PATH              = 'payment/applepay';
+    const PAYMENT_SETTINGS_PATH              = 'payment/braintree_applepay';
     const PAYMENT_SETTINGS_ACTIVE      = 'active';
     const PAYMENT_SETTINGS_MERCHANT_ID     = 'merchant_id';
     const PAYMENT_SETTINGS_TITLE     = 'title';

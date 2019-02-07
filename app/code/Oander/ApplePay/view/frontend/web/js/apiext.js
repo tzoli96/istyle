@@ -100,6 +100,17 @@ define(
             },
 
             /**
+             * API Urls for logged in / guest
+             */
+            getApiUrl: function (uri) {
+                if (this.getIsLoggedIn() === true) {
+                    return "rest/" + this.getStoreCode() + "/V1/carts/mine/" + uri + '?isApplePay=true';
+                } else {
+                    return "rest/" + this.getStoreCode() + "/V1/guest-carts/" + this.getQuoteId() + "/" + uri + '?isApplePay=true';
+                }
+            },
+
+            /**
              * Set and get Country ID
              */
             setCountryCode: function (value) {

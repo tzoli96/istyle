@@ -21,6 +21,9 @@
     <type name="Oander\CartButton\Model\CartButtonProviderDefault">
         <plugin name="oander_applepay_model_cartbuttonproviderdefault" type="Oander\ApplePay\Plugin\CartButton\Model\CartButtonProviderDefault"/>
     </type>
+    <type name="Magento\Quote\Model\Quote\Address">
+        <plugin name="oander_applepay_model_shippingrestriction" type="Oander\ApplePay\Plugin\Quote\Model\Quote\Address"/>
+    </type>
     <!-- Payment Method: Apple Pay -->
     <virtualType name="BraintreeApplePay" type="Magento\Payment\Model\Method\Adapter">
         <arguments>
