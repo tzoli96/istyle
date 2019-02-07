@@ -17,7 +17,7 @@ $helper = $objectManager->create('Magento\Catalog\Helper\Data');
     </button>
 </div>
 <script type="text/javascript">
-    require(["jquery",'Oander_ApplePay/js/button'], function ($,button) {
+    require(["jquery"], function ($) {
         var selectors = {
             minicart: '[data-block="minicart"]',
             checkoutbutton: '#top-cart-btn-checkout',
@@ -31,11 +31,11 @@ $helper = $objectManager->create('Magento\Catalog\Helper\Data');
         if(typeof window.applePay!=='undefined')
             if(typeof window.applePay.init!=='undefined')
                 changebutton();
-
+        changebutton();
         function changebutton() {
             var applePay = $(selectors.applepayObject).data('mageApplepay');
             if(applePay.canUseApplePay()) {
-                button.init(document.getElementById('addcartbutton-apple-pay'),applePay);
+                applePay.addCartButton(document.getElementById('addcartbutton-apple-pay'));
             }
         }
     });

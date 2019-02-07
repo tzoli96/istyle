@@ -4,10 +4,12 @@
  */
 define(
     [
+        'jquery',
         'Oander_ApplePay/js/api',
         'mage/storage'
     ],
     function (
+        $,
         buttonApi,
         storage
     ) {
@@ -18,7 +20,8 @@ define(
 
             extdefaults: {
                 countryCode: null,
-                currencyCode: null
+                currencyCode: null,
+                quoteDetailsURL: null
             },
 
             initialize: function () {
@@ -27,7 +30,28 @@ define(
                 return this;
             },
 
-            getPaymentRequest: function () {
+            requestQuoteDetails: function (data) {
+                var url = this.extdefaults.quoteDetailsURL;
+                var result = null;
+                $.ajax({
+                    method: "POST",
+                    url: url,
+                    data: data,
+                    async: false
+                }).done(function(response) {
+                    result = response;
+                });
+                return result;
+            },
+
+            getPaymentRequest: function (element) {
+                //Only to add to Cart button
+                if (element.hasAttribute("data-productid")) {
+                    var response = this.requestQuoteDetails({'type' : 'product', 'product' : $(element).data("productid")});
+                    this.setGrandTotalAmount(parseFloat(response.total).toFixed(2));
+                    this.setQuoteId(response.id);
+                    this.setIsLoggedIn(response.isLoggedIn);
+                }
                 var paymentRequest = this._super();
                 paymentRequest.currencyCode = this.getCurrencyCode();
                 //paymentRequest.supportedCountries = ['CZ'];
@@ -92,6 +116,15 @@ define(
             },
             getCurrencyCode: function () {
                 return this.extdefaults.currencyCode;
+            },
+            /**
+             * Set and get Quote Details URL
+             */
+            setQuoteDetailsURL: function (value) {
+                this.extdefaults.quoteDetailsURL = value;
+            },
+            getQuoteDetailsURL: function () {
+                return this.extdefaults.quoteDetailsURL;
             }
         });
 

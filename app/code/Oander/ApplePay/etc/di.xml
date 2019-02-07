@@ -28,6 +28,8 @@
             <argument name="valueHandlerPool" xsi:type="object">BraintreeApplePayValueHandlerPool</argument>
             <argument name="validatorPool" xsi:type="object">BraintreeApplePayValidatorPool</argument>
             <argument name="commandPool" xsi:type="object">BraintreeApplePayCommandPool</argument>
+            <argument name="formBlockType" xsi:type="object">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Oander\ApplePay\Block\ApplePay\Info</argument>
         </arguments>
     </virtualType>
     <!-- valueHandlerPool -->
@@ -71,7 +73,7 @@
         </arguments>
     </virtualType>
 
-    <virtualType name="BraintreeApplePayAuthorizeCommand" type="Magento\Braintree\Gateway\Command\GatewayCommand">
+    <virtualType name="BraintreeApplePayAuthorizeCommand" type="Oander\ApplePay\Gateway\Command\GatewayCommand">
         <arguments>
             <argument name="requestBuilder" xsi:type="object">BraintreeApplePayAuthorizeRequest</argument>
             <argument name="transferFactory" xsi:type="object">Magento\Braintree\Gateway\Http\TransferFactory</argument>

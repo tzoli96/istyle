@@ -29,7 +29,6 @@ define(
                 countryCode: null,
                 currencyCode: null
             },
-            details: null,
 
             /**
              * @returns {Object}
@@ -40,19 +39,36 @@ define(
                     this.options.displayName = $t('Store');
                 }
 
-                this.requestQuoteDetails({'type' : 'quote'});
-
                 return this;
+            },
+
+            addCartButton: function (element) {
+                var api = new buttonApi();
+                api.setQuoteDetailsURL(this.options.quoteDetailsURL);
+                api.setClientToken(this.options.clientToken);
+                api.setDisplayName(this.options.displayName);
+                api.setActionSuccess(this.options.actionSuccess);
+                api.setStoreCode(this.options.storeCode);
+                api.setCountryCode(this.options.countryCode);
+                api.setCurrencyCode(this.options.currencyCode);
+
+                // Attach the button
+                button.init(
+                    element,
+                    api
+                );
             },
 
             addMiniCartButton: function (element) {
                 var api = new buttonApi();
-                api.setGrandTotalAmount(parseFloat(this.details.total).toFixed(2));
+                api.setQuoteDetailsURL(this.options.quoteDetailsURL);
+                var response = api.requestQuoteDetails({'type' : 'quote'});
+                api.setGrandTotalAmount(parseFloat(response.total).toFixed(2));
                 api.setClientToken(this.options.clientToken);
                 api.setDisplayName(this.options.displayName);
-                api.setQuoteId(this.details.id);
+                api.setQuoteId(response.id);
                 api.setActionSuccess(this.options.actionSuccess);
-                api.setIsLoggedIn(this.details.isLoggedIn);
+                api.setIsLoggedIn(response.isLoggedIn);
                 api.setStoreCode(this.options.storeCode);
                 api.setCountryCode(this.options.countryCode);
                 api.setCurrencyCode(this.options.currencyCode);
@@ -87,19 +103,6 @@ define(
                     }
                 }
                 return false;
-            },
-
-            requestQuoteDetails: function (data) {
-                var widget = this;
-                var url = this.options.quoteDetailsURL;
-                $.ajax({
-                    method: "POST",
-                    url: url,
-                    data: data,
-                    async: false
-                }).done(function(response) {
-                    widget.details = response;
-                });
             }
         });
 
