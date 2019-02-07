@@ -76,10 +76,6 @@ class PaymentData extends \Magento\Framework\App\Action\Action
      */
     private $scopeConfig;
     /**
-     * @var \Oander\ApplePay\Helper\ApplePay
-     */
-    private $applePayHelper;
-    /**
      * @var \Magento\Quote\Model\QuoteIdMaskFactory
      */
     private $quoteIdMaskFactory;
@@ -104,7 +100,6 @@ class PaymentData extends \Magento\Framework\App\Action\Action
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
      * @param \Magento\Quote\Model\QuoteIdMaskFactory $quoteIdMaskFactory
      * @param \Oander\ApplePay\Helper\PaymentConfig $paymentConfig
-     * @param \Oander\ApplePay\Helper\ApplePay $applePayHelper
      */
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
@@ -123,8 +118,7 @@ class PaymentData extends \Magento\Framework\App\Action\Action
         \Magento\Checkout\Model\Cart $cart,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Magento\Quote\Model\QuoteIdMaskFactory $quoteIdMaskFactory,
-        \Oander\ApplePay\Helper\PaymentConfig $paymentConfig,
-        \Oander\ApplePay\Helper\ApplePay $applePayHelper
+        \Oander\ApplePay\Helper\PaymentConfig $paymentConfig
     ) {
         parent::__construct($context);
         $this->resultPageFactory = $resultPageFactory;
@@ -143,7 +137,6 @@ class PaymentData extends \Magento\Framework\App\Action\Action
         $this->cart = $cart;
         $this->paymentConfig = $paymentConfig;
         $this->scopeConfig = $scopeConfig;
-        $this->applePayHelper = $applePayHelper;
         $this->quoteIdMaskFactory = $quoteIdMaskFactory;
     }
 
