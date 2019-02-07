@@ -88,7 +88,7 @@ define(
 
                             // Init apple pay session
                             try {
-                                var session = new ApplePaySession(1, paymentRequest);
+                                var session = new ApplePaySession(3, paymentRequest);
                             } catch (err) {
                                 jQuery("body").loader('hide');
                                 console.error('Braintree ApplePay Unable to create ApplePaySession', err);

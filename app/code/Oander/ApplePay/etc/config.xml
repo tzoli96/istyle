@@ -2,14 +2,33 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
 	<default>
 		<payment>
-			<applepay>
+			<braintree_applepay>
+				<model>BraintreeApplePay</model>
+				<title>Apple Pay</title>
 				<active>0</active>
-				<model>Oander\ApplePay\Model\Payment\ApplePay</model>
-				<order_status>pending</order_status>
-				<title>ApplePay</title>
+				<payment_action>authorize</payment_action>
 				<allowspecific>0</allowspecific>
-				<group>offline</group>
-			</applepay>
+				<require_billing_address>0</require_billing_address>
+				<allow_shipping_address_override>0</allow_shipping_address_override>
+				<display_on_shopping_cart>0</display_on_shopping_cart>
+				<order_status>processing</order_status>
+				<is_gateway>1</is_gateway>
+				<can_use_checkout>1</can_use_checkout>
+				<can_authorize>1</can_authorize>
+				<can_capture>1</can_capture>
+				<can_capture_partial>1</can_capture_partial>
+				<can_refund>1</can_refund>
+				<can_refund_partial_per_invoice>1</can_refund_partial_per_invoice>
+				<can_void>1</can_void>
+				<can_cancel>1</can_cancel>
+				<privateInfoKeys>processorAuthorizationCode,processorResponseCode,processorResponseText</privateInfoKeys>
+				<paymentInfoKeys>processorAuthorizationCode,processorResponseCode,processorResponseText</paymentInfoKeys>
+				<merchant_name>Store</merchant_name>
+				<show_product_page>0</show_product_page>
+				<show_mini_cart>0</show_mini_cart>
+				<show_cart>0</show_cart>
+				<show_checkout>0</show_checkout>
+			</braintree_applepay>
 		</payment>
 	</default>
 </config>

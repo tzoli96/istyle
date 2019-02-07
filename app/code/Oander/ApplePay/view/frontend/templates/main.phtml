@@ -9,6 +9,8 @@ $config = [
     //'grandTotalAmount' => $block->getAmount(),
     //'isLoggedIn' => $block->isCustomerLoggedIn(),
     'storeCode' => $block->getStorecode(),
+    'countryCode' => $block->getCountryCode(),
+    'currencyCode' => $block->getCurrencyCode()
 ];
 ?>
 <div id="applepay-object" data-mage-init='{"applePay": <?php /* @escapeNotVerified */ echo json_encode($config) ?>}'>

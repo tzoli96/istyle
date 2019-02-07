@@ -5,7 +5,7 @@
 define(
     [
         'Oander_ApplePay/js/button',
-        'Oander_ApplePay/js/api',
+        'Oander_ApplePay/js/apiext',
         'mage/translate',
         'jquery',
         'domReady!'
@@ -25,7 +25,9 @@ define(
                 clientToken: null,
                 displayName: null,
                 actionSuccess: null,
-                storeCode: "default"
+                storeCode: "default",
+                countryCode: null,
+                currencyCode: null
             },
             details: null,
 
@@ -38,13 +40,12 @@ define(
                     this.options.displayName = $t('Store');
                 }
 
-                var details = this.requestQuoteDetails({'type' : 'quote'});
+                this.requestQuoteDetails({'type' : 'quote'});
 
                 return this;
             },
 
             addMiniCartButton: function (element) {
-                console.log(this.details.id);
                 var api = new buttonApi();
                 api.setGrandTotalAmount(parseFloat(this.details.total).toFixed(2));
                 api.setClientToken(this.options.clientToken);
@@ -53,6 +54,8 @@ define(
                 api.setActionSuccess(this.options.actionSuccess);
                 api.setIsLoggedIn(this.details.isLoggedIn);
                 api.setStoreCode(this.options.storeCode);
+                api.setCountryCode(this.options.countryCode);
+                api.setCurrencyCode(this.options.currencyCode);
 
                 // Attach the button
                 button.init(

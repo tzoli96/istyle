@@ -84,6 +84,16 @@ class Main extends Template
         return $this->getUrl(\Oander\ApplePay\Controller\Ajax\PaymentData::ROUTE);
     }
 
+    public function getCountryCode()
+    {
+        return $this->paymentConfig->getCountryCode();
+    }
+
+    public function getCurrencyCode()
+    {
+        return $this->paymentConfig->getCurrencyCode();
+    }
+
     /*public function getJsonConfig()
     {
         $config = $this->paymentConfig->getPaymentAllConfig();
