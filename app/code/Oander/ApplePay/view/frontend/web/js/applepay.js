@@ -27,7 +27,8 @@ define(
                 actionSuccess: null,
                 storeCode: "default",
                 countryCode: null,
-                currencyCode: null
+                currencyCode: null,
+                displayIn: []
             },
 
             /**
@@ -80,25 +81,22 @@ define(
                 );
             },
 
-            canUseApplePay: function() {
-                if (!window.ApplePaySession)
-                {
-                    console.log('AP - This device does not support Apple Pay');
-                }
-                else
-                {
-                    if (!ApplePaySession.canMakePayments()) {
-                        console.log('AP - This device is not capable of making Apple Pay payments');
+            canUseApplePay: function(type) {
+                if(this.options.displayIn.indexOf(type) > -1) {
+                    if (!window.ApplePaySession) {
+                        console.log('AP - This device does not support Apple Pay');
                     }
-                    else
-                    {
-                        if(!ApplePaySession.canMakePaymentsWithActiveCard(this.options.merchant_id))
-                        {
-                            console.log('AP - No active card in Wallet');
+                    else {
+                        if (!ApplePaySession.canMakePayments()) {
+                            console.log('AP - This device is not capable of making Apple Pay payments');
                         }
-                        else
-                        {
-                            return true;
+                        else {
+                            if (!ApplePaySession.canMakePaymentsWithActiveCard(this.options.merchant_id)) {
+                                console.log('AP - No active card in Wallet');
+                            }
+                            else {
+                                return true;
+                            }
                         }
                     }
                 }

@@ -5,6 +5,7 @@ namespace Oander\ApplePay\Block;
 
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
+use Oander\ApplePay\Enum\DisplayIn;
 
 /**
  * Class Dashboard
@@ -92,6 +93,40 @@ class Main extends Template
     public function getCurrencyCode()
     {
         return $this->paymentConfig->getCurrencyCode();
+    }
+
+    public function getShowInCart()
+    {
+        return $this->paymentConfig->getShowInCart();
+    }
+
+    public function getShowInCheckout()
+    {
+        return $this->paymentConfig->getShowInCheckout();
+    }
+
+    public function getShowInMiniCart()
+    {
+        return $this->paymentConfig->getShowInMiniCart();
+    }
+
+    public function getShowOnProductPage()
+    {
+        return $this->paymentConfig->getShowOnProductPage();
+    }
+
+    public function getDisplayIn()
+    {
+        $displayIn = [];
+        if($this->getShowInCart())
+            $displayIn[] = DisplayIn::CART;
+        if($this->getShowInMiniCart())
+            $displayIn[] = DisplayIn::MINICART;
+        if($this->getShowOnProductPage())
+            $displayIn[] = DisplayIn::PRODUCTPAGE;
+        if($this->getShowInCheckout())
+            $displayIn[] = DisplayIn::CHECKOUT;
+        return $displayIn;
     }
 
     /*public function getJsonConfig()

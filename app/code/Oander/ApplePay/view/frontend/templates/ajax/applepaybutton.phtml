@@ -21,7 +21,8 @@ $helper = $objectManager->create('Magento\Catalog\Helper\Data');
         var selectors = {
             minicart: '[data-block="minicart"]',
             checkoutbutton: '#top-cart-btn-checkout',
-            applepayObject: '#applepay-object'
+            applepayObject: '#applepay-object',
+            appleproductdiv: '#addcartbutton-apple-pay'
         };
 
         $(document).on('applePayTrigger', function() {
@@ -34,8 +35,8 @@ $helper = $objectManager->create('Magento\Catalog\Helper\Data');
         changebutton();
         function changebutton() {
             var applePay = $(selectors.applepayObject).data('mageApplepay');
-            if(applePay.canUseApplePay()) {
-                applePay.addCartButton(document.getElementById('addcartbutton-apple-pay'));
+            if(applePay.canUseApplePay(<?php echo \Oander\ApplePay\Enum\DisplayIn::PRODUCTPAGE; ?>)) {
+                applePay.addCartButton(document.getElementById(selectors.appleproductdiv));
             }
         }
     });

@@ -10,7 +10,8 @@ $config = [
     //'isLoggedIn' => $block->isCustomerLoggedIn(),
     'storeCode' => $block->getStorecode(),
     'countryCode' => $block->getCountryCode(),
-    'currencyCode' => $block->getCurrencyCode()
+    'currencyCode' => $block->getCurrencyCode(),
+    'displayIn' => $block->getDisplayIn()
 ];
 ?>
 <div id="applepay-object" data-mage-init='{"applePay": <?php /* @escapeNotVerified */ echo json_encode($config) ?>}'>
@@ -20,7 +21,8 @@ $config = [
             minicart: '[data-block="minicart"]',
             checkoutbutton: '#top-cart-btn-checkout',
             applepayObject: '#applepay-object',
-            originallink: '#apple-pay-original-link'
+            originallink: '#apple-pay-original-link',
+            appleminicartdiv: '#minicar-applepay'
         };
 
         var minicart = $(selectors.minicart);
@@ -30,12 +32,12 @@ $config = [
             var originallink = $(selectors.originallink);
             if (originallink.length === 0) {
                 var applePay = $(selectors.applepayObject).data('mageApplepay');
-                if(applePay.canUseApplePay()) {
+                if(applePay.canUseApplePay(<?php echo \Oander\ApplePay\Enum\DisplayIn::CART; ?>)) {
                     var checkoutbutton = $(selectors.checkoutbutton);
                     checkoutbutton.hide();
                     checkoutbutton.parent().append(applepaycontainer);
                     checkoutbutton.parent().append(checkoutlink);
-                    applePay.addMiniCartButton(document.getElementById('minicar-applepay'));
+                    applePay.addMiniCartButton(document.getElementById(selectors.appleminicartdiv));
                 }
             }
         });
