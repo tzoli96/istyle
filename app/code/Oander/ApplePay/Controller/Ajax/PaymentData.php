@@ -164,10 +164,16 @@ class PaymentData extends \Magento\Framework\App\Action\Action
                     break;
                 }
             }
-            if($quote)
+            if($quote->getId())
             {
                 $quoteIdMask = $this->quoteIdMaskFactory->create();
                 $maskid = $quoteIdMask->load($quote->getId(), 'quote_id')->getMaskedId();
+                if($maskid === null)
+                {
+                    $quoteIdMask->setEntityId($quote->getId());
+                    $quoteIdMask->save();
+                    $maskid = $quoteIdMask->getMaskedId();
+                }
                 $data['id'] = $maskid;
                 $data['isLoggedIn'] = $this->customerSession->isLoggedIn();
                 $data['total'] = $quote->getGrandTotal();
@@ -252,6 +258,7 @@ class PaymentData extends \Magento\Framework\App\Action\Action
             else {
                 $quote->setBillingAddress($this->quoteAddressFactory->create()->setCountryId($this->paymentConfig->getDefaultCountryId()));
                 $quote->setShippingAddress($this->quoteAddressFactory->create()->setCountryId($this->paymentConfig->getDefaultCountryId()));
+                $quote->setCustomerIsGuest(1);
             }
             $product = $this->_initProduct($data);
             $quote->addProduct($product);

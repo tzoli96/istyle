@@ -21,8 +21,7 @@ $config = [
             minicart: '[data-block="minicart"]',
             checkoutbutton: '#top-cart-btn-checkout',
             applepayObject: '#applepay-object',
-            originallink: '#apple-pay-original-link',
-            appleminicartdiv: '#minicar-applepay'
+            originallink: '#apple-pay-original-link'
         };
 
         var minicart = $(selectors.minicart);
@@ -32,12 +31,12 @@ $config = [
             var originallink = $(selectors.originallink);
             if (originallink.length === 0) {
                 var applePay = $(selectors.applepayObject).data('mageApplepay');
-                if(applePay.canUseApplePay(<?php echo \Oander\ApplePay\Enum\DisplayIn::CART; ?>)) {
+                if(applePay.canUseApplePay('<?php echo \Oander\ApplePay\Enum\DisplayIn::CART; ?>')) {
                     var checkoutbutton = $(selectors.checkoutbutton);
                     checkoutbutton.hide();
                     checkoutbutton.parent().append(applepaycontainer);
                     checkoutbutton.parent().append(checkoutlink);
-                    applePay.addMiniCartButton(document.getElementById(selectors.appleminicartdiv));
+                    applePay.addMiniCartButton(document.getElementById('minicar-applepay'));
                 }
             }
         });

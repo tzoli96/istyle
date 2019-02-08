@@ -24,8 +24,8 @@
     <type name="Magento\Quote\Model\Quote\Address">
         <plugin name="oander_applepay_model_shippingrestriction" type="Oander\ApplePay\Plugin\Quote\Model\Quote\Address"/>
     </type>
-    <type name="Magento\Quote\Model\QuoteRepository">
-        <plugin name="oander_applepay_model_isactiverewrite" type="Oander\ApplePay\Plugin\Quote\Model\QuoteRepository"/>
+    <type name="Magento\Quote\Model\Quote">
+        <plugin name="oander_applepay_model_isactive" type="Oander\ApplePay\Plugin\Checkout\Model\QuotePlugin"/>
     </type>
     <!-- Payment Method: Apple Pay -->
     <virtualType name="BraintreeApplePay" type="Magento\Payment\Model\Method\Adapter">
