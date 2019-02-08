@@ -4,9 +4,12 @@
  * See COPYING.txt for license details.
  */
 
-namespace Oander\ApplePay\Plugin\Quote\Model\Quote;
+namespace Oander\ApplePay\Plugin\Quote\Model;
 
-class Address
+use Magento\Framework\View\Element\BlockFactory;
+use Magento\Framework\App\Area;
+
+class QuoteRepository
 {
     /**
      * @var \Oander\ApplePay\Helper\PaymentConfig
@@ -34,19 +37,12 @@ class Address
     }
 
 
-    public function aroundGetGroupedAllShippingRates(\Magento\Quote\Model\Quote\Address $subject, callable $proceed)
+    public function aroundGetActive(\Magento\Quote\Model\QuoteRepository $subject, callable $proceed, $cartId, array $sharedStoreIds = [])
     {
-        if($this->request->getParam('isApplePay',false)  && $this->config->isActive()) {
-            $rates = $proceed();
-            $ratesnew = [];
-            $shippingMethods = $this->config->getEnabledShippingMethods();
-            foreach ($rates as $code => $rate) {
-                if (in_array($code, $shippingMethods)) {
-                    $ratesnew[$code] = $rate;
-                }
-            }
-            return $ratesnew;
+        if($this->request->getParam('isApplePay',false) && $this->config->isActive()){
+            $quote = $subject->get($cartId, $sharedStoreIds);
+            return $quote;
         }
-        return $proceed();
+        return $proceed($cartId, $sharedStoreIds);
     }
 }
