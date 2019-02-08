@@ -18,7 +18,7 @@ $config = [
 ?>
 <div id="applepay-object" data-mage-init='{"applePay": <?php /* @escapeNotVerified */ echo json_encode($config) ?>}'>
 <script type="text/javascript">
-    require(['jquery'],function($) {
+    require(['jquery', 'applePay', 'domReady!'],function($) {
         var selectors = {
             minicart: '[data-block="minicart"]',
             checkoutbutton: '#top-cart-btn-checkout',

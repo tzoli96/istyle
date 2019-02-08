@@ -1,6 +1,6 @@
 <div id='cart-applepay'></div>
 <script type="text/javascript">
-    require(['jquery', 'domReady!'],function($) {
+    require(['jquery', 'applePay', 'domReady!'],function($) {
         var selectors = {
             applepayObject: 'applepay-object'
         };
@@ -16,7 +16,6 @@
         }
 
         function addCartApplePayButton(applePay) {
-            console.log('kk');
             if (applePay.canUseApplePay('<?php echo \Oander\ApplePay\Enum\DisplayIn::CART; ?>')) {
                 applePay.addCartButton(document.getElementById('cart-applepay'));
             }

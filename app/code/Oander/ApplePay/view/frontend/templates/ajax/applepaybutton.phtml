@@ -17,7 +17,7 @@ $helper = $objectManager->create('Magento\Catalog\Helper\Data');
     </button>
 </div>
 <script type="text/javascript">
-    require(["jquery"], function ($) {
+    require(["jquery", 'applePay', 'domReady!'], function ($) {
         var selectors = {
             applepayObject: 'applepay-object'
         };
@@ -29,13 +29,11 @@ $helper = $objectManager->create('Magento\Catalog\Helper\Data');
                 addProductApplePayButton(applePay);
             }
             else {
-                console.log('ii2');
                 applePayObject.addEventListener("init", function() {addProductApplePayButton(applePay)});
             }
         }
 
         function addProductApplePayButton(applePay) {
-            console.log('ii');
             if (applePay.canUseApplePay('<?php echo \Oander\ApplePay\Enum\DisplayIn::PRODUCTPAGE; ?>')) {
                 applePay.addProductCartButton(document.getElementById('addcartbutton-apple-pay'));
             }

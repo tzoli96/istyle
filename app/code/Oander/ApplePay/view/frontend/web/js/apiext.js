@@ -55,7 +55,8 @@ define(
                     this.setIsLoggedIn(response.isLoggedIn);
                 }
                 var paymentRequest = this._super();
-                paymentRequest.merchantCapabilities = this.
+                paymentRequest.merchantCapabilities = this.getMerchantCapabilities();
+                paymentRequest.supportedNetworks = this.getSupportedNetworks();
                 paymentRequest.currencyCode = this.getCurrencyCode();
                 //paymentRequest.supportedCountries = ['CZ'];
                 return paymentRequest;
