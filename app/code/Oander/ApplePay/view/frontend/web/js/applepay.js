@@ -43,7 +43,7 @@ define(
                 return this;
             },
 
-            addCartButton: function (element) {
+            addProductCartButton: function (element) {
                 var api = new buttonApi();
                 api.setQuoteDetailsURL(this.options.quoteDetailsURL);
                 api.setClientToken(this.options.clientToken);
@@ -60,7 +60,7 @@ define(
                 );
             },
 
-            addMiniCartButton: function (element) {
+            addCartButton: function (element) {
                 var api = new buttonApi();
                 api.setQuoteDetailsURL(this.options.quoteDetailsURL);
                 var response = api.requestQuoteDetails({'type' : 'quote'});

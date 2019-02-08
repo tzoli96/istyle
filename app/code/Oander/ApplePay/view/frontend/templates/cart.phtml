@@ -1,0 +1,7 @@
+<div id='cart-applepay'></div>
+<script type="text/javascript">
+    var applePay = $(selectors.applepayObject).data('mageApplepay');
+    if(applePay.canUseApplePay('<?php echo \Oander\ApplePay\Enum\DisplayIn::CART; ?>')) {
+        applePay.addCartButton(document.getElementById('cart-applepay'));
+    }
+</script>

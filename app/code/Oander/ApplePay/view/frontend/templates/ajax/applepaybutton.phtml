@@ -35,7 +35,7 @@ $helper = $objectManager->create('Magento\Catalog\Helper\Data');
         function changebutton() {
             var applePay = $(selectors.applepayObject).data('mageApplepay');
             if(applePay.canUseApplePay('<?php echo \Oander\ApplePay\Enum\DisplayIn::PRODUCTPAGE; ?>')) {
-                applePay.addCartButton(document.getElementById('addcartbutton-apple-pay'));
+                applePay.addProductCartButton(document.getElementById('addcartbutton-apple-pay'));
             }
         }
     });

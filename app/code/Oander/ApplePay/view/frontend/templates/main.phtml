@@ -26,17 +26,17 @@ $config = [
 
         var minicart = $(selectors.minicart);
         var checkoutlink = '<div id=\'minicar-original-link\'><a id=\'apple-pay-original-link\' href="javascript:jQuery(\'#top-cart-btn-checkout\').trigger(\'click\');">Ez a valós checkout link</a>';
-        var applepaycontainer = '<div id=\'minicar-applepay\'></div>';
+        var applepaycontainer = '<div id=\'minicart-applepay\'></div>';
         minicart.on('contentUpdated', function () {
             var originallink = $(selectors.originallink);
             if (originallink.length === 0) {
                 var applePay = $(selectors.applepayObject).data('mageApplepay');
-                if(applePay.canUseApplePay('<?php echo \Oander\ApplePay\Enum\DisplayIn::CART; ?>')) {
+                if(applePay.canUseApplePay('<?php echo \Oander\ApplePay\Enum\DisplayIn::MINICART; ?>')) {
                     var checkoutbutton = $(selectors.checkoutbutton);
                     checkoutbutton.hide();
                     checkoutbutton.parent().append(applepaycontainer);
                     checkoutbutton.parent().append(checkoutlink);
-                    applePay.addMiniCartButton(document.getElementById('minicar-applepay'));
+                    applePay.addCartButton(document.getElementById('minicart-applepay'));
                 }
             }
         });
