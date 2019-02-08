@@ -15,6 +15,8 @@ use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Catalog\Model\ResourceModel\Product\Relation as ProductRelation;
 use Magento\Store\Model\StoreManagerInterface;
+use Magento\Store\Model\StoreResolver;
+
 
 /**
  * Class ProductSaveAfter
@@ -48,53 +50,55 @@ class ProductSaveAfter implements ObserverInterface
     protected $storeManager;
 
     /**
+     * @var StoreResolver
+     */
+    protected $storeResolver;
+
+    /**
      * ProductSaveAfter constructor.
      *
      * @param ProductRepositoryInterface $productRepository
-     * @param ProductRelation            $productRelation
-     * @param ProductFactory             $productFactory
-     * @param ResourceConnection         $resource
-     * @param StoreManagerInterface      $storeManager
+     * @param ProductRelation $productRelation
+     * @param ProductFactory $productFactory
+     * @param ResourceConnection $resource
+     * @param StoreManagerInterface $storeManager
+     * @param StoreResolver $storeResolver
      */
     public function __construct(
         ProductRepositoryInterface $productRepository,
         ProductRelation $productRelation,
         ProductFactory $productFactory,
         ResourceConnection $resource,
-        StoreManagerInterface $storeManager
+        StoreManagerInterface $storeManager,
+        StoreResolver $storeResolver
     ) {
         $this->productRepository = $productRepository;
         $this->productRelation = $productRelation;
         $this->productFactory = $productFactory;
         $this->resource = $resource;
         $this->storeManager = $storeManager;
+        $this->storeResolver = $storeResolver;
     }
 
     /**
      * @param Observer $observer
-     *
      * @throws \Magento\Framework\Exception\CouldNotSaveException
      * @throws \Magento\Framework\Exception\InputException
+     * @throws \Magento\Framework\Exception\LocalizedException
      * @throws \Magento\Framework\Exception\StateException
      */
     public function execute(Observer $observer)
     {
-
-        $storeId = 0;
-        if (isset($_POST['current_store_id'])) {
-            $storeId = (int)$_POST['current_store_id'];
-        }
+        $storeId = $this->storeResolver->getCurrentStoreId();
         $store = $this->storeManager->getStore($storeId);
         $this->storeManager->setCurrentStore($store);
-        $websiteId = $store->getWebsiteId();
 
         /** @var Product $product */
         $product = $observer->getProduct();
-
         if ($product->getTypeId() == Type::TYPE_SIMPLE && $product->getStatus() == Status::STATUS_DISABLED) {
 
             /** @var Product $parentProduct */
-            $parentProducts = $this->getParents($product, $websiteId);
+            $parentProducts = $this->getParents($product);
             foreach ($parentProducts as $parentProduct) {
                 if ($parentProduct && $parentProduct->getTypeId() == Configurable::TYPE_CODE
                     && $parentProduct->getStatus() == Status::STATUS_ENABLED
@@ -109,7 +113,6 @@ class ProductSaveAfter implements ObserverInterface
                     }
 
                     if ($isAllChildrenProductsDisabled) {
-
                         $parentProduct->setStoreId($storeId);
                         $parentProduct->setStatus(Status::STATUS_DISABLED);
                         $this->productRepository->save($parentProduct);
@@ -127,7 +130,7 @@ class ProductSaveAfter implements ObserverInterface
      * @return array
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function getParents($product, $websiteId)
+    public function getParents($product)
     {
         $parents = [];
 
