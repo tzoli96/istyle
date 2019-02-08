@@ -15,7 +15,6 @@ use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
 use Magento\Catalog\Model\ResourceModel\Product\Relation as ProductRelation;
 use Magento\Store\Model\StoreManagerInterface;
-use Magento\Store\Model\StoreResolver;
 
 
 /**
@@ -50,11 +49,6 @@ class ProductSaveAfter implements ObserverInterface
     protected $storeManager;
 
     /**
-     * @var StoreResolver
-     */
-    protected $storeResolver;
-
-    /**
      * ProductSaveAfter constructor.
      *
      * @param ProductRepositoryInterface $productRepository
@@ -62,22 +56,19 @@ class ProductSaveAfter implements ObserverInterface
      * @param ProductFactory $productFactory
      * @param ResourceConnection $resource
      * @param StoreManagerInterface $storeManager
-     * @param StoreResolver $storeResolver
      */
     public function __construct(
         ProductRepositoryInterface $productRepository,
         ProductRelation $productRelation,
         ProductFactory $productFactory,
         ResourceConnection $resource,
-        StoreManagerInterface $storeManager,
-        StoreResolver $storeResolver
+        StoreManagerInterface $storeManager
     ) {
         $this->productRepository = $productRepository;
         $this->productRelation = $productRelation;
         $this->productFactory = $productFactory;
         $this->resource = $resource;
         $this->storeManager = $storeManager;
-        $this->storeResolver = $storeResolver;
     }
 
     /**
@@ -89,16 +80,16 @@ class ProductSaveAfter implements ObserverInterface
      */
     public function execute(Observer $observer)
     {
-        $storeId = $this->storeResolver->getCurrentStoreId();
-        $store = $this->storeManager->getStore($storeId);
-        $this->storeManager->setCurrentStore($store);
-
         /** @var Product $product */
         $product = $observer->getProduct();
         if ($product->getTypeId() == Type::TYPE_SIMPLE && $product->getStatus() == Status::STATUS_DISABLED) {
+            $storeId = (int)$product->getStoreId();
+            $store = $this->storeManager->getStore($storeId);
+            $this->storeManager->setCurrentStore($store);
+            $websiteId = $store->getWebsiteId();
 
             /** @var Product $parentProduct */
-            $parentProducts = $this->getParents($product);
+            $parentProducts = $this->getParents($product, $websiteId);
             foreach ($parentProducts as $parentProduct) {
                 if ($parentProduct && $parentProduct->getTypeId() == Configurable::TYPE_CODE
                     && $parentProduct->getStatus() == Status::STATUS_ENABLED
@@ -124,13 +115,7 @@ class ProductSaveAfter implements ObserverInterface
 
     }
 
-    /**
-     * @param $product
-     *
-     * @return array
-     * @throws \Magento\Framework\Exception\LocalizedException
-     */
-    public function getParents($product)
+    public function getParents($product, $websiteId)
     {
         $parents = [];
 
@@ -142,13 +127,22 @@ class ProductSaveAfter implements ObserverInterface
             $product->getId()
         );
         $parentIds = $this->productRelation->getConnection()->fetchCol($select);
-
         if (count($parentIds)) {
-            foreach ($parentIds as $parentId) {
-                $parents[] = $this->productFactory->create()->load($parentId);
+            /** @var  $store */
+            $parentIdsstring = implode(',', $parentIds);
+            $select = $this->resource->getConnection()->select()->from(
+                $this->resource->getTableName('catalog_product_website'),
+                ['product_id']
+            )->where(
+                "product_id IN ({$parentIdsstring}) and website_id = {$websiteId}"
+            );
+            $parentIds = $this->productRelation->getConnection()->fetchCol($select);
+            if (count($parentIds)) {
+                foreach ($parentIds as $parentId) {
+                    $parents[] = $this->productFactory->create()->load($parentId);
+                }
             }
         }
-
 
         return $parents;
     }
