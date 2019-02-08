@@ -170,8 +170,8 @@ class PaymentData extends \Magento\Framework\App\Action\Action
                 $maskid = $quoteIdMask->load($quote->getId(), 'quote_id')->getMaskedId();
                 if($maskid === null)
                 {
-                    $quoteIdMask->setEntityId($quote->getId());
-                    $quoteIdMask->save();
+                    $quoteIdMask->clearInstance();
+                    $quoteIdMask->setQuoteId($quote->getId())->save();
                     $maskid = $quoteIdMask->getMaskedId();
                 }
                 $data['id'] = $maskid;
