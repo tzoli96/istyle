@@ -28,7 +28,16 @@ define(
                 storeCode: "default",
                 countryCode: null,
                 currencyCode: null,
+                merchantCapabilities: null,
+                supportedNetworks: null,
                 displayIn: []
+            },
+
+            selectors: {
+                minicart: '[data-block="minicart"]',
+                checkoutbutton: '#top-cart-btn-checkout',
+                applepayObject: '#applepay-object',
+                originallink: '#apple-pay-original-link'
             },
 
             /**
@@ -39,7 +48,9 @@ define(
                 if (!this.options.displayName) {
                     this.options.displayName = $t('Store');
                 }
-
+                var event = document.createEvent('Event');
+                event.initEvent('init', true, true);
+                document.getElementById('applepay-object').dispatchEvent(event);
                 return this;
             },
 
@@ -52,6 +63,8 @@ define(
                 api.setStoreCode(this.options.storeCode);
                 api.setCountryCode(this.options.countryCode);
                 api.setCurrencyCode(this.options.currencyCode);
+                api.setSupportedNetworks(this.options.supportedNetworks);
+                api.setMerchantCapabilities(this.options.merchantCapabilities);
 
                 // Attach the button
                 button.init(
@@ -73,6 +86,8 @@ define(
                 api.setStoreCode(this.options.storeCode);
                 api.setCountryCode(this.options.countryCode);
                 api.setCurrencyCode(this.options.currencyCode);
+                api.setSupportedNetworks(this.options.supportedNetworks);
+                api.setMerchantCapabilities(this.options.merchantCapabilities);
 
                 // Attach the button
                 button.init(

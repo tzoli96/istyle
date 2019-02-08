@@ -1,7 +1,25 @@
 <div id='cart-applepay'></div>
 <script type="text/javascript">
-    var applePay = $(selectors.applepayObject).data('mageApplepay');
-    if(applePay.canUseApplePay('<?php echo \Oander\ApplePay\Enum\DisplayIn::CART; ?>')) {
-        applePay.addCartButton(document.getElementById('cart-applepay'));
-    }
+    require(['jquery', 'domReady!'],function($) {
+        var selectors = {
+            applepayObject: 'applepay-object'
+        };
+        if (document.getElementById('cart-applepay').innerHTML === '') {
+            var applePayObject = document.getElementById(selectors.applepayObject);
+            var applePay = $(applePayObject).data('mageApplepay');
+            if(typeof applePay !== 'undefined') {
+                addCartApplePayButton(applePay);
+            }
+            else {
+                applePayObject.addEventListener("init", function() {addCartApplePayButton(applePay)});
+            }
+        }
+
+        function addCartApplePayButton(applePay) {
+            console.log('kk');
+            if (applePay.canUseApplePay('<?php echo \Oander\ApplePay\Enum\DisplayIn::CART; ?>')) {
+                applePay.addCartButton(document.getElementById('cart-applepay'));
+            }
+        }
+    });
 </script>

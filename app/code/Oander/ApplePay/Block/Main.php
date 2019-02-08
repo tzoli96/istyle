@@ -48,6 +48,16 @@ class Main extends Template
         return $this->paymentConfig->getMerchantId();
     }
 
+    public function getMerchantCapabilities()
+    {
+        return $this->paymentConfig->getMerchantCapabilities();
+    }
+
+    public function getSupportedNetworks()
+    {
+        return $this->paymentConfig->getSupportedNetworks();
+    }
+
     /**
      * Braintree's API token
      * @return string|null

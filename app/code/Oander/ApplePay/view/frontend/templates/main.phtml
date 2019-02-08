@@ -11,6 +11,8 @@ $config = [
     'storeCode' => $block->getStorecode(),
     'countryCode' => $block->getCountryCode(),
     'currencyCode' => $block->getCurrencyCode(),
+    'merchantCapabilities' => $block->getMerchantCapabilities(),
+    'supportedNetworks' => $block->getSupportedNetworks(),
     'displayIn' => $block->getDisplayIn()
 ];
 ?>
@@ -31,7 +33,7 @@ $config = [
             var originallink = $(selectors.originallink);
             if (originallink.length === 0) {
                 var applePay = $(selectors.applepayObject).data('mageApplepay');
-                if(applePay.canUseApplePay('<?php echo \Oander\ApplePay\Enum\DisplayIn::MINICART; ?>')) {
+                if (applePay.canUseApplePay('<?php echo \Oander\ApplePay\Enum\DisplayIn::MINICART; ?>')) {
                     var checkoutbutton = $(selectors.checkoutbutton);
                     checkoutbutton.hide();
                     checkoutbutton.parent().append(applepaycontainer);

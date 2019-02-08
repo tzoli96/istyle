@@ -21,7 +21,9 @@ define(
             extdefaults: {
                 countryCode: null,
                 currencyCode: null,
-                quoteDetailsURL: null
+                quoteDetailsURL: null,
+                merchantCapabilities: null,
+                supportedNetworks: null
             },
 
             initialize: function () {
@@ -53,6 +55,7 @@ define(
                     this.setIsLoggedIn(response.isLoggedIn);
                 }
                 var paymentRequest = this._super();
+                paymentRequest.merchantCapabilities = this.
                 paymentRequest.currencyCode = this.getCurrencyCode();
                 //paymentRequest.supportedCountries = ['CZ'];
                 return paymentRequest;
@@ -136,6 +139,24 @@ define(
             },
             getQuoteDetailsURL: function () {
                 return this.extdefaults.quoteDetailsURL;
+            },
+            /**
+             * Set and get Merchant Capabilities
+             */
+            setMerchantCapabilities: function (value) {
+                this.extdefaults.merchantCapabilities = value;
+            },
+            getMerchantCapabilities: function () {
+                return this.extdefaults.merchantCapabilities;
+            },
+            /**
+             * Set and get Supported Networks
+             */
+            setSupportedNetworks: function (value) {
+                this.extdefaults.supportedNetworks = value;
+            },
+            getSupportedNetworks: function () {
+                return this.extdefaults.supportedNetworks;
             }
         });
 

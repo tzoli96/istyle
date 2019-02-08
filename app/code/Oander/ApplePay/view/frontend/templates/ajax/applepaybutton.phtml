@@ -19,22 +19,24 @@ $helper = $objectManager->create('Magento\Catalog\Helper\Data');
 <script type="text/javascript">
     require(["jquery"], function ($) {
         var selectors = {
-            minicart: '[data-block="minicart"]',
-            checkoutbutton: '#top-cart-btn-checkout',
-            applepayObject: '#applepay-object'
+            applepayObject: 'applepay-object'
         };
 
-        $(document).on('applePayTrigger', function() {
-            changebutton();
-        });
+        if(document.getElementById('addcartbutton-apple-pay').innerHTML === '') {
+            var applePayObject = document.getElementById(selectors.applepayObject);
+            var applePay = $(applePayObject).data('mageApplepay');
+            if(typeof applePay !== 'undefined') {
+                addProductApplePayButton(applePay);
+            }
+            else {
+                console.log('ii2');
+                applePayObject.addEventListener("init", function() {addProductApplePayButton(applePay)});
+            }
+        }
 
-        if(typeof window.applePay!=='undefined')
-            if(typeof window.applePay.init!=='undefined')
-                changebutton();
-        changebutton();
-        function changebutton() {
-            var applePay = $(selectors.applepayObject).data('mageApplepay');
-            if(applePay.canUseApplePay('<?php echo \Oander\ApplePay\Enum\DisplayIn::PRODUCTPAGE; ?>')) {
+        function addProductApplePayButton(applePay) {
+            console.log('ii');
+            if (applePay.canUseApplePay('<?php echo \Oander\ApplePay\Enum\DisplayIn::PRODUCTPAGE; ?>')) {
                 applePay.addProductCartButton(document.getElementById('addcartbutton-apple-pay'));
             }
         }
