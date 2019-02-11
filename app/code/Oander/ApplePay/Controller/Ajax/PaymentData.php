@@ -79,6 +79,10 @@ class PaymentData extends \Magento\Framework\App\Action\Action
      * @var \Magento\Quote\Model\QuoteIdMaskFactory
      */
     private $quoteIdMaskFactory;
+    /**
+     * @var \Magento\Customer\Api\CustomerRepositoryInterface
+     */
+    private $customerRepository;
 
     /**
      * Constructor
@@ -99,6 +103,7 @@ class PaymentData extends \Magento\Framework\App\Action\Action
      * @param \Magento\Checkout\Model\Cart $cart
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
      * @param \Magento\Quote\Model\QuoteIdMaskFactory $quoteIdMaskFactory
+     * @param \Magento\Customer\Api\CustomerRepositoryInterface $customerRepository
      * @param \Oander\ApplePay\Helper\PaymentConfig $paymentConfig
      */
     public function __construct(
@@ -118,6 +123,7 @@ class PaymentData extends \Magento\Framework\App\Action\Action
         \Magento\Checkout\Model\Cart $cart,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Magento\Quote\Model\QuoteIdMaskFactory $quoteIdMaskFactory,
+        \Magento\Customer\Api\CustomerRepositoryInterface $customerRepository,
         \Oander\ApplePay\Helper\PaymentConfig $paymentConfig
     ) {
         parent::__construct($context);
@@ -138,6 +144,7 @@ class PaymentData extends \Magento\Framework\App\Action\Action
         $this->paymentConfig = $paymentConfig;
         $this->scopeConfig = $scopeConfig;
         $this->quoteIdMaskFactory = $quoteIdMaskFactory;
+        $this->customerRepository = $customerRepository;
     }
 
     /**
@@ -177,6 +184,24 @@ class PaymentData extends \Magento\Framework\App\Action\Action
                 $data['id'] = $maskid;
                 $data['isLoggedIn'] = $this->customerSession->isLoggedIn();
                 $data['total'] = $quote->getGrandTotal();
+                if($this->customerSession->isLoggedIn()) {
+                    $customer = $this->customerRepository->getById($this->customerSession->getCustomerId());
+                    $data['shipping_address'] = $customer->getDefaultShipping();
+                    if($data['shipping_address'])
+                    {
+                        $data['shipping_address'] = $this->addressRepository->getById($data['shipping_address']);
+                    }
+                    $data['billing_address'] = $customer->getDefaultBilling();
+                    if($data['billing_address'])
+                    {
+                        $data['billing_address'] = $this->addressRepository->getById($data['billing_address']);
+                    }
+                }
+                else
+                {
+                    $data['shipping_address'] = null;
+                    $data['billing_address'] = null;
+                }
             }
             else
             {

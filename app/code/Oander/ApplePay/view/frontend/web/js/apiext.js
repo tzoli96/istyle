@@ -23,7 +23,9 @@ define(
                 currencyCode: null,
                 quoteDetailsURL: null,
                 merchantCapabilities: null,
-                supportedNetworks: null
+                supportedNetworks: null,
+                shippingAddress: null,
+                billingAddress: null
             },
 
             initialize: function () {
@@ -53,11 +55,23 @@ define(
                     this.setGrandTotalAmount(parseFloat(response.total).toFixed(2));
                     this.setQuoteId(response.id);
                     this.setIsLoggedIn(response.isLoggedIn);
+                    this.setShippingAddress(response.shipping_address);
+                    this.setBillingAddress(response.billing_address);
                 }
                 var paymentRequest = this._super();
                 paymentRequest.merchantCapabilities = this.getMerchantCapabilities();
                 paymentRequest.supportedNetworks = this.getSupportedNetworks();
                 paymentRequest.currencyCode = this.getCurrencyCode();
+                var shippingAddress = this.getShippingAddress();
+                if(shippingAddress)
+                {
+                    paymentRequest.shippingContact = this.transformAddress(shippingAddress);
+                }
+                var billingAddress = this.getBillingAddress();
+                if(billingAddress)
+                {
+                    paymentRequest.billingContact = this.transformAddress(billingAddress);
+                }
                 //paymentRequest.supportedCountries = ['CZ'];
                 return paymentRequest;
             },
@@ -114,6 +128,18 @@ define(
                 }
             },
 
+            transformAddress: function (magentoAddress) {
+                return {"emailAddress": magentoAddress.email,
+                    "phoneNumber": magentoAddress.telephone,
+                    "givenName": magentoAddress.firstname,
+                    "familyName": magentoAddress.lastname,
+                    "addressLines": magentoAddress.street,
+                    "locality": magentoAddress.city,
+                    "administrativeArea": magentoAddress.region,
+                    "countryCode": magentoAddress.country_id.toUpperCase(),
+                    "postalCode": magentoAddress.postcode};
+            },
+
             /**
              * Set and get Country ID
              */
@@ -157,6 +183,24 @@ define(
                 this.extdefaults.supportedNetworks = value;
             },
             getSupportedNetworks: function () {
+                return this.extdefaults.supportedNetworks;
+            },
+            /**
+             * Set and get Supported Networks
+             */
+            setShippingAddress: function (value) {
+                this.extdefaults.supportedNetworks = value;
+            },
+            getShippingAddress: function () {
+                return this.extdefaults.supportedNetworks;
+            },
+            /**
+             * Set and get Supported Networks
+             */
+            setBillingAddress: function (value) {
+                this.extdefaults.supportedNetworks = value;
+            },
+            getBillingAddress: function () {
                 return this.extdefaults.supportedNetworks;
             }
         });

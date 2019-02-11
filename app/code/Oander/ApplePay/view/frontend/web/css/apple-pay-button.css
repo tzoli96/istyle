@@ -44,7 +44,7 @@
 
 #addcheckout-apple-pay .braintree-apple-pay-button{
     width: 50%;
-    margin: 0 auto;
+    margin: 20px 0;
 }
 
 #addcheckout-apple-pay .separator{
