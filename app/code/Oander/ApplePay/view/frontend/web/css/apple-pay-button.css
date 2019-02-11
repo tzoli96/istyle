@@ -37,3 +37,8 @@
     transition: background-color .15s;
     cursor: pointer;
 }
+
+#addcheckout-apple-pay {
+    width: 50%;
+    margin: 0 auto;
+}

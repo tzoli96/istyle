@@ -1,11 +1,3 @@
-<!--
-/**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
--->
-<!-- ko template: getTemplate() --><!-- /ko -->
-<!-- /ko -->
 <div id="addcheckout-apple-pay"></div>
 <script type="text/javascript">
     require(["jquery", 'applePay', 'domReady!'], function ($) {
@@ -22,13 +14,14 @@
             else {
                 applePayObject.addEventListener("init", function() {addCheckoutApplePayButton()});
             }
+            return false;
         }
 
         function addCheckoutApplePayButton() {
             var applePayObject = document.getElementById(selectors.applepayObject);
             var applePay = $(applePayObject).data('mageApplepay');
-            if (applePay.canUseApplePay()) {
-                applePay.addProductCartButton(document.getElementById('addcheckout-apple-pay'));
+            if (applePay.canUseApplePay('checkout')) {
+                applePay.addCartButton(document.getElementById('addcheckout-apple-pay'));
             }
         }
     });

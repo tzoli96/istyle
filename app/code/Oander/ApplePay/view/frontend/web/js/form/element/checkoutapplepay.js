@@ -7,26 +7,38 @@
 define([
     'jquery',
     'uiComponent',
-    'ko',
-    'Magento_Customer/js/model/customer',
-    'Magento_Customer/js/action/check-email-availability',
-    'Magento_Customer/js/action/login',
-    'Magento_Checkout/js/model/quote',
-    'Magento_Checkout/js/checkout-data',
-    'Magento_Checkout/js/model/full-screen-loader',
-    'mage/validation'
-], function ($, Component, ko, customer, checkEmailAvailability, loginAction, quote, checkoutData, fullScreenLoader) {
+    'applePay'
+], function ($, Component) {
     'use strict';
-
-    var validatedEmail = checkoutData.getValidatedEmailValue();
-
-    if (validatedEmail && !customer.isLoggedIn()) {
-        quote.guestEmail = validatedEmail;
-    }
 
     return Component.extend({
         defaults: {
             template: 'Oander_ApplePay/form/element/checkoutapplepay'
+        },
+        selectors: {
+            applepayObject: 'applepay-object'
+        },
+        addButton: function () {
+            if (document.getElementById('addcheckout-apple-pay').innerHTML === '') {
+                var component = this;
+                var applePayObject = document.getElementById(this.selectors.applepayObject);
+                var applePay = $(applePayObject).data('mageApplepay');
+                if(typeof applePay !== 'undefined') {
+                    component.addCheckoutApplePayButton();
+                }
+                else {
+                    applePayObject.addEventListener("init", function() {component.addCheckoutApplePayButton()});
+                }
+            }
+            return false;
+        },
+
+        addCheckoutApplePayButton: function () {
+            var applePayObject = document.getElementById(this.selectors.applepayObject);
+            var applePay = $(applePayObject).data('mageApplepay');
+            if (applePay.canUseApplePay('checkout')) {
+                applePay.addCartButton(document.getElementById('addcheckout-apple-pay'));
+            }
         }
     });
 });
