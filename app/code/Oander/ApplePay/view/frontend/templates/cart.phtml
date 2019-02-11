@@ -8,14 +8,16 @@
             var applePayObject = document.getElementById(selectors.applepayObject);
             var applePay = $(applePayObject).data('mageApplepay');
             if(typeof applePay !== 'undefined') {
-                addCartApplePayButton(applePay);
+                addCartApplePayButton();
             }
             else {
-                applePayObject.addEventListener("init", function() {addCartApplePayButton(applePay)});
+                applePayObject.addEventListener("init", function() {addCartApplePayButton()});
             }
         }
 
-        function addCartApplePayButton(applePay) {
+        function addCartApplePayButton() {
+            var applePayObject = document.getElementById(selectors.applepayObject);
+            var applePay = $(applePayObject).data('mageApplepay');
             if (applePay.canUseApplePay('<?php echo \Oander\ApplePay\Enum\DisplayIn::CART; ?>')) {
                 applePay.addCartButton(document.getElementById('cart-applepay'));
             }

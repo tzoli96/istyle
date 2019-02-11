@@ -1,0 +1,35 @@
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<!-- ko template: getTemplate() --><!-- /ko -->
+<!-- /ko -->
+<div id="addcheckout-apple-pay"></div>
+<script type="text/javascript">
+    require(["jquery", 'applePay', 'domReady!'], function ($) {
+        var selectors = {
+            applepayObject: 'applepay-object'
+        };
+
+        if (document.getElementById('addcheckout-apple-pay').innerHTML === '') {
+            var applePayObject = document.getElementById(selectors.applepayObject);
+            var applePay = $(applePayObject).data('mageApplepay');
+            if(typeof applePay !== 'undefined') {
+                addCheckoutApplePayButton();
+            }
+            else {
+                applePayObject.addEventListener("init", function() {addCheckoutApplePayButton()});
+            }
+        }
+
+        function addCheckoutApplePayButton() {
+            var applePayObject = document.getElementById(selectors.applepayObject);
+            var applePay = $(applePayObject).data('mageApplepay');
+            if (applePay.canUseApplePay()) {
+                applePay.addProductCartButton(document.getElementById('addcheckout-apple-pay'));
+            }
+        }
+    });
+</script>

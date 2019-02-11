@@ -40,6 +40,12 @@ define(
                 originallink: '#apple-pay-original-link'
             },
 
+            _create: function() {
+                var event = document.createEvent('Event');
+                event.initEvent('init', true, true);
+                document.getElementById('applepay-object').dispatchEvent(event);
+            },
+
             /**
              * @returns {Object}
              */
@@ -48,9 +54,6 @@ define(
                 if (!this.options.displayName) {
                     this.options.displayName = $t('Store');
                 }
-                var event = document.createEvent('Event');
-                event.initEvent('init', true, true);
-                document.getElementById('applepay-object').dispatchEvent(event);
                 return this;
             },
 

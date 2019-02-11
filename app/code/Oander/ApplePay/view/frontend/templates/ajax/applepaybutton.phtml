@@ -22,18 +22,20 @@ $helper = $objectManager->create('Magento\Catalog\Helper\Data');
             applepayObject: 'applepay-object'
         };
 
-        if(document.getElementById('addcartbutton-apple-pay').innerHTML === '') {
+        if (document.getElementById('addcartbutton-apple-pay').innerHTML === '') {
             var applePayObject = document.getElementById(selectors.applepayObject);
             var applePay = $(applePayObject).data('mageApplepay');
             if(typeof applePay !== 'undefined') {
-                addProductApplePayButton(applePay);
+                addProductApplePayButton();
             }
             else {
-                applePayObject.addEventListener("init", function() {addProductApplePayButton(applePay)});
+                applePayObject.addEventListener("init", function() {addProductApplePayButton()});
             }
         }
 
-        function addProductApplePayButton(applePay) {
+        function addProductApplePayButton() {
+            var applePayObject = document.getElementById(selectors.applepayObject);
+            var applePay = $(applePayObject).data('mageApplepay');
             if (applePay.canUseApplePay('<?php echo \Oander\ApplePay\Enum\DisplayIn::PRODUCTPAGE; ?>')) {
                 applePay.addProductCartButton(document.getElementById('addcartbutton-apple-pay'));
             }
