@@ -19,7 +19,8 @@ define([
             applepayObject: 'applepay-object'
         },
         addButton: function () {
-            if (document.getElementById('addcheckout-apple-pay').innerHTML === '') {
+            if (document.getElementById('addcheckout-apple-pay-button').innerHTML === '') {
+                $('#addcheckout-apple-pay').insertBefore($('#checkoutSteps').parent());
                 var component = this;
                 var applePayObject = document.getElementById(this.selectors.applepayObject);
                 var applePay = $(applePayObject).data('mageApplepay');
@@ -37,7 +38,7 @@ define([
             var applePayObject = document.getElementById(this.selectors.applepayObject);
             var applePay = $(applePayObject).data('mageApplepay');
             if (applePay.canUseApplePay('checkout')) {
-                applePay.addCartButton(document.getElementById('addcheckout-apple-pay'));
+                applePay.addCartButton(document.getElementById('addcheckout-apple-pay-button'));
             }
         }
     });

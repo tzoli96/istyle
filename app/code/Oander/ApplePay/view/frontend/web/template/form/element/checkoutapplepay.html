@@ -1,28 +1,9 @@
-<div id="addcheckout-apple-pay"></div>
-<script type="text/javascript">
-    require(["jquery", 'applePay', 'domReady!'], function ($) {
-        var selectors = {
-            applepayObject: 'applepay-object'
-        };
-
-        if (document.getElementById('addcheckout-apple-pay').innerHTML === '') {
-            var applePayObject = document.getElementById(selectors.applepayObject);
-            var applePay = $(applePayObject).data('mageApplepay');
-            if(typeof applePay !== 'undefined') {
-                addCheckoutApplePayButton();
-            }
-            else {
-                applePayObject.addEventListener("init", function() {addCheckoutApplePayButton()});
-            }
-            return false;
-        }
-
-        function addCheckoutApplePayButton() {
-            var applePayObject = document.getElementById(selectors.applepayObject);
-            var applePay = $(applePayObject).data('mageApplepay');
-            if (applePay.canUseApplePay('checkout')) {
-                applePay.addCartButton(document.getElementById('addcheckout-apple-pay'));
-            }
-        }
-    });
-</script>
+<div id="addcheckout-apple-pay">
+    <div class="opc-wrapper">
+        <h2 class="step-title" data-bind="i18n: 'Pay wih one click'" data-role="title"></h2>
+        <div id="addcheckout-apple-pay-button"></div>
+        <div data-bind="i18n: 'Applepay Checkout Description from Translation'" data-role="title"></div>
+    </div>
+    <div class="separator opc-wrapper" data-bind="i18n: 'OR'" data-role="title"></div>
+</div>
+<!-- ko ifnot: addButton() -->

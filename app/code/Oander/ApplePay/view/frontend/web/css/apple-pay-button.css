@@ -38,7 +38,16 @@
     cursor: pointer;
 }
 
-#addcheckout-apple-pay {
+#addcheckout-apple-pay{
+    margin-bottom: 30px;
+}
+
+#addcheckout-apple-pay .braintree-apple-pay-button{
     width: 50%;
     margin: 0 auto;
+}
+
+#addcheckout-apple-pay .separator{
+    border: none;
+    background-color: inherit;
 }
