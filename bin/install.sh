@@ -106,7 +106,7 @@ symlink_check() {
 validation() {
   local STATE="${1^^}"
   local SITE_NAME="${2}"
-  if curl -I -H \'Host: ${SITE_NAME}\' -H 'X-Forwarded-Proto: https' http://localhost/; then
+  if curl -s -I -H "Host: ${SITE_NAME}" -H "X-Forwarded-Proto: https" http://localhost/ | grep -q "HTTP/1.1 200 OK"; then
     send_to_slack " * SERVICE VALIDATION @ ${STATE} ... OK"
   else
     send_to_slack " * SERVICE VALIDATION @ ${STATE} ... FAILED"
@@ -248,7 +248,6 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
       symlink_check "CREATE DIRECTORY SYMLINK TO ${LANG_SYMLINK} FOLDER" "${WEBROOT}/pub/${LANG_SYMLINK,,}" "${WEBROOT}/pub" "${WEBROOT}/pub/${LANG_SYMLINK,,}"
     done
     /etc/init.d/nginx reload
-    sleep 10
     validation build istyle.hu
   elif [ "${DEPLOY_ENV}" == "STAGING" ]; then
     /etc/init.d/nginx reload
@@ -331,7 +330,6 @@ else
         symlink_check "CREATE DIRECTORY SYMLINK TO ${LANG_SYMLINK} FOLDER" "${WEBROOT}/pub/${LANG_SYMLINK,,}" "${WEBROOT}/pub" "${WEBROOT}/pub/${LANG_SYMLINK,,}"
       done
       /etc/init.d/nginx reload
-      sleep 10
       validation bluegreen istyle.hu
     elif [ "${DEPLOY_ENV}" == "STAGING" ]; then
       /etc/init.d/nginx reload
