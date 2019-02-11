@@ -75,6 +75,11 @@ nfs_check
 cron_check
 if recreate_dirs; then echo "OK"; fi
 
+if dpkg -l|grep monit &> /dev/null; then
+  echo -n " * STOP MONIT .. "
+  if /etc/init.d/monit stop &> /dev/null; then echo OK; else echo FAIL; fi
+fi
+
 echo -n " * MODIFY PHP-CLI CONFIG FOR DEPLOY .. "
 if cp ${EFS}/php-deploy.conf /etc/php/7.0/cli/php.ini; then echo OK; else echo FAIL; fi
 
