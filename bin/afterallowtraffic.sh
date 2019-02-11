@@ -7,6 +7,7 @@ EFS="/mnt/istyle-storage/istyle"
 EFS_LIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | tail -1)"
 WEBROOT="/var/www/istyle.eu/webroot"
 INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+INSTANCE_IP=$(curl -s http://169.254.169.254/latest/meta-data/public-ipv4)
 SELENIUM_ID="i-00a99d503de806802"
 SELENIUM_NAME="selenium.istyle.local"
 SELENIUM_SCRIPT="/home/ubuntu/selitest.py"
@@ -46,7 +47,7 @@ send_to_slack() {
   echo "$MESSAGE"
   PAYLOAD="payload={
     \"channel\": \"#istyle-collab\",
-    \"username\": \"${INSTANCE_ID}\",
+    \"username\": \"${INSTANCE_ID} :: ${INSTANCE_IP}\",
     \"text\": \"$MESSAGE\"
     }"
   curl -X POST --data-urlencode "${PAYLOAD}" ${SLACK_WEBHOOK} &> /dev/null
@@ -56,7 +57,7 @@ maintenance_action() {
   local ACTION="${1^^}"
   if [ "${ACTION}" == "BLOCK" ]; then MODE_ACTION="ENABLE"; else MODE_ACTION="DISABLE"; fi
 
-  send_to_slack " * ${MODE_ACTION} MAINTENANCE MODE"
+  send_to_slack " * ${MODE_ACTION} MAINTENANCE MODE:"
   for WAF_ID in "${WAF_IDS[@]}"; do
     WAF_DEFAULT_ACTION=$(aws waf get-web-acl --web-acl-id ${WAF_ID} --output text | grep DEFAULTACTION | cut -f2)
     if [[ "${WAF_DEFAULT_ACTION}" != "${ACTION}" ]]; then
@@ -82,6 +83,7 @@ if [[ "${INSTANCE_ID}" != "${MASTER_ID}" ]]; then
   echo ${EFS_LIVE} | awk -F "/" '{print $NF}' > ${EFS}/current_live
   [ $? -eq 0 ] && echo OK || echo FAIL
 
+  echo
   echo -n "=== CHECK IF TESTING FLAG EXISTS => "
   sleep $[ ( $RANDOM % 10 ) + 1 ].$[ ( $RANDOM % 1000 ) + 1 ]
   if [ -f ${EFS}/testing.flag ]; then
@@ -89,10 +91,18 @@ if [[ "${INSTANCE_ID}" != "${MASTER_ID}" ]]; then
     echo -n " * REMOVE TESTING FLAG ... "
     if rm ${EFS}/testing.flag; then echo OK; else echo FAIL; fi
 
+    echo " * MAGENTO CACHE FLUSH: "
+    if sudo -u www-data php ${WEBROOT}/bin/magento cache:flush; then
+
+    echo -n " * COPY THE TEST SCRIPT TO THE SELENIUM MACHINE ... "
+    if scp ${WEBROOT}/deploytest/selitest.py ${SELENIUM_NAME}:/home/ubuntu/ &> /dev/null; then echo OK; else echo FAIL; fi
+
     # RUN SELENIUM TESTS
     ssh ${SELENIUM_NAME} python ${SELENIUM_SCRIPT} ${SELENIUM_TEST_DOMAIN} ${SELENIUM_TEST_USER} ${SELENIUM_TEST_PASS} ${SELENIUM_TEST_URL}
     if [ $? -eq 0 ]; then
-      send_to_slack "SELENIUM TESTS :: OK"
+      echo
+      send_to_slack " * SELENIUM TESTS :: OK"
+      echo
 
       # TURN MAINTENANCE OFF
       maintenance_action allow
@@ -106,12 +116,13 @@ if [[ "${INSTANCE_ID}" != "${MASTER_ID}" ]]; then
       echo -n " * MODIFY PHP-CLI CONFIG BACK .. "
       if cp ${EFS}/php-orig.conf /etc/php/7.0/cli/php.ini; then echo OK; else echo FAIL; fi
 
-      echo " * MAGENTO CACHE FLUSH: "
-      if sudo -u www-data php ${WEBROOT}/bin/magento cache:flush; then
-      send_to_slack "### DEPLOY DONE ###"
+      echo
+      send_to_slack "### DEPLOY FINISHED SUCCESSFULLY ###"
+      echo
       fi
     else
-      send_to_slack "SELENIUM TESTS :: FAILED"
+      echo
+      send_to_slack " * SELENIUM TESTS :: FAILED"
       exit 200
     fi
   else
