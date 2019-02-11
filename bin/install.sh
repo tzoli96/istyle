@@ -106,7 +106,7 @@ symlink_check() {
 validation() {
   local STATE="${1^^}"
   local SITE_NAME="${2}"
-  if curl -I -H \'Host: ${SITE_NAME}\' -H 'X-Forwarded-Proto: https' http://localhost/ 2>&1 /dev/null | grep -q "HTTP/1.1 200 OK"; then
+  if curl -I -H \'Host: ${SITE_NAME}\' -H 'X-Forwarded-Proto: https' http://localhost/; then
     send_to_slack " * SERVICE VALIDATION @ ${STATE} ... OK"
   else
     send_to_slack " * SERVICE VALIDATION @ ${STATE} ... FAILED"
