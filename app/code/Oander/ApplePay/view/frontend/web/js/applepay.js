@@ -62,7 +62,7 @@ define(
                 api.setQuoteDetailsURL(this.options.quoteDetailsURL);
                 api.setClientToken(this.options.clientToken);
                 api.setDisplayName(this.options.displayName);
-                api.setActionSuccess(this.options.actionSuccess);
+                api.setActionSuccess(this.options.actionSuccess+'?clearQuote=false');
                 api.setStoreCode(this.options.storeCode);
                 api.setCountryCode(this.options.countryCode);
                 api.setCurrencyCode(this.options.currencyCode);

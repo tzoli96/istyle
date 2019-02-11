@@ -3,6 +3,7 @@
 	<module name="Oander_ApplePay" setup_version="1.0.0">
 		<sequence>
 			<module name="Magento_Braintree"/>
+			<module name="Oander_Checkout"/>
 		</sequence>
 	</module>
 </config>

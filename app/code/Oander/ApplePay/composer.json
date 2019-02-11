@@ -2,7 +2,8 @@
     "name": "oander/module-applepay",
     "description": "Apple Pay payment method",
     "require": {
-        "php": "7.*"
+        "php": "7.*",
+        "oander/module-checkout": ">=1.1.0"
     },
     "type": "magento2-module",
     "version": "1.0.2",

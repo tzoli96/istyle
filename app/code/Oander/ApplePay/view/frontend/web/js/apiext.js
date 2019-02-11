@@ -108,9 +108,9 @@ define(
              */
             getApiUrl: function (uri) {
                 if (this.getIsLoggedIn() === true) {
-                    return "rest/" + this.getStoreCode() + "/V1/carts/mine/" + uri + '?isApplePay=true';
+                    return "rest/" + this.getStoreCode() + "/V1/carts/mine/" + uri + '?isApplePay=true&forcedActive=true';
                 } else {
-                    return "rest/" + this.getStoreCode() + "/V1/guest-carts/" + this.getQuoteId() + "/" + uri + '?isApplePay=true';
+                    return "rest/" + this.getStoreCode() + "/V1/guest-carts/" + this.getQuoteId() + "/" + uri + '?isApplePay=true&forcedActive=true';
                 }
             },
 
