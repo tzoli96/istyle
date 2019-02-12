@@ -189,19 +189,19 @@ define(
              * Set and get Supported Networks
              */
             setShippingAddress: function (value) {
-                this.extdefaults.supportedNetworks = value;
+                this.extdefaults.shippingAddress = value;
             },
             getShippingAddress: function () {
-                return this.extdefaults.supportedNetworks;
+                return this.extdefaults.shippingAddress;
             },
             /**
              * Set and get Supported Networks
              */
             setBillingAddress: function (value) {
-                this.extdefaults.supportedNetworks = value;
+                this.extdefaults.billingAddress = value;
             },
             getBillingAddress: function () {
-                return this.extdefaults.supportedNetworks;
+                return this.extdefaults.billingAddress;
             }
         });
 
