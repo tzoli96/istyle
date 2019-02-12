@@ -91,8 +91,8 @@ define(
                 api.setCurrencyCode(this.options.currencyCode);
                 api.setSupportedNetworks(this.options.supportedNetworks);
                 api.setMerchantCapabilities(this.options.merchantCapabilities);
-                this.setShippingAddress(response.shipping_address);
-                this.setBillingAddress(response.billing_address);
+                api.setShippingAddress(response.shipping_address);
+                api.setBillingAddress(response.billing_address);
 
                 // Attach the button
                 button.init(

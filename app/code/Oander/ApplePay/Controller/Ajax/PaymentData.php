@@ -185,16 +185,18 @@ class PaymentData extends \Magento\Framework\App\Action\Action
                 $data['isLoggedIn'] = $this->customerSession->isLoggedIn();
                 $data['total'] = $quote->getGrandTotal();
                 if($this->customerSession->isLoggedIn()) {
-                    $customer = $this->customerRepository->getById($this->customerSession->getCustomerId());
-                    $data['shipping_address'] = $customer->getDefaultShipping();
-                    if($data['shipping_address'])
+                    $customer = $this->customerSession->getCustomer();
+                    if($customer->getDefaultShippingAddress())
                     {
-                        $data['shipping_address'] = $this->addressRepository->getById($data['shipping_address']);
+                        $data['shipping_address'] = $customer->getDefaultShippingAddress()->getData();
+                        $data['shipping_address']['email'] = $customer->getEmail();
+                        $data['shipping_address']['street'] = $customer->getDefaultShippingAddress()->getStreet();
                     }
-                    $data['billing_address'] = $customer->getDefaultBilling();
-                    if($data['billing_address'])
+                    if($customer->getDefaultBillingAddress())
                     {
-                        $data['billing_address'] = $this->addressRepository->getById($data['billing_address']);
+                        $data['billing_address'] = $customer->getDefaultBillingAddress()->getData();
+                        $data['billing_address']['email'] = $customer->getEmail();
+                        $data['billing_address']['street'] = $customer->getDefaultBillingAddress()->getStreet();
                     }
                 }
                 else
@@ -245,38 +247,28 @@ class PaymentData extends \Magento\Framework\App\Action\Action
             $quote->setStoreId($this->store->getId());
             if($this->customerSession->isLoggedIn())
             {
-                $billingAddressId = $this->customerSession->getCustomerData()->getDefaultBilling();
-                $shippingAddressId = $this->customerSession->getCustomerData()->getDefaultShipping();
-                try {
-                    $shippingAddress = $quote->getAddressByCustomerAddressId($shippingAddressId);
-                    if(!$shippingAddress)
-                    {
-                        $quoteShippingAddress = $this->quoteAddressFactory->create();
-                        $quoteShippingAddress->importCustomerAddressData($this->addressRepository->getById($shippingAddressId));
-                        $quote->setShippingAddress($quoteShippingAddress);
-                    }
-                    else
-                    {
-                        $quote->setShippingAddress($shippingAddress);
-                    }
-                } catch (\Exception $e) {
-                    $quote->setShippingAddress($this->quoteAddressFactory->create());
+                $defaultShippingAddress = $this->customerSession->getCustomer()->getDefaultShippingAddress();
+                $quoteShippingAddress = $this->quoteAddressFactory->create();
+                if ($defaultShippingAddress) {
+                    $quoteShippingAddress->importCustomerAddressData($this->addressRepository->getById($defaultShippingAddress->getId()));
+                } else {
+                    $quoteShippingAddress->setCountryId($this->paymentConfig->getDefaultCountryId());
                 }
-                try {
-                    $billingAddress = $quote->getAddressByCustomerAddressId($billingAddressId);
-                    if(!$billingAddress)
-                    {
-                        $quoteBillingAddress = $this->quoteAddressFactory->create();
-                        $quoteBillingAddress->importCustomerAddressData($this->addressRepository->getById($billingAddressId));
-                        $quote->setBillingAddress($quoteBillingAddress);
-                    }
-                    else
-                    {
-                        $quote->setBillingAddress($billingAddress);
-                    }
-                } catch (\Exception $e) {
-                    $quote->setBillingAddress($this->quoteAddressFactory->create());
+
+                $quoteShippingAddress->setCustomerAddressId(null);
+                $quote->setShippingAddress($quoteShippingAddress);
+
+                $defaultBillingAddress = $this->customerSession->getCustomer()->getDefaultBillingAddress();
+                $quoteBillingAddress = $this->quoteAddressFactory->create();
+                if ($defaultBillingAddress) {
+                    $quoteBillingAddress->importCustomerAddressData($this->addressRepository->getById($defaultBillingAddress->getId()));
+                } else {
+                    $quoteBillingAddress->setCountryId($this->paymentConfig->getDefaultCountryId());
                 }
+
+                $quoteBillingAddress->setCustomerAddressId(null);
+                $quote->setBillingAddress($quoteBillingAddress);
+
                 $quote->setCustomer($this->customerSession->getCustomerData());
                 $quote->setCustomerIsGuest(0);
             }

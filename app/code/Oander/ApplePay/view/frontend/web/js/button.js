@@ -88,6 +88,7 @@ define(
 
                             // Init apple pay session
                             try {
+                                console.dir(paymentRequest);
                                 var session = new ApplePaySession(3, paymentRequest);
                             } catch (err) {
                                 jQuery("body").loader('hide');

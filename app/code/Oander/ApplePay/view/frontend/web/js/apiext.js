@@ -6,12 +6,14 @@ define(
     [
         'jquery',
         'Oander_ApplePay/js/api',
-        'mage/storage'
+        'mage/storage',
+        'mage/url'
     ],
     function (
         $,
         buttonApi,
-        storage
+        storage,
+        urlBuilder
     ) {
 
         'use strict';
@@ -44,6 +46,7 @@ define(
                     async: false
                 }).done(function(response) {
                     result = response;
+                    console.log(result);
                 });
                 return result;
             },
@@ -62,10 +65,36 @@ define(
                 paymentRequest.merchantCapabilities = this.getMerchantCapabilities();
                 paymentRequest.supportedNetworks = this.getSupportedNetworks();
                 paymentRequest.currencyCode = this.getCurrencyCode();
+                paymentRequest.countryCode = this.getCountryCode();
                 var shippingAddress = this.getShippingAddress();
                 if(shippingAddress)
                 {
                     paymentRequest.shippingContact = this.transformAddress(shippingAddress);
+                    var magentoShippingMethodsResponse = this.getShippingMethodsFromServer(shippingAddress);
+                    var applePayShippingMethods = [];
+                    var magentoShippingMethods = {};
+                    if (magentoShippingMethodsResponse.length !== 0) {
+                        var method = {};
+                        // Format shipping methods array
+                        for (var i = 0; i < magentoShippingMethodsResponse.length; i++) {
+                            if (typeof magentoShippingMethodsResponse[i].method_code !== 'string') {
+                                continue;
+                            }
+                            method = {
+                                identifier: magentoShippingMethodsResponse[i].method_code,
+                                label: magentoShippingMethodsResponse[i].method_title,
+                                detail: magentoShippingMethodsResponse[i].carrier_title ? magentoShippingMethodsResponse[i].carrier_title : "",
+                                amount: parseFloat(magentoShippingMethodsResponse[i].amount).toFixed(2)
+                            };
+
+                            applePayShippingMethods.push(method);
+                            magentoShippingMethods[ magentoShippingMethodsResponse[i].method_code ] = magentoShippingMethodsResponse[i];
+                        }
+
+                        paymentRequest.shippingMethods = applePayShippingMethods;
+                        this.setShippingMethods(magentoShippingMethods);
+                        this.setShippingMethod(applePayShippingMethods[0].identifier);
+                    }
                 }
                 var billingAddress = this.getBillingAddress();
                 if(billingAddress)
@@ -73,12 +102,13 @@ define(
                     paymentRequest.billingContact = this.transformAddress(billingAddress);
                 }
                 //paymentRequest.supportedCountries = ['CZ'];
+
                 return paymentRequest;
             },
 
             onShippingContactSelect: function (event, session) {
                 var component = this;
-                console.log(session);
+                console.log(event);
                 var address = event.shippingContact;
                 if(address.countryCode !== this.extdefaults.countryCode.toLowerCase())
                 {
@@ -121,14 +151,15 @@ define(
              * API Urls for logged in / guest
              */
             getApiUrl: function (uri) {
-                if (this.getIsLoggedIn() === true) {
+               /* if (this.getIsLoggedIn() === true) {
                     return "rest/" + this.getStoreCode() + "/V1/carts/mine/" + uri + '?isApplePay=true&forcedActive=true';
-                } else {
+                } else {*/
                     return "rest/" + this.getStoreCode() + "/V1/guest-carts/" + this.getQuoteId() + "/" + uri + '?isApplePay=true&forcedActive=true';
-                }
+              //  }
             },
 
             transformAddress: function (magentoAddress) {
+                console.dir(magentoAddress);
                 return {"emailAddress": magentoAddress.email,
                     "phoneNumber": magentoAddress.telephone,
                     "givenName": magentoAddress.firstname,
@@ -136,7 +167,7 @@ define(
                     "addressLines": magentoAddress.street,
                     "locality": magentoAddress.city,
                     "administrativeArea": magentoAddress.region,
-                    "countryCode": magentoAddress.country_id.toUpperCase(),
+                    "countryCode": magentoAddress.country_id.toLowerCase(),
                     "postalCode": magentoAddress.postcode};
             },
 
@@ -202,6 +233,33 @@ define(
             },
             getBillingAddress: function () {
                 return this.extdefaults.billingAddress;
+            },
+
+            getShippingMethodsFromServer: function (shippingAddress) {
+                var shippingMethods = [];
+                var payload = {
+                    address: {
+                        city: null,//shippingAddress.city,
+                        region: null,//shippingAddress.region,
+                        country_id: shippingAddress.country_id,
+                        postcode: null,//shippingAddress.postcode,
+                        save_in_address_book :0
+                    }
+                };
+
+                // Retrieve shipping methods
+                $.ajax({
+                    type: "POST",
+                    url: urlBuilder.build(this.getApiUrl("estimate-shipping-methods")),
+                    data: JSON.stringify(payload),
+                    async: false,
+                    global: true,
+                    contentType: 'application/json'
+                }).done(function (response) {
+                    shippingMethods = response;
+                });
+
+                return shippingMethods;
             }
         });
 
