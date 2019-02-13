@@ -8,7 +8,8 @@ define(
         'Oander_ApplePay/js/apiext',
         'mage/translate',
         'jquery',
-        'domReady!'
+        'domReady!',
+        'loader'
     ],
     function (
         button,

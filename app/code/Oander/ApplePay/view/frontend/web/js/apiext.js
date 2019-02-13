@@ -7,13 +7,15 @@ define(
         'jquery',
         'Oander_ApplePay/js/api',
         'mage/storage',
-        'mage/url'
+        'mage/url',
+        'mage/translate'
     ],
     function (
         $,
         buttonApi,
         storage,
-        urlBuilder
+        urlBuilder,
+        $t
     ) {
 
         'use strict';
@@ -93,6 +95,13 @@ define(
                         paymentRequest.shippingMethods = applePayShippingMethods;
                         this.setShippingMethods(magentoShippingMethods);
                         this.setShippingMethod(applePayShippingMethods[0].identifier);
+
+                        paymentRequest.total.amount = parseFloat(this.getGrandTotalAmount() + parseFloat(applePayShippingMethods[0].amount)).toFixed(2);
+                        paymentRequest.lineItems =  [{
+                            type: 'final',
+                            label: $t('Shipping'),
+                            amount: applePayShippingMethods[0].amount
+                        }];
                     }
                 }
                 var billingAddress = this.getBillingAddress();
@@ -157,7 +166,6 @@ define(
             },
 
             transformAddress: function (magentoAddress) {
-                console.dir(magentoAddress);
                 return {"emailAddress": magentoAddress.email,
                     "phoneNumber": magentoAddress.telephone,
                     "givenName": magentoAddress.firstname,

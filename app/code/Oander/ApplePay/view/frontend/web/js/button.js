@@ -9,7 +9,8 @@ define(
         "jquery",
         'braintree',
         'braintreeApplePay',
-        'mage/translate'
+        'mage/translate',
+        'loader'
         ],
     function (
         Component,
@@ -88,7 +89,6 @@ define(
 
                             // Init apple pay session
                             try {
-                                console.dir(paymentRequest);
                                 var session = new ApplePaySession(3, paymentRequest);
                             } catch (err) {
                                 jQuery("body").loader('hide');
@@ -99,6 +99,7 @@ define(
 
                             // Handle invalid merchant
                             session.onvalidatemerchant = function (event) {
+                                jQuery("body").loader('hide');
                                 applePayInstance.performValidation({
                                     validationURL: event.validationURL,
                                     displayName: context.getDisplayName()
@@ -148,7 +149,6 @@ define(
                             if (typeof context.onButtonClick === 'function') {
                                 context.onButtonClick(session, this, e);
                             } else {
-                                jQuery("body").loader('hide');
                                 session.begin();
                             }
                         });

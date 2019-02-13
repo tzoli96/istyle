@@ -4,27 +4,28 @@
 .braintree-applepay-container-product {
     display: inline-block;
 
-.braintree-apple-pay-button {
-    padding: 10px 0px;
-    margin: 0;
-    margin-bottom: 15px;
-}
-}
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
-    .braintree-applepay-container-product {
-        display: block;
-
     .braintree-apple-pay-button {
-        width: 100%;
+        padding: 10px 0px;
+        margin: 0;
+        margin-bottom: 15px;
     }
 }
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+        .braintree-applepay-container-product {
+            display: block;
+
+        .braintree-apple-pay-button {
+            width: 100%;
+        }
+    }
 }
 .braintree-apple-pay-button {
     -webkit-appearance: -apple-pay-button;
-    -apple-pay-button-type: plain;
+    -apple-pay-button-type: buy;
     display: block;
     width: 100%;
-    min-height: 40px;
+    min-height: 30pt;
+    min-width: 1040pt;
     border: 1px solid black;
     background-image: -webkit-named-image(apple-pay-logo-black);
     background-size: 100% ~'calc(60% + 2px)';
@@ -36,6 +37,26 @@
     margin: 5px auto;
     transition: background-color .15s;
     cursor: pointer;
+}
+
+.checkout-index-index .braintree-apple-pay-button,
+.checkout-cart-index .braintree-apple-pay-button,
+.product-info-right .braintree-apple-pay-button,
+.block-minicart .braintree-apple-pay-button {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    border: none;
+}
+
+.checkout-index-index .braintree-apple-pay-button,
+#minicart-applepay .braintree-apple-pay-button {
+    padding: 6px 0;
+}
+
+.checkout-cart-index .braintree-apple-pay-button {
+    padding: 12px 0;
 }
 
 #addcheckout-apple-pay{

@@ -46,7 +46,6 @@ define([
             var applePayObject = document.getElementById(this.selectors.applepayObject);
             var applePay = $(applePayObject).data('mageApplepay');
             if (applePay.canUseApplePay('checkout')) {
-                console.log('ok');
                 var outerdiv = $('#addcheckout-apple-pay');
                 $('#checkoutSteps').parent().before($(this.divs));
                 //outerdiv.insertBefore($('#checkoutSteps').parent());

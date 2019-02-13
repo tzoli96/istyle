@@ -17,19 +17,27 @@ $helper = $objectManager->create('Magento\Catalog\Helper\Data');
     </button>
 </div>
 <script type="text/javascript">
-    require(["jquery", 'applePay', 'domReady!'], function ($) {
+    require(["jquery", 'applePay'], function ($) {
         var selectors = {
-            applepayObject: 'applepay-object'
+            applepayObject: 'applepay-object',
+            appleAddToCartButton: '#addcartbutton-apple-pay'
         };
+        if(typeof window.applepay === 'undefined')
+        {
+            window.applepay = {};
+            window.applepay.productpageproductid = 'default-prod-id';
+        }
 
-        if (document.getElementById('addcartbutton-apple-pay').innerHTML === '') {
+        if(window.applepay.productpageproductid !== <?php echo $block->getProduct()->getId() ?>) {
+            window.applepay.productpageproductid = <?php echo $block->getProduct()->getId() ?>;
             var applePayObject = document.getElementById(selectors.applepayObject);
             var applePay = $(applePayObject).data('mageApplepay');
-            if(typeof applePay !== 'undefined') {
+            if (typeof applePay !== 'undefined') {
                 addProductApplePayButton();
-            }
-            else {
-                applePayObject.addEventListener("init", function() {addProductApplePayButton()});
+            } else {
+                applePayObject.addEventListener("init", function () {
+                    addProductApplePayButton()
+                });
             }
         }
 
