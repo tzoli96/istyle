@@ -128,7 +128,6 @@ define(['uiComponent', 'mage/translate', 'mage/storage', 'jquery'], function (Co
         },
 
         setShippingMethods: function (value) {
-            console.log(value);
             this.shippingMethods = value;
         },
 
@@ -165,7 +164,6 @@ define(['uiComponent', 'mage/translate', 'mage/storage', 'jquery'], function (Co
          * Retrieve shipping methods based on address
          */
         onShippingContactSelect: function (event, session) {
-            console.log('onShippingContactSelect');
             var address = event.shippingContact,
                 newItems = [],
                 payload = {
@@ -302,8 +300,6 @@ define(['uiComponent', 'mage/translate', 'mage/storage', 'jquery'], function (Co
          * Place the order
          */
         startPlaceOrder: function (nonce, event, session) {
-            console.log(this.shippingMethods);
-            console.log(this.shippingMethod);
             var shippingContact = event.payment.shippingContact,
                 billingContact = event.payment.billingContact,
                 payload = {

@@ -250,7 +250,10 @@ class PaymentData extends \Magento\Framework\App\Action\Action
                 $defaultShippingAddress = $this->customerSession->getCustomer()->getDefaultShippingAddress();
                 $quoteShippingAddress = $this->quoteAddressFactory->create();
                 if ($defaultShippingAddress) {
-                    $quoteShippingAddress->importCustomerAddressData($this->addressRepository->getById($defaultShippingAddress->getId()));
+                    if($defaultShippingAddress->getCountryId() == $this->paymentConfig->getDefaultCountryId())
+                        $quoteShippingAddress->importCustomerAddressData($this->addressRepository->getById($defaultShippingAddress->getId()));
+                    else
+                        $quoteShippingAddress->setCountryId($this->paymentConfig->getDefaultCountryId());
                 } else {
                     $quoteShippingAddress->setCountryId($this->paymentConfig->getDefaultCountryId());
                 }
@@ -261,7 +264,10 @@ class PaymentData extends \Magento\Framework\App\Action\Action
                 $defaultBillingAddress = $this->customerSession->getCustomer()->getDefaultBillingAddress();
                 $quoteBillingAddress = $this->quoteAddressFactory->create();
                 if ($defaultBillingAddress) {
-                    $quoteBillingAddress->importCustomerAddressData($this->addressRepository->getById($defaultBillingAddress->getId()));
+                    if($defaultBillingAddress->getCountryId() == $this->paymentConfig->getDefaultCountryId())
+                        $quoteBillingAddress->importCustomerAddressData($this->addressRepository->getById($defaultBillingAddress->getId()));
+                    else
+                        $quoteBillingAddress->setCountryId($this->paymentConfig->getDefaultCountryId());
                 } else {
                     $quoteBillingAddress->setCountryId($this->paymentConfig->getDefaultCountryId());
                 }

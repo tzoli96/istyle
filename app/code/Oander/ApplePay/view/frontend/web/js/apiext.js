@@ -46,7 +46,6 @@ define(
                     async: false
                 }).done(function(response) {
                     result = response;
-                    console.log(result);
                 });
                 return result;
             },
@@ -108,7 +107,6 @@ define(
 
             onShippingContactSelect: function (event, session) {
                 var component = this;
-                console.log(event);
                 var address = event.shippingContact;
                 if(address.countryCode !== this.extdefaults.countryCode.toLowerCase())
                 {
