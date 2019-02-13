@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8a11d422c47a280c29cd534295ce3e89",
+    "content-hash": "b6a014c2c3ff09fff93333b26b6d1a14",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8519,31 +8519,6 @@
             ],
             "description": "Oander Google Tag Manager Integration to eCommerce Tracking",
             "time": "2017-01-04T11:34:53+00:00"
-        },
-        {
-            "name": "oander/module-grenke",
-            "version": "1.0.3",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/module-grenke.git",
-                "reference": "b4c54b31dee46e7b02d29e9757b682ef48fca541"
-            },
-            "require": {
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "psr-4": {
-                    "Oander\\Grenke\\": ""
-                },
-                "files": [
-                    "registration.php"
-                ]
-            },
-            "license": [
-                "proprietary"
-            ],
-            "time": "2019-01-23T11:33:37+00:00"
         },
         {
             "name": "oander/module-heureka-tracking",
