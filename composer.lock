@@ -9690,7 +9690,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "7ceec854f3dbd0d3200652a334f7908594c03526"
+                "reference": "cdad48b14c87a386d37baf7559117a58f879cf71"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9706,7 +9706,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-02-06T09:41:56+00:00"
+            "time": "2019-02-13T15:17:03+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10450,16 +10450,16 @@
         },
         {
             "name": "swedbank-spp/swedbank-payment-portal",
-            "version": "v0.9.1",
+            "version": "v0.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Swedbank-SPP/swedbank-payment-portal.git",
-                "reference": "4ca404eb3acc945154627c114d71dfc73581c2a9"
+                "reference": "26f1dbcd3a3449e54e2a06abdf7b7a5a0ad4ebf7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Swedbank-SPP/swedbank-payment-portal/zipball/4ca404eb3acc945154627c114d71dfc73581c2a9",
-                "reference": "4ca404eb3acc945154627c114d71dfc73581c2a9",
+                "url": "https://api.github.com/repos/Swedbank-SPP/swedbank-payment-portal/zipball/26f1dbcd3a3449e54e2a06abdf7b7a5a0ad4ebf7",
+                "reference": "26f1dbcd3a3449e54e2a06abdf7b7a5a0ad4ebf7",
                 "shasum": ""
             },
             "require": {
@@ -10484,7 +10484,7 @@
                 "MIT"
             ],
             "description": "The Swedbank Payment Portal API Library provides access to the online banking system through which e-commerce transactions can be initiated and fulfilled by facilitating the exchange of bank data.",
-            "time": "2019-02-05T10:27:54+00:00"
+            "time": "2019-02-13T09:47:43+00:00"
         },
         {
             "name": "symfony/config",
@@ -10868,7 +10868,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "BackEndTea@gmail.com"
+                    "email": "backendtea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
