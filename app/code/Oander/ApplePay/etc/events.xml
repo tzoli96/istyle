@@ -1,9 +1,0 @@
-<?xml version="1.0" ?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
-	<event name="ajax_captain_hook_js_call">
-		<observer instance="Oander\ApplePay\Observer\CaptainHookJsEvent" name="oander_applepay_observer_ajax_captainhookjscall"/>
-	</event>
-	<event name="payment_method_assign_data_braintree_applepay">
-		<observer name="braintree_applepay_gateway_data_assign" instance="Magento\Braintree\Observer\DataAssignObserver" />
-	</event>
-</config>
