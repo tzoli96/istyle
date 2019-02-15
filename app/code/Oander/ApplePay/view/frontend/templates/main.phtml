@@ -23,7 +23,8 @@ $config = [
             minicart: '[data-block="minicart"]',
             checkoutbutton: '#top-cart-btn-checkout',
             applepayObject: '#applepay-object',
-            originallink: '#apple-pay-original-link'
+            originallink: '#apple-pay-original-link',
+            cartbutton: '.viewcart'
         };
 
         var minicart = $(selectors.minicart);
@@ -39,6 +40,7 @@ $config = [
                     checkoutbutton.before($(applepaycontainer));
                    // checkoutbutton.parent().append(checkoutlink);
                     applePay.addCartButton(document.getElementById('minicart-applepay'));
+                    $(selectors.cartbutton).removeClass('btn');
                 }
             }
         });
