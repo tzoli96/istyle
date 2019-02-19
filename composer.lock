@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1dc1ae6db298d7f6f9b78d4b1f43f01e",
+    "content-hash": "4b6cf7050e96d110adeedb707cf92911",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6931,16 +6931,16 @@
         },
         {
             "name": "mageplaza/module-core",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mageplaza/module-core.git",
-                "reference": "7e9081781ed3a28e011db68a8df01fe19249aac0"
+                "reference": "19fcf838306acb4632972b2c31d5a2d283ddead8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/7e9081781ed3a28e011db68a8df01fe19249aac0",
-                "reference": "7e9081781ed3a28e011db68a8df01fe19249aac0",
+                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/19fcf838306acb4632972b2c31d5a2d283ddead8",
+                "reference": "19fcf838306acb4632972b2c31d5a2d283ddead8",
                 "shasum": ""
             },
             "type": "magento2-module",
@@ -6965,7 +6965,7 @@
                 }
             ],
             "description": "Mageplaza Core for Magento 2",
-            "time": "2018-11-06T12:00:59+00:00"
+            "time": "2019-02-19T03:17:17+00:00"
         },
         {
             "name": "mageplaza/module-gdpr",
@@ -7507,11 +7507,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.17.6",
+            "version": "1.0.17.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "bb3b1ac0afdda8fbfc2a1044342cdbd938d0831a"
+                "reference": "88c0e45fba190a688cc04e902666565548234133"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7532,7 +7532,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2019-02-18T10:47:07+00:00"
+            "time": "2019-02-19T11:35:13+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
