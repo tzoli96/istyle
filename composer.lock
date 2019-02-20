@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "89309219f2d9749bcb4d61055f46fe31",
+    "content-hash": "ecfb33f516e3afe3d3731c92fa2e3797",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8093,11 +8093,11 @@
         },
         {
             "name": "oander/module-cartbutton",
-            "version": "1.0.19",
+            "version": "1.0.19.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cartbutton.git",
-                "reference": "a0c194d8f4bacd990d85bb10ba201bab25d540bf"
+                "reference": "dfed6d391685b99a78974f210aba1c6123aa315b"
             },
             "type": "magento2-module",
             "autoload": {
@@ -8118,7 +8118,7 @@
                 }
             ],
             "description": "Helper to display cart button",
-            "time": "2018-11-28T09:13:26+00:00"
+            "time": "2019-02-20T20:27:29+00:00"
         },
         {
             "name": "oander/module-cashonpickuppayment",
