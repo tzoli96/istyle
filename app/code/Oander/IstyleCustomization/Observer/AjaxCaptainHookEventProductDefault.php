@@ -20,6 +20,7 @@ declare(strict_types=1);
 namespace Oander\IstyleCustomization\Observer;
 
 use Magento\Catalog\Api\ProductRepositoryInterface;
+use Magento\Catalog\Block\Product\Context;
 use Magento\Framework\Event\Manager;
 use Magento\Framework\Event\ObserverInterface;
 use \Magento\Framework\Json\DecoderInterface;
@@ -55,6 +56,10 @@ class AjaxCaptainHookEventProductDefault implements ObserverInterface
      * @var Manager
      */
     private $eventManager;
+    /**
+     * @var Context
+     */
+    private $context;
 
 
     /**
@@ -63,19 +68,22 @@ class AjaxCaptainHookEventProductDefault implements ObserverInterface
      * @param ProductRepositoryInterface $productRepository
      * @param Manager $eventManager
      * @param DecoderInterface $jsonDecoder
+     * @param Context $context
      */
 
     public function __construct(
         Configurable $configurable,
         ProductRepositoryInterface $productRepository,
         Manager $eventManager,
-        DecoderInterface $jsonDecoder
+        DecoderInterface $jsonDecoder,
+        Context $context
     )
     {
         $this->configurable = $configurable;
         $this->jsonDecoder = $jsonDecoder;
         $this->productRepository = $productRepository;
         $this->eventManager = $eventManager;
+        $this->context = $context;
     }
 
     /**
@@ -122,7 +130,13 @@ class AjaxCaptainHookEventProductDefault implements ObserverInterface
                         $inputdefaultproduct->setData(ProductPageHook::EVENT_INPUT_PARAMS, ['data' => [\Oander\AjaxCaptainHook\Observer\AjaxCaptainHookJsEventFirstLoad::INPUT_FIRSTLOAD]]);
                         $inputdefaultproduct->setData(ProductPageHook::EVENT_INPUT_REALPRODUCT, null);
                         $inputdefaultproduct->setData(ProductPageHook::EVENT_INPUT_PRODUCT, $defaultProduct);
+                        $registry = $this->context->getRegistry();
+                        $origproduct = $registry->registry('product');
+                        $registry->unregister('product');
+                        $registry->register('product', $defaultProduct);
                         $this->eventManager->dispatch(ProductPageHook::AJAX_C_H_EVENT, [ProductPageHook::EVENT_INPUT => $inputdefaultproduct, ProductPageHook::EVENT_OUTPUT => $outputdefaultproduct]);
+                        $registry->unregister('product');
+                        $registry->register('product', $origproduct);
                         $output->setData(
                             self::OUTPUT_NAME,
                             array(
