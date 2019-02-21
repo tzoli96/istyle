@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ecfb33f516e3afe3d3731c92fa2e3797",
+    "content-hash": "2f84a184e6fcc9f1c2c04d60426e1625",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7489,11 +7489,11 @@
         },
         {
             "name": "oander/module-ajax-captain-hook",
-            "version": "1.0.4",
+            "version": "1.0.4.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-ajax-captain-hook.git",
-                "reference": "ae0bd8af398fdf199994769c595489bba4c0a56f"
+                "reference": "731dc2de04deeb9402cc139853dca61489dc1e2e"
             },
             "require": {
                 "php": "7.*"
@@ -7511,7 +7511,7 @@
                 "proprietary"
             ],
             "description": "Try 'hook' to all AJAX requests on a page.",
-            "time": "2019-01-11T08:25:08+00:00"
+            "time": "2019-02-21T13:38:53+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
@@ -7974,11 +7974,11 @@
         },
         {
             "name": "oander/module-applepay",
-            "version": "1.0.2.3",
+            "version": "1.0.2.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-applepay.git",
-                "reference": "486c238163fb4c1a42da1e731586f6fee593d5aa"
+                "reference": "08f1158c81c59ebd917d79ceb72e5ff6885a209b"
             },
             "require": {
                 "oander/module-checkout": ">=1.1.0",
@@ -7997,7 +7997,7 @@
                 "proprietary"
             ],
             "description": "Apple Pay payment method",
-            "time": "2019-02-18T09:27:55+00:00"
+            "time": "2019-02-21T13:23:55+00:00"
         },
         {
             "name": "oander/module-base",
@@ -13430,6 +13430,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2015-10-02T06:51:40+00:00"
         },
         {
