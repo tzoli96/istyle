@@ -168,7 +168,6 @@ return array (
     'Oander_CoreBugFix' => 1,
     'Oander_CurrencyManager' => 1,
     'Oander_CustomerFileUpload' => 1,
-    'Oander_DebugForDev' => 1,
     'Oander_DiscountBadge' => 1,
     'Oander_DropdownProducts' => 1,
     'Oander_EmailAdditionalData' => 1,
