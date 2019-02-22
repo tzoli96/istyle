@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "14eb3d01ec9083b0c057586c75816985",
+    "content-hash": "8eea12aae0b7702559d2f16789a2a404",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6858,16 +6858,16 @@
         },
         {
             "name": "mageplaza/module-core",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mageplaza/module-core.git",
-                "reference": "7e9081781ed3a28e011db68a8df01fe19249aac0"
+                "reference": "19fcf838306acb4632972b2c31d5a2d283ddead8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/7e9081781ed3a28e011db68a8df01fe19249aac0",
-                "reference": "7e9081781ed3a28e011db68a8df01fe19249aac0",
+                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/19fcf838306acb4632972b2c31d5a2d283ddead8",
+                "reference": "19fcf838306acb4632972b2c31d5a2d283ddead8",
                 "shasum": ""
             },
             "type": "magento2-module",
@@ -6892,7 +6892,7 @@
                 }
             ],
             "description": "Mageplaza Core for Magento 2",
-            "time": "2018-11-06T12:00:59+00:00"
+            "time": "2019-02-19T03:17:17+00:00"
         },
         {
             "name": "mageplaza/module-gdpr",
@@ -7355,11 +7355,11 @@
         },
         {
             "name": "oander/module-ajax-captain-hook",
-            "version": "1.0.4",
+            "version": "1.0.4.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-ajax-captain-hook.git",
-                "reference": "ae0bd8af398fdf199994769c595489bba4c0a56f"
+                "reference": "731dc2de04deeb9402cc139853dca61489dc1e2e"
             },
             "require": {
                 "php": "7.*"
@@ -7377,7 +7377,7 @@
                 "proprietary"
             ],
             "description": "Try 'hook' to all AJAX requests on a page.",
-            "time": "2019-01-11T08:25:08+00:00"
+            "time": "2019-02-21T13:38:53+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
@@ -7840,11 +7840,11 @@
         },
         {
             "name": "oander/module-applepay",
-            "version": "1.0.2.2",
+            "version": "1.0.2.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-applepay.git",
-                "reference": "243552c6f69f7eb492b01992c6802b16e7a4e58e"
+                "reference": "e00d9020344c54f382a9a4e8a3b5c90314c764a9"
             },
             "require": {
                 "oander/module-checkout": ">=1.1.0",
@@ -7863,7 +7863,7 @@
                 "proprietary"
             ],
             "description": "Apple Pay payment method",
-            "time": "2019-02-15T10:02:04+00:00"
+            "time": "2019-02-22T11:40:18+00:00"
         },
         {
             "name": "oander/module-base",
@@ -7959,11 +7959,11 @@
         },
         {
             "name": "oander/module-cartbutton",
-            "version": "1.0.19",
+            "version": "1.0.19.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cartbutton.git",
-                "reference": "a0c194d8f4bacd990d85bb10ba201bab25d540bf"
+                "reference": "6b866fd5629ceda9638688144bdf5e12cfe97ffc"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7984,7 +7984,7 @@
                 }
             ],
             "description": "Helper to display cart button",
-            "time": "2018-11-28T09:13:26+00:00"
+            "time": "2019-02-21T14:16:49+00:00"
         },
         {
             "name": "oander/module-cashonpickuppayment",
@@ -10080,11 +10080,11 @@
         },
         {
             "name": "replace/module-buyback-calculator",
-            "version": "1.0.5.1",
+            "version": "1.0.5.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/replace-buyback-calculator.git",
-                "reference": "734f645b83f44aa17eb8222c5fcd6deb8320c685"
+                "reference": "5e38f184e466587e78aa0393ef9e48d68d73c9bc"
             },
             "require": {
                 "php": "7.0.2|7.0.4|~7.0.6"
@@ -10099,7 +10099,7 @@
                 }
             },
             "description": "Rework Replace Buyback Calculator",
-            "time": "2018-12-12T10:14:45+00:00"
+            "time": "2019-02-21T08:43:53+00:00"
         },
         {
             "name": "rudracomputech/module-nestpay",
@@ -13095,6 +13095,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2015-10-02T06:51:40+00:00"
         },
         {
