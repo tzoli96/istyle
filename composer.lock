@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8eea12aae0b7702559d2f16789a2a404",
+    "content-hash": "06c7d3899521f1c371e9a79e609ecdec",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7840,11 +7840,11 @@
         },
         {
             "name": "oander/module-applepay",
-            "version": "1.0.2.7",
+            "version": "1.0.2.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-applepay.git",
-                "reference": "e00d9020344c54f382a9a4e8a3b5c90314c764a9"
+                "reference": "fdc74cbd1e118173c432a3181603f7111362f483"
             },
             "require": {
                 "oander/module-checkout": ">=1.1.0",
@@ -7863,7 +7863,7 @@
                 "proprietary"
             ],
             "description": "Apple Pay payment method",
-            "time": "2019-02-22T11:40:18+00:00"
+            "time": "2019-02-25T09:47:59+00:00"
         },
         {
             "name": "oander/module-base",
