@@ -25,6 +25,7 @@ use Magento\Framework\Event\ObserverInterface;
 use \Magento\Framework\Json\DecoderInterface;
 use Oander\AjaxCaptainHook\Controller\AjaxHook\ProductPageHook;
 use Oander\ConfigurableProductAttribute\Magento\Swatches\Block\Product\Renderer\Configurable;
+use Magento\Catalog\Block\Product\Context;
 
 /**
  * Class AjaxCaptainHookEventDefaultSelection
@@ -55,6 +56,10 @@ class AjaxCaptainHookEventProductDefault implements ObserverInterface
      * @var Manager
      */
     private $eventManager;
+    /**
+     * @var Context
+     */
+    private $context;
 
 
     /**
@@ -63,19 +68,22 @@ class AjaxCaptainHookEventProductDefault implements ObserverInterface
      * @param ProductRepositoryInterface $productRepository
      * @param Manager $eventManager
      * @param DecoderInterface $jsonDecoder
+     * @param Context $context
      */
 
     public function __construct(
         Configurable $configurable,
         ProductRepositoryInterface $productRepository,
         Manager $eventManager,
-        DecoderInterface $jsonDecoder
+        DecoderInterface $jsonDecoder,
+        Context $context
     )
     {
         $this->configurable = $configurable;
         $this->jsonDecoder = $jsonDecoder;
         $this->productRepository = $productRepository;
         $this->eventManager = $eventManager;
+        $this->context = $context;
     }
 
     /**
@@ -122,6 +130,10 @@ class AjaxCaptainHookEventProductDefault implements ObserverInterface
                         $inputdefaultproduct->setData(ProductPageHook::EVENT_INPUT_PARAMS, ['data' => [\Oander\AjaxCaptainHook\Observer\AjaxCaptainHookJsEventFirstLoad::INPUT_FIRSTLOAD]]);
                         $inputdefaultproduct->setData(ProductPageHook::EVENT_INPUT_REALPRODUCT, null);
                         $inputdefaultproduct->setData(ProductPageHook::EVENT_INPUT_PRODUCT, $defaultProduct);
+                        $registry = $this->context->getRegistry();
+                        $origproduct = $registry->registry('product');
+                        $registry->unregister('product');
+                        $registry->register('product', $defaultProduct);
                         $this->eventManager->dispatch(ProductPageHook::AJAX_C_H_EVENT, [ProductPageHook::EVENT_INPUT => $inputdefaultproduct, ProductPageHook::EVENT_OUTPUT => $outputdefaultproduct]);
                         $output->setData(
                             self::OUTPUT_NAME,
@@ -130,6 +142,8 @@ class AjaxCaptainHookEventProductDefault implements ObserverInterface
                                 self::OUTPUT_NAME2 => $defaultProduct->getId()
                             )
                         );
+                        $registry->unregister('product');
+                        $registry->register('product', $origproduct);
                     }
                 }
             }

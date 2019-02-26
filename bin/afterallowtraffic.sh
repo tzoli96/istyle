@@ -85,11 +85,11 @@ if [[ "${INSTANCE_ID}" != "${MASTER_ID}" ]]; then
 
   echo
   echo -n "=== CHECK IF TESTING FLAG EXISTS => "
-  sleep $[ ( $RANDOM % 10 ) + 1 ].$[ ( $RANDOM % 1000 ) + 1 ]
+  sleep $[ ( $RANDOM % 20 ) + 1 ].$[ ( $RANDOM % 1000 ) + 1 ]
   if [ -f ${EFS}/testing.flag ]; then
     echo "YES ==="
     echo -n " * REMOVE TESTING FLAG ... "
-    if rm ${EFS}/testing.flag; then echo OK; else echo FAIL; fi
+    if rm -f ${EFS}/testing.flag; then echo OK; else echo FAIL; fi
 
     echo " * MAGENTO CACHE FLUSH: "
     if sudo -u www-data php ${WEBROOT}/bin/magento cache:flush; then
@@ -117,7 +117,7 @@ if [[ "${INSTANCE_ID}" != "${MASTER_ID}" ]]; then
       if cp ${EFS}/php-orig.conf /etc/php/7.0/cli/php.ini; then echo OK; else echo FAIL; fi
 
       echo
-      send_to_slack "### DEPLOY FINISHED SUCCESSFULLY ###"
+      send_to_slack "### DEPLOY FINISHED SUCCESSFULLY ON TESTING INSTANCE ${INSTANCE_IP} ###"
       echo
       fi
     else
@@ -128,6 +128,7 @@ if [[ "${INSTANCE_ID}" != "${MASTER_ID}" ]]; then
   else
     echo "NO ==="
     echo
+    send_to_slack "### DEPLOY FINISHED SUCCESSFULLY ON ${INSTANCE_IP} ###"
   fi
 fi
 
