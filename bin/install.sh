@@ -306,11 +306,11 @@ else
 
   echo
   echo -n "=== CHECK IF DEPLOYED FLAG EXISTS => "
-  sleep $[ ( $RANDOM % 10 ) + 1 ].$[ ( $RANDOM % 1000 ) + 1 ]
+  sleep $[ ( $RANDOM % 20 ) + 1 ].$[ ( $RANDOM % 1000 ) + 1 ]
   if [ -f ${EFS}/deployed.flag ]; then
     echo "YES ==="
     echo -n " * REMOVING DEPLOYED FLAG ... "
-    if rm ${EFS}/deployed.flag; then echo OK; else echo FAIL; fi
+    if rm -f ${EFS}/deployed.flag; then echo OK; else echo FAIL; fi
 
     echo
     echo "==== MAGENTO UPGRADE :: KEEP-GENERATED ===="
