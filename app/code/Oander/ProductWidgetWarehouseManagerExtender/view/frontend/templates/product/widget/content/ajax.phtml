@@ -1,0 +1,19 @@
+<?php /** @var $block \Oander\ProductWidgetWarehouseManagerExtender\Block\Product\ProductsList */ ?>
+<?php $widgetId = 'widget_'.mt_rand() ?>
+<?php $data = $block->getData(); ?>
+<?php $data['template'] = $block->getOriginalTemplate(); ?>
+<?php $data['widget_block'] = $block->getClassName(); ?>
+<div id="<?php echo $widgetId ?>"></div>
+<script type="text/javascript">
+    require(['jquery'],function($){
+        $.ajax({
+            showLoader: false,
+            url: '<?php echo $block->getAjaxWidgetUrl(); ?>',
+            type: 'POST',
+            dataType: 'json',
+            data: <?php echo json_encode($data); ?>
+        }).done(function (response) {
+            $('#<?php echo $widgetId ?>').html(response);
+        });
+    });
+</script>
