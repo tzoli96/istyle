@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b51709bcc358eb65420b417f7f71b0f0",
+    "content-hash": "097b0dc4085b6bab79d129c3e1c19c6a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7418,11 +7418,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.17.4",
+            "version": "1.0.17.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "89d26f20a5bd81bfcfb914d8c2fde2f841487cb5"
+                "reference": "7f70c084c5d32dda2786f8041d2ee4d3b7b7598f"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7443,7 +7443,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2019-02-15T12:08:57+00:00"
+            "time": "2019-02-25T10:47:34+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
@@ -7840,11 +7840,11 @@
         },
         {
             "name": "oander/module-applepay",
-            "version": "1.0.2.8",
+            "version": "1.0.2.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-applepay.git",
-                "reference": "fdc74cbd1e118173c432a3181603f7111362f483"
+                "reference": "f4c5065cc81967dfc768e8753f2cda8809cee7b1"
             },
             "require": {
                 "oander/module-checkout": ">=1.1.0",
@@ -7863,7 +7863,32 @@
                 "proprietary"
             ],
             "description": "Apple Pay payment method",
-            "time": "2019-02-25T09:47:59+00:00"
+            "time": "2019-03-04T11:07:52+00:00"
+        },
+        {
+            "name": "oander/module-autorelated-warehouse-manager-extender",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/module-autorelated-warehouse-manager-extender.git",
+                "reference": "afe7fc89a5094438ca478fd0e15d1686e20fd69c"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\AutorelatedWarehouseManagerExtender\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "time": "2019-03-04T14:35:01+00:00"
         },
         {
             "name": "oander/module-base",
@@ -9075,6 +9100,31 @@
             "time": "2018-04-13T08:32:05+00:00"
         },
         {
+            "name": "oander/module-product-widget-warehouse-manager-extender",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/module-product-widget-warehouse-manager-extender.git",
+                "reference": "3c186021f7eecd8425f6aef370135c3ce82cf118"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\ProductWidgetWarehouseManagerExtender\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "time": "2019-03-04T14:31:17+00:00"
+        },
+        {
             "name": "oander/module-producturlresolver",
             "version": "1.0.0",
             "source": {
@@ -9560,11 +9610,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.189",
+            "version": "1.0.190",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "b2e659947db274d3409f08614a41cddd5d9aa006"
+                "reference": "e073ff2d03fe677bdeb606ffa841daf899674a23"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9580,7 +9630,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-02-26T09:02:43+00:00"
+            "time": "2019-03-04T14:37:16+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10612,16 +10662,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.22",
+            "version": "v3.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "7c0c627220308928e958a87c293108e5891cde1d"
+                "reference": "fcdde4aa38f48190ce70d782c166f23930084f9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/7c0c627220308928e958a87c293108e5891cde1d",
-                "reference": "7c0c627220308928e958a87c293108e5891cde1d",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/fcdde4aa38f48190ce70d782c166f23930084f9b",
+                "reference": "fcdde4aa38f48190ce70d782c166f23930084f9b",
                 "shasum": ""
             },
             "require": {
@@ -10657,7 +10707,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16T13:43:35+00:00"
+            "time": "2019-02-22T14:44:53+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -13586,7 +13636,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.22",
+            "version": "v3.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
