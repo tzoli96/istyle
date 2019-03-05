@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "097b0dc4085b6bab79d129c3e1c19c6a",
+    "content-hash": "cade72d3f9abc08962256b5f4f6cb3b0",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -109,12 +109,6 @@
                 "url": "git@github.com:oandermedia/amasty-base.git",
                 "reference": "a4f3265fca55cf3bd45a39cb2362ef762c00f4c0"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/amasty-base/zipball/a4f3265fca55cf3bd45a39cb2362ef762c00f4c0",
-                "reference": "a4f3265fca55cf3bd45a39cb2362ef762c00f4c0",
-                "shasum": ""
-            },
             "require": {
                 "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|~7.1.0"
             },
@@ -131,10 +125,6 @@
                 "Commercial"
             ],
             "description": "Amasty Base",
-            "support": {
-                "source": "https://github.com/oandermedia/amasty-base/tree/1.1.1",
-                "issues": "https://github.com/oandermedia/amasty-base/issues"
-            },
             "time": "2018-02-20T09:19:24+00:00"
         },
         {
@@ -200,12 +190,6 @@
                 "url": "git@github.com:oandermedia/amasty-rgrid.git",
                 "reference": "25e811524ac8685a0446bc0a7cbbad4b0ad5f72e"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/amasty-rgrid/zipball/25e811524ac8685a0446bc0a7cbbad4b0ad5f72e",
-                "reference": "25e811524ac8685a0446bc0a7cbbad4b0ad5f72e",
-                "shasum": ""
-            },
             "require": {
                 "amasty/base": "*",
                 "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|~7.1.0"
@@ -223,10 +207,6 @@
                 "Commercial"
             ],
             "description": "Extended Rules Grid by Amasty",
-            "support": {
-                "source": "https://github.com/oandermedia/amasty-rgrid/tree/1.0.0",
-                "issues": "https://github.com/oandermedia/amasty-rgrid/issues"
-            },
             "time": "2018-02-20T09:25:58+00:00"
         },
         {
@@ -270,12 +250,6 @@
                 "url": "git@github.com:oandermedia/amasty-system-common-rules.git",
                 "reference": "ff60f965e5592dc05ea0fd9289e87d0f7acd4d2a"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://composer.amasty.com/community/packages/system-common-rules-2.1.0.zip",
-                "reference": null,
-                "shasum": null
-            },
             "require": {
                 "amasty/base": ">=1.0.8",
                 "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|~7.1.0"
@@ -292,7 +266,8 @@
             "license": [
                 "Commercial"
             ],
-            "description": "Common Rules by Amasty"
+            "description": "Common Rules by Amasty",
+            "time": "2018-05-29T13:00:15+00:00"
         },
         {
             "name": "anowave/ec",
@@ -586,7 +561,7 @@
         },
         {
             "name": "colinmollenhour/cache-backend-redis",
-            "version": "1.9",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/colinmollenhour/Cm_Cache_Backend_Redis.git",
@@ -618,7 +593,7 @@
             ],
             "description": "Zend_Cache backend using Redis with full support for tags.",
             "homepage": "https://github.com/colinmollenhour/Cm_Cache_Backend_Redis",
-            "time": "2016-05-02T16:23:36+00:00"
+            "time": "2016-10-03T16:55:11+00:00"
         },
         {
             "name": "colinmollenhour/credis",
@@ -1520,12 +1495,6 @@
                 "url": "git@github.com:oandermedia/innobyte-checkout-success.git",
                 "reference": "811875b3d1935bc2327573de686fe3309ca00138"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/innobyte-checkout-success/zipball/811875b3d1935bc2327573de686fe3309ca00138",
-                "reference": "811875b3d1935bc2327573de686fe3309ca00138",
-                "shasum": ""
-            },
             "require": {
                 "magento/module-checkout": "^100.1.2",
                 "php": "7.0.2|7.0.4|~7.0.6"
@@ -1540,10 +1509,6 @@
                 }
             },
             "description": "Innobyte CheckoutSuccess Module",
-            "support": {
-                "source": "https://github.com/oandermedia/innobyte-checkout-success/tree/0.0.3",
-                "issues": "https://github.com/oandermedia/innobyte-checkout-success/issues"
-            },
             "time": "2017-12-17T11:02:06+00:00"
         },
         {
@@ -7867,13 +7832,14 @@
         },
         {
             "name": "oander/module-autorelated-warehouse-manager-extender",
-            "version": "1.0.0",
+            "version": "1.0.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-autorelated-warehouse-manager-extender.git",
-                "reference": "afe7fc89a5094438ca478fd0e15d1686e20fd69c"
+                "reference": "b1efc35502a9faa9d2673caaf27bc066ae1f64cc"
             },
             "require": {
+                "oander/module-warehouse-manager-conditions": "*",
                 "php": "7.*"
             },
             "type": "magento2-module",
@@ -7888,7 +7854,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-03-04T14:35:01+00:00"
+            "time": "2019-03-05T13:44:32+00:00"
         },
         {
             "name": "oander/module-base",
@@ -9101,13 +9067,14 @@
         },
         {
             "name": "oander/module-product-widget-warehouse-manager-extender",
-            "version": "1.0.0",
+            "version": "1.0.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-product-widget-warehouse-manager-extender.git",
-                "reference": "3c186021f7eecd8425f6aef370135c3ce82cf118"
+                "reference": "f2d48658479aa7d98b0e6ab1576906080812dd7a"
             },
             "require": {
+                "oander/module-warehouse-manager-conditions": "*",
                 "php": "7.*"
             },
             "type": "magento2-module",
@@ -9122,7 +9089,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-03-04T14:31:17+00:00"
+            "time": "2019-03-05T13:55:59+00:00"
         },
         {
             "name": "oander/module-producturlresolver",
@@ -9204,11 +9171,11 @@
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.28",
+            "version": "0.0.3.32",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "48509ceb418b79cae23901d410ad9d338add3822"
+                "reference": "ac38a81ba51547e159c16c54dfcde9555bcf8047"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9228,7 +9195,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2019-02-15T09:44:27+00:00"
+            "time": "2019-03-05T09:39:45+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -9530,6 +9497,32 @@
             "time": "2018-11-23T20:08:32+00:00"
         },
         {
+            "name": "oander/module-warehouse-manager-conditions",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/module-warehouse-manager-conditions.git",
+                "reference": "fb1e07b5beac6f03c796e84b90cefcb993f7e866"
+            },
+            "require": {
+                "oander/module-warehouse-manager": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\WarehouseManagerConditions\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "time": "2019-03-05T13:37:25+00:00"
+        },
+        {
             "name": "oander/module-wonder-widget",
             "version": "1.3.0.2",
             "source": {
@@ -9610,11 +9603,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.190",
+            "version": "1.0.191",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "e073ff2d03fe677bdeb606ffa841daf899674a23"
+                "reference": "284c89348e84cc48825d391115b79dd0d9685c84"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9630,7 +9623,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-03-04T14:37:16+00:00"
+            "time": "2019-03-05T14:33:31+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -11002,12 +10995,6 @@
                 "url": "git@github.com:oandermedia/xtento-core.git",
                 "reference": "b1f6631b2ca44b55fb2470971b6ecc8abbfd6810"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oandermedia/xtento-core/zipball/b1f6631b2ca44b55fb2470971b6ecc8abbfd6810",
-                "reference": "b1f6631b2ca44b55fb2470971b6ecc8abbfd6810",
-                "shasum": ""
-            },
             "require": {
                 "php": "~5.5.22|~5.6.0|7.0.2|7.0.4|~7.0.6|~7.1.0"
             },
@@ -11033,9 +11020,7 @@
             ],
             "description": "XTENTO Core Module",
             "support": {
-                "email": "info@xtento.com",
-                "source": "https://github.com/oandermedia/xtento-core/tree/2.1.0",
-                "issues": "https://github.com/oandermedia/xtento-core/issues"
+                "email": "info@xtento.com"
             },
             "time": "2017-11-15T12:35:36+00:00"
         },
