@@ -39,6 +39,7 @@ class Attributes
                 if (!$product->hasData($attribute->getAttributeCode())) {
                     continue;
                 } elseif ((string)$value == '') {
+                    continue;
                     $value = __('No');
                 } elseif ($attribute->getFrontendInput() == 'price' && is_string($value)) {
                     $value = $subject->priceCurrency->convertAndFormat($value);
@@ -73,6 +74,7 @@ class Attributes
                         if (!$child->hasData($attribute->getAttributeCode())) {
                             continue;
                         } elseif ((string)$value == '') {
+                            continue;
                             $value = __('No');
                         } elseif ($attribute->getFrontendInput() == 'price' && is_string($value)) {
                             $value = $subject->priceCurrency->convertAndFormat($value);
