@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe09754eefe058a2a1ba87984b33cad3",
+    "content-hash": "e9ee78957e5a9f690d7f454a69ddfe18",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1168,42 +1168,6 @@
             ],
             "description": "Shipping for Magento 2",
             "time": "2018-10-01T08:43:27+00:00"
-        },
-        {
-            "name": "godvsdeity/swedbank-payment-portal",
-            "version": "v0.8.30",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:godvsdeity/swedbank-payment-portal.git",
-                "reference": "42097fc707d96b4045d7cce7b881dc4e40313f76"
-            },
-            "require": {
-                "doctrine/cache": "^1.6",
-                "guzzlehttp/guzzle": "^5.0|^6.0",
-                "jms/serializer": "^1.1",
-                "symfony/config": "^2.8|^3.0",
-                "symfony/dependency-injection": "^2.8|^3.0",
-                "symfony/yaml": "~2.8|~3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "SwedbankPaymentPortal\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "The Swedbank Payment Portal API Library provides access to the online banking system through which e-commerce transactions can be initiated and fulfilled by facilitating the exchange of bank data.",
-            "time": "2017-11-09T16:41:43+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -9698,7 +9662,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "aec0f9aef5e9f99935218eb962aa3f8d55ac2277"
+                "reference": "c1d532a2d3a4e8994ee172853d7433dba6dcd58d"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9714,7 +9678,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-03-12T09:00:44+00:00"
+            "time": "2019-03-13T15:16:27+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -13259,6 +13223,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2015-10-02T06:51:40+00:00"
         },
         {
