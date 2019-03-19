@@ -112,7 +112,7 @@
         "oander/module-producturlresolver": "1.0.1",
         "oander/module-safe-category-index": "1.0.0",
         "oander/module-salesforce": "1.2.0.1",
-        "oander/module-salesforce-service": "0.0.3.33",
+        "oander/module-salesforce-service": "0.0.3.34",
         "oander/module-salesforce-widget": "1.0.7",
         "oander/module-salesforcereservation": "1.1.12.1",
         "oander/module-shipping": "1.0.3",
@@ -132,7 +132,7 @@
         "oander/theme-istyle": "dev-develop",
         "plugincompany/customergroupswitching": "100.1.4",
         "plugincompany/licensemanager": "100.0.4",
-        "replace/module-buyback-calculator": "1.0.5.2",
+        "replace/module-buyback-calculator": "1.0.5.3",
         "rudracomputech/module-nestpay": "2.0.6.5",
         "xtento/module-orderexport": "2.3.9",
         "xtento/module-xtcore": "2.1.0"
