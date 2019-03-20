@@ -113,7 +113,7 @@
         "oander/module-producturlresolver": "1.0.1",
         "oander/module-safe-category-index": "1.0.0",
         "oander/module-salesforce": "1.2.0.1",
-        "oander/module-salesforce-service": "0.0.3.34",
+        "oander/module-salesforce-service": "0.0.3.35",
         "oander/module-salesforce-widget": "1.0.7",
         "oander/module-salesforcereservation": "1.1.12.1",
         "oander/module-shipping": "1.0.3",
