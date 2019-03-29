@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "70d19c2df986aba24b3807a6d50ec7ff",
+    "content-hash": "c46789a5c2c18be56da54c31d32422cc",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7408,11 +7408,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.17.11",
+            "version": "1.0.17.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "2e342dedf800e3a8003df85363873ca83e15b4e3"
+                "reference": "a6b3717304d297401bb8c4dde623f5a6f5bd34f1"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7433,7 +7433,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2019-03-27T10:30:14+00:00"
+            "time": "2019-03-29T14:36:01+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
@@ -9751,7 +9751,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "d23a0df98e6dd11488d3cb968753131ece0cc1d7"
+                "reference": "025e6cc31700178d79312e776245241c54895c3a"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9767,7 +9767,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-03-26T15:17:33+00:00"
+            "time": "2019-03-28T10:10:47+00:00"
         },
         {
             "name": "oyejorge/less.php",
