@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5694467aa11d899f38b28eb01a70f9f3",
+    "content-hash": "eb802cdd4c910d45d76843937f225897",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7328,11 +7328,11 @@
         },
         {
             "name": "oander/module-admin-identifier",
-            "version": "1.0.2",
+            "version": "1.0.2.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-admin-identifier.git",
-                "reference": "feb781ac6f875b1550a83ee3f6e813eaae5cb7a4"
+                "reference": "aac2fed09a94e8400db933363969cf14217154b9"
             },
             "require": {
                 "oander/module-base": "*",
@@ -7351,7 +7351,7 @@
                 "proprietary"
             ],
             "description": "Oander Admin Identifier",
-            "time": "2018-08-22T13:00:25+00:00"
+            "time": "2019-04-01T09:55:50+00:00"
         },
         {
             "name": "oander/module-ajax-captain-hook",
