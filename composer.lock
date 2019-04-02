@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb802cdd4c910d45d76843937f225897",
+    "content-hash": "fb4c0d9ae9686da7e29fcd88bfb321dd",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9201,11 +9201,11 @@
         },
         {
             "name": "oander/module-producturlresolver",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-producturlresolver.git",
-                "reference": "8b7022524725b65c666dbb5118732fa268775e5e"
+                "reference": "0d7cd5680bd22dbc400c29b58d93aa274e27acbe"
             },
             "require": {
                 "php": "7.*"
@@ -9223,7 +9223,7 @@
                 "proprietary"
             ],
             "description": "Config product Simple resolver",
-            "time": "2018-12-01T19:10:29+00:00"
+            "time": "2019-04-02T07:59:27+00:00"
         },
         {
             "name": "oander/module-safe-category-index",
@@ -9751,7 +9751,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "025e6cc31700178d79312e776245241c54895c3a"
+                "reference": "96b0dda22df6453693b036865bfa0490b44cbe49"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9767,7 +9767,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-03-28T10:10:47+00:00"
+            "time": "2019-04-01T13:55:27+00:00"
         },
         {
             "name": "oyejorge/less.php",
