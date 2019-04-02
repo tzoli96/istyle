@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9fc22021bd2cdcf133dc0f22bdaa94d0",
+    "content-hash": "ef37e140e50ae5f87c36325e6e6f04ab",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9279,11 +9279,11 @@
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.36",
+            "version": "0.0.3.37",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "0cae5e2067b2d6a423c92924e1fbd10f04d4f2f8"
+                "reference": "3b3a0ccf3c1610a643c3b8675f15d2fed2efed64"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9303,7 +9303,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2019-03-27T12:45:15+00:00"
+            "time": "2019-04-02T12:36:33+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
