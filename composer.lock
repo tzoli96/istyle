@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dbeba91b558984aae8d33ca955a1cca5",
+    "content-hash": "4e0ee8de59e04f330cdbcf617e539a2d",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7203,6 +7203,33 @@
             "time": "2018-05-11T12:24:56+00:00"
         },
         {
+            "name": "oander/module-admin-identifier",
+            "version": "1.0.2.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-admin-identifier.git",
+                "reference": "aac2fed09a94e8400db933363969cf14217154b9"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\AdminIdentifier\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Admin Identifier",
+            "time": "2019-04-01T09:55:50+00:00"
+        },
+        {
             "name": "oander/module-ajax-captain-hook",
             "version": "1.0.4.1",
             "source": {
@@ -7257,11 +7284,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.17.11",
+            "version": "1.0.17.17",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "2e342dedf800e3a8003df85363873ca83e15b4e3"
+                "reference": "4fe2f0ec05abadab7338a9d65faef0cd019fbe2a"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7282,7 +7309,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2019-03-27T10:30:14+00:00"
+            "time": "2019-04-05T11:28:03+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
@@ -7794,11 +7821,11 @@
         },
         {
             "name": "oander/module-cartbutton",
-            "version": "1.0.19.2",
+            "version": "1.0.19.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cartbutton.git",
-                "reference": "6b866fd5629ceda9638688144bdf5e12cfe97ffc"
+                "reference": "215ec44a3d005800133d5639034601b24c5fbd99"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7819,7 +7846,7 @@
                 }
             ],
             "description": "Helper to display cart button",
-            "time": "2019-02-21T14:16:49+00:00"
+            "time": "2019-04-05T13:17:35+00:00"
         },
         {
             "name": "oander/module-cashonpickuppayment",
@@ -8910,11 +8937,11 @@
         },
         {
             "name": "oander/module-producturlresolver",
-            "version": "1.0.0",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-producturlresolver.git",
-                "reference": "e10b4a65cd4afd8c3eac6c4d5f7558eb3914daa1"
+                "reference": "0d7cd5680bd22dbc400c29b58d93aa274e27acbe"
             },
             "require": {
                 "php": "7.*"
@@ -8932,7 +8959,7 @@
                 "proprietary"
             ],
             "description": "Config product Simple resolver",
-            "time": "2018-04-09T15:31:35+00:00"
+            "time": "2019-04-02T07:59:27+00:00"
         },
         {
             "name": "oander/module-safe-category-index",
@@ -8988,11 +9015,11 @@
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.36",
+            "version": "0.0.3.38",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "0cae5e2067b2d6a423c92924e1fbd10f04d4f2f8"
+                "reference": "d1419b6c41198c4c3fcf6467ab57469a92b8fddf"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9012,7 +9039,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2019-03-27T12:45:15+00:00"
+            "time": "2019-04-04T11:24:49+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -9400,11 +9427,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.198",
+            "version": "1.0.199",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "35f32180fa6e12bb5ae8e7e0d5ce9f50f0eccdc5"
+                "reference": "1bd7ed01c4dd9c253ca051d9c39ed3bb0703fa57"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9420,7 +9447,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-03-27T12:02:44+00:00"
+            "time": "2019-04-05T12:57:06+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10452,7 +10479,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.23",
+            "version": "v3.4.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -13418,7 +13445,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.23",
+            "version": "v3.4.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
