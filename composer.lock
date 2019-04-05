@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d6b80b7de92e41dc3d62ff0c074d20ea",
+    "content-hash": "158901df8d93827c75ef8f5416815878",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7408,11 +7408,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.17.15",
+            "version": "1.0.17.17",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "e67b622d31ce4c1fab4c289c34e9035848383ad7"
+                "reference": "4fe2f0ec05abadab7338a9d65faef0cd019fbe2a"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7433,7 +7433,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2019-04-04T10:52:55+00:00"
+            "time": "2019-04-05T11:28:03+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
@@ -8201,7 +8201,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "f4604e52066036eee58e5eb87baa5b3099367aac"
+                "reference": "72df2ef095421550c2c64e299b09eff4213acb8c"
             },
             "require": {
                 "php": "7.*"
@@ -8219,7 +8219,7 @@
                 "proprietary"
             ],
             "description": "Core bug fixes for Magento 2.x",
-            "time": "2019-01-28T14:40:59+00:00"
+            "time": "2019-04-04T14:09:10+00:00"
         },
         {
             "name": "oander/module-currency-manager",
@@ -9751,7 +9751,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "9e3195a0721e2a5fd98d8c17e8d42a9f3dc3c8b1"
+                "reference": "5dfa1df55fe8489c207b557e485b0656baec1eaa"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9767,7 +9767,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-04-04T10:47:12+00:00"
+            "time": "2019-04-05T09:53:34+00:00"
         },
         {
             "name": "oyejorge/less.php",
