@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dfac1446c1ece6908237e40f4f9e0e3f",
+    "content-hash": "f735087f29bc4a13abfbd9d7f5a70d3f",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8084,11 +8084,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.30.22",
+            "version": "1.0.30.23",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "0da1d0084324c7f0d967ab15c051807d4914f47d"
+                "reference": "dd474dfc93e28d6f532f3ea2c20c945cbbc2d82b"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8107,7 +8107,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2019-03-22T09:07:28+00:00"
+            "time": "2019-04-09T12:03:39+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -8142,7 +8142,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "f4604e52066036eee58e5eb87baa5b3099367aac"
+                "reference": "72df2ef095421550c2c64e299b09eff4213acb8c"
             },
             "require": {
                 "php": "7.*"
@@ -9582,11 +9582,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.199",
+            "version": "1.0.200",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "1bd7ed01c4dd9c253ca051d9c39ed3bb0703fa57"
+                "reference": "3bb65b15941c2f8f3da266398a14e26941361518"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9602,7 +9602,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-04-05T12:57:06+00:00"
+            "time": "2019-04-09T12:02:28+00:00"
         },
         {
             "name": "oyejorge/less.php",
