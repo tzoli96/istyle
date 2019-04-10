@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "44e61846236966cdb28b8a5805183f6d",
+    "content-hash": "bde92f34cfbae6ddb724cbac20dddabb",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9414,11 +9414,11 @@
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.38",
+            "version": "dev-34803-ui-kit-fix",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "d1419b6c41198c4c3fcf6467ab57469a92b8fddf"
+                "reference": "dcbba181c94ba474d0bab127114bf7ba2a004c1c"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9438,7 +9438,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2019-04-04T11:24:49+00:00"
+            "time": "2019-04-10T09:17:38+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -9906,7 +9906,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "115a151750565252cafd8ac315ec13fb46e6c1da"
+                "reference": "e228d1258bb9bec3a23b160100e46ac516b47c69"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9922,7 +9922,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-04-09T12:05:42+00:00"
+            "time": "2019-04-10T13:20:32+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -14059,6 +14059,7 @@
     "stability-flags": {
         "composer/composer": 15,
         "oander/module-core-bug-fix": 20,
+        "oander/module-salesforce-service": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
