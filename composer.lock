@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b065b02fb0cf00c6216d88248298665",
+    "content-hash": "f34b76b54b27e23ea12e075ad24c01eb",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8208,11 +8208,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.30.23",
+            "version": "dev-35148-config-gallery-fix",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "dd474dfc93e28d6f532f3ea2c20c945cbbc2d82b"
+                "reference": "d90f8293a66a5fb991419165e60b882add2f9fb6"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8231,7 +8231,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2019-04-09T12:03:39+00:00"
+            "time": "2019-04-12T11:52:25+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -9470,11 +9470,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.12.1",
+            "version": "dev-#34803-uikit-changes",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "fafa47dcacf6bd2293785394d4d43ac531b985a3"
+                "reference": "cfff978d476c535890c286833f9c0f60a310b330"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9502,7 +9502,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2019-01-17T04:41:25+00:00"
+            "time": "2019-04-12T11:41:25+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -9905,7 +9905,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "e228d1258bb9bec3a23b160100e46ac516b47c69"
+                "reference": "cd5d95ba8ff1f00a27ce9f6ef7fef70ae4bd8d73"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9921,7 +9921,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-04-10T13:20:32+00:00"
+            "time": "2019-04-12T11:56:00+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -14057,8 +14057,10 @@
     "minimum-stability": "alpha",
     "stability-flags": {
         "composer/composer": 15,
+        "oander/module-configurable-product-attribute": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-salesforce-service": 20,
+        "oander/module-salesforcereservation": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
