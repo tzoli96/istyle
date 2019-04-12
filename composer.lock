@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3bf48b17cd679d534c8f135671bcec5b",
+    "content-hash": "ae89d2d7a8a214a3ac98c2cfad112c18",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8136,11 +8136,11 @@
         },
         {
             "name": "oander/module-bundle",
-            "version": "1.0.3",
+            "version": "1.0.3.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-bundle.git",
-                "reference": "96b280ff87e3ec57f45442dd69d639495781dbe3"
+                "reference": "e6640f7917251e0a8312f90a30bb793468659742"
             },
             "require": {
                 "php": "7.*"
@@ -8158,15 +8158,15 @@
                 "proprietary"
             ],
             "description": "Abstract module for bundle product modifications",
-            "time": "2019-04-09T14:31:56+00:00"
+            "time": "2019-04-12T13:56:35+00:00"
         },
         {
             "name": "oander/module-bundle-ignore-stock-quantity",
-            "version": "1.0.0",
+            "version": "1.0.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-bundle-ignore-stock-quantity.git",
-                "reference": "17ff21239bc277e8f78271a3c14dc4e3fb554087"
+                "reference": "437b400e06fb91950cffb93f49fe3fa0582a8d19"
             },
             "require": {
                 "oander/module-bundle": ">=1.0.3",
@@ -8184,7 +8184,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-04-09T14:56:30+00:00"
+            "time": "2019-04-12T13:55:58+00:00"
         },
         {
             "name": "oander/module-cardondeliverypayment",
