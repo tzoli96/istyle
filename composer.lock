@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9e1997620482b3cdffec130991274a4b",
+    "content-hash": "f7c2bf439b52b7c2428f1d1fdd118c0c",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9506,11 +9506,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.24.3",
+            "version": "1.4.24.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "e4ada97838ecd6a318b69878c4cdcb139ed53fc0"
+                "reference": "009e69d90bcf5ae528b50ce087f9232106229c31"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9531,7 +9531,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2019-04-11T05:41:44+00:00"
+            "time": "2019-04-16T14:03:03+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-conditions",
