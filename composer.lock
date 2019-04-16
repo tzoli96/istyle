@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f59ba3d3f6cb47a4213816c4d0fc2e9",
+    "content-hash": "cd8661c655106632e0f9b62c5157f760",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -103,14 +103,14 @@
         },
         {
             "name": "amasty/base",
-            "version": "1.1.1",
+            "version": "1.5.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/amasty-base.git",
-                "reference": "a4f3265fca55cf3bd45a39cb2362ef762c00f4c0"
+                "reference": "9172589038ac1f13c2518d88bf0028da8759327f"
             },
             "require": {
-                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|~7.1.0"
+                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|^7.1.0"
             },
             "type": "magento2-module",
             "autoload": {
@@ -125,18 +125,19 @@
                 "Commercial"
             ],
             "description": "Amasty Base",
-            "time": "2018-02-20T09:19:24+00:00"
+            "time": "2019-03-25T09:24:38+00:00"
         },
         {
             "name": "amasty/module-advanced-conditions",
-            "version": "1.3.3",
-            "dist": {
-                "type": "zip",
-                "url": "https://composer.amasty.com/community/packages/module-advanced-conditions-1.3.3.zip"
+            "version": "1.3.7",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/amasty-advanced-conditions.git",
+                "reference": "571fc896001d35d8d2008c1ecdd3504eb4502469"
             },
             "require": {
-                "amasty/base": "*",
-                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|~7.1.0"
+                "amasty/base": ">=1.4.7",
+                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|^7.1.0"
             },
             "type": "magento2-module",
             "autoload": {
@@ -150,7 +151,35 @@
             "license": [
                 "Commercial"
             ],
-            "description": "Advanced Conditions by Amasty"
+            "description": "Advanced Conditions by Amasty",
+            "time": "2019-01-16T11:44:02+00:00"
+        },
+        {
+            "name": "amasty/paction",
+            "version": "1.1.6",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/amasty-paction.git",
+                "reference": "94dac5a6b2d5dd7b7fb86195da74c007706fb2d8"
+            },
+            "require": {
+                "amasty/base": ">=1.5.5",
+                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\Paction\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Mass Product Action by Amasty",
+            "time": "2019-03-25T04:39:08+00:00"
         },
         {
             "name": "amasty/payrestriction",
@@ -274,15 +303,16 @@
         },
         {
             "name": "amasty/system-common-rules",
-            "version": "2.1.0",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/amasty-system-common-rules.git",
-                "reference": "ff60f965e5592dc05ea0fd9289e87d0f7acd4d2a"
+                "reference": "f0c9ba24687e719a111289ec9dd491f96e421b45"
             },
             "require": {
-                "amasty/base": ">=1.0.8",
-                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|~7.1.0"
+                "amasty/base": ">=1.4.7",
+                "amasty/module-advanced-conditions": ">=1.3.4",
+                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|^7.1.0"
             },
             "type": "magento2-module",
             "autoload": {
@@ -297,7 +327,7 @@
                 "Commercial"
             ],
             "description": "Common Rules by Amasty",
-            "time": "2018-05-29T13:00:15+00:00"
+            "time": "2019-01-16T11:58:59+00:00"
         },
         {
             "name": "anowave/ec",
@@ -7915,11 +7945,11 @@
         },
         {
             "name": "oander/module-bundle",
-            "version": "1.0.2",
+            "version": "1.0.3.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-bundle.git",
-                "reference": "5aad2536f6537dc47ea6243135854f31ba1e637b"
+                "reference": "e6640f7917251e0a8312f90a30bb793468659742"
             },
             "require": {
                 "php": "7.*"
@@ -7936,8 +7966,34 @@
             "license": [
                 "proprietary"
             ],
-            "description": "Bundle product ignore stock quantity",
-            "time": "2019-03-25T04:26:50+00:00"
+            "description": "Abstract module for bundle product modifications",
+            "time": "2019-04-12T13:56:35+00:00"
+        },
+        {
+            "name": "oander/module-bundle-ignore-stock-quantity",
+            "version": "1.0.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/module-bundle-ignore-stock-quantity.git",
+                "reference": "437b400e06fb91950cffb93f49fe3fa0582a8d19"
+            },
+            "require": {
+                "oander/module-bundle": ">=1.0.3",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\BundleIgnoreStockQuantity\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "time": "2019-04-12T13:55:58+00:00"
         },
         {
             "name": "oander/module-cardondeliverypayment",
@@ -7970,11 +8026,11 @@
         },
         {
             "name": "oander/module-cartbutton",
-            "version": "1.0.19.4",
+            "version": "1.0.19.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cartbutton.git",
-                "reference": "27a06e75c53732ea0c230460f58704db8dcc1215"
+                "reference": "215ec44a3d005800133d5639034601b24c5fbd99"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7995,7 +8051,7 @@
                 }
             ],
             "description": "Helper to display cart button",
-            "time": "2019-04-02T12:34:36+00:00"
+            "time": "2019-04-05T13:17:35+00:00"
         },
         {
             "name": "oander/module-cashonpickuppayment",
@@ -8178,11 +8234,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.30.23",
+            "version": "1.0.30.24",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "dd474dfc93e28d6f532f3ea2c20c945cbbc2d82b"
+                "reference": "4695f67de3732b9fa600d3f2657106aa962c4f7f"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8201,7 +8257,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2019-04-09T12:03:39+00:00"
+            "time": "2019-04-16T08:03:32+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -9161,11 +9217,11 @@
         },
         {
             "name": "oander/module-pos-locations",
-            "version": "1.1.1",
+            "version": "1.1.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-pos-locations.git",
-                "reference": "670821e2255232947354ea14d4243b3fccb0323f"
+                "reference": "32644dae7b9e144a186e45c6bc5b541189855f56"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9184,7 +9240,7 @@
                 "proprietary"
             ],
             "description": "Oander POS Locations module",
-            "time": "2018-09-26T09:46:09+00:00"
+            "time": "2019-04-16T14:26:03+00:00"
         },
         {
             "name": "oander/module-preorder",
@@ -9709,11 +9765,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.24.3",
+            "version": "1.4.24.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "e4ada97838ecd6a318b69878c4cdcb139ed53fc0"
+                "reference": "009e69d90bcf5ae528b50ce087f9232106229c31"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9734,7 +9790,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2019-04-11T05:41:44+00:00"
+            "time": "2019-04-16T14:03:03+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
