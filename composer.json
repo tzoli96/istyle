@@ -11,8 +11,7 @@
         "magento/product-community-edition": "2.1.5",
         "composer/composer": "@alpha",
         "algolia/algoliasearch-magento-2": "1.8.2",
-        "amasty/base": "1.5.5",
-        "amasty/paction": "1.1.6",
+        "amasty/base": "1.1.1",
         "amasty/payrestriction": "2.0.6",
         "amasty/promo": "2.2.2",
         "amasty/rgrid": "1.0.0",
@@ -35,7 +34,6 @@
         "istyle/module-insiacare": "1.0.4",
         "leanpay/payment":"0.0.2.4",
         "mageplaza/module-gdpr": "1.2.0",
-        "mageplaza/module-google-recaptcha": "1.0.2",
         "mirasvit/module-core": "1.2.74",
         "mirasvit/module-feed": "1.0.83",
         "mirasvit/module-report": "1.3.44",
@@ -67,8 +65,7 @@
         "oander/module-applepay": "1.0.2.9",
         "oander/module-autorelated-warehouse-manager-extender": "1.0.0.1",
         "oander/module-base": "1.2.6",
-        "oander/module-bundle": "1.0.3.1",
-        "oander/module-bundle-ignore-stock-quantity": "1.0.0.1",
+        "oander/module-bundle": "1.0.2",
         "oander/module-cardondeliverypayment": "1.0.1",
         "oander/module-cartbutton": "1.0.19.4",
         "oander/module-cashonpickuppayment": "1.0.1",
@@ -77,7 +74,7 @@
         "oander/module-cdninvalidator": "1.0.0",
         "oander/module-checkout": "1.1.0",
         "oander/module-configurable-product": "1.0.0",
-        "oander/module-configurable-product-attribute": "dev-35148-config-gallery-fix",
+        "oander/module-configurable-product-attribute": "1.0.30.23",
         "oander/module-cookie-law": "1.0.2",
         "oander/module-core-bug-fix": "dev-istyle",
         "oander/module-currency-manager": "1.2.1",
@@ -119,7 +116,7 @@
         "oander/module-salesforce": "1.2.0.1",
         "oander/module-salesforce-service": "dev-34803-ui-kit-fix",
         "oander/module-salesforce-widget": "1.0.7",
-        "oander/module-salesforcereservation": "dev-#34803-uikit-changes",
+        "oander/module-salesforcereservation": "1.1.12.1",
         "oander/module-shipping": "1.0.3",
         "oander/module-stuck-process-remover": "1.0.0",
         "oander/module-summit-leasing": "1.0.1",
@@ -198,3 +195,4 @@
         "magento-force": "override"
     }
 }
+
