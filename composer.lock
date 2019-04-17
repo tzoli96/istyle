@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cd8661c655106632e0f9b62c5157f760",
+    "content-hash": "2b4013dce6ab8755591ea22f2ac3a241",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -506,11 +506,11 @@
         },
         {
             "name": "bigfishpaymentgateway/pmgw",
-            "version": "2.0.1.5",
+            "version": "2.0.1.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/bigfishpaymentgateway-pmgw.git",
-                "reference": "903a1284407b4e735d38b19c3bd0d5c446011e98"
+                "reference": "37ca77bbc207f8bb3758b46143434fe651df948b"
             },
             "require": {
                 "bigfish/paymentgateway": "2.12.1",
@@ -530,7 +530,7 @@
                 "AFL-3.0"
             ],
             "description": "BIG FISH Payment Gateway module for Magento 2",
-            "time": "2018-06-21T18:56:19+00:00"
+            "time": "2019-04-17T13:13:32+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -1835,16 +1835,16 @@
         },
         {
             "name": "jms/serializer",
-            "version": "1.13.0",
+            "version": "1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "00863e1d55b411cc33ad3e1de09a4c8d3aae793c"
+                "reference": "ee96d57024af9a7716d56fcbe3aa94b3d030f3ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/00863e1d55b411cc33ad3e1de09a4c8d3aae793c",
-                "reference": "00863e1d55b411cc33ad3e1de09a4c8d3aae793c",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/ee96d57024af9a7716d56fcbe3aa94b3d030f3ca",
+                "reference": "ee96d57024af9a7716d56fcbe3aa94b3d030f3ca",
                 "shasum": ""
             },
             "require": {
@@ -1884,7 +1884,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-1.x": "1.13-dev"
+                    "dev-1.x": "1.14-dev"
                 }
             },
             "autoload": {
@@ -1915,7 +1915,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2018-07-25T13:58:54+00:00"
+            "time": "2019-04-17T08:12:16+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -9598,11 +9598,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.12.1",
+            "version": "dev-#34803-uikit-changes",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "fafa47dcacf6bd2293785394d4d43ac531b985a3"
+                "reference": "97e9d67856d27377650ae7210da1532fc976b5fa"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9630,7 +9630,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2019-01-17T04:41:25+00:00"
+            "time": "2019-04-17T10:52:43+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -10033,7 +10033,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "cd5d95ba8ff1f00a27ce9f6ef7fef70ae4bd8d73"
+                "reference": "e3e84cc92fd0f01472ec1c4a223e1d44f96d47b3"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10049,7 +10049,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-04-12T11:56:00+00:00"
+            "time": "2019-04-17T13:33:59+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -14179,6 +14179,7 @@
         "composer/composer": 15,
         "oander/module-core-bug-fix": 20,
         "oander/module-salesforce-service": 20,
+        "oander/module-salesforcereservation": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
