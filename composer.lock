@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ba2455dba2c1978ad091cee9e21ef2c",
+    "content-hash": "8e8957591c10a05ae5441c530ab869fd",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8288,7 +8288,7 @@
         },
         {
             "name": "oander/module-core-bug-fix",
-            "version": "dev-istyle",
+            "version": "dev-fix/27533_istyle",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
