@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f7c2bf439b52b7c2428f1d1fdd118c0c",
+    "content-hash": "501165d0cf142354c3c627b3ab1d24bc",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1158,6 +1158,53 @@
             "time": "2017-11-09T16:41:43+00:00"
         },
         {
+            "name": "google/recaptcha",
+            "version": "1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/google/recaptcha.git",
+                "reference": "e7add3be59211482ecdb942288f52da64a35f61a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/google/recaptcha/zipball/e7add3be59211482ecdb942288f52da64a35f61a",
+                "reference": "e7add3be59211482ecdb942288f52da64a35f61a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.2.20|^2.12",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpunit": "^4.8.36|^5.7.27|^6.59|^7"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ReCaptcha\\": "src/ReCaptcha"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Client library for reCAPTCHA, a free service that protects websites from spam and abuse.",
+            "homepage": "https://www.google.com/recaptcha/",
+            "keywords": [
+                "Abuse",
+                "captcha",
+                "recaptcha",
+                "spam"
+            ],
+            "time": "2018-08-05T09:31:53+00:00"
+        },
+        {
             "name": "guzzlehttp/guzzle",
             "version": "6.3.3",
             "source": {
@@ -1774,16 +1821,16 @@
         },
         {
             "name": "jms/serializer",
-            "version": "1.13.0",
+            "version": "1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "00863e1d55b411cc33ad3e1de09a4c8d3aae793c"
+                "reference": "ee96d57024af9a7716d56fcbe3aa94b3d030f3ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/00863e1d55b411cc33ad3e1de09a4c8d3aae793c",
-                "reference": "00863e1d55b411cc33ad3e1de09a4c8d3aae793c",
+                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/ee96d57024af9a7716d56fcbe3aa94b3d030f3ca",
+                "reference": "ee96d57024af9a7716d56fcbe3aa94b3d030f3ca",
                 "shasum": ""
             },
             "require": {
@@ -1823,7 +1870,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-1.x": "1.13-dev"
+                    "dev-1.x": "1.14-dev"
                 }
             },
             "autoload": {
@@ -1854,7 +1901,7 @@
                 "serialization",
                 "xml"
             ],
-            "time": "2018-07-25T13:58:54+00:00"
+            "time": "2019-04-17T08:12:16+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -6793,6 +6840,48 @@
             "time": "2018-07-30T07:52:12+00:00"
         },
         {
+            "name": "mageplaza/module-google-recaptcha",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mageplaza/magento-2-google-recaptcha.git",
+                "reference": "aabc7a8563aa9857d3500803d75a4bacf19fb19b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mageplaza/magento-2-google-recaptcha/zipball/aabc7a8563aa9857d3500803d75a4bacf19fb19b",
+                "reference": "aabc7a8563aa9857d3500803d75a4bacf19fb19b",
+                "shasum": ""
+            },
+            "require": {
+                "google/recaptcha": "^1.2",
+                "mageplaza/module-core": "^1.3.13"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Mageplaza\\GoogleRecaptcha\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Mageplaza",
+                    "email": "support@mageplaza.com",
+                    "homepage": "https://www.mageplaza.com",
+                    "role": "Technical Support"
+                }
+            ],
+            "description": "Magento 2 Google Recaptcha Extension",
+            "time": "2018-10-05T02:23:55+00:00"
+        },
+        {
             "name": "mirasvit/module-core",
             "version": "1.2.74",
             "source": {
@@ -7309,11 +7398,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.17.17",
+            "version": "1.0.17.18",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "4fe2f0ec05abadab7338a9d65faef0cd019fbe2a"
+                "reference": "8fabe2e150de03a81d2951d8b2976fcc1eb5f5f7"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7334,7 +7423,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2019-04-05T11:28:03+00:00"
+            "time": "2019-04-24T12:19:33+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
@@ -8168,7 +8257,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "72df2ef095421550c2c64e299b09eff4213acb8c"
+                "reference": "b5da57221289270481278ce75ab8315cd776b7a4"
             },
             "require": {
                 "php": "7.*"
@@ -8186,7 +8275,7 @@
                 "proprietary"
             ],
             "description": "Core bug fixes for Magento 2.x",
-            "time": "2019-04-04T14:09:10+00:00"
+            "time": "2019-04-26T08:23:33+00:00"
         },
         {
             "name": "oander/module-currency-manager",
@@ -9209,11 +9298,11 @@
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.38",
+            "version": "0.0.3.39",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "d1419b6c41198c4c3fcf6467ab57469a92b8fddf"
+                "reference": "49cc63dc0e8c02273d82ca49afc946745e834ea5"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9233,7 +9322,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2019-04-04T11:24:49+00:00"
+            "time": "2019-04-24T10:57:57+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -9640,11 +9729,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.202",
+            "version": "1.0.203",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "0e8113dbccf214f0c50de4a8184dddf1e0c76310"
+                "reference": "6be7ab1f8ceb2582c0ae24f879f0aefeda1be387"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9660,7 +9749,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-04-16T08:02:53+00:00"
+            "time": "2019-04-26T08:23:20+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10404,7 +10493,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.8.49",
+            "version": "v2.8.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -10519,16 +10608,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.8.49",
+            "version": "v2.8.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "a2f40df187f0053bc361bcea3b27ff2b85744d9f"
+                "reference": "c306198fee8f872a8f5f031e6e4f6f83086992d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/a2f40df187f0053bc361bcea3b27ff2b85744d9f",
-                "reference": "a2f40df187f0053bc361bcea3b27ff2b85744d9f",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/c306198fee8f872a8f5f031e6e4f6f83086992d8",
+                "reference": "c306198fee8f872a8f5f031e6e4f6f83086992d8",
                 "shasum": ""
             },
             "require": {
@@ -10578,11 +10667,11 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "https://symfony.com",
-            "time": "2018-11-11T11:18:13+00:00"
+            "time": "2019-04-16T11:33:46+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.49",
+            "version": "v2.8.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -10642,7 +10731,7 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.8.49",
+            "version": "v2.8.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -10692,7 +10781,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.25",
+            "version": "v3.4.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -10799,7 +10888,7 @@
         },
         {
             "name": "symfony/process",
-            "version": "v2.8.49",
+            "version": "v2.8.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -10848,7 +10937,7 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.49",
+            "version": "v2.8.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -13666,7 +13755,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.25",
+            "version": "v3.4.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
