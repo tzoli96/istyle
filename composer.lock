@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b6a0f31a86bf1ac6ca1025e89b8b07f8",
+    "content-hash": "8de62593453f8f984fd1665f1f52b21c",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9553,11 +9553,11 @@
         },
         {
             "name": "oander/module-product-widget-warehouse-manager-extender",
-            "version": "1.0.0.3",
+            "version": "1.0.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-product-widget-warehouse-manager-extender.git",
-                "reference": "2f3a2617eb9c818982127c2350008e60d2b913d7"
+                "reference": "da5644ff9761df3d32ef07156fd68dc0a4071799"
             },
             "require": {
                 "oander/module-warehouse-manager-conditions": "*",
@@ -9575,7 +9575,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-04-18T13:46:27+00:00"
+            "time": "2019-04-29T10:35:07+00:00"
         },
         {
             "name": "oander/module-producturlresolver",
@@ -9717,7 +9717,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "97e9d67856d27377650ae7210da1532fc976b5fa"
+                "reference": "b0bf48a6507488e9fdcd7c625dc786aebe04caad"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9745,7 +9745,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2019-04-17T10:52:43+00:00"
+            "time": "2019-04-26T14:16:20+00:00"
         },
         {
             "name": "oander/module-shipping",
