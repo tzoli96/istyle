@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8f6c834eaf1d2d5202cbf5776955d54",
+    "content-hash": "7843ed35d6912e0f6f47d9ca16ebd3bc",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -385,16 +385,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.71.0",
+            "version": "3.92.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "8585a1b39db65ed393dff4018fe545ea44005532"
+                "reference": "f334ed28b4a1be4ef9cb96becc015e67a6a31ad7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/8585a1b39db65ed393dff4018fe545ea44005532",
-                "reference": "8585a1b39db65ed393dff4018fe545ea44005532",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f334ed28b4a1be4ef9cb96becc015e67a6a31ad7",
+                "reference": "f334ed28b4a1be4ef9cb96becc015e67a6a31ad7",
                 "shasum": ""
             },
             "require": {
@@ -6981,11 +6981,11 @@
         },
         {
             "name": "magexo/paymenthomecredit",
-            "version": "0.0.1",
+            "version": "0.0.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/magexo-paymenthomecredit.git",
-                "reference": "29fc69dd765c3244cc30fc3ffa93f8dc43fd6fc6"
+                "reference": "ac565095f25d660d0f511f30172b7ad42ec0a0ed"
             },
             "require": {
                 "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
@@ -7003,7 +7003,7 @@
                 "Commercial"
             ],
             "description": "MageXo Payment Home Credit",
-            "time": "2019-04-29T10:16:38+00:00"
+            "time": "2019-05-03T11:01:14+00:00"
         },
         {
             "name": "mirasvit/module-core",
@@ -8865,7 +8865,7 @@
                 "reference": "14137caa9a9ddfbd5f6c8eb3a7486602cf50cac3"
             },
             "require": {
-                "aws/aws-sdk-php": "3.71",
+                "aws/aws-sdk-php": "3.92.5",
                 "php": "~5.6.0|~7.0"
             },
             "type": "magento2-module",
@@ -9906,11 +9906,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.24.4",
+            "version": "1.4.24.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "009e69d90bcf5ae528b50ce087f9232106229c31"
+                "reference": "90212013464d9ed9bd0230bdd699479b7d5dbb2f"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9931,7 +9931,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2019-04-16T14:03:03+00:00"
+            "time": "2019-05-02T12:35:37+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
@@ -11158,7 +11158,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.26",
+            "version": "v3.4.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -14132,7 +14132,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.26",
+            "version": "v3.4.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
