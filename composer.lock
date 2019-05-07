@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "74f2d8c999226809fa402e5844f4922c",
+    "content-hash": "077454abaa71e99ce907c5333d1d9096",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -506,11 +506,11 @@
         },
         {
             "name": "bigfishpaymentgateway/pmgw",
-            "version": "2.0.1.6",
+            "version": "2.0.1.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/bigfishpaymentgateway-pmgw.git",
-                "reference": "37ca77bbc207f8bb3758b46143434fe651df948b"
+                "reference": "e0cb6f514cac7b67433d602f2bd2c62c825a7230"
             },
             "require": {
                 "bigfish/paymentgateway": "2.12.1",
@@ -530,7 +530,7 @@
                 "AFL-3.0"
             ],
             "description": "BIG FISH Payment Gateway module for Magento 2",
-            "time": "2019-04-17T13:13:32+00:00"
+            "time": "2019-05-07T14:25:12+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -1708,11 +1708,11 @@
         },
         {
             "name": "innobyte/module-nlb",
-            "version": "0.0.4.1",
+            "version": "0.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-nlbpayment.git",
-                "reference": "0c8e15832f22450a844caa7d41c5f68eb6e84b04"
+                "reference": "e03fab4eac8480f4cb72f504556fc4f1e064208f"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1728,7 +1728,7 @@
                 }
             },
             "description": "Innobyte NLB Payment Module",
-            "time": "2019-01-14T09:51:00+00:00"
+            "time": "2019-05-07T13:42:55+00:00"
         },
         {
             "name": "innobyte/module-swedbank",
