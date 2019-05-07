@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "233dc0676821fe6397db5bfb2ac0519f",
+    "content-hash": "87f1c997a14e8a96bf00a924c8a0dab9",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -450,11 +450,11 @@
         },
         {
             "name": "bigfishpaymentgateway/pmgw",
-            "version": "2.0.1.6",
+            "version": "2.0.1.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/bigfishpaymentgateway-pmgw.git",
-                "reference": "37ca77bbc207f8bb3758b46143434fe651df948b"
+                "reference": "e0cb6f514cac7b67433d602f2bd2c62c825a7230"
             },
             "require": {
                 "bigfish/paymentgateway": "2.12.1",
@@ -474,7 +474,7 @@
                 "AFL-3.0"
             ],
             "description": "BIG FISH Payment Gateway module for Magento 2",
-            "time": "2019-04-17T13:13:32+00:00"
+            "time": "2019-05-07T14:25:12+00:00"
         },
         {
             "name": "braintree/braintree_php",
