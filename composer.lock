@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a195ebcd35d1568d1c978f9fea2da04a",
+    "content-hash": "87f1c997a14e8a96bf00a924c8a0dab9",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -450,11 +450,11 @@
         },
         {
             "name": "bigfishpaymentgateway/pmgw",
-            "version": "2.0.1.5",
+            "version": "2.0.1.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/bigfishpaymentgateway-pmgw.git",
-                "reference": "903a1284407b4e735d38b19c3bd0d5c446011e98"
+                "reference": "e0cb6f514cac7b67433d602f2bd2c62c825a7230"
             },
             "require": {
                 "bigfish/paymentgateway": "2.12.1",
@@ -474,7 +474,7 @@
                 "AFL-3.0"
             ],
             "description": "BIG FISH Payment Gateway module for Magento 2",
-            "time": "2018-06-21T18:56:19+00:00"
+            "time": "2019-05-07T14:25:12+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -6869,16 +6869,16 @@
         },
         {
             "name": "mageplaza/module-core",
-            "version": "1.4.2",
+            "version": "1.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mageplaza/module-core.git",
-                "reference": "19fcf838306acb4632972b2c31d5a2d283ddead8"
+                "reference": "881b4e59ea1684e5a3b22d618a2cb843d941ddaf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/19fcf838306acb4632972b2c31d5a2d283ddead8",
-                "reference": "19fcf838306acb4632972b2c31d5a2d283ddead8",
+                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/881b4e59ea1684e5a3b22d618a2cb843d941ddaf",
+                "reference": "881b4e59ea1684e5a3b22d618a2cb843d941ddaf",
                 "shasum": ""
             },
             "type": "magento2-module",
@@ -6903,7 +6903,7 @@
                 }
             ],
             "description": "Mageplaza Core for Magento 2",
-            "time": "2019-02-19T03:17:17+00:00"
+            "time": "2019-05-06T00:57:34+00:00"
         },
         {
             "name": "mageplaza/module-gdpr",
@@ -7498,11 +7498,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.17.18",
+            "version": "1.0.17.19",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "8fabe2e150de03a81d2951d8b2976fcc1eb5f5f7"
+                "reference": "16eb3f4bc57dfbb61796bea98401c1a1a2e9cfd3"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7523,7 +7523,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2019-04-24T12:19:33+00:00"
+            "time": "2019-04-26T09:36:26+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
@@ -8357,7 +8357,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "b5da57221289270481278ce75ab8315cd776b7a4"
+                "reference": "9a3881ddeb41325b8e5fac244a638dd3cf060e4d"
             },
             "require": {
                 "php": "7.*"
@@ -8375,7 +8375,7 @@
                 "proprietary"
             ],
             "description": "Core bug fixes for Magento 2.x",
-            "time": "2019-04-26T08:23:33+00:00"
+            "time": "2019-05-07T11:40:01+00:00"
         },
         {
             "name": "oander/module-currency-manager",
@@ -9175,11 +9175,11 @@
         },
         {
             "name": "oander/module-pos-locations",
-            "version": "1.1.1",
+            "version": "1.1.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-pos-locations.git",
-                "reference": "670821e2255232947354ea14d4243b3fccb0323f"
+                "reference": "32644dae7b9e144a186e45c6bc5b541189855f56"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9198,7 +9198,7 @@
                 "proprietary"
             ],
             "description": "Oander POS Locations module",
-            "time": "2018-09-26T09:46:09+00:00"
+            "time": "2019-04-16T14:26:03+00:00"
         },
         {
             "name": "oander/module-preorder",
@@ -9294,11 +9294,11 @@
         },
         {
             "name": "oander/module-product-widget-warehouse-manager-extender",
-            "version": "1.0.0.2",
+            "version": "1.0.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-product-widget-warehouse-manager-extender.git",
-                "reference": "4f929d16b87863e02b4430ef2ee621011a6e6319"
+                "reference": "c7a76cf71db353515e7c1f1e888f2a872c99046e"
             },
             "require": {
                 "oander/module-warehouse-manager-conditions": "*",
@@ -9316,7 +9316,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-04-08T19:10:54+00:00"
+            "time": "2019-05-07T11:08:11+00:00"
         },
         {
             "name": "oander/module-producturlresolver",
@@ -9695,11 +9695,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.24.4",
+            "version": "1.4.24.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "009e69d90bcf5ae528b50ce087f9232106229c31"
+                "reference": "90212013464d9ed9bd0230bdd699479b7d5dbb2f"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9720,7 +9720,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2019-04-16T14:03:03+00:00"
+            "time": "2019-05-02T12:35:37+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-conditions",
@@ -9829,11 +9829,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.204",
+            "version": "1.0.208",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "d3a8eaae4a7a2709eb0ca1d20785f12e1d4c3fbe"
+                "reference": "d75e8036e1bb151b0787a94a8580c08992ccb9ad"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9849,7 +9849,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-04-29T08:06:10+00:00"
+            "time": "2019-05-07T08:02:53+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10881,7 +10881,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.26",
+            "version": "v3.4.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -13847,7 +13847,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.26",
+            "version": "v3.4.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
