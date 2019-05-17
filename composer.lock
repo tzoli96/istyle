@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "412e3d82a23994fecd7f273f47cad96d",
+    "content-hash": "5a438995f91f97bdf164c4dc8dd08ebb",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7548,11 +7548,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "dev-#34803-product-cards",
+            "version": "1.0.17.21",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "7a1483d1eadd3978480b4e1b20964d091b558901"
+                "reference": "4f65c851153f8e16a7ffa05b7e4b4d0c75030bf5"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7573,7 +7573,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2019-05-13T11:59:46+00:00"
+            "time": "2019-05-17T12:04:19+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
@@ -7970,11 +7970,11 @@
         },
         {
             "name": "oander/module-applepay",
-            "version": "1.0.2.9",
+            "version": "1.0.2.10",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-applepay.git",
-                "reference": "f4c5065cc81967dfc768e8753f2cda8809cee7b1"
+                "reference": "35e260e3d91496352ab9c7132f90b191063adbef"
             },
             "require": {
                 "oander/module-checkout": ">=1.1.0",
@@ -7993,7 +7993,7 @@
                 "proprietary"
             ],
             "description": "Apple Pay payment method",
-            "time": "2019-03-04T11:07:52+00:00"
+            "time": "2019-05-15T12:56:10+00:00"
         },
         {
             "name": "oander/module-autorelated-warehouse-manager-extender",
@@ -8167,11 +8167,11 @@
         },
         {
             "name": "oander/module-cartbutton",
-            "version": "1.0.19.5",
+            "version": "1.0.19.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cartbutton.git",
-                "reference": "215ec44a3d005800133d5639034601b24c5fbd99"
+                "reference": "62e7e3cd632eece52ab8ecc2d48ea2ad6cd93c56"
             },
             "type": "magento2-module",
             "autoload": {
@@ -8192,7 +8192,7 @@
                 }
             ],
             "description": "Helper to display cart button",
-            "time": "2019-04-05T13:17:35+00:00"
+            "time": "2019-05-14T12:06:16+00:00"
         },
         {
             "name": "oander/module-cashonpickuppayment",
@@ -9581,11 +9581,11 @@
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "dev-34803-ui-kit-fix",
+            "version": "0.0.3.40",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "33cdde75a36cfeeefbe2a61b1626599e35739c34"
+                "reference": "896f0d346afee19acbcf403eb652a9ce4f65f465"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9605,7 +9605,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2019-05-08T15:36:39+00:00"
+            "time": "2019-05-14T11:51:34+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -9637,11 +9637,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "dev-#34803-uikit-changes",
+            "version": "1.1.12.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "193caa86258de49902cb737f430a99b8dcb52bd0"
+                "reference": "612b74b784c19fdebcb8a39f337a6bfde56fff69"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9669,7 +9669,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2019-05-06T15:47:15+00:00"
+            "time": "2019-05-14T11:54:21+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -14224,10 +14224,7 @@
     "minimum-stability": "alpha",
     "stability-flags": {
         "composer/composer": 15,
-        "oander/module-algoliasearch": 20,
         "oander/module-core-bug-fix": 20,
-        "oander/module-salesforce-service": 20,
-        "oander/module-salesforcereservation": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
