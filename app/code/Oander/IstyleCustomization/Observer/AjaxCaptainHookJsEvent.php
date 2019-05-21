@@ -75,6 +75,8 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
                                 stickyHeader.find(\'#sticky-final-price\').html(priceUtils.formatPrice(finalPrice, {}));
                                 stickyHeader.find(\'#sticky-old-price\').html(priceUtils.formatPrice(oldPrice, {}));
                             }
+                            
+                            jQuery(\'#product-view-top\').find(\'[data-role=priceBox]\').trigger("updatePrice");
                         }'
                     ]
                 )
