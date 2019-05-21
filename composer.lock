@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3d7b7d3cf6f90b884ede5ed8ee888dda",
+    "content-hash": "baa3a78ef60ef258ea02f9cf9559f39d",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7820,11 +7820,11 @@
         },
         {
             "name": "oander/module-applepay",
-            "version": "1.0.2.9",
+            "version": "1.0.2.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-applepay.git",
-                "reference": "f4c5065cc81967dfc768e8753f2cda8809cee7b1"
+                "reference": "be048d11f74df1007db8b866b399faeb43a8a409"
             },
             "require": {
                 "oander/module-checkout": ">=1.1.0",
@@ -7843,7 +7843,7 @@
                 "proprietary"
             ],
             "description": "Apple Pay payment method",
-            "time": "2019-03-04T11:07:52+00:00"
+            "time": "2019-05-21T06:44:43+00:00"
         },
         {
             "name": "oander/module-autorelated-warehouse-manager-extender",
@@ -9354,11 +9354,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.12.3",
+            "version": "1.1.12.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "612b74b784c19fdebcb8a39f337a6bfde56fff69"
+                "reference": "f3a6f823b38d07876a496a838a5072fed64dda62"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9386,7 +9386,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2019-05-14T11:54:21+00:00"
+            "time": "2019-05-21T08:08:26+00:00"
         },
         {
             "name": "oander/module-shipping",
