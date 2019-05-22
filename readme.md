@@ -1,3 +1,3 @@
 # iStyle M2   
 
-**Utoljára frissítve:** 2019.05.21.
+**Utoljára frissítve:** 2019.05.22.
