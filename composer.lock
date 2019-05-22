@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "87f1c997a14e8a96bf00a924c8a0dab9",
+    "content-hash": "1a5c4749f824632fe33b09905b3abb6c",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7498,11 +7498,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.17.19",
+            "version": "1.0.17.21",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "16eb3f4bc57dfbb61796bea98401c1a1a2e9cfd3"
+                "reference": "4f65c851153f8e16a7ffa05b7e4b4d0c75030bf5"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7523,7 +7523,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2019-04-26T09:36:26+00:00"
+            "time": "2019-05-17T12:04:19+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
@@ -7920,11 +7920,11 @@
         },
         {
             "name": "oander/module-applepay",
-            "version": "1.0.2.9",
+            "version": "1.0.2.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-applepay.git",
-                "reference": "f4c5065cc81967dfc768e8753f2cda8809cee7b1"
+                "reference": "be048d11f74df1007db8b866b399faeb43a8a409"
             },
             "require": {
                 "oander/module-checkout": ">=1.1.0",
@@ -7943,7 +7943,7 @@
                 "proprietary"
             ],
             "description": "Apple Pay payment method",
-            "time": "2019-03-04T11:07:52+00:00"
+            "time": "2019-05-21T06:44:43+00:00"
         },
         {
             "name": "oander/module-autorelated-warehouse-manager-extender",
@@ -8091,11 +8091,11 @@
         },
         {
             "name": "oander/module-cartbutton",
-            "version": "1.0.19.5",
+            "version": "1.0.19.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cartbutton.git",
-                "reference": "215ec44a3d005800133d5639034601b24c5fbd99"
+                "reference": "62e7e3cd632eece52ab8ecc2d48ea2ad6cd93c56"
             },
             "type": "magento2-module",
             "autoload": {
@@ -8116,7 +8116,7 @@
                 }
             ],
             "description": "Helper to display cart button",
-            "time": "2019-04-05T13:17:35+00:00"
+            "time": "2019-05-14T12:06:16+00:00"
         },
         {
             "name": "oander/module-cashonpickuppayment",
@@ -9294,11 +9294,11 @@
         },
         {
             "name": "oander/module-product-widget-warehouse-manager-extender",
-            "version": "1.0.0.5",
+            "version": "1.0.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-product-widget-warehouse-manager-extender.git",
-                "reference": "c7a76cf71db353515e7c1f1e888f2a872c99046e"
+                "reference": "45bc57408006fa8895312b26f4bc6ec9fb2153f2"
             },
             "require": {
                 "oander/module-warehouse-manager-conditions": "*",
@@ -9316,7 +9316,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-05-07T11:08:11+00:00"
+            "time": "2019-05-08T13:52:35+00:00"
         },
         {
             "name": "oander/module-producturlresolver",
@@ -9398,11 +9398,11 @@
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.39",
+            "version": "0.0.3.40",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "49cc63dc0e8c02273d82ca49afc946745e834ea5"
+                "reference": "896f0d346afee19acbcf403eb652a9ce4f65f465"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9422,7 +9422,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2019-04-24T10:57:57+00:00"
+            "time": "2019-05-14T11:51:34+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -9454,11 +9454,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.7",
+            "version": "1.1.12.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "63fdba1c7f1ce46206274bc4137a25675e4fb2ad"
+                "reference": "f3a6f823b38d07876a496a838a5072fed64dda62"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9486,7 +9486,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2018-10-29T10:56:16+00:00"
+            "time": "2019-05-21T08:08:26+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -9829,11 +9829,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.208",
+            "version": "1.0.213",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "d75e8036e1bb151b0787a94a8580c08992ccb9ad"
+                "reference": "ac51008fb00dba2405d7327800a8f6672bfc536c"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9849,7 +9849,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-05-07T08:02:53+00:00"
+            "time": "2019-05-22T09:16:52+00:00"
         },
         {
             "name": "oyejorge/less.php",
