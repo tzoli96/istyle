@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8fbba08314989e784dd681a75ca69563",
+    "content-hash": "5cdc9f388ae447d0bf62392c579c07e5",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7970,11 +7970,11 @@
         },
         {
             "name": "oander/module-applepay",
-            "version": "1.0.2.11",
+            "version": "1.0.2.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-applepay.git",
-                "reference": "be048d11f74df1007db8b866b399faeb43a8a409"
+                "reference": "20b3361dd6e7938af0eccdf15cf3d64b266399e2"
             },
             "require": {
                 "oander/module-checkout": ">=1.1.0",
@@ -7993,15 +7993,15 @@
                 "proprietary"
             ],
             "description": "Apple Pay payment method",
-            "time": "2019-05-21T06:44:43+00:00"
+            "time": "2019-05-24T11:03:02+00:00"
         },
         {
             "name": "oander/module-autorelated-warehouse-manager-extender",
-            "version": "1.0.1",
+            "version": "1.0.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-autorelated-warehouse-manager-extender.git",
-                "reference": "c01ae00e7f5c1206b204169ed9d21cdcb12c9ca4"
+                "reference": "2488b41867893372f5446718962f75f7c710576c"
             },
             "require": {
                 "oander/module-warehouse-manager-conditions": "*",
@@ -8019,7 +8019,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-05-20T10:01:27+00:00"
+            "time": "2019-05-24T08:24:27+00:00"
         },
         {
             "name": "oander/module-base",
@@ -9906,11 +9906,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.25",
+            "version": "1.4.25.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "4319f0108318426a73d55d9094577432cb253efb"
+                "reference": "c01f2e7505bc7613a0cedaa89311364e732b5927"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9931,7 +9931,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2019-05-20T09:55:19+00:00"
+            "time": "2019-05-24T08:26:15+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
