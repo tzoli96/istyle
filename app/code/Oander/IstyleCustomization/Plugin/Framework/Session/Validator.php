@@ -8,6 +8,7 @@
 
 namespace Oander\IstyleCustomization\Plugin\Framework\Session;
 
+use Magento\Framework\DB\Select;
 use Magento\Framework\Session\SessionManagerInterface;
 use Magento\Framework\App\ResourceConnection;
 use Magento\Framework\Registry;
@@ -21,6 +22,16 @@ class Validator
 {
     const SESSION_REGENERATE_COUNT = 'session_regenerate_count';
     const MAX_SESSION_REGENERATE = 10;
+
+    const CUSTOMER_VISITOR_TABLE = 'customer_visitor';
+    const VISITOR_ID = 'visitor_id';
+    const SESSION_ID = 'session_id';
+
+    const VISITOR_DATA = 'visitor_data';
+    const VISITOR_DATA_STRUCTURE = [
+        self::VISITOR_ID => null,
+        self::SESSION_ID => null
+    ];
 
     /**
      * @var ResourceConnection
@@ -62,7 +73,7 @@ class Validator
     {
         $sessionId = $session->getSessionId();
 
-        if ($this->isSessionExist($sessionId)) {
+        if ($this->isSessionIdUsedByAnotherVisitor($sessionId)) {
             $regenerateCount = $this->increaseRegenerateCounter();
             $this->logger->addWarning(
                 __('Session with this session_id already exist - session_id: %1, regenerate count: %2 ', $session->getSessionId(), $regenerateCount),
@@ -84,7 +95,7 @@ class Validator
                         '$_COOKIE'  => $_COOKIE
                     ]
                 );
-                $session->destroy(['clear_storage' => false]);
+                $session->destroy(['clear_storage' => true]);
                 $session->start();
 
             } elseif ($regenerateCount == self::MAX_SESSION_REGENERATE) {
@@ -107,20 +118,69 @@ class Validator
     }
 
     /**
-     * @param $session_id
+     * @param $sessionId
      *
      * @return bool
      */
-    private function isSessionExist($session_id)
+    private function isSessionIdUsedByAnotherVisitor($sessionId)
     {
-        $connection = $this->resource->getConnection();
+        $visitorDatabase = $this->getVisitorDatabaseData($sessionId);
+        if ($visitorDatabase[self::VISITOR_ID] === null || $visitorDatabase[self::SESSION_ID] === null) {
+            return false;
+        }
 
-        return (bool)$connection->fetchOne(
+        $visitorSession = $this->getVisitorSessionData();
+        if ($sessionId == $visitorDatabase[self::SESSION_ID] && $sessionId == $visitorSession[self::SESSION_ID]
+            && $visitorDatabase[self::VISITOR_ID] == $visitorSession[self::VISITOR_ID]
+        ) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * @return array
+     */
+    private function getVisitorSessionData()
+    {
+        $visitorData = self::VISITOR_DATA_STRUCTURE;
+
+        if (isset($_SESSION['default'],
+            $_SESSION['default'][self::VISITOR_DATA],
+            $_SESSION['default'][self::VISITOR_DATA][self::SESSION_ID],
+            $_SESSION['default'][self::VISITOR_DATA][self::VISITOR_ID]
+        )) {
+            $visitorData[self::SESSION_ID] = $_SESSION['default'][self::VISITOR_DATA][self::SESSION_ID];
+            $visitorData[self::VISITOR_ID] = $_SESSION['default'][self::VISITOR_DATA][self::VISITOR_ID];
+        }
+
+        return $visitorData;
+    }
+
+    /**
+     * @param $sessionId
+     *
+     * @return array
+     */
+    private function getVisitorDatabaseData($sessionId)
+    {
+        $visitorData = self::VISITOR_DATA_STRUCTURE;
+        $connection = $this->resource->getConnection();
+        $databaseVisitorData = $connection->fetchRow(
             $connection->select()
-                       ->from($this->resource->getTableName('customer_visitor'))
-                       ->where($connection->quoteIdentifier('session_id'). ' = ?', $session_id)
-                       ->limit(1)
+               ->from($this->resource->getTableName(self::CUSTOMER_VISITOR_TABLE))
+               ->where($connection->quoteIdentifier(self::SESSION_ID). ' = ?', $sessionId)
+               ->order(self::VISITOR_ID, Select::SQL_ASC)
+               ->limit(1)
         );
+
+        if (isset($databaseVisitorData[self::SESSION_ID], $databaseVisitorData[self::VISITOR_ID])) {
+            $visitorData[self::SESSION_ID] = $databaseVisitorData[self::SESSION_ID];
+            $visitorData[self::VISITOR_ID] = $databaseVisitorData[self::VISITOR_ID];
+        }
+
+        return $visitorData;
     }
 
     /**
