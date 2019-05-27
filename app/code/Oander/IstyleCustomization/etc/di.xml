@@ -57,4 +57,21 @@
     <type name="Magento\Catalog\Block\Product\View\Attributes">
         <plugin name="remove_na_attributes" type="Oander\IstyleCustomization\Plugin\Catalog\Block\Product\View\Attributes" sortOrder="5" />
     </type>
+
+    <type name="Magento\Framework\Session\Validator">
+        <plugin name="session_validator_check_db" type="Oander\IstyleCustomization\Plugin\Framework\Session\Validator" sortOrder="100" />
+    </type>
+    <type name="Oander\IstyleCustomization\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Oander\IstyleCustomization\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">SessionLogger</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">Oander\IstyleCustomization\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
 </config>
