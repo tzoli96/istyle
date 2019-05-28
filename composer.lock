@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "683f0dcdd7020cc6e19182a12a39ee69",
+    "content-hash": "9f410c7783a3dcf3a1d63e54492d14ee",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1647,30 +1647,6 @@
             },
             "description": "Innobyte DSK Payment Module",
             "time": "2018-05-28T13:15:45+00:00"
-        },
-        {
-            "name": "innobyte/module-homecredit",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/innobyte-home-credit.git",
-                "reference": "88b9f4d5aee0d440369521e409d815d115e73851"
-            },
-            "require": {
-                "magento/module-checkout": "^100.1.2",
-                "php": "7.0.2|7.0.4|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Innobyte\\HomeCredit\\": ""
-                }
-            },
-            "description": "Innobyte HomeCredit Module",
-            "time": "2018-06-26T12:49:14+00:00"
         },
         {
             "name": "innobyte/module-inbank",
@@ -6981,11 +6957,11 @@
         },
         {
             "name": "magexo/paymenthomecredit",
-            "version": "0.0.1.2",
+            "version": "0.0.1.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/magexo-paymenthomecredit.git",
-                "reference": "d351deee4ffeeae65b5af4e109574e2f00f9e67b"
+                "reference": "7a9342c7a1eb502f882cf9dc30a5397efedf1b26"
             },
             "require": {
                 "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
@@ -7003,7 +6979,7 @@
                 "Commercial"
             ],
             "description": "MageXo Payment Home Credit",
-            "time": "2019-05-14T09:18:36+00:00"
+            "time": "2019-05-28T10:15:58+00:00"
         },
         {
             "name": "mirasvit/module-core",
@@ -11214,16 +11190,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.27",
+            "version": "v3.4.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "61af5ce0b34b942d414fe8f1b11950d0e9a90e98"
+                "reference": "fa5d962a71f2169dfe1cbae217fa5a2799859f6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/61af5ce0b34b942d414fe8f1b11950d0e9a90e98",
-                "reference": "61af5ce0b34b942d414fe8f1b11950d0e9a90e98",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/fa5d962a71f2169dfe1cbae217fa5a2799859f6c",
+                "reference": "fa5d962a71f2169dfe1cbae217fa5a2799859f6c",
                 "shasum": ""
             },
             "require": {
@@ -11259,7 +11235,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2019-04-02T19:54:57+00:00"
+            "time": "2019-05-24T12:25:55+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -14188,7 +14164,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.27",
+            "version": "v3.4.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
