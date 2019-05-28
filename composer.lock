@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "28a6c5cbf80606dddd5bedd974a6abb1",
+    "content-hash": "683f0dcdd7020cc6e19182a12a39ee69",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9478,6 +9478,33 @@
             "time": "2017-05-30T12:26:11+00:00"
         },
         {
+            "name": "oander/module-product-faq",
+            "version": "1.0.0.6",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/module-product-faq.git",
+                "reference": "816964caa1ea36719114d366ddcaca15dfbc3a12"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\ProductFaq\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Product Faq",
+            "time": "2019-05-15T07:15:08+00:00"
+        },
+        {
             "name": "oander/module-product-icons",
             "version": "1.1.1",
             "source": {
@@ -10101,7 +10128,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "cecc75089349448ccfd4c0fb78fca86f25755f85"
+                "reference": "7b2ca14cf002c935f285ab7a082cd2c0e47c5990"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10117,7 +10144,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-05-28T07:49:31+00:00"
+            "time": "2019-05-28T07:51:43+00:00"
         },
         {
             "name": "oyejorge/less.php",
