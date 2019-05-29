@@ -34,6 +34,13 @@
             </argument>
         </arguments>
     </virtualType>
+    <virtualType name="Magento\Bundle\Pricing\Price\Pool">
+        <arguments>
+            <argument name="prices" xsi:type="array">
+                <item name="old_price" xsi:type="string">Oander\IstyleBase\Pricing\OldPrice</item>
+            </argument>
+        </arguments>
+    </virtualType>
     <preference for="Oander\DiscountBadge\Model\DiscountCalculator" type="Oander\IstyleBase\DiscountBadge\Model\DiscountCalculator"/>
     <preference for="Magento\Catalog\Pricing\Price\RegularPrice" type="Oander\IstyleBase\Pricing\RegularPrice"/>
     <preference for="Magento\Catalog\Pricing\Price\FinalPrice" type="Oander\IstyleBase\Pricing\FinalPrice"/>
