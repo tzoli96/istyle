@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bfd8af0fa0a20521ffd2f8fb83736888",
+    "content-hash": "2bc53023eec5abe71b57e9ae56e2fd26",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8460,11 +8460,11 @@
         },
         {
             "name": "oander/module-currency-manager",
-            "version": "1.2.1",
+            "version": "1.2.2.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-currency-manager.git",
-                "reference": "a981cf79b263a9533371b3c7784b689258667129"
+                "reference": "84e83a3fe1326c50f7fc17ff84075f6e9126d03c"
             },
             "require": {
                 "magento/framework": "*",
@@ -8485,7 +8485,7 @@
                 "proprietary"
             ],
             "description": "This module provides currency settings.",
-            "time": "2018-03-27T13:40:22+00:00"
+            "time": "2019-05-31T11:49:30+00:00"
         },
         {
             "name": "oander/module-customer-file-upload",
