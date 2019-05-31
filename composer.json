@@ -120,7 +120,7 @@
         "oander/module-producturlresolver": "1.0.2",
         "oander/module-safe-category-index": "1.0.0",
         "oander/module-salesforce": "1.2.0.2",
-        "oander/module-salesforce-service": "0.0.3.41",
+        "oander/module-salesforce-service": "0.0.3.43",
         "oander/module-salesforce-widget": "1.0.7",
         "oander/module-salesforcereservation": "dev-#34803-uikit-changes",
         "oander/module-shipping": "1.0.3",
