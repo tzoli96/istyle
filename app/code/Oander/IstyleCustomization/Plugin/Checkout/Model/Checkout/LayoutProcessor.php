@@ -91,6 +91,76 @@ class LayoutProcessor
             ];
         }
 
+        foreach ($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                 ['payment']['children']['payments-list']['children'] as $key => $payment) {
+
+            if (isset($payment['children']['form-fields']['children']['firstname'])) {
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['firstname']['sortOrder'] = 1;
+            }
+
+            if (isset($payment['children']['form-fields']['children']['lastname'])) {
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['lastname']['sortOrder'] = 2;
+            }
+
+            if (isset($payment['children']['form-fields']['children']['company'])) {
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['company']['sortOrder'] = 10;
+            }
+
+            if (isset($payment['children']['form-fields']['children']['vat_id'])) {
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['vat_id']['sortOrder'] = 11;
+            }
+
+            if (isset($payment['children']['form-fields']['children']['pfpj_reg_no'])) {
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['pfpj_reg_no']['sortOrder'] = 12;
+            }
+
+            if (isset($payment['children']['form-fields']['children']['postcode'])) {
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['postcode']['sortOrder'] = 13;
+            }
+
+            if (isset($payment['children']['form-fields']['children']['city'])) {
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['city']['sortOrder'] = 14;
+            }
+
+            if (isset($payment['children']['form-fields']['children']['street'])) {
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['street']['sortOrder'] = 15;
+            }
+
+            if (isset($payment['children']['form-fields']['children']['country_id'])) {
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['country_id']['visible'] = false;
+            }
+
+            if (isset($payment['children']['form-fields']['children']['telephone'])) {
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['telephone']['sortOrder'] = 20;
+            }
+
+            if (isset($payment['children']['form-fields']['children']['dob'])) {
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['dob']['sortOrder'] = 21;
+            }
+        }
+
         return $jsLayout;
     }
 }
