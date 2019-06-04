@@ -73,8 +73,8 @@ class Data
                 ->addFieldToSelect(\Magento\Catalog\Model\Category::KEY_LEVEL)
                 ->addFieldToFilter(\Magento\Catalog\Model\Category::KEY_LEVEL, array('gt' => 0))
                 ->addFieldToFilter(\Magento\Catalog\Model\Category::KEY_PATH, array('in' => $allCategoriesByPaths))
-                ->setOrder(\Magento\Catalog\Model\Category::KEY_POSITION, 'ASC')
-                ->setOrder(\Magento\Catalog\Model\Category::KEY_LEVEL, 'ASC');
+                ->setOrder(\Magento\Catalog\Model\Category::KEY_LEVEL, 'ASC')
+                ->setOrder(\Magento\Catalog\Model\Category::KEY_POSITION, 'ASC');
 
             $pathwhatyouneed = ['1', $rootcategoryId];
             $level = 2;
@@ -89,6 +89,7 @@ class Data
                             'label' => $category->getName(),
                             'link' => $category->getUrl()
                         ];
+                        $level++;
                         $pathwhatyouneed[] = $category->getId();
                     }
                 }
