@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7c829eaf12c9e2034104f393cf38eef1",
+    "content-hash": "3790a0cf623dbe6591f8e2a1bc728f07",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8601,11 +8601,11 @@
         },
         {
             "name": "oander/module-installment-prices",
-            "version": "1.0.6.3",
+            "version": "1.0.6.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/installment-prices.git",
-                "reference": "77f8b9427a6735f538a7faa9a64765908886750d"
+                "reference": "d3f8c0af60698f3c2fd479e3ad932f45cd27d894"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8624,7 +8624,7 @@
                 "proprietary"
             ],
             "description": "Installment prices displays next to Product Icons",
-            "time": "2019-05-20T15:56:58+00:00"
+            "time": "2019-06-04T09:59:49+00:00"
         },
         {
             "name": "oander/module-istyleaws",
