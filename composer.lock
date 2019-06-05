@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b4009e070505c6cfb73fd56dd816cdd6",
+    "content-hash": "c67a74b4ee3aa29da815ef28ec26f448",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8219,11 +8219,11 @@
         },
         {
             "name": "oander/module-bundle-price-switcher",
-            "version": "1.0.0.2",
+            "version": "1.0.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-bundle-price-switcher.git",
-                "reference": "b9741df25a116c422d4207267d1ea28b71654171"
+                "reference": "4eee477a463a0e225411728965ad6257fe530406"
             },
             "require": {
                 "oander/module-bundle": ">=1.0.3",
@@ -8241,7 +8241,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-06-04T15:09:35+00:00"
+            "time": "2019-06-04T16:18:47+00:00"
         },
         {
             "name": "oander/module-cardondeliverypayment",
@@ -10206,7 +10206,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "ed6de57f2ed1aea4c4249e677e17f78c5416e157"
+                "reference": "45c18bc7a181fa751c9d2fa7882b837c24737c2d"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10222,7 +10222,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-06-04T14:10:14+00:00"
+            "time": "2019-06-05T09:42:22+00:00"
         },
         {
             "name": "oyejorge/less.php",
