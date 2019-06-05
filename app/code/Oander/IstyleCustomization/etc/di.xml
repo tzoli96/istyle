@@ -10,7 +10,8 @@
     <preference for="Magento\Catalog\Block\Product\View" type="Oander\IstyleCustomization\Block\Product\View"/>
     <preference for="Magento\Catalog\Block\Category\View" type="Oander\IstyleCustomization\Block\Category\View"/>
     <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
-        <plugin name="logProductName" type="Oander\IstyleCustomization\Plugin\Checkout\Model\Checkout\LayoutProcessor"/>
+        <plugin name="logProductName" type="Oander\IstyleCustomization\Plugin\Checkout\Model\Checkout\LayoutProcessor"
+                sortOrder="10" />
     </type>
     <type name="Magento\Quote\Model\QuoteRepository\SaveHandler">
         <plugin name="move_pfpj_reg_no_data_from_extension_attributes_to_flat_table" type="Oander\IstyleCustomization\Plugin\Quote\Model\QuoteRepository\SaveHandler"/>
