@@ -6,5 +6,10 @@
 				<use_topmenu_block>0</use_topmenu_block>
 			</topmenu>
 		</oander_categories>
+        <catalog>
+            <frontend>
+                <show_breadcrumbs>1</show_breadcrumbs>
+            </frontend>
+        </catalog>
 	</default>
 </config>

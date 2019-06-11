@@ -33,4 +33,7 @@
     <event name="catalog_product_save_after">
         <observer name="oander_catalog_product_save_after_check_status" instance="Oander\IstyleCustomization\Observer\ProductSaveAfter" />
     </event>
+    <event name="layout_generate_blocks_after">
+        <observer name="remove_block" instance="Oander\IstyleCustomization\Observer\RemoveBlock"/>
+    </event>
 </config>
