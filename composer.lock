@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9339aeb5c901c70d54910164ce81778c",
+    "content-hash": "82e32913ca4cf14572bb4a5332023b4b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7535,7 +7535,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "ce6ad3ccba06dcd2fd64dcbd0b96bd7945914796"
+                "reference": "0e7a1fb2ba23d2434b2565efa37d9050881f8b09"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7556,7 +7556,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2019-06-12T11:13:59+00:00"
+            "time": "2019-06-12T14:34:54+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
@@ -9537,11 +9537,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "dev-#34803-uikit-changes",
+            "version": "1.1.12.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "957fdcd50c55351d4ea56afbf8b5053c7d5223a1"
+                "reference": "5a6a5e4047b6ce3bdf23731071bdc4a6d1c7e36f"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9569,7 +9569,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2019-05-22T10:25:33+00:00"
+            "time": "2019-06-11T14:02:23+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -14098,7 +14098,6 @@
         "composer/composer": 15,
         "oander/module-algoliasearch": 20,
         "oander/module-core-bug-fix": 20,
-        "oander/module-salesforcereservation": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
