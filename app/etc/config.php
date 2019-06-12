@@ -89,7 +89,6 @@ return array (
     'Magento_Persistent' => 1,
     'Magento_ProductAlert' => 1,
     'Magento_ProductVideo' => 1,
-    'Innobyte_HomeCredit' => 1,
     'Magento_Reports' => 1,
     'Magento_RequireJs' => 1,
     'Magento_Review' => 1,
