@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "18bf150de34540e9fdc5441f8d623da0",
+  "content-hash": "4eec08ffda2997c2a27daf0b998e707f",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1588,6 +1588,30 @@
             "time": "2018-05-28T13:15:45+00:00"
         },
         {
+          "name": "innobyte/module-homecredit",
+          "version": "1.0.2",
+          "source": {
+            "type": "git",
+            "url": "git@github.com:oandermedia/innobyte-home-credit.git",
+            "reference": "88b9f4d5aee0d440369521e409d815d115e73851"
+          },
+          "require": {
+            "magento/module-checkout": "^100.1.2",
+            "php": "7.0.2|7.0.4|~7.0.6"
+          },
+          "type": "magento2-module",
+          "autoload": {
+            "files": [
+              "registration.php"
+            ],
+            "psr-4": {
+              "Innobyte\\HomeCredit\\": ""
+            }
+          },
+          "description": "Innobyte HomeCredit Module",
+          "time": "2018-06-26T12:49:14+00:00"
+        },
+      {
             "name": "innobyte/module-mstart",
             "version": "0.0.1",
             "source": {
@@ -6962,32 +6986,6 @@
             ],
             "description": "Magento 2 Google Recaptcha Extension",
             "time": "2018-10-05T02:23:55+00:00"
-        },
-        {
-            "name": "magexo/paymenthomecredit",
-            "version": "0.0.1.3",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/magexo-paymenthomecredit.git",
-                "reference": "7a9342c7a1eb502f882cf9dc30a5397efedf1b26"
-            },
-            "require": {
-                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "MageXo\\PaymentHomeCredit\\": ""
-                }
-            },
-            "license": [
-                "Commercial"
-            ],
-            "description": "MageXo Payment Home Credit",
-            "time": "2019-05-28T10:15:58+00:00"
         },
         {
             "name": "mirasvit/module-core",
