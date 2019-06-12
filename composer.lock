@@ -7535,7 +7535,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "91d005c4ceb02fdf3accc964c279e769e35fcf20"
+                "reference": "ce6ad3ccba06dcd2fd64dcbd0b96bd7945914796"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7552,11 +7552,11 @@
             "authors": [
                 {
                     "email": "janos.pinczes@oander.hu",
-                    "name": "János Pinczés"
+                    "name": "Janos Pinczes"
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2019-06-07T13:55:38+00:00"
+            "time": "2019-06-12T11:13:59+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
@@ -9952,7 +9952,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "0512ea0d253e9677d30519d4e1328224e4cb22e3"
+                "reference": "053572e93bd682f8d7ce30118921670f28f757b8"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9968,7 +9968,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-06-11T11:10:23+00:00"
+            "time": "2019-06-12T11:07:18+00:00"
         },
         {
             "name": "oyejorge/less.php",
