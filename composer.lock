@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "82e32913ca4cf14572bb4a5332023b4b",
+    "content-hash": "b8d29894df1d600f2cde50d8cb34f743",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9322,6 +9322,33 @@
             "time": "2017-05-30T12:26:11+00:00"
         },
         {
+            "name": "oander/module-product-description-widget",
+            "version": "1.0.1.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/module-product-description-widget.git",
+                "reference": "b8ac361bccba3b8826965211d5ef4571906aa786"
+            },
+            "require": {
+                "oander/module-wonder-widget": "1.*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\ProductDescriptionWidget\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Product Description Widget",
+            "time": "2019-06-14T08:04:50+00:00"
+        },
+        {
             "name": "oander/module-product-faq",
             "version": "1.0.0.6",
             "source": {
@@ -9481,11 +9508,11 @@
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.43",
+            "version": "0.0.3.45",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "af2a77564367e7e3d01af543d1594e73feb04433"
+                "reference": "d8f38d365238e1979e0094d2c2c532ef57e545ed"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9505,7 +9532,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2019-05-30T19:37:14+00:00"
+            "time": "2019-06-14T08:18:48+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -9537,11 +9564,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.12.5",
+            "version": "1.1.12.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "5a6a5e4047b6ce3bdf23731071bdc4a6d1c7e36f"
+                "reference": "e9a793d0a2ab1569543c4e1ddce6d7d9ecf57b5d"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9569,7 +9596,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2019-06-11T14:02:23+00:00"
+            "time": "2019-06-13T09:34:25+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -9952,7 +9979,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "053572e93bd682f8d7ce30118921670f28f757b8"
+                "reference": "76397a7e367782dff5e14ecbbadb2b2c807b6173"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9968,7 +9995,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-06-12T11:07:18+00:00"
+            "time": "2019-06-14T09:02:58+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10188,16 +10215,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.17",
+            "version": "2.0.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "3ca5b88d582c69178c8d01fd9d02b94e15042bb8"
+                "reference": "60519001db8d791215a822efd366d24cafee9e63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/3ca5b88d582c69178c8d01fd9d02b94e15042bb8",
-                "reference": "3ca5b88d582c69178c8d01fd9d02b94e15042bb8",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/60519001db8d791215a822efd366d24cafee9e63",
+                "reference": "60519001db8d791215a822efd366d24cafee9e63",
                 "shasum": ""
             },
             "require": {
@@ -10276,7 +10303,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2019-05-26T20:38:34+00:00"
+            "time": "2019-06-13T06:15:54+00:00"
         },
         {
             "name": "plugincompany/customergroupswitching",
