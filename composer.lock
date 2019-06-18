@@ -7937,7 +7937,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-applepay.git",
-                "reference": "6189ab426bdcce816f622d87f030707adbe7cf6e"
+                "reference": "51a34092af88e3174dddd643a6b95f6d181c5b47"
             },
             "require": {
                 "oander/module-checkout": ">=1.1.0",
@@ -7956,7 +7956,7 @@
                 "proprietary"
             ],
             "description": "Apple Pay payment method",
-            "time": "2019-06-18T08:08:52+00:00"
+            "time": "2019-06-18T11:29:30+00:00"
         },
         {
             "name": "oander/module-autorelated-warehouse-manager-extender",
