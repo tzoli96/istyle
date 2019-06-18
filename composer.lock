@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8d29894df1d600f2cde50d8cb34f743",
+    "content-hash": "f90c5604852331a4faf795bda1485f89",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6945,11 +6945,11 @@
         },
         {
             "name": "magexo/paymenthomecredit",
-            "version": "0.0.1.3",
+            "version": "0.0.1.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/magexo-paymenthomecredit.git",
-                "reference": "7a9342c7a1eb502f882cf9dc30a5397efedf1b26"
+                "reference": "4a942aba0b5cadf3de9f9531d893a4e0a37cd73d"
             },
             "require": {
                 "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
@@ -6967,7 +6967,7 @@
                 "Commercial"
             ],
             "description": "MageXo Payment Home Credit",
-            "time": "2019-05-28T10:15:58+00:00"
+            "time": "2019-06-18T08:29:20+00:00"
         },
         {
             "name": "mirasvit/module-core",
@@ -7933,11 +7933,11 @@
         },
         {
             "name": "oander/module-applepay",
-            "version": "1.0.2.13",
+            "version": "dev-36739-bundle-products",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-applepay.git",
-                "reference": "207031825226a748b3fdaabf2d589c967d86a030"
+                "reference": "6189ab426bdcce816f622d87f030707adbe7cf6e"
             },
             "require": {
                 "oander/module-checkout": ">=1.1.0",
@@ -7956,7 +7956,7 @@
                 "proprietary"
             ],
             "description": "Apple Pay payment method",
-            "time": "2019-06-07T12:59:26+00:00"
+            "time": "2019-06-18T08:08:52+00:00"
         },
         {
             "name": "oander/module-autorelated-warehouse-manager-extender",
@@ -9564,11 +9564,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.12.6",
+            "version": "1.1.12.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "e9a793d0a2ab1569543c4e1ddce6d7d9ecf57b5d"
+                "reference": "a2289600f6b795c8fd86c5c36b33197d31c19e6d"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9596,7 +9596,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2019-06-13T09:34:25+00:00"
+            "time": "2019-06-18T07:59:22+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -14124,6 +14124,7 @@
     "stability-flags": {
         "composer/composer": 15,
         "oander/module-algoliasearch": 20,
+        "oander/module-applepay": 20,
         "oander/module-core-bug-fix": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
