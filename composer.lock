@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1ff1ab4dc1e127aff4be0e5f274a4b8",
+    "content-hash": "064f03043754493ed867709d705dd335",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7440,6 +7440,35 @@
             "time": "2019-04-01T09:55:50+00:00"
         },
         {
+            "name": "oander/module-adminrestriction",
+            "version": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-admin-restriction.git",
+                "reference": "5d9e265e4d4d6754a23647177087688ae8970261"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\AdminRestriction\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "János Pinczés",
+                    "email": "janos.pinczes@oander.hu"
+                }
+            ],
+            "description": "Restrict Admin processes by Store View",
+            "time": "2019-05-27T20:48:44+00:00"
+        },
+        {
             "name": "oander/module-ajax-captain-hook",
             "version": "1.0.4.1",
             "source": {
@@ -7926,11 +7955,11 @@
         },
         {
             "name": "oander/module-applepay",
-            "version": "1.0.2.13",
+            "version": "1.0.2.15",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-applepay.git",
-                "reference": "207031825226a748b3fdaabf2d589c967d86a030"
+                "reference": "135b0fafc2f938940067076a0e674fd38fe0159e"
             },
             "require": {
                 "oander/module-checkout": ">=1.1.0",
@@ -7949,7 +7978,7 @@
                 "proprietary"
             ],
             "description": "Apple Pay payment method",
-            "time": "2019-06-07T12:59:26+00:00"
+            "time": "2019-06-18T13:14:18+00:00"
         },
         {
             "name": "oander/module-autorelated-warehouse-manager-extender",
@@ -8848,11 +8877,11 @@
         },
         {
             "name": "oander/module-news",
-            "version": "1.2.4",
+            "version": "1.2.4.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-news.git",
-                "reference": "908a3d6e6c0e7eb16c2a97fc72432e41ab11eee0"
+                "reference": "be12ed220a6377d886387148d20ad9c0e9d6e89e"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8871,7 +8900,7 @@
                 "proprietary"
             ],
             "description": "News",
-            "time": "2018-12-05T14:25:07+00:00"
+            "time": "2019-06-11T11:06:09+00:00"
         },
         {
             "name": "oander/module-ocbase",
@@ -9394,11 +9423,11 @@
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.43",
+            "version": "0.0.3.45",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "af2a77564367e7e3d01af543d1594e73feb04433"
+                "reference": "d8f38d365238e1979e0094d2c2c532ef57e545ed"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9418,7 +9447,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2019-05-30T19:37:14+00:00"
+            "time": "2019-06-14T08:18:48+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -9450,11 +9479,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.12.5",
+            "version": "1.1.12.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "5a6a5e4047b6ce3bdf23731071bdc4a6d1c7e36f"
+                "reference": "e9a793d0a2ab1569543c4e1ddce6d7d9ecf57b5d"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9482,7 +9511,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2019-06-11T14:02:23+00:00"
+            "time": "2019-06-13T09:34:25+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -9691,11 +9720,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.25.2",
+            "version": "1.4.25.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "c01f2e7505bc7613a0cedaa89311364e732b5927"
+                "reference": "aea4befc15463988164acfa2961d9fafd706c3f8"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9716,7 +9745,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2019-05-24T08:26:15+00:00"
+            "time": "2019-05-28T14:08:45+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-conditions",
@@ -9825,11 +9854,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.218",
+            "version": "1.0.219",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "e55852cb3bcb8c122e9571366fe34bc9d2744509"
+                "reference": "a51aaa541c435b795b4bdc64667f8b19d9bd464d"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9845,7 +9874,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-06-12T14:23:26+00:00"
+            "time": "2019-06-18T12:55:47+00:00"
         },
         {
             "name": "oyejorge/less.php",
