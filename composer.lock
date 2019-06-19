@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-  "content-hash": "8c36b5310dd1cfb748b1dc0cd8b87e9c",
+  "content-hash": "9900d7554c302e15485107a4e860da9c",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8652,11 +8652,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-          "version": "1.1.2",
+          "version": "1.1.2.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-              "reference": "e085efec8dfbb732b8be74d4a89dfefad7a783fc"
+              "reference": "fd3befb29c7225a6094b5539c442c22881ebf0e9"
             },
             "require": {
                 "php": "7.*"
@@ -8674,7 +8674,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-          "time": "2019-06-18T15:57:04+00:00"
+          "time": "2019-06-19T19:02:07+00:00"
         },
         {
             "name": "oander/module-email-additional-data",
@@ -9553,11 +9553,11 @@
         },
         {
             "name": "oander/module-product-description-widget",
-            "version": "1.0.1.1",
+          "version": "1.0.1.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-product-description-widget.git",
-                "reference": "b8ac361bccba3b8826965211d5ef4571906aa786"
+              "reference": "61fdb5bf60edb19146099d9a34155a808b9c920b"
             },
             "require": {
                 "oander/module-wonder-widget": "1.*",
@@ -9576,7 +9576,7 @@
                 "proprietary"
             ],
             "description": "Product Description Widget",
-            "time": "2019-06-14T08:04:50+00:00"
+          "time": "2019-06-19T18:08:40+00:00"
         },
         {
             "name": "oander/module-product-faq",
