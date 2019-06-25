@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f021cbdfe70656e77d93bb19f9a1f29b",
+    "content-hash": "56faac820dbef960b8313510a6b6592c",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7467,11 +7467,11 @@
         },
         {
             "name": "oander/module-adminrestriction",
-            "version": "1.0.0.0",
+            "version": "1.0.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-admin-restriction.git",
-                "reference": "5d9e265e4d4d6754a23647177087688ae8970261"
+                "reference": "1fb98b10510e42e2ed86f05bbd4d5d300c29b0ff"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7492,7 +7492,7 @@
                 }
             ],
             "description": "Restrict Admin processes by Store View",
-            "time": "2019-05-27T20:48:44+00:00"
+            "time": "2019-06-25T11:44:30+00:00"
         },
         {
             "name": "oander/module-ajax-captain-hook",
