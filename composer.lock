@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "07e46128e83e476acab84709377c353b",
+    "content-hash": "e88700e5b6ca014a5d2ba32b01459449",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8579,11 +8579,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.1.2.1",
+            "version": "1.1.2.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "fd3befb29c7225a6094b5539c442c22881ebf0e9"
+                "reference": "a3d48a519fc871b84cae089399268c48e877f325"
             },
             "require": {
                 "php": "7.*"
@@ -8601,7 +8601,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2019-06-19T19:02:07+00:00"
+            "time": "2019-06-27T10:59:42+00:00"
         },
         {
             "name": "oander/module-email-additional-data",
@@ -9721,15 +9721,16 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.12.7",
+            "version": "1.1.12.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "a2289600f6b795c8fd86c5c36b33197d31c19e6d"
+                "reference": "66ed6afe146c8d2c9777bda4545f25f1cfbd3a15"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
                 "oander/module-cartbutton": "*",
+                "oander/module-dropdown-products": ">=1.1.2.2",
                 "oander/module-ocqueue": "^1.0.3",
                 "oander/module-producturlresolver": "^1.0.0",
                 "oander/module-salesforce": "*"
@@ -9753,7 +9754,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2019-06-18T07:59:22+00:00"
+            "time": "2019-06-27T11:00:32+00:00"
         },
         {
             "name": "oander/module-shipping",
