@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "56faac820dbef960b8313510a6b6592c",
+    "content-hash": "e85e55c440cb6460337589a9a2b98a85",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7559,11 +7559,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "dev-#36543-algolia-components",
+            "version": "1.0.17.25",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "0e7a1fb2ba23d2434b2565efa37d9050881f8b09"
+                "reference": "1efa9bebfc824aaeafc6071078ed8863fcc93a53"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7584,7 +7584,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2019-06-12T14:34:54+00:00"
+            "time": "2019-06-27T09:09:26+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
@@ -8842,11 +8842,11 @@
         },
         {
             "name": "oander/module-installment-prices",
-            "version": "1.0.6.3",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/installment-prices.git",
-                "reference": "77f8b9427a6735f538a7faa9a64765908886750d"
+                "reference": "64537c4f66c0b73c28a20feda18554bc65bb138f"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8865,7 +8865,7 @@
                 "proprietary"
             ],
             "description": "Installment prices displays next to Product Icons",
-            "time": "2019-05-20T15:56:58+00:00"
+            "time": "2019-06-27T09:21:27+00:00"
         },
         {
             "name": "oander/module-istyleaws",
@@ -10127,7 +10127,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "41621e96f58bda13bf6c0d40359f4f281dca3546"
+                "reference": "68a749271acfd2d19fa24aa9d2775514d19d7192"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10143,7 +10143,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-06-24T13:21:00+00:00"
+            "time": "2019-06-27T09:13:09+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -11213,16 +11213,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.28",
+            "version": "v3.4.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "fa5d962a71f2169dfe1cbae217fa5a2799859f6c"
+                "reference": "5f80266a729e30bbcc37f8bf0e62c3d5a38c8208"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/fa5d962a71f2169dfe1cbae217fa5a2799859f6c",
-                "reference": "fa5d962a71f2169dfe1cbae217fa5a2799859f6c",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/5f80266a729e30bbcc37f8bf0e62c3d5a38c8208",
+                "reference": "5f80266a729e30bbcc37f8bf0e62c3d5a38c8208",
                 "shasum": ""
             },
             "require": {
@@ -11258,7 +11258,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2019-05-24T12:25:55+00:00"
+            "time": "2019-05-30T15:47:52+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -14187,7 +14187,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.28",
+            "version": "v3.4.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
@@ -14279,7 +14279,6 @@
     "minimum-stability": "alpha",
     "stability-flags": {
         "composer/composer": 15,
-        "oander/module-algoliasearch": 20,
         "oander/module-applepay": 20,
         "oander/module-core-bug-fix": 20,
         "oander/theme-hodor": 20,
