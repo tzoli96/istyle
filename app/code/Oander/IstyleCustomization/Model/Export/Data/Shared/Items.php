@@ -11,8 +11,28 @@
 
 namespace Oander\IstyleCustomization\Model\Export\Data\Shared;
 
+use Magento\Catalog\Api\CategoryRepositoryInterface;
+use Magento\Catalog\Api\ProductRepositoryInterface;
+use Magento\Catalog\Model\Product\Media\Config;
+use Magento\Catalog\Model\Product\Type;
+use Magento\Catalog\Model\ResourceModel\Product\Option\Value\CollectionFactory;
+use Magento\Catalog\Model\ResourceModel\Product\Option\ValueFactory;
+use Magento\CatalogInventory\Api\StockRegistryInterface;
+use Magento\Eav\Model\AttributeSetRepository;
+use Magento\Framework\Data\Collection\AbstractDb;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\Model\Context;
+use Magento\Framework\Model\ResourceModel\AbstractResource;
+use Magento\Framework\Registry;
+use Magento\GiftMessage\Model\MessageFactory;
+use Magento\Sales\Model\Order\ItemFactory;
+use Magento\Tax\Model\Sales\Order\TaxFactory;
+use Oander\BundlePriceSwitcher\Enum\Option;
+use Oander\BundlePriceSwitcher\Helper\Selection as SelectionHelper;
 use Oander\SalesforceReservation\Api\Data\OrderItemInterface;
+use Xtento\OrderExport\Model\Export;
+use Xtento\XtCore\Helper\Date;
+use Xtento\XtCore\Helper\Utils;
 
 /**
  * Class Items
@@ -20,10 +40,67 @@ use Oander\SalesforceReservation\Api\Data\OrderItemInterface;
  */
 class Items extends \Xtento\OrderExport\Model\Export\Data\Shared\Items
 {
+    /**
+     * @var SelectionHelper
+     */
+    protected $selectionHelper;
+
+    /**
+     * Items constructor.
+     *
+     * @param Context                     $context
+     * @param Registry                    $registry
+     * @param Date                        $dateHelper
+     * @param Utils                       $utilsHelper
+     * @param ItemFactory                 $orderItemFactory
+     * @param StockRegistryInterface      $stockRegistry
+     * @param MessageFactory              $giftMessageFactory
+     * @param TaxFactory                  $taxFactory
+     * @param CollectionFactory           $optionValueCollectionFactory
+     * @param ValueFactory                $optionValueFactory
+     * @param ProductRepositoryInterface  $productRepository
+     * @param AttributeSetRepository      $attributeSetRepository
+     * @param Config                      $mediaConfig
+     * @param CategoryRepositoryInterface $categoryRepository
+     * @param SelectionHelper             $selectionHelper
+     * @param AbstractResource|null       $resource
+     * @param AbstractDb|null             $resourceCollection
+     * @param array                       $data
+     */
+    public function __construct(
+        Context $context,
+        Registry $registry,
+        Date $dateHelper,
+        Utils $utilsHelper,
+        ItemFactory $orderItemFactory,
+        StockRegistryInterface $stockRegistry,
+        MessageFactory $giftMessageFactory,
+        TaxFactory $taxFactory,
+        CollectionFactory $optionValueCollectionFactory,
+        ValueFactory $optionValueFactory,
+        ProductRepositoryInterface $productRepository,
+        AttributeSetRepository $attributeSetRepository,
+        Config $mediaConfig,
+        CategoryRepositoryInterface $categoryRepository,
+        SelectionHelper $selectionHelper,
+        AbstractResource $resource = null,
+        AbstractDb $resourceCollection = null,
+        array $data = []
+    ) {
+        parent::__construct($context, $registry, $dateHelper, $utilsHelper, $orderItemFactory, $stockRegistry, $giftMessageFactory, $taxFactory, $optionValueCollectionFactory, $optionValueFactory, $productRepository, $attributeSetRepository, $mediaConfig, $categoryRepository, $resource, $resourceCollection, $data);
+        $this->selectionHelper = $selectionHelper;
+    }
+
+    /**
+     * @param $entityType
+     * @param $collectionItem
+     *
+     * @return array
+     */
     public function getExportData($entityType, $collectionItem)
     {
         // Set return array
-        $returnArray = [];
+        $returnArray      = [];
         $this->writeArray = & $returnArray['items'];
         // Fetch fields to export
         $object = $collectionItem->getObject();
@@ -34,10 +111,10 @@ class Items extends \Xtento\OrderExport\Model\Export\Data\Shared\Items
         }
 
         // Export item information
-        $taxRates = [];
-        $taxBaseAmounts = [];
-        $itemCount = 0;
-        $totalQty = 0;
+        $taxRates        = [];
+        $taxBaseAmounts  = [];
+        $itemCount       = 0;
+        $totalQty        = 0;
         $this->totalCost = 0;
         foreach ($items as $item) {
             $orderItem = false;
@@ -45,7 +122,7 @@ class Items extends \Xtento\OrderExport\Model\Export\Data\Shared\Items
             if ($this->getProfile() && $item->getProductType() && in_array($item->getProductType(), explode(",", $this->getProfile()->getExportFilterProductType()))) {
                 continue; // Product type should be not exported
             }
-            if ($this->getProfile() && !$item->getProductType() && $this->getProfile()->getExportFilterProductType() !== '' && $entityType !== \Xtento\OrderExport\Model\Export::ENTITY_ORDER && $entityType !== \Xtento\OrderExport\Model\Export::ENTITY_QUOTE && $entityType !== \Xtento\OrderExport\Model\Export::ENTITY_AWRMA && $entityType !== \Xtento\OrderExport\Model\Export::ENTITY_BOOSTRMA) {
+            if ($this->getProfile() && !$item->getProductType() && $this->getProfile()->getExportFilterProductType() !== '' && $entityType !== Export::ENTITY_ORDER && $entityType !== Export::ENTITY_QUOTE && $entityType !== Export::ENTITY_AWRMA && $entityType !== Export::ENTITY_BOOSTRMA) {
                 // We are not exporting orders, but need to check the product type - thus, need to load the order item.
                 $orderItem = $this->orderItemFactory->create()->load($item->getOrderItemId());
                 if ($orderItem->getProductType() && in_array($orderItem->getProductType(), explode(",", $this->getProfile()->getExportFilterProductType()))) {
@@ -57,10 +134,10 @@ class Items extends \Xtento\OrderExport\Model\Export\Data\Shared\Items
               $item = $item->getParentItem();
             }*/
             // Export general item information
-            $this->writeArray = & $returnArray['items'][];
+            $this->writeArray     = & $returnArray['items'][];
             $this->origWriteArray = & $this->writeArray;
             $itemCount++;
-            if ($entityType == \Xtento\OrderExport\Model\Export::ENTITY_ORDER || $entityType == \Xtento\OrderExport\Model\Export::ENTITY_AWRMA || $entityType == \Xtento\OrderExport\Model\Export::ENTITY_BOOSTRMA) {
+            if ($entityType == Export::ENTITY_ORDER || $entityType == Export::ENTITY_AWRMA || $entityType == Export::ENTITY_BOOSTRMA) {
                 $itemQty = $item->getQtyOrdered();
             } else {
                 $itemQty = $item->getQty();
@@ -79,7 +156,7 @@ class Items extends \Xtento\OrderExport\Model\Export\Data\Shared\Items
             // Stock level
             if ($this->fieldLoadingRequired('qty_in_stock')) {
                 $stockLevel = 0;
-                $stockItem = $this->stockRegistry->getStockItem($item->getProductId());
+                $stockItem  = $this->stockRegistry->getStockItem($item->getProductId());
                 if ($stockItem->getId()) {
                     $stockLevel = $stockItem->getQty();
                 }
@@ -144,9 +221,9 @@ class Items extends \Xtento\OrderExport\Model\Export\Data\Shared\Items
 
             // Add fields of order item for invoice exports
             $taxItem = false;
-            if ($entityType !== \Xtento\OrderExport\Model\Export::ENTITY_ORDER && $entityType !== \Xtento\OrderExport\Model\Export::ENTITY_QUOTE && $entityType !== \Xtento\OrderExport\Model\Export::ENTITY_AWRMA && $entityType !== \Xtento\OrderExport\Model\Export::ENTITY_BOOSTRMA && ($this->fieldLoadingRequired('order_item') || $this->fieldLoadingRequired('tax_rates') || $this->fieldLoadingRequired('custom_options'))) {
+            if ($entityType !== Export::ENTITY_ORDER && $entityType !== Export::ENTITY_QUOTE && $entityType !== Export::ENTITY_AWRMA && $entityType !== Export::ENTITY_BOOSTRMA && ($this->fieldLoadingRequired('order_item') || $this->fieldLoadingRequired('tax_rates') || $this->fieldLoadingRequired('custom_options'))) {
                 $this->writeArray['order_item'] = [];
-                $this->writeArray =& $this->writeArray['order_item'];
+                $this->writeArray               =& $this->writeArray['order_item'];
                 if ($item->getOrderItemId()) {
                     if (!$orderItem) {
                         $orderItem = $this->orderItemFactory->create()->load($item->getOrderItemId());
@@ -159,7 +236,7 @@ class Items extends \Xtento\OrderExport\Model\Export\Data\Shared\Items
                     }
                 }
                 $this->writeArray = & $this->origWriteArray;
-                $tempOrigArray = & $this->writeArray;
+                $tempOrigArray    = & $this->writeArray;
                 if ($this->fieldLoadingRequired('custom_options') && $options = $orderItem->getProductOptions()) {
                     // Export custom options
                     $this->writeCustomOptions($options, $this->origWriteArray, $object, $orderItem->getProductId());
@@ -200,7 +277,7 @@ class Items extends \Xtento\OrderExport\Model\Export\Data\Shared\Items
 
             // Get bundle price
             $productOptions = $item->getProductOptions();
-            if ($parentItem && $parentItem->getProductType() == \Magento\Catalog\Model\Product\Type::TYPE_BUNDLE) {
+            if ($parentItem && $parentItem->getProductType() == Type::TYPE_BUNDLE) {
                 if (!isset($productOptions['bundle_selection_attributes']) && $parentItem) {
                     $productOptions = $parentItem->getProductOptions();
                 }
@@ -219,7 +296,7 @@ class Items extends \Xtento\OrderExport\Model\Export\Data\Shared\Items
 
             if ($this->fieldLoadingRequired('product_options_data') && $productOptions && is_array($productOptions)) {
                 $this->writeArray['product_options_data'] = [];
-                $this->writeArray = & $this->origWriteArray['product_options_data'];
+                $this->writeArray                         = & $this->origWriteArray['product_options_data'];
                 foreach ($productOptions as $productOptionKey => $productOptionValue) {
                     if (($productOptionKey == 'giftcard_created_codes' || $productOptionKey == 'giftcard_sent_codes') && is_array($productOptionValue)) {
                         $productOptionValue = implode(",", $productOptionValue);
@@ -292,10 +369,10 @@ class Items extends \Xtento\OrderExport\Model\Export\Data\Shared\Items
             if ($taxItem && $item->getBaseTaxAmount() > 0 && $taxItem->getTaxPercent() > 0) {
                 $taxPercent = str_replace('.', '_', sprintf('%.4f', $taxItem->getTaxPercent()));
                 if (!isset($taxRates[$taxPercent])) {
-                    $taxRates[$taxPercent] = $item->getBaseTaxAmount();
+                    $taxRates[$taxPercent]       = $item->getBaseTaxAmount();
                     $taxBaseAmounts[$taxPercent] = $item->getBaseRowTotalInclTax() - $item->getBaseDiscountAmount();
                 } else {
-                    $taxRates[$taxPercent] += $item->getBaseTaxAmount();
+                    $taxRates[$taxPercent]       += $item->getBaseTaxAmount();
                     $taxBaseAmounts[$taxPercent] += $item->getBaseRowTotalInclTax() - $item->getBaseDiscountAmount();
                 }
             }
@@ -308,14 +385,14 @@ class Items extends \Xtento\OrderExport\Model\Export\Data\Shared\Items
             // Add fields of parent item
             if ($this->fieldLoadingRequired('parent_item') && $parentItem) {
                 $this->writeArray['parent_item'] = [];
-                $this->writeArray =& $this->writeArray['parent_item'];
-                $tempOrigArray = & $this->writeArray;
+                $this->writeArray                =& $this->writeArray['parent_item'];
+                $tempOrigArray                   = & $this->writeArray;
                 foreach ($parentItem->getData() as $key => $value) {
                     $this->writeValue($key, $value);
                 }
                 // Parent Item Gift Message
                 if ($this->fieldLoadingRequired('gift_message')) {
-                    $giftMessageId = $parentItem->getGiftMessageId();
+                    $giftMessageId    = $parentItem->getGiftMessageId();
                     $giftMessageModel = $this->giftMessageFactory->create()->load($giftMessageId);
                     if ($giftMessageModel->getId()) {
                         $this->writeValue('gift_message_sender', $giftMessageModel->getSender());
@@ -348,6 +425,18 @@ class Items extends \Xtento\OrderExport\Model\Export\Data\Shared\Items
             if ($this->fieldLoadingRequired('custom_options') && $options = $item->getProductOptions()) {
                 // Export custom options
                 $this->writeCustomOptions($options, $this->origWriteArray, $object, $item->getProductId());
+
+                if (isset($options['bundle_selection_attributes']) && is_string($options['bundle_selection_attributes']) && $parentItem) {
+                    $bundleSelectionsAttributes = unserialize($options['bundle_selection_attributes']);
+                    if (isset($bundleSelectionsAttributes['option_id'])) {
+                        $bOptions = $this->selectionHelper->getProductOptions((int) $parentItem->getProductId());
+                        if (isset($bOptions[$bundleSelectionsAttributes['option_id']])) {
+                            $bOption = $bOptions[$bundleSelectionsAttributes['option_id']];
+                            $this->writeValue(Option::BASE_OPTION, (bool) $bOption->getData(Option::BASE_OPTION));
+                        }
+                    }
+                }
+
                 // Export $options["attributes_info"].. maybe?
             }
 
@@ -383,54 +472,54 @@ class Items extends \Xtento\OrderExport\Model\Export\Data\Shared\Items
 
         // Add tax amounts of other fees to $taxRates
         // Shipping
-        $shippingAmount = 0;
+        $shippingAmount    = 0;
         $shippingTaxAmount = 0;
-        if ($entityType == \Xtento\OrderExport\Model\Export::ENTITY_ORDER) {
-            $shippingAmount = $object->getData('base_shipping_amount');
+        if ($entityType == Export::ENTITY_ORDER) {
+            $shippingAmount    = $object->getData('base_shipping_amount');
             $shippingTaxAmount = $object->getData('base_shipping_tax_amount');
         }
-        if ($entityType == \Xtento\OrderExport\Model\Export::ENTITY_INVOICE) {
-            $shippingAmount = $object->getData('base_shipping_amount');
+        if ($entityType == Export::ENTITY_INVOICE) {
+            $shippingAmount    = $object->getData('base_shipping_amount');
             $shippingTaxAmount = $object->getData('base_shipping_tax_amount');
         }
-        if ($entityType == \Xtento\OrderExport\Model\Export::ENTITY_CREDITMEMO) {
-            $shippingAmount = $object->getData('base_shipping_amount');
+        if ($entityType == Export::ENTITY_CREDITMEMO) {
+            $shippingAmount    = $object->getData('base_shipping_amount');
             $shippingTaxAmount = $object->getData('base_shipping_tax_amount');
         }
         if ($shippingAmount > 0 && $shippingTaxAmount > 0) {
             $taxPercent = round($shippingTaxAmount / $shippingAmount * 100);
             $taxPercent = str_replace('.', '_', sprintf('%.4f', $taxPercent));
             if (!isset($taxRates[$taxPercent])) {
-                $taxRates[$taxPercent] = $shippingTaxAmount;
+                $taxRates[$taxPercent]       = $shippingTaxAmount;
                 $taxBaseAmounts[$taxPercent] = $shippingAmount + $shippingTaxAmount;
             } else {
-                $taxRates[$taxPercent] += $shippingTaxAmount;
+                $taxRates[$taxPercent]       += $shippingTaxAmount;
                 $taxBaseAmounts[$taxPercent] += $shippingAmount + $shippingTaxAmount;
             }
         }
         // Cash on Delivery
-        $codFee = 0;
+        $codFee    = 0;
         $codFeeTax = 0;
-        if ($entityType == \Xtento\OrderExport\Model\Export::ENTITY_ORDER) {
-            $codFee = $object->getBaseCodFee();
+        if ($entityType == Export::ENTITY_ORDER) {
+            $codFee    = $object->getBaseCodFee();
             $codFeeTax = $object->getBaseCodTaxAmount();
         }
-        if ($entityType == \Xtento\OrderExport\Model\Export::ENTITY_INVOICE) {
-            $codFee = $object->getOrder()->getData('base_cod_fee_invoiced');
+        if ($entityType == Export::ENTITY_INVOICE) {
+            $codFee    = $object->getOrder()->getData('base_cod_fee_invoiced');
             $codFeeTax = $object->getOrder()->getData('base_cod_tax_amount_invoiced');
         }
-        if ($entityType == \Xtento\OrderExport\Model\Export::ENTITY_CREDITMEMO) {
-            $codFee = $object->getOrder()->getData('base_cod_fee_refunded');
+        if ($entityType == Export::ENTITY_CREDITMEMO) {
+            $codFee    = $object->getOrder()->getData('base_cod_fee_refunded');
             $codFeeTax = $object->getOrder()->getData('base_cod_tax_amount_refunded');
         }
         if ($codFee > 0 && $codFeeTax > 0) {
             $taxPercent = round($codFeeTax / $codFee * 100);
             $taxPercent = str_replace('.', '_', sprintf('%.4f', $taxPercent));
             if (!isset($taxRates[$taxPercent])) {
-                $taxRates[$taxPercent] = $codFeeTax;
+                $taxRates[$taxPercent]       = $codFeeTax;
                 $taxBaseAmounts[$taxPercent] = $codFee + $codFeeTax;
             } else {
-                $taxRates[$taxPercent] += $codFeeTax;
+                $taxRates[$taxPercent]       += $codFeeTax;
                 $taxBaseAmounts[$taxPercent] += $codFee + $codFeeTax;
             }
         }
@@ -446,8 +535,8 @@ class Items extends \Xtento\OrderExport\Model\Export\Data\Shared\Items
             $grandTotalInclTax = $object->getGrandTotal();
             foreach ($taxRates as $taxRate => $taxAmount) {
                 if ($taxRate == '0_0000') continue;
-                $taxBaseAmount = $taxBaseAmounts[$taxRate];
-                $taxRate = str_replace('_', '.', $taxRate);
+                $taxBaseAmount    = $taxBaseAmounts[$taxRate];
+                $taxRate          = str_replace('_', '.', $taxRate);
                 $this->writeArray = & $returnArray['tax_rates'][];
                 $this->writeValue('rate', $taxRate);
                 $this->writeValue('amount', $taxAmount);
@@ -461,7 +550,7 @@ class Items extends \Xtento\OrderExport\Model\Export\Data\Shared\Items
                 $this->writeValue('base', $grandTotalInclTax);
             }
         }
-        $this->writeArray = & $returnArray;
+        $this->writeArray                    = & $returnArray;
         $this->writeArray['order_tax_rates'] = [];
         if ($this->fieldLoadingRequired('order_tax_rates')) {
             $taxRateCollection = $this->taxFactory->create()->getCollection()->loadByOrder($collectionItem->getOrder());
