@@ -66,6 +66,21 @@ class Data
 
             $allCategoriesByPaths  = [];
             $categoriesByPath      = $categoryCollection->getColumnValues(\Magento\Catalog\Model\Category::KEY_PATH);
+
+
+            //Find only the deepest pathes
+            $clearPathes = [];
+            foreach ($categoriesByPath as $categoryByPath) {
+                $hasit = false;
+                foreach ($categoriesByPath as $categoryByPath2) {
+                    if ((strpos($categoryByPath2, $categoryByPath . '/') === 0) && $categoryByPath != $categoryByPath2) {
+                        $hasit = true;
+                    }
+                }
+                if(!$hasit)
+                    $clearPathes[] = $categoryByPath;
+            }
+
             $pathwhatyouneedreturn = [];
             /** @var Category $category */
             foreach ($categoryCollection as $category) {
@@ -87,7 +102,7 @@ class Data
             /** @var Category $category */
             foreach ($allCategoryCollection as $category) {
                 $pathwhatyouneedstring = implode('/', $pathwhatyouneed);
-                if (in_array($pathwhatyouneedstring, $categoriesByPath)) {
+                if (in_array($pathwhatyouneedstring, $clearPathes)) {
                     break;
                 } else {
                     if (substr($category->getPath(), 0, strlen($pathwhatyouneedstring)) === $pathwhatyouneedstring && $level == $category->getLevel()) {
