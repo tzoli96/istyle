@@ -433,6 +433,13 @@ class Items extends \Xtento\OrderExport\Model\Export\Data\Shared\Items
                         if (isset($bOptions[$bundleSelectionsAttributes['option_id']])) {
                             $bOption = $bOptions[$bundleSelectionsAttributes['option_id']];
                             $this->writeValue(Option::BASE_OPTION, (bool) $bOption->getData(Option::BASE_OPTION));
+                            if (isset($bOption['selections']) && !empty($bOption['selections'])) {
+                                foreach ($bOption['selections'] as $bSelection) {
+                                    if ($bSelection->getProductId() == $item->getProductId()) {
+                                        $this->writeValue('is_default', (bool) $bSelection->getData('is_default'));
+                                    }
+                                }
+                            }
                         }
                     }
                 }
