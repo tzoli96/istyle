@@ -9049,7 +9049,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-news.git",
-                "reference": "564b5094c3f19f79231abbc36f8c93f219c4881d"
+                "reference": "fa11f13e25ec743c8d74ea18e30296cdbfb0c757"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9068,7 +9068,7 @@
                 "proprietary"
             ],
             "description": "News",
-            "time": "2019-06-25T10:41:54+00:00"
+            "time": "2019-07-08T19:52:51+00:00"
         },
         {
             "name": "oander/module-ocbase",
