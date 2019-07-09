@@ -38,7 +38,7 @@ use Xtento\XtCore\Helper\Utils;
  * Class Items
  * @package Oander\IstyleCustomization\Model\Export\Data\Shared
  */
-class Items extends \Xtento\OrderExport\Model\Export\Data\Shared\Items
+class Items extends Export\Data\Shared\Items
 {
     /**
      * @var SelectionHelper
@@ -433,6 +433,13 @@ class Items extends \Xtento\OrderExport\Model\Export\Data\Shared\Items
                         if (isset($bOptions[$bundleSelectionsAttributes['option_id']])) {
                             $bOption = $bOptions[$bundleSelectionsAttributes['option_id']];
                             $this->writeValue(Option::BASE_OPTION, (bool) $bOption->getData(Option::BASE_OPTION));
+                            if (isset($bOption['selections']) && !empty($bOption['selections'])) {
+                                foreach ($bOption['selections'] as $bSelection) {
+                                    if ($bSelection->getProductId() == $item->getProductId()) {
+                                        $this->writeValue('is_default', (bool) $bSelection->getData('is_default'));
+                                    }
+                                }
+                            }
                         }
                     }
                 }
