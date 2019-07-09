@@ -349,6 +349,10 @@ location /pagespeed_console { allow 188.6.164.85; deny all; }
 location ~ ^/pagespeed_admin { allow 188.6.164.85; deny all; }
 location ~ ^/pagespeed_global_admin { allow 188.6.164.85; deny all; }
 
+pagespeed Domain istyle.*;
+pagespeed Domain *.istyle.*;
+pagespeed RespectXForwardedProto on;
+
 pagespeed RewriteLevel CoreFilters;
 
     # core filters
