@@ -330,3 +330,56 @@ gzip_vary on;
 location ~* (\.php$|\.htaccess$|\.git) {
     deny all;
 }
+
+# NGX-PageSpeed
+# Needs to exist and be writable by nginx.  Use tmpfs for best performance.
+pagespeed FileCachePath /var/www/ngx_pagespeed_cache;
+
+# Ensure requests for pagespeed optimized resources go to the pagespeed handler
+# and no extraneous headers get set.
+location ~ "\.pagespeed\.([a-z]\.)?[a-z]{2}\.[^.]{10}\.[^.]+" {
+  add_header "" "";
+}
+location ~ "^/pagespeed_static/" { }
+location ~ "^/ngx_pagespeed_beacon$" { }
+location /ngx_pagespeed_statistics { allow 188.6.164.85; deny all; }
+location /ngx_pagespeed_global_statistics { allow 188.6.164.85; deny all; }
+location /ngx_pagespeed_message { allow 188.6.164.85; deny all; }
+location /pagespeed_console { allow 188.6.164.85; deny all; }
+location ~ ^/pagespeed_admin { allow 188.6.164.85; deny all; }
+location ~ ^/pagespeed_global_admin { allow 188.6.164.85; deny all; }
+
+pagespeed RewriteLevel CoreFilters;
+
+    # core filters
+    pagespeed EnableFilters add_head;
+    pagespeed EnableFilters remove_quotes;
+    pagespeed EnableFilters combine_css;
+    pagespeed EnableFilters combine_javascript;
+    pagespeed EnableFilters rewrite_images;
+
+    # extra
+    pagespeed EnableFilters sprite_images;
+    pagespeed EnableFilters collapse_whitespace;
+    pagespeed EnableFilters dedup_inlined_images;
+    pagespeed EnableFilters inline_preview_images,resize_mobile_images;
+    pagespeed EnableFilters lazyload_images;
+    pagespeed EnableFilters rewrite_javascript;
+    pagespeed EnableFilters responsive_images,resize_images;
+    pagespeed FetchHttps enable;
+
+pagespeed Statistics on;
+pagespeed StatisticsLogging on;
+pagespeed LogDir /var/log/pagespeed;
+pagespeed AdminPath /pagespeed_admin;
+pagespeed StatisticsLoggingIntervalMs 60000;
+pagespeed StatisticsLoggingMaxFileSizeKb 1024;
+
+location ~ ^/pagespeed_admin {
+ allow all;
+}
+#pagespeed GlobalAdminPath /pagespeed_global_admin;
+#pagespeed StatisticsPath /pagespeed_statistics;
+#pagespeed GlobalStatisticsPath /pagespeed_global_statistics;
+#pagespeed MessagesPath /pagespeed_message;
+#pagespeed ConsolePath /pagespeed_console;
