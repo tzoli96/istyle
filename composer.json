@@ -51,7 +51,7 @@
         "oander/module-admin-identifier": "1.0.2.1",
         "oander/module-ajax-captain-hook": "1.0.4.1",
         "oander/module-ajax-catalog": "1.0.5",
-        "oander/module-algoliasearch": "dev-37050-category-description-fix",
+        "oander/module-algoliasearch": "1.0.17.26",
         "oander/module-alternativewidget": "1.0.4",
         "oander/module-api-base": "1.0.30",
         "oander/module-api-cache": "1.0.0",
