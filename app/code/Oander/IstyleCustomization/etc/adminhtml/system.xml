@@ -31,5 +31,24 @@
                 </field>
             </group>
         </section>
+        <section id="oander_session_checker" translate="label" type="text" sortOrder="999" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Session Checker</label>
+            <resource>Oander_IstyleCustomization::config</resource>
+            <tab>oander</tab>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="email_receivers" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Error receivers email addresses</label>
+                    <comment>You can add several email addresses separated by ;</comment>
+                    <depends>
+                        <field id="*/*/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
     </system>
 </config>

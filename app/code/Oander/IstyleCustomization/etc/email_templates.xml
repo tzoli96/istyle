@@ -1,0 +1,3 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="oander_session_checker_email_template" label="Session Checker" file="session_checker_error_email.html" type="html" module="Oander_IstyleCustomization" area="frontend"/>
+</config>
