@@ -84,7 +84,6 @@ return array (
     'Magento_OfflinePayments' => 1,
     'Magento_OfflineShipping' => 1,
     'Magento_PageCache' => 1,
-    'Innobyte_DSK' => 1,
     'Magento_Paypal' => 1,
     'Magento_Persistent' => 1,
     'Magento_ProductAlert' => 1,
