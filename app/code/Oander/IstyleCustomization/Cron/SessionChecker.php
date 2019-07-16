@@ -12,6 +12,7 @@ use Magento\Framework\App\Area;
 use Magento\Framework\App\ResourceConnection;
 use Magento\Framework\Exception\MailException;
 use Magento\Framework\Mail\Template\TransportBuilder;
+use Magento\Store\Model\Store;
 use Magento\Store\Model\StoreManagerInterface;
 use Oander\IstyleCustomization\Helper\Config;
 
@@ -29,6 +30,7 @@ class SessionChecker
      * @var Config
      */
     private $config;
+
     /**
      * @var TransportBuilder
      */
@@ -70,9 +72,40 @@ class SessionChecker
             return;
         }
 
+        $result = $this->check();
+        if (!empty($result)) {
+            $lastSessions = [];
+            foreach ($result as $error) {
+                $lastSessions[$error['session_id']] = $error['visitor_id'];
+            }
+
+            $errorTable = '';
+            foreach ($result as $error) {
+                $errorTable .= '<tr>';
+                foreach ($error as $key => $value) {
+                    $errorTable .= '<td>' . $value . '</td>';
+                }
+                if (in_array($error['visitor_id'], $lastSessions)) {
+                    $errorTable .= '<td>false</td>';
+                } else {
+                    $errorTable .= '<td>true</td>';
+                }
+                $errorTable .= '</tr>';
+            }
+
+            $this->clean($lastSessions);
+            $this->send($errorTable);
+        }
+    }
+
+    /**
+     * @return array
+     */
+    protected function check()
+    {
+        $connection           = $this->resourceConnection->getConnection();
         $customerVisitorTable = $this->resourceConnection->getTableName('customer_visitor');
         $customerEntityTable  = $this->resourceConnection->getTableName('customer_entity');
-        $connection           = $this->resourceConnection->getConnection();
 
         $sql = sprintf(
             'SELECT %s.*, %s, %s FROM %s LEFT JOIN %s ON %s.%s = %s.%s WHERE %s IN (SELECT %s FROM %s WHERE %s IS NOT null GROUP BY %s HAVING count(*) > 1) ORDER BY %s.%s ASC',
@@ -91,32 +124,37 @@ class SessionChecker
             $connection->quoteIdentifier('customer_id'),
             $connection->quoteIdentifier('session_id'),
             $connection->quoteIdentifier($customerVisitorTable),
-            $connection->quoteIdentifier('session_id')
+            $connection->quoteIdentifier('last_visit_at')
         );
 
-        $result = $connection->fetchAll($sql);
+        return $connection->fetchAll($sql);
+    }
 
-        if (!empty($result)) {
-            $errorMsg = '';
-            foreach ($result as $error) {
-                foreach ($error as $key => $value) {
-                    $errorMsg .= $key . ':' . $value . ';';
-                }
-                $errorMsg .= PHP_EOL;
-            }
+    /**
+     * @param $lastSessions
+     */
+    protected function clean($lastSessions)
+    {
+        $connection           = $this->resourceConnection->getConnection();
+        $customerVisitorTable = $this->resourceConnection->getTableName('customer_visitor');
 
-            if ($errorMsg !== '') {
-                $this->send($errorMsg);
-            }
+        foreach ($lastSessions as $sessionId => $visitorId) {
+            $connection->delete(
+                $customerVisitorTable,
+                [
+                    $connection->quoteIdentifier('session_id') . ' = ?' => $sessionId,
+                    $connection->quoteIdentifier('visitor_id') . ' <> ?' => $visitorId
+                ]
+            );
         }
     }
 
     /**
-     * @param string $error
+     * @param string $errorTable
      *
      * @throws MailException
      */
-    protected function send(string $error)
+    protected function send(string $errorTable)
     {
         $emailAddresses = $this->config->getSessionCheckerEmailReceivers();
         if (!empty($emailAddresses)) {
@@ -126,12 +164,12 @@ class SessionChecker
                 'oander_session_checker_email_template'
             )->setTemplateOptions(
                 [
-                    'area' => Area::AREA_FRONTEND,
-                    'store' => $this->storeManager->getDefaultStoreView()->getCode(),
+                    'area' => Area::AREA_ADMINHTML,
+                    'store' => Store::DEFAULT_STORE_ID,
                 ]
             )->setTemplateVars(
                 [
-                    'errorMsg' => $error
+                    'errorTable' => $errorTable
                 ]
             )->addTo(
                 $mainReceiver
