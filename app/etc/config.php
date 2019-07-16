@@ -225,7 +225,6 @@ return array (
     'Oander_SalesforceWidget' => 1,
     'Oander_WarehouseManager' => 1,
     'Oander_StuckProcessRemover' => 1,
-    'Oander_SummitLeasing' => 1,
     'Oander_ApiCategory' => 1,
     'Oander_TranslateExtended' => 1,
     'Oander_TrustedShop' => 1,
