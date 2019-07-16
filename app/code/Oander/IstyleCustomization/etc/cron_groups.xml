@@ -1,6 +1,6 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/cron_groups.xsd">
     <group id="oander_istyle_customization_session_checker">
-        <schedule_generate_every>1440</schedule_generate_every>
+        <schedule_generate_every>60</schedule_generate_every>
         <schedule_ahead_for>5</schedule_ahead_for>
         <schedule_lifetime>120</schedule_lifetime>
         <history_cleanup_every>60</history_cleanup_every>
