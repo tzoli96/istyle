@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "109d4013e07dd2b179ed13e97e5d8456",
+    "content-hash": "10d6229f97e6cb7504f7c5fbd88be1e2",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1230,11 +1230,11 @@
         },
         {
             "name": "extensa/module-dsk",
-            "version": "2.0.0",
+            "version": "2.0.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/extensa-dsk.git",
-                "reference": "79fb77061e3eb1e3b14c0a13d493f98d6da9d90a"
+                "reference": "17788fd2ea6455b734ba4c101d6822f7fca8b48d"
             },
             "type": "library",
             "autoload": {
@@ -1255,7 +1255,7 @@
                 }
             ],
             "description": "DSK Magento 2.1.x payment module",
-            "time": "2019-06-27T12:55:48+00:00"
+            "time": "2019-07-17T12:24:00+00:00"
         },
         {
             "name": "fancourier/customshipping",
