@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "379b10a06eeb255c1d1be34178d1d739",
+    "content-hash": "3e706bb91518911117df425a755cd9c5",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9904,11 +9904,11 @@
         },
         {
             "name": "oander/module-product-icons",
-            "version": "1.1.1",
+            "version": "1.1.3.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-product-icons.git",
-                "reference": "1eca56421b3e78fc0c5900e665bb642c3fc6d956"
+                "reference": "0e8c5ee9f84ad64e13220cd2df6ffc79b856971f"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9927,7 +9927,7 @@
                 "proprietary"
             ],
             "description": "Oander Product Icons module",
-            "time": "2018-04-13T08:32:05+00:00"
+            "time": "2019-07-24T09:33:29+00:00"
         },
         {
             "name": "oander/module-product-widget-warehouse-manager-extender",
@@ -10499,7 +10499,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "6ea551269b2d45d7358ceffa0ca9f81be0d63908"
+                "reference": "e9d867902fb367a63d10770997f34f36e04981ac"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10515,7 +10515,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-07-17T09:36:24+00:00"
+            "time": "2019-07-22T11:59:41+00:00"
         },
         {
             "name": "oyejorge/less.php",
