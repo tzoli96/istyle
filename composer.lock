@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec294e8290ce15dc545e4182a131490c",
+    "content-hash": "4eff6219976d77bd7d4a7d99aa0eead3",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -103,11 +103,10 @@
         },
         {
             "name": "amasty/base",
-            "version": "1.5.5",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/amasty-base.git",
-                "reference": "9172589038ac1f13c2518d88bf0028da8759327f"
+            "version": "1.7.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/community/packages/base-1.7.2.zip"
             },
             "require": {
                 "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|^7.1.0"
@@ -124,8 +123,32 @@
             "license": [
                 "Commercial"
             ],
-            "description": "Amasty Base",
-            "time": "2019-03-25T09:24:38+00:00"
+            "description": "Amasty Base"
+        },
+        {
+            "name": "amasty/cron-schedule-list",
+            "version": "1.0.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/community/packages/cron-schedule-list-1.0.1.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.6.1",
+                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\CronScheduleList\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Cron Schedule List by Amasty"
         },
         {
             "name": "amasty/module-advanced-conditions",
@@ -328,6 +351,32 @@
             ],
             "description": "Common Rules by Amasty",
             "time": "2019-01-16T11:58:59+00:00"
+        },
+        {
+            "name": "amasty/xnotif",
+            "version": "1.11.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/community/packages/xnotif-1.11.2.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.7.2",
+                "amasty/cron-schedule-list": ">=1.0.1",
+                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\Xnotif\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Out Of Stock Notification by Amasty"
         },
         {
             "name": "anowave/ec",
@@ -7030,16 +7079,16 @@
         },
         {
             "name": "mageplaza/module-core",
-            "version": "1.4.4",
+            "version": "1.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mageplaza/module-core.git",
-                "reference": "8d50d27c1b06718c7c9e7bfb38848126e3e43ac0"
+                "reference": "5c8a91c6bdeb8e538be5474a1d286832dc8207f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/8d50d27c1b06718c7c9e7bfb38848126e3e43ac0",
-                "reference": "8d50d27c1b06718c7c9e7bfb38848126e3e43ac0",
+                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/5c8a91c6bdeb8e538be5474a1d286832dc8207f4",
+                "reference": "5c8a91c6bdeb8e538be5474a1d286832dc8207f4",
                 "shasum": ""
             },
             "type": "magento2-module",
@@ -7058,13 +7107,13 @@
             "authors": [
                 {
                     "name": "Mageplaza",
+                    "role": "Technical Support",
                     "email": "support@mageplaza.com",
-                    "homepage": "https://www.mageplaza.com",
-                    "role": "Technical Support"
+                    "homepage": "https://www.mageplaza.com"
                 }
             ],
             "description": "Mageplaza Core for Magento 2",
-            "time": "2019-05-24T11:15:09+00:00"
+            "time": "2019-07-25T07:56:45+00:00"
         },
         {
             "name": "mageplaza/module-gdpr",
