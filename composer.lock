@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c138c68e0749ab823ee7bba181ba0e10",
+    "content-hash": "b3d5f031298ceaf9b9d12b82d7d04f45",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -783,16 +783,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "13a8d67799a4f1c0e6bb0abd788abbe9e95dee8e"
+                "reference": "33810d865dd06a674130fceb729b2f279dc79e8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/13a8d67799a4f1c0e6bb0abd788abbe9e95dee8e",
-                "reference": "13a8d67799a4f1c0e6bb0abd788abbe9e95dee8e",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/33810d865dd06a674130fceb729b2f279dc79e8c",
+                "reference": "33810d865dd06a674130fceb729b2f279dc79e8c",
                 "shasum": ""
             },
             "require": {
@@ -835,7 +835,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2019-07-30T05:22:27+00:00"
+            "time": "2019-07-31T08:13:16+00:00"
         },
         {
             "name": "composer/composer",
@@ -2266,16 +2266,16 @@
         },
         {
             "name": "liquid/liquid",
-            "version": "1.4.15",
+            "version": "1.4.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kalimatas/php-liquid.git",
-                "reference": "d46cbf738ac38303433189209b45cb6deb701972"
+                "reference": "dba1a1f499ff92c4cd31964ac66c5c27e2fd0b4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kalimatas/php-liquid/zipball/d46cbf738ac38303433189209b45cb6deb701972",
-                "reference": "d46cbf738ac38303433189209b45cb6deb701972",
+                "url": "https://api.github.com/repos/kalimatas/php-liquid/zipball/dba1a1f499ff92c4cd31964ac66c5c27e2fd0b4f",
+                "reference": "dba1a1f499ff92c4cd31964ac66c5c27e2fd0b4f",
                 "shasum": ""
             },
             "require": {
@@ -2326,7 +2326,7 @@
                 "liquid",
                 "template"
             ],
-            "time": "2019-07-11T09:26:41+00:00"
+            "time": "2019-07-31T00:23:38+00:00"
         },
         {
             "name": "magento/composer",
@@ -8031,11 +8031,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.17.28",
+            "version": "1.0.18.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "c44ce7f2b5924c9a632b070ddc8e6af37d6f9982"
+                "reference": "0fbd47b81df085c81c517445e3645ce342cbf2c4"
             },
             "require": {
                 "oander/module-warehouse-manager": ">=1.4.25.6"
@@ -8059,7 +8059,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2019-07-17T09:18:20+00:00"
+            "time": "2019-07-31T17:43:00+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
