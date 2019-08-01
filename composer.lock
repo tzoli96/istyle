@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c74b345b6c4396b1c18366d070cf1f70",
+    "content-hash": "9411ca367b29e69167920d96f7cfe610",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9025,11 +9025,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.1.2.2",
+            "version": "1.1.2.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "a3d48a519fc871b84cae089399268c48e877f325"
+                "reference": "37fde81415edf9eacc0af2bb955163ce3deef086"
             },
             "require": {
                 "php": "7.*"
@@ -9047,7 +9047,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2019-06-27T10:59:42+00:00"
+            "time": "2019-07-30T11:30:50+00:00"
         },
         {
             "name": "oander/module-extension-exterminator",
