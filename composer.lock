@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9411ca367b29e69167920d96f7cfe610",
+    "content-hash": "eb1525ea19867d51ba6d59f25f0c0789",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -783,16 +783,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "ec2e24d4fa6a0d50d423794a56605ecec3401b85"
+                "reference": "f26a67e397be0e5c00d7c52ec7b5010098e15ce5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/ec2e24d4fa6a0d50d423794a56605ecec3401b85",
-                "reference": "ec2e24d4fa6a0d50d423794a56605ecec3401b85",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/f26a67e397be0e5c00d7c52ec7b5010098e15ce5",
+                "reference": "f26a67e397be0e5c00d7c52ec7b5010098e15ce5",
                 "shasum": ""
             },
             "require": {
@@ -835,7 +835,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2019-08-01T07:52:17+00:00"
+            "time": "2019-08-02T09:05:43+00:00"
         },
         {
             "name": "composer/composer",
@@ -8915,11 +8915,11 @@
         },
         {
             "name": "oander/module-core-bug-fix",
-            "version": "dev-fix/35421_istyle",
+            "version": "dev-istyle_37705",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "61326ab5fbf55568ef30a39fa934899dc9169d00"
+                "reference": "c5f09a8feef0d5458ed9112f54d87abba06a9f5f"
             },
             "require": {
                 "php": "7.*"
@@ -8937,7 +8937,7 @@
                 "proprietary"
             ],
             "description": "Core bug fixes for Magento 2.x",
-            "time": "2019-04-30T11:23:05+00:00"
+            "time": "2019-08-04T07:49:22+00:00"
         },
         {
             "name": "oander/module-currency-manager",
