@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "acc59ba2a4e72c502fd21b5a624d1cac",
+    "content-hash": "dfea773631677a7918b72e82bdbdc580",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -680,16 +680,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.2.0",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "13a8d67799a4f1c0e6bb0abd788abbe9e95dee8e"
+                "reference": "f26a67e397be0e5c00d7c52ec7b5010098e15ce5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/13a8d67799a4f1c0e6bb0abd788abbe9e95dee8e",
-                "reference": "13a8d67799a4f1c0e6bb0abd788abbe9e95dee8e",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/f26a67e397be0e5c00d7c52ec7b5010098e15ce5",
+                "reference": "f26a67e397be0e5c00d7c52ec7b5010098e15ce5",
                 "shasum": ""
             },
             "require": {
@@ -732,7 +732,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2019-07-30T05:22:27+00:00"
+            "time": "2019-08-02T09:05:43+00:00"
         },
         {
             "name": "composer/composer",
@@ -2119,16 +2119,16 @@
         },
         {
             "name": "liquid/liquid",
-            "version": "1.4.15",
+            "version": "1.4.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kalimatas/php-liquid.git",
-                "reference": "d46cbf738ac38303433189209b45cb6deb701972"
+                "reference": "dba1a1f499ff92c4cd31964ac66c5c27e2fd0b4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kalimatas/php-liquid/zipball/d46cbf738ac38303433189209b45cb6deb701972",
-                "reference": "d46cbf738ac38303433189209b45cb6deb701972",
+                "url": "https://api.github.com/repos/kalimatas/php-liquid/zipball/dba1a1f499ff92c4cd31964ac66c5c27e2fd0b4f",
+                "reference": "dba1a1f499ff92c4cd31964ac66c5c27e2fd0b4f",
                 "shasum": ""
             },
             "require": {
@@ -2179,7 +2179,7 @@
                 "liquid",
                 "template"
             ],
-            "time": "2019-07-11T09:26:41+00:00"
+            "time": "2019-07-31T00:23:38+00:00"
         },
         {
             "name": "magento/composer",
@@ -7766,11 +7766,11 @@
         },
         {
             "name": "oander/module-adminrestriction",
-            "version": "1.0.0.2",
+            "version": "1.0.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-admin-restriction.git",
-                "reference": "bd2802693402d2e85412c95b7742583eaca325d5"
+                "reference": "67d468ee4ee3915673c4e771d308ff598ab87624"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7791,7 +7791,7 @@
                 }
             ],
             "description": "Restrict Admin processes by Store View",
-            "time": "2019-06-27T12:14:35+00:00"
+            "time": "2019-07-05T12:17:44+00:00"
         },
         {
             "name": "oander/module-ajax-captain-hook",
@@ -7858,11 +7858,14 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.17.27",
+            "version": "1.0.18.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "369f3fa6f08e437413fb5a7f46fc4d7bc28ece7f"
+                "reference": "0fbd47b81df085c81c517445e3645ce342cbf2c4"
+            },
+            "require": {
+                "oander/module-warehouse-manager": ">=1.4.25.6"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7883,7 +7886,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2019-07-15T08:51:22+00:00"
+            "time": "2019-07-31T17:43:00+00:00"
         },
         {
             "name": "oander/module-alternativewidget",
@@ -8307,11 +8310,11 @@
         },
         {
             "name": "oander/module-autorelated-warehouse-manager-extender",
-            "version": "1.0.1.2",
+            "version": "1.0.1.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-autorelated-warehouse-manager-extender.git",
-                "reference": "493c238274a734e8e0f10a958ee2fff822da2981"
+                "reference": "541e8c5fdb0c7629861c4af3b0136495dcf2ed19"
             },
             "require": {
                 "oander/module-warehouse-manager-conditions": "*",
@@ -8329,7 +8332,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-05-30T10:46:33+00:00"
+            "time": "2019-07-15T07:57:13+00:00"
         },
         {
             "name": "oander/module-base",
@@ -8849,11 +8852,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.1.2.2",
+            "version": "1.1.2.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "a3d48a519fc871b84cae089399268c48e877f325"
+                "reference": "37fde81415edf9eacc0af2bb955163ce3deef086"
             },
             "require": {
                 "php": "7.*"
@@ -8871,7 +8874,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2019-06-27T10:59:42+00:00"
+            "time": "2019-07-30T11:30:50+00:00"
         },
         {
             "name": "oander/module-extracheckoutsummary",
@@ -9670,11 +9673,11 @@
         },
         {
             "name": "oander/module-product-icons",
-            "version": "1.1.1",
+            "version": "1.1.3.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-product-icons.git",
-                "reference": "1eca56421b3e78fc0c5900e665bb642c3fc6d956"
+                "reference": "8b4adae7c73c3e834af4c6f0bb18343834d0046e"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9693,15 +9696,15 @@
                 "proprietary"
             ],
             "description": "Oander Product Icons module",
-            "time": "2018-04-13T08:32:05+00:00"
+            "time": "2019-08-01T14:25:36+00:00"
         },
         {
             "name": "oander/module-product-widget-warehouse-manager-extender",
-            "version": "1.0.1.1",
+            "version": "1.0.1.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-product-widget-warehouse-manager-extender.git",
-                "reference": "0b74ca1adf89870b98b2e0e4116337304c02a33c"
+                "reference": "b57362d59b496bfe4ddb166e9e03bc320b3e0bcd"
             },
             "require": {
                 "oander/module-warehouse-manager-conditions": "*",
@@ -9719,7 +9722,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-05-28T12:23:37+00:00"
+            "time": "2019-07-15T08:00:01+00:00"
         },
         {
             "name": "oander/module-producturlresolver",
@@ -10099,11 +10102,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.25.4",
+            "version": "1.4.25.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "aea4befc15463988164acfa2961d9fafd706c3f8"
+                "reference": "d0a1b40b5880b4de9da012316779066d9d465c9b"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10124,7 +10127,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2019-05-28T14:08:45+00:00"
+            "time": "2019-07-17T09:39:52+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-conditions",
@@ -10233,11 +10236,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.225",
+            "version": "1.0.226",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "1a2062519a381356c8be079c647a3e3851f27bf3"
+                "reference": "59f84f05fa222a1d2c67c95285f98feb85edfdf9"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10253,7 +10256,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-07-15T08:59:31+00:00"
+            "time": "2019-08-05T08:31:09+00:00"
         },
         {
             "name": "oyejorge/less.php",
