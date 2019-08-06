@@ -205,6 +205,10 @@ if [ "${INSTANCE_ID}" == "${MASTER_ID}" ]; then
   cd ${WEBROOT} && composer install
   chown www-data:www-data -R ${WEBROOT}
 
+  # COPY UPLOADED FILES FROM NFS TO THE WEBROOT FOR REWRITES
+  echo -n " * COPY UPLOADED FILES FOR REWRITES FROM NFS TO THE WEBROOT ... "
+  if rsync -a ${EFS}/rewrite/ ${WEBROOT}/; then echo OK; else echo FAIL; fi
+
   echo " * DISABLE MAGENTO CACHE:"
   magento "cache:disable"
   echo
@@ -299,6 +303,10 @@ else
   chown www-data:www-data -R ${WEBROOT}
   echo
 
+  # COPY UPLOADED FILES FROM NFS TO THE WEBROOT FOR REWRITES
+  echo -n " * COPY UPLOADED FILES FOR REWRITES FROM NFS TO THE WEBROOT ... "
+  if rsync -a ${EFS}/rewrite/ ${WEBROOT}/; then echo OK; else echo FAIL; fi
+
   EFS_PRELIVE="${EFS}/$(ls -1 ${EFS} | grep live_ | tail -1)"
   echo " * CREATE DIRECTORY SYMLINKS TO PRELIVE: ${EFS_PRELIVE} ... "
   symlink_check "var" "${WEBROOT}/var" "${EFS_PRELIVE}/var" "${WEBROOT}/"
@@ -356,10 +364,6 @@ else
 fi
 
 ## GENERAL STUFF ##
-
-# COPY UPLOADED FILES FROM NFS TO THE WEBROOT FOR REWRITES
-echo -n " * COPY UPLOADED FILES FOR REWRITES FROM NFS TO THE WEBROOT ... "
-if rsync -a ${EFS}/rewrite/ ${WEBROOT}/; then echo OK; else echo FAIL; fi
 
 # MAIN SYMLINK SETUP
 symlink_check "CREATE DIRECTORY SYMLINK TO MEDIA FOLDER" "${WEBROOT}/pub/media" "${EFS}/media" "${WEBROOT}/pub/"
