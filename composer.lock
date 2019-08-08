@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb1525ea19867d51ba6d59f25f0c0789",
+    "content-hash": "9613a0558df7f448dab34600974486c7",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9953,11 +9953,11 @@
         },
         {
             "name": "oander/module-product-icons",
-            "version": "1.1.3.2",
+            "version": "1.1.3.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-product-icons.git",
-                "reference": "8b4adae7c73c3e834af4c6f0bb18343834d0046e"
+                "reference": "2d55d7ada9779d07b502c611636abc1cedeb9ded"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9976,7 +9976,7 @@
                 "proprietary"
             ],
             "description": "Oander Product Icons module",
-            "time": "2019-08-01T14:25:36+00:00"
+            "time": "2019-08-08T12:48:54+00:00"
         },
         {
             "name": "oander/module-product-widget-warehouse-manager-extender",
@@ -11683,16 +11683,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.11.0",
+            "version": "v1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "82ebae02209c21113908c229e9883c419720738a"
+                "reference": "550ebaac289296ce228a706d0867afc34687e3f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/82ebae02209c21113908c229e9883c419720738a",
-                "reference": "82ebae02209c21113908c229e9883c419720738a",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/550ebaac289296ce228a706d0867afc34687e3f4",
+                "reference": "550ebaac289296ce228a706d0867afc34687e3f4",
                 "shasum": ""
             },
             "require": {
@@ -11704,7 +11704,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.11-dev"
+                    "dev-master": "1.12-dev"
                 }
             },
             "autoload": {
@@ -11721,12 +11721,12 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
+                    "name": "Gert de Pagter",
+                    "email": "BackEndTea@gmail.com"
                 },
                 {
-                    "name": "Gert de Pagter",
-                    "email": "backendtea@gmail.com"
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
@@ -11737,7 +11737,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2019-02-06T07:57:58+00:00"
+            "time": "2019-08-06T08:03:45+00:00"
         },
         {
             "name": "symfony/process",
