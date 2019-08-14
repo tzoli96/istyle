@@ -143,6 +143,7 @@
         "oander/module-warehouse-manager-conditions": "1.0.1",
         "oander/module-wonder-widget": "1.3.0.2",
         "oander/module-xtento-order-export-extender": "1.0.8",
+        "oander/module-amasty-xnotif-warehouse-manager-extender": "1.0.0",
         "oander/theme-hodor": "dev-istyle",
         "oander/theme-istyle": "dev-develop",
         "plugincompany/customergroupswitching": "100.1.4",
