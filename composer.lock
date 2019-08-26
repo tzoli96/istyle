@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2af8cb9b7a605329753defd8c5dc2d8b",
+    "content-hash": "b61c53c4465310db12700eaad9088020",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -264,6 +264,12 @@
                 "url": "git@github.com:oandermedia/amasty-rgrid.git",
                 "reference": "25e811524ac8685a0446bc0a7cbbad4b0ad5f72e"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/amasty-rgrid/zipball/25e811524ac8685a0446bc0a7cbbad4b0ad5f72e",
+                "reference": "25e811524ac8685a0446bc0a7cbbad4b0ad5f72e",
+                "shasum": ""
+            },
             "require": {
                 "amasty/base": "*",
                 "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|~7.1.0"
@@ -281,6 +287,10 @@
                 "Commercial"
             ],
             "description": "Extended Rules Grid by Amasty",
+            "support": {
+                "source": "https://github.com/oandermedia/amasty-rgrid/tree/1.0.0",
+                "issues": "https://github.com/oandermedia/amasty-rgrid/issues"
+            },
             "time": "2018-02-20T09:25:58+00:00"
         },
         {
@@ -290,6 +300,10 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/amasty-shiprestriction.git",
                 "reference": "3370bb88bbb506445284b4f7c11fc6aaff4fec02"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/community/packages/shiprestriction-2.0.6.zip"
             },
             "require": {
                 "amasty/base": ">=1.0.8",
@@ -308,8 +322,7 @@
             "license": [
                 "Commercial"
             ],
-            "description": "Shipping Restrictions By Amasty",
-            "time": "2019-01-28T15:59:07+00:00"
+            "description": "Shipping Restrictions By Amasty"
         },
         {
             "name": "amasty/system-common-rules",
@@ -657,7 +670,7 @@
         },
         {
             "name": "colinmollenhour/cache-backend-redis",
-            "version": "1.9.0",
+            "version": "1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/colinmollenhour/Cm_Cache_Backend_Redis.git",
@@ -689,7 +702,7 @@
             ],
             "description": "Zend_Cache backend using Redis with full support for tags.",
             "homepage": "https://github.com/colinmollenhour/Cm_Cache_Backend_Redis",
-            "time": "2016-10-03T16:55:11+00:00"
+            "time": "2016-05-02T16:23:36+00:00"
         },
         {
             "name": "colinmollenhour/credis",
@@ -1389,16 +1402,16 @@
         },
         {
             "name": "google/recaptcha",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/recaptcha.git",
-                "reference": "c4a17d6af648d4f3814430cd103cba50b75b571c"
+                "reference": "98c4a6573b27e8b0990ea8789c74ea378795134c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/recaptcha/zipball/c4a17d6af648d4f3814430cd103cba50b75b571c",
-                "reference": "c4a17d6af648d4f3814430cd103cba50b75b571c",
+                "url": "https://api.github.com/repos/google/recaptcha/zipball/98c4a6573b27e8b0990ea8789c74ea378795134c",
+                "reference": "98c4a6573b27e8b0990ea8789c74ea378795134c",
                 "shasum": ""
             },
             "require": {
@@ -1432,7 +1445,7 @@
                 "recaptcha",
                 "spam"
             ],
-            "time": "2019-05-24T12:44:03+00:00"
+            "time": "2019-08-16T15:48:25+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -1781,6 +1794,12 @@
                 "url": "git@github.com:oandermedia/innobyte-checkout-success.git",
                 "reference": "811875b3d1935bc2327573de686fe3309ca00138"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/innobyte-checkout-success/zipball/811875b3d1935bc2327573de686fe3309ca00138",
+                "reference": "811875b3d1935bc2327573de686fe3309ca00138",
+                "shasum": ""
+            },
             "require": {
                 "magento/module-checkout": "^100.1.2",
                 "php": "7.0.2|7.0.4|~7.0.6"
@@ -1795,6 +1814,10 @@
                 }
             },
             "description": "Innobyte CheckoutSuccess Module",
+            "support": {
+                "source": "https://github.com/oandermedia/innobyte-checkout-success/tree/0.0.3",
+                "issues": "https://github.com/oandermedia/innobyte-checkout-success/issues"
+            },
             "time": "2017-12-17T11:02:06+00:00"
         },
         {
@@ -6753,11 +6776,6 @@
         {
             "name": "magento/product-community-edition",
             "version": "2.1.5",
-            "dist": {
-                "type": "zip",
-                "url": "https://repo.magento.com/archives/magento/product-community-edition/magento-product-community-edition-2.1.5.0.zip",
-                "shasum": "90fffc5c853ea481a425d814da580de915e9efd0"
-            },
             "require": {
                 "braintree/braintree_php": "3.7.0",
                 "colinmollenhour/cache-backend-file": "1.4",
@@ -7061,16 +7079,16 @@
         },
         {
             "name": "mageplaza/module-core",
-            "version": "1.4.5",
+            "version": "1.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mageplaza/module-core.git",
-                "reference": "5c8a91c6bdeb8e538be5474a1d286832dc8207f4"
+                "reference": "85bfb6ef453471b2cef789dcf23525be8e7b881f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/5c8a91c6bdeb8e538be5474a1d286832dc8207f4",
-                "reference": "5c8a91c6bdeb8e538be5474a1d286832dc8207f4",
+                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/85bfb6ef453471b2cef789dcf23525be8e7b881f",
+                "reference": "85bfb6ef453471b2cef789dcf23525be8e7b881f",
                 "shasum": ""
             },
             "type": "magento2-module",
@@ -7095,7 +7113,7 @@
                 }
             ],
             "description": "Mageplaza Core for Magento 2",
-            "time": "2019-07-25T07:56:45+00:00"
+            "time": "2019-08-16T08:51:45+00:00"
         },
         {
             "name": "mageplaza/module-gdpr",
@@ -7950,11 +7968,11 @@
         },
         {
             "name": "oander/module-ajax-captain-hook",
-            "version": "1.0.4.1",
+            "version": "1.0.4.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-ajax-captain-hook.git",
-                "reference": "731dc2de04deeb9402cc139853dca61489dc1e2e"
+                "reference": "045507e51384a27e0a9f78909301e63c61a4b544"
             },
             "require": {
                 "php": "7.*"
@@ -7972,7 +7990,7 @@
                 "proprietary"
             ],
             "description": "Try 'hook' to all AJAX requests on a page.",
-            "time": "2019-02-21T13:38:53+00:00"
+            "time": "2019-08-23T12:35:49+00:00"
         },
         {
             "name": "oander/module-ajax-catalog",
@@ -7981,6 +7999,12 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-ajax-catalog.git",
                 "reference": "a9882d37cc6913715900446d5518cc6f946241da"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-ajax-catalog/zipball/a9882d37cc6913715900446d5518cc6f946241da",
+                "reference": "a9882d37cc6913715900446d5518cc6f946241da",
+                "shasum": ""
             },
             "require": {
                 "oander/module-base": "*",
@@ -7999,6 +8023,10 @@
                 "proprietary"
             ],
             "description": "Catalog via ajax.",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-ajax-catalog/tree/1.0.5",
+                "issues": "https://github.com/oandermedia/oander-ajax-catalog/issues"
+            },
             "time": "2018-01-05T12:00:40+00:00"
         },
         {
@@ -8124,6 +8152,12 @@
                 "url": "git@github.com:oandermedia/oander-api-cache.git",
                 "reference": "291d5d0cc8e733fea2d7151c7955876e8b30c933"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-cache/zipball/291d5d0cc8e733fea2d7151c7955876e8b30c933",
+                "reference": "291d5d0cc8e733fea2d7151c7955876e8b30c933",
+                "shasum": ""
+            },
             "require": {
                 "oander/module-api-base": "*",
                 "oander/module-api-gateway": "*",
@@ -8143,6 +8177,10 @@
                 "proprietary"
             ],
             "description": "Backend API to Flush Cache",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-api-cache/tree/1.0.0",
+                "issues": "https://github.com/oandermedia/oander-api-cache/issues"
+            },
             "time": "2017-11-27T15:42:24+00:00"
         },
         {
@@ -8234,11 +8272,11 @@
         },
         {
             "name": "oander/module-api-gateway",
-            "version": "1.0.25.3",
+            "version": "1.0.25.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-gateway.git",
-                "reference": "225288ae0a4fcd6ff1d779f4b3da17100d31768b"
+                "reference": "633f625a2233cebc527e9ae777154897261b0def"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -8258,7 +8296,7 @@
                 "proprietary"
             ],
             "description": "The API Gateway module for ERP connections and import solutions.",
-            "time": "2019-05-08T13:42:01+00:00"
+            "time": "2019-08-23T12:47:28+00:00"
         },
         {
             "name": "oander/module-api-image",
@@ -8297,6 +8335,12 @@
                 "url": "git@github.com:oandermedia/oander-api-index.git",
                 "reference": "ecebd77633d089113d922311cafab30e95cdae41"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-api-index/zipball/ecebd77633d089113d922311cafab30e95cdae41",
+                "reference": "ecebd77633d089113d922311cafab30e95cdae41",
+                "shasum": ""
+            },
             "require": {
                 "oander/module-api-base": "*",
                 "oander/module-api-gateway": "*",
@@ -8316,6 +8360,10 @@
                 "proprietary"
             ],
             "description": "Backend API to Reindex",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-api-index/tree/1.0.1",
+                "issues": "https://github.com/oandermedia/oander-api-index/issues"
+            },
             "time": "2017-11-27T15:42:24+00:00"
         },
         {
@@ -8496,6 +8544,12 @@
                 "url": "git@github.com:oandermedia/oander-base.git",
                 "reference": "4e60a6933c83de0ab496c36dfeb375e539bb3517"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-base/zipball/4e60a6933c83de0ab496c36dfeb375e539bb3517",
+                "reference": "4e60a6933c83de0ab496c36dfeb375e539bb3517",
+                "shasum": ""
+            },
             "require": {
                 "oander/module-test-base": "*",
                 "php": "7.*"
@@ -8513,6 +8567,10 @@
                 "proprietary"
             ],
             "description": "Oander Module Abstractions",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-base/tree/1.2.6",
+                "issues": "https://github.com/oandermedia/oander-base/issues"
+            },
             "time": "2017-06-19T13:57:39+00:00"
         },
         {
@@ -8624,11 +8682,11 @@
         },
         {
             "name": "oander/module-cartbutton",
-            "version": "1.0.19.6",
+            "version": "1.0.19.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-cartbutton.git",
-                "reference": "62e7e3cd632eece52ab8ecc2d48ea2ad6cd93c56"
+                "reference": "8fa249bcc8dc2429a4707b5a0419b76141f03887"
             },
             "type": "magento2-module",
             "autoload": {
@@ -8649,7 +8707,7 @@
                 }
             ],
             "description": "Helper to display cart button",
-            "time": "2019-05-14T12:06:16+00:00"
+            "time": "2019-08-23T12:52:22+00:00"
         },
         {
             "name": "oander/module-cashonpickuppayment",
@@ -8682,11 +8740,11 @@
         },
         {
             "name": "oander/module-category-badge",
-            "version": "2.2.1",
+            "version": "2.2.1.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-category-badge.git",
-                "reference": "a1d3fcffc918f6b57eff6f7c6502ea23c4d72f17"
+                "reference": "71143bc752f83461180e91fd1b3e4fc0efd6c2f7"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8705,7 +8763,7 @@
                 "proprietary"
             ],
             "description": "Upload badges from category admin pages.",
-            "time": "2017-03-28T08:22:44+00:00"
+            "time": "2019-08-23T12:55:51+00:00"
         },
         {
             "name": "oander/module-category-dropdown",
@@ -8902,11 +8960,11 @@
         },
         {
             "name": "oander/module-currency-manager",
-            "version": "1.2.2.1",
+            "version": "1.2.2.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-currency-manager.git",
-                "reference": "84e83a3fe1326c50f7fc17ff84075f6e9126d03c"
+                "reference": "15c3c9d72763307b5ffbf3f1f83ed6e8bf61ce9d"
             },
             "require": {
                 "magento/framework": "*",
@@ -8927,15 +8985,15 @@
                 "proprietary"
             ],
             "description": "This module provides currency settings.",
-            "time": "2019-05-31T11:49:30+00:00"
+            "time": "2019-08-23T12:59:11+00:00"
         },
         {
             "name": "oander/module-customer-file-upload",
-            "version": "1.0.7.5",
+            "version": "1.0.7.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-customer-file-upload.git",
-                "reference": "e4cc91f59c46619b226194e32d072b03040b5317"
+                "reference": "38aee0f3dad72715d7648baa8baa65b5c88582ee"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8954,7 +9012,7 @@
                 "proprietary"
             ],
             "description": "Customer upload file",
-            "time": "2018-10-01T10:35:28+00:00"
+            "time": "2019-08-23T13:04:05+00:00"
         },
         {
             "name": "oander/module-discount-badge",
@@ -9065,11 +9123,11 @@
         },
         {
             "name": "oander/module-fancy-filter",
-            "version": "1.3.1.9",
+            "version": "1.3.3.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-fancy-filter.git",
-                "reference": "aaf8d999dff6d5f55309ab4b6c84b52fa61c0e61"
+                "reference": "38a23307815a9ff82aaa568c052980783d4177c8"
             },
             "require": {
                 "oander/module-ajax-catalog": "*",
@@ -9089,15 +9147,15 @@
                 "proprietary"
             ],
             "description": "Filter by checkboxes on Catalog list",
-            "time": "2018-09-12T15:25:12+00:00"
+            "time": "2019-08-23T13:11:28+00:00"
         },
         {
             "name": "oander/module-free-shipping-display",
-            "version": "1.0.4",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-free-shipping-display.git",
-                "reference": "cf0551b7108f1c2dd69f13f13c229265a25be7ab"
+                "reference": "3473616abb58bbb45456a454e3c22ac945a4343f"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9116,15 +9174,15 @@
                 "proprietary"
             ],
             "description": "Free shipping appears in the Mini Cart",
-            "time": "2018-05-02T13:09:02+00:00"
+            "time": "2019-08-23T13:18:12+00:00"
         },
         {
             "name": "oander/module-google-tag-manager",
-            "version": "1.0.0",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-google-tag-manager.git",
-                "reference": "1a1e96aa922f49b7dede729e58dcf879ecfad896"
+                "reference": "1ca3ad2a2ab82a7f9d795abd5c7477e6bf6a7e0a"
             },
             "require": {
                 "magento/framework": "*",
@@ -9144,7 +9202,7 @@
                 "proprietary"
             ],
             "description": "Oander Google Tag Manager Integration to eCommerce Tracking",
-            "time": "2017-01-04T11:34:53+00:00"
+            "time": "2019-08-23T13:24:22+00:00"
         },
         {
             "name": "oander/module-heureka-tracking",
@@ -9182,6 +9240,12 @@
                 "url": "git@github.com:oandermedia/oander-hungarian-newsletter.git",
                 "reference": "2e71e4da821fa8c60574f85e065ace73e51aa2db"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-hungarian-newsletter/zipball/2e71e4da821fa8c60574f85e065ace73e51aa2db",
+                "reference": "2e71e4da821fa8c60574f85e065ace73e51aa2db",
+                "shasum": ""
+            },
             "require": {
                 "oander/module-base": "*",
                 "oander/module-name-switcher": "*",
@@ -9200,15 +9264,19 @@
                 "proprietary"
             ],
             "description": "Newsletter modifications for Hungarian roles",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-hungarian-newsletter/tree/1.1.1",
+                "issues": "https://github.com/oandermedia/oander-hungarian-newsletter/issues"
+            },
             "time": "2017-04-12T09:11:56+00:00"
         },
         {
             "name": "oander/module-indexer",
-            "version": "1.0.1",
+            "version": "1.0.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-indexer.git",
-                "reference": "b1a198ec66f14604d2be8cf904e92d634f7e37e5"
+                "reference": "a315b6a7e4fc5b2408ee0c4f932a162dbc0f52d5"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9227,15 +9295,15 @@
                 "proprietary"
             ],
             "description": "It runs Magento Reindex via the Cron API",
-            "time": "2018-11-14T11:45:01+00:00"
+            "time": "2019-08-23T13:27:31+00:00"
         },
         {
             "name": "oander/module-installment-prices",
-            "version": "1.0.7.2",
+            "version": "1.0.7.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/installment-prices.git",
-                "reference": "5dfb6d8b0823c74d02781091d0e417661f689951"
+                "reference": "3a1bdf063ccab0842d82e82eb460232b78fd2219"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9254,7 +9322,7 @@
                 "proprietary"
             ],
             "description": "Installment prices displays next to Product Icons",
-            "time": "2019-07-05T07:18:17+00:00"
+            "time": "2019-08-23T13:32:09+00:00"
         },
         {
             "name": "oander/module-istyleaws",
@@ -9291,11 +9359,11 @@
         },
         {
             "name": "oander/module-lapker",
-            "version": "1.0.9.1",
+            "version": "1.0.9.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-lapker.git",
-                "reference": "34652ce38129ed3a5d733b52ec82a18469365836"
+                "reference": "e1bb34f6d2d3cb4682c988be15fbf1e95b7f6cf9"
             },
             "require": {
                 "oander/library-pick-pack-pont": "*",
@@ -9315,15 +9383,15 @@
                 "proprietary"
             ],
             "description": "Oander Lapker integration",
-            "time": "2018-06-20T08:17:43+00:00"
+            "time": "2019-08-23T13:35:30+00:00"
         },
         {
             "name": "oander/module-maintenance",
-            "version": "1.0.9.1",
+            "version": "1.0.9.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-maintenance.git",
-                "reference": "dce10566f93fe77ed010a58f10a7b26ed90731d5"
+                "reference": "78acaa6385fa9da099ec950571cf93c81f202b73"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9342,7 +9410,7 @@
                 "proprietary"
             ],
             "description": "Oander Maintenance Module",
-            "time": "2018-09-11T12:18:55+00:00"
+            "time": "2019-08-23T13:38:42+00:00"
         },
         {
             "name": "oander/module-multislider",
@@ -9373,11 +9441,11 @@
         },
         {
             "name": "oander/module-name-switcher",
-            "version": "1.0.10.1",
+            "version": "1.0.10.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-name-switcher.git",
-                "reference": "e357af9a5dc590a3410e8894937263b61c89f9d6"
+                "reference": "e67e21bb724ca94c027c90803de3a6a74ae95408"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9396,7 +9464,7 @@
                 "proprietary"
             ],
             "description": "This module provides a feature to switch the last name and first name with each other",
-            "time": "2019-06-05T12:41:29+00:00"
+            "time": "2019-08-23T13:41:36+00:00"
         },
         {
             "name": "oander/module-news",
@@ -9537,6 +9605,12 @@
                 "url": "git@github.com:oandermedia/oander-order-attachment.git",
                 "reference": "86235b93f7423adc13ac7b43e3e9f90a248c2c18"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-order-attachment/zipball/86235b93f7423adc13ac7b43e3e9f90a248c2c18",
+                "reference": "86235b93f7423adc13ac7b43e3e9f90a248c2c18",
+                "shasum": ""
+            },
             "require": {
                 "oander/module-base": "*",
                 "php": "7.*"
@@ -9554,6 +9628,10 @@
                 "proprietary"
             ],
             "description": "Order Attachment",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-order-attachment/tree/1.0.2",
+                "issues": "https://github.com/oandermedia/oander-order-attachment/issues"
+            },
             "time": "2017-12-15T09:55:59+00:00"
         },
         {
@@ -9563,6 +9641,12 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-order-comment.git",
                 "reference": "5d2cbfbb4a8b504e4421072ca77ffb9b3b6c47bc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-order-comment/zipball/5d2cbfbb4a8b504e4421072ca77ffb9b3b6c47bc",
+                "reference": "5d2cbfbb4a8b504e4421072ca77ffb9b3b6c47bc",
+                "shasum": ""
             },
             "require": {
                 "oander/module-base": "*",
@@ -9581,6 +9665,10 @@
                 "proprietary"
             ],
             "description": "Save Order Comment to Order",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-order-comment/tree/1.0.2",
+                "issues": "https://github.com/oandermedia/oander-order-comment/issues"
+            },
             "time": "2017-05-25T08:49:06+00:00"
         },
         {
@@ -9636,11 +9724,11 @@
         },
         {
             "name": "oander/module-paymentmethodicons",
-            "version": "1.0.0.1",
+            "version": "1.0.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-paymentmethodicons.git",
-                "reference": "da04afc8fece85c3890f1bf25f01e3fb821e9b55"
+                "reference": "61da09c8f178757a77b7ba7647801c9f18ddd9b6"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9665,7 +9753,7 @@
                 }
             ],
             "description": "Add Icon to Payment Methods",
-            "time": "2019-03-21T11:11:16+00:00"
+            "time": "2019-08-23T13:45:12+00:00"
         },
         {
             "name": "oander/module-paypal",
@@ -9674,6 +9762,12 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-paypal.git",
                 "reference": "fe1a54adc5c34d9ca3295efc2498e1d22729072b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-paypal/zipball/fe1a54adc5c34d9ca3295efc2498e1d22729072b",
+                "reference": "fe1a54adc5c34d9ca3295efc2498e1d22729072b",
+                "shasum": ""
             },
             "require": {
                 "oander/module-base": "*",
@@ -9692,15 +9786,19 @@
                 "proprietary"
             ],
             "description": "Oander PayPal",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-paypal/tree/1.0.0",
+                "issues": "https://github.com/oandermedia/oander-paypal/issues"
+            },
             "time": "2017-01-04T11:42:27+00:00"
         },
         {
             "name": "oander/module-pleisty",
-            "version": "1.0.1",
+            "version": "1.0.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-pleisty.git",
-                "reference": "139fd145982b3a55e0fd1ff4b4db4a465fd124f8"
+                "reference": "546171467369010dfcabba6fadeb7f5219b95be6"
             },
             "require": {
                 "php": "7.*"
@@ -9714,15 +9812,15 @@
                     "Oander\\Pleisty\\": ""
                 }
             },
-            "time": "2018-05-02T19:05:35+00:00"
+            "time": "2019-08-23T13:49:06+00:00"
         },
         {
             "name": "oander/module-pos-locations",
-            "version": "1.1.1.1",
+            "version": "1.1.1.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-pos-locations.git",
-                "reference": "32644dae7b9e144a186e45c6bc5b541189855f56"
+                "reference": "e870288151d1d59cb0a4ff55c080ec1eeb518433"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9741,15 +9839,15 @@
                 "proprietary"
             ],
             "description": "Oander POS Locations module",
-            "time": "2019-04-16T14:26:03+00:00"
+            "time": "2019-08-23T13:52:13+00:00"
         },
         {
             "name": "oander/module-preorder",
-            "version": "1.0.24",
+            "version": "1.0.24.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-preorder.git",
-                "reference": "ebded5e4b4852396c3bc37611d9167761e2315d4"
+                "reference": "1b015afda15b8a17c0c327140321220fcd94752c"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9769,7 +9867,7 @@
                 "proprietary"
             ],
             "description": "Oander Preorder",
-            "time": "2018-10-12T06:46:14+00:00"
+            "time": "2019-08-23T13:54:51+00:00"
         },
         {
             "name": "oander/module-price-tooltip",
@@ -9778,6 +9876,12 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-price-tooltip.git",
                 "reference": "81591f876a019f2f918886d80678dffb3e59cefd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-price-tooltip/zipball/81591f876a019f2f918886d80678dffb3e59cefd",
+                "reference": "81591f876a019f2f918886d80678dffb3e59cefd",
+                "shasum": ""
             },
             "require": {
                 "oander/module-base": "*",
@@ -9796,6 +9900,10 @@
                 "proprietary"
             ],
             "description": "Oander Price Tooltip module",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-price-tooltip/tree/1.0.1",
+                "issues": "https://github.com/oandermedia/oander-price-tooltip/issues"
+            },
             "time": "2017-05-30T12:26:11+00:00"
         },
         {
@@ -9854,11 +9962,11 @@
         },
         {
             "name": "oander/module-product-icons",
-            "version": "1.1.3.3",
+            "version": "1.1.3.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-product-icons.git",
-                "reference": "2d55d7ada9779d07b502c611636abc1cedeb9ded"
+                "reference": "c73a660529773dd7942e50f9235be8655a5387ce"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9877,7 +9985,7 @@
                 "proprietary"
             ],
             "description": "Oander Product Icons module",
-            "time": "2019-08-08T12:48:54+00:00"
+            "time": "2019-08-23T13:58:51+00:00"
         },
         {
             "name": "oander/module-product-widget-warehouse-manager-extender",
@@ -9933,11 +10041,11 @@
         },
         {
             "name": "oander/module-safe-category-index",
-            "version": "1.0.0",
+            "version": "1.0.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-safe-category-index.git",
-                "reference": "b13057a7450264892aea78bd020764c08edb913f"
+                "reference": "01929bec76a8750e124129065a5bba9c20544876"
             },
             "require": {
                 "php": "7.*"
@@ -9954,15 +10062,15 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2018-07-12T05:25:56+00:00"
+            "time": "2019-08-26T10:49:04+00:00"
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.2.0.2",
+            "version": "1.2.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "98827fb918f894862114a139268b9fde6ff36fe2"
+                "reference": "8d407884a5b69e115b90fb72da533e1d88238a75"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9981,7 +10089,7 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2019-05-30T06:54:54+00:00"
+            "time": "2019-08-26T10:52:51+00:00"
         },
         {
             "name": "oander/module-salesforce-service",
@@ -10084,6 +10192,12 @@
                 "url": "git@github.com:oandermedia/oander-shipping.git",
                 "reference": "30f3d3fa3c17483ae86f484fa4c11c1ff11502b7"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-shipping/zipball/30f3d3fa3c17483ae86f484fa4c11c1ff11502b7",
+                "reference": "30f3d3fa3c17483ae86f484fa4c11c1ff11502b7",
+                "shasum": ""
+            },
             "require": {
                 "oander/module-base": "*",
                 "php": "7.*"
@@ -10101,15 +10215,19 @@
                 "proprietary"
             ],
             "description": "Shipping",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-shipping/tree/1.0.3",
+                "issues": "https://github.com/oandermedia/oander-shipping/issues"
+            },
             "time": "2018-02-20T13:54:50+00:00"
         },
         {
             "name": "oander/module-stuck-process-remover",
-            "version": "1.0.0",
+            "version": "1.0.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-stuck-process-remover.git",
-                "reference": "aa0f520776ed1fccab1605e42bbb064a29bca957"
+                "reference": "98763a34aea1c48125fd4e9e93855ed5d87e8b17"
             },
             "require": {
                 "php": "7.*"
@@ -10127,7 +10245,7 @@
                 "proprietary"
             ],
             "description": "Remove all cron and indexer which exceeded the maximum allowed run time",
-            "time": "2018-07-31T15:08:23+00:00"
+            "time": "2019-08-26T11:10:46+00:00"
         },
         {
             "name": "oander/module-test-base",
@@ -10136,6 +10254,12 @@
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-test-base.git",
                 "reference": "531d4ebc018e5ed33f34ac5b0fa4577137adb1ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/oander-test-base/zipball/531d4ebc018e5ed33f34ac5b0fa4577137adb1ba",
+                "reference": "531d4ebc018e5ed33f34ac5b0fa4577137adb1ba",
+                "shasum": ""
             },
             "require": {
                 "php": "7.*"
@@ -10153,6 +10277,10 @@
                 "proprietary"
             ],
             "description": "Test Base",
+            "support": {
+                "source": "https://github.com/oandermedia/oander-test-base/tree/1.0.1",
+                "issues": "https://github.com/oandermedia/oander-test-base/issues"
+            },
             "time": "2017-06-19T13:25:11+00:00"
         },
         {
@@ -10708,28 +10836,28 @@
             "authors": [
                 {
                     "name": "Jim Wigginton",
-                    "role": "Lead Developer",
-                    "email": "terrafrost@php.net"
+                    "email": "terrafrost@php.net",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Patrick Monnerat",
-                    "role": "Developer",
-                    "email": "pm@datasphere.ch"
+                    "email": "pm@datasphere.ch",
+                    "role": "Developer"
                 },
                 {
                     "name": "Andreas Fischer",
-                    "role": "Developer",
-                    "email": "bantu@phpbb.com"
+                    "email": "bantu@phpbb.com",
+                    "role": "Developer"
                 },
                 {
                     "name": "Hans-Jürgen Petrich",
-                    "role": "Developer",
-                    "email": "petrich@tronic-media.com"
+                    "email": "petrich@tronic-media.com",
+                    "role": "Developer"
                 },
                 {
                     "name": "Graham Campbell",
-                    "role": "Developer",
-                    "email": "graham@alt-three.com"
+                    "email": "graham@alt-three.com",
+                    "role": "Developer"
                 }
             ],
             "description": "PHP Secure Communications Library - Pure-PHP implementations of RSA, AES, SSH2, SFTP, X.509 etc.",
@@ -11855,6 +11983,12 @@
                 "url": "git@github.com:oandermedia/xtento-core.git",
                 "reference": "b1f6631b2ca44b55fb2470971b6ecc8abbfd6810"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oandermedia/xtento-core/zipball/b1f6631b2ca44b55fb2470971b6ecc8abbfd6810",
+                "reference": "b1f6631b2ca44b55fb2470971b6ecc8abbfd6810",
+                "shasum": ""
+            },
             "require": {
                 "php": "~5.5.22|~5.6.0|7.0.2|7.0.4|~7.0.6|~7.1.0"
             },
@@ -11880,7 +12014,9 @@
             ],
             "description": "XTENTO Core Module",
             "support": {
-                "email": "info@xtento.com"
+                "email": "info@xtento.com",
+                "source": "https://github.com/oandermedia/xtento-core/tree/2.1.0",
+                "issues": "https://github.com/oandermedia/xtento-core/issues"
             },
             "time": "2017-11-15T12:35:36+00:00"
         },
