@@ -55,4 +55,81 @@ class Config extends AbstractHelper
 
         return (array) array_filter($value);
     }
+
+    /**
+     * @return bool
+     */
+    public function isBasicDescriptionLazyLoadEnabled()
+    {
+        return (bool)$this->scopeConfig->getValue(
+            'oander_product_description_lazy_load/basic/enabled',
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * @return int
+     */
+    public function getBasicDescriptionMaxChars()
+    {
+        return (int)$this->scopeConfig->getValue(
+            'oander_product_description_lazy_load/basic/max_chars',
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * @return string
+     */
+    public function getBasicDescriptionPostfix()
+    {
+        return (string)$this->scopeConfig->getValue(
+            'oander_product_description_lazy_load/basic/postfix',
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * @return bool
+     */
+    public function isRiverDescriptionLazyLoadEnabled()
+    {
+        return (bool)$this->scopeConfig->getValue(
+            'oander_product_description_lazy_load/river/enabled',
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * @return string
+     */
+    public function getRiverDescriptionEndTag()
+    {
+        return (string)$this->scopeConfig->getValue(
+            'oander_product_description_lazy_load/river/river_end',
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * @return bool
+     */
+    public function isWidgetDescriptionLazyLoadEnabled()
+    {
+        return (bool)$this->scopeConfig->getValue(
+            'oander_product_description_lazy_load/widget/enabled',
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * @return int
+     */
+    public function getWidgetDescriptionMaxBlocks()
+    {
+        return (int)$this->scopeConfig->getValue(
+            'oander_product_description_lazy_load/widget/max_widget',
+            ScopeInterface::SCOPE_STORE
+        );
+    }
 }
