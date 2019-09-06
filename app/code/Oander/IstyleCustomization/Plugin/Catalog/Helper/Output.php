@@ -77,14 +77,15 @@ class Output
     {
         $result = $proceed($product, $attributeHtml, $attributeName);
 
-        if (!$this->config->isBasicDescriptionLazyLoadEnabled()
-            && !$this->config->isRiverDescriptionLazyLoadEnabled()
-            && !$this->config->isWidgetDescriptionLazyLoadEnabled()
-        ) {
-            return $result;
-        }
-
         if ($attributeName === self::ATTRIBUTE_CODE) {
+
+            if (!$this->config->isBasicDescriptionLazyLoadEnabled()
+                && !$this->config->isRiverDescriptionLazyLoadEnabled()
+                && !$this->config->isWidgetDescriptionLazyLoadEnabled()
+            ) {
+                return $result;
+            }
+
             $type = $this->getDescriptionType($attributeHtml);
 
             $shortenedDescription = false;
