@@ -28,6 +28,7 @@ class Output
 
     const BASE64_TEMPLATE = 'Oander_IstyleCustomization::product/description/base64_description.phtml';
     const BASE64_VAR_TYPE = 'type';
+    const BASE64_VAR_COLOR = 'color';
     const BASE64_VAR_HTML = 'base64-html';
 
     const OPEN_BUTTON_TEMPLATE = 'Oander_IstyleCustomization::product/description/open_btn.phtml';
@@ -41,6 +42,13 @@ class Output
      * @var Config
      */
     private $config;
+
+    private $riverSeparateTags = [
+        'white' => '<!-- river-end-white -->',
+        'black' => '<!-- river-end-black -->'
+    ];
+
+    private $riverSeparateColor;
 
     /**
      * Output constructor.
@@ -121,7 +129,11 @@ class Output
             return self::DESCRIPTION_TYPE_RIVER;
         }
 
-        return self::DESCRIPTION_TYPE_BASIC;
+        if ($this->isBasicDescription($description)) {
+            return self::DESCRIPTION_TYPE_BASIC;
+        }
+
+        return false;
     }
 
     /**
@@ -160,20 +172,50 @@ class Output
      * @param $description
      * @return string
      */
+    private function isBasicDescription($description)
+    {
+        $rejectedTags = $this->config->getBasicDescriptionRejectedTags();
+        foreach ($rejectedTags as $rejectedTag) {
+            if (strpos($description, '<' . $rejectedTag) !== false) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * @param $description
+     * @return string
+     */
     private function findRiverSeparateTag($description)
     {
-        $separateTag = $this->config->getRiverDescriptionEndTag();
-        if (strpos($description, $separateTag) !== false) {
-            return $separateTag;
-        } elseif (strpos($description, htmlspecialchars($separateTag)) !== false) {
-            return htmlspecialchars($separateTag);
-        } elseif (strpos($description, trim($separateTag)) !== false) {
-            return trim($separateTag);
-        } elseif (strpos($description, trim(htmlspecialchars($separateTag))) !== false) {
-            return trim(htmlspecialchars($separateTag));
+        foreach ($this->riverSeparateTags as $color => $separateTag) {
+            if (strpos($description, $separateTag) !== false) {
+                $this->riverSeparateColor = $color;
+                return $separateTag;
+            } elseif (strpos($description, htmlspecialchars($separateTag)) !== false) {
+                $this->riverSeparateColor = $color;
+                return htmlspecialchars($separateTag);
+            } elseif (strpos($description, trim($separateTag)) !== false) {
+                $this->riverSeparateColor = $color;
+                return trim($separateTag);
+            } elseif (strpos($description, trim(htmlspecialchars($separateTag))) !== false) {
+                $this->riverSeparateColor = $color;
+                return trim(htmlspecialchars($separateTag));
+            }
         }
 
         return false;
+    }
+
+    private function getRiverColor($description)
+    {
+        if ($this->riverSeparateColor === null) {
+            $this->findRiverSeparateTag($description);
+        }
+
+        return $this->riverSeparateColor;
     }
 
     /**
@@ -186,6 +228,7 @@ class Output
         return $this->layout->createBlock(Template::class)
             ->setData(self::BASE64_VAR_HTML, base64_encode($description))
             ->setData(self::BASE64_VAR_TYPE, $type)
+            ->setData(self::BASE64_VAR_COLOR, $this->getRiverColor($description))
             ->setTemplate(self::BASE64_TEMPLATE)
             ->toHtml();
     }

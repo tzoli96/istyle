@@ -68,6 +68,26 @@ class Config extends AbstractHelper
     }
 
     /**
+     * @return array
+     */
+    public function getBasicDescriptionRejectedTags()
+    {
+        $rejectedTags = [];
+        $value = (string)$this->scopeConfig->getValue(
+            'oander_product_description_lazy_load/basic/rejected_tags',
+            ScopeInterface::SCOPE_STORE
+        );
+
+        if (strpos($value, ';') !== false) {
+            $rejectedTags = explode(';', $value);
+        } else {
+            $rejectedTags[] = $value;
+        }
+
+        return (array)$rejectedTags;
+    }
+
+    /**
      * @return int
      */
     public function getBasicDescriptionMaxChars()
@@ -96,17 +116,6 @@ class Config extends AbstractHelper
     {
         return (bool)$this->scopeConfig->getValue(
             'oander_product_description_lazy_load/river/enabled',
-            ScopeInterface::SCOPE_STORE
-        );
-    }
-
-    /**
-     * @return string
-     */
-    public function getRiverDescriptionEndTag()
-    {
-        return (string)$this->scopeConfig->getValue(
-            'oander_product_description_lazy_load/river/river_end',
             ScopeInterface::SCOPE_STORE
         );
     }

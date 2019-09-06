@@ -14,12 +14,12 @@
 		<oander_product_description_lazy_load>
 			<basic>
 				<enabled>0</enabled>
+				<rejected_tags><![CDATA[div;img;iframe;video]]></rejected_tags>
 				<max_chars>419</max_chars>
 				<postfix><![CDATA[...]]></postfix>
 			</basic>
 			<river>
 				<enabled>0</enabled>
-				<river_end><![CDATA[<!-- river-end -->]]></river_end>
 			</river>
 			<widget>
 				<enabled>0</enabled>
