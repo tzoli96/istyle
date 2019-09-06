@@ -100,7 +100,6 @@ class Output
 
             if ($shortenedDescription !== false) {
                 $result = $this->closeHtmlTags($shortenedDescription) .
-                    $this->generateOpenButtonTag() .
                     $this->generateBase64Tag($result, $type);
             }
         }
@@ -131,9 +130,18 @@ class Output
      */
     private function splitDescription($description)
     {
+        $style = '';
+
+        $descriptionTmp = explode('<style>', $description);
+        if (isset($descriptionTmp[1])) {
+            $descriptionTmp = explode('</style>', $descriptionTmp[1]);
+            if (isset($descriptionTmp[1])) {
+                $style = '<style>' . $descriptionTmp[0] . '</style>';
+                $description = $descriptionTmp[1];
+            }
+        }
         if (strlen($description) > $this->config->getBasicDescriptionMaxChars()) {
             $description = substr($description, 0, $this->config->getBasicDescriptionMaxChars() - 1);
-
             if (substr_count($description, '<') > substr_count($description, '>')) {
                 while (substr($description, -1) != '>') {
                     $description = substr($description, 0, -1);
@@ -143,10 +151,8 @@ class Output
                     $description = substr($description, 0, -1);
                 }
             }
-
-            return rtrim($description) . $this->config->getBasicDescriptionPostfix();
+            return $style . rtrim($description) . $this->config->getBasicDescriptionPostfix();
         }
-
         return false;
     }
 
@@ -181,16 +187,6 @@ class Output
             ->setData(self::BASE64_VAR_HTML, base64_encode($description))
             ->setData(self::BASE64_VAR_TYPE, $type)
             ->setTemplate(self::BASE64_TEMPLATE)
-            ->toHtml();
-    }
-
-    /**
-     * @return mixed
-     */
-    private function generateOpenButtonTag()
-    {
-        return $this->layout->createBlock(Template::class)
-            ->setTemplate(self::OPEN_BUTTON_TEMPLATE)
             ->toHtml();
     }
 
