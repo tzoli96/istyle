@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "83ac485e1b9e2e198896569f900bc8c7",
+    "content-hash": "26c3d92c222353a69ffedceb75ff8e37",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8970,11 +8970,11 @@
         },
         {
             "name": "oander/module-free-shipping-display",
-            "version": "1.0.6",
+            "version": "1.0.6.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-free-shipping-display.git",
-                "reference": "3473616abb58bbb45456a454e3c22ac945a4343f"
+                "reference": "f709818954d90b66acdedd068b7ebd9fea63cfcc"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8993,7 +8993,7 @@
                 "proprietary"
             ],
             "description": "Free shipping appears in the Mini Cart",
-            "time": "2019-08-23T13:18:12+00:00"
+            "time": "2019-09-10T10:05:49+00:00"
         },
         {
             "name": "oander/module-google-tag-manager",
@@ -10194,11 +10194,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.228",
+            "version": "1.0.230",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "1e37462020fc9c8dd344a346f10ad1264b15ddc2"
+                "reference": "25aecdbb5304a2caad24337060ce8eb58a18f2c7"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10214,7 +10214,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-09-09T13:00:25+00:00"
+            "time": "2019-09-10T11:11:46+00:00"
         },
         {
             "name": "oyejorge/less.php",
