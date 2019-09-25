@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "522745e1defa2c1846eafdbfce89f474",
+    "content-hash": "780c7d2800eabf2f02020ffe4f630f7d",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8216,11 +8216,11 @@
         },
         {
             "name": "oander/module-amasty-xnotif-warehouse-manager-extender",
-            "version": "1.0.0.3",
+            "version": "1.0.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-amasty-xnotif-warehouse-manager-extender.git",
-                "reference": "c8d3c7be19da9ebaad6d5f51a76c7f02ab7ee647"
+                "reference": "15c89942f9ecbf8392931b5b4678895a5d6cbca1"
             },
             "require": {
                 "amasty/xnotif": "*",
@@ -8241,7 +8241,7 @@
                 "proprietary"
             ],
             "description": "Oander_AmastyXnotifWarehouseManagerExtender",
-            "time": "2019-09-25T08:39:24+00:00"
+            "time": "2019-09-25T10:52:29+00:00"
         },
         {
             "name": "oander/module-api-base",
