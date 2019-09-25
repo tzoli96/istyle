@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "780c7d2800eabf2f02020ffe4f630f7d",
+    "content-hash": "5715350423c85a0ac75477ad3f1eb088",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8216,11 +8216,11 @@
         },
         {
             "name": "oander/module-amasty-xnotif-warehouse-manager-extender",
-            "version": "1.0.0.4",
+            "version": "1.0.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-amasty-xnotif-warehouse-manager-extender.git",
-                "reference": "15c89942f9ecbf8392931b5b4678895a5d6cbca1"
+                "reference": "868e44d557dcede91c613984dcbc93b8c46dcffc"
             },
             "require": {
                 "amasty/xnotif": "*",
@@ -8241,7 +8241,7 @@
                 "proprietary"
             ],
             "description": "Oander_AmastyXnotifWarehouseManagerExtender",
-            "time": "2019-09-25T10:52:29+00:00"
+            "time": "2019-09-25T14:45:11+00:00"
         },
         {
             "name": "oander/module-api-base",
@@ -10583,7 +10583,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "239bc9322992f8ef93bbc0945d578a1d6186a1b3"
+                "reference": "fddc46408ecf91f1901a8a9226648143b7a64b77"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10599,7 +10599,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-09-24T13:55:59+00:00"
+            "time": "2019-09-25T13:40:27+00:00"
         },
         {
             "name": "oyejorge/less.php",
