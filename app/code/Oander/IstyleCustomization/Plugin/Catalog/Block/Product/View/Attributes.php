@@ -18,6 +18,22 @@ namespace Oander\IstyleCustomization\Plugin\Catalog\Block\Product\View;
 class Attributes
 {
     /**
+     * @var \Magento\Framework\Pricing\PriceCurrencyInterface
+     */
+    private $priceCurrency;
+
+    /**
+     * Attributes constructor.
+     * @param \Magento\Framework\Pricing\PriceCurrencyInterface $priceCurrency
+     */
+    public function __construct(
+        \Magento\Framework\Pricing\PriceCurrencyInterface $priceCurrency
+    )
+    {
+
+        $this->priceCurrency = $priceCurrency;
+    }
+    /**
      * @param          $subject
      * @param callable $proceed
      * @param array    $excludeAttr
@@ -42,7 +58,7 @@ class Attributes
                     continue;
                     $value = __('No');
                 } elseif ($attribute->getFrontendInput() == 'price' && is_string($value)) {
-                    $value = $subject->priceCurrency->convertAndFormat($value);
+                    $value = $this->priceCurrency->convertAndFormat($value);
                 }
 
                 if(($value instanceof \Magento\Framework\Phrase))
@@ -77,7 +93,7 @@ class Attributes
                             continue;
                             $value = __('No');
                         } elseif ($attribute->getFrontendInput() == 'price' && is_string($value)) {
-                            $value = $subject->priceCurrency->convertAndFormat($value);
+                            $value = $this->priceCurrency->convertAndFormat($value);
                         }
 
                         if (is_string($value) && strlen($value)) {
