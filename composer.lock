@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ed3612374e78eb530e7925a0cd326973",
+    "content-hash": "17ef59424e8eab4d6f2eac9786dee02f",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7328,25 +7328,26 @@
         },
         {
             "name": "maxmind-db/reader",
-            "version": "v1.4.1",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maxmind/MaxMind-DB-Reader-php.git",
-                "reference": "eb83d0ee1c1f9b8a340206302136bc81ee02ae74"
+                "reference": "bd436094fc0a9b0558a899fb80b0ae34fe1808a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maxmind/MaxMind-DB-Reader-php/zipball/eb83d0ee1c1f9b8a340206302136bc81ee02ae74",
-                "reference": "eb83d0ee1c1f9b8a340206302136bc81ee02ae74",
+                "url": "https://api.github.com/repos/maxmind/MaxMind-DB-Reader-php/zipball/bd436094fc0a9b0558a899fb80b0ae34fe1808a0",
+                "reference": "bd436094fc0a9b0558a899fb80b0ae34fe1808a0",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4"
+                "php": ">=5.6"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "2.*",
-                "phpunit/phpunit": "4.* || 5.*",
-                "satooshi/php-coveralls": "1.0.*",
+                "php-coveralls/php-coveralls": "^2.1",
+                "phpunit/phpcov": "^3.0",
+                "phpunit/phpunit": "5.*",
                 "squizlabs/php_codesniffer": "3.*"
             },
             "suggest": {
@@ -7368,7 +7369,7 @@
                 {
                     "name": "Gregory J. Oschwald",
                     "email": "goschwald@maxmind.com",
-                    "homepage": "http://www.maxmind.com/"
+                    "homepage": "https://www.maxmind.com/"
                 }
             ],
             "description": "MaxMind DB Reader API",
@@ -7380,7 +7381,7 @@
                 "geolocation",
                 "maxmind"
             ],
-            "time": "2019-01-04T19:55:56+00:00"
+            "time": "2019-09-30T22:56:38+00:00"
         },
         {
             "name": "maxmind/web-service-common",
@@ -8188,12 +8189,41 @@
             "time": "2018-04-18T07:21:39+00:00"
         },
         {
+            "name": "oander/module-amasty-xnotif-bundle-price-switcher-extender",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/module-amasty-xnotif-bundle-price-switcher-extender.git",
+                "reference": "280e97890f1aa4bab7d06267da1aa26c5161fcb7"
+            },
+            "require": {
+                "amasty/xnotif": "*",
+                "oander/module-base": "*",
+                "oander/module-bundle-price-switcher": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\AmastyXnotifBundlePriceSwitcherExtender\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander_AmastyXnotifBundlePriceSwitcherExtender",
+            "time": "2019-10-01T14:49:42+00:00"
+        },
+        {
             "name": "oander/module-amasty-xnotif-extender",
-            "version": "1.0.0.3",
+            "version": "1.0.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-amasty-xnotif-extender.git",
-                "reference": "6c480b67ff951058b66f43d62b181ecb970a6d48"
+                "reference": "1ba9dd59af4f8f619774b622e90b2d0f4caad783"
             },
             "require": {
                 "amasty/xnotif": "*",
@@ -8212,15 +8242,15 @@
                 "proprietary"
             ],
             "description": "Oander_AmastyXnotifExtender",
-            "time": "2019-09-20T14:07:27+00:00"
+            "time": "2019-10-01T14:47:56+00:00"
         },
         {
             "name": "oander/module-amasty-xnotif-warehouse-manager-extender",
-            "version": "1.0.0.6",
+            "version": "1.0.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-amasty-xnotif-warehouse-manager-extender.git",
-                "reference": "a426af7f0bebafc34b6f2c1114e4cd5149c9322b"
+                "reference": "7858407c534f05c9e6751d81af52e0bb42db0f51"
             },
             "require": {
                 "amasty/xnotif": "*",
@@ -8241,7 +8271,7 @@
                 "proprietary"
             ],
             "description": "Oander_AmastyXnotifWarehouseManagerExtender",
-            "time": "2019-09-25T17:09:27+00:00"
+            "time": "2019-10-01T15:21:21+00:00"
         },
         {
             "name": "oander/module-api-base",
@@ -8697,11 +8727,11 @@
         },
         {
             "name": "oander/module-bundle-ignore-stock-quantity",
-            "version": "1.0.0.1",
+            "version": "1.0.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-bundle-ignore-stock-quantity.git",
-                "reference": "437b400e06fb91950cffb93f49fe3fa0582a8d19"
+                "reference": "293a6596018fbc6bfbf32bd8642982d10fab1c6e"
             },
             "require": {
                 "oander/module-bundle": ">=1.0.3",
@@ -8719,15 +8749,15 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-04-12T13:55:58+00:00"
+            "time": "2019-10-01T14:57:29+00:00"
         },
         {
             "name": "oander/module-bundle-price-switcher",
-            "version": "1.0.1.1",
+            "version": "1.0.1.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-bundle-price-switcher.git",
-                "reference": "195c49bdb775d6db8ea3e4a8f38fda1289e48fa6"
+                "reference": "37c9fc5796ade1aee0f82588a44e493cb260b065"
             },
             "require": {
                 "oander/module-bundle": ">=1.0.3.2",
@@ -8745,7 +8775,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-07-03T14:52:37+00:00"
+            "time": "2019-10-01T14:39:09+00:00"
         },
         {
             "name": "oander/module-cardondeliverypayment",
@@ -10583,7 +10613,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "4adefdf21fd6b918addc484d63b739fb494d1474"
+                "reference": "eb56698aa3592af884969c4fcf04780524b70f66"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10599,7 +10629,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-09-27T12:45:18+00:00"
+            "time": "2019-10-01T14:38:40+00:00"
         },
         {
             "name": "oyejorge/less.php",
