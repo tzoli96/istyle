@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "17ef59424e8eab4d6f2eac9786dee02f",
+    "content-hash": "547b34760e7633d1b6c4520f96f6c604",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8674,11 +8674,11 @@
         },
         {
             "name": "oander/module-base",
-            "version": "1.2.6",
+            "version": "1.2.13.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-base.git",
-                "reference": "4e60a6933c83de0ab496c36dfeb375e539bb3517"
+                "reference": "7eb645d40e44fa57662cba72c02944d3d109c11c"
             },
             "require": {
                 "oander/module-test-base": "*",
@@ -8697,7 +8697,7 @@
                 "proprietary"
             ],
             "description": "Oander Module Abstractions",
-            "time": "2017-06-19T13:57:39+00:00"
+            "time": "2019-09-19T08:33:30+00:00"
         },
         {
             "name": "oander/module-bundle",
@@ -9902,14 +9902,14 @@
         },
         {
             "name": "oander/module-pos-locations",
-            "version": "1.1.1.2",
+            "version": "dev-38689-open-street-map",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-pos-locations.git",
-                "reference": "e870288151d1d59cb0a4ff55c080ec1eeb518433"
+                "reference": "2483eb57dcf2d93e970411d69d158ea050561885"
             },
             "require": {
-                "oander/module-base": "*",
+                "oander/module-base": "~1.2.13.1",
                 "php": "7.*"
             },
             "type": "magento2-module",
@@ -9925,7 +9925,7 @@
                 "proprietary"
             ],
             "description": "Oander POS Locations module",
-            "time": "2019-08-23T13:52:13+00:00"
+            "time": "2019-10-02T00:13:51+00:00"
         },
         {
             "name": "oander/module-preorder",
@@ -14845,6 +14845,7 @@
         "oander/module-core-bug-fix": 20,
         "oander/module-installment-prices": 20,
         "oander/module-news": 20,
+        "oander/module-pos-locations": 20,
         "oander/module-preorder": 20,
         "oander/module-product-description-widget": 20,
         "oander/module-warehouse-manager": 20,
