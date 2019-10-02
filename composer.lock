@@ -9906,10 +9906,10 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-pos-locations.git",
-                "reference": "2483eb57dcf2d93e970411d69d158ea050561885"
+                "reference": "201650907b9b616dc33d668bb889e5cc777a9fdb"
             },
             "require": {
-                "oander/module-base": "~1.2.13.1",
+                "oander/module-base": "*",
                 "php": "7.*"
             },
             "type": "magento2-module",
@@ -9925,7 +9925,7 @@
                 "proprietary"
             ],
             "description": "Oander POS Locations module",
-            "time": "2019-10-02T00:13:51+00:00"
+            "time": "2019-10-02T13:22:20+00:00"
         },
         {
             "name": "oander/module-preorder",
