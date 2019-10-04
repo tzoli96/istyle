@@ -3,4 +3,7 @@
     <type name="Magento\Bundle\Block\Catalog\Product\View\Type\Bundle\Option">
         <plugin name="bundle_spec_price" type="Oander\IstyleCustomization\Plugin\Bundle\Block\Catalog\Product\View\Type\Bundle\Option"/>
     </type>
+    <type name="Magento\Catalog\Helper\Output">
+        <plugin name="oander_catalog_helper_output" type="Oander\IstyleCustomization\Plugin\Catalog\Helper\Output"/>
+    </type>
 </config>
