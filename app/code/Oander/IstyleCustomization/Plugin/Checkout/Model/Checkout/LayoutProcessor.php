@@ -98,48 +98,77 @@ class LayoutProcessor
                 $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                 ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
                 ['firstname']['sortOrder'] = 1;
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['firstname']['placeholder'] = __('firstname_placeholder');
             }
 
             if (isset($payment['children']['form-fields']['children']['lastname'])) {
                 $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                 ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
                 ['lastname']['sortOrder'] = 2;
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['lastname']['placeholder'] = __('lastname_placeholder');
             }
 
             if (isset($payment['children']['form-fields']['children']['company'])) {
                 $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                 ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
                 ['company']['sortOrder'] = 10;
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['company']['placeholder'] = __('company_placeholder');
             }
 
             if (isset($payment['children']['form-fields']['children']['vat_id'])) {
                 $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                 ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
                 ['vat_id']['sortOrder'] = 11;
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['vat_id']['placeholder'] = __('vat_id_placeholder');
             }
 
             if (isset($payment['children']['form-fields']['children']['pfpj_reg_no'])) {
                 $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                 ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
                 ['pfpj_reg_no']['sortOrder'] = 12;
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['pfpj_reg_no']['placeholder'] = __('pfpj_reg_no_placeholder');
             }
 
             if (isset($payment['children']['form-fields']['children']['postcode'])) {
                 $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                 ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
                 ['postcode']['sortOrder'] = 13;
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['postcode']['placeholder'] = __('postcode_placeholder');
             }
 
             if (isset($payment['children']['form-fields']['children']['city'])) {
                 $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                 ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
                 ['city']['sortOrder'] = 14;
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['city']['placeholder'] = __('city_placeholder');
             }
 
             if (isset($payment['children']['form-fields']['children']['street'])) {
                 $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                 ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
                 ['street']['sortOrder'] = 15;
+
+                //START STREETS
+                foreach($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                        ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                        ['street']["children"] as $i => &$streetComponent) {
+                    $streetComponent['placeholder'] = __('street_' . $i . '_placeholder');
+                }
+                //END STREETS
             }
 
             if (isset($payment['children']['form-fields']['children']['country_id'])) {
@@ -152,12 +181,18 @@ class LayoutProcessor
                 $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                 ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
                 ['telephone']['sortOrder'] = 20;
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['telephone']['placeholder'] = __('telephone_placeholder');
             }
 
             if (isset($payment['children']['form-fields']['children']['dob'])) {
                 $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                 ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
                 ['dob']['sortOrder'] = 21;
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['dob']['placeholder'] = __('dob_placeholder');
             }
         }
 
@@ -167,49 +202,71 @@ class LayoutProcessor
         {
             $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['firstname']['sortOrder'] = 1;
+            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['firstname']['placeholder'] = __('firstname_placeholder');
         }
         if(isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['lastname']))
         {
             $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['lastname']['sortOrder'] = 2;
+            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['lastname']['placeholder'] = 'lastname_placeholder';
         }
         if(isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['company']))
         {
             $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['company']['sortOrder'] = 10;
+            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['company']['placeholder'] = 'company_placeholder';
         }
         if(isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['vat_id']))
         {
             $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['vat_id']['sortOrder'] = 11;
+            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['vat_id']['placeholder'] = 'vat_id_placeholder';
         }
         if(isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['pfpj_reg_no']))
         {
             $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['pfpj_reg_no']['sortOrder'] = 12;
+            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['pfpj_reg_no']['placeholder'] = 'pfpj_reg_no_placeholder';
         }
         if(isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['postcode']))
         {
             $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['postcode']['sortOrder'] = 13;
+            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['postcode']['placeholder'] = 'postcode_placeholder';
         }
         if(isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['city']))
         {
             $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['city']['sortOrder'] = 14;
+            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['city']['placeholder'] = 'city_placeholder';
         }
         if(isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['street']))
         {
             $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['street']['sortOrder'] = 15;
+
+            //START STREETS
+            foreach($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+                    ['street']["children"] as $i => &$streetComponent) {
+                $streetComponent['placeholder'] = __('street_' . $i . '_placeholder');
+            }
+            //END STREETS
         }
+
         if(isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['country_id']))
         {
@@ -221,12 +278,16 @@ class LayoutProcessor
         {
             $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['telephone']['sortOrder'] = 20;
+            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['telephone']['placeholder'] = 'telephone_placeholder';
         }
         if(isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['dob']))
         {
             $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['dob']['sortOrder'] = 21;
+            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['dob']['placeholder'] = 'dob_placeholder';
         }
         if(isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['region_id']))
@@ -236,6 +297,15 @@ class LayoutProcessor
             $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['region_id']['config']['componentDisabled'] = true;
         }
+
+        //START COMMENT
+        if(isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ["oander-order-comment-form-container"]["children"]["oander-order-comment-form-fieldset"]["children"]["comment"]))
+        {
+            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ["oander-order-comment-form-container"]["children"]["oander-order-comment-form-fieldset"]["children"]["comment"]["placeholder"] = __('comment_placeholder');
+        }
+        //END COMMENT
 
         return $jsLayout;
     }
