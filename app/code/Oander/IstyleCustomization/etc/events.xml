@@ -42,4 +42,10 @@
     <event name="layout_generate_blocks_after">
         <observer name="remove_block" instance="Oander\IstyleCustomization\Observer\RemoveBlock" />
     </event>
+    <event name="oander_warehouse_manager_get_bundle_product_attributes">
+        <observer name="oander_istyle_customization_get_bundle_product_attributes" instance="Oander\IstyleCustomization\Observer\GetBundleProductAttributes"/>
+    </event>
+    <event name="oander_warehouse_manager_before_render_product_stock_block">
+        <observer name="oander_istyle_customization_before_render_product_stock_block" instance="Oander\IstyleCustomization\Observer\BeforeRenderProductStockBlock"/>
+    </event>
 </config>
