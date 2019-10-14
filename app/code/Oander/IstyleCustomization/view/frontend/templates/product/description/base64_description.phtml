@@ -1,12 +1,10 @@
 <span id="load-description"
-      class="load-description"
-      data-type="<?php use Oander\IstyleCustomization\Plugin\Catalog\Helper\Output;
-
-      echo $block->getData(Output::BASE64_VAR_TYPE) ?>"
-      data-base64-html="<?php echo $block->getData(Output::BASE64_VAR_HTML) ?>">
+     class="load-description"
+     data-type="<?php echo $block->getData(\Oander\IstyleCustomization\Plugin\Catalog\Helper\Output::BASE64_VAR_TYPE) ?>"
+     data-base64-html="<?php echo $block->getData(\Oander\IstyleCustomization\Plugin\Catalog\Helper\Output::BASE64_VAR_HTML) ?>">
     <button type="submit"
-            class="<?php echo $block->getData(Output::BASE64_VAR_TYPE) ?>"
-            data-color="<?php echo $block->getData(Output::BASE64_VAR_COLOR) ?>">
+            class="<?php echo $block->getData(\Oander\IstyleCustomization\Plugin\Catalog\Helper\Output::BASE64_VAR_TYPE) ?>"
+            data-color="<?php echo $block->getData(\Oander\IstyleCustomization\Plugin\Catalog\Helper\Output::BASE64_VAR_COLOR) ?>">
         <span class="icon-circle-plus"></span>
         <span><?php echo __("Read More") ?></span>
     </button>
