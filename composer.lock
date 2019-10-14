@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8a12c654cd0db6d03fd605c99be80bcc",
+    "content-hash": "f2cdbee2143773b0cfcebc69dbaa24bf",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8063,11 +8063,11 @@
         },
         {
             "name": "oander/module-amasty-xnotif-bundle-price-switcher-extender",
-            "version": "1.0.0",
+            "version": "1.0.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-amasty-xnotif-bundle-price-switcher-extender.git",
-                "reference": "280e97890f1aa4bab7d06267da1aa26c5161fcb7"
+                "reference": "4f7f5ab179b07bd93bb1aab17cea0df2ab1907a8"
             },
             "require": {
                 "amasty/xnotif": "*",
@@ -8088,7 +8088,7 @@
                 "proprietary"
             ],
             "description": "Oander_AmastyXnotifBundlePriceSwitcherExtender",
-            "time": "2019-10-01T14:49:42+00:00"
+            "time": "2019-10-14T13:11:30+00:00"
         },
         {
             "name": "oander/module-amasty-xnotif-extender",
