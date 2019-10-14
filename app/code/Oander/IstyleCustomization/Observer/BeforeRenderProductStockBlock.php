@@ -25,7 +25,9 @@ class BeforeRenderProductStockBlock implements ObserverInterface
     {
         $productStockBlock = $observer->getData('product_stock_block');
 
-        if ($productStockBlock->getTemplate() == 'Oander_WarehouseManager::product/view/stock_sum.phtml') {
+        if ($productStockBlock->getTemplate() == 'Oander_WarehouseManager::product/view/stock_sum.phtml'
+            && $productStockBlock->getProductStock()->getData('default_selections') !== null
+        ) {
             $productStockBlock->setTemplate('Oander_IstyleCustomization::product/view/stock_sum.phtml');
         }
 
