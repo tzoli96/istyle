@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "622d4f5c17115975ce8a8b1c3e1bcc82",
+    "content-hash": "dd52bf5d128d799437e51a0583c9374e",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7967,11 +7967,11 @@
         },
         {
             "name": "oander/module-amasty-xnotif-bundle-price-switcher-extender",
-            "version": "1.0.0.1",
+            "version": "1.0.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-amasty-xnotif-bundle-price-switcher-extender.git",
-                "reference": "4f7f5ab179b07bd93bb1aab17cea0df2ab1907a8"
+                "reference": "853b0a93fbc81990fef9c13922bda544b390ef7e"
             },
             "require": {
                 "amasty/xnotif": "*",
@@ -7992,7 +7992,7 @@
                 "proprietary"
             ],
             "description": "Oander_AmastyXnotifBundlePriceSwitcherExtender",
-            "time": "2019-10-14T13:11:30+00:00"
+            "time": "2019-10-16T13:16:17+00:00"
         },
         {
             "name": "oander/module-amasty-xnotif-extender",
@@ -8451,11 +8451,11 @@
         },
         {
             "name": "oander/module-base",
-            "version": "1.2.6",
+            "version": "1.2.13.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-base.git",
-                "reference": "4e60a6933c83de0ab496c36dfeb375e539bb3517"
+                "reference": "7eb645d40e44fa57662cba72c02944d3d109c11c"
             },
             "require": {
                 "oander/module-test-base": "*",
@@ -8474,7 +8474,7 @@
                 "proprietary"
             ],
             "description": "Oander Module Abstractions",
-            "time": "2017-06-19T13:57:39+00:00"
+            "time": "2019-09-19T08:33:30+00:00"
         },
         {
             "name": "oander/module-bundle",
