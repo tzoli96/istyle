@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "356a32ef3502c131ce6cbbe5f528301a",
+    "content-hash": "08fff8f571d8b193d5638b7009912b34",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8063,11 +8063,11 @@
         },
         {
             "name": "oander/module-amasty-xnotif-bundle-price-switcher-extender",
-            "version": "1.0.0.1",
+            "version": "1.0.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-amasty-xnotif-bundle-price-switcher-extender.git",
-                "reference": "4f7f5ab179b07bd93bb1aab17cea0df2ab1907a8"
+                "reference": "853b0a93fbc81990fef9c13922bda544b390ef7e"
             },
             "require": {
                 "amasty/xnotif": "*",
@@ -8088,7 +8088,7 @@
                 "proprietary"
             ],
             "description": "Oander_AmastyXnotifBundlePriceSwitcherExtender",
-            "time": "2019-10-14T13:11:30+00:00"
+            "time": "2019-10-16T13:16:17+00:00"
         },
         {
             "name": "oander/module-amasty-xnotif-extender",
@@ -11246,16 +11246,16 @@
         },
         {
             "name": "swedbank-spp/swedbank-payment-portal",
-            "version": "v0.9.2",
+            "version": "v0.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Swedbank-SPP/swedbank-payment-portal.git",
-                "reference": "26f1dbcd3a3449e54e2a06abdf7b7a5a0ad4ebf7"
+                "reference": "2bc418848f20864424a0abbc7212ac680c121b4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Swedbank-SPP/swedbank-payment-portal/zipball/26f1dbcd3a3449e54e2a06abdf7b7a5a0ad4ebf7",
-                "reference": "26f1dbcd3a3449e54e2a06abdf7b7a5a0ad4ebf7",
+                "url": "https://api.github.com/repos/Swedbank-SPP/swedbank-payment-portal/zipball/2bc418848f20864424a0abbc7212ac680c121b4f",
+                "reference": "2bc418848f20864424a0abbc7212ac680c121b4f",
                 "shasum": ""
             },
             "require": {
@@ -11280,7 +11280,7 @@
                 "MIT"
             ],
             "description": "The Swedbank Payment Portal API Library provides access to the online banking system through which e-commerce transactions can be initiated and fulfilled by facilitating the exchange of bank data.",
-            "time": "2019-02-13T09:47:43+00:00"
+            "time": "2019-10-16T10:36:26+00:00"
         },
         {
             "name": "symfony/config",
