@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d363a584ff99dd1a14335665ebd19ec4",
+    "content-hash": "fbb26ec4764d56d32a716a7f134122e7",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8623,11 +8623,11 @@
         },
         {
             "name": "oander/module-category-badge",
-            "version": "3.0.0.1",
+            "version": "2.2.1.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-category-badge.git",
-                "reference": "bf6703e6362e0a1cf2193a92c39b0704a62cd891"
+                "reference": "71143bc752f83461180e91fd1b3e4fc0efd6c2f7"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8646,7 +8646,7 @@
                 "proprietary"
             ],
             "description": "Upload badges from category admin pages.",
-            "time": "2019-01-16T12:40:28+00:00"
+            "time": "2019-08-23T12:55:51+00:00"
         },
         {
             "name": "oander/module-cdninvalidator",

@@ -43,10 +43,13 @@ atlassian*
 !/pub/media/wysiwyg/.htaccess
 /pub/media/tmp/*
 !/pub/media/tmp/.htaccess
+/pub/media/attribute/*
+/pub/media/amasty_promro/*
 /pub/media/captcha/*
 /pub/media/oander/*
 /pub/static/*
 !/pub/static/.htaccess
+
 
 /var
 /vendor/*
@@ -70,3 +73,5 @@ atlassian*
 
 /info.php
 /ci/tests/_output
+
+/.bash_history

@@ -20,7 +20,7 @@ use Oander\IstyleCustomization\Helper\Config;
  * Class Topmenu
  * @package Oander\IstyleCustomization\Block\Html
  */
-class Topmenu extends \Oander\CategoryDropdown\Magento\Theme\Block\Html\Topmenu
+class Topmenu extends \Magento\Theme\Block\Html\Topmenu //\Oander\CategoryDropdown\Magento\Theme\Block\Html\Topmenu
 {
 
     /**
@@ -50,8 +50,11 @@ class Topmenu extends \Oander\CategoryDropdown\Magento\Theme\Block\Html\Topmenu
         Config $customizationConfig,
         array $data = []
     ) {
-        parent::__construct($context, $nodeFactory, $treeFactory, $filterProvider, $categoryRepository,
-            $categoryCollection, $data);
+        parent::__construct($context, $nodeFactory, $treeFactory,
+            //$filterProvider,
+            //$categoryRepository,
+            //$categoryCollection,
+            $data);
         $this->customizationConfig = $customizationConfig;
     }
 
