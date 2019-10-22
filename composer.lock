@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fbb26ec4764d56d32a716a7f134122e7",
+    "content-hash": "05f111ac332300d4abef81a211e7a95d",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8647,6 +8647,34 @@
             ],
             "description": "Upload badges from category admin pages.",
             "time": "2019-08-23T12:55:51+00:00"
+        },
+        {
+            "name": "oander/module-category-dropdown",
+            "version": "1.0.14.3",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-category-dropdown.git",
+                "reference": "6795c461a3b8396d6377fd9032709760fe8a2d4e"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "oander/module-wonder-widget": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\CategoryDropdown\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Category Dropdown module",
+            "time": "2018-10-03T11:18:45+00:00"
         },
         {
             "name": "oander/module-cdninvalidator",
