@@ -1,1 +1,0 @@
-# Indexer Range Bug Fix
