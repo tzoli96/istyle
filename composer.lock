@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "05f111ac332300d4abef81a211e7a95d",
+    "content-hash": "025ac6bf1162570fa9ac00ea203fea09",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8649,34 +8649,6 @@
             "time": "2019-08-23T12:55:51+00:00"
         },
         {
-            "name": "oander/module-category-dropdown",
-            "version": "1.0.14.3",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-category-dropdown.git",
-                "reference": "6795c461a3b8396d6377fd9032709760fe8a2d4e"
-            },
-            "require": {
-                "oander/module-base": "*",
-                "oander/module-wonder-widget": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\CategoryDropdown\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Oander Category Dropdown module",
-            "time": "2018-10-03T11:18:45+00:00"
-        },
-        {
             "name": "oander/module-cdninvalidator",
             "version": "1.0.0",
             "source": {
@@ -9796,11 +9768,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.12.8",
+            "version": "1.1.12.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "66ed6afe146c8d2c9777bda4545f25f1cfbd3a15"
+                "reference": "5569efaec12a402eaae349cb930d5ad8d1ff1fc0"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9829,7 +9801,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2019-06-27T11:00:32+00:00"
+            "time": "2019-10-23T14:29:30+00:00"
         },
         {
             "name": "oander/module-shipping",
