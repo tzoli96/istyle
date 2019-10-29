@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "622d4f5c17115975ce8a8b1c3e1bcc82",
+    "content-hash": "eb658bafff4802a1449b4f85b124516c",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -478,16 +478,16 @@
         },
         {
             "name": "bigfish/paymentgateway",
-            "version": "2.12.1",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bigfish-hu/payment-gateway-php-sdk.git",
-                "reference": "4342685341c1b278d0d0d1060e5b66c9ebb9c03e"
+                "reference": "ba5c6ffdad3eab47807637fc7a36b6a1b3c1a053"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/4342685341c1b278d0d0d1060e5b66c9ebb9c03e",
-                "reference": "4342685341c1b278d0d0d1060e5b66c9ebb9c03e",
+                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/ba5c6ffdad3eab47807637fc7a36b6a1b3c1a053",
+                "reference": "ba5c6ffdad3eab47807637fc7a36b6a1b3c1a053",
                 "shasum": ""
             },
             "require": {
@@ -516,18 +516,18 @@
                 "payment",
                 "webshop"
             ],
-            "time": "2018-04-26T09:08:56+00:00"
+            "time": "2019-09-10T09:40:01+00:00"
         },
         {
             "name": "bigfishpaymentgateway/pmgw",
-            "version": "2.0.1.7",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/bigfishpaymentgateway-pmgw.git",
-                "reference": "e0cb6f514cac7b67433d602f2bd2c62c825a7230"
+                "reference": "caaa82efaaffa3a681982f0fa69731eb823792ef"
             },
             "require": {
-                "bigfish/paymentgateway": "2.12.1",
+                "bigfish/paymentgateway": "3.0.*",
                 "php": "~5.6.0|~7.0"
             },
             "type": "magento2-module",
@@ -544,7 +544,7 @@
                 "AFL-3.0"
             ],
             "description": "BIG FISH Payment Gateway module for Magento 2",
-            "time": "2019-05-07T14:25:12+00:00"
+            "time": "2019-10-15T08:27:11+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -1413,27 +1413,28 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.3.3",
+            "version": "6.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba"
+                "reference": "0895c932405407fd3a7368b6910c09a24d26db11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/407b0cb880ace85c9b63c5f9551db498cb2d50ba",
-                "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/0895c932405407fd3a7368b6910c09a24d26db11",
+                "reference": "0895c932405407fd3a7368b6910c09a24d26db11",
                 "shasum": ""
             },
             "require": {
+                "ext-json": "*",
                 "guzzlehttp/promises": "^1.0",
-                "guzzlehttp/psr7": "^1.4",
+                "guzzlehttp/psr7": "^1.6.1",
                 "php": ">=5.5"
             },
             "require-dev": {
                 "ext-curl": "*",
                 "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4 || ^7.0",
-                "psr/log": "^1.0"
+                "psr/log": "^1.1"
             },
             "suggest": {
                 "psr/log": "Required for using the Log middleware"
@@ -1445,12 +1446,12 @@
                 }
             },
             "autoload": {
-                "files": [
-                    "src/functions_include.php"
-                ],
                 "psr-4": {
                     "GuzzleHttp\\": "src/"
-                }
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1474,7 +1475,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2018-04-22T15:46:56+00:00"
+            "time": "2019-10-23T15:58:00+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -7967,11 +7968,11 @@
         },
         {
             "name": "oander/module-amasty-xnotif-bundle-price-switcher-extender",
-            "version": "1.0.0.1",
+            "version": "1.0.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-amasty-xnotif-bundle-price-switcher-extender.git",
-                "reference": "4f7f5ab179b07bd93bb1aab17cea0df2ab1907a8"
+                "reference": "985d8e5c61ca4aba1fd000c686a9c2de9ced6eba"
             },
             "require": {
                 "amasty/xnotif": "*",
@@ -7992,7 +7993,7 @@
                 "proprietary"
             ],
             "description": "Oander_AmastyXnotifBundlePriceSwitcherExtender",
-            "time": "2019-10-14T13:11:30+00:00"
+            "time": "2019-10-21T10:36:42+00:00"
         },
         {
             "name": "oander/module-amasty-xnotif-extender",
@@ -10117,11 +10118,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.25.11",
+            "version": "1.4.25.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "7cae2c07e6bb3e84d6d31a92be0319c7cfb27ff1"
+                "reference": "146ec90b3d1f6302f02e25f1077e7b3e4c67ce95"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10142,7 +10143,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2019-10-14T12:15:15+00:00"
+            "time": "2019-10-21T10:38:14+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-conditions",
@@ -10684,16 +10685,16 @@
         },
         {
             "name": "psr/log",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd"
+                "reference": "bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
-                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2",
+                "reference": "bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2",
                 "shasum": ""
             },
             "require": {
@@ -10702,7 +10703,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -10727,7 +10728,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2018-11-20T15:27:04+00:00"
+            "time": "2019-10-25T08:06:51+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -10868,16 +10869,16 @@
         },
         {
             "name": "seld/jsonlint",
-            "version": "1.7.1",
+            "version": "1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/jsonlint.git",
-                "reference": "d15f59a67ff805a44c50ea0516d2341740f81a38"
+                "reference": "e2e5d290e4d2a4f0eb449f510071392e00e10d19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/d15f59a67ff805a44c50ea0516d2341740f81a38",
-                "reference": "d15f59a67ff805a44c50ea0516d2341740f81a38",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/e2e5d290e4d2a4f0eb449f510071392e00e10d19",
+                "reference": "e2e5d290e4d2a4f0eb449f510071392e00e10d19",
                 "shasum": ""
             },
             "require": {
@@ -10913,7 +10914,7 @@
                 "parser",
                 "validator"
             ],
-            "time": "2018-01-24T12:46:19+00:00"
+            "time": "2019-10-24T14:27:39+00:00"
         },
         {
             "name": "seld/phar-utils",
