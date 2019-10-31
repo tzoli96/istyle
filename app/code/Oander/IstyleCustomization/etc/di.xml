@@ -38,8 +38,7 @@
                 type="Oander\IstyleCustomization\Block\Plugin" />
     <preference for="Xtento\OrderExport\Model\Export\Data\Shared\Items"
                 type="Oander\IstyleCustomization\Model\Export\Data\Shared\Items" />
-    <preference for="Oander\CategoryDropdown\Magento\Theme\Block\Html\Topmenu"
-                type="Oander\IstyleCustomization\Block\Html\Topmenu" />
+
     <type name="Magento\Quote\Model\QuoteRepository\SaveHandler">
         <plugin name="move_pfpj_reg_no_data_from_extension_attributes_to_flat_table" type="Oander\IstyleCustomization\Plugin\Quote\Model\QuoteRepository\SaveHandler"/>
     </type>
