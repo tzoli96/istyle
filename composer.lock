@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3ccc3be16311781910853a638685530a",
+    "content-hash": "eb658bafff4802a1449b4f85b124516c",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -478,16 +478,16 @@
         },
         {
             "name": "bigfish/paymentgateway",
-            "version": "2.12.1",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bigfish-hu/payment-gateway-php-sdk.git",
-                "reference": "4342685341c1b278d0d0d1060e5b66c9ebb9c03e"
+                "reference": "ba5c6ffdad3eab47807637fc7a36b6a1b3c1a053"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/4342685341c1b278d0d0d1060e5b66c9ebb9c03e",
-                "reference": "4342685341c1b278d0d0d1060e5b66c9ebb9c03e",
+                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/ba5c6ffdad3eab47807637fc7a36b6a1b3c1a053",
+                "reference": "ba5c6ffdad3eab47807637fc7a36b6a1b3c1a053",
                 "shasum": ""
             },
             "require": {
@@ -516,18 +516,18 @@
                 "payment",
                 "webshop"
             ],
-            "time": "2018-04-26T09:08:56+00:00"
+            "time": "2019-09-10T09:40:01+00:00"
         },
         {
             "name": "bigfishpaymentgateway/pmgw",
-            "version": "2.0.1.7",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/bigfishpaymentgateway-pmgw.git",
-                "reference": "e0cb6f514cac7b67433d602f2bd2c62c825a7230"
+                "reference": "caaa82efaaffa3a681982f0fa69731eb823792ef"
             },
             "require": {
-                "bigfish/paymentgateway": "2.12.1",
+                "bigfish/paymentgateway": "3.0.*",
                 "php": "~5.6.0|~7.0"
             },
             "type": "magento2-module",
@@ -544,7 +544,7 @@
                 "AFL-3.0"
             ],
             "description": "BIG FISH Payment Gateway module for Magento 2",
-            "time": "2019-05-07T14:25:12+00:00"
+            "time": "2019-10-15T08:27:11+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -1847,6 +1847,41 @@
             },
             "description": "Innobyte Swedbank Module",
             "time": "2018-06-12T12:44:10+00:00"
+        },
+        {
+            "name": "istyle/module-insiacare",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/innobyte-insia-care.git",
+                "reference": "f364aefac17a5bcda2857448da9e38f3667a3a1b"
+            },
+            "require": {
+                "magento/framework": "100.1.*",
+                "magento/module-backend": "100.1.*",
+                "magento/module-catalog": "101.0.*",
+                "magento/module-catalog-inventory": "100.1.*",
+                "magento/module-checkout": "100.1.*",
+                "magento/module-customer": "100.1.*",
+                "magento/module-eav": "100.1.*",
+                "magento/module-media-storage": "100.1.*",
+                "magento/module-msrp": "100.1.*",
+                "magento/module-quote": "100.1.*",
+                "magento/module-store": "100.1.*",
+                "magento/module-ui": "100.1.*",
+                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Istyle\\InsiaCare\\": ""
+                }
+            },
+            "description": "iSTYLE InsiaCare Module",
+            "time": "2018-06-21T18:53:18+00:00"
         },
         {
             "name": "jms/metadata",
@@ -7764,6 +7799,33 @@
             "time": "2018-05-11T12:24:56+00:00"
         },
         {
+            "name": "oander/module-admin-identifier",
+            "version": "1.0.2.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-admin-identifier.git",
+                "reference": "aac2fed09a94e8400db933363969cf14217154b9"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\AdminIdentifier\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Admin Identifier",
+            "time": "2019-04-01T09:55:50+00:00"
+        },
+        {
             "name": "oander/module-adminrestriction",
             "version": "1.0.0.3",
             "source": {
@@ -7819,6 +7881,33 @@
             "time": "2019-10-03T14:51:23+00:00"
         },
         {
+            "name": "oander/module-ajax-catalog",
+            "version": "1.1.0.4",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-ajax-catalog.git",
+                "reference": "6ccf9486cb37372cc302056190e6c8885400eaff"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\AjaxCatalog\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Catalog via ajax.",
+            "time": "2019-08-23T12:39:30+00:00"
+        },
+        {
             "name": "oander/module-algoliasearch",
             "version": "1.0.18.0",
             "source": {
@@ -7851,12 +7940,39 @@
             "time": "2019-07-31T17:43:00+00:00"
         },
         {
+            "name": "oander/module-alternativewidget",
+            "version": "1.0.4",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-alternativewidget.git",
+                "reference": "e8c924257b5ecc51eff79faa80d316677daf7899"
+            },
+            "require": {
+                "oander/module-producturlresolver": "^1.0.0",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\Alternativewidget\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Istyle Alternative product widget for Alternative pages",
+            "time": "2018-04-18T07:21:39+00:00"
+        },
+        {
             "name": "oander/module-amasty-xnotif-bundle-price-switcher-extender",
-            "version": "1.0.0.2",
+            "version": "1.0.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-amasty-xnotif-bundle-price-switcher-extender.git",
-                "reference": "853b0a93fbc81990fef9c13922bda544b390ef7e"
+                "reference": "985d8e5c61ca4aba1fd000c686a9c2de9ced6eba"
             },
             "require": {
                 "amasty/xnotif": "*",
@@ -7877,7 +7993,7 @@
                 "proprietary"
             ],
             "description": "Oander_AmastyXnotifBundlePriceSwitcherExtender",
-            "time": "2019-10-16T13:16:17+00:00"
+            "time": "2019-10-21T10:36:42+00:00"
         },
         {
             "name": "oander/module-amasty-xnotif-extender",
@@ -8336,11 +8452,11 @@
         },
         {
             "name": "oander/module-base",
-            "version": "1.2.13.1",
+            "version": "1.2.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-base.git",
-                "reference": "7eb645d40e44fa57662cba72c02944d3d109c11c"
+                "reference": "4e60a6933c83de0ab496c36dfeb375e539bb3517"
             },
             "require": {
                 "oander/module-test-base": "*",
@@ -8359,7 +8475,7 @@
                 "proprietary"
             ],
             "description": "Oander Module Abstractions",
-            "time": "2019-09-19T08:33:30+00:00"
+            "time": "2017-06-19T13:57:39+00:00"
         },
         {
             "name": "oander/module-bundle",
@@ -8552,6 +8668,34 @@
             ],
             "description": "Upload badges from category admin pages.",
             "time": "2019-08-23T12:55:51+00:00"
+        },
+        {
+            "name": "oander/module-category-dropdown",
+            "version": "1.0.14",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-category-dropdown.git",
+                "reference": "b66a77ca386d1ecf7edbec3f57769b044425b8e8"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "oander/module-wonder-widget": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\CategoryDropdown\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Category Dropdown module",
+            "time": "2018-05-29T09:58:05+00:00"
         },
         {
             "name": "oander/module-cdninvalidator",
@@ -8855,6 +8999,34 @@
             "time": "2019-03-06T16:55:44+00:00"
         },
         {
+            "name": "oander/module-fancy-filter",
+            "version": "1.3.3.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-fancy-filter.git",
+                "reference": "38a23307815a9ff82aaa568c052980783d4177c8"
+            },
+            "require": {
+                "oander/module-ajax-catalog": "*",
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\FancyFilter\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Filter by checkboxes on Catalog list",
+            "time": "2019-08-23T13:11:28+00:00"
+        },
+        {
             "name": "oander/module-free-shipping-display",
             "version": "1.0.6.1",
             "source": {
@@ -8880,6 +9052,34 @@
             ],
             "description": "Free shipping appears in the Mini Cart",
             "time": "2019-09-10T10:05:49+00:00"
+        },
+        {
+            "name": "oander/module-google-tag-manager",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-google-tag-manager.git",
+                "reference": "1ca3ad2a2ab82a7f9d795abd5c7477e6bf6a7e0a"
+            },
+            "require": {
+                "magento/framework": "*",
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\GoogleTagManager\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Google Tag Manager Integration to eCommerce Tracking",
+            "time": "2019-08-23T13:24:22+00:00"
         },
         {
             "name": "oander/module-heureka-tracking",
@@ -8936,6 +9136,33 @@
             ],
             "description": "Newsletter modifications for Hungarian roles",
             "time": "2017-04-12T09:11:56+00:00"
+        },
+        {
+            "name": "oander/module-indexer",
+            "version": "1.0.1.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-indexer.git",
+                "reference": "a315b6a7e4fc5b2408ee0c4f932a162dbc0f52d5"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\Indexer\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "It runs Magento Reindex via the Cron API",
+            "time": "2019-08-23T13:27:31+00:00"
         },
         {
             "name": "oander/module-installment-prices",
@@ -8996,6 +9223,60 @@
             ],
             "description": "Control Istyle Aws from magento",
             "time": "2018-11-20T09:26:07+00:00"
+        },
+        {
+            "name": "oander/module-maintenance",
+            "version": "1.0.9.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-maintenance.git",
+                "reference": "78acaa6385fa9da099ec950571cf93c81f202b73"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\Maintenance\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Maintenance Module",
+            "time": "2019-08-23T13:38:42+00:00"
+        },
+        {
+            "name": "oander/module-multislider",
+            "version": "1.2.7.3",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-multi-slider.git",
+                "reference": "5960a2672bf9663ec32283de086d7d83eda40254"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\MultiSlider\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Slider module",
+            "time": "2018-09-25T12:21:53+00:00"
         },
         {
             "name": "oander/module-name-switcher",
@@ -9296,6 +9577,28 @@
             "time": "2017-01-04T11:42:27+00:00"
         },
         {
+            "name": "oander/module-pleisty",
+            "version": "1.0.1.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-pleisty.git",
+                "reference": "546171467369010dfcabba6fadeb7f5219b95be6"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\Pleisty\\": ""
+                }
+            },
+            "time": "2019-08-23T13:49:06+00:00"
+        },
+        {
             "name": "oander/module-pos-locations",
             "version": "1.1.2",
             "source": {
@@ -9349,6 +9652,33 @@
             ],
             "description": "Oander Preorder",
             "time": "2019-08-23T13:54:51+00:00"
+        },
+        {
+            "name": "oander/module-price-tooltip",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-price-tooltip.git",
+                "reference": "81591f876a019f2f918886d80678dffb3e59cefd"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\PriceTooltip\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Price Tooltip module",
+            "time": "2017-05-30T12:26:11+00:00"
         },
         {
             "name": "oander/module-product-description-widget",
@@ -9566,11 +9896,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.12.9",
+            "version": "1.1.12.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "5569efaec12a402eaae349cb930d5ad8d1ff1fc0"
+                "reference": "66ed6afe146c8d2c9777bda4545f25f1cfbd3a15"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9599,7 +9929,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2019-10-23T14:29:30+00:00"
+            "time": "2019-06-27T11:00:32+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -9788,11 +10118,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.25.11",
+            "version": "1.4.25.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "7cae2c07e6bb3e84d6d31a92be0319c7cfb27ff1"
+                "reference": "146ec90b3d1f6302f02e25f1077e7b3e4c67ce95"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9813,7 +10143,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2019-10-14T12:15:15+00:00"
+            "time": "2019-10-21T10:38:14+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-conditions",
@@ -10355,16 +10685,16 @@
         },
         {
             "name": "psr/log",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd"
+                "reference": "bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
-                "reference": "6c001f1daafa3a3ac1d8ff69ee4db8e799a654dd",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2",
+                "reference": "bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2",
                 "shasum": ""
             },
             "require": {
@@ -10373,7 +10703,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -10398,7 +10728,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2018-11-20T15:27:04+00:00"
+            "time": "2019-10-25T08:06:51+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -10539,16 +10869,16 @@
         },
         {
             "name": "seld/jsonlint",
-            "version": "1.7.1",
+            "version": "1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/jsonlint.git",
-                "reference": "d15f59a67ff805a44c50ea0516d2341740f81a38"
+                "reference": "e2e5d290e4d2a4f0eb449f510071392e00e10d19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/d15f59a67ff805a44c50ea0516d2341740f81a38",
-                "reference": "d15f59a67ff805a44c50ea0516d2341740f81a38",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/e2e5d290e4d2a4f0eb449f510071392e00e10d19",
+                "reference": "e2e5d290e4d2a4f0eb449f510071392e00e10d19",
                 "shasum": ""
             },
             "require": {
@@ -10584,7 +10914,7 @@
                 "parser",
                 "validator"
             ],
-            "time": "2018-01-24T12:46:19+00:00"
+            "time": "2019-10-24T14:27:39+00:00"
         },
         {
             "name": "seld/phar-utils",
