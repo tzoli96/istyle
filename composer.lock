@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "025ac6bf1162570fa9ac00ea203fea09",
+    "content-hash": "3a5660a307621a487435fe4e9121cd40",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8511,11 +8511,11 @@
         },
         {
             "name": "oander/module-bundle-price-switcher",
-            "version": "1.0.1.2",
+            "version": "1.0.1.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-bundle-price-switcher.git",
-                "reference": "37c9fc5796ade1aee0f82588a44e493cb260b065"
+                "reference": "d675ad51a4b33a14004e0d2304da09f735fa5d87"
             },
             "require": {
                 "oander/module-bundle": ">=1.0.3.2",
@@ -8533,7 +8533,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-10-01T14:39:09+00:00"
+            "time": "2019-10-31T15:12:02+00:00"
         },
         {
             "name": "oander/module-cardondeliverypayment",
@@ -9991,11 +9991,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.25.12",
+            "version": "1.4.25.13",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "146ec90b3d1f6302f02e25f1077e7b3e4c67ce95"
+                "reference": "2b9d04d92f22894699f54a21959d9bc6a432a55d"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10016,7 +10016,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2019-10-21T10:38:14+00:00"
+            "time": "2019-10-31T15:10:17+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
