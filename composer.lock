@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "99702676d9f62c56572b8b618dc0ab91",
+    "content-hash": "36b0ce70d35905b7dd8bbefdfd3bfdc0",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1729,11 +1729,11 @@
         },
         {
             "name": "innobyte/module-cetelem",
-            "version": "1.0.1",
+            "version": "1.0.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-cetelem.git",
-                "reference": "033bbfd9a2334d296490fc4717dea8f6e436c6ec"
+                "reference": "419b835c2766b7392fd50e2f5a0d038732083870"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1749,7 +1749,7 @@
                 }
             },
             "description": "Innobyte Cetelem Module",
-            "time": "2019-01-14T13:17:39+00:00"
+            "time": "2019-11-06T22:47:50+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
@@ -8804,11 +8804,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.1.2.9",
+            "version": "1.1.2.10",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "01a31096094851df703410f59daa965f3da58173"
+                "reference": "161ee56b485ff05a0be19006088bae4384b3bb98"
             },
             "require": {
                 "php": "7.*"
@@ -8826,7 +8826,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2019-11-06T14:23:47+00:00"
+            "time": "2019-11-11T10:41:04+00:00"
         },
         {
             "name": "oander/module-extracheckoutsummary",
@@ -9788,11 +9788,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.25.13",
+            "version": "1.4.25.14",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "2b9d04d92f22894699f54a21959d9bc6a432a55d"
+                "reference": "759e909646ab5741b22002c1ef82067be9ecc400"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9813,7 +9813,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2019-10-31T15:10:17+00:00"
+            "time": "2019-11-08T17:37:54+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-conditions",
