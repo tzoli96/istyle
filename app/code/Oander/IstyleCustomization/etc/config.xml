@@ -6,25 +6,30 @@
 				<use_topmenu_block>0</use_topmenu_block>
 			</topmenu>
 		</oander_categories>
-		<catalog>
-			<frontend>
-				<show_breadcrumbs>1</show_breadcrumbs>
-			</frontend>
-		</catalog>
-		<oander_product_description_lazy_load>
-			<basic>
-				<enabled>0</enabled>
-				<rejected_tags><![CDATA[div;img;iframe;video]]></rejected_tags>
-				<max_chars>419</max_chars>
-				<postfix><![CDATA[...]]></postfix>
-			</basic>
-			<river>
-				<enabled>0</enabled>
-			</river>
-			<widget>
-				<enabled>0</enabled>
-				<max_widget>2</max_widget>
-			</widget>
-		</oander_product_description_lazy_load>
+        <catalog>
+            <frontend>
+                <show_breadcrumbs>1</show_breadcrumbs>
+            </frontend>
+        </catalog>
+        <oander_product_description_lazy_load>
+            <basic>
+                <enabled>0</enabled>
+                <rejected_tags><![CDATA[div;img;iframe;video]]></rejected_tags>
+                <max_chars>419</max_chars>
+                <postfix><![CDATA[...]]></postfix>
+            </basic>
+            <river>
+                <enabled>0</enabled>
+            </river>
+            <widget>
+                <enabled>0</enabled>
+                <max_widget>2</max_widget>
+            </widget>
+        </oander_product_description_lazy_load>
+        <design>
+            <header>
+                <logo_url></logo_url>
+            </header>
+        </design>
 	</default>
 </config>
