@@ -140,6 +140,7 @@
         "plugincompany/licensemanager": "100.0.4",
         "replace/module-buyback-calculator": "1.0.5.3",
         "rudracomputech/module-nestpay": "2.0.6.5",
+        "splitit/paymentmethod": "0.2.0",
         "xtento/module-orderexport": "2.3.9",
         "xtento/module-xtcore": "2.1.0"
     },
