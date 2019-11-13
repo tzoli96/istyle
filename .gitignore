@@ -45,6 +45,7 @@ atlassian*
 !/pub/media/tmp/.htaccess
 /pub/media/captcha/*
 /pub/media/oander/*
+/pub/media/attribute/*
 /pub/static/*
 !/pub/static/.htaccess
 
@@ -70,3 +71,5 @@ atlassian*
 
 /info.php
 /ci/tests/_output
+/.bash_history
+
