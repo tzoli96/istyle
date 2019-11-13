@@ -26,5 +26,10 @@
                 <max_widget>2</max_widget>
             </widget>
         </oander_product_description_lazy_load>
+        <design>
+            <header>
+                <logo_url></logo_url>
+            </header>
+        </design>
 	</default>
 </config>
