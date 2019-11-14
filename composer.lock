@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3ac59550ab34e085acca736c9393b495",
+    "content-hash": "1b4d1134187fd54278d95f5af124d968",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9991,11 +9991,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.25.14",
+            "version": "1.4.25.15",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "759e909646ab5741b22002c1ef82067be9ecc400"
+                "reference": "f31dfc75cf6291984ca669ab271ad96765e99444"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10016,7 +10016,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2019-11-08T17:37:54+00:00"
+            "time": "2019-11-14T14:31:26+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
@@ -10978,7 +10978,7 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.8.50",
+            "version": "v2.8.52",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
@@ -11093,7 +11093,7 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v2.8.50",
+            "version": "v2.8.52",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
@@ -11156,7 +11156,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.8.50",
+            "version": "v2.8.52",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -11216,7 +11216,7 @@
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.8.50",
+            "version": "v2.8.52",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
@@ -11266,7 +11266,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.34",
+            "version": "v3.4.35",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -11373,7 +11373,7 @@
         },
         {
             "name": "symfony/process",
-            "version": "v2.8.50",
+            "version": "v2.8.52",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
@@ -11422,7 +11422,7 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.8.50",
+            "version": "v2.8.52",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
@@ -14310,7 +14310,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.34",
+            "version": "v3.4.35",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
