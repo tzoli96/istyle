@@ -18,49 +18,17 @@
  */
 namespace Oander\IstyleBase\Magento\Framework\Mail\Template;
 
-use Magento\Framework\Mail\MessageInterface;
-use \Magento\Framework\Mail\Template\SenderResolverInterface;
-
-class TransportBuilderByStore
+class TransportBuilder extends \Magento\Framework\Mail\Template\TransportBuilder
 {
-
     /**
-     * Message.
-     *
-     * @var \Magento\Framework\Mail\Message
-     */
-    protected $message;
-
-    /**
-     * Sender resolver.
-     *
-     * @var \Magento\Framework\Mail\Template\SenderResolverInterface
-     */
-    private $senderResolver;
-
-    /**
-     * @param MessageInterface $message
-     * @param SenderResolverInterface $senderResolver
-     */
-    public function __construct(
-        MessageInterface $message,
-        SenderResolverInterface $senderResolver
-    ) {
-        $this->message = $message;
-        $this->senderResolver = $senderResolver;
-    }
-
-    /**
-     * Set mail from address by store.
-     *
-     * @param string|array $from
-     * @param string|int $store
-     *
+     * @param $from
+     * @param $store
      * @return $this
+     * @throws \Magento\Framework\Exception\MailException
      */
     public function setFromByStore($from, $store)
     {
-        $result = $this->senderResolver->resolve($from, $store);
+        $result = $this->_senderResolver->resolve($from, $store);
         $this->message->setFrom($result['email'], $result['name']);
         return $this;
     }
