@@ -102,7 +102,7 @@ if [ "${INSTANCE_ID}" == "${DEV_MASTER_ID}" ]; then
   magento "setup:static-content:deploy hr_HR --theme=Oander/istyle"
   magento "setup:static-content:deploy lv_LV --theme=Oander/istyle"
   magento "setup:static-content:deploy ro_RO --theme=Oander/istyle"
-  magento "setup:static-content:deploy ru_RU --theme=Oander/istyle"
+#  magento "setup:static-content:deploy ru_RU --theme=Oander/istyle"
   magento "setup:static-content:deploy sr_Cyrl_RS --theme=Oander/istyle"
   magento "setup:static-content:deploy sl_SI --theme=Oander/istyle"
   magento "setup:static-content:deploy cs_CZ --theme=Oander/istyle"
