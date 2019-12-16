@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "42dc84d14aa71213a6abf7844922a925",
+    "content-hash": "a24652b51b37cffac9e857b2d7de59a8",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8645,11 +8645,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.30.27",
+            "version": "1.0.30.28",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "f8f52f98cc05c40917fd034b11681b32eb28e5e8"
+                "reference": "4caf517afc4c01e5fcbd869e7876210f9874066a"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8668,7 +8668,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2019-10-04T08:25:37+00:00"
+            "time": "2019-12-16T11:09:18+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -9955,11 +9955,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.237",
+            "version": "1.0.238",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "96f24e53cce1452fa7d3cfdf5ec7010ab00b3875"
+                "reference": "79fee9d5fa0097a8bb7357f9ecf783ad3088bc73"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9975,7 +9975,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-12-16T08:46:11+00:00"
+            "time": "2019-12-16T12:21:56+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -13565,6 +13565,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2015-10-02T06:51:40+00:00"
         },
         {
