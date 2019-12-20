@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e9c8ce185d25b68a1f8d0f236fcb295",
+    "content-hash": "afb73a3ac1c58ec1b9d8f40a13b8d2ef",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7296,20 +7296,23 @@
         },
         {
             "name": "maxmind-db/reader",
-            "version": "v1.5.1",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maxmind/MaxMind-DB-Reader-php.git",
-                "reference": "f096bbe4d37e3d93e62626297bfc2179472a972d"
+                "reference": "febd4920bf17c1da84cef58e56a8227dfb37fbe4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maxmind/MaxMind-DB-Reader-php/zipball/f096bbe4d37e3d93e62626297bfc2179472a972d",
-                "reference": "f096bbe4d37e3d93e62626297bfc2179472a972d",
+                "url": "https://api.github.com/repos/maxmind/MaxMind-DB-Reader-php/zipball/febd4920bf17c1da84cef58e56a8227dfb37fbe4",
+                "reference": "febd4920bf17c1da84cef58e56a8227dfb37fbe4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6"
+            },
+            "conflict": {
+                "ext-maxminddb": "<1.6.0,>=2.0.0"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "2.*",
@@ -7349,7 +7352,7 @@
                 "geolocation",
                 "maxmind"
             ],
-            "time": "2019-12-12T18:32:55+00:00"
+            "time": "2019-12-19T22:59:03+00:00"
         },
         {
             "name": "maxmind/web-service-common",
@@ -9738,11 +9741,11 @@
         },
         {
             "name": "oander/module-product-widget-warehouse-manager-extender",
-            "version": "1.0.1.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-product-widget-warehouse-manager-extender.git",
-                "reference": "b57362d59b496bfe4ddb166e9e03bc320b3e0bcd"
+                "reference": "f30b16838a9dc484e2fa80066c56cc83789accad"
             },
             "require": {
                 "oander/module-warehouse-manager-conditions": "*",
@@ -9760,7 +9763,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-07-15T08:00:01+00:00"
+            "time": "2019-12-20T09:58:39+00:00"
         },
         {
             "name": "oander/module-producturlresolver",
@@ -14539,6 +14542,7 @@
         "oander/module-core-bug-fix": 20,
         "oander/module-news": 20,
         "oander/module-pos-locations": 20,
+        "oander/module-product-widget-warehouse-manager-extender": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
