@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a24652b51b37cffac9e857b2d7de59a8",
+    "content-hash": "7d8409f2c6327c5ffad13ce5e5b548d5",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -178,6 +178,33 @@
             "time": "2019-07-04T14:53:53+00:00"
         },
         {
+            "name": "amasty/paction",
+            "version": "1.1.6",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/amasty-paction.git",
+                "reference": "94dac5a6b2d5dd7b7fb86195da74c007706fb2d8"
+            },
+            "require": {
+                "amasty/base": ">=1.5.5",
+                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\Paction\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Mass Product Action by Amasty",
+            "time": "2019-03-25T04:39:08+00:00"
+        },
+        {
             "name": "amasty/payrestriction",
             "version": "2.0.6",
             "dist": {
@@ -265,10 +292,6 @@
                 "url": "git@github.com:oandermedia/amasty-shiprestriction.git",
                 "reference": "3370bb88bbb506445284b4f7c11fc6aaff4fec02"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://composer.amasty.com/community/packages/shiprestriction-2.0.6.zip"
-            },
             "require": {
                 "amasty/base": ">=1.0.8",
                 "amasty/system-common-rules": ">=2.0.5",
@@ -286,7 +309,8 @@
             "license": [
                 "Commercial"
             ],
-            "description": "Shipping Restrictions By Amasty"
+            "description": "Shipping Restrictions By Amasty",
+            "time": "2019-01-28T15:59:07+00:00"
         },
         {
             "name": "amasty/system-common-rules",
@@ -747,16 +771,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.2.5",
+            "version": "1.2.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "62e8fc2dc550e5d6d8c9360c7721662670f58149"
+                "reference": "47fe531de31fca4a1b997f87308e7d7804348f7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/62e8fc2dc550e5d6d8c9360c7721662670f58149",
-                "reference": "62e8fc2dc550e5d6d8c9360c7721662670f58149",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/47fe531de31fca4a1b997f87308e7d7804348f7e",
+                "reference": "47fe531de31fca4a1b997f87308e7d7804348f7e",
                 "shasum": ""
             },
             "require": {
@@ -799,7 +823,7 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2019-12-11T14:44:42+00:00"
+            "time": "2020-01-13T10:02:55+00:00"
         },
         {
             "name": "composer/composer",
@@ -878,24 +902,23 @@
         },
         {
             "name": "composer/semver",
-            "version": "1.5.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "46d9139568ccb8d9e7cdd4539cab7347568a5e2e"
+                "reference": "c6bea70230ef4dd483e6bbcab6005f682ed3a8de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/46d9139568ccb8d9e7cdd4539cab7347568a5e2e",
-                "reference": "46d9139568ccb8d9e7cdd4539cab7347568a5e2e",
+                "url": "https://api.github.com/repos/composer/semver/zipball/c6bea70230ef4dd483e6bbcab6005f682ed3a8de",
+                "reference": "c6bea70230ef4dd483e6bbcab6005f682ed3a8de",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3.2 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5 || ^5.0.5",
-                "phpunit/phpunit-mock-objects": "2.3.0 || ^3.0"
+                "phpunit/phpunit": "^4.5 || ^5.0.5"
             },
             "type": "library",
             "extra": {
@@ -936,7 +959,7 @@
                 "validation",
                 "versioning"
             ],
-            "time": "2019-03-19T17:25:45+00:00"
+            "time": "2020-01-13T12:06:48+00:00"
         },
         {
             "name": "composer/spdx-licenses",
@@ -1417,16 +1440,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.5.0",
+            "version": "6.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "dbc2bc3a293ed6b1ae08a3651e2bfd213d19b6a5"
+                "reference": "43ece0e75098b7ecd8d13918293029e555a50f82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/dbc2bc3a293ed6b1ae08a3651e2bfd213d19b6a5",
-                "reference": "dbc2bc3a293ed6b1ae08a3651e2bfd213d19b6a5",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/43ece0e75098b7ecd8d13918293029e555a50f82",
+                "reference": "43ece0e75098b7ecd8d13918293029e555a50f82",
                 "shasum": ""
             },
             "require": {
@@ -1480,7 +1503,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2019-12-07T18:20:45+00:00"
+            "time": "2019-12-23T11:57:10+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -6962,16 +6985,16 @@
         },
         {
             "name": "mageplaza/module-core",
-            "version": "1.4.7",
+            "version": "1.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mageplaza/module-core.git",
-                "reference": "42d9af79e09138d5be09f577256ba4af7ad2b657"
+                "reference": "aa99d5aa974ec9bf799bcc9a2137095baf882093"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/42d9af79e09138d5be09f577256ba4af7ad2b657",
-                "reference": "42d9af79e09138d5be09f577256ba4af7ad2b657",
+                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/aa99d5aa974ec9bf799bcc9a2137095baf882093",
+                "reference": "aa99d5aa974ec9bf799bcc9a2137095baf882093",
                 "shasum": ""
             },
             "type": "magento2-module",
@@ -6996,7 +7019,7 @@
                 }
             ],
             "description": "Mageplaza Core for Magento 2",
-            "time": "2019-12-10T07:46:18+00:00"
+            "time": "2019-12-23T03:04:13+00:00"
         },
         {
             "name": "mageplaza/module-gdpr",
@@ -7102,20 +7125,23 @@
         },
         {
             "name": "maxmind-db/reader",
-            "version": "v1.5.1",
+            "version": "v1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maxmind/MaxMind-DB-Reader-php.git",
-                "reference": "f096bbe4d37e3d93e62626297bfc2179472a972d"
+                "reference": "febd4920bf17c1da84cef58e56a8227dfb37fbe4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maxmind/MaxMind-DB-Reader-php/zipball/f096bbe4d37e3d93e62626297bfc2179472a972d",
-                "reference": "f096bbe4d37e3d93e62626297bfc2179472a972d",
+                "url": "https://api.github.com/repos/maxmind/MaxMind-DB-Reader-php/zipball/febd4920bf17c1da84cef58e56a8227dfb37fbe4",
+                "reference": "febd4920bf17c1da84cef58e56a8227dfb37fbe4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.6"
+            },
+            "conflict": {
+                "ext-maxminddb": "<1.6.0,>=2.0.0"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "2.*",
@@ -7155,7 +7181,7 @@
                 "geolocation",
                 "maxmind"
             ],
-            "time": "2019-12-12T18:32:55+00:00"
+            "time": "2019-12-19T22:59:03+00:00"
         },
         {
             "name": "maxmind/web-service-common",
@@ -7531,23 +7557,25 @@
         },
         {
             "name": "mtdowling/jmespath.php",
-            "version": "2.4.0",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jmespath/jmespath.php.git",
-                "reference": "adcc9531682cf87dfda21e1fd5d0e7a41d292fac"
+                "reference": "52168cb9472de06979613d365c7f1ab8798be895"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jmespath/jmespath.php/zipball/adcc9531682cf87dfda21e1fd5d0e7a41d292fac",
-                "reference": "adcc9531682cf87dfda21e1fd5d0e7a41d292fac",
+                "url": "https://api.github.com/repos/jmespath/jmespath.php/zipball/52168cb9472de06979613d365c7f1ab8798be895",
+                "reference": "52168cb9472de06979613d365c7f1ab8798be895",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0"
+                "php": ">=5.4.0",
+                "symfony/polyfill-mbstring": "^1.4"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "composer/xdebug-handler": "^1.2",
+                "phpunit/phpunit": "^4.8.36|^7.5.15"
             },
             "bin": [
                 "bin/jp.php"
@@ -7555,7 +7583,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "2.5-dev"
                 }
             },
             "autoload": {
@@ -7582,7 +7610,7 @@
                 "json",
                 "jsonpath"
             ],
-            "time": "2016-12-03T22:08:25+00:00"
+            "time": "2019-12-30T18:03:34+00:00"
         },
         {
             "name": "oander/language-bg-bg",
@@ -9411,11 +9439,11 @@
         },
         {
             "name": "oander/module-product-widget-warehouse-manager-extender",
-            "version": "1.0.1.2",
+            "version": "1.0.1.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-product-widget-warehouse-manager-extender.git",
-                "reference": "b57362d59b496bfe4ddb166e9e03bc320b3e0bcd"
+                "reference": "1e41b47d0b7b71cb6a2710023cdb75354233e090"
             },
             "require": {
                 "oander/module-warehouse-manager-conditions": "*",
@@ -9433,7 +9461,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-07-15T08:00:01+00:00"
+            "time": "2020-01-15T10:18:42+00:00"
         },
         {
             "name": "oander/module-producturlresolver",
@@ -9955,11 +9983,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.238",
+            "version": "1.0.239",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "79fee9d5fa0097a8bb7357f9ecf783ad3088bc73"
+                "reference": "daa43bafc1a17600b333a86e2a2c56b0bc33f46c"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9975,7 +10003,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2019-12-16T12:21:56+00:00"
+            "time": "2020-01-15T10:25:41+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10626,16 +10654,16 @@
         },
         {
             "name": "seld/phar-utils",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/phar-utils.git",
-                "reference": "7009b5139491975ef6486545a39f3e6dad5ac30a"
+                "reference": "84715761c35808076b00908a20317a3a8a67d17e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/phar-utils/zipball/7009b5139491975ef6486545a39f3e6dad5ac30a",
-                "reference": "7009b5139491975ef6486545a39f3e6dad5ac30a",
+                "url": "https://api.github.com/repos/Seldaek/phar-utils/zipball/84715761c35808076b00908a20317a3a8a67d17e",
+                "reference": "84715761c35808076b00908a20317a3a8a67d17e",
                 "shasum": ""
             },
             "require": {
@@ -10666,7 +10694,7 @@
             "keywords": [
                 "phra"
             ],
-            "time": "2015-10-13T18:44:15+00:00"
+            "time": "2020-01-13T10:41:09+00:00"
         },
         {
             "name": "sjparkinson/static-review",
@@ -11118,6 +11146,65 @@
             "time": "2019-11-27T13:56:44+00:00"
         },
         {
+            "name": "symfony/polyfill-mbstring",
+            "version": "v1.13.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/polyfill-mbstring.git",
+                "reference": "7b4aab9743c30be783b73de055d24a39cf4b954f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/7b4aab9743c30be783b73de055d24a39cf4b954f",
+                "reference": "7b4aab9743c30be783b73de055d24a39cf4b954f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "suggest": {
+                "ext-mbstring": "For best performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.13-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                },
+                "files": [
+                    "bootstrap.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony polyfill for the Mbstring extension",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "compatibility",
+                "mbstring",
+                "polyfill",
+                "portable",
+                "shim"
+            ],
+            "time": "2019-11-27T14:18:11+00:00"
+        },
+        {
             "name": "symfony/process",
             "version": "v2.8.52",
             "source": {
@@ -11432,6 +11519,7 @@
                 "code",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-code",
             "time": "2015-05-11T16:17:05+00:00"
         },
         {
@@ -11489,6 +11577,7 @@
                 "config",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-config",
             "time": "2015-05-07T14:55:31+00:00"
         },
         {
@@ -11539,6 +11628,7 @@
                 "console",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-console",
             "time": "2015-05-07T14:55:31+00:00"
         },
         {
@@ -11591,6 +11681,7 @@
                 "crypt",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-crypt",
             "time": "2015-11-23T16:33:27+00:00"
         },
         {
@@ -11642,6 +11733,7 @@
                 "di",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-di",
             "time": "2015-05-07T14:55:31+00:00"
         },
         {
@@ -11687,6 +11779,7 @@
                 "escaper",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-escaper",
             "time": "2015-05-07T14:55:31+00:00"
         },
         {
@@ -11733,6 +11826,7 @@
                 "eventmanager",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-eventmanager",
             "time": "2015-05-07T14:55:31+00:00"
         },
         {
@@ -11789,6 +11883,7 @@
                 "filter",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-filter",
             "time": "2015-05-07T14:55:31+00:00"
         },
         {
@@ -11860,6 +11955,7 @@
                 "form",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-form",
             "time": "2015-09-09T19:11:05+00:00"
         },
         {
@@ -11911,6 +12007,7 @@
                 "http",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-http",
             "time": "2015-09-14T16:11:20+00:00"
         },
         {
@@ -11975,6 +12072,7 @@
                 "i18n",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-i18n",
             "time": "2015-05-07T14:55:31+00:00"
         },
         {
@@ -12026,6 +12124,7 @@
                 "inputfilter",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-inputfilter",
             "time": "2015-09-09T15:44:54+00:00"
         },
         {
@@ -12080,6 +12179,7 @@
                 "json",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-json",
             "time": "2015-05-07T14:55:31+00:00"
         },
         {
@@ -12125,6 +12225,7 @@
                 "loader",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-loader",
             "time": "2015-05-07T14:55:31+00:00"
         },
         {
@@ -12187,6 +12288,7 @@
                 "logging",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-log",
             "time": "2015-05-07T14:55:31+00:00"
         },
         {
@@ -12238,6 +12340,7 @@
                 "math",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-math",
             "time": "2015-05-07T14:55:31+00:00"
         },
         {
@@ -12296,6 +12399,7 @@
                 "modulemanager",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-modulemanager",
             "time": "2015-05-07T14:55:31+00:00"
         },
         {
@@ -12384,6 +12488,7 @@
                 "mvc",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-mvc",
             "time": "2015-09-14T16:32:50+00:00"
         },
         {
@@ -12437,6 +12542,7 @@
                 "serializer",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-serializer",
             "time": "2015-05-07T14:55:31+00:00"
         },
         {
@@ -12484,6 +12590,7 @@
                 "server",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-server",
             "time": "2015-05-07T14:55:31+00:00"
         },
         {
@@ -12534,6 +12641,7 @@
                 "servicemanager",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-servicemanager",
             "time": "2015-05-07T14:55:31+00:00"
         },
         {
@@ -12586,6 +12694,7 @@
                 "soap",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-soap",
             "time": "2015-05-07T14:55:31+00:00"
         },
         {
@@ -12641,6 +12750,7 @@
                 "stdlib",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-stdlib",
             "time": "2015-07-21T13:55:46+00:00"
         },
         {
@@ -12688,6 +12798,7 @@
                 "text",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-text",
             "time": "2015-05-07T14:55:31+00:00"
         },
         {
@@ -12736,6 +12847,7 @@
                 "uri",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-uri",
             "time": "2015-09-14T16:17:10+00:00"
         },
         {
@@ -12801,6 +12913,7 @@
                 "validator",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-validator",
             "time": "2015-09-08T21:04:17+00:00"
         },
         {
@@ -12878,6 +12991,7 @@
                 "view",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-view",
             "time": "2015-06-16T15:22:37+00:00"
         },
         {
