@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8cd15619c5cc7c76403256340d363d0e",
+    "content-hash": "b0f957a34db1899915faf2ae774932ff",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9997,11 +9997,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.25.15",
+            "version": "1.4.25.16",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "f31dfc75cf6291984ca669ab271ad96765e99444"
+                "reference": "3e06fdd4e6402674101a5e50130867f117f27ea9"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10022,7 +10022,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2019-11-14T14:31:26+00:00"
+            "time": "2020-01-24T15:54:00+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
@@ -10241,6 +10241,7 @@
                 "php",
                 "stylesheet"
             ],
+            "abandoned": true,
             "time": "2017-03-28T22:19:25+00:00"
         },
         {
@@ -11277,16 +11278,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.36",
+            "version": "v3.4.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "290ae21279b37bfd287cdcce640d51204e84afdf"
+                "reference": "a90a9d3b9f458a5cdeabfa4090b20c000ca3962f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/290ae21279b37bfd287cdcce640d51204e84afdf",
-                "reference": "290ae21279b37bfd287cdcce640d51204e84afdf",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/a90a9d3b9f458a5cdeabfa4090b20c000ca3962f",
+                "reference": "a90a9d3b9f458a5cdeabfa4090b20c000ca3962f",
                 "shasum": ""
             },
             "require": {
@@ -11322,7 +11323,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2019-11-17T21:55:15+00:00"
+            "time": "2020-01-01T11:03:25+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -14407,16 +14408,16 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.36",
+            "version": "v3.4.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "efe0af281ad336bc3b10375c88b117499f1d8494"
+                "reference": "e2d954156d4817c9a5c79f519a71516693a4a9c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/efe0af281ad336bc3b10375c88b117499f1d8494",
-                "reference": "efe0af281ad336bc3b10375c88b117499f1d8494",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/e2d954156d4817c9a5c79f519a71516693a4a9c8",
+                "reference": "e2d954156d4817c9a5c79f519a71516693a4a9c8",
                 "shasum": ""
             },
             "require": {
@@ -14452,7 +14453,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2019-11-03T17:17:59+00:00"
+            "time": "2020-01-01T11:03:25+00:00"
         },
         {
             "name": "theseer/fdomdocument",
