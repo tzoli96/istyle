@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dbe54ea89f3b17a09228e09e5ce5dbf9",
+    "content-hash": "b443af486a82d15bc93a8c7d39dfa535",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -504,16 +504,16 @@
         },
         {
             "name": "bigfish/paymentgateway",
-            "version": "3.0.1",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bigfish-hu/payment-gateway-php-sdk.git",
-                "reference": "ba5c6ffdad3eab47807637fc7a36b6a1b3c1a053"
+                "reference": "5969a8dcb4ec4b89f3ccbef5ee687742317dbdf5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/ba5c6ffdad3eab47807637fc7a36b6a1b3c1a053",
-                "reference": "ba5c6ffdad3eab47807637fc7a36b6a1b3c1a053",
+                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/5969a8dcb4ec4b89f3ccbef5ee687742317dbdf5",
+                "reference": "5969a8dcb4ec4b89f3ccbef5ee687742317dbdf5",
                 "shasum": ""
             },
             "require": {
@@ -542,18 +542,18 @@
                 "payment",
                 "webshop"
             ],
-            "time": "2019-09-10T09:40:01+00:00"
+            "time": "2019-12-09T09:55:23+00:00"
         },
         {
             "name": "bigfishpaymentgateway/pmgw",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/bigfishpaymentgateway-pmgw.git",
-                "reference": "caaa82efaaffa3a681982f0fa69731eb823792ef"
+                "reference": "3c0a94aad3d77dbc78812bc46658de786d732c9d"
             },
             "require": {
-                "bigfish/paymentgateway": "3.0.*",
+                "bigfish/paymentgateway": "3.*",
                 "php": "~5.6.0|~7.0"
             },
             "type": "magento2-module",
@@ -570,7 +570,7 @@
                 "AFL-3.0"
             ],
             "description": "BIG FISH Payment Gateway module for Magento 2",
-            "time": "2019-10-15T08:27:11+00:00"
+            "time": "2020-01-29T12:28:57+00:00"
         },
         {
             "name": "braintree/braintree_php",
