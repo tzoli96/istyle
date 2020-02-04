@@ -17,20 +17,42 @@
 
 namespace Oander\IstyleCustomization\Plugin\Checkout\Model\Checkout;
 
+use \Magento\Checkout\Model\Session as CheckoutSession;
+use Oander\IstyleCustomization\Helper\Config;
 
+/**
+ * Class LayoutProcessor
+ * @package Oander\IstyleCustomization\Plugin\Checkout\Model\Checkout+
+ */
 class LayoutProcessor
 {
     /** @var \Magento\Framework\App\Config\ScopeConfigInterface */
     private $scopeConfig;
 
     /**
+     * @var CheckoutSession
+     */
+    private $checkoutSession;
+
+    /**
+     * @var Config
+     */
+    private $configHelper;
+
+    /**
+     * LayoutProcessor constructor.
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
+     * @param CheckoutSession $checkoutSession
+     * @param Config $configHelper
      */
     public function __construct(
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
-    )
-    {
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
+        CheckoutSession $checkoutSession,
+        Config $configHelper
+    ) {
         $this->scopeConfig = $scopeConfig;
+        $this->checkoutSession = $checkoutSession;
+        $this->configHelper = $configHelper;
     }
     /**
      * @param \Magento\Checkout\Block\Checkout\LayoutProcessor $subject
@@ -40,10 +62,12 @@ class LayoutProcessor
     public function afterProcess(
         \Magento\Checkout\Block\Checkout\LayoutProcessor $subject,
         array $jsLayout
-    )
-    {
-        $showPfpjRegNo = $this->scopeConfig->getValue('customer/address/show_pfpj_reg_no', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+    ) {
 
+        $quoteItems = $this->checkoutSession->getQuote()->getAllItems();
+        $dobShow = $this->configHelper->getDobShow($quoteItems);
+
+        $showPfpjRegNo = $this->scopeConfig->getValue('customer/address/show_pfpj_reg_no', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
         if($showPfpjRegNo == 'req')
         {
             $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
@@ -90,6 +114,9 @@ class LayoutProcessor
                 'customEntry' => null
             ];
         }
+
+
+
 
         foreach ($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                  ['payment']['children']['payments-list']['children'] as $key => $payment) {
@@ -186,6 +213,7 @@ class LayoutProcessor
                 ['telephone']['placeholder'] = __('telephone_placeholder');
             }
 
+
             if (isset($payment['children']['form-fields']['children']['dob'])) {
                 $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                 ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
@@ -193,6 +221,26 @@ class LayoutProcessor
                 $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                 ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
                 ['dob']['placeholder'] = __('dob_placeholder');
+
+                if ($dobShow === null) {
+                    $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                    ['dob']['visible'] = false;
+                    $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                    ['dob']['validation'] = [];
+                } elseif ($dobShow === 'req') {
+                    $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                    ['dob']['visible'] = true;
+                    $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                    ['dob']['validation'] = [
+                        'required-entry' => true,
+                        'validate-date' => true,
+                    ];
+                } elseif ($dobShow === 'opt') {
+                    $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                    ['dob']['visible'] = true;
+                    $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                    ['dob']['validation'] = ['validate-date' => true];
+                }
             }
         }
 
@@ -281,6 +329,8 @@ class LayoutProcessor
             $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['telephone']['placeholder'] = __('telephone_placeholder');
         }
+
+
         if(isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['dob']))
         {
@@ -288,7 +338,29 @@ class LayoutProcessor
             ['dob']['sortOrder'] = 21;
             $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['dob']['placeholder'] = __('dob_placeholder');
+
+            if ($dobShow === null) {
+                $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+                ['dob']['visible'] = false;
+                $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+                ['dob']['validation'] = [];
+            } elseif ($dobShow === 'req') {
+                $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+                ['dob']['visible'] = true;
+                $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+                ['dob']['validation'] = [
+                    'required-entry' => true,
+                    'validate-date' => true,
+                ];
+            } elseif ($dobShow === 'opt') {
+                $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+                ['dob']['visible'] = true;
+                $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+                ['dob']['validation'] = ['validate-date' => true];
+            }
         }
+
+
         if(isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['region_id']))
         {

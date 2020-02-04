@@ -141,4 +141,42 @@ class Config extends AbstractHelper
             ScopeInterface::SCOPE_STORE
         );
     }
+
+    /**
+     * @return string
+     */
+    public function getDobShow($orderItems)
+    {
+        $dobAttributeSets = $this->getDobAttributeSets();
+        $hasAttributeSet = false;
+        foreach ($orderItems as $orderItem) {
+            if ($product = $orderItem->getProduct()) {
+                if (in_array($product->getAttributeSetId(),$dobAttributeSets)) {
+                    $hasAttributeSet = true;
+                    break;
+                }
+            }
+        }
+
+        if ($hasAttributeSet) {
+            return $this->scopeConfig->getValue(
+                'customer/address/dob_show',
+                ScopeInterface::SCOPE_STORE
+            );
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * @return array
+     */
+    public function getDobAttributeSets()
+    {
+        return (array)$this->scopeConfig->getValue(
+            'customer/address/dob_attribute_sets',
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
 }
