@@ -17,7 +17,7 @@
                     <backend_model>Magento\Customer\Model\Config\Backend\Show\Customer</backend_model>
                 </field>
                 <field id="dob_attribute_sets" translate="label" type="multiselect" sortOrder="71" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Address Date of Birth Attribute Sets</label>
+                    <label>Date of Birth Attribute Sets</label>
                     <source_model>Oander\IstyleCustomization\Model\Config\Source\AttributeSet</source_model>
                 </field>
             </group>

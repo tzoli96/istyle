@@ -15,7 +15,6 @@ define([
 
             // address.dob = addressData.dob;
             customAttributes.dob = addressData.dob;
-            customAttributes.pfpj_reg_no = addressData.pfpj_reg_no;
 
             // for quote save handler
             address.extensionAttributes = $.extend(true, addressData.extensionAttributes || {}, customAttributes);

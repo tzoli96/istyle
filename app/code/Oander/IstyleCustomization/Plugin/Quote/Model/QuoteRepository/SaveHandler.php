@@ -25,7 +25,9 @@ class SaveHandler
                 $address = $shipping->getAddress();
                 if ($address && $extensionAttributes = $address->getExtensionAttributes()) {
                     if ($extensionAttributes && $data = $extensionAttributes->getPfpjRegNo()) {
-                        $this->copyData($data, $address);
+                        $address->setPfpjRegNo($data);
+                    } elseif ($extensionAttributes && $data = $extensionAttributes->getDob()) {
+                        $address->setDob(date('Y-m-d', strtotime($data)));
                     }
                 }
             }
@@ -34,19 +36,12 @@ class SaveHandler
         $address = $quote->getBillingAddress();
         if ($address && $extensionAttributes = $address->getExtensionAttributes()) {
             if ($extensionAttributes && $data = $extensionAttributes->getPfpjRegNo()) {
-                $this->copyData($data, $address);
+                $address->setPfpjRegNo($data);
+            } elseif ($extensionAttributes && $data = $extensionAttributes->getDob()) {
+                $address->setDob(date('Y-m-d', strtotime($data)));
             }
         }
 
         return [$quote];
-    }
-
-    /**
-     * @param string $data
-     * @param AddressInterface $target
-     */
-    private function copyData($data, AddressInterface $target)
-    {
-        $target->setPfpjRegNo($data);
     }
 }
