@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f367477440e6eadd39f7d51da79df339",
+    "content-hash": "32a5f147188853488bc1b34ac63bda81",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -546,11 +546,11 @@
         },
         {
             "name": "bigfishpaymentgateway/pmgw",
-            "version": "3.1.0.1",
+            "version": "3.1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/bigfishpaymentgateway-pmgw.git",
-                "reference": "00b68d5c406fdc2286fc84b725602bb6c4a356f5"
+                "reference": "ba3d390f491a3e923b4609e3eaa5d28833e39b04"
             },
             "require": {
                 "bigfish/paymentgateway": "3.*",
@@ -570,7 +570,7 @@
                 "AFL-3.0"
             ],
             "description": "BIG FISH Payment Gateway module for Magento 2",
-            "time": "2020-01-29T13:39:50+00:00"
+            "time": "2020-02-12T12:35:10+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -10163,7 +10163,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "a4a6a4f552398ec6c8277162fd350d51b87e7dc2"
+                "reference": "313919911ffeacc3301084a043d31e12dbe2f50e"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10179,7 +10179,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2020-02-03T15:42:56+00:00"
+            "time": "2020-02-11T13:44:47+00:00"
         },
         {
             "name": "oyejorge/less.php",
