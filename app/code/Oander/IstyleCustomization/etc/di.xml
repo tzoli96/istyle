@@ -58,4 +58,7 @@
             </argument>
         </arguments>
     </type>
+
+    <preference for="Bigfishpaymentgateway\Pmgw\Block\Info" type="Oander\IstyleCustomization\Block\Info"/>
+    <preference for="Bigfishpaymentgateway\Pmgw\Block\Success" type="Oander\IstyleCustomization\Block\Success"/>
 </config>
