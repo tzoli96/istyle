@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c3cd509106d235521967e5603708a812",
+    "content-hash": "e8cf36dc8c5daeb69e28af238c7bbc76",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -505,16 +505,16 @@
         },
         {
             "name": "bigfish/paymentgateway",
-            "version": "3.0.1",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bigfish-hu/payment-gateway-php-sdk.git",
-                "reference": "ba5c6ffdad3eab47807637fc7a36b6a1b3c1a053"
+                "reference": "5969a8dcb4ec4b89f3ccbef5ee687742317dbdf5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/ba5c6ffdad3eab47807637fc7a36b6a1b3c1a053",
-                "reference": "ba5c6ffdad3eab47807637fc7a36b6a1b3c1a053",
+                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/5969a8dcb4ec4b89f3ccbef5ee687742317dbdf5",
+                "reference": "5969a8dcb4ec4b89f3ccbef5ee687742317dbdf5",
                 "shasum": ""
             },
             "require": {
@@ -543,18 +543,18 @@
                 "payment",
                 "webshop"
             ],
-            "time": "2019-09-10T09:40:01+00:00"
+            "time": "2019-12-09T09:55:23+00:00"
         },
         {
             "name": "bigfishpaymentgateway/pmgw",
-            "version": "3.0.0",
+            "version": "3.1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/bigfishpaymentgateway-pmgw.git",
-                "reference": "caaa82efaaffa3a681982f0fa69731eb823792ef"
+                "reference": "ba3d390f491a3e923b4609e3eaa5d28833e39b04"
             },
             "require": {
-                "bigfish/paymentgateway": "3.0.*",
+                "bigfish/paymentgateway": "3.*",
                 "php": "~5.6.0|~7.0"
             },
             "type": "magento2-module",
@@ -571,7 +571,7 @@
                 "AFL-3.0"
             ],
             "description": "BIG FISH Payment Gateway module for Magento 2",
-            "time": "2019-10-15T08:27:11+00:00"
+            "time": "2020-02-12T12:35:10+00:00"
         },
         {
             "name": "braintree/braintree_php",
@@ -7941,11 +7941,11 @@
         },
         {
             "name": "oander/module-amasty-xnotif-warehouse-manager-extender",
-            "version": "1.0.0.9",
+            "version": "1.0.0.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-amasty-xnotif-warehouse-manager-extender.git",
-                "reference": "bd2680839349ad77881b2a9e3a3ed085f0cec87f"
+                "reference": "92d0e4be77de2bfdabeb3c60467c1db660645294"
             },
             "require": {
                 "amasty/xnotif": "*",
@@ -7966,7 +7966,7 @@
                 "proprietary"
             ],
             "description": "Oander_AmastyXnotifWarehouseManagerExtender",
-            "time": "2019-10-14T12:19:21+00:00"
+            "time": "2020-02-07T14:57:24+00:00"
         },
         {
             "name": "oander/module-api-base",
@@ -8422,11 +8422,11 @@
         },
         {
             "name": "oander/module-bundle-ignore-stock-quantity",
-            "version": "1.0.0.3",
+            "version": "1.0.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-bundle-ignore-stock-quantity.git",
-                "reference": "ec001622eb5c44ee1685c9ee242e573e1a19b6a1"
+                "reference": "200dfa8a396956490aaf1635c28694d0220223a9"
             },
             "require": {
                 "oander/module-bundle": ">=1.0.3",
@@ -8444,7 +8444,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-10-14T12:22:11+00:00"
+            "time": "2020-02-12T15:14:15+00:00"
         },
         {
             "name": "oander/module-bundle-price-switcher",
@@ -11090,16 +11090,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.13.1",
+            "version": "v1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "f8f0b461be3385e56d6de3dbb5a0df24c0c275e3"
+                "reference": "fbdeaec0df06cf3d51c93de80c7eb76e271f5a38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/f8f0b461be3385e56d6de3dbb5a0df24c0c275e3",
-                "reference": "f8f0b461be3385e56d6de3dbb5a0df24c0c275e3",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/fbdeaec0df06cf3d51c93de80c7eb76e271f5a38",
+                "reference": "fbdeaec0df06cf3d51c93de80c7eb76e271f5a38",
                 "shasum": ""
             },
             "require": {
@@ -11111,7 +11111,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.13-dev"
+                    "dev-master": "1.14-dev"
                 }
             },
             "autoload": {
@@ -11144,20 +11144,20 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2019-11-27T13:56:44+00:00"
+            "time": "2020-01-13T11:15:53+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.13.1",
+            "version": "v1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "7b4aab9743c30be783b73de055d24a39cf4b954f"
+                "reference": "34094cfa9abe1f0f14f48f490772db7a775559f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/7b4aab9743c30be783b73de055d24a39cf4b954f",
-                "reference": "7b4aab9743c30be783b73de055d24a39cf4b954f",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/34094cfa9abe1f0f14f48f490772db7a775559f2",
+                "reference": "34094cfa9abe1f0f14f48f490772db7a775559f2",
                 "shasum": ""
             },
             "require": {
@@ -11169,7 +11169,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.13-dev"
+                    "dev-master": "1.14-dev"
                 }
             },
             "autoload": {
@@ -11203,7 +11203,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2019-11-27T14:18:11+00:00"
+            "time": "2020-01-13T11:15:53+00:00"
         },
         {
             "name": "symfony/process",
