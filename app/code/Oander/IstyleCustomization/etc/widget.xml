@@ -27,8 +27,8 @@
             </parameter>
             <parameter name="template" xsi:type="select" visible="false">
                 <options>
-                    <option name="products_grid_with_extended_title" value="widget/new_products/products_grid_with_extended_title.phtml">
-                        <label translate="true">Products Grid Template with extended title</label>
+                    <option name="products_grid_with_extended_title" value="Oander_IstyleCustomization::widget/new_products/products_grid_with_extended_title.phtml">
+                        <label translate="true">New Products Grid Template with extended title</label>
                     </option>
                 </options>
             </parameter>

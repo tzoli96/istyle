@@ -18,7 +18,7 @@ if ($exist = ($block->getProductCollection() && $block->getProductCollection()->
     $image = 'new_products_content_widget_grid';
     $title = $block->getData('title');
     $subheadline = $block->getSubheadline() ? __($block->getSubheadline()) : '';
-    $link = (strpos($block->getLink(), 'href') !== false) ? : '';
+    $link = (strpos($block->getLink(), 'href') !== false) ? $block->getLink() : '';
     $items = $block->getProductCollection()->getItems();
     $showWishlist = false;
     $showCompare = false;
@@ -31,7 +31,7 @@ if ($exist = ($block->getProductCollection() && $block->getProductCollection()->
             <h2 class="block-title text-center"><?php /* @escapeNotVerified */ echo $title; ?></h2>
         <?php endif ?>
         <?php if ($subheadline):?>
-            <h3 class="block-title text-center"><?php /* @escapeNotVerified */ echo $subheadline; ?></h3>
+            <h3 class="text-center"><?php /* @escapeNotVerified */ echo $subheadline; ?></h3>
         <?php endif ?>
         <?php /* @escapeNotVerified */ echo $link; ?>
         <div class="block-content">
