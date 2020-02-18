@@ -11,7 +11,9 @@ declare(strict_types=1);
 namespace Oander\IstyleCustomization\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
+use Magento\Framework\App\Helper\Context;
 use Magento\Store\Model\ScopeInterface;
+use Magento\Cms\Api\BlockRepositoryInterface;
 
 /**
  * Class Config
@@ -20,6 +22,24 @@ use Magento\Store\Model\ScopeInterface;
  */
 class Config extends AbstractHelper
 {
+    /**
+     * @var BlockRepositoryInterface
+     */
+    private $blockRepository;
+
+    /**
+     * Config constructor.
+     * @param BlockRepositoryInterface $blockRepository
+     * @param Context $context
+     */
+    public function __construct(
+        BlockRepositoryInterface $blockRepository,
+        Context $context
+    ) {
+        parent::__construct($context);
+        $this->blockRepository = $blockRepository;
+    }
+
     /**
      * @return bool
      */
@@ -179,4 +199,38 @@ class Config extends AbstractHelper
         );
     }
 
+    /**
+     * @return int
+     */
+    public function isSearchBlockEnabled()
+    {
+        return (int)$this->scopeConfig->getValue(
+            'oander_search_block/general/enabled',
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * @return int
+     */
+    public function getSearchBlockId()
+    {
+        return (int)$this->scopeConfig->getValue(
+            'oander_search_block/general/search_block',
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * @return null|string
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
+    public function getSearchBlock()
+    {
+        if ($this->isSearchBlockEnabled() && $this->getSearchBlockId()) {
+            return $this->blockRepository->getById($this->getSearchBlockId())->getContent();
+        }
+
+        return '';
+    }
 }
