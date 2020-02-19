@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<otp_calculator>
+            <product_enabled>0</product_enabled>
+            <min_price></min_price>
+            <max_price></max_price>
+            <checkout_enabled>0</checkout_enabled>
+            <retailer_id></retailer_id>
+            <construction_group></construction_group>
+        </otp_calculator>
+	</default>
+</config>
