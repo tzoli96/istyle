@@ -9160,7 +9160,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-multi-slider.git",
-                "reference": "fb85ab0f01d3fc40a3577b28e19670a0fcdebf44"
+                "reference": "5c8b5e2fa7293d0ce07f1845f280f379d6ad0b99"
             },
             "require": {
                 "oander/module-base": ">=1.2.11",
@@ -9179,7 +9179,7 @@
                 "proprietary"
             ],
             "description": "Slider module",
-            "time": "2020-02-14T11:55:18+00:00"
+            "time": "2020-02-21T09:07:53+00:00"
         },
         {
             "name": "oander/module-name-switcher",
@@ -10190,7 +10190,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "41dfdb198b9370a336e33d02d84b05dbacd4bf3b"
+                "reference": "6f16414423540d574feb98e5c05ba139727e62ea"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10206,7 +10206,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2020-02-19T14:57:16+00:00"
+            "time": "2020-02-21T12:10:18+00:00"
         },
         {
             "name": "oyejorge/less.php",
