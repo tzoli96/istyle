@@ -21,7 +21,10 @@ class EmailOrderSetTemplateVarsBefore implements ObserverInterface
         $transport = $observer->getEvent()->getData('transport');
         $order = $transport->getOrder();
         $shippingAddress = $order->getShippingAddress();
-        $order->setData('customer_dob',$shippingAddress->getDob());
+
+        $dob = $shippingAddress->getDob();
+
+        $order->setData('customer_dob',date('Y-m-d', strtotime((string)$dob)));
         $observer->getEvent()->setData('transport', $transport);
     }
 

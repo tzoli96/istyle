@@ -1,0 +1,58 @@
+<?php
+/** @var Oander\OtpCalculator\Block\Product\Calculator $block */
+?>
+<?php if ($block->isShow()): ?>
+    <div class="data item title" data-role="collapsible">
+        <a class="data switch" tabindex="-1" href="#tab1" data-toggle="switch"><?php echo __('calculator_selector_2'); ?></a>
+    </div>
+    <div id="tab1" class="data item content" data-role="content">
+        <iframe src="<?php echo $block->getIframeUrl() ?>"
+                id="otp-calculator"
+                width="100%"
+                height="500px"></iframe>
+    </div>
+
+    <script>
+    require([
+      'jquery'
+    ], function ($) {
+      $(function () {
+        var $productPrice = $('.product-info-price [data-role=priceBox]');
+
+        $productPrice.on('updatePrice', function () {
+          var $priceBoxWidget = $productPrice.data('mage-priceBox').cache.displayPrices;
+
+          if (!$.isEmptyObject($priceBoxWidget)) {
+            var finalPrice = Math.round($productPrice.data('mage-priceBox').cache.displayPrices.finalPrice.final);
+            updateUrl(finalPrice);
+          }
+        });
+
+        var bundleOptionsWrapper = $('.bundle-options-wrapper');
+        var optionSelector = 'input.bundle.option, select.bundle.option, textarea.bundle.option';
+
+        bundleOptionsWrapper.find(optionSelector).on('change', function () {
+          setTimeout(function () {
+            var $productPrice = $('.price-configured_price');
+            var finalPrice = Math.round($productPrice.data('mage-priceBox').cache.displayPrices.finalPrice.final);
+            updateUrl(finalPrice);
+          }, 50)
+        });
+
+        function updateUrl(price) {
+          var otp = $('#otp-calculator');
+          var url = otp.attr('src');
+          var urlPath = url.split('?')[0];
+          var urlParams = url.split('?')[1].split('&');
+
+          if (!isNaN(price)) {
+            urlParams[0] = urlParams[0].split('=')[0] + '=' + price;
+            otp.attr('src', urlPath + '?' + urlParams.join('&'))
+          }
+        }
+
+      });
+    });
+    </script>
+
+<?php endif; ?>
