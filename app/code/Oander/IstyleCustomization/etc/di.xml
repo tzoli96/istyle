@@ -74,9 +74,13 @@
         <plugin name="catalog_helper_plugin" type="Oander\IstyleCustomization\Plugin\ConfigurableProduct\Block\Product\View\Type\Configurable" sortOrder="100"/>
     </type>
     <type name="Magento\Catalog\Block\Product\View">
-        <plugin name="catalog_helper_plugin" type="Oander\IstyleCustomization\Plugin\Catalog\Block\Product\View" sortOrder="100"/>
+        <plugin name="IstyleCustomization_block_product_view" type="Oander\IstyleCustomization\Plugin\Catalog\Block\Product\View" sortOrder="100"/>
     </type>
 
     <preference for="Bigfishpaymentgateway\Pmgw\Block\Info" type="Oander\IstyleCustomization\Block\Info"/>
     <preference for="Bigfishpaymentgateway\Pmgw\Block\Success" type="Oander\IstyleCustomization\Block\Success"/>
+
+    <type name="Magento\CatalogUrlRewrite\Observer\ProductProcessUrlRewriteSavingObserver">
+        <plugin name="IstyleCustomization::ProductProcessUrlRewriteSavingObserver" type="Oander\IstyleCustomization\Plugin\CatalogUrlRewrite\Observer\ProductProcessUrlRewriteSavingObserver" sortOrder="100"/>
+    </type>
 </config>
