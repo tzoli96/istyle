@@ -42,4 +42,7 @@
     <event name="oander_warehouse_manager_before_render_product_stock_block">
         <observer name="oander_istyle_customization_before_render_product_stock_block" instance="Oander\IstyleCustomization\Observer\BeforeRenderProductStockBlock"/>
     </event>
+    <event name="email_order_set_template_vars_before">
+        <observer name="oander_istyle_customization_email_order_set_template_vars_before" instance="Oander\IstyleCustomization\Observer\EmailOrderSetTemplateVarsBefore"/>
+    </event>
 </config>

@@ -1,0 +1,43 @@
+<?php
+/** @var Oander\OtpCalculator\Block\Product\Calculator $block */
+?>
+<?php if ($block->isShow()): ?>
+    <div class="data item title" data-role="collapsible">
+        <a class="data switch" tabindex="-1" href="#tab1" data-toggle="switch"><?php echo __('calculator_selector_2'); ?></a>
+    </div>
+    <div id="tab1" class="data item content" data-role="content">
+        <iframe src="<?php echo $block->getIframeUrl() ?>"
+                id="otp-calculator"
+                width="100%"
+                height="500px"></iframe>
+    </div>
+
+    <script>
+    require([
+      'jquery'
+    ], function ($) {
+      // to ensure that code evaluates on page load
+      $(function () {
+        var $productPrice = $('.product-info-price [data-role=priceBox]');
+        var otp = $('#otp-calculator');
+
+        $productPrice.on('updatePrice', function () {
+          var url = otp.attr('src');
+          var urlPath = url.split('?')[0];
+          var urlParams = url.split('?')[1].split('&');
+          var $priceBoxWidget = $productPrice.data('mage-priceBox').cache.displayPrices;
+
+          if (!$.isEmptyObject($priceBoxWidget)) {
+            var finalPrice = Math.round($productPrice.data('mage-priceBox').cache.displayPrices.finalPrice.final);
+            if (!isNaN(finalPrice)) {
+              urlParams[0] = urlParams[0].split('=')[0] + '=' + finalPrice;
+              otp.attr('src', urlPath + '?' + urlParams.join('&'))
+            }
+          }
+        });
+
+      });
+    });
+    </script>
+
+<?php endif; ?>

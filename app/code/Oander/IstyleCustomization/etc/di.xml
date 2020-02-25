@@ -58,6 +58,12 @@
             </argument>
         </arguments>
     </type>
+    <type name="Magento\ConfigurableProduct\Block\Product\View\Type\Configurable">
+        <plugin name="catalog_helper_plugin" type="Oander\IstyleCustomization\Plugin\ConfigurableProduct\Block\Product\View\Type\Configurable" sortOrder="100"/>
+    </type>
+    <type name="Magento\Catalog\Block\Product\View">
+        <plugin name="catalog_helper_plugin" type="Oander\IstyleCustomization\Plugin\Catalog\Block\Product\View" sortOrder="100"/>
+    </type>
 
     <preference for="Bigfishpaymentgateway\Pmgw\Block\Info" type="Oander\IstyleCustomization\Block\Info"/>
     <preference for="Bigfishpaymentgateway\Pmgw\Block\Success" type="Oander\IstyleCustomization\Block\Success"/>

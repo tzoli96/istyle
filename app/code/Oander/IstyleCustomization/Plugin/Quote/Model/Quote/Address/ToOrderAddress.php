@@ -59,6 +59,11 @@ class ToOrderAddress
             {
             }
         }
+
+        if($object->getDob()) {
+            $orderAddress->setDob($object->getDob());
+        }
+
         return $orderAddress;
     }
 }

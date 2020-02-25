@@ -1,7 +1,9 @@
 var config = {
-    map: {
-        '*': {
-            'Istyle_InsiaCare/js/model/new-customer-address-mixin': 'Oander_IstyleCustomization/js/model/new-customer-address-mixin'
+    config: {
+        mixins: {
+            'Magento_Checkout/js/action/set-shipping-information': {
+                'Oander_IstyleCustomization/js/action/set-shipping-information-mixin': true
+            }
         }
     }
 };

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="otp_calculator" translate="label" type="text" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>OTP Calculator</label>
+            <resource>Oander_OtpCalculator::config</resource>
+            <tab>oander</tab>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="product_enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display at product page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="min_price" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Minimum price to show</label>
+                    <depends>
+                        <field id="*/*/product_enabled">1</field>
+                    </depends>
+                </field>
+                <field id="max_price" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Maximum price to show</label>
+                    <depends>
+                        <field id="*/*/product_enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+        <section id="payment">
+            <group id="bigfishpaymentgateway_pmgw">
+                <group id="paymentgateway_otparuhitel">
+                    <field id="calculator_enabled" translate="label" type="select" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Calculator Enabled</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>payment/bigfishpaymentgateway_pmgw_otparuhitel/calculator_enabled</config_path>
+                    </field>
+                    <field id="construction_group" translate="label" type="text" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Construction Group</label>
+                        <config_path>payment/bigfishpaymentgateway_pmgw_otparuhitel/construction_group</config_path>
+                    </field>
+                    <field id="retailer_id" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Retailer ID</label>
+                        <config_path>payment/bigfishpaymentgateway_pmgw_otparuhitel/retailer_id</config_path>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>
