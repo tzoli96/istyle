@@ -29,7 +29,7 @@
     $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::DEFAULT_VIEW;
     $description = false;
     ?>
-    <div class="block widget block-products-list <?php /* @escapeNotVerified */ echo $mode; ?>">
+    <div class="block widget block-products-list link-extended <?php /* @escapeNotVerified */ echo $mode; ?>" data-items-slider="true">
         <?php if ($title): ?>
             <h2 class="block-title"><?php /* @escapeNotVerified */ echo $title; ?></h2>
         <?php endif ?>
@@ -141,4 +141,9 @@
             <?php echo $block->getPagerHtml() ?>
         </div>
     </div>
+    <script type="text/javascript">
+        require([
+            'oander.items-slider'
+        ]);
+    </script>
 <?php endif;?>
