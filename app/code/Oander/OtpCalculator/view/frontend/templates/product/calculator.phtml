@@ -16,25 +16,40 @@
     require([
       'jquery'
     ], function ($) {
-      // to ensure that code evaluates on page load
       $(function () {
         var $productPrice = $('.product-info-price [data-role=priceBox]');
-        var otp = $('#otp-calculator');
 
         $productPrice.on('updatePrice', function () {
-          var url = otp.attr('src');
-          var urlPath = url.split('?')[0];
-          var urlParams = url.split('?')[1].split('&');
           var $priceBoxWidget = $productPrice.data('mage-priceBox').cache.displayPrices;
 
           if (!$.isEmptyObject($priceBoxWidget)) {
             var finalPrice = Math.round($productPrice.data('mage-priceBox').cache.displayPrices.finalPrice.final);
-            if (!isNaN(finalPrice)) {
-              urlParams[0] = urlParams[0].split('=')[0] + '=' + finalPrice;
-              otp.attr('src', urlPath + '?' + urlParams.join('&'))
-            }
+            updateUrl(finalPrice);
           }
         });
+
+        var bundleOptionsWrapper = $('.bundle-options-wrapper');
+        var optionSelector = 'input.bundle.option, select.bundle.option, textarea.bundle.option';
+
+        bundleOptionsWrapper.find(optionSelector).on('change', function () {
+          setTimeout(function () {
+            var $productPrice = $('.price-configured_price');
+            var finalPrice = Math.round($productPrice.data('mage-priceBox').cache.displayPrices.finalPrice.final);
+            updateUrl(finalPrice);
+          }, 50)
+        });
+
+        function updateUrl(price) {
+          var otp = $('#otp-calculator');
+          var url = otp.attr('src');
+          var urlPath = url.split('?')[0];
+          var urlParams = url.split('?')[1].split('&');
+
+          if (!isNaN(price)) {
+            urlParams[0] = urlParams[0].split('=')[0] + '=' + price;
+            otp.attr('src', urlPath + '?' + urlParams.join('&'))
+          }
+        }
 
       });
     });
