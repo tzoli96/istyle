@@ -180,7 +180,7 @@ class Config extends AbstractHelper
 
         if ($hasAttributeSet) {
             return $this->scopeConfig->getValue(
-                'customer/address/dob_show',
+                'customer/address/show_address_dob',
                 ScopeInterface::SCOPE_STORE
             );
         } else {
@@ -193,10 +193,15 @@ class Config extends AbstractHelper
      */
     public function getDobAttributeSets()
     {
-        return (array)$this->scopeConfig->getValue(
+        $value = (string)$this->scopeConfig->getValue(
             'customer/address/dob_attribute_sets',
             ScopeInterface::SCOPE_STORE
         );
+        if (strpos($value, ',') !== false) {
+            $value = explode(',',$value);
+        }
+
+        return (array)$value;
     }
 
     /**

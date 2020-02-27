@@ -1,5 +1,3 @@
-/*jshint browser:true jquery:true*/
-/*global alert*/
 define([
     'jquery',
     'mage/utils/wrapper',
@@ -15,10 +13,13 @@ define([
                 shippingAddress['extension_attributes'] = {};
             }
 
-            console.dir(shippingAddress);
-            shippingAddress['extension_attributes']['dob'] = shippingAddress.customAttributes['dob'];
-            shippingAddress['extension_attributes']['pfpj_reg_no'] = shippingAddress.customAttributes['pfpj_reg_no'];
-            // pass execution to original action ('Magento_Checkout/js/action/set-shipping-information')
+            if (typeof shippingAddress.customAttributes['dob']!== 'undefined') {
+                shippingAddress['extension_attributes']['dob'] = shippingAddress.customAttributes['dob'];
+            }
+            if (typeof shippingAddress.customAttributes['pfpj_reg_no']!== 'undefined') {
+                shippingAddress['extension_attributes']['pfpj_reg_no'] = shippingAddress.customAttributes['pfpj_reg_no'];
+            }
+
             return originalAction();
         });
     };
