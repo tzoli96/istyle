@@ -15,9 +15,9 @@ define([
                 shippingAddress['extension_attributes'] = {};
             }
 
-            console.dir(shippingAddress);
+          /*  console.dir(shippingAddress);
             shippingAddress['extension_attributes']['dob'] = shippingAddress.customAttributes['dob'];
-            shippingAddress['extension_attributes']['pfpj_reg_no'] = shippingAddress.customAttributes['pfpj_reg_no'];
+            shippingAddress['extension_attributes']['pfpj_reg_no'] = shippingAddress.customAttributes['pfpj_reg_no'];*/
             // pass execution to original action ('Magento_Checkout/js/action/set-shipping-information')
             return originalAction();
         });
