@@ -15,11 +15,21 @@ define([
             }
 
             if (typeof shippingAddress.customAttributes !== 'undefined') {
-                if (typeof shippingAddress.customAttributes['dob'].value !== 'undefined') {
-                    shippingAddress['extension_attributes']['dob'] = shippingAddress.customAttributes['dob'].value;
+                if (typeof shippingAddress.customAttributes['dob'] !== 'undefined') {
+                    if (typeof shippingAddress.customAttributes['dob'] === 'string') {
+                        shippingAddress['extension_attributes']['dob'] = shippingAddress.customAttributes['dob'];
+                    } else if (typeof shippingAddress.customAttributes['dob'].value !== 'undefined') {
+                        shippingAddress['extension_attributes']['dob'] = shippingAddress.customAttributes['dob'].value;
+                    }
                 }
-                if (typeof shippingAddress.customAttributes['pfpj_reg_no'].value !== 'undefined') {
-                    shippingAddress['extension_attributes']['pfpj_reg_no'] = shippingAddress.customAttributes['pfpj_reg_no'].value;
+
+
+                if (typeof shippingAddress.customAttributes['pfpj_reg_no'] !== 'undefined') {
+                    if (typeof shippingAddress.customAttributes['pfpj_reg_no'] === 'string') {
+                        shippingAddress['extension_attributes']['pfpj_reg_no'] = shippingAddress.customAttributes['pfpj_reg_no'];
+                    } else if (typeof shippingAddress.customAttributes['pfpj_reg_no'].value !== 'undefined') {
+                        shippingAddress['extension_attributes']['pfpj_reg_no'] = shippingAddress.customAttributes['pfpj_reg_no'].value;
+                    }
                 }
             }
 
