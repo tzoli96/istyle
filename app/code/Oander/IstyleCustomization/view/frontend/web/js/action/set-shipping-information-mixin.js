@@ -15,11 +15,11 @@ define([
             }
 
             if (typeof shippingAddress.customAttributes !== 'undefined') {
-                if (typeof shippingAddress.customAttributes['dob'] !== 'undefined') {
-                    shippingAddress['extension_attributes']['dob'] = shippingAddress.customAttributes['dob'];
+                if (typeof shippingAddress.customAttributes['dob'].value !== 'undefined') {
+                    shippingAddress['extension_attributes']['dob'] = shippingAddress.customAttributes['dob'].value;
                 }
-                if (typeof shippingAddress.customAttributes['pfpj_reg_no'] !== 'undefined') {
-                    shippingAddress['extension_attributes']['pfpj_reg_no'] = shippingAddress.customAttributes['pfpj_reg_no'];
+                if (typeof shippingAddress.customAttributes['pfpj_reg_no'].value !== 'undefined') {
+                    shippingAddress['extension_attributes']['pfpj_reg_no'] = shippingAddress.customAttributes['pfpj_reg_no'].value;
                 }
             }
 

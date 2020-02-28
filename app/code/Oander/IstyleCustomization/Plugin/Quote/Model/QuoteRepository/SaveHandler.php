@@ -28,9 +28,9 @@ class SaveHandler
                         $address->setPfpjRegNo($address->getExtensionAttributes()->getPfpjRegNo());
                     }
                     if ($address->getExtensionAttributes() && $address->getExtensionAttributes()->getDob()) {
-                        $address->setDob(date('Y-m-d', strtotime($address->getExtensionAttributes()->getDob())));
+                        $address->setDob((string)date('Y-m-d', strtotime($address->getExtensionAttributes()->getDob())));
                     } elseif ($quote->getCustomer() && $quote->getCustomer()->getDob()) {
-                        $address->setDob(date('Y-m-d', strtotime($quote->getCustomer()->getDob())));
+                        $address->setDob((string)date('Y-m-d', strtotime($quote->getCustomer()->getDob())));
                     }
                 }
             }
@@ -42,9 +42,9 @@ class SaveHandler
                 $address->setPfpjRegNo($address->getExtensionAttributes()->getPfpjRegNo());
             }
             if ($address->getExtensionAttributes() && $address->getExtensionAttributes()->getDob()) {
-                $address->setDob(date('Y-m-d', strtotime($address->getExtensionAttributes()->getDob())));
+                $address->setDob((string)date('Y-m-d', strtotime($address->getExtensionAttributes()->getDob())));
             } elseif ($quote->getCustomer() && $quote->getCustomer()->getDob()) {
-                $address->setDob(date('Y-m-d', strtotime($quote->getCustomer()->getDob())));
+                $address->setDob((string)date('Y-m-d', strtotime($quote->getCustomer()->getDob())));
             }
         }
 

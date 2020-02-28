@@ -61,9 +61,9 @@ class ToOrderAddress
         }
 
         if($object->getDob()) {
-            $orderAddress->setDob($object->getDob());
+            $orderAddress->setDob((string)$object->getDob());
         } elseif ($object->getQuote()->getCustomer() && $object->getQuote()->getCustomer()->getDob()) {
-            $orderAddress->setDob(date('Y-m-d', strtotime($object->getQuote()->getCustomer()->getDob())));
+            $orderAddress->setDob((string)date('Y-m-d', strtotime($object->getQuote()->getCustomer()->getDob())));
         }
 
         return $orderAddress;
