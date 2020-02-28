@@ -64,7 +64,9 @@
     <type name="Magento\Catalog\Block\Product\View">
         <plugin name="catalog_helper_plugin" type="Oander\IstyleCustomization\Plugin\Catalog\Block\Product\View" sortOrder="100"/>
     </type>
-
+    <type name="Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend">
+        <plugin name="IstyleCustomization::AttributeAbstractBackend" type="Oander\IstyleCustomization\Plugin\Eav\Model\Entity\Attribute\Backend\AbstractBackend" sortOrder="100"/>
+    </type>
     <preference for="Bigfishpaymentgateway\Pmgw\Block\Info" type="Oander\IstyleCustomization\Block\Info"/>
     <preference for="Bigfishpaymentgateway\Pmgw\Block\Success" type="Oander\IstyleCustomization\Block\Success"/>
 </config>

@@ -23,22 +23,28 @@ class SaveHandler
             $shippingAssignment = current($extensionAttributes->getShippingAssignments());
             if ($shippingAssignment && $shipping = $shippingAssignment->getShipping()) {
                 $address = $shipping->getAddress();
-                if ($address && $extensionAttributes = $address->getExtensionAttributes()) {
-                    if ($extensionAttributes && $data = $extensionAttributes->getPfpjRegNo()) {
-                        $address->setPfpjRegNo($data);
-                    } elseif ($extensionAttributes && $data = $extensionAttributes->getDob()) {
-                        $address->setDob(date('Y-m-d', strtotime($data)));
+                if ($address) {
+                    if ($address->getExtensionAttributes() && $address->getExtensionAttributes()->getPfpjRegNo()) {
+                        $address->setPfpjRegNo($address->getExtensionAttributes()->getPfpjRegNo());
+                    }
+                    if ($address->getExtensionAttributes() && $address->getExtensionAttributes()->getDob()) {
+                        $address->setDob((string)date('Y-m-d', strtotime($address->getExtensionAttributes()->getDob())));
+                    } elseif ($quote->getCustomer() && $quote->getCustomer()->getDob()) {
+                        $address->setDob((string)date('Y-m-d', strtotime($quote->getCustomer()->getDob())));
                     }
                 }
             }
         }
 
         $address = $quote->getBillingAddress();
-        if ($address && $extensionAttributes = $address->getExtensionAttributes()) {
-            if ($extensionAttributes && $data = $extensionAttributes->getPfpjRegNo()) {
-                $address->setPfpjRegNo($data);
-            } elseif ($extensionAttributes && $data = $extensionAttributes->getDob()) {
-                $address->setDob(date('Y-m-d', strtotime($data)));
+        if ($address) {
+            if ($address->getExtensionAttributes() && $address->getExtensionAttributes()->getPfpjRegNo()) {
+                $address->setPfpjRegNo($address->getExtensionAttributes()->getPfpjRegNo());
+            }
+            if ($address->getExtensionAttributes() && $address->getExtensionAttributes()->getDob()) {
+                $address->setDob((string)date('Y-m-d', strtotime($address->getExtensionAttributes()->getDob())));
+            } elseif ($quote->getCustomer() && $quote->getCustomer()->getDob()) {
+                $address->setDob((string)date('Y-m-d', strtotime($quote->getCustomer()->getDob())));
             }
         }
 
