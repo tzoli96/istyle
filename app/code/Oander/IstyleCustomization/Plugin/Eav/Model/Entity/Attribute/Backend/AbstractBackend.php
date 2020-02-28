@@ -3,6 +3,8 @@
 namespace Oander\IstyleCustomization\Plugin\Eav\Model\Entity\Attribute\Backend;
 
 use Magento\Framework\Exception\LocalizedException;
+use Magento\Checkout\Model\Session;
+use Oander\IstyleCustomization\Helper\Config;
 
 /**
  * Class AbstractBackend
@@ -10,6 +12,29 @@ use Magento\Framework\Exception\LocalizedException;
  */
 class AbstractBackend
 {
+    /**
+     * @var Config
+     */
+    protected $config;
+
+    /**
+     * @var Session
+     */
+    protected $session;
+
+    /**
+     * AbstractBackend constructor.
+     * @param Session $session
+     * @param Config $config
+     */
+    public function __construct(
+        Session $session,
+        Config $config
+    ) {
+        $this->config = $config;
+        $this->session = $session;
+    }
+
     /**
      * Validate object
      *
@@ -23,15 +48,20 @@ class AbstractBackend
         \Closure $proceed,
         $object
     ) {
+        $result = false;
+
         try {
             $result = $proceed($object);
         } catch (LocalizedException $exception) {
             if (isset($exception->getParameters()[0]) &&
-                ($exception->getParameters()[0] == 'show_address_dob'
-                    || $exception->getParameters()[0] == 'show_pfpj_reg_no'
-                    || $exception->getParameters()[0] == 'address_dob')
+                $exception->getParameters()[0] == 'dob'
             ) {
-                $result = true;
+                if ($quote = $this->session->getQuote()) {
+                    $quoteItems = $this->session->getQuote()->getAllItems();
+                    if ($this->config->getDobShow($quoteItems) !== 'req') {
+                        $result = true;
+                    }
+                }
             }
         }
 

@@ -180,7 +180,7 @@ class Config extends AbstractHelper
 
         if ($hasAttributeSet) {
             return $this->scopeConfig->getValue(
-                'customer/address/show_address_dob',
+                'customer/address/dob_show',
                 ScopeInterface::SCOPE_STORE
             );
         } else {
