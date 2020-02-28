@@ -1,8 +1,9 @@
 define([
     'jquery',
     'mage/utils/wrapper',
-    'Magento_Checkout/js/model/quote'
-], function ($, wrapper, quote) {
+    'Magento_Checkout/js/model/quote',
+    'Magento_Customer/js/model/customer'
+], function ($, wrapper, quote,customer) {
     'use strict';
 
     return function (setShippingInformationAction) {
@@ -20,6 +21,13 @@ define([
                 if (typeof shippingAddress.customAttributes['pfpj_reg_no'] !== 'undefined') {
                     shippingAddress['extension_attributes']['pfpj_reg_no'] = shippingAddress.customAttributes['pfpj_reg_no'];
                 }
+            }
+
+            if (typeof shippingAddress['extension_attributes']['dob'] == 'undefined'
+                && typeof customer.customerData !== 'undefined'
+                && typeof customer.customerData.dob !== 'undefined'
+            ) {
+                shippingAddress['extension_attributes']['dob'] = customer.customerData.dob;
             }
 
             return originalAction();

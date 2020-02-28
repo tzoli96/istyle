@@ -68,7 +68,7 @@ class LayoutProcessor
         $dobShow = $this->configHelper->getDobShow($quoteItems);
 
         $showPfpjRegNo = $this->scopeConfig->getValue('customer/address/show_pfpj_reg_no', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
-;        if($showPfpjRegNo == 'req') {
+        if($showPfpjRegNo == 'req') {
             $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
             ['shippingAddress']['children']['shipping-address-fieldset']['children']['pfpj_reg_no'] = [
                 'component' => 'Magento_Ui/js/form/element/abstract',

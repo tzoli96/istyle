@@ -53,14 +53,17 @@ class AbstractBackend
         try {
             $result = $proceed($object);
         } catch (LocalizedException $exception) {
-            if (isset($exception->getParameters()[0]) &&
-                $exception->getParameters()[0] == 'dob'
-            ) {
-                if ($quote = $this->session->getQuote()) {
+
+            if (isset($exception->getParameters()[0])) {
+                if ($exception->getParameters()[0] == 'dob'
+                    && $quote = $this->session->getQuote()
+                ) {
                     $quoteItems = $this->session->getQuote()->getAllItems();
                     if ($this->config->getDobShow($quoteItems) !== 'req') {
                         $result = true;
                     }
+                } elseif ($exception->getParameters()[0] == 'show_pfpj_reg_no') {
+                    $result = true;
                 }
             }
         }
