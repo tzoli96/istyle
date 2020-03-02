@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b2f8c6333a2b23322585de6529fd533a",
+    "content-hash": "1b507228156a253d000a077104bbee49",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8385,11 +8385,11 @@
         },
         {
             "name": "oander/module-applepay",
-            "version": "1.0.2.17",
+            "version": "1.0.2.18",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-applepay.git",
-                "reference": "c30ec86a35eb1f6451e23c62071b94c3615c5658"
+                "reference": "6e2e03d536cb31a3c923f5ce00ebb3f26a8d77dd"
             },
             "require": {
                 "oander/module-checkout": ">=1.1.0",
@@ -8408,7 +8408,7 @@
                 "proprietary"
             ],
             "description": "Apple Pay payment method",
-            "time": "2019-10-03T15:07:02+00:00"
+            "time": "2020-03-02T15:10:08+00:00"
         },
         {
             "name": "oander/module-autorelated-warehouse-manager-extender",
@@ -10217,7 +10217,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "822e5c098c8e15d38496ab2cb77341eee0c1b942"
+                "reference": "6619392b645b0e12f31df2853576736d7969f538"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10233,7 +10233,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2020-02-27T12:30:36+00:00"
+            "time": "2020-03-02T15:20:02+00:00"
         },
         {
             "name": "oyejorge/less.php",
