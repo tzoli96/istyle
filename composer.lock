@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "12c36e1be9839838c9b7ffd35c29fb92",
+    "content-hash": "8e024c4228953b27c81789f240bb333e",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -10162,11 +10162,11 @@
         },
         {
             "name": "oander/module-zbozi",
-            "version": "1.0.0.0",
+            "version": "1.0.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-zbozi.git",
-                "reference": "9f03a6f85ffe56407dd9b5b931cbc61d3081a1c7"
+                "reference": "84d6c405c4ccc665de230565d589dfe936431734"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10185,7 +10185,7 @@
                 "proprietary"
             ],
             "description": "Zbozi Tracking",
-            "time": "2020-03-02T00:00:39+00:00"
+            "time": "2020-03-02T01:01:14+00:00"
         },
         {
             "name": "oander/theme-hodor",
