@@ -16,7 +16,7 @@ if ($config->isDefaultSelector()): ?>
             <a href="#" class="action showsearch skip-link" id="algolia-showsearch">
                 <i class="icon icon-search"></i>
                 <span class="showsearch-text"><?php echo __('Search') ?></span>
-                <i class="close-icon">×</i>
+                <i class="icon icon-close"></i>
             </a>
         </div>
 
@@ -36,11 +36,9 @@ if ($config->isDefaultSelector()): ?>
                     <input id="search" type="text" name="<?php echo $catalogSearchHelper->getQueryParamName() ?>" class="input-text form-control algolia-search-input" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" placeholder="<?php echo $placeholder; ?>" />
                     <span class="clear-cross clear-query-autocomplete" style="display: none;">×</span>
                     <span id="algolia-glass" class="magnifying-glass" width="24" height="24"></span>
+                    <div class="algolia-suggestion"><?php echo $helper->getSearchBlock(); ?></div>
                 </div>
             </form>
-            <div class="header-right-backdrop"><?php echo $helper->getSearchBlock(); ?></div>
         </div>
-
-        <div class="header-right-backdrop"></div>
     </div>
 <?php endif; ?>
