@@ -73,10 +73,10 @@ if [ "${INSTANCE_ID}" == "${DEV_MASTER_ID}" ]; then
   find /mnt/istyle-storage/istyle/dbdumps/ -type f -mtime +7 -print0 | xargs -0 rm -f
   [ $? -eq 0 ] && echo OK || echo FAIL
 
-  echo -n " * BACKUP ALL DEV DATABASES ... "
-  mysqldump --routines --triggers --databases istyle-dev istyle-warehousemanager-dev istyle-apigateway-dev > ${DUMP_FILE}
-  [ $? -eq 0 ] && echo OK || echo FAIL
-  sed -i 's/`istylem2`@`%`/`root`@`%`/g' ${DUMP_FILE}
+  #echo -n " * BACKUP ALL DEV DATABASES ... "
+  #mysqldump --routines --triggers --databases istyle-dev istyle-warehousemanager-dev istyle-apigateway-dev > ${DUMP_FILE}
+  #[ $? -eq 0 ] && echo OK || echo FAIL
+  #sed -i 's/`istylem2`@`%`/`root`@`%`/g' ${DUMP_FILE}
 
   echo -n " * DELETE VENDOR DIRECTORY ... "
   if rm -rf ${WEBROOT}/vendor/*; then echo OK; else echo FAIL; fi
