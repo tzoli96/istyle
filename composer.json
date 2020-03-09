@@ -200,5 +200,12 @@
     ],
     "extra": {
         "magento-force": "override"
+    },
+    "sonarData": {
+        "envMap": {
+            "dev": "aws-deploy-dev",
+            "staging": "aws-deploy-staging",
+            "prod": "aws-deploy"
+        }
     }
 }
