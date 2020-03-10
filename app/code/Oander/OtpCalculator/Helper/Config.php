@@ -61,6 +61,17 @@ class Config extends AbstractHelper
     /**
      * @return string
      */
+    public function getTerm(): string
+    {
+        return (string)$this->scopeConfig->getValue(
+            self::PAYMENT_CONFIG_PATH.'term',
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * @return string
+     */
     public function getConstructionGroup(): string
     {
         return (string)$this->scopeConfig->getValue(

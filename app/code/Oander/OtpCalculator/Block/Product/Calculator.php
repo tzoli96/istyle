@@ -74,6 +74,6 @@ class Calculator extends Template
      */
     public function getIframeUrl()
     {
-        return sprintf(Iframe::URL_WITH_PARAMS,$this->getProductPrice(),$this->config->getConstructionGroup(),$this->config->getRetailerId());
+        return sprintf(Iframe::URL_WITH_PARAMS,$this->getProductPrice(),$this->config->getConstructionGroup(),$this->config->getRetailerId(),$this->config->getTerm());
     }
 }

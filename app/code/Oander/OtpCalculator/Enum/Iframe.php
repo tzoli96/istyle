@@ -12,5 +12,6 @@ final class Iframe
     const PURCHASE_PRICE = 'purchasePrice';
     const CONSTRUCTION_GROUP = 'constructionGroup';
     const RETAILER_ID = 'retailerId';
-    const URL_WITH_PARAMS = 'https://aruhitel.otpbank.hu/webshop/webshop-calculator.html?'.self::PURCHASE_PRICE.'=%s&'.self::CONSTRUCTION_GROUP.'=%s&'.self::RETAILER_ID.'=%s';
+    const TERM = 'term';
+    const URL_WITH_PARAMS = 'https://aruhitel.otpbank.hu/webshop/webshop-calculator.html?'.self::PURCHASE_PRICE.'=%s&'.self::CONSTRUCTION_GROUP.'=%s&'.self::RETAILER_ID.'=%s&'.self::TERM.'=%s';
 }
