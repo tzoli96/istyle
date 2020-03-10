@@ -9,6 +9,9 @@
     </type>
     <preference for="Magento\Catalog\Block\Product\View" type="Oander\IstyleCustomization\Block\Product\View"/>
     <preference for="Magento\Catalog\Block\Category\View" type="Oander\IstyleCustomization\Block\Category\View"/>
+    <type name="Magento\Payment\Gateway\Data\Order\OrderAdapter">
+        <plugin disabled="false" name="Oander_IstyleCustomization_Plugin_Magento_Payment_Gateway_Data_Order_OrderAdapter" sortOrder="10" type="Oander\IstyleCustomization\Plugin\Magento\Payment\Gateway\Data\Order\OrderAdapter"/>
+    </type>
     <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
         <plugin name="logProductName" type="Oander\IstyleCustomization\Plugin\Checkout\Model\Checkout\LayoutProcessor"
                 sortOrder="10" />
