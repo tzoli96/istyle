@@ -19,7 +19,8 @@ define([], function () {
         return url += '' +
           '?purchasePrice=' + grandTotal + '' +
           '&constructionGroup=' + provider.construction_group + '' +
-          '&retailerId=' + provider.retailer_id;
+          '&retailerId=' + provider.retailer_id + '' +
+          '&term=' + provider.term;
       },
 
       getProviderObj: function () {

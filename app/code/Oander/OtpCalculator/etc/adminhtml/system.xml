@@ -41,6 +41,10 @@
                         <label>Retailer ID</label>
                         <config_path>payment/bigfishpaymentgateway_pmgw_otparuhitel/retailer_id</config_path>
                     </field>
+                    <field id="term" translate="label" type="text" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Default tenor</label>
+                        <config_path>payment/bigfishpaymentgateway_pmgw_otparuhitel/term</config_path>
+                    </field>
                 </group>
             </group>
         </section>

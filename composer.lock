@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b3e6337223c0f209866b1953c4583f8b",
+    "content-hash": "02017895064edbe1209387eb47803803",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -292,6 +292,10 @@
                 "url": "git@github.com:oandermedia/amasty-shiprestriction.git",
                 "reference": "3370bb88bbb506445284b4f7c11fc6aaff4fec02"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/community/packages/shiprestriction-2.0.6.zip"
+            },
             "require": {
                 "amasty/base": ">=1.0.8",
                 "amasty/system-common-rules": ">=2.0.5",
@@ -309,8 +313,7 @@
             "license": [
                 "Commercial"
             ],
-            "description": "Shipping Restrictions By Amasty",
-            "time": "2019-01-28T15:59:07+00:00"
+            "description": "Shipping Restrictions By Amasty"
         },
         {
             "name": "amasty/system-common-rules",
@@ -9958,6 +9961,33 @@
             "time": "2018-04-16T15:10:29+00:00"
         },
         {
+            "name": "oander/module-zbozi",
+            "version": "1.0.0.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/module-zbozi.git",
+                "reference": "d163dc3164d1d879b48f2218fe5a6deac8539f12"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\Zbozi\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Zbozi Tracking",
+            "time": "2020-03-02T09:23:07+00:00"
+        },
+        {
             "name": "oander/theme-hodor",
             "version": "dev-istyle",
             "source": {
@@ -9983,11 +10013,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.243",
+            "version": "1.0.244",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "90e98217f60b12be21dbb3824da6e371e9843129"
+                "reference": "0fd41b1f43187a069522e79116503541257a91f0"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10003,7 +10033,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2020-02-27T12:31:25+00:00"
+            "time": "2020-03-11T11:46:51+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -11041,16 +11071,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.37",
+            "version": "v3.4.38",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "a90a9d3b9f458a5cdeabfa4090b20c000ca3962f"
+                "reference": "5ec813ccafa8164ef21757e8c725d3a57da59200"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/a90a9d3b9f458a5cdeabfa4090b20c000ca3962f",
-                "reference": "a90a9d3b9f458a5cdeabfa4090b20c000ca3962f",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/5ec813ccafa8164ef21757e8c725d3a57da59200",
+                "reference": "5ec813ccafa8164ef21757e8c725d3a57da59200",
                 "shasum": ""
             },
             "require": {
@@ -11086,7 +11116,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2020-01-01T11:03:25+00:00"
+            "time": "2020-02-14T07:34:21+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -14171,7 +14201,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.37",
+            "version": "v3.4.38",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
