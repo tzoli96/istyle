@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "02017895064edbe1209387eb47803803",
+    "content-hash": "d6bc21c26f1879df965e2e7d12bde72e",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -292,10 +292,6 @@
                 "url": "git@github.com:oandermedia/amasty-shiprestriction.git",
                 "reference": "3370bb88bbb506445284b4f7c11fc6aaff4fec02"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://composer.amasty.com/community/packages/shiprestriction-2.0.6.zip"
-            },
             "require": {
                 "amasty/base": ">=1.0.8",
                 "amasty/system-common-rules": ">=2.0.5",
@@ -313,7 +309,8 @@
             "license": [
                 "Commercial"
             ],
-            "description": "Shipping Restrictions By Amasty"
+            "description": "Shipping Restrictions By Amasty",
+            "time": "2019-01-28T15:59:07+00:00"
         },
         {
             "name": "amasty/system-common-rules",
@@ -9962,11 +9959,11 @@
         },
         {
             "name": "oander/module-zbozi",
-            "version": "1.0.0.2",
+            "version": "1.0.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-zbozi.git",
-                "reference": "d163dc3164d1d879b48f2218fe5a6deac8539f12"
+                "reference": "9b4b97114a0aab22bdc93382a7036fe2f5c6c590"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9985,7 +9982,7 @@
                 "proprietary"
             ],
             "description": "Zbozi Tracking",
-            "time": "2020-03-02T09:23:07+00:00"
+            "time": "2020-03-12T09:16:48+00:00"
         },
         {
             "name": "oander/theme-hodor",
