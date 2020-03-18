@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a8184c3b88e9bee4787454e86f1b5dd8",
+    "content-hash": "d9800735d943a9a294dfed34e1f88051",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1753,11 +1753,11 @@
         },
         {
             "name": "innobyte/module-cetelem",
-            "version": "1.0.1.4",
+            "version": "dev-#41554-updated",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-cetelem.git",
-                "reference": "3fb9f45bf0937a2687d50bcc9ad1132124d8c00b"
+                "reference": "1aa6d9f42d56b8318797b32949294b08b6d18df6"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1773,7 +1773,7 @@
                 }
             },
             "description": "Innobyte Cetelem Module",
-            "time": "2020-03-13T11:38:07+00:00"
+            "time": "2020-03-18T10:06:43+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
@@ -2210,16 +2210,16 @@
         },
         {
             "name": "liquid/liquid",
-            "version": "1.4.17",
+            "version": "1.4.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kalimatas/php-liquid.git",
-                "reference": "f844cd90047f6240e473b90ed8e597823fcfe967"
+                "reference": "2bf1685147e8e5e2ced8e72808666cd6ecd22434"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kalimatas/php-liquid/zipball/f844cd90047f6240e473b90ed8e597823fcfe967",
-                "reference": "f844cd90047f6240e473b90ed8e597823fcfe967",
+                "url": "https://api.github.com/repos/kalimatas/php-liquid/zipball/2bf1685147e8e5e2ced8e72808666cd6ecd22434",
+                "reference": "2bf1685147e8e5e2ced8e72808666cd6ecd22434",
                 "shasum": ""
             },
             "require": {
@@ -2270,7 +2270,7 @@
                 "liquid",
                 "template"
             ],
-            "time": "2019-09-14T03:05:44+00:00"
+            "time": "2020-03-18T09:11:14+00:00"
         },
         {
             "name": "magento/composer",
@@ -10217,7 +10217,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "80a143eed87b5b9399d2c243ecfa5785e7a34748"
+                "reference": "b2d574181b2f6dbf536d586877fe874cdc613b5b"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10233,7 +10233,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2020-03-12T15:01:44+00:00"
+            "time": "2020-03-18T10:08:51+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -14554,6 +14554,7 @@
     "minimum-stability": "alpha",
     "stability-flags": {
         "composer/composer": 15,
+        "innobyte/module-cetelem": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-multislider": 20,
         "oander/module-news": 20,

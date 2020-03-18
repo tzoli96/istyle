@@ -27,7 +27,7 @@
         "infobeans/magento2-flatrate5": "1.0.1",
         "innobyte/magento2-payu": "1.1.8",
         "innobyte/module-bnpparibas": "0.0.6",
-        "innobyte/module-cetelem": "1.0.1.4",
+        "innobyte/module-cetelem": "dev-#41554-updated",
         "innobyte/module-checkout-success": "0.0.3",
         "innobyte/module-inbank": "1.0.1.1",
         "innobyte/module-mstart": "0.0.1",
