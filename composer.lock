@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d9800735d943a9a294dfed34e1f88051",
+    "content-hash": "d4d991dd0daa66b505f5684a8eaa9843",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7954,11 +7954,11 @@
         },
         {
             "name": "oander/module-amasty-xnotif-bundle-price-switcher-extender",
-            "version": "1.0.0.3",
+            "version": "1.0.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-amasty-xnotif-bundle-price-switcher-extender.git",
-                "reference": "985d8e5c61ca4aba1fd000c686a9c2de9ced6eba"
+                "reference": "517bf46a4d46ce2d447fa0b706cdbc653271f8a3"
             },
             "require": {
                 "amasty/xnotif": "*",
@@ -7979,7 +7979,7 @@
                 "proprietary"
             ],
             "description": "Oander_AmastyXnotifBundlePriceSwitcherExtender",
-            "time": "2019-10-21T10:36:42+00:00"
+            "time": "2020-03-19T15:31:26+00:00"
         },
         {
             "name": "oander/module-amasty-xnotif-extender",
@@ -8010,11 +8010,11 @@
         },
         {
             "name": "oander/module-amasty-xnotif-warehouse-manager-extender",
-            "version": "1.0.0.12",
+            "version": "1.0.0.13",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-amasty-xnotif-warehouse-manager-extender.git",
-                "reference": "2b69e215d1bedf853786e25276d0335a19f17a74"
+                "reference": "d99cc17c4e24affc4d3f4853f6bd43057d014405"
             },
             "require": {
                 "amasty/xnotif": "*",
@@ -8035,7 +8035,7 @@
                 "proprietary"
             ],
             "description": "Oander_AmastyXnotifWarehouseManagerExtender",
-            "time": "2020-02-25T09:36:34+00:00"
+            "time": "2020-03-19T12:19:36+00:00"
         },
         {
             "name": "oander/module-api-base",
