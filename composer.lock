@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "08b5d1a730a82628dacd71cea40b6775",
+    "content-hash": "7d5bbab7ece4c1451932c8fd166de0bc",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1757,11 +1757,11 @@
         },
         {
             "name": "innobyte/module-cetelem",
-            "version": "1.0.1.2",
+            "version": "1.0.1.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-cetelem.git",
-                "reference": "aae6bcae97818dbd5c07fc1e5b530032a697403c"
+                "reference": "6f28eccdd58873c49e7ae438c46b936598377bb0"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1777,7 +1777,7 @@
                 }
             },
             "description": "Innobyte Cetelem Module",
-            "time": "2019-11-11T13:18:20+00:00"
+            "time": "2020-03-19T16:26:52+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
@@ -2167,16 +2167,16 @@
         },
         {
             "name": "liquid/liquid",
-            "version": "1.4.17",
+            "version": "1.4.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kalimatas/php-liquid.git",
-                "reference": "f844cd90047f6240e473b90ed8e597823fcfe967"
+                "reference": "2bf1685147e8e5e2ced8e72808666cd6ecd22434"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kalimatas/php-liquid/zipball/f844cd90047f6240e473b90ed8e597823fcfe967",
-                "reference": "f844cd90047f6240e473b90ed8e597823fcfe967",
+                "url": "https://api.github.com/repos/kalimatas/php-liquid/zipball/2bf1685147e8e5e2ced8e72808666cd6ecd22434",
+                "reference": "2bf1685147e8e5e2ced8e72808666cd6ecd22434",
                 "shasum": ""
             },
             "require": {
@@ -2227,7 +2227,7 @@
                 "liquid",
                 "template"
             ],
-            "time": "2019-09-14T03:05:44+00:00"
+            "time": "2020-03-18T09:11:14+00:00"
         },
         {
             "name": "magento/composer",
@@ -7885,11 +7885,11 @@
         },
         {
             "name": "oander/module-amasty-xnotif-bundle-price-switcher-extender",
-            "version": "1.0.0.3",
+            "version": "1.0.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-amasty-xnotif-bundle-price-switcher-extender.git",
-                "reference": "985d8e5c61ca4aba1fd000c686a9c2de9ced6eba"
+                "reference": "517bf46a4d46ce2d447fa0b706cdbc653271f8a3"
             },
             "require": {
                 "amasty/xnotif": "*",
@@ -7910,7 +7910,7 @@
                 "proprietary"
             ],
             "description": "Oander_AmastyXnotifBundlePriceSwitcherExtender",
-            "time": "2019-10-21T10:36:42+00:00"
+            "time": "2020-03-19T15:31:26+00:00"
         },
         {
             "name": "oander/module-amasty-xnotif-extender",
@@ -7941,11 +7941,11 @@
         },
         {
             "name": "oander/module-amasty-xnotif-warehouse-manager-extender",
-            "version": "1.0.0.12",
+            "version": "1.0.0.13",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-amasty-xnotif-warehouse-manager-extender.git",
-                "reference": "2b69e215d1bedf853786e25276d0335a19f17a74"
+                "reference": "d99cc17c4e24affc4d3f4853f6bd43057d014405"
             },
             "require": {
                 "amasty/xnotif": "*",
@@ -7966,7 +7966,7 @@
                 "proprietary"
             ],
             "description": "Oander_AmastyXnotifWarehouseManagerExtender",
-            "time": "2020-02-25T09:36:34+00:00"
+            "time": "2020-03-19T12:19:36+00:00"
         },
         {
             "name": "oander/module-api-base",
@@ -9032,11 +9032,11 @@
         },
         {
             "name": "oander/module-name-switcher",
-            "version": "1.0.10.3",
+            "version": "1.0.10.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-name-switcher.git",
-                "reference": "4f1a984eee313375aa2b5bd4bdc1a6c6082d1827"
+                "reference": "ad3b40ed3a8cd5b150c57340a29a81c7d8d23fec"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9055,7 +9055,7 @@
                 "proprietary"
             ],
             "description": "This module provides a feature to switch the last name and first name with each other",
-            "time": "2019-08-23T14:45:01+00:00"
+            "time": "2020-03-11T17:06:59+00:00"
         },
         {
             "name": "oander/module-news",
@@ -10010,11 +10010,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.244",
+            "version": "1.0.245",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "0fd41b1f43187a069522e79116503541257a91f0"
+                "reference": "c51750232681945c13511ab00c74a20a8c0ec71e"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10030,7 +10030,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2020-03-11T11:46:51+00:00"
+            "time": "2020-03-19T16:24:07+00:00"
         },
         {
             "name": "oyejorge/less.php",
