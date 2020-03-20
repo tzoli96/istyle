@@ -54,29 +54,24 @@
                 </field>
             </group>
         </section>
-        <section id="oander_product_description_lazy_load" translate="label" type="text" showInDefault="1"
-                 showInWebsite="1" showInStore="1">
+        <section id="oander_product_description_lazy_load" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Product Description Lazy Load</label>
             <resource>Oander_IstyleCustomization::config</resource>
             <tab>oander</tab>
-            <group id="basic" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
-                   showInStore="1">
+            <group id="basic" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Basic Description</label>
-                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="rejected_tags" translate="label" type="text" sortOrder="15" showInDefault="1"
-                       showInWebsite="0" showInStore="0">
+                <field id="rejected_tags" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Rejected Html Tags</label>
                     <comment>You can add several html tags separated by ;</comment>
                     <depends>
                         <field id="*/*/enabled">1</field>
                     </depends>
                 </field>
-                <field id="max_chars" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
+                <field id="max_chars" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Description length</label>
                     <comment>Max description chars to show on page load</comment>
                     <validate>validate-digits</validate>
@@ -84,38 +79,50 @@
                         <field id="*/*/enabled">1</field>
                     </depends>
                 </field>
-                <field id="postfix" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
+                <field id="postfix" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Description postfix</label>
                     <depends>
                         <field id="*/*/enabled">1</field>
                     </depends>
                 </field>
             </group>
-            <group id="river" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
-                   showInStore="1">
+            <group id="river" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>River Description</label>
-                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enabled</label>
-                    <comment>
-                        <![CDATA[You must use &#x3C;!-- river-end-white --&#x3E; or &#x3C;!-- river-end-black --&#x3E; html comment tag to separate the description]]></comment>
+                    <comment><![CDATA[You must use &#x3C;!-- river-end-white --&#x3E; or &#x3C;!-- river-end-black --&#x3E; html comment tag to separate the description]]></comment>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
             </group>
-            <group id="widget" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
-                   showInStore="1">
+            <group id="widget" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                 <label>Product Widget Description</label>
-                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="max_widget" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
-                       showInStore="1">
+                <field id="max_widget" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Widget blocks</label>
                     <validate>validate-digits</validate>
                     <comment>Max product description widgets to show on page load</comment>
+                    <depends>
+                        <field id="*/*/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+        <section id="oander_search_block" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Search Info Block</label>
+            <resource>Oander_IstyleCustomization::config</resource>
+            <tab>oander</tab>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="search_block" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Search Info Block</label>
+                    <source_model>Magento\Cms\Model\ResourceModel\Block\Collection</source_model>
                     <depends>
                         <field id="*/*/enabled">1</field>
                     </depends>

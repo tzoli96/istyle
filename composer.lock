@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d5bbab7ece4c1451932c8fd166de0bc",
+    "content-hash": "822a0660f3fb1d5476d99b594bdd5881",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9439,11 +9439,11 @@
         },
         {
             "name": "oander/module-product-widget-warehouse-manager-extender",
-            "version": "1.0.1.2",
+            "version": "1.0.1.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-product-widget-warehouse-manager-extender.git",
-                "reference": "b57362d59b496bfe4ddb166e9e03bc320b3e0bcd"
+                "reference": "a2fee20e3d516d19f7c1dd339d24939a3ae0309d"
             },
             "require": {
                 "oander/module-warehouse-manager-conditions": "*",
@@ -9461,7 +9461,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-07-15T08:00:01+00:00"
+            "time": "2020-02-14T15:07:45+00:00"
         },
         {
             "name": "oander/module-producturlresolver",

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="products_list">
+        <parameters>
+            <parameter name="subheadline" xsi:type="text" required="false" sort_order="0" visible="true">
+                <label translate="true">Subheadline</label>
+            </parameter>
+            <parameter name="link" xsi:type="text" required="false" sort_order="0" visible="true">
+                <label translate="true">Link</label>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="false">
+                <options>
+                    <option name="products_grid_with_extended_title" value="Oander_IstyleCustomization::widget/products_list/products_grid_with_extended_title.phtml">
+                        <label translate="true">Products Grid Template with extended title</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="new_products">
+        <parameters>
+            <parameter name="subheadline" xsi:type="text" required="false" sort_order="0" visible="true">
+                <label translate="true">Subheadline</label>
+            </parameter>
+            <parameter name="link" xsi:type="text" required="false" sort_order="0" visible="true">
+                <label translate="true">Link</label>
+            </parameter>
+            <parameter name="template" xsi:type="select" visible="false">
+                <options>
+                    <option name="products_grid_with_extended_title" value="Oander_IstyleCustomization::widget/new_products/products_grid_with_extended_title.phtml">
+                        <label translate="true">New Products Grid Template with extended title</label>
+                    </option>
+                </options>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

@@ -1,0 +1,44 @@
+<?php
+/** @var \Algolia\AlgoliaSearch\Block\Algolia $block */
+
+$config = $block->getConfigHelper();
+
+$catalogSearchHelper = $block->getCatalogSearchHelper();
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$helper = $objectManager->create(\Oander\IstyleCustomization\Helper\Config::class);
+
+$placeholder = __('Search for products, categories, ...');
+
+/** Render form with autocomplete input **/
+if ($config->isDefaultSelector()): ?>
+    <div class="header-right-block header-search" id="algolia-header-search">
+        <div class="block block-toggle hidden-md-down">
+            <a href="#" class="action showsearch skip-link" id="algolia-showsearch">
+                <i class="icon icon-search"></i>
+                <span class="showsearch-text"><?php echo __('Search') ?></span>
+                <i class="icon icon-close"></i>
+            </a>
+        </div>
+
+        <div class="block block-content header-search-content" style="display: none"
+             data-mage-init='{"dropdownDialog":{
+                "triggerTarget":"#algolia-showsearch",
+                "appendTo":"#algolia-header-search",
+                "timeout": "0",
+                "closeOnMouseLeave": false,
+                "closeOnEscape": true,
+                "triggerClass":"active",
+                "parentClass":"active",
+                "buttons":[]}}'>
+            <form id="search_mini_form" action="<?php echo $catalogSearchHelper->getResultUrl() ?>" method="get">
+                <div id="algolia-searchbox">
+                    <label for="search"><?php echo __('Search:') ?></label>
+                    <input id="search" type="text" name="<?php echo $catalogSearchHelper->getQueryParamName() ?>" class="input-text form-control algolia-search-input" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" placeholder="<?php echo $placeholder; ?>" />
+                    <span class="clear-cross clear-query-autocomplete" style="display: none;">×</span>
+                    <span id="algolia-glass" class="magnifying-glass" width="24" height="24"></span>
+                    <div class="algolia-suggestion"><?php echo $helper->getSearchBlock(); ?></div>
+                </div>
+            </form>
+        </div>
+    </div>
+<?php endif; ?>
