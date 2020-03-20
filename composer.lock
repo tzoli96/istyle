@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "822a0660f3fb1d5476d99b594bdd5881",
+    "content-hash": "a94ae2d992f39b81efbc89f2ffa91dee",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -292,6 +292,10 @@
                 "url": "git@github.com:oandermedia/amasty-shiprestriction.git",
                 "reference": "3370bb88bbb506445284b4f7c11fc6aaff4fec02"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/community/packages/shiprestriction-2.0.6.zip"
+            },
             "require": {
                 "amasty/base": ">=1.0.8",
                 "amasty/system-common-rules": ">=2.0.5",
@@ -309,8 +313,7 @@
             "license": [
                 "Commercial"
             ],
-            "description": "Shipping Restrictions By Amasty",
-            "time": "2019-01-28T15:59:07+00:00"
+            "description": "Shipping Restrictions By Amasty"
         },
         {
             "name": "amasty/system-common-rules",
@@ -8369,11 +8372,11 @@
         },
         {
             "name": "oander/module-base",
-            "version": "1.2.6",
+            "version": "1.2.13.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-base.git",
-                "reference": "4e60a6933c83de0ab496c36dfeb375e539bb3517"
+                "reference": "7eb645d40e44fa57662cba72c02944d3d109c11c"
             },
             "require": {
                 "oander/module-test-base": "*",
@@ -8392,7 +8395,7 @@
                 "proprietary"
             ],
             "description": "Oander Module Abstractions",
-            "time": "2017-06-19T13:57:39+00:00"
+            "time": "2019-09-19T08:33:30+00:00"
         },
         {
             "name": "oander/module-bundle",
@@ -9029,6 +9032,33 @@
             ],
             "description": "Control Istyle Aws from magento",
             "time": "2018-11-20T09:26:07+00:00"
+        },
+        {
+            "name": "oander/module-multislider",
+            "version": "1.2.8.6",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-multi-slider.git",
+                "reference": "fd87da2f69a81b2e3229c9733a2d01973041e7da"
+            },
+            "require": {
+                "oander/module-base": ">=1.2.11",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\MultiSlider\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Slider module",
+            "time": "2020-03-20T14:28:05+00:00"
         },
         {
             "name": "oander/module-name-switcher",
@@ -10010,11 +10040,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.245",
+            "version": "1.0.246",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "c51750232681945c13511ab00c74a20a8c0ec71e"
+                "reference": "39c2211ef7696eabe4c16713426438605a1317b3"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10030,7 +10060,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2020-03-19T16:24:07+00:00"
+            "time": "2020-03-20T14:53:08+00:00"
         },
         {
             "name": "oyejorge/less.php",
