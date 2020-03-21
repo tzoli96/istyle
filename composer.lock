@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d4d991dd0daa66b505f5684a8eaa9843",
+    "content-hash": "4b58476104bf931c935e43e1368a6622",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -291,6 +291,10 @@
                 "url": "git@github.com:oandermedia/amasty-shiprestriction.git",
                 "reference": "3370bb88bbb506445284b4f7c11fc6aaff4fec02"
             },
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/community/packages/shiprestriction-2.0.6.zip"
+            },
             "require": {
                 "amasty/base": ">=1.0.8",
                 "amasty/system-common-rules": ">=2.0.5",
@@ -308,8 +312,7 @@
             "license": [
                 "Commercial"
             ],
-            "description": "Shipping Restrictions By Amasty",
-            "time": "2019-01-28T15:59:07+00:00"
+            "description": "Shipping Restrictions By Amasty"
         },
         {
             "name": "amasty/system-common-rules",
@@ -9506,11 +9509,11 @@
         },
         {
             "name": "oander/module-pos-locations",
-            "version": "1.1.3",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-pos-locations.git",
-                "reference": "a7f707adb67fc5a1b250df23a8988c2ecdc3063e"
+                "reference": "2e0f58ee7305343c9e25c545f070a1bb380e4dd9"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9529,7 +9532,7 @@
                 "proprietary"
             ],
             "description": "Oander POS Locations module",
-            "time": "2020-01-15T14:20:40+00:00"
+            "time": "2020-03-21T14:31:28+00:00"
         },
         {
             "name": "oander/module-preorder",
