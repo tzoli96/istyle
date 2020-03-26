@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a61d3974934c56ec292a1b4d012493b0",
+    "content-hash": "af3270733b99111551b90e82ad95eb4a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -323,10 +323,6 @@
                 "url": "git@github.com:oandermedia/amasty-shiprestriction.git",
                 "reference": "bc9b240959df8cfad071d94cbbfbbdcd35a4f845"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://composer.amasty.com/community/packages/shiprestriction-2.5.3.zip"
-            },
             "require": {
                 "amasty/base": ">=1.9.5",
                 "amasty/module-shippingarea": ">=1.0.3",
@@ -345,7 +341,8 @@
             "license": [
                 "Commercial"
             ],
-            "description": "Shipping Restrictions By Amasty"
+            "description": "Shipping Restrictions By Amasty",
+            "time": "2020-03-23T14:15:32+00:00"
         },
         {
             "name": "amasty/system-common-rules",
@@ -9542,11 +9539,11 @@
         },
         {
             "name": "oander/module-pos-locations",
-            "version": "1.1.5",
+            "version": "dev-42384-marker-fix",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-pos-locations.git",
-                "reference": "2e0f58ee7305343c9e25c545f070a1bb380e4dd9"
+                "reference": "87baf7b6ddb79ed6866e93f929a9ba395635b05e"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9565,7 +9562,7 @@
                 "proprietary"
             ],
             "description": "Oander POS Locations module",
-            "time": "2020-03-21T14:31:28+00:00"
+            "time": "2020-03-26T11:09:54+00:00"
         },
         {
             "name": "oander/module-preorder",
@@ -10688,16 +10685,16 @@
         },
         {
             "name": "psr/log",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "446d54b4cb6bf489fc9d75f55843658e6f25d801"
+                "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/446d54b4cb6bf489fc9d75f55843658e6f25d801",
-                "reference": "446d54b4cb6bf489fc9d75f55843658e6f25d801",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/0f73288fd15629204f9d42b7055f72dacbe811fc",
+                "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc",
                 "shasum": ""
             },
             "require": {
@@ -10731,7 +10728,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2019-11-01T11:05:21+00:00"
+            "time": "2020-03-23T09:12:05+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -14594,6 +14591,7 @@
         "oander/module-core-bug-fix": 20,
         "oander/module-multislider": 20,
         "oander/module-news": 20,
+        "oander/module-pos-locations": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
