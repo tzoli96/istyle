@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b4cda35e7c20240330e35385083e5fb3",
+    "content-hash": "3a44bd74dcfa7af84d0f34907372e42c",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8550,11 +8550,11 @@
         },
         {
             "name": "oander/module-bundle-price-switcher",
-            "version": "1.0.1.3",
+            "version": "1.0.1.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-bundle-price-switcher.git",
-                "reference": "d675ad51a4b33a14004e0d2304da09f735fa5d87"
+                "reference": "d502f54bbb8c9c8db98518dcbb8a9cffbb77ff2b"
             },
             "require": {
                 "oander/module-bundle": ">=1.0.3.2",
@@ -8572,7 +8572,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-10-31T15:12:02+00:00"
+            "time": "2020-03-26T23:54:58+00:00"
         },
         {
             "name": "oander/module-cardondeliverypayment",
@@ -10250,7 +10250,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "a9f7fe7bb5f40564bc2137486d6ca094ebc99bed"
+                "reference": "050a5ed403b551d6d0051521ed46da150d0956e0"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10266,7 +10266,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2020-03-18T14:51:07+00:00"
+            "time": "2020-03-27T00:02:30+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -11414,16 +11414,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.14.0",
+            "version": "v1.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "fbdeaec0df06cf3d51c93de80c7eb76e271f5a38"
+                "reference": "4719fa9c18b0464d399f1a63bf624b42b6fa8d14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/fbdeaec0df06cf3d51c93de80c7eb76e271f5a38",
-                "reference": "fbdeaec0df06cf3d51c93de80c7eb76e271f5a38",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/4719fa9c18b0464d399f1a63bf624b42b6fa8d14",
+                "reference": "4719fa9c18b0464d399f1a63bf624b42b6fa8d14",
                 "shasum": ""
             },
             "require": {
@@ -11435,7 +11435,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.14-dev"
+                    "dev-master": "1.15-dev"
                 }
             },
             "autoload": {
@@ -11468,20 +11468,20 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2020-01-13T11:15:53+00:00"
+            "time": "2020-02-27T09:26:54+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.14.0",
+            "version": "v1.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "34094cfa9abe1f0f14f48f490772db7a775559f2"
+                "reference": "81ffd3a9c6d707be22e3012b827de1c9775fc5ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/34094cfa9abe1f0f14f48f490772db7a775559f2",
-                "reference": "34094cfa9abe1f0f14f48f490772db7a775559f2",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/81ffd3a9c6d707be22e3012b827de1c9775fc5ac",
+                "reference": "81ffd3a9c6d707be22e3012b827de1c9775fc5ac",
                 "shasum": ""
             },
             "require": {
@@ -11493,7 +11493,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.14-dev"
+                    "dev-master": "1.15-dev"
                 }
             },
             "autoload": {
@@ -11527,7 +11527,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2020-01-13T11:15:53+00:00"
+            "time": "2020-03-09T19:04:49+00:00"
         },
         {
             "name": "symfony/process",
