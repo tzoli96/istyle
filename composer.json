@@ -123,7 +123,7 @@
         "oander/module-producturlresolver": "1.0.2",
         "oander/module-safe-category-index": "1.0.0.1",
         "oander/module-salesforce": "1.2.0.4",
-        "oander/module-salesforce-service": "0.0.3.48",
+        "oander/module-salesforce-service": "dev-42266-gdpr-fix",
         "oander/module-salesforce-widget": "1.0.7",
         "oander/module-salesforcereservation": "1.1.12.9",
         "oander/module-shipping": "1.0.3",
