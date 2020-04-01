@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "04559460f907bd90fe17c18e8dd34cc9",
+    "content-hash": "dd29b604807a7d61a0bbc66db70a3012",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8273,11 +8273,11 @@
         },
         {
             "name": "oander/module-api-index",
-            "version": "1.0.1",
+            "version": "dev-42374-reindex-list",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-index.git",
-                "reference": "ecebd77633d089113d922311cafab30e95cdae41"
+                "reference": "4731b88faa0f964c752b396badf27598ffb9fd8b"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -8298,7 +8298,7 @@
                 "proprietary"
             ],
             "description": "Backend API to Reindex",
-            "time": "2017-11-27T15:42:24+00:00"
+            "time": "2020-04-01T23:23:11+00:00"
         },
         {
             "name": "oander/module-api-order-attachment",
@@ -10058,11 +10058,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.25.17",
+            "version": "1.4.25.23",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "267165b9287a44f8285aa1474bae2c0b2bcf0c60"
+                "reference": "b0407e648b9285cfc84b949395622c75bbea0270"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10083,7 +10083,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2020-01-28T14:22:11+00:00"
+            "time": "2020-04-01T23:25:50+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
@@ -14589,6 +14589,7 @@
     "stability-flags": {
         "composer/composer": 15,
         "innobyte/module-cetelem": 20,
+        "oander/module-api-index": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-multislider": 20,
         "oander/module-news": 20,
