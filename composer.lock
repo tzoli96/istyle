@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "51b04ed201375335ec4966e4a8b6ae38",
+    "content-hash": "04559460f907bd90fe17c18e8dd34cc9",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1422,16 +1422,16 @@
         },
         {
             "name": "google/recaptcha",
-            "version": "1.2.3",
+            "version": "1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/recaptcha.git",
-                "reference": "98c4a6573b27e8b0990ea8789c74ea378795134c"
+                "reference": "614f25a9038be4f3f2da7cbfd778dc5b357d2419"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/recaptcha/zipball/98c4a6573b27e8b0990ea8789c74ea378795134c",
-                "reference": "98c4a6573b27e8b0990ea8789c74ea378795134c",
+                "url": "https://api.github.com/repos/google/recaptcha/zipball/614f25a9038be4f3f2da7cbfd778dc5b357d2419",
+                "reference": "614f25a9038be4f3f2da7cbfd778dc5b357d2419",
                 "shasum": ""
             },
             "require": {
@@ -1465,7 +1465,7 @@
                 "recaptcha",
                 "spam"
             ],
-            "time": "2019-08-16T15:48:25+00:00"
+            "time": "2020-03-31T17:50:54+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -9544,7 +9544,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-pos-locations.git",
-                "reference": "87baf7b6ddb79ed6866e93f929a9ba395635b05e"
+                "reference": "c5d2ef8a91964b0a0fc3f3552a12420144903224"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9563,7 +9563,7 @@
                 "proprietary"
             ],
             "description": "Oander POS Locations module",
-            "time": "2020-03-26T11:09:54+00:00"
+            "time": "2020-04-01T08:30:26+00:00"
         },
         {
             "name": "oander/module-preorder",
@@ -9780,11 +9780,11 @@
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.48",
+            "version": "dev-42266-gdpr-fix",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "262cb203775a0a136b46464302ac6bf16b7e0722"
+                "reference": "0af60b1a6ecda4a5ab9a351892f9b290d9b5fe0c"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9804,7 +9804,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2020-02-04T16:26:35+00:00"
+            "time": "2020-03-27T14:35:37+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -11366,7 +11366,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.38",
+            "version": "v3.4.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -14496,16 +14496,16 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.38",
+            "version": "v3.4.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "e2d954156d4817c9a5c79f519a71516693a4a9c8"
+                "reference": "a7a98f40dcc382a332c3729a6d04b298ffbb8f1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/e2d954156d4817c9a5c79f519a71516693a4a9c8",
-                "reference": "e2d954156d4817c9a5c79f519a71516693a4a9c8",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/a7a98f40dcc382a332c3729a6d04b298ffbb8f1f",
+                "reference": "a7a98f40dcc382a332c3729a6d04b298ffbb8f1f",
                 "shasum": ""
             },
             "require": {
@@ -14541,7 +14541,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2020-01-01T11:03:25+00:00"
+            "time": "2020-03-15T09:38:08+00:00"
         },
         {
             "name": "theseer/fdomdocument",
@@ -14593,6 +14593,7 @@
         "oander/module-multislider": 20,
         "oander/module-news": 20,
         "oander/module-pos-locations": 20,
+        "oander/module-salesforce-service": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
