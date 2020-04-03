@@ -90,4 +90,7 @@
     <type name="Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend">
         <plugin name="IstyleCustomization::AttributeAbstractBackend" type="Oander\IstyleCustomization\Plugin\Eav\Model\Entity\Attribute\Backend\AbstractBackend" sortOrder="100"/>
     </type>
+    <type name="Magento\Reports\Observer\CatalogProductViewObserver">
+        <plugin name="IstyleCustomization::CatalogProductViewObserver" type="Oander\IstyleCustomization\Plugin\Reports\Observer\CatalogProductViewObserver" sortOrder="100"/>
+    </type>
 </config>
