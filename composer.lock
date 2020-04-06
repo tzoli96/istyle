@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd29b604807a7d61a0bbc66db70a3012",
+    "content-hash": "81fe6847ae052a51e353e0f817ff91a8",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7446,11 +7446,11 @@
         },
         {
             "name": "mirasvit/module-feed",
-            "version": "1.0.97.1",
+            "version": "1.0.97.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-feed.git",
-                "reference": "419287752515446e9e33158cfa8aa40d81b63ef0"
+                "reference": "481ea70de7902fc2e7dd0d014517be9ae6d5f12d"
             },
             "require": {
                 "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*|102.0.*",
@@ -7471,7 +7471,7 @@
                 "proprietary"
             ],
             "description": "Advanced Product Feeds",
-            "time": "2020-03-27T11:13:15+00:00"
+            "time": "2020-04-06T12:11:22+00:00"
         },
         {
             "name": "mirasvit/module-message-queue",
@@ -10493,16 +10493,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.26",
+            "version": "2.0.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "09655fcc1f8bab65727be036b28f6f20311c126c"
+                "reference": "34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/09655fcc1f8bab65727be036b28f6f20311c126c",
-                "reference": "09655fcc1f8bab65727be036b28f6f20311c126c",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc",
+                "reference": "34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc",
                 "shasum": ""
             },
             "require": {
@@ -10581,7 +10581,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2020-03-13T04:15:39+00:00"
+            "time": "2020-04-04T23:17:33+00:00"
         },
         {
             "name": "plugincompany/customergroupswitching",
