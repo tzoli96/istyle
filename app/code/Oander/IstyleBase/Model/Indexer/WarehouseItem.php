@@ -23,17 +23,19 @@ class WarehouseItem extends \Oander\WarehouseManager\Model\Indexer\WarehouseItem
      */
     protected function removeDeletedProducts($fromWarehouseItemIds = [])
     {
-        $this->writeLog('removeDeletedProducts', 1, 0, 100);
-        $productCollection = $this->productCollectionFactory->create()
-            ->addAttributeToFilter(Product::TYPE_ID, ['in' => [Type::TYPE_SIMPLE,Type::TYPE_VIRTUAL,'insurance']])
-            ->addFieldToSelect('product_id');
-
-        $productIds = [];
-        /** @var Product $product */
-        foreach ($productCollection as $product) {
-            $productIds[] = $product->getId();
+        if (!empty($fromWarehouseItemIds)) {
+            return null;
         }
-        $productIds = array_unique($productIds);
+
+        $this->writeLog('removeDeletedProducts', 1, 0, 100);
+
+        $productIds = $this->productCollectionFactory->create()
+            ->addAttributeToFilter(
+                Product::TYPE_ID,
+                ['in' => [Type::TYPE_SIMPLE,Type::TYPE_VIRTUAL, 'insurance']]
+            )
+            ->addFieldToSelect('product_id')
+            ->getAllIds();
 
         if (!empty($productIds)) {
             $this->warehouseItemApi->deleteWhereProductIdNotIn($productIds);
@@ -48,6 +50,10 @@ class WarehouseItem extends \Oander\WarehouseManager\Model\Indexer\WarehouseItem
      */
     protected function createWarehouseItems($fromWarehouseItemIds = [])
     {
+        if (!empty($fromWarehouseItemIds)) {
+            return null;
+        }
+
         $productCollection = $this->productCollectionFactory->create()
             ->addAttributeToSelect(Product::TYPE_ID)
             ->addAttributeToFilter(Product::TYPE_ID, ['in' => [Type::TYPE_SIMPLE,Type::TYPE_VIRTUAL,'insurance']]);
@@ -78,6 +84,10 @@ class WarehouseItem extends \Oander\WarehouseManager\Model\Indexer\WarehouseItem
      */
     protected function createProductStock($fromWarehouseItemIds = [])
     {
+        if (!empty($fromWarehouseItemIds)) {
+            return null;
+        }
+
         $productCollection = $this->productCollectionFactory->create()
             ->addAttributeToSelect(Product::TYPE_ID)
             ->addAttributeToFilter(Product::TYPE_ID, ['in' => [Type::TYPE_SIMPLE,Type::TYPE_VIRTUAL,'insurance']]);

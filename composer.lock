@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a94ae2d992f39b81efbc89f2ffa91dee",
+    "content-hash": "81fe6847ae052a51e353e0f817ff91a8",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -103,13 +103,14 @@
         },
         {
             "name": "amasty/base",
-            "version": "1.7.2",
-            "dist": {
-                "type": "zip",
-                "url": "https://composer.amasty.com/community/packages/base-1.7.2.zip"
+            "version": "1.9.7",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/amasty-base.git",
+                "reference": "da8aecfb2c040871e5ee3ac09f5f3e172c9783fe"
             },
             "require": {
-                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|^7.1.0"
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
             },
             "type": "magento2-module",
             "autoload": {
@@ -123,7 +124,8 @@
             "license": [
                 "Commercial"
             ],
-            "description": "Amasty Base"
+            "description": "Amasty Base",
+            "time": "2020-03-23T08:56:59+00:00"
         },
         {
             "name": "amasty/cron-schedule-list",
@@ -152,15 +154,15 @@
         },
         {
             "name": "amasty/module-advanced-conditions",
-            "version": "1.3.7.1",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/amasty-advanced-conditions.git",
-                "reference": "2447f07e5627d73f90e3c89c9e4371302deafbda"
+                "reference": "6da2672308e3d341ad996ead43dc75c9759dcad2"
             },
             "require": {
                 "amasty/base": ">=1.4.7",
-                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|^7.1.0"
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
             },
             "type": "magento2-module",
             "autoload": {
@@ -175,7 +177,32 @@
                 "Commercial"
             ],
             "description": "Advanced Conditions by Amasty",
-            "time": "2019-07-04T14:53:53+00:00"
+            "time": "2020-03-23T09:04:20+00:00"
+        },
+        {
+            "name": "amasty/module-shippingarea",
+            "version": "1.0.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/community/packages/module-shippingarea-1.0.3.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.4",
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\ShippingArea\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Shipping Areas by Amasty"
         },
         {
             "name": "amasty/paction",
@@ -206,15 +233,19 @@
         },
         {
             "name": "amasty/payrestriction",
-            "version": "2.0.6",
-            "dist": {
-                "type": "zip",
-                "url": "https://composer.amasty.com/community/packages/payrestriction-2.0.6.zip"
+            "version": "2.3.8.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/amasty-payrestriction.git",
+                "reference": "7463d5d79b1dc9c056cc16a20d9e372e22c23e8d"
             },
             "require": {
-                "amasty/base": ">=1.0.8",
-                "amasty/system-common-rules": ">=2.0.5",
-                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|~7.1.0"
+                "amasty/base": ">=1.9.7",
+                "amasty/system-common-rules": ">=2.4.8",
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "suggest": {
+                "amasty/module-common-tests": "Install module-common-tests module to be able to run Payment Restriction MFTF tests."
             },
             "type": "magento2-module",
             "autoload": {
@@ -228,18 +259,19 @@
             "license": [
                 "Commercial"
             ],
-            "description": "Payment Restrictions by Amasty"
+            "description": "Payment Restrictions by Amasty",
+            "time": "2020-03-23T14:12:07+00:00"
         },
         {
             "name": "amasty/promo",
-            "version": "1.3.4",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/amasty-promo.git",
-                "reference": "d318f19af6ab6cf1dff86f1c3b920982c44a9782"
+            "version": "2.2.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/community/packages/promo-2.2.2.zip"
             },
             "require": {
                 "amasty/base": ">=1.0.6",
+                "amasty/module-advanced-conditions": ">=1.3.0",
                 "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|~7.1.0"
             },
             "type": "magento2-module",
@@ -254,8 +286,7 @@
             "license": [
                 "Commercial"
             ],
-            "description": "Free Gift by Amasty",
-            "time": "2018-02-20T12:31:58+00:00"
+            "description": "Free Gift by Amasty"
         },
         {
             "name": "amasty/rgrid",
@@ -286,20 +317,17 @@
         },
         {
             "name": "amasty/shiprestriction",
-            "version": "2.0.6",
+            "version": "2.5.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/amasty-shiprestriction.git",
-                "reference": "3370bb88bbb506445284b4f7c11fc6aaff4fec02"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://composer.amasty.com/community/packages/shiprestriction-2.0.6.zip"
+                "reference": "bc9b240959df8cfad071d94cbbfbbdcd35a4f845"
             },
             "require": {
-                "amasty/base": ">=1.0.8",
-                "amasty/system-common-rules": ">=2.0.5",
-                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|~7.1.0"
+                "amasty/base": ">=1.9.5",
+                "amasty/module-shippingarea": ">=1.0.3",
+                "amasty/system-common-rules": ">=2.4.8",
+                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
             },
             "type": "magento2-module",
             "autoload": {
@@ -313,19 +341,20 @@
             "license": [
                 "Commercial"
             ],
-            "description": "Shipping Restrictions By Amasty"
+            "description": "Shipping Restrictions By Amasty",
+            "time": "2020-03-23T14:15:32+00:00"
         },
         {
             "name": "amasty/system-common-rules",
-            "version": "2.3.0",
+            "version": "2.4.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/amasty-system-common-rules.git",
-                "reference": "f0c9ba24687e719a111289ec9dd491f96e421b45"
+                "reference": "cf23f73f9279b310f1ed0005e6e08d2ccc99b63e"
             },
             "require": {
-                "amasty/base": ">=1.4.7",
-                "amasty/module-advanced-conditions": ">=1.3.4",
+                "amasty/base": ">=1.4.8",
+                "amasty/module-advanced-conditions": ">=1.3.10",
                 "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|^7.1.0"
             },
             "type": "magento2-module",
@@ -341,7 +370,7 @@
                 "Commercial"
             ],
             "description": "Common Rules by Amasty",
-            "time": "2019-01-16T11:58:59+00:00"
+            "time": "2020-03-23T09:01:57+00:00"
         },
         {
             "name": "amasty/xnotif",
@@ -1306,6 +1335,39 @@
             "time": "2019-07-17T14:01:01+00:00"
         },
         {
+            "name": "fancourier/customshipping",
+            "version": "2.1.14",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/fancourie-customshipping.git",
+                "reference": "05a6ff1fbe7eb5d85951bd183152583628a1c537"
+            },
+            "require": {
+                "php": "~5.5.0|~5.6.0|~7.0.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "FanCourier\\CustomShipping\\": ""
+                }
+            },
+            "license": [
+                "OSL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "FAN Courier",
+                    "email": "programare@fancourier.ro",
+                    "homepage": "https://www.fancourier.ro"
+                }
+            ],
+            "description": "Shipping for Magento 2",
+            "time": "2018-10-01T08:43:27+00:00"
+        },
+        {
             "name": "geoip2/geoip2",
             "version": "v2.10.0",
             "source": {
@@ -1359,53 +1421,17 @@
             "time": "2019-12-12T18:48:39+00:00"
         },
         {
-            "name": "godvsdeity/swedbank-payment-portal",
-            "version": "v0.8.30",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:godvsdeity/swedbank-payment-portal.git",
-                "reference": "42097fc707d96b4045d7cce7b881dc4e40313f76"
-            },
-            "require": {
-                "doctrine/cache": "^1.6",
-                "guzzlehttp/guzzle": "^5.0|^6.0",
-                "jms/serializer": "^1.1",
-                "symfony/config": "^2.8|^3.0",
-                "symfony/dependency-injection": "^2.8|^3.0",
-                "symfony/yaml": "~2.8|~3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "SwedbankPaymentPortal\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Tests\\": "tests/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "The Swedbank Payment Portal API Library provides access to the online banking system through which e-commerce transactions can be initiated and fulfilled by facilitating the exchange of bank data.",
-            "time": "2017-11-09T16:41:43+00:00"
-        },
-        {
             "name": "google/recaptcha",
-            "version": "1.2.3",
+            "version": "1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/recaptcha.git",
-                "reference": "98c4a6573b27e8b0990ea8789c74ea378795134c"
+                "reference": "614f25a9038be4f3f2da7cbfd778dc5b357d2419"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/recaptcha/zipball/98c4a6573b27e8b0990ea8789c74ea378795134c",
-                "reference": "98c4a6573b27e8b0990ea8789c74ea378795134c",
+                "url": "https://api.github.com/repos/google/recaptcha/zipball/614f25a9038be4f3f2da7cbfd778dc5b357d2419",
+                "reference": "614f25a9038be4f3f2da7cbfd778dc5b357d2419",
                 "shasum": ""
             },
             "require": {
@@ -1439,7 +1465,7 @@
                 "recaptcha",
                 "spam"
             ],
-            "time": "2019-08-16T15:48:25+00:00"
+            "time": "2020-03-31T17:50:54+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -1760,11 +1786,11 @@
         },
         {
             "name": "innobyte/module-cetelem",
-            "version": "1.0.1.5",
+            "version": "dev-#41554-updated",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-cetelem.git",
-                "reference": "6f28eccdd58873c49e7ae438c46b936598377bb0"
+                "reference": "fef14d7f83a480d177da2b21146dadd2a1b25cf4"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1780,7 +1806,7 @@
                 }
             },
             "description": "Innobyte Cetelem Module",
-            "time": "2020-03-19T16:26:52+00:00"
+            "time": "2020-03-18T14:24:55+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
@@ -1805,6 +1831,30 @@
             },
             "description": "Innobyte CheckoutSuccess Module",
             "time": "2017-12-17T11:02:06+00:00"
+        },
+        {
+            "name": "innobyte/module-inbank",
+            "version": "1.0.1.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/innobyte-inbank.git",
+                "reference": "808268af09cd57cb9659b694c1c83130efe36c52"
+            },
+            "require": {
+                "magento/module-checkout": "^100.1.2",
+                "php": "7.0.2|7.0.4|~7.0.6"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Innobyte\\InBank\\": ""
+                }
+            },
+            "description": "Innobyte InBank Module",
+            "time": "2018-10-31T12:32:15+00:00"
         },
         {
             "name": "innobyte/module-mstart",
@@ -1832,11 +1882,11 @@
         },
         {
             "name": "innobyte/module-nlb",
-            "version": "0.0.4.1",
+            "version": "0.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-nlbpayment.git",
-                "reference": "0c8e15832f22450a844caa7d41c5f68eb6e84b04"
+                "reference": "e03fab4eac8480f4cb72f504556fc4f1e064208f"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1852,20 +1902,20 @@
                 }
             },
             "description": "Innobyte NLB Payment Module",
-            "time": "2019-01-14T09:51:00+00:00"
+            "time": "2019-05-07T13:42:55+00:00"
         },
         {
             "name": "innobyte/module-swedbank",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-swedbank.git",
-                "reference": "77bc1a42abdb41c75731b5744d494dd04f73259d"
+                "reference": "8ae8eac757a0b4ab40499ee70452abf5909f942e"
             },
             "require": {
-                "godvsdeity/swedbank-payment-portal": "^0.8",
                 "magento/module-checkout": "^100.1.2",
-                "php": "7.0.2|7.0.4|~7.0.6"
+                "php": "7.0.2|7.0.4|~7.0.6",
+                "swedbank-spp/swedbank-payment-portal": "^0.9"
             },
             "type": "magento2-module",
             "autoload": {
@@ -1877,7 +1927,7 @@
                 }
             },
             "description": "Innobyte Swedbank Module",
-            "time": "2018-06-12T12:44:10+00:00"
+            "time": "2018-10-15T10:47:05+00:00"
         },
         {
             "name": "jms/metadata",
@@ -2167,6 +2217,29 @@
                 "terminal"
             ],
             "time": "2015-01-18T14:31:58+00:00"
+        },
+        {
+            "name": "leanpay/payment",
+            "version": "0.0.2.4",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/leanpay-payment.git",
+                "reference": "5016c5a4fa937afe723cf4fe382bf7287e6d842f"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Leanpay\\Payment\\": ""
+                }
+            },
+            "description": "N/A",
+            "time": "2018-12-05T16:36:11+00:00"
         },
         {
             "name": "liquid/liquid",
@@ -7102,11 +7175,11 @@
         },
         {
             "name": "magexo/paymenthomecredit",
-            "version": "0.0.1.11",
+            "version": "0.0.1.14",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/magexo-paymenthomecredit.git",
-                "reference": "d03832ce5d0d1edc8c74e1143c9b5244925ddb69"
+                "reference": "14252b7a2914d6886b917aeff460f0bc0d7d47cf"
             },
             "require": {
                 "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
@@ -7124,7 +7197,7 @@
                 "Commercial"
             ],
             "description": "MageXo Payment Home Credit",
-            "time": "2019-10-04T08:10:45+00:00"
+            "time": "2020-03-13T14:59:14+00:00"
         },
         {
             "name": "maxmind-db/reader",
@@ -7373,16 +7446,17 @@
         },
         {
             "name": "mirasvit/module-feed",
-            "version": "1.0.83",
+            "version": "1.0.97.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/mirasvit-feed.git",
-                "reference": "b5e0274ea3d86856b5ec0c0f0ed28130f5471515"
+                "reference": "481ea70de7902fc2e7dd0d014517be9ae6d5f12d"
             },
             "require": {
-                "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*",
+                "magento/framework": "100.0.*|100.1.*|100.2.*|101.0.*|102.0.*",
                 "mirasvit/module-core": ">=1.2.46",
-                "mirasvit/module-report": "~1.3.0"
+                "mirasvit/module-report": "~1.3.0",
+                "zf1/zend-reflection": "*"
             },
             "type": "magento2-module",
             "autoload": {
@@ -7397,7 +7471,7 @@
                 "proprietary"
             ],
             "description": "Advanced Product Feeds",
-            "time": "2018-12-18T10:13:33+00:00"
+            "time": "2020-04-06T12:11:22+00:00"
         },
         {
             "name": "mirasvit/module-message-queue",
@@ -7800,6 +7874,32 @@
             "time": "2018-05-11T12:24:56+00:00"
         },
         {
+            "name": "oander/library-pick-pack-pont",
+            "version": "1.0.7",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-pick-pack-pont.git",
+                "reference": "855722dba3c51eb799b3b85a28131d3a43601ef1"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\PickPackPontLib\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Pick Pack Pont Library",
+            "time": "2017-11-22T15:20:31+00:00"
+        },
+        {
             "name": "oander/module-adminrestriction",
             "version": "1.0.0.3",
             "source": {
@@ -8087,11 +8187,11 @@
         },
         {
             "name": "oander/module-api-customer",
-            "version": "1.0.8",
+            "version": "1.0.10",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-customer.git",
-                "reference": "e4539c1e3c630f8088a20145fa6095eaa14cf4e7"
+                "reference": "72f57fdb0b4d6c7d9c653b4a7b783ac72d7494ae"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -8112,7 +8212,7 @@
                 "proprietary"
             ],
             "description": "Backend API to Customer",
-            "time": "2018-03-13T10:08:55+00:00"
+            "time": "2018-10-03T08:39:02+00:00"
         },
         {
             "name": "oander/module-api-gateway",
@@ -8173,11 +8273,11 @@
         },
         {
             "name": "oander/module-api-index",
-            "version": "1.0.1",
+            "version": "dev-42374-reindex-list",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-index.git",
-                "reference": "ecebd77633d089113d922311cafab30e95cdae41"
+                "reference": "4731b88faa0f964c752b396badf27598ffb9fd8b"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -8198,7 +8298,7 @@
                 "proprietary"
             ],
             "description": "Backend API to Reindex",
-            "time": "2017-11-27T15:42:24+00:00"
+            "time": "2020-04-01T23:23:11+00:00"
         },
         {
             "name": "oander/module-api-order-attachment",
@@ -8319,11 +8419,11 @@
         },
         {
             "name": "oander/module-applepay",
-            "version": "1.0.2.17",
+            "version": "1.0.2.18",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-applepay.git",
-                "reference": "c30ec86a35eb1f6451e23c62071b94c3615c5658"
+                "reference": "6e2e03d536cb31a3c923f5ce00ebb3f26a8d77dd"
             },
             "require": {
                 "oander/module-checkout": ">=1.1.0",
@@ -8342,7 +8442,7 @@
                 "proprietary"
             ],
             "description": "Apple Pay payment method",
-            "time": "2019-10-03T15:07:02+00:00"
+            "time": "2020-03-02T15:10:08+00:00"
         },
         {
             "name": "oander/module-autorelated-warehouse-manager-extender",
@@ -8451,11 +8551,11 @@
         },
         {
             "name": "oander/module-bundle-price-switcher",
-            "version": "1.0.1.3",
+            "version": "1.0.1.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-bundle-price-switcher.git",
-                "reference": "d675ad51a4b33a14004e0d2304da09f735fa5d87"
+                "reference": "d502f54bbb8c9c8db98518dcbb8a9cffbb77ff2b"
             },
             "require": {
                 "oander/module-bundle": ">=1.0.3.2",
@@ -8473,7 +8573,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-10-31T15:12:02+00:00"
+            "time": "2020-03-26T23:54:58+00:00"
         },
         {
             "name": "oander/module-cardondeliverypayment",
@@ -8865,6 +8965,33 @@
             "time": "2019-11-11T14:59:40+00:00"
         },
         {
+            "name": "oander/module-extension-exterminator",
+            "version": "1.0.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/module-extension-exterminator.git",
+                "reference": "2afc6c3c79f6d9fbb888b04e4fdde32f32ab99af"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\ExtensionExterminator\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Extension Exterminator module",
+            "time": "2018-10-15T13:05:31+00:00"
+        },
+        {
             "name": "oander/module-extracheckoutsummary",
             "version": "1.0.0.0",
             "source": {
@@ -9034,12 +9161,40 @@
             "time": "2018-11-20T09:26:07+00:00"
         },
         {
+            "name": "oander/module-lapker",
+            "version": "1.0.9.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-lapker.git",
+                "reference": "e1bb34f6d2d3cb4682c988be15fbf1e95b7f6cf9"
+            },
+            "require": {
+                "oander/library-pick-pack-pont": "*",
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\Lapker\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Lapker integration",
+            "time": "2019-08-23T13:35:30+00:00"
+        },
+        {
             "name": "oander/module-multislider",
-            "version": "1.2.8.6",
+            "version": "dev-41567-config",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-multi-slider.git",
-                "reference": "fd87da2f69a81b2e3229c9733a2d01973041e7da"
+                "reference": "5c8b5e2fa7293d0ce07f1845f280f379d6ad0b99"
             },
             "require": {
                 "oander/module-base": ">=1.2.11",
@@ -9058,7 +9213,7 @@
                 "proprietary"
             ],
             "description": "Slider module",
-            "time": "2020-03-20T14:28:05+00:00"
+            "time": "2020-02-21T09:07:53+00:00"
         },
         {
             "name": "oander/module-name-switcher",
@@ -9089,11 +9244,11 @@
         },
         {
             "name": "oander/module-news",
-            "version": "1.2.4.4",
+            "version": "dev-fix_37017",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-news.git",
-                "reference": "258ee88de0519d5c8990776fed2252ee7759f8e2"
+                "reference": "fa11f13e25ec743c8d74ea18e30296cdbfb0c757"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9112,7 +9267,7 @@
                 "proprietary"
             ],
             "description": "News",
-            "time": "2019-07-15T09:58:26+00:00"
+            "time": "2019-07-08T19:52:51+00:00"
         },
         {
             "name": "oander/module-ocbase",
@@ -9299,6 +9454,31 @@
             "time": "2018-08-21T10:44:03+00:00"
         },
         {
+            "name": "oander/module-orderstatuscanceller",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-order-status-canceller.git",
+                "reference": "9211587af1fde94423e17389c91873610ec77326"
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\OrderStatusCanceller\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "time": "2018-06-14T07:55:56+00:00"
+        },
+        {
             "name": "oander/module-paymentmethodicons",
             "version": "1.0.0.2",
             "source": {
@@ -9360,11 +9540,11 @@
         },
         {
             "name": "oander/module-pos-locations",
-            "version": "1.1.3",
+            "version": "dev-42384-marker-fix",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-pos-locations.git",
-                "reference": "a7f707adb67fc5a1b250df23a8988c2ecdc3063e"
+                "reference": "c5d2ef8a91964b0a0fc3f3552a12420144903224"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9383,7 +9563,7 @@
                 "proprietary"
             ],
             "description": "Oander POS Locations module",
-            "time": "2020-01-15T14:20:40+00:00"
+            "time": "2020-04-01T08:30:26+00:00"
         },
         {
             "name": "oander/module-preorder",
@@ -9439,6 +9619,33 @@
             ],
             "description": "Product Description Widget",
             "time": "2019-10-03T15:02:40+00:00"
+        },
+        {
+            "name": "oander/module-product-faq",
+            "version": "1.0.0.9",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/module-product-faq.git",
+                "reference": "3d139ed8ff12e462c813f1b30874cbe3524f5c2d"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\ProductFaq\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Product Faq",
+            "time": "2019-11-11T17:07:13+00:00"
         },
         {
             "name": "oander/module-product-icons",
@@ -9546,11 +9753,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.2.0.3",
+            "version": "1.2.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "8d407884a5b69e115b90fb72da533e1d88238a75"
+                "reference": "f29ceccaf9b38545f6ae43e94a518275ecabedd9"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9569,15 +9776,15 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2019-08-26T10:52:51+00:00"
+            "time": "2020-02-04T16:22:33+00:00"
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.47",
+            "version": "dev-42266-gdpr-fix",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "d40120fe2590fba0839ac2e37cb5363c17a9ce4b"
+                "reference": "0af60b1a6ecda4a5ab9a351892f9b290d9b5fe0c"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9597,7 +9804,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2019-07-08T10:15:07+00:00"
+            "time": "2020-03-27T14:35:37+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -9851,11 +10058,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.25.15",
+            "version": "1.4.25.23",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "f31dfc75cf6291984ca669ab271ad96765e99444"
+                "reference": "b0407e648b9285cfc84b949395622c75bbea0270"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9876,7 +10083,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2019-11-14T14:31:26+00:00"
+            "time": "2020-04-01T23:25:50+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
@@ -10040,11 +10247,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "1.0.246",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "39c2211ef7696eabe4c16713426438605a1317b3"
+                "reference": "9e01a18a834a35b4c6ecf799dd0a8ce28ef7bae5"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10060,7 +10267,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2020-03-20T14:53:08+00:00"
+            "time": "2020-03-27T11:06:02+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10231,20 +10438,20 @@
         },
         {
             "name": "phpoption/phpoption",
-            "version": "1.7.2",
+            "version": "1.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/php-option.git",
-                "reference": "77f7c4d2e65413aff5b5a8cc8b3caf7a28d81959"
+                "reference": "4acfd6a4b33a509d8c88f50e5222f734b6aeebae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/77f7c4d2e65413aff5b5a8cc8b3caf7a28d81959",
-                "reference": "77f7c4d2e65413aff5b5a8cc8b3caf7a28d81959",
+                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/4acfd6a4b33a509d8c88f50e5222f734b6aeebae",
+                "reference": "4acfd6a4b33a509d8c88f50e5222f734b6aeebae",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5.9 || ^7.0"
+                "php": "^5.5.9 || ^7.0 || ^8.0"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.3",
@@ -10282,20 +10489,20 @@
                 "php",
                 "type"
             ],
-            "time": "2019-12-15T19:35:24+00:00"
+            "time": "2020-03-21T18:07:53+00:00"
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.25",
+            "version": "2.0.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "c18159618ed7cd7ff721ac1a8fec7860a475d2f0"
+                "reference": "34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/c18159618ed7cd7ff721ac1a8fec7860a475d2f0",
-                "reference": "c18159618ed7cd7ff721ac1a8fec7860a475d2f0",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc",
+                "reference": "34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc",
                 "shasum": ""
             },
             "require": {
@@ -10374,7 +10581,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2020-02-25T04:16:50+00:00"
+            "time": "2020-04-04T23:17:33+00:00"
         },
         {
             "name": "plugincompany/customergroupswitching",
@@ -10479,16 +10686,16 @@
         },
         {
             "name": "psr/log",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "446d54b4cb6bf489fc9d75f55843658e6f25d801"
+                "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/446d54b4cb6bf489fc9d75f55843658e6f25d801",
-                "reference": "446d54b4cb6bf489fc9d75f55843658e6f25d801",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/0f73288fd15629204f9d42b7055f72dacbe811fc",
+                "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc",
                 "shasum": ""
             },
             "require": {
@@ -10522,7 +10729,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2019-11-01T11:05:21+00:00"
+            "time": "2020-03-23T09:12:05+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
@@ -10807,6 +11014,67 @@
             "description": "An extendable framework for version control hooks.",
             "abandoned": "phpro/grumphp",
             "time": "2014-09-22T08:40:36+00:00"
+        },
+        {
+            "name": "splitit/paymentmethod",
+            "version": "0.2.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/splitit-paymentmethod.git",
+                "reference": "d848b48cce2b33817b165dfc44f61c072334c7a2"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Splitit\\Paymentmethod\\": ""
+                }
+            },
+            "license": [
+                "OSL-3.0"
+            ],
+            "description": "Splitit integration for Magento 2",
+            "time": "2019-11-12T11:55:20+00:00"
+        },
+        {
+            "name": "swedbank-spp/swedbank-payment-portal",
+            "version": "v0.9.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Swedbank-SPP/swedbank-payment-portal.git",
+                "reference": "2bc418848f20864424a0abbc7212ac680c121b4f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Swedbank-SPP/swedbank-payment-portal/zipball/2bc418848f20864424a0abbc7212ac680c121b4f",
+                "reference": "2bc418848f20864424a0abbc7212ac680c121b4f",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/cache": "^1.6",
+                "guzzlehttp/guzzle": "^5.0|^6.0",
+                "jms/serializer": "^1.1",
+                "symfony/config": "^2.8|^3.0|^4.0",
+                "symfony/dependency-injection": "^2.8|^3.0|^4.0",
+                "symfony/yaml": "~2.8|~3.0|~4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SwedbankPaymentPortal\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "The Swedbank Payment Portal API Library provides access to the online banking system through which e-commerce transactions can be initiated and fulfilled by facilitating the exchange of bank data.",
+            "time": "2019-10-16T10:36:26+00:00"
         },
         {
             "name": "symfony/config",
@@ -11098,7 +11366,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.38",
+            "version": "v3.4.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -11147,16 +11415,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.14.0",
+            "version": "v1.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "fbdeaec0df06cf3d51c93de80c7eb76e271f5a38"
+                "reference": "4719fa9c18b0464d399f1a63bf624b42b6fa8d14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/fbdeaec0df06cf3d51c93de80c7eb76e271f5a38",
-                "reference": "fbdeaec0df06cf3d51c93de80c7eb76e271f5a38",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/4719fa9c18b0464d399f1a63bf624b42b6fa8d14",
+                "reference": "4719fa9c18b0464d399f1a63bf624b42b6fa8d14",
                 "shasum": ""
             },
             "require": {
@@ -11168,7 +11436,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.14-dev"
+                    "dev-master": "1.15-dev"
                 }
             },
             "autoload": {
@@ -11201,20 +11469,20 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2020-01-13T11:15:53+00:00"
+            "time": "2020-02-27T09:26:54+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.14.0",
+            "version": "v1.15.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "34094cfa9abe1f0f14f48f490772db7a775559f2"
+                "reference": "81ffd3a9c6d707be22e3012b827de1c9775fc5ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/34094cfa9abe1f0f14f48f490772db7a775559f2",
-                "reference": "34094cfa9abe1f0f14f48f490772db7a775559f2",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/81ffd3a9c6d707be22e3012b827de1c9775fc5ac",
+                "reference": "81ffd3a9c6d707be22e3012b827de1c9775fc5ac",
                 "shasum": ""
             },
             "require": {
@@ -11226,7 +11494,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.14-dev"
+                    "dev-master": "1.15-dev"
                 }
             },
             "autoload": {
@@ -11260,7 +11528,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2020-01-13T11:15:53+00:00"
+            "time": "2020-03-09T19:04:49+00:00"
         },
         {
             "name": "symfony/process",
@@ -14228,16 +14496,16 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.38",
+            "version": "v3.4.39",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
-                "reference": "e2d954156d4817c9a5c79f519a71516693a4a9c8"
+                "reference": "a7a98f40dcc382a332c3729a6d04b298ffbb8f1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/e2d954156d4817c9a5c79f519a71516693a4a9c8",
-                "reference": "e2d954156d4817c9a5c79f519a71516693a4a9c8",
+                "url": "https://api.github.com/repos/symfony/stopwatch/zipball/a7a98f40dcc382a332c3729a6d04b298ffbb8f1f",
+                "reference": "a7a98f40dcc382a332c3729a6d04b298ffbb8f1f",
                 "shasum": ""
             },
             "require": {
@@ -14273,7 +14541,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2020-01-01T11:03:25+00:00"
+            "time": "2020-03-15T09:38:08+00:00"
         },
         {
             "name": "theseer/fdomdocument",
@@ -14320,8 +14588,15 @@
     "minimum-stability": "alpha",
     "stability-flags": {
         "composer/composer": 15,
+        "innobyte/module-cetelem": 20,
+        "oander/module-api-index": 20,
         "oander/module-core-bug-fix": 20,
+        "oander/module-multislider": 20,
+        "oander/module-news": 20,
+        "oander/module-pos-locations": 20,
+        "oander/module-salesforce-service": 20,
         "oander/theme-hodor": 20,
+        "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,

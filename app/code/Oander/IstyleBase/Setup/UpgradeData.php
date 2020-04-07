@@ -15,17 +15,23 @@
  * @license Oander Media Kft. (http://www.oander.hu)
  */
 
+declare(strict_types=1);
+
 namespace Oander\IstyleBase\Setup;
 
+use Magento\Catalog\Model\Product;
+use Magento\Catalog\Model\Product\Attribute\Backend\Price;
 use Magento\Cms\Api\BlockRepositoryInterface;
 use Magento\Cms\Api\Data\BlockInterface;
 use Magento\Cms\Api\Data\BlockInterfaceFactory;
 use Magento\Cms\Model\Block;
+use Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface;
 use Magento\Eav\Setup\EavSetup;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\UpgradeDataInterface;
 use Oander\Base\Model\Setup\ResourceReaderTrait;
+use Oander\IstyleBase\Pricing\OldPrice;
 
 /**
  * Class UpgradeData
@@ -86,9 +92,75 @@ class UpgradeData implements UpgradeDataInterface
             $this->upgrade_1_0_1($setup);
         }
 
+        if ($context->getVersion() && version_compare($context->getVersion(), '1.0.3') < 0) {
+            $this->upgrade_1_0_3($setup);
+        }
+
+        if ($context->getVersion() && version_compare($context->getVersion(), '1.0.4') < 0) {
+            $this->upgrade_1_0_4($setup);
+        }
+
+        if ($context->getVersion() && version_compare($context->getVersion(), '1.0.5') < 0) {
+            $this->upgrade_1_0_5($setup);
+        }
+
         $setup->endSetup();
     }
 
+    /**
+     * @param ModuleDataSetupInterface $setup
+     */
+    public function upgrade_1_0_5(ModuleDataSetupInterface $setup)
+    {
+        $this->eavSetup->removeAttribute(Product::ENTITY, OldPrice::PRICE_CODE);
+        $this->eavSetup->addAttribute(Product::ENTITY, OldPrice::PRICE_CODE, [
+            'type'                    => 'decimal',
+            'backend'                 => Price::class,
+            'label'                   => 'Old Price',
+            'input'                   => 'price',
+            'required'                => false,
+            'sort_order'              => 200,
+            'global'                  => ScopedAttributeInterface::SCOPE_WEBSITE,
+            'used_in_product_listing' => true,
+            'group'                   => 'General'
+        ]);
+    }
+
+    /**
+     * @param ModuleDataSetupInterface $setup
+     */
+    public function upgrade_1_0_4(ModuleDataSetupInterface $setup)
+    {
+        $this->eavSetup->removeAttribute(Product::ENTITY, OldPrice::PRICE_CODE);
+        $this->eavSetup->addAttribute(Product::ENTITY, OldPrice::PRICE_CODE, [
+            'type'                    => 'decimal',
+            'backend'                 => Price::class,
+            'label'                   => 'Old price',
+            'input'                   => 'price',
+            'required'                => false,
+            'global'                  => ScopedAttributeInterface::SCOPE_GLOBAL,
+            'group'                   => 'General',
+            'used_in_product_listing' => true,
+        ]);
+    }
+
+    /**
+     * @param ModuleDataSetupInterface $setup
+     */
+    public function upgrade_1_0_3(ModuleDataSetupInterface $setup)
+    {
+        $this->eavSetup->removeAttribute(Product::ENTITY, OldPrice::PRICE_CODE);
+        $this->eavSetup->addAttribute(Product::ENTITY, OldPrice::PRICE_CODE, [
+            'type'                    => 'decimal',
+            'backend'                 => Price::class,
+            'label'                   => 'Old price',
+            'input'                   => 'price',
+            'required'                => false,
+            'global'                  => ScopedAttributeInterface::SCOPE_GLOBAL,
+            'group'                   => 'General',
+            'used_in_product_listing' => true,
+        ]);
+    }
 
     /**
      * @param ModuleDataSetupInterface $setup

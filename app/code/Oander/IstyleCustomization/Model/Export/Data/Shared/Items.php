@@ -38,7 +38,7 @@ use Xtento\XtCore\Helper\Utils;
  * Class Items
  * @package Oander\IstyleCustomization\Model\Export\Data\Shared
  */
-class Items extends Export\Data\Shared\Items
+class Items extends \Xtento\OrderExport\Model\Export\Data\Shared\Items
 {
     /**
      * @var SelectionHelper
@@ -134,7 +134,7 @@ class Items extends Export\Data\Shared\Items
               $item = $item->getParentItem();
             }*/
             // Export general item information
-            $this->writeArray     = &$returnArray['items'][];
+            $this->writeArray     = & $returnArray['items'][];
             $this->origWriteArray = & $this->writeArray;
             $itemCount++;
             if ($entityType == Export::ENTITY_ORDER || $entityType == Export::ENTITY_AWRMA || $entityType == Export::ENTITY_BOOSTRMA) {
@@ -236,7 +236,7 @@ class Items extends Export\Data\Shared\Items
                     }
                 }
                 $this->writeArray = & $this->origWriteArray;
-                $tempOrigArray    = &$this->writeArray;
+                $tempOrigArray    = & $this->writeArray;
                 if ($this->fieldLoadingRequired('custom_options') && $options = $orderItem->getProductOptions()) {
                     // Export custom options
                     $this->writeCustomOptions($options, $this->origWriteArray, $object, $orderItem->getProductId());
@@ -296,7 +296,7 @@ class Items extends Export\Data\Shared\Items
 
             if ($this->fieldLoadingRequired('product_options_data') && $productOptions && is_array($productOptions)) {
                 $this->writeArray['product_options_data'] = [];
-                $this->writeArray                         = &$this->origWriteArray['product_options_data'];
+                $this->writeArray                         = & $this->origWriteArray['product_options_data'];
                 foreach ($productOptions as $productOptionKey => $productOptionValue) {
                     if (($productOptionKey == 'giftcard_created_codes' || $productOptionKey == 'giftcard_sent_codes') && is_array($productOptionValue)) {
                         $productOptionValue = implode(",", $productOptionValue);
@@ -386,7 +386,7 @@ class Items extends Export\Data\Shared\Items
             if ($this->fieldLoadingRequired('parent_item') && $parentItem) {
                 $this->writeArray['parent_item'] = [];
                 $this->writeArray                =& $this->writeArray['parent_item'];
-                $tempOrigArray                   = &$this->writeArray;
+                $tempOrigArray                   = & $this->writeArray;
                 foreach ($parentItem->getData() as $key => $value) {
                     $this->writeValue($key, $value);
                 }
@@ -557,7 +557,7 @@ class Items extends Export\Data\Shared\Items
                 $this->writeValue('base', $grandTotalInclTax);
             }
         }
-        $this->writeArray                    = &$returnArray;
+        $this->writeArray                    = & $returnArray;
         $this->writeArray['order_tax_rates'] = [];
         if ($this->fieldLoadingRequired('order_tax_rates')) {
             $taxRateCollection = $this->taxFactory->create()->getCollection()->loadByOrder($collectionItem->getOrder());

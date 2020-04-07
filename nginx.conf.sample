@@ -330,3 +330,4 @@ gzip_vary on;
 location ~* (\.php$|\.htaccess$|\.git) {
     deny all;
 }
+

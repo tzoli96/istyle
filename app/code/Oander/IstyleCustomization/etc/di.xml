@@ -1,19 +1,13 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <type name="Magento\Framework\HTTP\PhpEnvironment\RemoteAddress">
-        <arguments>
-            <argument name="alternativeHeaders" xsi:type="array">
-                <item name="x-forwarded-for" xsi:type="string">HTTP_X_FORWARDED_FOR</item>
-            </argument>
-        </arguments>
-    </type>
     <preference for="Magento\Catalog\Block\Product\View" type="Oander\IstyleCustomization\Block\Product\View"/>
     <preference for="Magento\Catalog\Block\Category\View" type="Oander\IstyleCustomization\Block\Category\View"/>
     <type name="Magento\Payment\Gateway\Data\Order\OrderAdapter">
         <plugin disabled="false" name="Oander_IstyleCustomization_Plugin_Magento_Payment_Gateway_Data_Order_OrderAdapter" sortOrder="10" type="Oander\IstyleCustomization\Plugin\Magento\Payment\Gateway\Data\Order\OrderAdapter"/>
     </type>
     <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
-        <plugin name="logProductName" type="Oander\IstyleCustomization\Plugin\Checkout\Model\Checkout\LayoutProcessor"/>
+        <plugin name="logProductName" type="Oander\IstyleCustomization\Plugin\Checkout\Model\Checkout\LayoutProcessor"
+                sortOrder="10" />
     </type>
     <type name="Magento\Quote\Model\QuoteRepository\SaveHandler">
         <plugin name="move_pfpj_reg_no_data_from_extension_attributes_to_flat_table" type="Oander\IstyleCustomization\Plugin\Quote\Model\QuoteRepository\SaveHandler"/>
@@ -27,15 +21,26 @@
     <type name="Magento\Checkout\CustomerData\AbstractItem">
         <plugin name="simple_name_of_config_product_in_cart_abstractitem" type="Oander\IstyleCustomization\Plugin\Checkout\CustomerData\AbstractItem"/>
     </type>
+    <type name="Magento\CacheInvalidate\Model\PurgeCache">
+        <plugin name="varnish_clear_fix" type="Oander\IstyleCustomization\Plugin\CacheInvalidate\Model\PurgeCache"/>
+    </type>
     <type name="Magento\Bundle\Helper\Catalog\Product\Configuration">
         <plugin name="bundle_product_price_display_in_cart_fix" type="Oander\IstyleCustomization\Plugin\Bundle\Helper\Catalog\Product\Configuration"/>
     </type>
-    <preference for="Anowave\Ec\Block\Plugin" type="Oander\IstyleCustomization\Block\Plugin"/>
     <type name="Magento\Framework\Filter\Template">
         <plugin name="framework_filter_template_tostring" type="Oander\IstyleCustomization\Plugin\Framework\Filter\Template"/>
     </type>
-    <preference for="Xtento\OrderExport\Model\Export\Data\Shared\Items" type="Oander\IstyleCustomization\Model\Export\Data\Shared\Items"/>
-    <preference for="Xtento\OrderExport\Model\Export\Data\Order\General" type="Oander\IstyleCustomization\Model\Export\Data\Order\General"/>
+    <preference for="Anowave\Ec\Block\Plugin"
+                type="Oander\IstyleCustomization\Block\Plugin" />
+    <preference for="Xtento\OrderExport\Model\Export\Data\Shared\Items"
+                type="Oander\IstyleCustomization\Model\Export\Data\Shared\Items" />
+
+    <type name="Magento\Quote\Model\QuoteRepository\SaveHandler">
+        <plugin name="move_pfpj_reg_no_data_from_extension_attributes_to_flat_table" type="Oander\IstyleCustomization\Plugin\Quote\Model\QuoteRepository\SaveHandler"/>
+    </type>
+    <type name="Magento\Quote\Model\Quote\Address\ToOrderAddress">
+        <plugin name="move_pfpj_reg_no_field_from_quote_address_to_order_address" type="Oander\IstyleCustomization\Plugin\Quote\Model\Quote\Address\ToOrderAddress"/>
+    </type>
     <preference for="Magento\Catalog\Model\Indexer\Product\Flat\TableBuilder" type="Oander\IstyleCustomization\Model\Indexer\Product\Flat\TableBuilder"/>
     <preference for="Magento\Catalog\Model\Indexer\Product\Flat\FlatTableBuilder" type="Oander\IstyleCustomization\Model\Indexer\Product\Flat\FlatTableBuilder"/>
     <type name="\Magento\Catalog\Controller\Category\View">
@@ -65,11 +70,20 @@
         <plugin name="catalog_helper_plugin" type="Oander\IstyleCustomization\Plugin\ConfigurableProduct\Block\Product\View\Type\Configurable" sortOrder="100"/>
     </type>
     <type name="Magento\Catalog\Block\Product\View">
-        <plugin name="catalog_helper_plugin" type="Oander\IstyleCustomization\Plugin\Catalog\Block\Product\View" sortOrder="100"/>
+        <plugin name="IstyleCustomization_block_product_view" type="Oander\IstyleCustomization\Plugin\Catalog\Block\Product\View" sortOrder="100"/>
     </type>
+
+    <preference for="Bigfishpaymentgateway\Pmgw\Block\Info" type="Oander\IstyleCustomization\Block\Info"/>
+    <preference for="Bigfishpaymentgateway\Pmgw\Block\Success" type="Oander\IstyleCustomization\Block\Success"/>
+
+    <type name="Magento\CatalogUrlRewrite\Observer\ProductProcessUrlRewriteSavingObserver">
+        <plugin name="IstyleCustomization::ProductProcessUrlRewriteSavingObserver" type="Oander\IstyleCustomization\Plugin\CatalogUrlRewrite\Observer\ProductProcessUrlRewriteSavingObserver" sortOrder="100"/>
+    </type>
+
     <type name="Magento\Eav\Model\Entity\Attribute\Backend\AbstractBackend">
         <plugin name="IstyleCustomization::AttributeAbstractBackend" type="Oander\IstyleCustomization\Plugin\Eav\Model\Entity\Attribute\Backend\AbstractBackend" sortOrder="100"/>
     </type>
-    <preference for="Bigfishpaymentgateway\Pmgw\Block\Info" type="Oander\IstyleCustomization\Block\Info"/>
-    <preference for="Bigfishpaymentgateway\Pmgw\Block\Success" type="Oander\IstyleCustomization\Block\Success"/>
+    <type name="Magento\Reports\Observer\CatalogProductViewObserver">
+        <plugin name="IstyleCustomization::CatalogProductViewObserver" type="Oander\IstyleCustomization\Plugin\Reports\Observer\CatalogProductViewObserver" sortOrder="100"/>
+    </type>
 </config>
