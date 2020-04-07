@@ -41,7 +41,7 @@ class UpgradeData implements UpgradeDataInterface
      *
      * @param QuoteSetupFactory $quoteSetupFactory
      * @param SalesSetupFactory $salesSetupFactory
-     * @param EavSetupFactory $eavSetupFactory
+     * @param EavSetupFactory   $eavSetupFactory
      */
     public function __construct(
         QuoteSetupFactory $quoteSetupFactory,
@@ -66,7 +66,42 @@ class UpgradeData implements UpgradeDataInterface
             $this->addRegistrationNumAttribute($setup);
         }
 
+        if (version_compare($context->getVersion(), '1.0.2') < 0) {
+            $this->addProductDistributorAttribute($setup);
+        }
+
         $setup->endSetup();
+    }
+
+    private function addProductDistributorAttribute(ModuleDataSetupInterface $setup)
+    {
+        /** @var EavSetup $eavSetup */
+        $eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
+        $eavSetup->addAttribute(
+            \Magento\Catalog\Model\Product::ENTITY,
+            'distributor',
+            [
+                'type'                    => 'text',
+                'backend'                 => '',
+                'frontend'                => '',
+                'label'                   => 'Distributor',
+                'input'                   => 'text',
+                'class'                   => '',
+                'source'                  => '',
+                'global'                  => \Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface::SCOPE_STORE,
+                'visible'                 => false,
+                'required'                => false,
+                'user_defined'            => false,
+                'default'                 => '',
+                'searchable'              => false,
+                'filterable'              => false,
+                'comparable'              => false,
+                'visible_on_front'        => false,
+                'used_in_product_listing' => false,
+                'unique'                  => false,
+                'apply_to'                => ''
+            ]
+        );
     }
 
     /**
@@ -85,15 +120,15 @@ class UpgradeData implements UpgradeDataInterface
 
         $attributeCode = 'pfpj_reg_no';
         $attributeParams = [
-            'type' => 'varchar',
-            'label' => 'Registration Number',
-            'input' => 'text',
-            'required' => false,
-            'visible' => false,
+            'type'         => 'varchar',
+            'label'        => 'Registration Number',
+            'input'        => 'text',
+            'required'     => false,
+            'visible'      => false,
             'user_defined' => false,
-            'system' => false,
-            'sort_order' => 60,
-            'position' => 60,
+            'system'       => false,
+            'sort_order'   => 60,
+            'position'     => 60,
         ];
         $eavSetup->addAttribute(
             'customer_address',
@@ -125,7 +160,6 @@ class UpgradeData implements UpgradeDataInterface
         $eavSetup
             ->getSetup()
             ->getConnection()
-            ->insertMultiple($eavSetup->getSetup()->getTable('customer_form_attribute'), $data)
-        ;
+            ->insertMultiple($eavSetup->getSetup()->getTable('customer_form_attribute'), $data);
     }
 }
