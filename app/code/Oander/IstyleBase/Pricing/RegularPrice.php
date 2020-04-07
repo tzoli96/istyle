@@ -50,8 +50,8 @@ class RegularPrice extends \Magento\Catalog\Pricing\Price\RegularPrice
                 return parent::getValue();
             }
 
-            $price = $this->product->getPrice();
-            $oldPrice = $this->product->getOldPrice();
+            $price      = $this->product->getPrice();
+            $oldPrice   = $this->product->getOldPrice();
             $finalPrice = $this->product->getFinalPrice();
 
             if ((float)$oldPrice > (float)$price
@@ -61,9 +61,10 @@ class RegularPrice extends \Magento\Catalog\Pricing\Price\RegularPrice
             }
 
             $priceInCurrentCurrency = $this->priceCurrency->convertAndRound($price);
-            $this->value = $priceInCurrentCurrency ? floatval($priceInCurrentCurrency) : false;
+            $this->value            = $priceInCurrentCurrency ? floatval($priceInCurrentCurrency) : false;
 
         }
+
         return $this->value;
     }
 }

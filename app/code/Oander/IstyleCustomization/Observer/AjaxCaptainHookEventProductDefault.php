@@ -20,12 +20,12 @@ declare(strict_types=1);
 namespace Oander\IstyleCustomization\Observer;
 
 use Magento\Catalog\Api\ProductRepositoryInterface;
-use Magento\Catalog\Block\Product\Context;
 use Magento\Framework\Event\Manager;
 use Magento\Framework\Event\ObserverInterface;
 use \Magento\Framework\Json\DecoderInterface;
 use Oander\AjaxCaptainHook\Controller\AjaxHook\ProductPageHook;
 use Oander\ConfigurableProductAttribute\Magento\Swatches\Block\Product\Renderer\Configurable;
+use Magento\Catalog\Block\Product\Context;
 
 /**
  * Class AjaxCaptainHookEventDefaultSelection
@@ -135,8 +135,6 @@ class AjaxCaptainHookEventProductDefault implements ObserverInterface
                         $registry->unregister('product');
                         $registry->register('product', $defaultProduct);
                         $this->eventManager->dispatch(ProductPageHook::AJAX_C_H_EVENT, [ProductPageHook::EVENT_INPUT => $inputdefaultproduct, ProductPageHook::EVENT_OUTPUT => $outputdefaultproduct]);
-                        $registry->unregister('product');
-                        $registry->register('product', $origproduct);
                         $output->setData(
                             self::OUTPUT_NAME,
                             array(
@@ -144,6 +142,8 @@ class AjaxCaptainHookEventProductDefault implements ObserverInterface
                                 self::OUTPUT_NAME2 => $defaultProduct->getId()
                             )
                         );
+                        $registry->unregister('product');
+                        $registry->register('product', $origproduct);
                     }
                 }
             }

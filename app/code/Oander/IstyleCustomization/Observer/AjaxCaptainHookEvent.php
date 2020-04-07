@@ -94,6 +94,7 @@ class AjaxCaptainHookEvent implements ObserverInterface
             $finalprice = $product->getPriceInfo()->getPrice('final_price');
             $price = $this->_registerJsPrice($price->getAmount()->getValue());
             $finalprice = $this->_registerJsPrice($finalprice->getAmount()->getValue());
+            $this->productView->getProduct()->setData('has_options', 1);
             $productViewConfig = $this->jsonDecoder->decode($this->productView->getJsonConfig());
 
             /** @var \Magento\Catalog\Model\Product|null $realproduct */

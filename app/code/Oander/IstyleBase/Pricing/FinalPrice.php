@@ -51,8 +51,8 @@ class FinalPrice extends \Magento\Catalog\Pricing\Price\FinalPrice
 
         $finalPrice = max(0, $this->getBasePrice()->getValue());
 
-        $price = $this->product->getPrice();
-        $oldPrice = $this->product->getOldPrice();
+        $price         = $this->product->getPrice();
+        $oldPrice      = $this->product->getOldPrice();
         $finalPriceTmp = $this->product->getFinalPrice();
 
         if ((float)$oldPrice > (float)$price

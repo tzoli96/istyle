@@ -2,7 +2,6 @@
 
 namespace Oander\IstyleCustomization\Setup;
 
-use Istyle\InsiaCare\Model\Product\Type\InsiaCare;
 use Magento\Catalog\Model\Product;
 use Magento\Eav\Setup\EavSetup;
 use Magento\Eav\Setup\EavSetupFactory;
