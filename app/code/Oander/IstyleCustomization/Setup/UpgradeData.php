@@ -66,7 +66,7 @@ class UpgradeData implements UpgradeDataInterface
             $this->addRegistrationNumAttribute($setup);
         }
 
-        if (version_compare($context->getVersion(), '1.0.2') < 0) {
+        if (version_compare($context->getVersion(), '1.0.3') < 0) {
             $this->addProductDistributorAttribute($setup);
         }
 
