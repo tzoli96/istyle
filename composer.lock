@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "81fe6847ae052a51e353e0f817ff91a8",
+    "content-hash": "39ca82c8038e2e8883fa72b5295a0e81",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8419,11 +8419,11 @@
         },
         {
             "name": "oander/module-applepay",
-            "version": "1.0.2.18",
+            "version": "1.0.2.19",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-applepay.git",
-                "reference": "6e2e03d536cb31a3c923f5ce00ebb3f26a8d77dd"
+                "reference": "ce882ba219121b066ad3a03bd3ed86e9a8de3a79"
             },
             "require": {
                 "oander/module-checkout": ">=1.1.0",
@@ -8442,7 +8442,7 @@
                 "proprietary"
             ],
             "description": "Apple Pay payment method",
-            "time": "2020-03-02T15:10:08+00:00"
+            "time": "2020-04-08T12:21:57+00:00"
         },
         {
             "name": "oander/module-autorelated-warehouse-manager-extender",
@@ -9676,11 +9676,11 @@
         },
         {
             "name": "oander/module-product-widget-warehouse-manager-extender",
-            "version": "1.0.1.4",
+            "version": "1.0.1.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-product-widget-warehouse-manager-extender.git",
-                "reference": "a2fee20e3d516d19f7c1dd339d24939a3ae0309d"
+                "reference": "cf92331993777c23f65c8feadae90ef1ec886b19"
             },
             "require": {
                 "oander/module-warehouse-manager-conditions": "*",
@@ -9698,7 +9698,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2020-02-14T15:07:45+00:00"
+            "time": "2020-04-06T09:31:10+00:00"
         },
         {
             "name": "oander/module-producturlresolver",
@@ -9836,11 +9836,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.12.9",
+            "version": "1.1.12.10",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "5569efaec12a402eaae349cb930d5ad8d1ff1fc0"
+                "reference": "a12f82fc5b351a6fad45134fd24e09dee2279ed9"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9869,7 +9869,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2019-10-23T14:29:30+00:00"
+            "time": "2020-01-30T08:50:55+00:00"
         },
         {
             "name": "oander/module-shipping",
