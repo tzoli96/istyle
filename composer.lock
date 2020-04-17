@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "39ca82c8038e2e8883fa72b5295a0e81",
+    "content-hash": "f9f444b9e299f3b868431035dc863d20",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -537,16 +537,16 @@
         },
         {
             "name": "bigfish/paymentgateway",
-            "version": "3.2.0",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bigfish-hu/payment-gateway-php-sdk.git",
-                "reference": "5969a8dcb4ec4b89f3ccbef5ee687742317dbdf5"
+                "reference": "0d29911541428dd67667767e692ed92b3a78a04d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/5969a8dcb4ec4b89f3ccbef5ee687742317dbdf5",
-                "reference": "5969a8dcb4ec4b89f3ccbef5ee687742317dbdf5",
+                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/0d29911541428dd67667767e692ed92b3a78a04d",
+                "reference": "0d29911541428dd67667767e692ed92b3a78a04d",
                 "shasum": ""
             },
             "require": {
@@ -575,7 +575,7 @@
                 "payment",
                 "webshop"
             ],
-            "time": "2019-12-09T09:55:23+00:00"
+            "time": "2020-02-25T10:49:15+00:00"
         },
         {
             "name": "bigfishpaymentgateway/pmgw",
@@ -9540,11 +9540,11 @@
         },
         {
             "name": "oander/module-pos-locations",
-            "version": "dev-42384-marker-fix",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-pos-locations.git",
-                "reference": "c5d2ef8a91964b0a0fc3f3552a12420144903224"
+                "reference": "2e0f58ee7305343c9e25c545f070a1bb380e4dd9"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9563,7 +9563,7 @@
                 "proprietary"
             ],
             "description": "Oander POS Locations module",
-            "time": "2020-04-01T08:30:26+00:00"
+            "time": "2020-03-21T14:31:28+00:00"
         },
         {
             "name": "oander/module-preorder",
@@ -14593,7 +14593,6 @@
         "oander/module-core-bug-fix": 20,
         "oander/module-multislider": 20,
         "oander/module-news": 20,
-        "oander/module-pos-locations": 20,
         "oander/module-salesforce-service": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
