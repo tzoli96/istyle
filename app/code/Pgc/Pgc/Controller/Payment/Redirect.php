@@ -7,7 +7,7 @@ use Magento\Framework\App\Request\InvalidRequestException;
 use Magento\Framework\App\RequestInterface;
 
 
-class Redirect extends \Magento\Framework\App\Action\Action implements CsrfAwareActionInterface
+class Redirect extends \Magento\Framework\App\Action\Action
 {
     /**
      * @var \Magento\Checkout\Model\Session

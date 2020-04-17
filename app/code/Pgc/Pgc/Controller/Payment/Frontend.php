@@ -52,14 +52,13 @@ class Frontend extends Action
         \Magento\Checkout\Api\PaymentInformationManagementInterface $paymentInformation,
         Data $paymentHelper,
         \Pgc\Pgc\Helper\Data $pgcHelper,
-        UrlInterface $urlBuilder,
         JsonFactory $resultJsonFactory
     ) {
         parent::__construct($context);
         $this->session = $checkoutSession;
         $this->paymentInformation = $paymentInformation;
         $this->paymentHelper = $paymentHelper;
-        $this->urlBuilder = $urlBuilder;
+        $this->urlBuilder = $context->getUrl();
         $this->pgcHelper = $pgcHelper;
         $this->resultJsonFactory = $resultJsonFactory;
     }
