@@ -120,13 +120,4 @@ class Callback extends Action implements CsrfAwareActionInterface
 
         die('OK');
     }
-
-    /**
-     * @inheritDoc
-     */
-    public function validateForCsrf(RequestInterface $request): ?bool
-    {
-        return true;
-    }
-
 }
