@@ -124,15 +124,6 @@ class Callback extends Action implements CsrfAwareActionInterface
     /**
      * @inheritDoc
      */
-    public function createCsrfValidationException(
-        RequestInterface $request
-    ): ?InvalidRequestException {
-        return null;
-    }
-
-    /**
-     * @inheritDoc
-     */
     public function validateForCsrf(RequestInterface $request): ?bool
     {
         return true;
