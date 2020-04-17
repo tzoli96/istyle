@@ -36,9 +36,4 @@ class Redirect extends \Magento\Framework\App\Action\Action implements CsrfAware
         }
         else $this->_redirect('checkout', ['_fragment' => 'payment']);
     }
-
-    public function validateForCsrf(RequestInterface $request): ?bool
-    {
-        return true;
-    }
 }
