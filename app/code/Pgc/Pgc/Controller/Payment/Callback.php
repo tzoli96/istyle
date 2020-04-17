@@ -11,7 +11,7 @@ use Magento\Framework\App\RequestInterface;
 use Magento\Sales\Model\Order;
 use Magento\Sales\Model\Service\InvoiceService;
 
-class Callback extends Action implements CsrfAwareActionInterface
+class Callback extends Action
 {
 
     /**
@@ -45,7 +45,7 @@ class Callback extends Action implements CsrfAwareActionInterface
             die('invalid request');
         }
 
-        $xml =\ simplexml_load_string($notification);
+        $xml = \simplexml_load_string($notification);
         $data = \json_decode(json_encode($xml),true);
 
         if (empty($data)) {
