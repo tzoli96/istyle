@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9e8c83d45aaa3e63e1d931e8c6fba00d",
+    "content-hash": "65cb31c19856273c61dd1abc77fc156e",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7175,11 +7175,11 @@
         },
         {
             "name": "magexo/paymenthomecredit",
-            "version": "0.0.1.14",
+            "version": "0.0.1.15",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/magexo-paymenthomecredit.git",
-                "reference": "14252b7a2914d6886b917aeff460f0bc0d7d47cf"
+                "reference": "5e51c11eec43d7536a8aa74876a3ceb60b632047"
             },
             "require": {
                 "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
@@ -7197,7 +7197,7 @@
                 "Commercial"
             ],
             "description": "MageXo Payment Home Credit",
-            "time": "2020-03-13T14:59:14+00:00"
+            "time": "2020-04-20T11:53:54+00:00"
         },
         {
             "name": "maxmind-db/reader",
