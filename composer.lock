@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "65cb31c19856273c61dd1abc77fc156e",
+    "content-hash": "6f6829e437c097c08b13a6a592c46dc0",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8418,6 +8418,33 @@
             "time": "2019-12-10T14:14:08+00:00"
         },
         {
+            "name": "oander/module-apple-music",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/module-apple-music.git",
+                "reference": "e0a794e8168c8dc162412f95f8e764e9e62efeaa"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\AppleMusic\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Apple Music Widget",
+            "time": "2020-04-21T06:46:14+00:00"
+        },
+        {
             "name": "oander/module-applepay",
             "version": "1.0.2.19",
             "source": {
@@ -14707,6 +14734,7 @@
         "composer/composer": 15,
         "innobyte/module-cetelem": 20,
         "oander/module-api-index": 20,
+        "oander/module-apple-music": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-multislider": 20,
         "oander/module-news": 20,
