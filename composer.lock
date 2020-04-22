@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9e8c83d45aaa3e63e1d931e8c6fba00d",
+    "content-hash": "6f6829e437c097c08b13a6a592c46dc0",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7175,11 +7175,11 @@
         },
         {
             "name": "magexo/paymenthomecredit",
-            "version": "0.0.1.14",
+            "version": "0.0.1.15",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/magexo-paymenthomecredit.git",
-                "reference": "14252b7a2914d6886b917aeff460f0bc0d7d47cf"
+                "reference": "5e51c11eec43d7536a8aa74876a3ceb60b632047"
             },
             "require": {
                 "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
@@ -7197,7 +7197,7 @@
                 "Commercial"
             ],
             "description": "MageXo Payment Home Credit",
-            "time": "2020-03-13T14:59:14+00:00"
+            "time": "2020-04-20T11:53:54+00:00"
         },
         {
             "name": "maxmind-db/reader",
@@ -8416,6 +8416,33 @@
             ],
             "description": "Oander_ApiWarehouseManager",
             "time": "2019-12-10T14:14:08+00:00"
+        },
+        {
+            "name": "oander/module-apple-music",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/module-apple-music.git",
+                "reference": "e0a794e8168c8dc162412f95f8e764e9e62efeaa"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\AppleMusic\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Apple Music Widget",
+            "time": "2020-04-21T06:46:14+00:00"
         },
         {
             "name": "oander/module-applepay",
@@ -14707,6 +14734,7 @@
         "composer/composer": 15,
         "innobyte/module-cetelem": 20,
         "oander/module-api-index": 20,
+        "oander/module-apple-music": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-multislider": 20,
         "oander/module-news": 20,
