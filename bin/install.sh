@@ -119,6 +119,9 @@ if [ "${INSTANCE_ID}" == "${DEV_MASTER_ID}" ]; then
   echo -n " * CHOWN VAR/LOG DIR ... "
   if chown www-data:www-data -R /var/log/magento; then echo OK; else echo FAIL; fi
 
+  echo -n " * COPY CUSTOM NGINX CONFIG FOR MAGENTO ... "
+  if cp -a ${WEBROOT}/nginx.magento.conf ${WEBROOT}/nginx.conf.sample; then echo OK; else echo FAIL; fi
+
   echo
   echo " * MAGENTO CACHE ENABLE: "
   magento "cache:enable"
