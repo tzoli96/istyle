@@ -281,7 +281,7 @@ location /mk/media/import/ {
 }
 
 # PHP entry point for main application
-location ~ (index|get|static|report|404|503|info|applemusic)\.php$ {
+location ~ (index|get|static|report|404|503|info)\.php$ {
     try_files $uri =404;
     fastcgi_pass   fastcgi_backend;
     fastcgi_buffers 1024 4k;
