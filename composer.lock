@@ -8423,7 +8423,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-apple-music.git",
-                "reference": "4f4e9c3cfbec22853145e68eb07d0a9c6b79be2b"
+                "reference": "a6c597f1492e541e5e3a8c35d8a6b80901ce6632"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8442,7 +8442,7 @@
                 "proprietary"
             ],
             "description": "Apple Music Widget",
-            "time": "2020-04-23T09:46:18+00:00"
+            "time": "2020-04-29T13:30:23+00:00"
         },
         {
             "name": "oander/module-applepay",
@@ -10278,7 +10278,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "dac4eff02d85af0a6276d1b76f3143bf08bdf053"
+                "reference": "9e7b5f7f8d7e8ff46522f6367849b218106b3266"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10294,7 +10294,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2020-04-22T15:20:24+00:00"
+            "time": "2020-04-25T10:42:55+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -11393,7 +11393,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.39",
+            "version": "v3.4.40",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -14640,7 +14640,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.39",
+            "version": "v3.4.40",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
