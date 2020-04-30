@@ -8423,7 +8423,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-apple-music.git",
-                "reference": "a14993657a8c530f579bb5373a4751368e048151"
+                "reference": "d8cbb1cc340a0b08001d6452cfff9447ae968c91"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8442,7 +8442,7 @@
                 "proprietary"
             ],
             "description": "Apple Music Widget",
-            "time": "2020-04-30T09:20:27+00:00"
+            "time": "2020-04-30T10:47:19+00:00"
         },
         {
             "name": "oander/module-applepay",
