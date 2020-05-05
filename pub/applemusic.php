@@ -6,9 +6,9 @@
 $secretkey = '6LeuXp0UAAAAANPFdzdXdMAgb1rIkHX46Od8Ck3Z'; //secret key of recaptcha
 
 //Applemusic config
-$client_access_id = '5aa94f276193a765adcca3c5'; //uinique ID
-$private_key = '3l6A2NevXXQsXIUEMr8ugjsVu5OJEKALs9UYuUpq55JOi06RhG/zXNOtA0amn8UUs5vzix66PBWQ+gp8Ls4qaQ=='; //signature
-$request_url = "https://redeem.itunes.apple.com/api/nUSb5w/KwxQnw"; //API end point
+$client_access_id = '5e900866968ceb57b8e7b116'; //uinique ID
+$private_key = '6Qdyq3fKKgdYD0yjP6cmd3tJH3sV0Kq9KbIaYn1IrPheYPwEGiYgit9EuFkNtxvFu2l5lt3eIL0JCRpFBN9FcQ=='; //signature
+$request_url = "https://redeem.itunes.apple.com/api/XqGp1A/aRKPQA"; //API end point
 
 /**
  * End of config
