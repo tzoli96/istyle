@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6f6829e437c097c08b13a6a592c46dc0",
+    "content-hash": "430cbe931b163dbc4eca5e5e7ac26c0e",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8578,11 +8578,11 @@
         },
         {
             "name": "oander/module-bundle-price-switcher",
-            "version": "1.0.1.6",
+            "version": "1.0.1.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-bundle-price-switcher.git",
-                "reference": "d502f54bbb8c9c8db98518dcbb8a9cffbb77ff2b"
+                "reference": "1221217c1aa026a98804f6a75146f3a70e0eca00"
             },
             "require": {
                 "oander/module-bundle": ">=1.0.3.2",
@@ -8600,7 +8600,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2020-03-26T23:54:58+00:00"
+            "time": "2020-05-06T08:05:00+00:00"
         },
         {
             "name": "oander/module-cardondeliverypayment",

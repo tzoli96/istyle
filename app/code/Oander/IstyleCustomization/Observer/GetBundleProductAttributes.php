@@ -68,6 +68,11 @@ class GetBundleProductAttributes implements ObserverInterface
             }
         }
 
+        if (empty($productAttributes)) {
+            $productAttributes = $this->selectionHelper->getDefaultSelectionProductIds($product);
+            $observer->setData('product_attributes', $productAttributes);
+        }
+
         $observer->setData('default_selections', $isDefaultSelections);
     }
 }

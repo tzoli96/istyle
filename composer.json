@@ -80,7 +80,7 @@
         "oander/module-base": "1.2.13.1",
         "oander/module-bundle": "1.0.3.2",
         "oander/module-bundle-ignore-stock-quantity": "1.0.0.4",
-        "oander/module-bundle-price-switcher": "1.0.1.6",
+        "oander/module-bundle-price-switcher": "1.0.1.7",
         "oander/module-cardondeliverypayment": "1.0.1",
         "oander/module-cartbutton": "1.0.19.8",
         "oander/module-cashonpickuppayment": "1.0.1",
