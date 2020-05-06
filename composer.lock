@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b40b1fa7aadd76a99d8ba3f5e5cc109",
+    "content-hash": "07b512afc5e6fbf6ab4a7e83a5e011f2",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7956,11 +7956,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.18.0",
+            "version": "1.0.18.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "0fbd47b81df085c81c517445e3645ce342cbf2c4"
+                "reference": "25980def1f03bbee3d739a05cebe85c01ac530f6"
             },
             "require": {
                 "oander/module-warehouse-manager": ">=1.4.25.6"
@@ -7984,7 +7984,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2019-07-31T17:43:00+00:00"
+            "time": "2020-05-06T14:55:00+00:00"
         },
         {
             "name": "oander/module-amasty-xnotif-bundle-price-switcher-extender",
@@ -8552,11 +8552,11 @@
         },
         {
             "name": "oander/module-bundle-ignore-stock-quantity",
-            "version": "1.0.0.5",
+            "version": "1.0.0.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-bundle-ignore-stock-quantity.git",
-                "reference": "3dad0d4195bf8c1eb0b41059fd2791404a408725"
+                "reference": "6e56e4d698d940a0a5d2cf32d586a5ee3b725550"
             },
             "require": {
                 "oander/module-bundle": ">=1.0.3",
@@ -8574,7 +8574,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2020-05-06T13:06:45+00:00"
+            "time": "2020-05-06T14:56:46+00:00"
         },
         {
             "name": "oander/module-bundle-price-switcher",
