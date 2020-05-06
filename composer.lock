@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "430cbe931b163dbc4eca5e5e7ac26c0e",
+    "content-hash": "8b40b1fa7aadd76a99d8ba3f5e5cc109",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8552,11 +8552,11 @@
         },
         {
             "name": "oander/module-bundle-ignore-stock-quantity",
-            "version": "1.0.0.4",
+            "version": "1.0.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-bundle-ignore-stock-quantity.git",
-                "reference": "200dfa8a396956490aaf1635c28694d0220223a9"
+                "reference": "3dad0d4195bf8c1eb0b41059fd2791404a408725"
             },
             "require": {
                 "oander/module-bundle": ">=1.0.3",
@@ -8574,7 +8574,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2020-02-12T15:14:15+00:00"
+            "time": "2020-05-06T13:06:45+00:00"
         },
         {
             "name": "oander/module-bundle-price-switcher",
