@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "07b512afc5e6fbf6ab4a7e83a5e011f2",
+    "content-hash": "46ef6520c8c8240335232a289998b100",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -537,16 +537,16 @@
         },
         {
             "name": "bigfish/paymentgateway",
-            "version": "3.3.0",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bigfish-hu/payment-gateway-php-sdk.git",
-                "reference": "0d29911541428dd67667767e692ed92b3a78a04d"
+                "reference": "6ad6ce10c489f7e840f54af36487c6152cf696f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/0d29911541428dd67667767e692ed92b3a78a04d",
-                "reference": "0d29911541428dd67667767e692ed92b3a78a04d",
+                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/6ad6ce10c489f7e840f54af36487c6152cf696f8",
+                "reference": "6ad6ce10c489f7e840f54af36487c6152cf696f8",
                 "shasum": ""
             },
             "require": {
@@ -575,7 +575,7 @@
                 "payment",
                 "webshop"
             ],
-            "time": "2020-02-25T10:49:15+00:00"
+            "time": "2020-05-07T09:09:15+00:00"
         },
         {
             "name": "bigfishpaymentgateway/pmgw",
@@ -7261,16 +7261,16 @@
         },
         {
             "name": "maxmind/web-service-common",
-            "version": "v0.6.0",
+            "version": "v0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maxmind/web-service-common-php.git",
-                "reference": "40c928bb0194c45088b369a17f9baef9c3fc7460"
+                "reference": "74c996c218ada5c639c8c2f076756e059f5552fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maxmind/web-service-common-php/zipball/40c928bb0194c45088b369a17f9baef9c3fc7460",
-                "reference": "40c928bb0194c45088b369a17f9baef9c3fc7460",
+                "url": "https://api.github.com/repos/maxmind/web-service-common-php/zipball/74c996c218ada5c639c8c2f076756e059f5552fc",
+                "reference": "74c996c218ada5c639c8c2f076756e059f5552fc",
                 "shasum": ""
             },
             "require": {
@@ -7303,7 +7303,7 @@
             ],
             "description": "Internal MaxMind Web Service API",
             "homepage": "https://github.com/maxmind/web-service-common-php",
-            "time": "2019-12-12T15:56:05+00:00"
+            "time": "2020-05-06T14:07:26+00:00"
         },
         {
             "name": "mirasvit/module-core",
@@ -7988,11 +7988,11 @@
         },
         {
             "name": "oander/module-amasty-xnotif-bundle-price-switcher-extender",
-            "version": "1.0.0.4",
+            "version": "1.0.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-amasty-xnotif-bundle-price-switcher-extender.git",
-                "reference": "517bf46a4d46ce2d447fa0b706cdbc653271f8a3"
+                "reference": "9904b45860131b038da19bbb04433d5a99ee0759"
             },
             "require": {
                 "amasty/xnotif": "*",
@@ -8013,7 +8013,7 @@
                 "proprietary"
             ],
             "description": "Oander_AmastyXnotifBundlePriceSwitcherExtender",
-            "time": "2020-03-19T15:31:26+00:00"
+            "time": "2020-05-07T10:01:13+00:00"
         },
         {
             "name": "oander/module-amasty-xnotif-extender",
