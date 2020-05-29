@@ -1,0 +1,115 @@
+<?php
+	function tbiro_PMT($rate, $nper, $pv, $fv=0, $type = 0) {
+		return (-$fv - $pv * pow(1 + $rate, $nper)) / (1 + $rate * $type) / ((pow(1 + $rate, $nper) - 1) / $rate);
+	}
+
+	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+	$customerSession = $objectManager->get('Magento\Customer\Model\Session');
+	$_product = $objectManager->get('Magento\Framework\Registry')->registry('current_product');
+	$tierPrice = $_product->getPriceInfo()->getPrice('final_price')->getAmount()->getValue();
+	$tbiro_mod_version = $objectManager->get('Magento\Framework\Module\ModuleList')->getOne('Avalon_Costompayment')['setup_version'];
+	
+    if ($this->helper('Avalon\Costompayment\Helper\Data')->getConfig('avalon_custompaymentmethod_tab_options/properties_tbiro/rotbi_unicid')){
+        $rotbi_unicid = $this->helper('Avalon\Costompayment\Helper\Data')->getConfig('avalon_custompaymentmethod_tab_options/properties_tbiro/rotbi_unicid');
+    }else{
+        $rotbi_unicid = "";
+	}	
+
+    $tbiro_ch = curl_init();
+    curl_setopt($tbiro_ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($tbiro_ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($tbiro_ch, CURLOPT_URL, $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl() . '/function/getparameters.php?cid='.$rotbi_unicid);
+    $paramstbiro = json_decode(curl_exec($tbiro_ch), true);
+    curl_close($tbiro_ch);
+
+    $minprice_tbiro = $paramstbiro['tbi_minstojnost'];
+    $tbiro_btn_color = '#e55a00;';
+    if ($paramstbiro['tbi_btn_theme'] == 'tbi'){
+        $tbiro_btn_color = '#e55a00;';
+    }
+    if ($paramstbiro['tbi_btn_theme'] == 'tbi2'){
+        $tbiro_btn_color = '#00368a;';
+    }
+    if ($paramstbiro['tbi_btn_theme'] == 'tbi3'){
+        $tbiro_btn_color = '#2b7953;';
+    }
+    if ($paramstbiro['tbi_btn_theme'] == 'tbi4'){
+        $tbiro_btn_color = '#848789;';
+    }
+    $tbiro_btn_theme = $paramstbiro['tbi_btn_theme'];
+	$tbiro_custom_button_status = $paramstbiro['tbi_custom_button_status'];
+
+	$tbiro_vnoska = $paramstbiro['tbi_vnoska'];
+	if ($paramstbiro['tbi_backurl'] != ''){
+		if (preg_match("#https?://#", $paramstbiro['tbi_backurl']) === 0) {
+			$tbiro_backurl = 'http://'.$paramstbiro['tbi_backurl'];
+		}else{
+			$tbiro_backurl = $paramstbiro['tbi_backurl'];
+		}
+	}else{
+		$tbiro_backurl = '';
+	}
+	
+	$tbi_rate = floatval($paramstbiro['tbi_rate']);
+	if ($tbi_rate == 0){
+		$tbi_rate = 1;
+	}
+	$tbi_commission = floatval($paramstbiro['tbi_commission']);
+	$tbi_insurance = floatval($paramstbiro['tbi_insurance']);
+	$tbi_months = intval($paramstbiro['tbi_months']);			
+	$tbiro_mesecna = tbiro_PMT(($tbi_rate / 100) / 12, $tbi_months,  - ($tierPrice + $tbi_commission) * (1 + $tbi_insurance * $tbi_months));
+	
+	$tbi_btnvisible = $paramstbiro['tbi_btnvisible'];
+
+	if ($tbi_btnvisible == 'Yes'){
+	if (($paramstbiro['tbi_status'] == 'Yes') && ($tierPrice  > $minprice_tbiro)){
+	?>
+	<?php if(($paramstbiro['tbi_zaglavie'] != '') || ($paramstbiro['tbi_opisanie'] != '') || ($paramstbiro['tbi_product'] != '')) { ?>
+		<?php echo '<span style="font-size:22px;font-weight:bold;">' . $paramstbiro['tbi_zaglavie'] . '</span> <span style="font-size:18px;">' . $paramstbiro['tbi_opisanie'] . '</span>' . $paramstbiro['tbi_product']; ?>
+	<?php } ?>
+	<?php if ($tbiro_custom_button_status == 'Yes'){ ?>
+		<?php if ($tbiro_vnoska == 'Yes') { ?>
+			<table border="0" style="max-width:400px;">
+				<tr>
+					<td style="padding-right:5px;padding-bottom:5px;">
+					<?php if ($tbiro_backurl == ''){ ?>
+						<img id="btn_tbiro" style="padding-bottom: 5px;" src="<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/calculators/assets/img/custom_buttons/<?php echo $tbiro_unicid; ?>.png" title="Credit module TBI Bank <?php echo $tbiro_mod_version; ?>" alt="Credit module TBI Bank <?php echo $tbiro_mod_version; ?>" onmouseover="this.src='<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/calculators/assets/img/custom_buttons/<?php echo $tbiro_unicid; ?>_hover.png'" onmouseout="this.src='<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/calculators/assets/img/custom_buttons/<?php echo $tbiro_unicid; ?>.png'">
+					<?php } else { ?>
+						<a href="<?php echo $tbiro_backurl; ?>" target="_blank" title="Go to TBI Credit page"><img id="btn_tbiro" style="padding-bottom: 5px;cursor:pointer;" src="<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/calculators/assets/img/custom_buttons/<?php echo $tbiro_unicid; ?>.png" title="Credit module TBI Bank <?php echo $tbiro_mod_version; ?>" alt="Credit module TBI Bank <?php echo $tbiro_mod_version; ?>" onmouseover="this.src='<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/calculators/assets/img/custom_buttons/<?php echo $tbiro_unicid; ?>_hover.png'" onmouseout="this.src='<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/calculators/assets/img/custom_buttons/<?php echo $tbiro_unicid; ?>.png'"></a>
+					<?php } ?>
+					</td>
+				</tr>
+				<tr>
+					<td style="vertical-align:bottom;padding-bottom:5px;">
+						<p style="color:<?php echo $tbiro_btn_color; ?>font-size:16pt;font-weight:bold;"><?php echo number_format($tbiro_mesecna, 2, '.', ''); ?> Lei x <?php echo $tbi_months; ?> rate</p>
+					</td>
+				</tr>
+			</table>
+		<?php }else{ ?>
+		<a href="<?php echo $tbiro_backurl; ?>" title="Go to TBI Credit page"><img id="btn_tbiro" style="padding-bottom: 5px;cursor:pointer;" src="<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/calculators/assets/img/custom_buttons/<?php echo $tbiro_unicid; ?>.png" title="Credit module TBI Bank <?php echo $tbiro_mod_version; ?>" alt="Credit module TBI Bank <?php echo $tbiro_mod_version; ?>" onmouseover="this.src='<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/calculators/assets/img/custom_buttons/<?php echo $tbiro_unicid; ?>_hover.png'" onmouseout="this.src='<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/calculators/assets/img/custom_buttons/<?php echo $tbiro_unicid; ?>.png'"></a>
+		<?php } ?>
+        <?php }else{ ?>
+		<?php if ($tbiro_vnoska == 'Yes') { ?>
+			<table border="0" style="max-width:400px;">
+				<tr>
+					<td style="padding-right:5px;padding-bottom:5px;">
+					<?php if ($tbiro_backurl == ''){ ?>
+						<img id="btn_tbiro" style="padding-bottom: 5px;" src="<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/calculators/assets/img/buttons/<?php echo $tbiro_btn_theme; ?>.png" title="Credit module TBI Bank <?php echo $tbiro_mod_version; ?>" alt="Credit module TBI Bank <?php echo $tbiro_mod_version; ?>" onmouseover="this.src='<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/calculators/assets/img/buttons/<?php echo $tbiro_btn_theme; ?>-hover.png'" onmouseout="this.src='<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/calculators/assets/img/buttons/<?php echo $tbiro_btn_theme; ?>.png'">
+					<?php } else { ?>
+						<a href="<?php echo $tbiro_backurl; ?>" target="_blank" title="Go to TBI Credit page"><img id="btn_tbiro" style="padding-bottom: 5px;cursor:pointer;" src="<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/calculators/assets/img/buttons/<?php echo $tbiro_btn_theme; ?>.png" title="Credit module TBI Bank <?php echo $tbiro_mod_version; ?>" alt="Credit module TBI Bank <?php echo $tbiro_mod_version; ?>" onmouseover="this.src='<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/calculators/assets/img/buttons/<?php echo $tbiro_btn_theme; ?>-hover.png'" onmouseout="this.src='<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/calculators/assets/img/buttons/<?php echo $tbiro_btn_theme; ?>.png'"></a>
+					<?php } ?>
+					</td>
+				</tr>
+				<tr>
+					<td style="vertical-align:bottom;padding-bottom:5px;">
+						<p style="color:<?php echo $tbiro_btn_color; ?>font-size:16pt;font-weight:bold;"><?php echo number_format($tbiro_mesecna, 2, '.', ''); ?> Lei x <?php echo $tbi_months; ?> rate</p>
+					</td>
+				</tr>
+			</table>
+		<?php }else{ ?>
+			<a href="<?php echo $tbiro_backurl; ?>" title="Go to TBI Credit page"><img id="btn_tbiro" style="padding-bottom: 5px;cursor:pointer;" src="<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/calculators/assets/img/buttons/<?php echo $tbiro_btn_theme; ?>.png" title="Credit module TBI Bank <?php echo $tbiro_mod_version; ?>" alt="Credit module TBI Bank <?php echo $tbiro_mod_version; ?>" onmouseover="this.src='<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/calculators/assets/img/buttons/<?php echo $tbiro_btn_theme; ?>-hover.png'" onmouseout="this.src='<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/calculators/assets/img/buttons/<?php echo $tbiro_btn_theme; ?>.png'"></a>
+		<?php } ?>
+	<?php }
+	}
+	}
+	?>
