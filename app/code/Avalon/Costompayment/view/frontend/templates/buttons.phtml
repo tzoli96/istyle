@@ -1,6 +1,10 @@
 <?php
 	function tbiro_PMT($rate, $nper, $pv, $fv=0, $type = 0) {
-		return (-$fv - $pv * pow(1 + $rate, $nper)) / (1 + $rate * $type) / ((pow(1 + $rate, $nper) - 1) / $rate);
+	    try {
+            return (-$fv - $pv * pow(1 + $rate, $nper)) / (1 + $rate * $type) / ((pow(1 + $rate, $nper) - 1) / $rate);
+        } catch (\Exception $exception) {
+	        return 0;
+        }
 	}
 
 	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();

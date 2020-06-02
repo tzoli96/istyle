@@ -149,6 +149,11 @@
         "rudracomputech/module-nestpay": "2.0.6.5",
         "splitit/paymentmethod": "0.2.0",
         "xtento/module-orderexport": "2.3.9",
+        "oander/module-unity-pickup": "1.0.18.11",
+        "oander/module-api-checkout-unity-pickup": "1.0.0",
+        "oander/module-xtento-order-unity-pickup-export": "1.0.0",
+        "oander/module-unity-dpd-cz-pickup": "1.0.1",
+        "oander/module-unity-dpd-sk-pickup": "1.0.2",
         "xtento/module-xtcore": "2.1.0"
     },
     "require-dev": {
