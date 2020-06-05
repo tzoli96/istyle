@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c779f80e60cecf2b67beef7f21f1b4f6",
+    "content-hash": "09a1322f2166d96f18d97b7a4b4d951f",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
-            "version": "1.28.0",
+            "version": "1.28.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/algolia/algoliasearch-client-php.git",
-                "reference": "c167ba3247b38b028fc05b1c58e8b5fb5e08d114"
+                "reference": "43b0b0dc64e2d0f206d903ad3a4fb8b0a3660f81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/c167ba3247b38b028fc05b1c58e8b5fb5e08d114",
-                "reference": "c167ba3247b38b028fc05b1c58e8b5fb5e08d114",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/43b0b0dc64e2d0f206d903ad3a4fb8b0a3660f81",
+                "reference": "43b0b0dc64e2d0f206d903ad3a4fb8b0a3660f81",
                 "shasum": ""
             },
             "require": {
@@ -50,17 +50,17 @@
                     "email": "contact@algolia.com"
                 },
                 {
-                    "name": "Ryan T. Catlin",
-                    "email": "ryan.catlin@gmail.com"
-                },
-                {
                     "name": "Jonathan H. Wage",
                     "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Ryan T. Catlin",
+                    "email": "ryan.catlin@gmail.com"
                 }
             ],
             "description": "Algolia Search API Client for PHP",
             "homepage": "https://github.com/algolia/algoliasearch-client-php",
-            "time": "2018-11-06T10:48:00+00:00"
+            "time": "2020-06-03T15:36:28+00:00"
         },
         {
             "name": "algolia/algoliasearch-magento-2",
@@ -8450,11 +8450,11 @@
         },
         {
             "name": "oander/module-apple-music",
-            "version": "dev-master",
+            "version": "1.0.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-apple-music.git",
-                "reference": "8115f49ce4c7b01274bc78d0302fcf806d7fd5ff"
+                "reference": "c2bba044abf8366b9cdec5e78ae7e3a22b5b60c6"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8473,7 +8473,7 @@
                 "proprietary"
             ],
             "description": "Apple Music Widget",
-            "time": "2020-05-19T08:46:06+00:00"
+            "time": "2020-06-05T09:23:52+00:00"
         },
         {
             "name": "oander/module-applepay",
@@ -14941,7 +14941,6 @@
         "composer/composer": 15,
         "innobyte/module-cetelem": 20,
         "oander/module-api-index": 20,
-        "oander/module-apple-music": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-multislider": 20,
         "oander/module-news": 20,
