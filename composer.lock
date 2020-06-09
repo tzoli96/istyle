@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c25c778c9a632e741088099401b14a8",
+    "content-hash": "09a1322f2166d96f18d97b7a4b4d951f",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8186,6 +8186,37 @@
             "time": "2018-09-05T09:32:38+00:00"
         },
         {
+            "name": "oander/module-api-checkout-unity-pickup",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-api-checkout-unity-pickup.git",
+                "reference": "48213e7df8610f82b4977e51ffe49552f5915271"
+            },
+            "require": {
+                "oander/module-api-base": "*",
+                "oander/module-api-checkout": "*",
+                "oander/module-api-gateway": "*",
+                "oander/module-base": "*",
+                "oander/module-unity-pickup": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\ApiCheckoutUnityPickup\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "API Checkout Unity Pickup module.",
+            "time": "2018-01-05T12:55:20+00:00"
+        },
+        {
             "name": "oander/module-api-customer",
             "version": "1.0.10",
             "source": {
@@ -8419,7 +8450,7 @@
         },
         {
             "name": "oander/module-apple-music",
-            "version": "dev-master",
+            "version": "1.0.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-apple-music.git",
@@ -8992,6 +9023,33 @@
             "time": "2019-11-11T14:59:40+00:00"
         },
         {
+            "name": "oander/module-email-additional-data",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-email-additional-data.git",
+                "reference": "34f6694f574d472086518e5c59f6b513d8c9a43a"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\EmailAdditionalData\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Email Additional Data",
+            "time": "2017-10-06T10:52:40+00:00"
+        },
+        {
             "name": "oander/module-extension-exterminator",
             "version": "1.0.0.1",
             "source": {
@@ -9126,6 +9184,34 @@
             ],
             "description": "Newsletter modifications for Hungarian roles",
             "time": "2017-04-12T09:11:56+00:00"
+        },
+        {
+            "name": "oander/module-image-extra",
+            "version": "1.0.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/module-image-extra.git",
+                "reference": "3a452b9117ff12289606787b5b1e405e703681fc"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "oander/module-salesforce": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\ImageExtra\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "salesforce-widget",
+            "time": "2020-05-27T12:23:57+00:00"
         },
         {
             "name": "oander/module-installment-prices",
@@ -9807,11 +9893,11 @@
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "dev-42266-gdpr-fix",
+            "version": "0.0.3.49",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "0af60b1a6ecda4a5ab9a351892f9b290d9b5fe0c"
+                "reference": "923ca6e683972ab12697539d43073467719427b7"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9831,7 +9917,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2020-03-27T14:35:37+00:00"
+            "time": "2020-05-21T18:22:48+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -10084,6 +10170,97 @@
             "time": "2018-03-23T08:14:00+00:00"
         },
         {
+            "name": "oander/module-unity-dpd-cz-pickup",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-unity-dpd-cz-pickup.git",
+                "reference": "7096190cc5c853f7a427d3b26f2e0ddde8ed4574"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "oander/module-lapker": "*",
+                "oander/module-test-base": "*",
+                "oander/module-unity-pickup": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\UnityDpdCZPickup\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Unity Dpd CZ Pickup",
+            "time": "2018-08-06T16:06:29+00:00"
+        },
+        {
+            "name": "oander/module-unity-dpd-sk-pickup",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-unity-dpd-sk-pickup.git",
+                "reference": "f6d1b8dc2dd866a7deac7cca4e2ebc176d758184"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "oander/module-lapker": "*",
+                "oander/module-test-base": "*",
+                "oander/module-unity-pickup": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\UnityDpdSKPickup\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Unity Dpd SK Pickup",
+            "time": "2018-08-06T16:06:44+00:00"
+        },
+        {
+            "name": "oander/module-unity-pickup",
+            "version": "1.0.18.11",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-unity-pickup.git",
+                "reference": "1d39aaa0e98bb96dc118ae0df0aa22641f9df830"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "oander/module-checkout": "*",
+                "oander/module-email-additional-data": "*",
+                "oander/module-shipping": "*",
+                "oander/module-test-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\UnityPickup\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Unity Pickup",
+            "time": "2020-06-02T08:58:25+00:00"
+        },
+        {
             "name": "oander/module-warehouse-manager",
             "version": "1.4.25.23",
             "source": {
@@ -10220,6 +10397,36 @@
             ],
             "description": "Xtento Order Export Extender",
             "time": "2018-04-16T15:10:29+00:00"
+        },
+        {
+            "name": "oander/module-xtento-order-unity-pickup-export",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-xtento-order-unity-pickup-export.git",
+                "reference": "365809185fb6795f112d34b5939695623b52738e"
+            },
+            "require": {
+                "oander/module-unity-pickup": "1.*",
+                "oander/module-xtento-order-export-extender": "^1.0.4",
+                "php": "7.*",
+                "xtento/module-orderexport": "2.3.9",
+                "xtento/module-xtcore": "~2.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\XtentoOrderUnityPickupExport\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Xtento Order Unity Pickup Export",
+            "time": "2018-01-08T11:34:04+00:00"
         },
         {
             "name": "oander/module-zbozi",
@@ -14734,11 +14941,9 @@
         "composer/composer": 15,
         "innobyte/module-cetelem": 20,
         "oander/module-api-index": 20,
-        "oander/module-apple-music": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-multislider": 20,
         "oander/module-news": 20,
-        "oander/module-salesforce-service": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0

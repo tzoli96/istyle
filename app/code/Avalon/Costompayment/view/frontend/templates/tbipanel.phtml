@@ -1,0 +1,135 @@
+<style>
+/* *{padding:0;margin:0;}*/
+
+/* fontawesom */
+@font-face {
+	font-family: 'FontAwesome';
+	src: url('../fonts/fontawesome-webfont.eot?v=4.4.0');
+	src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.4.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.4.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.4.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.4.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+.fa {
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.fa-square:before {
+  content: "\f0c8";
+}
+.fa-play:before {
+  content: "\f04b";
+}
+.fa-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+:root .fa-rotate-180 {
+  filter: none;
+}
+/* fontawesom */
+
+/* tbi float */
+.tbiro-label-container{
+	z-index:999;
+	position:fixed;
+	top:calc(100% / 2 - 130px);
+	left:67px;
+	display:table;
+	visibility: hidden;
+}
+.tbiro-label-text{
+	width:410px;
+	height:260px;
+	color:#696969;
+	background:#f5f5f5;
+	display:table-cell;
+	vertical-align:top;
+	padding-left:5px;
+	border:1px solid #f18900;
+	border-radius:3px;
+}
+.tbiro-label-text-a{
+	text-align:center;
+}
+.tbiro-label-text-a a{
+	color:#b73607;
+}
+.tbiro-label-text-a a:hover{
+	color:#672207;
+	text-decoration:underline;
+}
+.tbiro-label-arrow{
+	display:table-cell;
+	vertical-align:middle;
+	color:#f5f5f5;
+	opacity:1;
+}
+.tbiro_float{
+	z-index:999;
+	position:fixed;
+	width:60px;
+	height:60px;
+	top:calc(100% / 2 - 30px);
+	left:0px;
+	background-color:#ffffff;
+	border-top:1px solid #f18900;
+	border-right:1px solid #f18900;
+	border-bottom:1px solid #f18900;
+	color:#FFF;
+	border-top-right-radius:8px;
+	border-bottom-right-radius:8px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+	cursor:pointer;
+}
+.tbiro-my-float{
+	margin-top:12px;
+}	
+</style>
+<?php
+if ($this->helper('Avalon\Costompayment\Helper\Data')->getConfig('avalon_custompaymentmethod_tab_options/properties_tbiro/rotbi_unicid')){
+    $rotbi_unicid = $this->helper('Avalon\Costompayment\Helper\Data')->getConfig('avalon_custompaymentmethod_tab_options/properties_tbiro/rotbi_unicid');
+}else{
+    $rotbi_unicid = "";
+}	
+$tbiro_ch = curl_init();
+curl_setopt($tbiro_ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($tbiro_ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($tbiro_ch, CURLOPT_URL, $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl() . '/function/getparameters.php?cid='.$rotbi_unicid);
+$paramstbiro=json_decode(curl_exec($tbiro_ch), true);
+curl_close($tbiro_ch);
+?>
+<?php if ($paramstbiro['tbi_container_status'] == 'Yes'){ ?>
+<div class="tbiro_float" onclick="tbiroChangeContainer();">
+	<img src="<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/dist/img/tbi_logo.png" class="tbiro-my-float">
+</div>
+<div class="tbiro-label-container">
+	<i class="fa fa-play fa-rotate-180 tbiro-label-arrow"></i>
+	<div class="tbiro-label-text">
+		<div style="padding-bottom:5px;"></div>
+		<img src="<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/calculators/assets/img/tbim<?php echo $paramstbiro['tbi_container_reklama']; ?>.png">
+		<div style="font-size:14px;padding-top:3px;"><?php echo $paramstbiro['tbi_container_txt1']; ?></div>
+		<p style="font-size:12px;"><?php echo $paramstbiro['tbi_container_txt2']; ?></p>
+		<div class="tbiro-label-text-a"><a href="<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/calculators/assets/img/Procedura%20Online%20TBI%20Bank-2017.pdf" target="_blank" alt="CREDIT ONLINE INFORMATION WITH TBI BANK">CREDIT ONLINE INFORMATION WITH TBI BANK!</a></div>
+	</div>
+</div>
+<script type="application/javascript">
+	function tbiroChangeContainer(){
+		var tbiro_label_container = document.getElementsByClassName("tbiro-label-container")[0];
+		if (tbiro_label_container.style.visibility == 'visible'){
+			tbiro_label_container.style.visibility = 'hidden';
+			tbiro_label_container.style.opacity = 0;
+			tbiro_label_container.style.transition = 'visibility 0s, opacity 0.5s ease';				
+		}else{
+			tbiro_label_container.style.visibility = 'visible';
+			tbiro_label_container.style.opacity = 1;			
+		}
+	}
+</script>
+<?php } ?>
