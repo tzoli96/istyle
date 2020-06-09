@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
-            "version": "1.28.0",
+            "version": "1.28.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/algolia/algoliasearch-client-php.git",
-                "reference": "c167ba3247b38b028fc05b1c58e8b5fb5e08d114"
+                "reference": "43b0b0dc64e2d0f206d903ad3a4fb8b0a3660f81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/c167ba3247b38b028fc05b1c58e8b5fb5e08d114",
-                "reference": "c167ba3247b38b028fc05b1c58e8b5fb5e08d114",
+                "url": "https://api.github.com/repos/algolia/algoliasearch-client-php/zipball/43b0b0dc64e2d0f206d903ad3a4fb8b0a3660f81",
+                "reference": "43b0b0dc64e2d0f206d903ad3a4fb8b0a3660f81",
                 "shasum": ""
             },
             "require": {
@@ -50,17 +50,17 @@
                     "email": "contact@algolia.com"
                 },
                 {
-                    "name": "Ryan T. Catlin",
-                    "email": "ryan.catlin@gmail.com"
-                },
-                {
                     "name": "Jonathan H. Wage",
                     "email": "jonwage@gmail.com"
+                },
+                {
+                    "name": "Ryan T. Catlin",
+                    "email": "ryan.catlin@gmail.com"
                 }
             ],
             "description": "Algolia Search API Client for PHP",
             "homepage": "https://github.com/algolia/algoliasearch-client-php",
-            "time": "2018-11-06T10:48:00+00:00"
+            "time": "2020-06-03T15:36:28+00:00"
         },
         {
             "name": "algolia/algoliasearch-magento-2",
@@ -1469,16 +1469,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.5.3",
+            "version": "6.5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "aab4ebd862aa7d04f01a4b51849d657db56d882e"
+                "reference": "a4a1b6930528a8f7ee03518e6442ec7a44155d9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/aab4ebd862aa7d04f01a4b51849d657db56d882e",
-                "reference": "aab4ebd862aa7d04f01a4b51849d657db56d882e",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/a4a1b6930528a8f7ee03518e6442ec7a44155d9d",
+                "reference": "a4a1b6930528a8f7ee03518e6442ec7a44155d9d",
                 "shasum": ""
             },
             "require": {
@@ -1486,7 +1486,7 @@
                 "guzzlehttp/promises": "^1.0",
                 "guzzlehttp/psr7": "^1.6.1",
                 "php": ">=5.5",
-                "symfony/polyfill-intl-idn": "^1.11"
+                "symfony/polyfill-intl-idn": "1.17.0"
             },
             "require-dev": {
                 "ext-curl": "*",
@@ -1532,7 +1532,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2020-04-18T10:38:46+00:00"
+            "time": "2020-05-25T19:35:05+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -8423,7 +8423,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-apple-music.git",
-                "reference": "8115f49ce4c7b01274bc78d0302fcf806d7fd5ff"
+                "reference": "c2bba044abf8366b9cdec5e78ae7e3a22b5b60c6"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8442,7 +8442,7 @@
                 "proprietary"
             ],
             "description": "Apple Music Widget",
-            "time": "2020-05-19T08:46:06+00:00"
+            "time": "2020-06-05T09:23:52+00:00"
         },
         {
             "name": "oander/module-applepay",
@@ -10278,7 +10278,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "4b4704414d02aeb9d5395a8a156dd180b77fa08d"
+                "reference": "6aa8a40619c5c93558eb21f781cada50452e5568"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10294,7 +10294,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2020-05-11T12:18:44+00:00"
+            "time": "2020-06-09T10:22:28+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10465,16 +10465,16 @@
         },
         {
             "name": "phpoption/phpoption",
-            "version": "1.7.3",
+            "version": "1.7.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/php-option.git",
-                "reference": "4acfd6a4b33a509d8c88f50e5222f734b6aeebae"
+                "reference": "b2ada2ad5d8a32b89088b8adc31ecd2e3a13baf3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/4acfd6a4b33a509d8c88f50e5222f734b6aeebae",
-                "reference": "4acfd6a4b33a509d8c88f50e5222f734b6aeebae",
+                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/b2ada2ad5d8a32b89088b8adc31ecd2e3a13baf3",
+                "reference": "b2ada2ad5d8a32b89088b8adc31ecd2e3a13baf3",
                 "shasum": ""
             },
             "require": {
@@ -10516,7 +10516,7 @@
                 "php",
                 "type"
             ],
-            "time": "2020-03-21T18:07:53+00:00"
+            "time": "2020-06-07T10:40:07+00:00"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -11393,7 +11393,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.40",
+            "version": "v3.4.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -14640,7 +14640,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.40",
+            "version": "v3.4.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
