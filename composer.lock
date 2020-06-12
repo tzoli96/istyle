@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ffc126e0e42b8f47a57d5a7ec1e8a901",
+    "content-hash": "d3706d783869d3828d96f6b7e7a9b9da",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -10231,11 +10231,11 @@
         },
         {
             "name": "oander/module-unity-pickup",
-            "version": "1.0.18.13",
+            "version": "1.0.18.15",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-unity-pickup.git",
-                "reference": "338b3d8c2557eaacbad91f6b0ffc23016ed32744"
+                "reference": "3a6369051868b053c71741fc46e718704d524bf7"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10258,7 +10258,7 @@
                 "proprietary"
             ],
             "description": "Oander Unity Pickup",
-            "time": "2020-06-10T12:10:16+00:00"
+            "time": "2020-06-12T12:20:36+00:00"
         },
         {
             "name": "oander/module-warehouse-manager",
@@ -10485,7 +10485,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "922fbf6d9beabe42844b4df818f0412fb019a8e6"
+                "reference": "83ee2de4894916e8faa40067660d8cc0429a8415"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10501,7 +10501,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2020-06-09T12:06:28+00:00"
+            "time": "2020-06-12T11:58:05+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -11600,7 +11600,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.41",
+            "version": "v3.4.42",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -14847,7 +14847,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.41",
+            "version": "v3.4.42",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
