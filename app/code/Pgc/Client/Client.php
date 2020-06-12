@@ -41,7 +41,7 @@ class Client {
     /**
      * The default url points to the Gateway
      */
-    const DEFAULT_GATEWAY_URL = 'https://bankart.paymentsandbox.cloud/';
+    const DEFAULT_GATEWAY_URL = 'https://gateway.bankart.si/';
 
     const TRANSACTION_ROUTE = 'transaction';
 
