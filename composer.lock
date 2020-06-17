@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d3706d783869d3828d96f6b7e7a9b9da",
+    "content-hash": "184f986215461decc0473678e0e34dca",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -537,16 +537,16 @@
         },
         {
             "name": "bigfish/paymentgateway",
-            "version": "3.4.0",
+            "version": "3.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bigfish-hu/payment-gateway-php-sdk.git",
-                "reference": "6ad6ce10c489f7e840f54af36487c6152cf696f8"
+                "reference": "c997329e9c8c287234ba3dbb237951c0e43cdb69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/6ad6ce10c489f7e840f54af36487c6152cf696f8",
-                "reference": "6ad6ce10c489f7e840f54af36487c6152cf696f8",
+                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/c997329e9c8c287234ba3dbb237951c0e43cdb69",
+                "reference": "c997329e9c8c287234ba3dbb237951c0e43cdb69",
                 "shasum": ""
             },
             "require": {
@@ -575,7 +575,7 @@
                 "payment",
                 "webshop"
             ],
-            "time": "2020-05-07T09:09:15+00:00"
+            "time": "2020-06-15T04:43:06+00:00"
         },
         {
             "name": "bigfishpaymentgateway/pmgw",
@@ -1469,16 +1469,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.5.4",
+            "version": "6.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "a4a1b6930528a8f7ee03518e6442ec7a44155d9d"
+                "reference": "9d4290de1cfd701f38099ef7e183b64b4b7b0c5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/a4a1b6930528a8f7ee03518e6442ec7a44155d9d",
-                "reference": "a4a1b6930528a8f7ee03518e6442ec7a44155d9d",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/9d4290de1cfd701f38099ef7e183b64b4b7b0c5e",
+                "reference": "9d4290de1cfd701f38099ef7e183b64b4b7b0c5e",
                 "shasum": ""
             },
             "require": {
@@ -1486,7 +1486,7 @@
                 "guzzlehttp/promises": "^1.0",
                 "guzzlehttp/psr7": "^1.6.1",
                 "php": ">=5.5",
-                "symfony/polyfill-intl-idn": "1.17.0"
+                "symfony/polyfill-intl-idn": "^1.17.0"
             },
             "require-dev": {
                 "ext-curl": "*",
@@ -1532,7 +1532,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2020-05-25T19:35:05+00:00"
+            "time": "2020-06-16T21:01:06+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -8450,11 +8450,11 @@
         },
         {
             "name": "oander/module-apple-music",
-            "version": "1.0.0.1",
+            "version": "1.0.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-apple-music.git",
-                "reference": "c2bba044abf8366b9cdec5e78ae7e3a22b5b60c6"
+                "reference": "6fc5e72bab5bee266138494e0e6736fd295d0b9d"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8473,7 +8473,7 @@
                 "proprietary"
             ],
             "description": "Apple Music Widget",
-            "time": "2020-06-05T09:23:52+00:00"
+            "time": "2020-06-17T07:52:08+00:00"
         },
         {
             "name": "oander/module-applepay",
