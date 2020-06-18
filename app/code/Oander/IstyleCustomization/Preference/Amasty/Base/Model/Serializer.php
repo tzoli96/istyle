@@ -15,7 +15,7 @@ use Magento\Framework\Unserialize\Unserialize;
  * Wrapper for Serialize
  * @since 1.1.0
  */
-class Serializer
+class Serializer extends \Amasty\Base\Model\Serializer
 {
     /**
      * @var null|SerializerInterface
