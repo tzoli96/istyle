@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "baf3ea25075aa28065a9011e17650a97",
+    "content-hash": "184f986215461decc0473678e0e34dca",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -102,43 +102,12 @@
             "time": "2018-09-27T14:19:55+00:00"
         },
         {
-            "name": "amasty/amcart",
-            "version": "1.9.12",
+            "name": "amasty/base",
+            "version": "1.9.7",
             "source": {
                 "type": "git",
-                "url": "git@github.com:oandermedia/amasty-amcart.git",
-                "reference": "ad8fdf9da46cbff516e63c9b0648002f40203f65"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://composer.amasty.com/community/packages/amcart-1.9.12.zip"
-            },
-            "require": {
-                "amasty/base": ">=1.10.1",
-                "amasty/cron-schedule-list": ">=1.0.5",
-                "amasty/geoip": ">=1.5.3",
-                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Amasty\\Acart\\": ""
-                }
-            },
-            "license": [
-                "Commercial"
-            ],
-            "description": "Abandoned Cart Email By Amasty"
-        },
-        {
-            "name": "amasty/base",
-            "version": "1.10.1",
-            "dist": {
-                "type": "zip",
-                "url": "https://composer.amasty.com/community/packages/base-1.10.1.zip"
+                "url": "git@github.com:oandermedia/amasty-base.git",
+                "reference": "da8aecfb2c040871e5ee3ac09f5f3e172c9783fe"
             },
             "require": {
                 "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
@@ -155,18 +124,19 @@
             "license": [
                 "Commercial"
             ],
-            "description": "Amasty Base"
+            "description": "Amasty Base",
+            "time": "2020-03-23T08:56:59+00:00"
         },
         {
             "name": "amasty/cron-schedule-list",
-            "version": "1.0.5",
+            "version": "1.0.1",
             "dist": {
                 "type": "zip",
-                "url": "https://composer.amasty.com/community/packages/cron-schedule-list-1.0.5.zip"
+                "url": "https://composer.amasty.com/community/packages/cron-schedule-list-1.0.1.zip"
             },
             "require": {
-                "amasty/base": ">=1.10.1",
-                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
+                "amasty/base": ">=1.6.1",
+                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|^7.1.0"
             },
             "type": "magento2-module",
             "autoload": {
@@ -181,31 +151,6 @@
                 "Commercial"
             ],
             "description": "Cron Schedule List by Amasty"
-        },
-        {
-            "name": "amasty/geoip",
-            "version": "1.5.3",
-            "dist": {
-                "type": "zip",
-                "url": "https://composer.amasty.com/community/packages/geoip-1.5.3.zip"
-            },
-            "require": {
-                "amasty/base": ">=1.10.1",
-                "php": "7.0.2|7.0.4|~7.0.6|^7.1.0"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Amasty\\Geoip\\": ""
-                }
-            },
-            "license": [
-                "Commercial"
-            ],
-            "description": "Amasty Geoip Data"
         },
         {
             "name": "amasty/module-advanced-conditions",
