@@ -106,7 +106,7 @@
         "oander/module-lapker": "1.0.9.2",
         "oander/module-multislider": "dev-41567-config",
         "oander/module-name-switcher": "1.0.10.5",
-        "oander/module-news": "dev-fix_37017",
+        "oander/module-news": "1.2.4.6",
         "oander/module-ocbase": "1.0.5",
         "oander/module-ocevent": "1.0.3",
         "oander/module-ocqueue": "1.0.12",
@@ -152,7 +152,7 @@
         "oander/module-unity-pickup": "1.0.18.15",
         "oander/module-api-checkout-unity-pickup": "1.0.0",
         "oander/module-xtento-order-unity-pickup-export": "1.0.0",
-        "oander/module-unity-dpd-cz-pickup": "1.0.1",
+        "oander/module-unity-dpd-cz-pickup": "1.0.2",
         "oander/module-unity-dpd-sk-pickup": "1.0.2",
         "xtento/module-xtcore": "2.1.0"
     },

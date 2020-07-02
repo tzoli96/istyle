@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "529319f48c7477db18051e5e0276a892",
+    "content-hash": "e5773e23ca4e849d6563a8e38a2cfd43",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9357,11 +9357,11 @@
         },
         {
             "name": "oander/module-news",
-            "version": "dev-fix_37017",
+            "version": "1.2.4.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-news.git",
-                "reference": "fa11f13e25ec743c8d74ea18e30296cdbfb0c757"
+                "reference": "3fba84727a0b0cc2d60f58606621a196701b66ab"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9380,7 +9380,7 @@
                 "proprietary"
             ],
             "description": "News",
-            "time": "2019-07-08T19:52:51+00:00"
+            "time": "2020-03-18T14:12:58+00:00"
         },
         {
             "name": "oander/module-ocbase",
@@ -10171,11 +10171,11 @@
         },
         {
             "name": "oander/module-unity-dpd-cz-pickup",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-unity-dpd-cz-pickup.git",
-                "reference": "7096190cc5c853f7a427d3b26f2e0ddde8ed4574"
+                "reference": "78dd9219958b70dc796a93d6cc04e61c5861204e"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10197,7 +10197,7 @@
                 "proprietary"
             ],
             "description": "Oander Unity Dpd CZ Pickup",
-            "time": "2018-08-06T16:06:29+00:00"
+            "time": "2020-07-02T16:36:13+00:00"
         },
         {
             "name": "oander/module-unity-dpd-sk-pickup",
@@ -14955,7 +14955,6 @@
         "oander/module-api-index": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-multislider": 20,
-        "oander/module-news": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
