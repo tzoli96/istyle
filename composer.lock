@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "409fd93fa45d4d16a2d3ba251132ad97",
+    "content-hash": "9ed3a023708cc819efa0c9dff1d25ca7",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9187,11 +9187,11 @@
         },
         {
             "name": "oander/module-image-extra",
-            "version": "1.0.0.1",
+            "version": "1.0.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-image-extra.git",
-                "reference": "3a452b9117ff12289606787b5b1e405e703681fc"
+                "reference": "44b9b7bfcf500556b6b7058e50acd0b0fe8871ff"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9211,7 +9211,7 @@
                 "proprietary"
             ],
             "description": "salesforce-widget",
-            "time": "2020-05-27T12:23:57+00:00"
+            "time": "2020-07-08T09:08:48+00:00"
         },
         {
             "name": "oander/module-installment-prices",
@@ -10727,16 +10727,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.27",
+            "version": "2.0.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc"
+                "reference": "d1ca58cf33cb21046d702ae3a7b14fdacd9f3260"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc",
-                "reference": "34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/d1ca58cf33cb21046d702ae3a7b14fdacd9f3260",
+                "reference": "d1ca58cf33cb21046d702ae3a7b14fdacd9f3260",
                 "shasum": ""
             },
             "require": {
@@ -10815,7 +10815,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2020-04-04T23:17:33+00:00"
+            "time": "2020-07-08T09:08:33+00:00"
         },
         {
             "name": "plugincompany/customergroupswitching",
