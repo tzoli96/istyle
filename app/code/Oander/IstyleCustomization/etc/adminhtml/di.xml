@@ -34,5 +34,4 @@
     <type name="Magento\CatalogImportExport\Model\Import\Product">
         <plugin disabled="false" name="Oander_IstyleCustomization_Plugin_Magento_CatalogImportExport_Model_Import_Product" sortOrder="10" type="Oander\IstyleCustomization\Plugin\Magento\CatalogImportExport\Model\Import\Product"/>
     </type>
-    <!--<preference for="Magento\CatalogImportExport\Model\Import\Product" type="Oander\IstyleCustomization\Preference\Magento\CatalogImportExport\Model\Import\Product" />-->
 </config>
