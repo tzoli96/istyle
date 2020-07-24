@@ -129,5 +129,20 @@
                 </field>
             </group>
         </section>
+        <!-- START 45288 change TBI settings -->
+        <section id="avalon_custompaymentmethod_tab_options">
+            <group id="properties_tbiro" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                <field id="rotbi_unicid" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0"/>
+                <field id="rotbi_store_id" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="0"/>
+                <field id="rotbi_username" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="0"/>
+                <field id="rotbi_password" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="0"/>
+            </group>
+        </section>
+        <section id="payment">
+            <group id="paymentmethod">
+                <label>TBI Credit</label>
+            </group>
+        </section>
+        <!-- END 45288 change TBI settings -->
     </system>
 </config>
