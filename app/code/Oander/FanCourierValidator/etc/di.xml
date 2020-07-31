@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Oander\FanCourierValidator\Api\CityRepositoryInterface" type="Oander\FanCourierValidator\Model\Service\CityRepository" />
+    <preference for="Oander\FanCourierValidator\Api\Data\CityInterface" type="Oander\FanCourierValidator\Model\City" />
+    <preference for="Oander\FanCourierValidator\Api\StateRepositoryInterface" type="Oander\FanCourierValidator\Model\Service\StateRepository" />
+    <preference for="Oander\FanCourierValidator\Api\Data\StateInterface" type="Oander\FanCourierValidator\Model\State" />
+    <preference for="Oander\FanCourierValidator\Api\StateCityRepositoryInterface" type="Oander\FanCourierValidator\Model\Service\StateCityRepository" />
+    <preference for="Oander\FanCourierValidator\Api\Data\StateCityInterface" type="Oander\FanCourierValidator\Model\StateCity" />
+</config>

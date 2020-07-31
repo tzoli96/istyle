@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="customer">
+            <group id="address">
+                <field id="fan_courier_validation" translate="label" type="select" sortOrder="419" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>State/Province and City validation for Fan Courier</label>
+                    <source_model>Oander\FanCourierValidator\Model\Adminhtml\Config\Source\Noreqvalid</source_model>
+                </field>
+                <field id="fan_courier_state_city_list" translate="label comment" type="file" sortOrder="420" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Fan Courier State/Province and City data CSV</label>
+                    <backend_model>Oander\FanCourierValidator\Model\Adminhtml\Config\Backend\StateCityCsv</backend_model>
+                    <upload_dir config="system" scope_info="1">upload/oander/fan_courier</upload_dir>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

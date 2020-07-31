@@ -18,6 +18,7 @@
 namespace Oander\IstyleCustomization\Plugin\Checkout\Model\Checkout;
 
 use \Magento\Checkout\Model\Session as CheckoutSession;
+use Oander\FanCourierValidator\Helper\Data;
 use Oander\IstyleCustomization\Helper\Config;
 
 /**
@@ -38,6 +39,10 @@ class LayoutProcessor
      * @var Config
      */
     private $configHelper;
+    /**
+     * @var Data
+     */
+    private $fanCourierHelper;
 
     /**
      * LayoutProcessor constructor.
@@ -48,11 +53,13 @@ class LayoutProcessor
     public function __construct(
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         CheckoutSession $checkoutSession,
+        Data $fanCourierHelper,
         Config $configHelper
     ) {
         $this->scopeConfig = $scopeConfig;
         $this->checkoutSession = $checkoutSession;
         $this->configHelper = $configHelper;
+        $this->fanCourierHelper = $fanCourierHelper;
     }
     /**
      * @param \Magento\Checkout\Block\Checkout\LayoutProcessor $subject
@@ -112,6 +119,54 @@ class LayoutProcessor
             ];
         }
 
+
+        if ($this->fanCourierHelper->getValidationLevel() == 'req' || $this->fanCourierHelper->getValidationLevel() == 'valid') {
+            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['region'] = [
+                'component' => 'Magento_Ui/js/form/element/abstract',
+                'config' => [
+                    'template' => 'ui/form/field',
+                    'elementTmpl' => 'ui/form/element/input',
+                    'customScope' => 'shippingAddress',
+                ],
+                'dataScope' => 'shippingAddress.region',
+                'label' => $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]['region_id']['label'],
+                'provider' => 'checkoutProvider',
+                'sortOrder' => 11,
+                'placeholder' => __('region_placeholder'),
+                'validation' => [
+                    'required-entry' => true
+                ],
+                'visible' => true
+            ];
+
+            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['city']['validation']['required-entry'] = true;
+        }
+
+        if ($this->fanCourierHelper->getValidationLevel() == 'valid') {
+            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['region']['config']['elementTmpl'] = 'ui/form/element/select';
+            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['region']['filterBy'] = null;
+            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['region']['component'] = 'Magento_Ui/js/form/element/select';
+            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['region']['options'] = $this->fanCourierHelper->getStates();
+
+            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['city']['config'] = $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['region']['config'];
+            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['city']['filterBy'] = [
+                'target' => '${ $.provider }:${ $.parentScope }.region',
+                'field' => 'state'
+            ];
+            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['city']['component'] = 'Magento_Ui/js/form/element/select';
+            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['city']['options'] = $this->fanCourierHelper->getCities();
+        }
         
         foreach ($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                  ['payment']['children']['payments-list']['children'] as $key => $payment) {
@@ -235,6 +290,38 @@ class LayoutProcessor
                 ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
                 ['dob'] = $dobField;
             }
+
+            if ($this->fanCourierHelper->getValidationLevel() == 'req' || $this->fanCourierHelper->getValidationLevel() == 'valid') {
+                $dataScopePrefix = 'billingAddress';
+                if (isset($payment['dataScopePrefix'])) {
+                    $dataScopePrefix = $payment['dataScopePrefix'];
+                } elseif (isset($payment['dataScope'])) {
+                    $dataScopePrefix = $payment['dataScope'];
+                }
+
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['region'] = $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+                ['region'];
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['region']['dataScope'] = $dataScopePrefix.'.'.'region';
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['region']['config']['customScope'] = $dataScopePrefix;
+
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['city'] = $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+                ['city'];
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['city']['dataScope'] = $dataScopePrefix.'.'.'city';
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                ['city']['config']['customScope'] = $dataScopePrefix;
+            }
+
         }
 
         //Change Shipping Address
