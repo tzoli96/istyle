@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "559e34570c4ef616483f4b7a7204f051",
+    "content-hash": "f1057cb50270a8be751cd963d0e10e1f",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7634,25 +7634,25 @@
         },
         {
             "name": "mtdowling/jmespath.php",
-            "version": "2.5.0",
+            "version": "2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jmespath/jmespath.php.git",
-                "reference": "52168cb9472de06979613d365c7f1ab8798be895"
+                "reference": "42dae2cbd13154083ca6d70099692fef8ca84bfb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jmespath/jmespath.php/zipball/52168cb9472de06979613d365c7f1ab8798be895",
-                "reference": "52168cb9472de06979613d365c7f1ab8798be895",
+                "url": "https://api.github.com/repos/jmespath/jmespath.php/zipball/42dae2cbd13154083ca6d70099692fef8ca84bfb",
+                "reference": "42dae2cbd13154083ca6d70099692fef8ca84bfb",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0",
-                "symfony/polyfill-mbstring": "^1.4"
+                "php": "^5.4 || ^7.0 || ^8.0",
+                "symfony/polyfill-mbstring": "^1.17"
             },
             "require-dev": {
-                "composer/xdebug-handler": "^1.2",
-                "phpunit/phpunit": "^4.8.36|^7.5.15"
+                "composer/xdebug-handler": "^1.4",
+                "phpunit/phpunit": "^4.8.36 || ^7.5.15"
             },
             "bin": [
                 "bin/jp.php"
@@ -7660,7 +7660,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev"
+                    "dev-master": "2.6-dev"
                 }
             },
             "autoload": {
@@ -7687,7 +7687,7 @@
                 "json",
                 "jsonpath"
             ],
-            "time": "2019-12-30T18:03:34+00:00"
+            "time": "2020-07-31T21:01:56+00:00"
         },
         {
             "name": "oander/language-bg-bg",
@@ -10231,11 +10231,11 @@
         },
         {
             "name": "oander/module-unity-pickup",
-            "version": "1.0.18.15",
+            "version": "1.0.18.16",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-unity-pickup.git",
-                "reference": "3a6369051868b053c71741fc46e718704d524bf7"
+                "reference": "a29cbbc94a1e76d8786e879d61475abdf5f1d25a"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10258,7 +10258,7 @@
                 "proprietary"
             ],
             "description": "Oander Unity Pickup",
-            "time": "2020-06-12T12:20:36+00:00"
+            "time": "2020-08-01T20:14:38+00:00"
         },
         {
             "name": "oander/module-warehouse-manager",
@@ -11319,25 +11319,25 @@
         },
         {
             "name": "swedbank-spp/swedbank-payment-portal",
-            "version": "v0.9.3",
+            "version": "v0.9.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Swedbank-SPP/swedbank-payment-portal.git",
-                "reference": "2bc418848f20864424a0abbc7212ac680c121b4f"
+                "reference": "38bfce0d476461ee207ad0302164cff16a32548e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Swedbank-SPP/swedbank-payment-portal/zipball/2bc418848f20864424a0abbc7212ac680c121b4f",
-                "reference": "2bc418848f20864424a0abbc7212ac680c121b4f",
+                "url": "https://api.github.com/repos/Swedbank-SPP/swedbank-payment-portal/zipball/38bfce0d476461ee207ad0302164cff16a32548e",
+                "reference": "38bfce0d476461ee207ad0302164cff16a32548e",
                 "shasum": ""
             },
             "require": {
                 "doctrine/cache": "^1.6",
-                "guzzlehttp/guzzle": "^5.0|^6.0",
+                "guzzlehttp/guzzle": "^5.0|^6.0|^7.0",
                 "jms/serializer": "^1.1",
-                "symfony/config": "^2.8|^3.0|^4.0",
-                "symfony/dependency-injection": "^2.8|^3.0|^4.0",
-                "symfony/yaml": "~2.8|~3.0|~4.0"
+                "symfony/config": "^2.8|^3.0|^4.0|^5.0",
+                "symfony/dependency-injection": "^2.8|^3.0|^4.0|^5.0",
+                "symfony/yaml": "~2.8|~3.0|~4.0|~5.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^5.2"
@@ -11353,7 +11353,7 @@
                 "MIT"
             ],
             "description": "The Swedbank Payment Portal API Library provides access to the online banking system through which e-commerce transactions can be initiated and fulfilled by facilitating the exchange of bank data.",
-            "time": "2019-10-16T10:36:26+00:00"
+            "time": "2020-07-29T16:18:33+00:00"
         },
         {
             "name": "symfony/config",
