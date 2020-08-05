@@ -105,7 +105,6 @@ class StateCityCsv extends File
         \Magento\Directory\Model\Data\RegionInformationFactory $regionInformationFactory,
         \Magento\Framework\Message\ManagerInterface $messageManager,
         \Magento\Framework\File\Csv $csv,
-        CacheInterface $cache,
         \Magento\Framework\Model\ResourceModel\AbstractResource $resource = null,
         \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
         array $data = []
@@ -122,7 +121,7 @@ class StateCityCsv extends File
         $this->countryInformationFactory = $countryInformationFactory;
         $this->regionInformationFactory = $regionInformationFactory;
         $this->countryFactory = $countryFactory;
-        $this->cache = $cache;
+        $this->cache = $context->getCacheManager();
     }
 
     /**
