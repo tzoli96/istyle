@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright © 2016 Magento. All rights reserved.
  * See COPYING.txt for license details.
@@ -17,7 +18,7 @@
 <form class="form-address-edit" action="<?php /* @escapeNotVerified */ echo $block->getSaveUrl() ?>" method="post" id="form-validate" enctype="multipart/form-data" data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>">
     <fieldset class="fieldset">
         <legend class="legend"><span><?php /* @escapeNotVerified */ echo __('Contact Information') ?></span></legend><br>
-        <?php echo $block->getBlockHtml('formkey')?>
+        <?php echo $block->getBlockHtml('formkey') ?>
         <input type="hidden" name="success_url" value="<?php /* @escapeNotVerified */ echo $block->getSuccessUrl() ?>">
         <input type="hidden" name="error_url" value="<?php /* @escapeNotVerified */ echo $block->getErrorUrl() ?>">
         <?php echo $block->getNameBlockHtml() ?>
@@ -46,16 +47,16 @@
         <div class="form-group field street required">
             <label for="street_1" class="label"><span><?php /* @escapeNotVerified */ echo __('Street Address') ?></span></label>
             <div class="control">
-                <input type="text" name="street[]" value="<?php echo $block->escapeHtml($block->getStreetLine(1)) ?>" title="<?php /* @escapeNotVerified */ echo __('Street Address') ?>" id="street_1" class="form-control input-text <?php /* @escapeNotVerified */ echo $_streetValidationClass ?>"  />
+                <input type="text" name="street[]" value="<?php echo $block->escapeHtml($block->getStreetLine(1)) ?>" title="<?php /* @escapeNotVerified */ echo __('Street Address') ?>" id="street_1" class="form-control input-text <?php /* @escapeNotVerified */ echo $_streetValidationClass ?>" />
                 <div class="nested">
                     <?php $_streetValidationClass = trim(str_replace('required-entry', '', $_streetValidationClass)); ?>
-                    <?php for ($_i = 1, $_n = $this->helper('Magento\Customer\Helper\Address')->getStreetLines(); $_i < $_n; $_i++): ?>
+                    <?php for ($_i = 1, $_n = $this->helper('Magento\Customer\Helper\Address')->getStreetLines(); $_i < $_n; $_i++) : ?>
                         <div class="form-group field additional">
-                            <label class="label" for="street_<?php /* @escapeNotVerified */ echo $_i+1 ?>">
-                                <span><?php /* @escapeNotVerified */ echo __('Street Address %1', $_i+1) ?></span>
+                            <label class="label" for="street_<?php /* @escapeNotVerified */ echo $_i + 1 ?>">
+                                <span><?php /* @escapeNotVerified */ echo __('Street Address %1', $_i + 1) ?></span>
                             </label>
                             <div class="control">
-                                <input type="text" name="street[]" value="<?php echo $block->escapeHtml($block->getStreetLine($_i+1)) ?>" title="<?php /* @escapeNotVerified */ echo __('Street Address %1', $_i+1) ?>" id="street_<?php /* @escapeNotVerified */ echo $_i+1 ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $_streetValidationClass ?>">
+                                <input type="text" name="street[]" value="<?php echo $block->escapeHtml($block->getStreetLine($_i + 1)) ?>" title="<?php /* @escapeNotVerified */ echo __('Street Address %1', $_i + 1) ?>" id="street_<?php /* @escapeNotVerified */ echo $_i + 1 ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $_streetValidationClass ?>">
                             </div>
                         </div>
                     <?php endfor; ?>
@@ -72,56 +73,78 @@
             </div>
         <?php endif; ?>
 
-        <?php if ($block->isValidateRegion()): ?>
-            <div class="form-group field city required">
-                <label class="label" for="city"><span><?php /* @escapeNotVerified */ echo __('City') ?></span></label>
-                <div class="control">
-                    <select id="city" name="city" title="<?php /* @escapeNotVerified */ echo __('City') ?>" class="form-control validate-select">
-                        <?php $cities = $block->getCities() ?>
-                        <?php foreach ($cities as $city) :?>
-                            <option value="<?php echo $city['value'] ?>" data-state="<?php echo $city['state']?>"><?php echo $city['label'] ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-            </div>
-        <?php else: ?>
-            <div class="form-group field city required">
-                <label class="label" for="city"><span><?php /* @escapeNotVerified */ echo __('City') ?></span></label>
-                <div class="control">
-                    <input type="text" name="city" value="<?php echo $block->escapeHtml($block->getAddress()->getCity()) ?>" title="<?php /* @escapeNotVerified */ echo __('City') ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('city') ?>" id="city">
-                </div>
-            </div>
-        <?php endif; ?>
-
         <?php if ($block->isRequiredRegion()) : ?>
             <div class="form-group field region required">
                 <label class="label" for="region"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
                 <div class="control">
-                    <input type="hidden" id="region_id" name="region_id"/>
-                    <input type="text" id="region" name="region" value="<?php echo $block->escapeHtml($block->getRegion()) ?>"  title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('region') ?>"/>
-                 </div>
+                    <input type="hidden" id="region_id" name="region_id" />
+                    <input type="text" id="region" name="region" value="<?php echo $block->escapeHtml($block->getRegion()) ?>" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('region') ?>" />
+                </div>
             </div>
-        <?php elseif ($block->isValidateRegion()): ?>
+        <?php elseif ($block->isValidateRegion()) : ?>
             <div class="form-group field region required">
                 <label class="label" for="region"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
                 <div class="control">
-                    <input type="hidden" id="region_id" name="region_id"/>
-                    <select id="region" name="region" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control validate-select">
+                    <?php if ($block->escapeHtml($block->getRegion() == "")) : ?>
+                        <span class="region-exist" data-exist="false"></span>
+                    <?php endif; ?>
+                    <input type="text" class="region hide" name="region" id="region" data-validate='{"required":true}' />
+                    <input type="hidden" id="region_id" name="region_id" />
+                    <select id="region-list" name="region-list" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control validate-select">
                         <?php $states = $block->getStates() ?>
-                        <?php foreach ($states as $state) :?>
-                        <option value="<?php echo $state['value'] ?>"><?php echo $state['label'] ?></option>
+                        <?php foreach ($states as $state) : ?>
+                            <option value="<?php echo $state['value'] ?>" <?= ($state['value'] == $block->escapeHtml($block->getRegion()) ? 'selected' : '') ?>><?php echo $state['label'] ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
             </div>
-        <?php else: ?>
+        <?php else : ?>
             <div class="form-group field region required">
                 <label class="label" for="region_id"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
                 <div class="control">
-                    <select id="region_id" name="region_id" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control validate-select" <?php echo(!$block->getConfig('general/region/display_all')) ? ' disabled="disabled"' : '';?>>
+                    <select id="region_id" name="region_id" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control validate-select" <?php echo (!$block->getConfig('general/region/display_all')) ? ' disabled="disabled"' : ''; ?>>
                         <option value=""><?php /* @escapeNotVerified */ echo __('Please select a region, state or province.') ?></option>
                     </select>
-                    <input type="text" id="region" name="region" value="<?php echo $block->escapeHtml($block->getRegion()) ?>"  title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('region') ?>"<?php echo(!$block->getConfig('general/region/display_all')) ? ' disabled="disabled"' : '';?>/>
+                    <input type="text" id="region" name="region" value="<?php echo $block->escapeHtml($block->getRegion()) ?>" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('region') ?>" <?php echo (!$block->getConfig('general/region/display_all')) ? ' disabled="disabled"' : ''; ?> />
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($block->isValidateRegion()) : ?>
+            <div class="form-group field city required">
+                <label class="label" for="city"><span><?php /* @escapeNotVerified */ echo __('City') ?></span></label>
+                <div class="control">
+                    <?php $cities = $block->getCities() ?>
+                    <div class="cities hidden">
+                        <?php foreach ($cities as $city) : ?>
+                            <?php if ($city["state"] == $block->escapeHtml($block->getRegion())) : ?>
+                                <div class="city" value="<?php echo $city['value'] ?>"><?php echo $city['label'] ?></div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="dropdown dropdown--fc">
+                        <div class="dropdown__input">
+                            <input type="text" value="<?php echo $block->escapeHtml($block->getAddress()->getCity()) ?>" name="fc-search" class="dropdown__search form-control" autocomplete="off" <?= ($block->escapeHtml($block->getRegion() == "") ? 'disabled' : '') ?>>
+                        </div>
+                        <div class="dropdown__selected hidden">
+                            <input type="text" name="city" class="city hide" id="city" value="<?php echo $block->escapeHtml($block->getAddress()->getCity()) ?>"  data-validate='{"required":true}' />
+                        </div>
+                        <div class="dropdown__selected"></div>
+                        <div class="dropdown__list">
+                            <?php foreach ($cities as $city) : ?>
+                                <?php if ($city["state"] == $block->escapeHtml($block->getRegion())) : ?>
+                                    <div class="dropdown__item" value="<?php echo $city['value'] ?>"><?php echo $city['label'] ?></div>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php else : ?>
+            <div class="form-group field city required">
+                <label class="label" for="city"><span><?php /* @escapeNotVerified */ echo __('City') ?></span></label>
+                <div class="control">
+                    <input type="text" name="city" value="<?php echo $block->escapeHtml($block->getAddress()->getCity()) ?>" title="<?php /* @escapeNotVerified */ echo __('City') ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('city') ?>" id="city">
                 </div>
             </div>
         <?php endif; ?>
@@ -139,29 +162,29 @@
             </div>
         </div>
 
-        <?php if ($block->isDefaultBilling()): ?>
+        <?php if ($block->isDefaultBilling()) : ?>
             <div class="message info"><?php /* @escapeNotVerified */ echo __("It's a default billing address.") ?></div>
-        <?php elseif ($block->canSetAsDefaultBilling()): ?>
+        <?php elseif ($block->canSetAsDefaultBilling()) : ?>
             <div class="form-check field choice set billing">
                 <label class="form-check-label label" for="primary_billing">
                     <input type="checkbox" id="primary_billing" name="default_billing" value="1" class="form-check-input checkbox">
                     <span><?php /* @escapeNotVerified */ echo __('Use as my default billing address') ?></span>
                 </label>
             </div>
-        <?php else: ?>
+        <?php else : ?>
             <input type="hidden" name="default_billing" value="1" />
         <?php endif; ?>
 
-        <?php if ($block->isDefaultShipping()): ?>
+        <?php if ($block->isDefaultShipping()) : ?>
             <div class="message info"><?php /* @escapeNotVerified */ echo __("It's a default shipping address.") ?></div>
-        <?php elseif ($block->canSetAsDefaultShipping()): ?>
+        <?php elseif ($block->canSetAsDefaultShipping()) : ?>
             <div class="form-check field choice set shipping">
                 <label class="form-check-label" for="primary_shipping">
                     <input type="checkbox" id="primary_shipping" name="default_shipping" value="1" class="form-check-input checkbox">
                     <span><?php /* @escapeNotVerified */ echo __('Use as my default shipping address') ?></span>
                 </label>
             </div>
-        <?php else: ?>
+        <?php else : ?>
             <input type="hidden" name="default_shipping" value="1">
         <?php endif; ?>
     </fieldset>
@@ -177,15 +200,15 @@
     </div>
 </form>
 
-<script type="text/x-magento-init">
-    {
+<?php if (!$block->isRequiredRegion() && !$block->isValidateRegion()) : ?>
+    <script type="text/x-magento-init">
+        {
         "#form-validate": {
             "validation": {}
         },
-<?php if (!$block->isRequiredRegion() && !$block->isValidateRegion()): ?>
         "#country": {
             "regionUpdater": {
-                "optionalRegionAllowed": <?php /* @escapeNotVerified */ echo($block->getConfig('general/region/display_all') ? 'true' : 'false'); ?>,
+                "optionalRegionAllowed": <?php /* @escapeNotVerified */ echo ($block->getConfig('general/region/display_all') ? 'true' : 'false'); ?>,
                 "regionListId": "#region_id",
                 "regionInputId": "#region",
                 "postcodeId": "#zip",
@@ -194,7 +217,78 @@
                 "defaultRegion": "<?php /* @escapeNotVerified */ echo $block->getRegionId() ?>",
                 "countriesWithOptionalZip": <?php /* @escapeNotVerified */ echo $this->helper('Magento\Directory\Helper\Data')->getCountriesWithOptionalZip(true) ?>
             }
-<?php endif ?>
         }
     }
+</script>
+<?php else : ?>
+    <script type="text/x-magento-init">
+        {
+        "#form-validate": {
+            "validation": {}
+        }
+    }
+</script>
+<?php endif; ?>
+
+<?php
+$baseUrl = $this->getUrl();
+?>
+
+<script>
+    require(["jquery"], function($) {
+        $(document).on('click', '.field.region .dropdown__item', function() {
+            var param = $(this).text();
+            $.ajax({
+                showLoader: true,
+                url: "<?php echo $block->getAjaxUrl() ?>",
+                data: {
+                    state: param
+                },
+                type: "GET",
+                dataType: 'json'
+            }).done(function(data) {
+                let citiesData = data.cities;
+                let citiesDropdown = $('.field.city').find('.dropdown--fc').find('.dropdown__list');
+
+                $('.field.city .cities.hidden').html('');
+                citiesDropdown.html('');
+                $('.field.city .dropdown__search').attr('value', '');
+
+                for (let index = 0; index < citiesData.length; index++) {
+                    const element = citiesData[index];
+
+                    citiesDropdown.append('<div class="dropdown__item">' + element + '</li>');
+                    $('.field.city .cities.hidden').append('<div class="dropdown__item">' + element + '</li>');
+                }
+
+                if ($('.field.city .dropdown__search').attr('disabled')) {
+                    $('.field.city .dropdown__search').removeAttr('disabled');
+                }
+
+                $('.field.city .dropdown__item').click(function() {
+                    $('.field.city .dropdown__selected input[name="city"]').attr('value', $(this).text());
+                    $('.field.city .dropdown__search[name="fc-search"]').attr('value', $(this).text());
+                });
+
+                $('.field.city .dropdown__search').on('keyup', function() {
+                    let searchVal = $(this).val();
+
+                    $(this).closest('.dropdown--fc').find('.dropdown__list').html('');
+
+                    for (let index = 0; index < citiesData.length; index++) {
+                        const element = citiesData[index];
+
+                        if (element.indexOf(searchVal) > -1 || element.toLowerCase().indexOf(searchVal) > -1) {
+                            $(this).closest('.dropdown--fc').find('.dropdown__list').append('<div class="dropdown__item">' + element + '</div>');
+                        }
+                    }
+
+                    $('.field.city .dropdown__item').click(function() {
+                        $('.field.city .dropdown__selected input[name="city"]').attr('value', $(this).text());
+                        $('.field.city .dropdown__search[name="fc-search"]').attr('value', $(this).text());
+                    });
+                });
+            });
+        });
+    });
 </script>

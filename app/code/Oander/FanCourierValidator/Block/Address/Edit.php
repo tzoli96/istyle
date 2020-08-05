@@ -67,6 +67,10 @@ class Edit extends \Magento\Customer\Block\Address\Edit
         $this->fanCourierHelper = $fanCourierHelper;
     }
 
+    public function getAjaxUrl(){
+        return $this->getUrl("fan_courier_validator"); // Controller Url
+    }
+
     /**
      * @return bool
      */

@@ -22,6 +22,8 @@ use Oander\FanCourierValidator\Api\Data\StateCityInterface;
 use Oander\FanCourierValidator\Api\Data\StateInterface;
 use Oander\FanCourierValidator\Api\StateCityRepositoryInterface;
 use Oander\FanCourierValidator\Api\StateRepositoryInterface;
+use Magento\Framework\App\CacheInterface;
+use Oander\FanCourierValidator\Model\Cache\Validator;
 
 /**
  * Class StateCityCsv
@@ -76,6 +78,10 @@ class StateCityCsv extends File
      * @var CountryFactory
      */
     private $countryFactory;
+    /**
+     * @var CacheInterface
+     */
+    private $cache;
 
     /**
      * {@inheritdoc}
@@ -99,6 +105,7 @@ class StateCityCsv extends File
         \Magento\Directory\Model\Data\RegionInformationFactory $regionInformationFactory,
         \Magento\Framework\Message\ManagerInterface $messageManager,
         \Magento\Framework\File\Csv $csv,
+        CacheInterface $cache,
         \Magento\Framework\Model\ResourceModel\AbstractResource $resource = null,
         \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
         array $data = []
@@ -115,6 +122,7 @@ class StateCityCsv extends File
         $this->countryInformationFactory = $countryInformationFactory;
         $this->regionInformationFactory = $regionInformationFactory;
         $this->countryFactory = $countryFactory;
+        $this->cache = $cache;
     }
 
     /**
@@ -190,63 +198,9 @@ class StateCityCsv extends File
                 StateCityInterface::STATE_ID => $stateId
             ];
         }
-/*
+        $this->cache->clean([Validator::CACHE_TAG]);
+        $this->cache->remove(Validator::IDENTIFIER);
 
-        switch ($this->getScope()) {
-            case 'website':
-                $store = $this->storeManager->getWebsite($this->getScopeId())->getDefaultStore();
-                break;
-            case 'store':
-                $store = $this->storeManager->getStore($this->getScopeId());
-                break;
-            default:
-                $stores = $this->storeManager->getStores(false,true);
-                $store = $stores['ro_ro'];
-        }
-
-        $storeLocale = $this->scopeConfig->getValue(
-            'general/locale/code',
-            \Magento\Store\Model\ScopeInterface::SCOPE_STORES,
-            $store->getCode()
-        );
-
-        $defaultCountry = $this->scopeConfig->getValue(
-            'general/country/default',
-            \Magento\Store\Model\ScopeInterface::SCOPE_STORES,
-            $store->getCode()
-        );
-
-        $countriesCollection = $this->directoryHelper->getCountryCollection($store)->load();
-        $country = $countriesCollection->getItemById($defaultCountry);
-
-        $countryInfo = $this->countryInformationFactory->create();
-        $countryInfo->setId($defaultCountry);
-        $countryInfo->setTwoLetterAbbreviation($country->getData('iso2_code'));
-        $countryInfo->setThreeLetterAbbreviation($country->getData('iso3_code'));
-        $countryInfo->setFullNameLocale($country->getName($storeLocale));
-        $countryInfo->setFullNameEnglish($country->getName('en_US'));
-
-        $regionsInfo = [];
-        foreach ($states as $id => $state) {
-            $regionInfo = $this->regionInformationFactory->create();
-            $regionInfo->setId($id);
-            $regionInfo->setCode(strtoupper(substr($state, 0, 2)));
-            $regionInfo->setName($state);
-            $regionsInfo[] = $regionInfo;
-        }
-        $countryInfo->setAvailableRegions($regionsInfo);
-
-        try {
-            $countryModel = $this->countryFactory->create();
-            $countryModel-
-            $countryModel->getResource()->save($countryInfo);
-            $countryInfo->getResource()->save($countryInfo);
-        } catch (\Exception $exception) {
-            $a = 22;
-        }
-
-        $b = 3;
-*/
         $this->cityRepository->truncate();
         $insertedCities = $this->cityRepository->insertMultipleCities($cities);
         $this->messageManager->addSuccessMessage(__('%1 cities added successfully', $insertedCities));
