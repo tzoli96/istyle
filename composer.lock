@@ -7061,16 +7061,16 @@
         },
         {
             "name": "mageplaza/module-core",
-            "version": "1.4.8",
+            "version": "1.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mageplaza/module-core.git",
-                "reference": "aa99d5aa974ec9bf799bcc9a2137095baf882093"
+                "reference": "3c531ab1b1390ae04f6a9886d0d2f0a5d40788b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/aa99d5aa974ec9bf799bcc9a2137095baf882093",
-                "reference": "aa99d5aa974ec9bf799bcc9a2137095baf882093",
+                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/3c531ab1b1390ae04f6a9886d0d2f0a5d40788b9",
+                "reference": "3c531ab1b1390ae04f6a9886d0d2f0a5d40788b9",
                 "shasum": ""
             },
             "type": "magento2-module",
@@ -7095,7 +7095,7 @@
                 }
             ],
             "description": "Mageplaza Core for Magento 2",
-            "time": "2019-12-23T03:04:13+00:00"
+            "time": "2020-08-04T17:20:33+00:00"
         },
         {
             "name": "mageplaza/module-gdpr",
@@ -10485,7 +10485,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "ad04d63aee3884b705686ddb1b2fb55c1f014c7d"
+                "reference": "27d62b7de4964e8e7770837096c99e646148e374"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10501,7 +10501,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2020-08-04T14:13:36+00:00"
+            "time": "2020-08-05T16:34:26+00:00"
         },
         {
             "name": "oyejorge/less.php",
