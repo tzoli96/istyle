@@ -6,4 +6,10 @@
     <preference for="Oander\FanCourierValidator\Api\Data\StateInterface" type="Oander\FanCourierValidator\Model\State" />
     <preference for="Oander\FanCourierValidator\Api\StateCityRepositoryInterface" type="Oander\FanCourierValidator\Model\Service\StateCityRepository" />
     <preference for="Oander\FanCourierValidator\Api\Data\StateCityInterface" type="Oander\FanCourierValidator\Model\StateCity" />
+    <type name="Magento\Customer\Controller\Address\FormPost">
+        <plugin name="fan_courier_validator_address_form_post" type="Oander\FanCourierValidator\Plugin\Magento\Customer\Controller\Address\FormPost"/>
+    </type>
+    <type name="Magento\Checkout\Model\ShippingInformationManagement">
+        <plugin name="fan_courier_validator_shipping_information" type="Oander\FanCourierValidator\Plugin\Magento\Checkout\Model\ShippingInformationManagement"/>
+    </type>
 </config>

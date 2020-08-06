@@ -78,7 +78,9 @@
                 <label class="label" for="region"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
                 <div class="control">
                     <input type="hidden" id="region_id" name="region_id" />
-                    <input type="text" id="region" name="region" value="<?php echo $block->escapeHtml($block->getRegion()) ?>" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('region') ?>" />
+                    <input type="text" id="region" name="region" value="<?php echo $block->escapeHtml($block->getRegion()) ?>"
+                           title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>"
+                           class="form-control input-text required-entry" />
                 </div>
             </div>
         <?php elseif ($block->isValidateRegion()) : ?>
@@ -102,10 +104,10 @@
             <div class="form-group field region required">
                 <label class="label" for="region_id"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
                 <div class="control">
-                    <select id="region_id" name="region_id" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control validate-select" <?php echo (!$block->getConfig('general/region/display_all')) ? ' disabled="disabled"' : ''; ?>>
+                    <select id="region_id" name="region_id" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control validate-select" <?php echo(!$block->getConfig('general/region/display_all')) ? ' disabled="disabled"' : '';?>>
                         <option value=""><?php /* @escapeNotVerified */ echo __('Please select a region, state or province.') ?></option>
                     </select>
-                    <input type="text" id="region" name="region" value="<?php echo $block->escapeHtml($block->getRegion()) ?>" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('region') ?>" <?php echo (!$block->getConfig('general/region/display_all')) ? ' disabled="disabled"' : ''; ?> />
+                    <input type="text" id="region" name="region" value="<?php echo $block->escapeHtml($block->getRegion()) ?>"  title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('region') ?>"<?php echo(!$block->getConfig('general/region/display_all')) ? ' disabled="disabled"' : '';?>/>
                 </div>
             </div>
         <?php endif; ?>
@@ -229,9 +231,9 @@
     }
 </script>
 <?php endif; ?>
-
 <?php
-$baseUrl = $this->getUrl();
+if ($block->isValidateRegion()) :
+    $baseUrl = $this->getUrl();
 ?>
 
 <script>
@@ -292,3 +294,5 @@ $baseUrl = $this->getUrl();
         });
     });
 </script>
+
+<?php endif; ?>
