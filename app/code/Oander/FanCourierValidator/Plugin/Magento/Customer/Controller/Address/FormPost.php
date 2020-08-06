@@ -9,6 +9,7 @@
 namespace Oander\FanCourierValidator\Plugin\Magento\Customer\Controller\Address;
 
 use Magento\Framework\App\RequestInterface;
+use Magento\Framework\Exception\InputException;
 use Magento\Framework\Message\ManagerInterface;
 use Oander\FanCourierValidator\Helper\Data;
 
@@ -91,12 +92,21 @@ class FormPost
     ) {
         if ($this->data->getValidationLevel() != '') {
             $region = $this->request->getParam('region', false);
+            $city = $this->request->getParam('city', false);
             if (empty($region)) {
                 $this->messageManager->addError(__('%fieldName is a required field.', ['fieldName' => 'region']));
                 $this->session->setAddressFormData($this->request->getPostValue());
                 $url = $this->url->getUrl('*/*/edit', ['id' => $this->request->getParam('id')]);
 
                 return $this->redirectFactory->create()->setUrl($this->redirect->error($url));
+            }
+
+            if ($this->data->getValidationLevel() == 'valid') {
+                if (!$this->data->isStateCityValid($region, $city)) {
+                    $exception = new InputException();
+                    $exception->addError(__('Shipping address city(%city), state(%state) binding is not valid', ['city' => (string)$city, 'state' => (string)$region]));
+                    throw $exception;
+                }
             }
         }
 

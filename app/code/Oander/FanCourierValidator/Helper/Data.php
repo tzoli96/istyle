@@ -146,6 +146,21 @@ class Data extends AbstractHelper
     }
 
     /**
+     * @param $state
+     * @param $city
+     * @return bool
+     */
+    public function isStateCityValid($state, $city)
+    {
+        $cities = $this->getCitiesByState($state);
+        if (in_array($city, $cities)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * @param $type
      * @return false|mixed
      */

@@ -54,5 +54,19 @@ class CheckoutSubmitBefore implements ObserverInterface
                 __('%fieldName is a required field.', ['fieldName' => 'region'])
             );
         }
+
+        if ($this->data->getValidationLevel() == 'valid') {
+            if (!$this->data->isStateCityValid((string)$shippingAddress->getRegion(),(string)$shippingAddress->getCity())) {
+                throw new VisibleProblemError(
+                    __('Shipping address city(%city), state(%state) binding is not valid', ['city' => (string)$shippingAddress->getCity(), 'state' => (string)$shippingAddress->getRegion()])
+                );
+            }
+
+            if (!$this->data->isStateCityValid((string)$billingAddress->getRegion(),(string)$billingAddress->getCity())) {
+                throw new VisibleProblemError(
+                    __('Billing address city(%city), state(%state) binding is not valid', ['city' => (string)$billingAddress->getCity(), 'state' => (string)$billingAddress->getRegion()])
+                );
+            }
+        }
     }
 }
