@@ -157,7 +157,7 @@ class LayoutProcessor
             $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['region']['options'] = $this->fanCourierHelper->getStates();
 
-            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            /*$jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['city']['config'] = $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['region']['config'];
             $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
@@ -167,8 +167,8 @@ class LayoutProcessor
             ];
             $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
             ['city']['component'] = 'Magento_Ui/js/form/element/select';
-            $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
-            ['city']['options'] = $this->fanCourierHelper->getCities();
+            /*$jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+            ['city']['options'] = $this->fanCourierHelper->getCities();*/
         }
         
         foreach ($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']

@@ -103,9 +103,11 @@ class FormPost
 
             if ($this->data->getValidationLevel() == 'valid') {
                 if (!$this->data->isStateCityValid($region, $city)) {
-                    $exception = new InputException();
-                    $exception->addError(__('Shipping address city(%city), state(%state) binding is not valid', ['city' => (string)$city, 'state' => (string)$region]));
-                    throw $exception;
+                    $this->messageManager->addError(__('Shipping address city(%city), state(%state) binding is not valid', ['city' => (string)$city, 'state' => (string)$region]));
+                    $this->session->setAddressFormData($this->request->getPostValue());
+                    $url = $this->url->getUrl('*/*/edit', ['id' => $this->request->getParam('id')]);
+
+                    return $this->redirectFactory->create()->setUrl($this->redirect->error($url));
                 }
             }
         }
