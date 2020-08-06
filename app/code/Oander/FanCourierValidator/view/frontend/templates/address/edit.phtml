@@ -84,7 +84,7 @@
                 </div>
             </div>
         <?php elseif ($block->isValidateRegion()) : ?>
-            <div class="form-group field region required">
+            <div class="form-group field region required validate">
                 <label class="label" for="region"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
                 <div class="control">
                     <?php if ($block->escapeHtml($block->getRegion() == "")) : ?>
@@ -113,7 +113,7 @@
         <?php endif; ?>
 
         <?php if ($block->isValidateRegion()) : ?>
-            <div class="form-group field city required">
+            <div class="form-group field city required validate">
                 <label class="label" for="city"><span><?php /* @escapeNotVerified */ echo __('City') ?></span></label>
                 <div class="control">
                     <?php $cities = $block->getCities() ?>
