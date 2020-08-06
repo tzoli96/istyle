@@ -47,7 +47,9 @@ class CheckoutSubmitBefore implements ObserverInterface
         $quote = $observer->getQuote();
         $shippingAddress = $quote->getShippingAddress();
         $billingAddress = $quote->getBillingAddress();
-        if (empty($shippingAddress->getRegion()) || empty($billingAddress->getRegion())) {
+        if ($this->data->getValidationLevel() !=''
+            && (empty($shippingAddress->getRegion()) || empty($billingAddress->getRegion()))
+        ) {
             throw new VisibleProblemError(
                 __('%fieldName is a required field.', ['fieldName' => 'region'])
             );
