@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content.aside">
+            <block class="Oander\CofidisPayment\Block\Product\Index"
+                   name="catalog.product.cofidis.calculator"
+                   template="product/calculator/list.phtml"/>
+        </referenceContainer>
+
+        <move element="catalog.product.cofidis.calculator" destination="payment.tabs.inner"/>
+    </body>
+</page>

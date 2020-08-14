@@ -1,0 +1,221 @@
+<?php
+
+/** @var $block \Oander\CofidisPayment\Block\Checkout\Index */ ?>
+<?php if ($block->getCalculatorData()['isEnabled']) : ?>
+  <?php if ($block->getProductPrice() >= $block->getCalculatorData()['minimumTotal'] && $block->getProductPrice() <= $block->getCalculatorData()['maximumTotal']) : ?>
+  <?php
+  $product = array(
+    'price' => $block->getProductPrice()
+  );
+
+  $calculator = array(
+    'isEnabled' => $block->getCalculatorData()['isEnabled'],
+    'shopId' => $block->getCalculatorData()['shopId'],
+    'barem' => $block->getCalculatorData()['barem'],
+    'downpmnt' => $block->getCalculatorData()['downpmnt'],
+    'ajaxUrl' => $block->getAjaxUrl(),
+    'termsUrl' => $block->getCalculatorData()['termsUrl']
+  );
+
+  $months = array(
+    12, 18, 24, 36, 48, 60
+  );
+  ?>
+
+  <div class="data item title" data-role="collapsible">
+    <a class="data switch" tabindex="-1" href="#tab2" data-toggle="switch"><?php echo __('calculator_selector_3'); ?></a>
+  </div>
+  <div id="tab2" class="data item content" data-role="content">
+    <div class="catalog-cetelem-calculator">
+      <div class="block-calculator-cetelem-hu">
+        <div class="calculator-range-wrapper">
+          <p class="calculator-range-title"><?= __('Choose an installment:') ?></p>
+
+          <div class="calculator-range">
+            <div class="calculator-steps">
+              <?php foreach ($months as $month) : ?>
+                <span data-title="<?= $month; ?>" <?= ($month == 12) ? 'class="active"' : '' ?>></span>
+              <?php endforeach; ?>
+            </div>
+            <input type="range" class="slider" min="0" max="<?= count($months) - 1 ?>" value="0">
+          </div>
+        </div>
+        <div class="calculator-wrapper">
+          <div class="calculator-row">
+            <div class="calculator-col">
+              <div class="form calculator-form">
+                <p><?= __('Choose loan') ?>:</p>
+
+                <div class="row">
+                  <div class="col-6">
+                    <p class="form__label"><?= __('Installments') ?>:</p>
+                    <span class="form__installment months">20</span>
+                    <span class="form__installment"><?= __('months') ?></span>
+                  </div>
+
+                  <div class="col-6">
+                    <p class="form__label"><?= __('Purchase Amount') ?>:</p>
+                    <p class="form__value amount">
+                      <span class="price">299 900</span> Ft
+                    </p>
+                  </div>
+
+                  <div class="col-12">
+                    <p class="form__label down-payment">
+                      <?= __('Down Payment') ?> Ft
+                    </p>
+
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <input type="number" value="<?php echo $calculator['downpmnt']; ?>" class="form-control" name="down-payment" min="0">
+                        </div>
+                        <div class="col-sm-6">
+                          <button type="button" class="action action-calculator dark w-100"><?= __('Calculate') ?></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="calculator-col">
+              <div class="result calculator-result">
+                <p><?= __('Calculation result:') ?></p>
+
+                <div class="row">
+                  <div class="col-lg-6">
+                    <p class="result__label"><?= __('Total Payable') ?>:</p>
+                    <p class="result__value total-payable"><span class="price">295 920</span> Ft</p>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <p class="result__label"><?= __('Monthly Instalment') ?>:</p>
+                    <p class="result__value monthly-instalment"><span class="price">14 796</span> Ft</p>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <p class="result__label"><?= __('THM') ?>:</p>
+                    <p class="result__value thm"><span class="value">0.00</span>%</p>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <p class="result__label"><?= __('Handling Fee') ?>:</p>
+                    <p class="result__value">0 Ft</p>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <a class="text-primary" target="_blank" href="https://cofidis.webdesign.hu/webkalk/leiras/3/"><?= __('Details') ?></a>
+                  </div>
+                  <div class="col-lg-6">
+                    <a class="text-primary" target="_blank" href="<?= $calculator['termsUrl'] ?>"><?= __('Terms And Conditions') ?></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      require([
+        'jquery'
+      ], function($) {
+        $(function() {
+          var responses = {
+            amount: '.form__value .price',
+            totalPayable: '.result__value.total-payable .price',
+            installmentMonths: '.form__installment.months',
+            downPmnt: '.form-control[name="down-payment"]',
+            monthlyInstalment: '.result__value.monthly-instalment .price',
+            thm: '.result__value.thm .value',
+          }
+
+          var actionCalculator = $('.action-calculator'),
+            calculator = $('.calculator-range-wrapper'),
+            calculatorSteps = calculator.find('span'),
+            calculatorRange = calculator.find('.slider'),
+            productPrice = $('.product-info-price [data-role=priceBox]'),
+            recentPrice = <?php echo $product['price']; ?>,
+            recentDownPmnt = $(responses.downPmnt).val();
+
+          productPrice.on('updatePrice', function() {
+            var priceBoxWidget = productPrice.data('mage-priceBox').cache.displayPrices;
+
+            if (!$.isEmptyObject(priceBoxWidget)) {
+              var finalPrice = Math.round(productPrice.data('mage-priceBox').cache.displayPrices.finalPrice.final);
+
+              recentPrice = finalPrice;
+              actionCalculator.trigger('click');
+            }
+          });
+
+          calculatorRange.on('change', function() {
+            var stepValue = calculatorRange.val();
+
+            calculatorSteps.removeClass('active');
+            $(calculatorSteps[stepValue]).addClass('active');
+
+            actionCalculator.trigger('click');
+          });
+
+          $(responses.downPmnt).on('keyup mouseup', function() {
+            recentDownPmnt = $(this).val();
+          });
+
+          actionCalculator.click(function() {
+            var ajaxUrl = '<?php echo $calculator['ajaxUrl']; ?>',
+              shopId = <?php echo $calculator['shopId']; ?>,
+              barem = <?php echo $calculator['barem']; ?>,
+              amount = recentPrice,
+              downpmnt = recentDownPmnt,
+              month = calculator.find('span.active').attr('data-title');
+
+            getAjaxRequest(ajaxUrl, shopId, barem, amount, downpmnt, month);
+          });
+
+          function getAjaxRequest(ajaxUrl, shopId, barem, amount, downpmnt, month) {
+            if (xhr && xhr.readyState != null) {
+              xhr.abort();
+            }
+
+            var xhr = $.ajax({
+              url: ajaxUrl,
+              data: {
+                shopId: shopId,
+                barem: barem,
+                amount: amount,
+                downpmnt: downpmnt,
+                month: month,
+              },
+              type: 'GET',
+              dataType: 'json',
+              showLoader: true
+            }).done(function(data) {
+              if (data.CalcData) {
+                setAjaxResponse(data.CalcData[0].Amount, data.CalcData[0].Downpmnt, data.CalcData[0].Month, data.CalcData[0].THM, data.CalcData[0].Rate, data.CalcData[0].Installment);
+              } else if (data.Error) {
+                console.log(data.Error);
+              }
+            });
+          }
+
+          function setAjaxResponse(amount, downpmnt, month, thm, rate, installment) {
+            $(responses.amount).html(formatPrice(amount));
+            $(responses.totalPayable).html(formatPrice(installment * month));
+            $(responses.installmentMonths).html(month);
+            $(responses.monthlyInstalment).html(formatPrice(installment));
+            $(responses.thm).html((thm * 100));
+          }
+
+          function formatPrice(x) {
+            return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, " ");
+          }
+        });
+      });
+    </script>
+  </div>
+  <?php endif; ?>
+<?php endif; ?>

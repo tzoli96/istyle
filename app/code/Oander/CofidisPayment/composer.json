@@ -1,0 +1,26 @@
+{
+    "name": "oander/module-cofidispayment",
+    "description": "Loan Payment modul for Cofidis",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Mage2Gen",
+            "email": "info@mage2gen.com"
+        },
+        {
+            "name": "J\u00e1nos Pincz\u00e9s",
+            "email": "janos.pinczes@oander.hu"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Oander\\CofidisPayment\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}
