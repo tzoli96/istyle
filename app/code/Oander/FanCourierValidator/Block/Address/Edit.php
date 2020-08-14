@@ -8,6 +8,9 @@
 
 namespace Oander\FanCourierValidator\Block\Address;
 
+use Oander\FanCourierValidator\Controller\Address\GetCities;
+use Oander\FanCourierValidator\Controller\Address\ValidateStateCity;
+
 /**
  * Class Edit
  * @package Oander\FanCourierValidator\Block\Address
@@ -65,6 +68,22 @@ class Edit extends \Magento\Customer\Block\Address\Edit
             $data
         );
         $this->fanCourierHelper = $fanCourierHelper;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCitiesAjaxUrl()
+    {
+        return $this->getUrl(GetCities::ROUTE);
+    }
+
+    /**
+     * @return string
+     */
+    public function getValidateStateCityAjaxUrl()
+    {
+        return $this->getUrl(ValidateStateCity::ROUTE);
     }
 
     /**

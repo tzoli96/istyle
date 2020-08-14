@@ -8,6 +8,7 @@
 
 namespace Oander\FanCourierValidator\Helper;
 
+use Magento\Framework\App\CacheInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
@@ -15,6 +16,7 @@ use Magento\Store\Model\ScopeInterface;
 use Oander\FanCourierValidator\Api\StateRepositoryInterface;
 use Oander\FanCourierValidator\Api\StateCityRepositoryInterface;
 use Oander\FanCourierValidator\Api\CityRepositoryInterface;
+use Oander\FanCourierValidator\Model\Cache\Validator;
 
 /**
  * Class Data
@@ -26,25 +28,42 @@ class Data extends AbstractHelper
      * @var StateRepositoryInterface
      */
     private $stateRepository;
+
     /**
      * @var CityRepositoryInterface
      */
     private $cityRepository;
+
     /**
      * @var StateCityRepositoryInterface
      */
     private $stateCityRepository;
 
+    /**
+     * @var CacheInterface
+     */
+    private $cache;
+
+    /**
+     * Data constructor.
+     * @param StateRepositoryInterface $stateRepository
+     * @param CityRepositoryInterface $cityRepository
+     * @param StateCityRepositoryInterface $stateCityRepository
+     * @param CacheInterface $cache
+     * @param Context $context
+     */
     public function __construct(
         StateRepositoryInterface $stateRepository,
         CityRepositoryInterface $cityRepository,
         StateCityRepositoryInterface $stateCityRepository,
+        CacheInterface $cache,
         Context $context
     ) {
         parent::__construct($context);
         $this->stateRepository = $stateRepository;
         $this->cityRepository = $cityRepository;
         $this->stateCityRepository = $stateCityRepository;
+        $this->cache = $cache;
     }
 
     /**
@@ -62,21 +81,31 @@ class Data extends AbstractHelper
 
     public function getStates()
     {
-       $states = $this->stateRepository->create()->getCollection();
+        if ($states = $this->getCache('states')) {
+            return $states;
+        }
 
-       $optionArray = [];
-       foreach ($states->getItems() as $state) {
+        $states = $this->stateRepository->create()->getCollection();
+
+        $optionArray = [];
+        foreach ($states->getItems() as $state) {
            $optionArray[] = [
                'value' => $state->getState(),
                'label' => $state->getState()
            ];
-       }
+        }
 
-       return $optionArray;
+        $this->saveCache('states', $optionArray);
+
+        return $optionArray;
     }
 
     public function getCities()
     {
+        if ($cities = $this->getCache('cities')) {
+            return $cities;
+        }
+
         $stateCities = $this->stateCityRepository->getCollection();
         $stateCities = $stateCities->getItems();
         $optionArray = [];
@@ -88,7 +117,75 @@ class Data extends AbstractHelper
             ];
         }
 
+        $this->saveCache('cities', $optionArray);
+
         return $optionArray;
     }
 
+    public function getCitiesByState($state)
+    {
+        if ($cache = $this->getCache($state)) {
+            return $cache;
+        }
+
+        $citiesByStates = [];
+        $cities = $this->getCities();
+        foreach ($cities as $city) {
+            $citiesByStates[$city["state"]][] = $city["value"];
+        }
+
+        foreach ($citiesByStates as $key => $citiesByState) {
+            $this->saveCache($key, $citiesByState);
+        }
+
+        if (!isset($citiesByStates[$state])) {
+            return [];
+        }
+
+        return $citiesByStates[$state];
+    }
+
+    /**
+     * @param $state
+     * @param $city
+     * @return bool
+     */
+    public function isStateCityValid($state, $city)
+    {
+        $cities = $this->getCitiesByState($state);
+        if (in_array($city, $cities)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @param $type
+     * @return false|mixed
+     */
+    protected function getCache($type)
+    {
+        $cache = unserialize($this->cache->load(Validator::IDENTIFIER));
+        if (isset($cache[$type])) {
+            return $cache[$type];
+        }
+
+        return false;
+    }
+
+    /**
+     * @param $type
+     * @param $data
+     */
+    protected function saveCache($type, $data)
+    {
+        $cache = unserialize($this->cache->load(Validator::IDENTIFIER));
+        $cache[$type] = $data;
+        $this->cache->save(
+            serialize($cache),
+            Validator::IDENTIFIER,
+            [Validator::CACHE_TAG]
+        );
+    }
 }
