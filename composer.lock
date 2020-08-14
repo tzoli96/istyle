@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ada07f8eda5b3bb3b68117ae00400288",
+    "content-hash": "7b137d338152aa05df6938d85f590b23",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9789,11 +9789,11 @@
         },
         {
             "name": "oander/module-product-widget-warehouse-manager-extender",
-            "version": "44047.x-dev",
+            "version": "1.0.1.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-product-widget-warehouse-manager-extender.git",
-                "reference": "9238d5d216b200ac34a41aedebe40ed614f33c62"
+                "reference": "e98e29489d1c4404b66aa8aa8957903a14d0b463"
             },
             "require": {
                 "oander/module-warehouse-manager-conditions": "*",
@@ -9811,7 +9811,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2020-08-14T08:28:59+00:00"
+            "time": "2020-08-14T11:24:46+00:00"
         },
         {
             "name": "oander/module-producturlresolver",
@@ -14422,6 +14422,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2017-12-04T08:55:13+00:00"
         },
         {
@@ -14825,6 +14826,7 @@
             ],
             "description": "FinderFacade is a convenience wrapper for Symfony's Finder component.",
             "homepage": "https://github.com/sebastianbergmann/finder-facade",
+            "abandoned": true,
             "time": "2017-11-18T17:31:49+00:00"
         },
         {
@@ -15140,7 +15142,6 @@
         "oander/module-core-bug-fix": 20,
         "oander/module-multislider": 20,
         "oander/module-news": 20,
-        "oander/module-product-widget-warehouse-manager-extender": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
