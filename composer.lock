@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1057cb50270a8be751cd963d0e10e1f",
+    "content-hash": "ada07f8eda5b3bb3b68117ae00400288",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7061,16 +7061,16 @@
         },
         {
             "name": "mageplaza/module-core",
-            "version": "1.4.8",
+            "version": "1.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mageplaza/module-core.git",
-                "reference": "aa99d5aa974ec9bf799bcc9a2137095baf882093"
+                "reference": "3c531ab1b1390ae04f6a9886d0d2f0a5d40788b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/aa99d5aa974ec9bf799bcc9a2137095baf882093",
-                "reference": "aa99d5aa974ec9bf799bcc9a2137095baf882093",
+                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/3c531ab1b1390ae04f6a9886d0d2f0a5d40788b9",
+                "reference": "3c531ab1b1390ae04f6a9886d0d2f0a5d40788b9",
                 "shasum": ""
             },
             "type": "magento2-module",
@@ -7095,7 +7095,7 @@
                 }
             ],
             "description": "Mageplaza Core for Magento 2",
-            "time": "2019-12-23T03:04:13+00:00"
+            "time": "2020-08-04T17:20:33+00:00"
         },
         {
             "name": "mageplaza/module-gdpr",
@@ -9789,11 +9789,11 @@
         },
         {
             "name": "oander/module-product-widget-warehouse-manager-extender",
-            "version": "1.0.1.6",
+            "version": "44047.x-dev",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-product-widget-warehouse-manager-extender.git",
-                "reference": "58eff1c256ff2ed177719259fe0f41c27d42b2db"
+                "reference": "9238d5d216b200ac34a41aedebe40ed614f33c62"
             },
             "require": {
                 "oander/module-warehouse-manager-conditions": "*",
@@ -9811,7 +9811,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2020-04-20T08:23:54+00:00"
+            "time": "2020-08-14T08:28:59+00:00"
         },
         {
             "name": "oander/module-producturlresolver",
@@ -10485,7 +10485,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "ad04d63aee3884b705686ddb1b2fb55c1f014c7d"
+                "reference": "9069e49c120720c7b2ac096929800ca8337f8407"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10501,7 +10501,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2020-08-04T14:13:36+00:00"
+            "time": "2020-08-13T12:15:09+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -11149,16 +11149,16 @@
         },
         {
             "name": "seld/jsonlint",
-            "version": "1.8.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/jsonlint.git",
-                "reference": "ff2aa5420bfbc296cf6a0bc785fa5b35736de7c1"
+                "reference": "3d5eb71705adfa34bd34b993400622932b2f62fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/ff2aa5420bfbc296cf6a0bc785fa5b35736de7c1",
-                "reference": "ff2aa5420bfbc296cf6a0bc785fa5b35736de7c1",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/3d5eb71705adfa34bd34b993400622932b2f62fd",
+                "reference": "3d5eb71705adfa34bd34b993400622932b2f62fd",
                 "shasum": ""
             },
             "require": {
@@ -11194,7 +11194,7 @@
                 "parser",
                 "validator"
             ],
-            "time": "2020-04-30T19:05:18+00:00"
+            "time": "2020-08-13T09:07:59+00:00"
         },
         {
             "name": "seld/phar-utils",
@@ -15140,6 +15140,7 @@
         "oander/module-core-bug-fix": 20,
         "oander/module-multislider": 20,
         "oander/module-news": 20,
+        "oander/module-product-widget-warehouse-manager-extender": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
