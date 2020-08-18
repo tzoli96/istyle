@@ -55,7 +55,7 @@ class Index extends \Magento\Framework\View\Element\Template
             'shopId'    => $this->config->getShopId(),                                          //alap
             'barem'     => $this->config->getConstructionGroup(),                               //alap
             'amount'    => $order->getGrandTotal(),                                             //alap
-            'downpmnt'  => $this->getRequest()->getParam("downpmnt", 0),        //alap
+            'downpmnt'  => $this->getRequest()->getParam("downpmnt"),        //alap
             'product'   => implode("|", $productnames),                                    //alap
             'order_id'  => $order->getIncrementId(),                                            //alap
             //'deliveryMethod' => '1',                                                          //alap de nem kell

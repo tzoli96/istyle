@@ -1,3 +1,35 @@
 <?php /** @var $block \Oander\CofidisPayment\Block\Checkout\Index */ ?>
 
-<?php echo  '<iframe src="https://cofidis.webdesign.hu/webkalk/?' . http_build_query($block->getIframeParams()) . '" width="100%" height="720px" style="margin: 0; padding: 0; " frameborder="0" allowfullscreen></iframe>';
+<script type="text/javascript">
+window.addEventListener('message', receiveMessage, false);
+
+function receiveMessage(event) {
+    var response = JSON.parse(event.data);
+
+    document.getElementById('cofidis').height = response.iframeheight + 10;
+
+    if (response.submitted == '1') {
+        window.location.replace(window.location.protocol + '//' + window.location.hostname + '/checkout/onepage/success/');
+    }
+}
+</script>
+
+<ul class="opc-progress-bar list-unstyled hidden-md-down success">
+    <li class="opc-progress-bar-item _complete">
+        <span class="opc-progress-bar-item-circle"></span>
+        <span class="opc-progress-bar-item-text">
+            <?php /* @escapeNotVerified */ echo __('Shipping') ?></span>
+    </li>
+    <li class="opc-progress-bar-item _complete _active">
+        <span class="opc-progress-bar-item-circle"></span>
+        <span class="opc-progress-bar-item-text">
+            <?php /* @escapeNotVerified */ echo __('Payment Method') ?></span>
+    </li>
+    <li class="opc-progress-bar-item _last">
+        <span class="opc-progress-bar-item-circle"></span>
+        <span class="opc-progress-bar-item-text">
+	        <?php /* @escapeNotVerified */ echo __('Email Order Confirmation') ?></span>
+    </li>
+</ul>
+
+<?php echo  '<iframe src="https://cofidis.webdesign.hu/teszt/?' . http_build_query($block->getIframeParams()) . '" id="cofidis" width="100%" height="720px" style="margin: 0; padding: 0; " frameborder="0" allowfullscreen></iframe>';

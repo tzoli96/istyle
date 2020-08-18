@@ -1,8 +1,30 @@
 <?xml version="1.0" ?>
 <page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
 	<body>
+	<move element="logo" destination="header-wrapper" after="nav-toggle" />
+
 		<referenceContainer name="content">
 			<block class="Oander\CofidisPayment\Block\Checkout\Index" name="cofidis.checkout.index" template="Oander_CofidisPayment::checkout/index.phtml"/>
 		</referenceContainer>
+
+		<referenceContainer name="header-wrapper">
+            <container name="checkout-header-text" htmlTag="div" htmlClass="checkout-header-text" after="logo">
+                <block class="Magento\Framework\View\Element\Text">
+                    <arguments>
+                        <argument name="text" xsi:type="string" translate="true">Checkout</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+
+        <referenceBlock name="nav-toggle" remove="true" />
+        <referenceBlock name="navigation.sections" remove="true" />
+
+        <referenceBlock name="top.search" remove="true" />
+        <referenceBlock name="algolia.instant.wrapper" remove="true" />
+
+        <referenceContainer name="page-header-right" remove="true" />
+        <referenceBlock name="header-account" remove="true" />
+        <referenceBlock name="minicart" remove="true" />
 	</body>
 </page>

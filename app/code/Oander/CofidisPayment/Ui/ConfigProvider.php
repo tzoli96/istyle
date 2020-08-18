@@ -54,6 +54,81 @@ final class ConfigProvider implements ConfigProviderInterface
             'size'      => 'small',
         );
 
+        $barems = array(
+            131 => array(
+                10 => array(
+                    'intervalMin' => 40000,
+                    'intervalMax' => 1500000,
+                    'intervalThm' => 0,
+                    'intervalRate' => 0,
+                ),
+                12 => array(
+                    'intervalMin' => 40000,
+                    'intervalMax' => 1500000,
+                    'intervalThm' => 0,
+                    'intervalRate' => 0,
+                ),
+                15 => array(
+                    'intervalMin' => 50000,
+                    'intervalMax' => 1500000,
+                    'intervalThm' => 0,
+                    'intervalRate' => 0,
+                ),
+                20 => array(
+                    'intervalMin' => 60000,
+                    'intervalMax' => 1500000,
+                    'intervalThm' => 0,
+                    'intervalRate' => 0,
+                ),
+                24 => array(
+                    'intervalMin' => 80000,
+                    'intervalMax' => 1500000,
+                    'intervalThm' => 0,
+                    'intervalRate' => 0,
+                )
+            ),
+            12 => array(
+                10 => array(
+                    'intervalMin' => 40000,
+                    'intervalMax' => 1500000,
+                    'intervalThm' => 0,
+                    'intervalRate' => 0,
+                ),
+            ),
+            51 => array(
+                12 => array(
+                    'intervalMin' => 40000,
+                    'intervalMax' => 1500000,
+                    'intervalThm' => 0,
+                    'intervalRate' => 0,
+                ),
+            ),
+            93 => array(
+                15 => array(
+                    'intervalMin' => 50000,
+                    'intervalMax' => 1500000,
+                    'intervalThm' => 0,
+                    'intervalRate' => 0,
+                ),
+            ),
+            48 => array(
+                20 => array(
+                    'intervalMin' => 60000,
+                    'intervalMax' => 1500000,
+                    'intervalThm' => 0,
+                    'intervalRate' => 0,
+                ),
+            ),
+            49 => array(
+                24 => array(
+                    'intervalMin' => 80000,
+                    'intervalMax' => 1500000,
+                    'intervalThm' => 0,
+                    'intervalRate' => 0,
+                ),
+            ),
+        );
+
         return [
             'payment' => [
                 self::CODE => [
@@ -61,7 +136,8 @@ final class ConfigProvider implements ConfigProviderInterface
                     'redirectUrl' => $this->helper->getRedirectUrl($this->config->getRedirectPath()),
                     'instructions' => $this->config->getInstructions(),
                     "params" => http_build_query($postdata),
-                    "data" => $postdata
+                    "data" => $postdata,
+                    "barems" => $barems
                 ],
             ],
         ];

@@ -29,18 +29,13 @@
                     <p class="calculator-range-title" data-bind="i18n: 'Choose an installment:'"></p>
 
                     <div class="calculator-range">
-                        <div class="calculator-steps">
-                            <span data-title="12" class="active"></span>
-                            <span data-title="18"></span>
-                            <span data-title="24"></span>
-                            <span data-title="36"></span>
-                            <span data-title="48"></span>
-                            <span data-title="60"></span>
-                        </div>
-                        <input type="range" class="slider" min="0" max="5" value="0" data-bind="event: { change: calculatorRange() }">
+                        <div class="calculator-steps" data-bind="html: getActiveBarems()"></div>
+                        <input type="range" class="slider" min="0" value="0" data-bind="attr: {'max': getActiveBaremsLength()}, event: { change: calculatorRange() }">
                     </div>
                 </div>
-                <div class="calculator-wrapper">
+
+                <div class="calculator-wrapper calculator-cofidis">
+                    <div class="calculator-loader"></div>
                     <div class="calculator-row">
                         <div class="calculator-col">
                             <div class="form calculator-form">
@@ -49,7 +44,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <p class="form__label" data-bind="i18n: 'Installments:'"></p>
-                                        <span class="form__installment months">20</span>
+                                        <span class="form__installment months"></span>
                                         <span class="form__installment" data-bind="i18n: 'months'"></span>
                                     </div>
     
@@ -66,7 +61,7 @@
                                         <div class="form-group">
                                             <div class="row">
                                                 <div class="col-sm-6">
-                                                    <input type="number" class="form-control" name="down-payment" min="0" data-bind="value: getCofidisData().downpmnt, event: { keyup: downPmnt(), change: downPmnt() }">
+                                                    <input type="number" class="form-control" name="down-payment" min="0" data-bind="value: getMinDownPmnt(), event: { keyup: downPmnt(), change: downPmnt() }">
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <button type="button" class="action action-calculator dark w-100" data-bind="i18n: 'Calculate', click: getAjaxRequest()"></button>
@@ -86,21 +81,21 @@
                                     <div class="col-lg-6">
                                         <p class="result__label" data-bind="i18n: 'Total Payable:'"></p>
                                         <p class="result__value total-payable">
-                                            <span class="price">295 920</span> Ft
+                                            <span class="price"></span> Ft
                                         </p>
                                     </div>
     
                                     <div class="col-lg-6">
                                         <p class="result__label" data-bind="i18n: 'Monthly Instalment:'"></p>
                                         <p class="result__value monthly-instalment">
-                                            <span class="price">14 796</span> Ft
+                                            <span class="price"></span> Ft
                                         </p>
                                     </div>
     
                                     <div class="col-lg-6">
                                         <p class="result__label" data-bind="i18n: 'THM:'"></p>
                                         <p class="result__value thm">
-                                            <span class="value">0.00</span>%
+                                            <span class="value">0</span>%
                                         </p>
                                     </div>
     
@@ -109,12 +104,16 @@
                                         <p class="result__value">0 Ft</p>
                                     </div>
     
-                                    <div class="col-lg-6">
-                                        <a class="text-primary" target="_blank" href="https://cofidis.webdesign.hu/webkalk/leiras/3/" data-bind="i18n: 'Details'"></a>
-                                    </div>
+                                    <div class="col-lg-6"></div>
                                     <div class="col-lg-6">
                                         <a class="text-primary" target="_blank" data-bind="attr: {href: getCofidisData().termsUrl} ,i18n: 'Terms and Conditions'"></a>
                                     </div>
+                                </div>
+
+                                <div class="result__error">
+                                    <span class="error-text" data-bind="i18n: 'Minimum Down Payment: '">></span>
+                                    <span class="price"></span>
+                                    <span class="error-response" data-bind="i18n: 'Error'"></span>
                                 </div>
                             </div>
                         </div>
