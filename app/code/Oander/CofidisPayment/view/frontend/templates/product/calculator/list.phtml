@@ -144,7 +144,7 @@
                     <div class="form-group">
                       <div class="row">
                         <div class="col-sm-6">
-                          <input type="number" value="<?php echo $calculator['downpmnt']; ?>" class="form-control" name="down-payment" min="0">
+                          <input type="number" value="<?php echo $product['price'] * 0.2; ?>" class="form-control" name="down-payment" min="0">
                         </div>
                         <div class="col-sm-6">
                           <button type="button" class="action action-calculator dark w-100"><?= __('Calculate') ?></button>
@@ -347,8 +347,10 @@
           }
 
           function formatPrice(x) {
-            return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, " ");
+            return x.toLocaleString().replace(',', ' ');
           }
+
+          actionCalculator.trigger('click');
         });
       });
     </script>

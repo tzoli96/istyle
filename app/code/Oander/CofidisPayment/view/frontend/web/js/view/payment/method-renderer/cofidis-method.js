@@ -184,7 +184,7 @@ define(
             },
 
             getFormatPrice: function (x) {
-                return x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, " ").split('.')[0];
+                return x.toLocaleString().replace(',', ' ').split('.')[0];
             }
         });
     }

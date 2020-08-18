@@ -43,7 +43,7 @@ class Index extends \Magento\Framework\View\Element\Template
     public function getIframeParams()
     {
         $order = $this->_checkoutSession->getLastRealOrder();
-        $order = \Magento\Framework\App\ObjectManager::getInstance()->create('Magento\Sales\Model\OrderFactory')->create()->load(104116);
+        $order = \Magento\Framework\App\ObjectManager::getInstance()->create('Magento\Sales\Model\OrderFactory')->create()->load($order->getId());
         $productnames = [];
         /** @var \Magento\Sales\Model\Order\Item $item */
         foreach ($order->getAllVisibleItems() as $item)

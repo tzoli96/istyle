@@ -7,6 +7,6 @@
                    template="product/calculator/list.phtml"/>
         </referenceContainer>
 
-        <move element="catalog.product.cofidis.calculator" destination="payment.tabs.inner"/>
+        <move element="catalog.product.cofidis.calculator" destination="payment.tabs.inner" after="catalog.product.otp.calculator"/>
     </body>
 </page>
