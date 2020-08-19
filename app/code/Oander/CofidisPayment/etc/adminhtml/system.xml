@@ -54,10 +54,24 @@
 					</depends>
 					<validate>required-entry</validate>
 				</field>
+				<field id="shop_id_test" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="110" translate="label" type="text">
+					<label>Test Shop ID</label>
+					<depends>
+						<field id="environment">0</field>
+					</depends>
+					<validate>required-entry</validate>
+				</field>
 				<field id="iv_code" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="110" translate="label" type="text">
 					<label>IV code</label>
 					<depends>
 						<field id="environment">1</field>
+					</depends>
+					<validate>required-entry</validate>
+				</field>
+				<field id="iv_code_test" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="110" translate="label" type="text">
+					<label>Test IV code</label>
+					<depends>
+						<field id="environment">0</field>
 					</depends>
 					<validate>required-entry</validate>
 				</field>
@@ -68,9 +82,26 @@
 					</depends>
 					<validate>required-entry</validate>
 				</field>
+				<field id="key_test" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="110" translate="label" type="text">
+					<label>Test Key</label>
+					<depends>
+						<field id="environment">0</field>
+					</depends>
+					<validate>required-entry</validate>
+				</field>
 				<field id="construction_group" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="110" translate="label" type="text">
 					<label>Construction Group</label>
 					<validate>required-entry</validate>
+					<depends>
+						<field id="environment">1</field>
+					</depends>
+				</field>
+				<field id="construction_group_test" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="110" translate="label" type="text">
+					<label>Test Construction Group</label>
+					<validate>required-entry</validate>
+					<depends>
+						<field id="environment">0</field>
+					</depends>
 				</field>
 				<field id="termsandcondition_url" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="110" translate="label" type="text">
 					<label>Terms And Conditions URL</label>

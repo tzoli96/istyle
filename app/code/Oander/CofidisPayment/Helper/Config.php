@@ -102,7 +102,6 @@ class Config extends AbstractHelper
      */
     public function getShopId($storeId = null)
     {
-        return "16983";
         if($this->isLive())
         {
             return $this->getConfig($storeId)[ConfigEnum::SHOP_ID];
