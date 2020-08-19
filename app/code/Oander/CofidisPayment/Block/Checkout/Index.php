@@ -69,4 +69,9 @@ class Index extends \Magento\Framework\View\Element\Template
 
         return $postdata;
     }
+
+    public function getEnvironment()
+    {
+        return $this->config->isLive();
+    }
 }
