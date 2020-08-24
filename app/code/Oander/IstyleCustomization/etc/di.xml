@@ -86,4 +86,5 @@
     <type name="Magento\Reports\Observer\CatalogProductViewObserver">
         <plugin name="IstyleCustomization::CatalogProductViewObserver" type="Oander\IstyleCustomization\Plugin\Reports\Observer\CatalogProductViewObserver" sortOrder="100"/>
     </type>
+    <preference for="Innobyte\MStart\Controller\Payment\Response" type="Oander\IstyleCustomization\Rewrite\Innobyte\MStart\Controller\Payment\Response"/>
 </config>
