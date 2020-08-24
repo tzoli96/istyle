@@ -21,6 +21,7 @@ return array (
     'Magento_Payment' => 1,
     'Magento_Config' => 1,
     'Magento_Quote' => 1,
+    'Customweb_Base' => 1,
     'Magento_SalesSequence' => 1,
     'Infobeans_FlatRate5' => 1,
     'Magento_Sales' => 1,
