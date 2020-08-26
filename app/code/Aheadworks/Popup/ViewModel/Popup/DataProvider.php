@@ -84,7 +84,7 @@ use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Serialize\Serializer\Json;
 use Magento\Framework\Serialize\Serializer\Base64Json;
-use Magento\Framework\View\Element\Block\ArgumentInterface;
+use Aheadworks\Popup\Test\ArgumentInterface;
 use Magento\Store\Model\StoreManagerInterface;
 
 /**
