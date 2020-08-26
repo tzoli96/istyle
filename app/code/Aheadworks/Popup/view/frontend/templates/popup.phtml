@@ -1,16 +1,18 @@
 <?php
-// @codingStandardsIgnoreFile
+/**
+ * Copyright 2019 aheadWorks. All rights reserved.
+See LICENSE.txt for license details.
+ */
 
 /* @var $block \Aheadworks\Popup\Block\Popup */
 
-$viewModel = $block->getPopupViewModel();
-$blockType = $block->getBlockType();
-$popups = $viewModel->prepareJsonPopups($blockType);
+// @codingStandardsIgnoreFile
 ?>
 <div class="<?php echo $block->escapeHtml($block->getNameInLayout()) ?>"></div>
 <script type="text/javascript">
     require(['jquery', 'awPopupManager'], function(){
-        ajaxAddCookieUrl = '<?php echo $block->escapeHtml($block->getUrl('popup/ajax/addCookie', ['_secure' => $viewModel->isSecure()])) ?>';
+        ajaxPrepareContentUrl = '<?php echo $block->escapeHtml($block->getUrl('popup/ajax/prepareContent', ['_secure' => $block->isSecure()])) ?>';
+        ajaxAddCookieUrl = '<?php echo $block->escapeHtml($block->getUrl('popup/ajax/addCookie', ['_secure' => $block->isSecure()])) ?>';
 
         jQuery.awPopupManager.ajaxAddCookieUrl = ajaxAddCookieUrl;
 
@@ -21,14 +23,34 @@ $popups = $viewModel->prepareJsonPopups($blockType);
             context: this,
             data: {
                 isAjax: 'true',
-                form_key: <?php /* @noEscape */ echo $viewModel->getPreparedFormKey(); ?>,
+                form_key: <?php /* @noEscape */ echo (\Zend_Json::encode($block->getFormKey()));?>,
                 cookie_type: '<?php echo $block->escapeHtml(\Aheadworks\Popup\Model\Source\Event::VIEWED_PAGE_COUNT_COOKIE_NAME);?>',
-                current_url: '<?php echo $block->escapeHtml($block->getUrl('*/*/*', ['_current' => true, '_secure' => $viewModel->isSecure()])) ?>'
+                current_url: '<?php echo $block->escapeHtml($block->getUrl('*/*/*', ['_current' => true, '_secure' => $block->isSecure()])) ?>'
             },
             complete: function(response) {
-                var popups = <?php /* @noEscape */ echo $popups ?>;
-
-                jQuery.awPopupManager.initObserversForPopup(popups);
+                jQuery.ajax({
+                    url: ajaxPrepareContentUrl,
+                    type: "GET",
+                    dataType: 'json',
+                    context: this,
+                    data: {
+                        isAjax: 'true',
+                        aw_popup: 'true',
+                        form_key: <?php /* @noEscape */ echo (\Zend_Json::encode($block->getFormKey()));?>,
+                        name_in_layout:  '<?php echo $block->escapeHtml($block->getNameInLayout());?>',
+                        product_id: '<?php echo $block->escapeHtml($block->getProductId())?>',
+                        preview: '<?php echo $block->escapeHtml($block->getRequest()->getParam('preview', 0))?>',
+                        popup_info: '<?php echo $block->escapeHtml($block->getRequest()->getParam('popup_info', ""))?>'
+                    },
+                    complete: function(response) {
+                        try {
+                            eval("var json = " + response.responseText + " || {}");
+                        } catch (e) {
+                            return;
+                        }
+                        jQuery.awPopupManager.initObserversForPopup(json.popups);
+                    }
+                });
             }
         });
     });

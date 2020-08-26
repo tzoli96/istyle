@@ -1,77 +1,14 @@
 <?php
 /**
- * Aheadworks Inc.
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the EULA
- * that is bundled with this package in the file LICENSE.txt.
- * It is also available through the world-wide-web at this URL:
- * https://ecommerce.aheadworks.com/end-user-license-agreement/
- *
- * @package    Popup
- * @version    1.2.2
- * @copyright  Copyright (c) 2020 Aheadworks Inc. (http://www.aheadworks.com)
- * @license    https://ecommerce.aheadworks.com/end-user-license-agreement/
+ * Copyright 2019 aheadWorks. All rights reserved.
+See LICENSE.txt for license details.
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 namespace Aheadworks\Popup\Model\Event\Plugin;
 
 use Magento\Framework\App\Request\Http as HttpRequest;
-use Magento\Framework\View\Element\UiComponent\ContextInterface;
+use Magento\Framework\View\Element\UiComponent\Context\Interceptor as Interceptor;
 
 /**
  * Class ContextPlugin
@@ -96,12 +33,12 @@ class ContextPlugin
     /**
      * Set render type for correct work of Recently Viewed, Recently Compared Widgets
      *
-     * @param ContextInterface $context
+     * @param Interceptor $interceptor
      * @param string $originalType
      * @return string
      */
     public function afterGetAcceptType(
-        ContextInterface $context,
+        Interceptor $interceptor,
         $originalType
     ) {
         if ($this->request->getParam('aw_popup')) {

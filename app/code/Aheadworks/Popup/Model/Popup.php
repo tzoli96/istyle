@@ -1,59 +1,17 @@
 <?php
 /**
- * Aheadworks Inc.
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the EULA
- * that is bundled with this package in the file LICENSE.txt.
- * It is also available through the world-wide-web at this URL:
- * https://ecommerce.aheadworks.com/end-user-license-agreement/
- *
- * @package    Popup
- * @version    1.2.2
- * @copyright  Copyright (c) 2020 Aheadworks Inc. (http://www.aheadworks.com)
- * @license    https://ecommerce.aheadworks.com/end-user-license-agreement/
+ * Copyright 2019 aheadWorks. All rights reserved.
+See LICENSE.txt for license details.
  */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 namespace Aheadworks\Popup\Model;
-
-use Magento\Framework\DataObject\IdentityInterface;
-use Magento\Framework\Model\AbstractModel;
 
 /**
  * Class Popup
  * @package Aheadworks\Popup\Model
  */
-class Popup extends AbstractModel implements IdentityInterface
+class Popup extends \Magento\Framework\Model\AbstractModel
 {
-    const CACHE_TAG = 'aw_popup';
 
     /**
      * Rule
@@ -61,6 +19,23 @@ class Popup extends AbstractModel implements IdentityInterface
      * @var \Magento\Rule\Model\AbstractModel
      */
     private $_rule = null;
+
+    /**
+     * Constructor
+     *
+     * @param \Magento\Framework\Model\Context $context
+     * @param \Magento\Framework\Registry $registry
+     * @param \Aheadworks\Popup\Model\ResourceModel\Popup $resource
+     * @param \Aheadworks\Popup\Model\ResourceModel\Popup\Collection $resourceCollection
+     */
+    public function __construct(
+        \Magento\Framework\Model\Context $context,
+        \Magento\Framework\Registry $registry,
+        \Aheadworks\Popup\Model\ResourceModel\Popup $resource = null,
+        \Aheadworks\Popup\Model\ResourceModel\Popup\Collection $resourceCollection = null
+    ) {
+        parent::__construct($context, $registry, $resource, $resourceCollection);
+    }
 
     /**
      * Constructor
@@ -125,7 +100,7 @@ class Popup extends AbstractModel implements IdentityInterface
                     $path = explode('--', $id);
                     $node = & $arr;
 
-                    for ($i = 0, $l = count($path); $i < $l; $i++) {
+                    for ($i = 0, $l = sizeof($path); $i < $l; $i++) {
                         if (!isset($node[$key][$path[$i]])) {
                             $node[$key][$path[$i]] = [];
                         }
@@ -146,13 +121,5 @@ class Popup extends AbstractModel implements IdentityInterface
             }
         }
         return $arr;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getIdentities()
-    {
-        return [self::CACHE_TAG . '_' . $this->getId()];
     }
 }

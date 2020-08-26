@@ -1,3 +1,7 @@
+/**
+ * Copyright 2019 aheadWorks. All rights reserved.\nSee LICENSE.txt for license details.
+ */
+
 define([
     "jquery",
     "loadingPopup"

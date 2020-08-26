@@ -1,39 +1,8 @@
 <?php
 /**
- * Aheadworks Inc.
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the EULA
- * that is bundled with this package in the file LICENSE.txt.
- * It is also available through the world-wide-web at this URL:
- * https://ecommerce.aheadworks.com/end-user-license-agreement/
- *
- * @package    Popup
- * @version    1.2.2
- * @copyright  Copyright (c) 2020 Aheadworks Inc. (http://www.aheadworks.com)
- * @license    https://ecommerce.aheadworks.com/end-user-license-agreement/
+ * Copyright 2019 aheadWorks. All rights reserved.
+See LICENSE.txt for license details.
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 namespace Aheadworks\Popup\Controller\Adminhtml\Popup;
 
@@ -62,7 +31,6 @@ class NewConditionHtml extends \Magento\CatalogRule\Controller\Adminhtml\Promo\C
 
         $rule = \Aheadworks\Popup\Model\Popup::class;
         if ($this->getRequest()->getParam('rule')) {
-            // phpcs:disable Magento2.Functions
             $rule = base64_decode($this->getRequest()->getParam('rule'));
         }
         $model = $this->_objectManager->create(

@@ -1,3 +1,7 @@
+/**
+ * Copyright 2019 aheadWorks. All rights reserved.\nSee LICENSE.txt for license details.
+ */
+
 define([
     "jquery",
     "awPopupMagnific"
@@ -6,8 +10,7 @@ define([
 
     $.awPopupManager = {
         ajaxAddCookieUrl: null,
-        cookiePregValue: 'aw_popup_viewed_popup_',
-        formKeySelector: 'form_key',
+
         popupQueue : {
             isOpened : false,
             popups : {},
@@ -69,7 +72,6 @@ define([
                                         isUsed = true;
                                     }
                                 });
-                                $.awPopupManager._prepareFormKey($(popupSelector));
                                 $(popupSelector).applyBindings();
                                 $(popupSelector).trigger('contentUpdated');
                             },
@@ -118,6 +120,7 @@ define([
 
         initObserversForPopup : function(popups) {
             var me = this;
+            popups = $.parseJSON(popups);
             $.each(popups, function(key, popup){
                 if (me.popupQueue.isMobile()) {
                     popup.position = 'middle-center';
@@ -126,9 +129,6 @@ define([
                     $(document).ready(function(){
                         me.popupQueue.addPopup(key, popup);
                     });
-                    return;
-                }
-                if (me._getCookie(me.cookiePregValue + key) !== '') {
                     return;
                 }
                 switch (popup.event) {
@@ -182,64 +182,8 @@ define([
                     cookie_lifetime: cookieLifetime
                 }
             });
-        },
-
-        /**
-         * Get cookie value
-         *
-         * @param cname
-         * @returns {string}
-         * @private
-         */
-        _getCookie: function(cname) {
-            var name = cname + "=",
-                decodedCookie = decodeURIComponent(document.cookie),
-                ca = decodedCookie.split(';'),
-                i, c;
-
-            for(i = 0; i < ca.length; i++) {
-                c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                }
-            }
-
-            return '';
-        },
-
-        /**
-         * Prepare form keys for popup content
-         *
-         * @param contentElement
-         * @private
-         * @returns {Object}
-         */
-        _prepareFormKey: function (contentElement) {
-            var self = this,
-                formKeyInputs = $(contentElement).find('input[name="'+ this.formKeySelector + '"]');
-
-            formKeyInputs.each(function (key, input) {
-                $(input).val(self._getFormKey());
-            });
-
-            return contentElement;
-        },
-
-        /**
-         * Get form key
-         *
-         * @returns {string}
-         */
-        _getFormKey: function () {
-            if (!window.FORM_KEY) {
-                window.FORM_KEY = this._getCookie(this.formKeySelector);
-            }
-
-            return window.FORM_KEY;
         }
+
     };
 
     /**
