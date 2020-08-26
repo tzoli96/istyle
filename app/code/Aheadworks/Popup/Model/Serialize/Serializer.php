@@ -1,8 +1,70 @@
 <?php
 /**
- * Copyright 2019 aheadWorks. All rights reserved.
-See LICENSE.txt for license details.
+ * Aheadworks Inc.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * https://ecommerce.aheadworks.com/end-user-license-agreement/
+ *
+ * @package    Popup
+ * @version    1.2.2
+ * @copyright  Copyright (c) 2020 Aheadworks Inc. (http://www.aheadworks.com)
+ * @license    https://ecommerce.aheadworks.com/end-user-license-agreement/
  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 namespace Aheadworks\Popup\Model\Serialize;
 
@@ -16,7 +78,7 @@ use Magento\Framework\Serialize\SerializerInterface;
 class Serializer
 {
     /**
-     * Serialized pattern
+     * Serialized pattern to detect
      */
     const SERIALIZED_PATTERN = '/^((s|i|d|b|a|O|C):|N;)/';
 
