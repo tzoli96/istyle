@@ -1,9 +1,4 @@
 <?php
-/**
- * Copyright 2019 aheadWorks. All rights reserved.
-See LICENSE.txt for license details.
- */
-
 namespace Aheadworks\Popup\Model;
 
 /**
@@ -19,23 +14,6 @@ class Popup extends \Magento\Framework\Model\AbstractModel
      * @var \Magento\Rule\Model\AbstractModel
      */
     private $_rule = null;
-
-    /**
-     * Constructor
-     *
-     * @param \Magento\Framework\Model\Context $context
-     * @param \Magento\Framework\Registry $registry
-     * @param \Aheadworks\Popup\Model\ResourceModel\Popup $resource
-     * @param \Aheadworks\Popup\Model\ResourceModel\Popup\Collection $resourceCollection
-     */
-    public function __construct(
-        \Magento\Framework\Model\Context $context,
-        \Magento\Framework\Registry $registry,
-        \Aheadworks\Popup\Model\ResourceModel\Popup $resource = null,
-        \Aheadworks\Popup\Model\ResourceModel\Popup\Collection $resourceCollection = null
-    ) {
-        parent::__construct($context, $registry, $resource, $resourceCollection);
-    }
 
     /**
      * Constructor
@@ -100,7 +78,7 @@ class Popup extends \Magento\Framework\Model\AbstractModel
                     $path = explode('--', $id);
                     $node = & $arr;
 
-                    for ($i = 0, $l = sizeof($path); $i < $l; $i++) {
+                    for ($i = 0, $l = count($path); $i < $l; $i++) {
                         if (!isset($node[$key][$path[$i]])) {
                             $node[$key][$path[$i]] = [];
                         }

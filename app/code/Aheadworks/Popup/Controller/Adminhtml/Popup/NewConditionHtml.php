@@ -1,9 +1,4 @@
 <?php
-/**
- * Copyright 2019 aheadWorks. All rights reserved.
-See LICENSE.txt for license details.
- */
-
 namespace Aheadworks\Popup\Controller\Adminhtml\Popup;
 
 use Magento\Rule\Model\Condition\AbstractCondition;
@@ -31,6 +26,7 @@ class NewConditionHtml extends \Magento\CatalogRule\Controller\Adminhtml\Promo\C
 
         $rule = \Aheadworks\Popup\Model\Popup::class;
         if ($this->getRequest()->getParam('rule')) {
+            // phpcs:disable Magento2.Functions
             $rule = base64_decode($this->getRequest()->getParam('rule'));
         }
         $model = $this->_objectManager->create(

@@ -1,9 +1,4 @@
 <?php
-/**
- * Copyright 2019 aheadWorks. All rights reserved.
-See LICENSE.txt for license details.
- */
-
 
 namespace Aheadworks\Popup\Model\Rule\Condition\Product;
 
@@ -213,6 +208,7 @@ class Attributes extends \Magento\Rule\Model\Condition\Product\AbstractProduct
         $method = $this->_getMethod();
         $callback = $this->_getPrepareValueCallback();
         if ($callback) {
+            // phpcs:disable Magento2.Functions
             $value = call_user_func([$this, $callback], $value);
         }
 

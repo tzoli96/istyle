@@ -1,9 +1,4 @@
 <?php
-/**
- * Copyright 2019 aheadWorks. All rights reserved.
-See LICENSE.txt for license details.
- */
-
 namespace Aheadworks\Popup\Model\ThirdPartyModule;
 
 use Magento\Framework\Module\ModuleListInterface;
@@ -20,7 +15,7 @@ class Manager
     const MAGE_PB_MODULE_NAME = 'Magento_PageBuilder';
 
     /**
-     * Customer Segmentation module name
+     * Customer Segmentation by Aheadworks module name
      */
     const CUSTOMER_SEGMENTATION_MODULE_NAME = 'Aheadworks_CustomerSegmentation';
 
