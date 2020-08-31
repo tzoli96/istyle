@@ -1,9 +1,4 @@
 <?php
-/**
- * Copyright 2019 aheadWorks. All rights reserved.
-See LICENSE.txt for license details.
- */
-
 namespace Aheadworks\Popup\Model\Serialize;
 
 use Magento\Framework\Serialize\Serializer\Serialize;
@@ -16,7 +11,7 @@ use Magento\Framework\Serialize\SerializerInterface;
 class Serializer
 {
     /**
-     * Serialized pattern
+     * Serialized pattern to detect
      */
     const SERIALIZED_PATTERN = '/^((s|i|d|b|a|O|C):|N;)/';
 

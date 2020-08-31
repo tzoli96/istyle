@@ -1,9 +1,4 @@
 <?php
-/**
- * Copyright 2019 aheadWorks. All rights reserved.
-See LICENSE.txt for license details.
- */
-
 
 namespace Aheadworks\Popup\Model\Source;
 
@@ -26,6 +21,7 @@ class Status implements OptionSourceInterface
      * Get option array
      *
      * @return array
+     * phpcs:disable Magento2.Functions
      */
     public static function getOptionArray()
     {
