@@ -6,6 +6,7 @@ use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
 use Magento\Store\Model\ScopeInterface;
 use Oander\CofidisPayment\Enum\Config as ConfigEnum;
+use Oander\CofidisPayment\Enum\Ownshare;
 
 /**
  * Class Config
@@ -74,22 +75,6 @@ class Config extends AbstractHelper
     }
 
     /**
-     * @return int|null
-     */
-    public function getMinimumTotal($storeId = null)
-    {
-        return $this->getConfig($storeId)[ConfigEnum::MINIMUM_TOTAL];
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getMaximumTotal($storeId = null)
-    {
-        return $this->getConfig($storeId)[ConfigEnum::MAXIMUM_TOTAL];
-    }
-
-    /**
      * @return bool
      */
     public function isLive($storeId = null): bool
@@ -102,7 +87,7 @@ class Config extends AbstractHelper
      */
     public function getShopId($storeId = null)
     {
-        if($this->isLive())
+        if($this->isLive($storeId))
         {
             return $this->getConfig($storeId)[ConfigEnum::SHOP_ID];
         }
@@ -117,7 +102,7 @@ class Config extends AbstractHelper
      */
     public function getIVCode($storeId = null)
     {
-        if($this->isLive())
+        if($this->isLive($storeId))
         {
             return $this->getConfig($storeId)[ConfigEnum::IV_CODE];
         }
@@ -132,7 +117,7 @@ class Config extends AbstractHelper
      */
     public function getKey($storeId = null)
     {
-        if($this->isLive())
+        if($this->isLive($storeId))
         {
             return $this->getConfig($storeId)[ConfigEnum::KEY];
         }
@@ -143,26 +128,50 @@ class Config extends AbstractHelper
     }
 
     /**
-     * @return string|null
+     * @return array
      */
-    public function getConstructionGroup($storeId = null)
+    public function getOwnshares($storeId = null)
     {
-        if($this->isLive())
+        $ownshares = [];
+        if($this->isLive($storeId))
         {
-            return $this->getConfig($storeId)[ConfigEnum::CONSTRUCTION_GROUP];
+            if(is_string($this->getConfig($storeId)[ConfigEnum::OWNSHARES])) {
+                $ownshares = unserialize($this->getConfig($storeId)[ConfigEnum::OWNSHARES]);
+            }
         }
         else
         {
-            return $this->getConfig($storeId)[ConfigEnum::CONSTRUCTION_GROUP_TEST];
+            if(is_string($this->getConfig($storeId)[ConfigEnum::OWNSHARES_TEST])) {
+                $ownshares = unserialize($this->getConfig($storeId)[ConfigEnum::OWNSHARES_TEST]);
+            }
         }
+        if(count($ownshares)>0)
+        {
+            usort($ownshares, function($a, $b) {
+                return $a[Ownshare::PRIORITY] <=> $b[Ownshare::PRIORITY];
+            });
+
+            foreach ($ownshares as $id => $ownshare)
+            {
+                if(isset($ownshare[Ownshare::INSTALMENTS])) {
+                    $ownshares[$id][Ownshare::INSTALMENTS] = explode(',', preg_replace('/\s+/', '', $ownshare[Ownshare::INSTALMENTS]));
+                    sort($ownshares[$id][Ownshare::INSTALMENTS]);
+                }
+            }
+        }
+        return $ownshares;
     }
+
+    /**
+     * @return array
+     */
 
     /**
      * @return string|null
      */
     public function getStatusUrl($storeId = null)
     {
-        if($this->isLive())
+        if($this->isLive($storeId))
         {
             return $this->getConfig($storeId)[ConfigEnum::STATUS_URL];
         }

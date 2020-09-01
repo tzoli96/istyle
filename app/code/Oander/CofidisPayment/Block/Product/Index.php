@@ -7,7 +7,6 @@ use Magento\Framework\Registry;
 use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 use Oander\CofidisPayment\Helper\Config;
-use Oander\CofidisPayment\Controller\Product as ControllerProduct;
 
 /**
  * Class Index
@@ -60,10 +59,8 @@ class Index extends Template
     {
         $postdata = array(
             'isEnabled' => $this->config->isEnabled(),
-            'minimumTotal' => $this->config->getMinimumTotal(),
-            'maximumTotal' => $this->config->getMaximumTotal(),
             'shopId'    => $this->config->getShopId(),
-            'barem'     => $this->config->getConstructionGroup(),
+            'barems'     => $this->config->getOwnshares(),
             'downpmnt'  => $this->getRequest()->getParam("downpmnt", 0),
             'termsUrl'  => $this->config->getTermsUrl()
         );

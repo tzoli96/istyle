@@ -1,5 +1,7 @@
 <?php
 
+use \Oander\CofidisPayment\Enum\Ownshare;
+
 /** @var $block \Oander\CofidisPayment\Block\Checkout\Index */ ?>
 <?php if ($block->getCalculatorData()['isEnabled']) : ?>
   <?php
@@ -10,144 +12,128 @@
   $calculator = array(
     'isEnabled' => $block->getCalculatorData()['isEnabled'],
     'shopId' => $block->getCalculatorData()['shopId'],
-    'barem' => $block->getCalculatorData()['barem'],
+    'barems' => $block->getCalculatorData()['barems'],
     'downpmnt' => $block->getCalculatorData()['downpmnt'],
     'ajaxUrl' => $block->getAjaxUrl(),
     'termsUrl' => $block->getCalculatorData()['termsUrl']
   );
 
-  $activeBarem = $calculator['barem'];
-
-  $barems = array(
-    131 => array(
-      10 => array(
-        'intervalMin' => 40000,
-        'intervalMax' => 1500000,
-        'intervalThm' => 0,
-        'intervalRate' => 0,
-      ),
-      12 => array(
-        'intervalMin' => 40000,
-        'intervalMax' => 1500000,
-        'intervalThm' => 0,
-        'intervalRate' => 0,
-      ),
-      15 => array(
-        'intervalMin' => 50000,
-        'intervalMax' => 1500000,
-        'intervalThm' => 0,
-        'intervalRate' => 0,
-      ),
-      20 => array(
-        'intervalMin' => 60000,
-        'intervalMax' => 1500000,
-        'intervalThm' => 0,
-        'intervalRate' => 0,
-      ),
-      24 => array(
-        'intervalMin' => 80000,
-        'intervalMax' => 1500000,
-        'intervalThm' => 0,
-        'intervalRate' => 0,
-      )
-    ),
-    12 => array(
-      10 => array(
-        'intervalMin' => 40000,
-        'intervalMax' => 1500000,
-        'intervalThm' => 0,
-        'intervalRate' => 0,
-      ),
-    ),
-    51 => array(
-      12 => array(
-        'intervalMin' => 40000,
-        'intervalMax' => 1500000,
-        'intervalThm' => 0,
-        'intervalRate' => 0,
-      ),
-    ),
-    93 => array(
-      15 => array(
-        'intervalMin' => 50000,
-        'intervalMax' => 1500000,
-        'intervalThm' => 0,
-        'intervalRate' => 0,
-      ),
-    ),
-    48 => array(
-      20 => array(
-        'intervalMin' => 60000,
-        'intervalMax' => 1500000,
-        'intervalThm' => 0,
-        'intervalRate' => 0,
-      ),
-    ),
-    49 => array(
-      24 => array(
-        'intervalMin' => 80000,
-        'intervalMax' => 1500000,
-        'intervalThm' => 0,
-        'intervalRate' => 0,
-      ),
-    ),
-  );
-
-  $months = 0;
+  $barems = $calculator['barems'];
   ?>
 
   <div class="data item title data-cofidis" data-role="collapsible">
     <a class="data switch" tabindex="-1" href="#tab2" data-toggle="switch"><?php echo __('calculator_selector_3'); ?></a>
   </div>
   <div id="tab2" class="data item content data-cofidis" data-role="content">
-    <div class="catalog-cetelem-calculator">
-      <div class="block-calculator-cetelem-hu">
-        <div class="calculator-range-wrapper">
-          <p class="calculator-range-title"><?= __('Choose an installment:') ?></p>
-
-          <div class="calculator-range">
-            <div class="calculator-steps">
-              <?php foreach ($barems[$activeBarem] as $month => $value) : ?>
-                <span data-title="<?= $month; ?>" <?= ($month == 10) ? 'class="active"' : '' ?> data-intervalmin="<?= $value['intervalMin'] ?>" data-intervalmax="<?= $value['intervalMax'] ?>" data-intervalthm="<?= $value['intervalThm'] ?>" data-intervalrate="<?= $value['intervalRate'] ?>"></span>
-                <?php $months++; ?>
-              <?php endforeach; ?>
-            </div>
-            <input type="range" class="slider" min="0" max="<?= $months - 1 ?>" value="0">
+    <div class="tabs tabs--cofidis">
+      <div class="tabs__titles">
+        <?php foreach ($barems as $barem => $value) : ?>
+          <div class="tabs__title <?= ($barem == 0) ? 'active' : '' ?>" data-tab-index="<?= $barem ?>">
+            <?= $value['name'] ?>
           </div>
-        </div>
+        <?php endforeach; ?>
+      </div>
+      <div class="tabs__contents">
+        <?php foreach ($barems as $barem => $value) : ?>
+          <?php $months = 0; ?>
+          <div class="tabs__content <?= ($barem == 0) ? 'active' : '' ?>" data-tab-index="<?= $barem ?>" data-grp="<?= $value['grp'] ?>" data-min="<?= $value['min'] ?>" data-max="<?= $value['max'] ?>" data-limit="<?= $value['limit'] ?>" data-perc="<?= $value['perc'] ?>">
+            <div class="messages messages--cofidis hide">
+              <div class="message error"></div>
+            </div>
+            <div class="catalog-cetelem-calculator">
+              <div class="block-calculator-cetelem-hu">
+                <div class="calculator-wrapper calculator-cofidis">
+                  <div class="calculator-loader"></div>
+                  <div class="calculator-row">
+                    <div class="calculator-col">
+                      <div class="form calculator-form">
+                        <p><?= __('Choose loan') ?>:</p>
 
-        <div class="calculator-wrapper" id="cofidis-calculator">
-          <div class="calculator-row">
-            <div class="calculator-col">
-              <div class="form calculator-form">
-                <p><?= __('Choose loan') ?>:</p>
+                        <div class="row">
+                          <div class="col-6">
+                            <p class="form__label"><?= __('Installments') ?>:</p>
+                            <span class="form__installment months"></span>
+                            <span class="form__installment"><?= __('months') ?></span>
+                          </div>
 
-                <div class="row">
-                  <div class="col-6">
-                    <p class="form__label"><?= __('Installments') ?>:</p>
-                    <span class="form__installment months"></span>
-                    <span class="form__installment"><?= __('months') ?></span>
-                  </div>
+                          <div class="col-6">
+                            <p class="form__label"><?= __('Purchase Amount') ?>:</p>
+                            <p class="form__value amount">
+                              <span class="price"></span> Ft
+                            </p>
+                          </div>
 
-                  <div class="col-6">
-                    <p class="form__label"><?= __('Purchase Amount') ?>:</p>
-                    <p class="form__value amount">
-                      <span class="price"></span> Ft
-                    </p>
-                  </div>
+                          <div class="col-12">
+                            <div class="calculator-range-wrapper range-cofidis">
+                              <p class="calculator-range-title"><?= __('Choose an installment:') ?></p>
 
-                  <div class="col-12">
-                    <p class="form__label down-payment">
-                      <?= __('Down Payment') ?> Ft
-                    </p>
+                              <div class="calculator-range">
+                                <div class="calculator-steps">
+                                  <?php foreach ($value['inst'] as $month => $mValue) : ?>
+                                    <span data-title="<?= $mValue; ?>" <?= ($month == 0) ? 'class="active"' : '' ?>></span>
+                                    <?php $months++; ?>
+                                  <?php endforeach; ?>
+                                </div>
+                                <input type="range" class="slider" min="0" max="<?= $months - 1 ?>" value="0">
+                              </div>
+                            </div>
+                          </div>
 
-                    <div class="form-group">
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <input type="number" value="<?php echo $product['price'] * 0.2; ?>" class="form-control" name="down-payment" min="0">
+                          <div class="col-12">
+                            <p class="form__label down-payment">
+                              <?= __('Down Payment') ?> Ft
+                            </p>
+
+                            <div class="form-group">
+                              <div class="row">
+                                <div class="col-sm-6">
+                                  <input type="number" value="0" class="form-control" name="down-payment" min="0">
+                                </div>
+                                <div class="col-sm-6">
+                                  <button type="button" class="action action-calculator dark w-100"><?= __('Calculate') ?></button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                        <div class="col-sm-6">
-                          <button type="button" class="action action-calculator dark w-100"><?= __('Calculate') ?></button>
+                      </div>
+                    </div>
+
+                    <div class="calculator-col">
+                      <div class="result calculator-result">
+                        <p><?= __('Calculation result:') ?></p>
+
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <p class="result__label"><?= __('Total Payable') ?>:</p>
+                            <p class="result__value total-payable"><span class="price"></span> Ft</p>
+                          </div>
+
+                          <div class="col-lg-6">
+                            <p class="result__label"><?= __('Monthly Instalment') ?>:</p>
+                            <p class="result__value monthly-instalment"><span class="price"></span> Ft</p>
+                          </div>
+
+                          <div class="col-lg-6">
+                            <p class="result__label"><?= __('THM') ?>:</p>
+                            <p class="result__value thm"><span class="value">0</span>%</p>
+                          </div>
+
+                          <div class="col-lg-6">
+                            <p class="result__label"><?= __('Handling Fee') ?>:</p>
+                            <p class="result__value">0 Ft</p>
+                          </div>
+
+                          <div class="col-lg-6"></div>
+                          <div class="col-lg-6">
+                            <a class="text-primary" target="_blank" href="<?= $calculator['termsUrl'] ?>"><?= __('Terms And Conditions') ?></a>
+                          </div>
+                        </div>
+
+                        <div class="result__error">
+                          <span class="error-text"><?= __('Minimum Down Payment:') ?></span>
+                          <span class="price"></span>
+                          <span class="error-response"><?= __('Error') ?></span>
                         </div>
                       </div>
                     </div>
@@ -155,72 +141,29 @@
                 </div>
               </div>
             </div>
-
-            <div class="calculator-col">
-              <div class="result calculator-result">
-                <p><?= __('Calculation result:') ?></p>
-
-                <div class="row">
-                  <div class="col-lg-6">
-                    <p class="result__label"><?= __('Total Payable') ?>:</p>
-                    <p class="result__value total-payable"><span class="price"></span> Ft</p>
-                  </div>
-
-                  <div class="col-lg-6">
-                    <p class="result__label"><?= __('Monthly Instalment') ?>:</p>
-                    <p class="result__value monthly-instalment"><span class="price"></span> Ft</p>
-                  </div>
-
-                  <div class="col-lg-6">
-                    <p class="result__label"><?= __('THM') ?>:</p>
-                    <p class="result__value thm"><span class="value">0</span>%</p>
-                  </div>
-
-                  <div class="col-lg-6">
-                    <p class="result__label"><?= __('Handling Fee') ?>:</p>
-                    <p class="result__value">0 Ft</p>
-                  </div>
-
-                  <div class="col-lg-6"></div>
-                  <div class="col-lg-6">
-                    <a class="text-primary" target="_blank" href="<?= $calculator['termsUrl'] ?>"><?= __('Terms And Conditions') ?></a>
-                  </div>
-                </div>
-
-                <div class="result__error">
-                  <span class="error-text"><?= __('Minimum Down Payment:') ?></span>
-                  <span class="price"></span>
-                  <span class="error-response"><?= __('Error') ?></span>
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
+        <?php endforeach; ?>
       </div>
     </div>
 
     <script>
       require([
         'jquery',
-        'loader'
-      ], function($) {
+        'mage/translate'
+      ], function($, $t) {
         $(function() {
-          $('#cofidis-calculator').loader({
-            icon: '<?php echo $this->getViewFileUrl('images/loader-2.gif'); ?>'
-          });
-
-          var responses = {
-            amount: '.form__value .price',
-            totalPayable: '.result__value.total-payable .price',
-            installmentMonths: '.form__installment.months',
-            downPmnt: '.form-control[name="down-payment"]',
-            monthlyInstalment: '.result__value.monthly-instalment .price',
-            thm: '.result__value.thm .value',
-          }
+          var currentTabSelector = '.tabs__content.active',
+            responses = {
+              amount: '.form__value .price',
+              totalPayable: '.result__value.total-payable .price',
+              installmentMonths: '.form__installment.months',
+              downPmnt: '.form-control[name="down-payment"]',
+              monthlyInstalment: '.result__value.monthly-instalment .price',
+              thm: '.result__value.thm .value',
+            };
 
           var actionCalculator = $('.action-calculator'),
             calculator = $('.calculator-range-wrapper'),
-            calculatorSteps = calculator.find('span'),
             calculatorRange = calculator.find('.slider'),
             productPrice = $('.product-info-price [data-role=priceBox]'),
             recentPrice = <?php echo $product['price']; ?>,
@@ -228,9 +171,6 @@
 
           productPrice.on('updatePrice', function() {
             var priceBoxWidget = productPrice.data('mage-priceBox').cache.displayPrices;
-
-            $('.title.data-cofidis').show();
-            $('.content.data-cofidis').show();
 
             if (!$.isEmptyObject(priceBoxWidget)) {
               var finalPrice;
@@ -242,47 +182,62 @@
               }
 
               recentPrice = finalPrice;
+              checkLimits(recentPrice);
 
-              $(responses.downPmnt).attr('value', recentPrice * 0.2);
-              $(responses.downPmnt).trigger('mouseup');
-
-              var hideSteps = 0,
-                stepsCount = 0;
-
-              calculatorSteps.each(function() {
-                var dataIntervalMin = $(this).attr('data-intervalmin'),
-                  dataIntervalMax = $(this).attr('data-intervalmax'),
-                  dataMonth = $(this).attr('data-title');
-
-                $(this).removeClass('hide');
-                stepsCount++;
-
-                if (recentPrice >= parseInt(dataIntervalMin) && recentPrice <= parseInt(dataIntervalMax)) {
-                  console.log('Month available: ', dataMonth, recentPrice, parseInt(dataIntervalMin), parseInt(dataIntervalMax));
-                } else {
-                  $(this).addClass('hide');
-                  hideSteps++;
-                }
-              });
-
-              calculatorRange.attr('max', (stepsCount - hideSteps) - 1);
-
-              if (calculatorRange.attr('max') == -1) {
-                $('.title.data-cofidis').hide();
-                $('.content.data-cofidis').hide();
-              }
-
-              actionCalculator.trigger('click');
+              $(currentTabSelector).find(actionCalculator).trigger('click');
             }
           });
 
+          function checkLimits(recentPrice) {
+            var tabs = $('.tabs__content'),
+              tabsLength = tabs.length;
+
+            tabs.each(function() {
+              var currentTab = $(this),
+                dataIndex = currentTab.attr('data-tab-index'),
+                dataGrp = currentTab.attr('data-grp'),
+                dataMin = currentTab.attr('data-min'),
+                dataMax = currentTab.attr('data-max'),
+                dataLimit = currentTab.attr('data-limit'),
+                dataPerc = parseInt(currentTab.attr('data-perc')) / 100;
+
+              var newDownpmnt = 0;
+
+              if (recentPrice < dataMin) {
+                $(`.tabs__title[data-tab-index="${dataIndex}"]`).addClass('hide-calculator');
+                currentTab.addClass('hide-calculator');
+              }
+
+              if (recentPrice > dataMax) {
+                newDownpmnt = recentPrice - dataMax;
+              } else if (recentPrice > dataLimit) {
+                newDownpmnt = recentPrice * dataPerc;
+              }
+
+              recentDownPmnt = newDownpmnt;
+              currentTab.find(responses.downPmnt).val(recentDownPmnt);
+            });
+
+            if (tabsLength == $('.tabs__content.hide-calculator').length) {
+              $('.data.title.data-cofidis').hide();
+              $('.data.content.data-cofidis').hide();
+            }
+            else {
+              $('.data.title.data-cofidis').show();
+              $('.data.content.data-cofidis').show();
+            }
+          }
+
           calculatorRange.on('change', function() {
-            var stepValue = calculatorRange.val();
+            var currentTab = $(this).closest(currentTabSelector),
+              currentCalculator = currentTab.find('.calculator-range-wrapper'),
+              stepValue = currentCalculator.find('.slider').val(),
+              steps = currentCalculator.find('span');
 
-            calculatorSteps.removeClass('active');
-            $(calculatorSteps[stepValue]).addClass('active');
+            steps.removeClass('active');
+            $(steps[stepValue]).addClass('active');
 
-            actionCalculator.trigger('click');
+            $(currentTabSelector).find(actionCalculator).trigger('click');
           });
 
           $(responses.downPmnt).on('keyup mouseup', function() {
@@ -290,31 +245,44 @@
           });
 
           actionCalculator.click(function() {
-            var ajaxUrl = '<?php echo $calculator['ajaxUrl']; ?>',
+            var currentTab = $(currentTabSelector),
+              ajaxUrl = '<?php echo $calculator['ajaxUrl']; ?>',
               shopId = <?php echo $calculator['shopId']; ?>,
-              barem = <?php echo $calculator['barem']; ?>,
+              barem = currentTab.attr('data-grp'),
               amount = recentPrice,
-              month = calculator.find('span.active').attr('data-title'),
-              downpmnt = recentDownPmnt,
-              minDownpmnt = amount * 0.2;
+              month = currentTab.find(calculator).find('span.active').attr('data-title');
 
-            $('.calculator-result').removeClass('has-error');
-            $('.calculator-result').removeClass('error-response');
+            currentTab.find('.calculator-result').removeClass('has-error error-response');
+            currentTab.find(responses.downPmnt).trigger('keyup');
 
-            if (downpmnt >= minDownpmnt) {
+            var downpmnt = parseInt(recentDownPmnt),
+              maximumPmnt = parseInt(recentPrice - currentTab.attr('data-min')),
+              minimumPmnt = 0;
+
+            if (amount > currentTab.attr('data-max')) {
+              minimumPmnt = amount - currentTab.attr('data-max');
+            } else if (amount > currentTab.attr('data-limit')) {
+              minimumPmnt = amount * (parseInt(currentTab.attr('data-perc')) / 100);
+            }
+
+            if (downpmnt > maximumPmnt) {
+              currentTab.find('.messages--cofidis').removeClass('hide');
+              currentTab.find('.messages--cofidis').find('.message.error').html($t('Wrong calculation parameters'));
+            }
+            else if (downpmnt < minimumPmnt) {
+              currentTab.find('.messages--cofidis').removeClass('hide');
+              currentTab.find('.messages--cofidis').find('.message.error').html(`${$t('Minimum downpayment&nbsp;')} ${formatPrice(minimumPmnt)} Ft`);
+            }
+            else {
               getAjaxRequest(ajaxUrl, shopId, barem, amount, downpmnt, month);
-            } else {
-              $('.calculator-result').addClass('has-error');
-              $('.calculator-result').find('.price').html('&nbsp;' + formatPrice(minDownpmnt) + ' Ft');
             }
           });
 
           function getAjaxRequest(ajaxUrl, shopId, barem, amount, downpmnt, month) {
-            $("#cofidis-calculator").loader("show");
+            $(currentTabSelector).find('.calculator-loader').show();
+            $(currentTabSelector).find('.messages--cofidis').addClass('hide');
 
-            if (xhr && xhr.readyState != null) {
-              xhr.abort();
-            }
+            if (xhr && xhr.readyState != null) xhr.abort()
 
             var xhr = $.ajax({
               url: ajaxUrl,
@@ -331,26 +299,44 @@
               if (data.CalcData) {
                 setAjaxResponse(data.CalcData[0].Amount, data.CalcData[0].Month, data.CalcData[0].THM, data.CalcData[0].Installment);
               } else if (data.Error) {
-                $('.calculator-result').addClass('has-error error-response');
+                $(currentTabSelector).find('.messages--cofidis').removeClass('hide');
+                $(currentTabSelector).find('.messages--cofidis').find('.message.error').html($t('Hibás kalkuláció paraméterek'));
               }
 
-              $("#cofidis-calculator").loader("hide");
+              $(currentTabSelector).find('.calculator-loader').hide();
             });
           }
 
           function setAjaxResponse(amount, month, thm, installment) {
-            $(responses.amount).html(formatPrice(amount));
-            $(responses.totalPayable).html(formatPrice(installment * month));
-            $(responses.installmentMonths).html(month);
-            $(responses.monthlyInstalment).html(formatPrice(installment));
-            $(responses.thm).html((thm * 100));
+            var currentTab = $(currentTabSelector);
+
+            currentTab.find(responses.amount).html(formatPrice(amount));
+            currentTab.find(responses.totalPayable).html(formatPrice(installment * month));
+            currentTab.find(responses.installmentMonths).html(month);
+            currentTab.find(responses.monthlyInstalment).html(formatPrice(installment));
+            currentTab.find(responses.thm).html((thm * 100));
           }
 
           function formatPrice(x) {
             return x.toLocaleString().replace(',', ' ');
           }
 
-          actionCalculator.trigger('click');
+          function tabCofidis() {
+            var tabs = $('.tabs--cofidis'),
+              tabsTitle = tabs.find('.tabs__title');
+
+            tabsTitle.click(function() {
+              tabsTitle.removeClass('active');
+              $(this).addClass('active');
+
+              tabs.find('.tabs__content').removeClass('active');
+              tabs.find(`.tabs__content[data-tab-index="${$(this).attr('data-tab-index')}"]`).addClass('active');
+
+              tabs.find(currentTabSelector).find(actionCalculator).trigger('click');
+            });
+          }
+
+          tabCofidis();
         });
       });
     </script>
