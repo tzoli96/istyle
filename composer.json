@@ -109,7 +109,7 @@
         "oander/module-news": "dev-44342_44327_master",
         "oander/module-ocbase": "1.0.5",
         "oander/module-ocevent": "1.0.3",
-        "oander/module-ocqueue": "1.0.12",
+        "oander/module-ocqueue": "1.0.12.1",
         "oander/module-order-attachment": "1.0.2",
         "oander/module-order-comment": "1.0.2",
         "oander/module-order-status-label": "1.0.0",
