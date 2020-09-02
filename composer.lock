@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "10de6896f0872d236aa22c1737caadc6",
+    "content-hash": "01264afccf64ad5909adeb2612e18474",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9893,11 +9893,11 @@
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.50",
+            "version": "dev-45689-file-upload-fix",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "88a7ce7287d7003075ca9909d1efc57bfd7f6f34"
+                "reference": "fd84076134d55efa818105d10e87ec7c5910d241"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9917,7 +9917,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2020-06-09T12:40:03+00:00"
+            "time": "2020-09-02T12:02:54+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -11690,20 +11690,6 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-02-14T07:34:21+00:00"
         },
         {
@@ -15104,20 +15090,6 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2020-03-15T09:38:08+00:00"
         },
         {
@@ -15170,6 +15142,7 @@
         "oander/module-core-bug-fix": 20,
         "oander/module-multislider": 20,
         "oander/module-news": 20,
+        "oander/module-salesforce-service": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
@@ -15177,6 +15150,5 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }
