@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "86f569d1fa91e86609c883684e706606",
+    "content-hash": "e50b08bd269fca1905c98b13faf5c90b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8943,11 +8943,11 @@
         },
         {
             "name": "oander/module-customer-file-upload",
-            "version": "1.0.7.8",
+            "version": "1.0.8.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-customer-file-upload.git",
-                "reference": "a52937158b38966bae75b0bb5074a69ca8073110"
+                "reference": "f3a23a451336a20321935eda710613edd320211d"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8966,7 +8966,7 @@
                 "proprietary"
             ],
             "description": "Customer upload file",
-            "time": "2020-08-31T11:27:55+00:00"
+            "time": "2020-09-02T15:40:31+00:00"
         },
         {
             "name": "oander/module-discount-badge",
@@ -9452,11 +9452,11 @@
         },
         {
             "name": "oander/module-ocqueue",
-            "version": "1.0.12",
+            "version": "1.0.12.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-ocqueue.git",
-                "reference": "9aaada817ba4f9042a3d04c83524030be922d6ff"
+                "reference": "769d3f6df04d7db7eb6062248c5ea7ab80389706"
             },
             "require": {
                 "oander/module-ocbase": "^1.0.2"
@@ -9484,7 +9484,7 @@
                 }
             ],
             "description": "Queue module for OanderConnect",
-            "time": "2018-09-14T13:38:05+00:00"
+            "time": "2020-09-02T05:50:22+00:00"
         },
         {
             "name": "oander/module-order-attachment",
@@ -9893,11 +9893,11 @@
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.50",
+            "version": "dev-45689-file-upload-fix",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "88a7ce7287d7003075ca9909d1efc57bfd7f6f34"
+                "reference": "fd84076134d55efa818105d10e87ec7c5910d241"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9917,7 +9917,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2020-06-09T12:40:03+00:00"
+            "time": "2020-09-02T12:02:54+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -9949,11 +9949,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.12.10",
+            "version": "1.1.12.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "a12f82fc5b351a6fad45134fd24e09dee2279ed9"
+                "reference": "d31877cce0052623399d8394151529c66d632d7b"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9982,7 +9982,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2020-01-30T08:50:55+00:00"
+            "time": "2020-09-02T13:07:16+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -10485,7 +10485,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "ea640ef83f96eb6a8694ad8e4e57e185b59c82f9"
+                "reference": "e63b3da9ad0b24bc7250c1fb9c5f77d125ae633b"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10501,7 +10501,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2020-08-27T11:05:41+00:00"
+            "time": "2020-09-02T22:16:36+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -11645,7 +11645,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.43",
+            "version": "v3.4.44",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -15059,7 +15059,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.43",
+            "version": "v3.4.44",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
@@ -15170,6 +15170,7 @@
         "oander/module-core-bug-fix": 20,
         "oander/module-multislider": 20,
         "oander/module-news": 20,
+        "oander/module-salesforce-service": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0

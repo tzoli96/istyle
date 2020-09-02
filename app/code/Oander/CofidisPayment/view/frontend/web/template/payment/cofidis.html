@@ -86,9 +86,10 @@
                                                                     css: { 'active': $index() == 0 }
                                                                     "></span>
                                                             </div>
-                                                            <input type="range" class="slider" min="0" max="2" value="0"
+                                                            <input type="range" class="slider" min="0" value="0"
                                                                 data-bind="
-                                                                event: { change: $parent.calculatorRange }
+                                                                event: { change: $parent.calculatorRange },
+                                                                attr: { max: $parent.getMaxRange(barem.inst) }
                                                                 ">
                                                         </div>
                                                     </div>

@@ -47,17 +47,17 @@ use \Oander\CofidisPayment\Enum\Ownshare;
                   <div class="calculator-row">
                     <div class="calculator-col">
                       <div class="form calculator-form">
-                        <p><?= __('Choose loan') ?>:</p>
+                        <p><?= __('Choose loan:') ?></p>
 
                         <div class="row">
                           <div class="col-6">
-                            <p class="form__label"><?= __('Installments') ?>:</p>
+                            <p class="form__label"><?= __('Installments:') ?></p>
                             <span class="form__installment months"></span>
                             <span class="form__installment"><?= __('months') ?></span>
                           </div>
 
                           <div class="col-6">
-                            <p class="form__label"><?= __('Purchase Amount') ?>:</p>
+                            <p class="form__label"><?= __('Purchase Amount:') ?></p>
                             <p class="form__value amount">
                               <span class="price"></span> Ft
                             </p>
@@ -105,12 +105,12 @@ use \Oander\CofidisPayment\Enum\Ownshare;
 
                         <div class="row">
                           <div class="col-lg-6">
-                            <p class="result__label"><?= __('Total Payable') ?>:</p>
+                            <p class="result__label"><?= __('Total Payable:') ?></p>
                             <p class="result__value total-payable"><span class="price"></span> Ft</p>
                           </div>
 
                           <div class="col-lg-6">
-                            <p class="result__label"><?= __('Monthly Instalment') ?>:</p>
+                            <p class="result__label"><?= __('Monthly Instalment:') ?></p>
                             <p class="result__value monthly-instalment"><span class="price"></span> Ft</p>
                           </div>
 
@@ -194,6 +194,9 @@ use \Oander\CofidisPayment\Enum\Ownshare;
             var tabs = $('.tabs__content'),
               tabsLength = tabs.length;
 
+            tabs.removeClass('hide-calculator');
+            $('.tabs__title').removeClass('hide-calculator');
+
             tabs.each(function() {
               var currentTab = $(this),
                 dataIndex = currentTab.attr('data-tab-index'),
@@ -208,6 +211,9 @@ use \Oander\CofidisPayment\Enum\Ownshare;
               if (recentPrice < dataMin) {
                 $(`.tabs__title[data-tab-index="${dataIndex}"]`).addClass('hide-calculator');
                 currentTab.addClass('hide-calculator');
+
+                $('.tabs__title').removeClass('active');
+                currentTab.removeClass('active');
               }
 
               if (recentPrice > dataMax) {
@@ -229,6 +235,10 @@ use \Oander\CofidisPayment\Enum\Ownshare;
 
               $('.data.title.data-cofidis').show();
             }
+
+            $('.tabs__title:not(.hide-calculator)').each(function(index) {
+              if (index == 0) $(this).trigger('click')
+            });
           }
 
           calculatorRange.on('change', function() {
@@ -303,7 +313,7 @@ use \Oander\CofidisPayment\Enum\Ownshare;
                 setAjaxResponse(data.CalcData[0].Amount, data.CalcData[0].Month, data.CalcData[0].THM, data.CalcData[0].Installment);
               } else if (data.Error) {
                 $(currentTabSelector).find('.messages--cofidis').removeClass('hide');
-                $(currentTabSelector).find('.messages--cofidis').find('.message.error').html($t('Hibás kalkuláció paraméterek'));
+                $(currentTabSelector).find('.messages--cofidis').find('.message.error').html($t('Wrong calculation parameters'));
               }
 
               $(currentTabSelector).find('.calculator-loader').hide();

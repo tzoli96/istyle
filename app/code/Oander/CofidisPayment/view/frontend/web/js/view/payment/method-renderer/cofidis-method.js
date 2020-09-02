@@ -66,6 +66,10 @@ define(
                 return $(selectors.currentTab).attr('data-grp');
             },
 
+            getMaxRange: function (inst) {
+                return inst.length - 1;
+            },
+
             downPmnt: function () {
                 downPmnt = $(selectors.downPmnt).val();
             },
@@ -146,7 +150,8 @@ define(
                         $this.setAjaxResponse(data.CalcData[0].Amount, data.CalcData[0].Month, data.CalcData[0].THM, data.CalcData[0].Installment);
                     }
                     else if (data.Error) {
-                        $('.calculator-result').addClass('has-error error-response');
+                        $(selectors.currentTab).find('.messages--cofidis').removeClass('hide');
+                        $(selectors.currentTab).find('.messages--cofidis').find('.message.error').html($t('Wrong calculation parameters'));
                     }
 
                     $('.calculator-loader').removeClass('show');
