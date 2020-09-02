@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1dfc704f0944adb9ad72b5f38eecc2cd",
+    "content-hash": "53376ef6d9c71e904cb0c2a804109e34",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8943,11 +8943,11 @@
         },
         {
             "name": "oander/module-customer-file-upload",
-            "version": "1.0.7.8",
+            "version": "1.0.7.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-customer-file-upload.git",
-                "reference": "a52937158b38966bae75b0bb5074a69ca8073110"
+                "reference": "9749450cbffa944ccf0a58c32deca6171b0bbd46"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8966,7 +8966,7 @@
                 "proprietary"
             ],
             "description": "Customer upload file",
-            "time": "2020-08-31T11:27:55+00:00"
+            "time": "2020-09-02T09:33:50+00:00"
         },
         {
             "name": "oander/module-discount-badge",
