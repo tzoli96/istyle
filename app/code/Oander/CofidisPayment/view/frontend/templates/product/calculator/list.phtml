@@ -169,6 +169,8 @@ use \Oander\CofidisPayment\Enum\Ownshare;
             recentPrice = <?php echo $product['price']; ?>,
             recentDownPmnt = $(responses.downPmnt).val();
 
+          checkLimits(recentPrice);
+
           productPrice.on('updatePrice', function() {
             var priceBoxWidget = productPrice.data('mage-priceBox').cache.displayPrices;
 
@@ -184,7 +186,7 @@ use \Oander\CofidisPayment\Enum\Ownshare;
               recentPrice = finalPrice;
               checkLimits(recentPrice);
 
-              $(currentTabSelector).find(actionCalculator).trigger('click');
+              $(currentTabSelector).find('.action-calculator').trigger('click');
             }
           });
 
@@ -219,12 +221,13 @@ use \Oander\CofidisPayment\Enum\Ownshare;
             });
 
             if (tabsLength == $('.tabs__content.hide-calculator').length) {
-              $('.data.title.data-cofidis').hide();
-              $('.data.content.data-cofidis').hide();
+              $('.data.title.data-cofidis').addClass('hide');
+              $('.data.content.data-cofidis').addClass('hide');
             }
             else {
+              $('.data.title.data-cofidis').removeClass('hide');
+
               $('.data.title.data-cofidis').show();
-              $('.data.content.data-cofidis').show();
             }
           }
 

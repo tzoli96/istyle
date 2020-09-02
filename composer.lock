@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f00d46f163d019e4067e7feadbbd427",
+    "content-hash": "86f569d1fa91e86609c883684e706606",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8943,11 +8943,11 @@
         },
         {
             "name": "oander/module-customer-file-upload",
-            "version": "1.0.8.0",
+            "version": "1.0.7.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-customer-file-upload.git",
-                "reference": "f3a23a451336a20321935eda710613edd320211d"
+                "reference": "a52937158b38966bae75b0bb5074a69ca8073110"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8966,7 +8966,7 @@
                 "proprietary"
             ],
             "description": "Customer upload file",
-            "time": "2020-09-02T15:40:31+00:00"
+            "time": "2020-08-31T11:27:55+00:00"
         },
         {
             "name": "oander/module-discount-badge",
@@ -9452,11 +9452,11 @@
         },
         {
             "name": "oander/module-ocqueue",
-            "version": "1.0.12.1",
+            "version": "1.0.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-ocqueue.git",
-                "reference": "769d3f6df04d7db7eb6062248c5ea7ab80389706"
+                "reference": "9aaada817ba4f9042a3d04c83524030be922d6ff"
             },
             "require": {
                 "oander/module-ocbase": "^1.0.2"
@@ -9484,7 +9484,7 @@
                 }
             ],
             "description": "Queue module for OanderConnect",
-            "time": "2020-09-02T05:50:22+00:00"
+            "time": "2018-09-14T13:38:05+00:00"
         },
         {
             "name": "oander/module-order-attachment",
@@ -10485,7 +10485,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "a7847371a7efd8de78834916aa32d14468566665"
+                "reference": "ea640ef83f96eb6a8694ad8e4e57e185b59c82f9"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10501,7 +10501,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2020-09-02T09:58:42+00:00"
+            "time": "2020-08-27T11:05:41+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -11645,7 +11645,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.44",
+            "version": "v3.4.43",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -15059,7 +15059,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.44",
+            "version": "v3.4.43",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",
