@@ -6,7 +6,7 @@ use Oander\Base\Enum\BaseEnum;
 
 /**
  * Class Config
- * @package Oander\MultiSlider\Enum
+ * @package Oander\CofidisPayment\Enum
  */
 class Config extends BaseEnum
 {
@@ -14,13 +14,13 @@ class Config extends BaseEnum
     const ACTIVE            = 'active';
     const COMMANDLINE       = 'commandline';
     const INSTRUCTIONS      = 'instructions';
-    const MINIMUM_TOTAL     = 'minimum_total';
-    const MAXIMUM_TOTAL     = 'maximum_total';
     const ENVIRONMENT       = 'environment';
     const SHOP_ID           = 'shop_id';
     const IV_CODE           = 'iv_code';
     const KEY               = 'key';
     const CONSTRUCTION_GROUP = 'construction_group';
+    const OWNSHARES         = 'ownshares';
+    const OWNSHARES_TEST    = 'ownshares_test';
     const STATUS_URL        = 'status_url';
     const TERMS_URL         = 'termsandcondition_url';
     const SHOP_ID_TEST      = 'shop_id_test';

@@ -55,7 +55,7 @@ class Index extends \Magento\Framework\View\Element\Template
 
         $postdata = array(
             'shopId'    => $this->config->getShopId(),                                          //alap
-            'barem'     => $this->config->getConstructionGroup(),                               //alap
+            'barem'     => $this->getRequest()->getParam("barem"),                               //alap
             'amount'    => $order->getGrandTotal(),                                             //alap
             'downpmnt'  => $this->getRequest()->getParam("downpmnt"),        //alap
             'product'   => implode("|", $productnames),                                    //alap

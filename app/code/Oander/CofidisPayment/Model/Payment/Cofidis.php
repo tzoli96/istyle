@@ -11,10 +11,40 @@
 
 namespace Oander\CofidisPayment\Model\Payment;
 
-use Oander\CofidisPayment\Enum\Config as EnumConfig;
+use Oander\CofidisPayment\Helper\Config;
+use Oander\CofidisPayment\Helper\Data;
 
 class Cofidis extends \Magento\Payment\Model\Method\AbstractMethod
 {
+
+    /**
+     * @var Config
+     */
+    private $config;
+    /**
+     * @var Data
+     */
+    private $helper;
+
+    public function __construct(
+        \Magento\Framework\Model\Context $context,
+        \Magento\Framework\Registry $registry,
+        \Magento\Framework\Api\ExtensionAttributesFactory $extensionFactory,
+        \Magento\Framework\Api\AttributeValueFactory $customAttributeFactory,
+        \Magento\Payment\Helper\Data $paymentData,
+        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
+        \Magento\Payment\Model\Method\Logger $logger,
+        \Oander\CofidisPayment\Helper\Config $config,
+        \Oander\CofidisPayment\Helper\Data $helper,
+        \Magento\Framework\Model\ResourceModel\AbstractResource $resource = null,
+        \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
+        array $data = []
+    )
+    {
+        parent::__construct($context, $registry, $extensionFactory, $customAttributeFactory, $paymentData, $scopeConfig, $logger, $resource, $resourceCollection, $data);
+        $this->config = $config;
+        $this->helper = $helper;
+    }
 
     protected $_code = "cofidis";
     protected $_isOffline = true;
@@ -22,7 +52,13 @@ class Cofidis extends \Magento\Payment\Model\Method\AbstractMethod
     public function isAvailable(
         \Magento\Quote\Api\Data\CartInterface $quote = null
     ) {
-        if( ($quote->getGrandTotal() >= $this->getConfigData(EnumConfig::MINIMUM_TOTAL)) && ($quote->getGrandTotal() <= $this->getConfigData(EnumConfig::MAXIMUM_TOTAL)) )
+        $hasValidBarem = false;
+        $ownshares = $this->config->getOwnshares();
+        foreach ($ownshares as $ownshare)
+        {
+            $hasValidBarem |= $this->helper->isAllowedByMinimumTotalAmount($quote->getGrandTotal(), $ownshare);
+        }
+        if($hasValidBarem)
         {
             return parent::isAvailable($quote);
         }
@@ -35,6 +71,5 @@ class Cofidis extends \Magento\Payment\Model\Method\AbstractMethod
     public function getOrderPlaceRedirectUrl()
     {
         return \Oander\CofidisPayment\Helper\Config::REDIRECT_URL;
-        //return $this->_scopeConfig->getValue($path, \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeId);$this->getConfigData(EnumConfig::REDIRECT_URL);
     }
 }
