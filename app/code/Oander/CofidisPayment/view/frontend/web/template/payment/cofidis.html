@@ -6,114 +6,163 @@
 -->
 <div class="payment-method" data-bind="css: {'_active': (getCode() == isChecked())}">
     <div class="payment-method-title field choice">
-        <input type="radio"
-               name="payment[method]"
-               class="radio"
-               data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()"/>
+        <input type="radio" name="payment[method]" class="radio"
+            data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()" />
         <label data-bind="attr: {'for': getCode()}" class="label"><span data-bind="text: getTitle()"></span></label>
     </div>
     <div class="payment-method-content">
         <!-- ko foreach: getRegion('messages') -->
-        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!-- ko template: getTemplate() -->
+        <!-- /ko -->
         <!--/ko-->
         <div class="payment-method-billing-address">
             <!-- ko foreach: $parent.getRegion(getBillingAddressFormName()) -->
-            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- ko template: getTemplate() -->
+            <!-- /ko -->
             <!--/ko-->
         </div>
         <p data-bind="html: getInstructions()"></p>
 
-        <div class="checkout-cetelem-calculator">
-            <div class="block-calculator-cetelem-hu">
-                <div class="calculator-range-wrapper">
-                    <p class="calculator-range-title" data-bind="i18n: 'Choose an installment:'"></p>
-
-                    <div class="calculator-range">
-                        <div class="calculator-steps" data-bind="html: getActiveBarems()"></div>
-                        <input type="range" class="slider" min="0" value="0" data-bind="attr: {'max': getActiveBaremsLength()}, event: { change: calculatorRange() }">
-                    </div>
+        <div class="tabs tabs--cofidis tabs--checkout" data-bind="afterRender: tabsClick()">
+            <div class="tabs__titles" data-bind="foreach: { data: baremData(), as: 'barem' }">
+                <div class="tabs__title" data-bind="
+                    css: { 'active': $index() == 0 },
+                    attr: {
+                        'data-tab-index': $index
+                    }
+                    ">
+                    <span data-bind="text: barem.name"></span>
                 </div>
+            </div>
+            <div class="tabs__contents" data-bind="foreach: { data: baremData(), as: 'barem' }">
+                <div class="tabs__content" data-bind="
+                    css: { 'active': $index() == 0 },
+                    attr: {
+                        'data-tab-index': $index,
+                        'data-grp': barem.grp,
+                        'data-min': barem.min,
+                        'data-max': barem.max,
+                        'data-limit': barem.limit,
+                        'data-perc': barem.perc
+                    }
+                    ">
+                    <div class="messages messages--cofidis hide">
+                        <div class="message error"></div>
+                    </div>
+                    <div class="checkout-cetelem-calculator">
+                        <div class="block-calculator-cetelem-hu">
+                            <div class="calculator-wrapper calculator-cofidis">
+                                <div class="calculator-loader"></div>
+                                <div class="calculator-row">
+                                    <div class="calculator-col">
+                                        <div class="form calculator-form">
+                                            <p data-bind="i18n: 'Choose loan:'"></p>
 
-                <div class="calculator-wrapper calculator-cofidis">
-                    <div class="calculator-loader"></div>
-                    <div class="calculator-row">
-                        <div class="calculator-col">
-                            <div class="form calculator-form">
-                                <p data-bind="i18n: 'Choose loan:'"></p>
-    
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p class="form__label" data-bind="i18n: 'Installments:'"></p>
-                                        <span class="form__installment months"></span>
-                                        <span class="form__installment" data-bind="i18n: 'months'"></span>
-                                    </div>
-    
-                                    <div class="col-6">
-                                        <p class="form__label" data-bind="i18n: 'Purchase Amount:'"></p>
-                                        <p class="form__value amount">
-                                            <span class="price" data-bind="text: getFormatPrice(getCofidisData().amount)"></span> Ft
-                                        </p>
-                                    </div>
-    
-                                    <div class="col-12">
-                                        <p class="form__label" data-bind="i18n: 'Down Payment:'"></p>
-    
-                                        <div class="form-group">
                                             <div class="row">
-                                                <div class="col-sm-6">
-                                                    <input type="number" class="form-control" name="down-payment" min="0" data-bind="value: getMinDownPmnt(), event: { keyup: downPmnt(), change: downPmnt() }">
+                                                <div class="col-6">
+                                                    <p class="form__label" data-bind="i18n: 'Installments:'"></p>
+                                                    <span class="form__installment months"></span>
+                                                    <span class="form__installment" data-bind="i18n: 'months'"></span>
                                                 </div>
-                                                <div class="col-sm-6">
-                                                    <button type="button" class="action action-calculator dark w-100" data-bind="i18n: 'Calculate', click: getAjaxRequest()"></button>
+
+                                                <div class="col-6">
+                                                    <p class="form__label" data-bind="i18n: 'Purchase Amount:'"></p>
+                                                    <p class="form__value amount">
+                                                        <span class="price" data-bind="text: 0"></span>
+                                                        Ft
+                                                    </p>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <div class="calculator-range-wrapper range-cofidis">
+                                                        <p class="calculator-range-title"
+                                                            data-bind="i18n: 'Choose loan:'"></p>
+
+                                                        <div class="calculator-range">
+                                                            <div class="calculator-steps"
+                                                                data-bind="foreach: { data: barem.inst, as: 'installment' }">
+                                                                <span data-bind="
+                                                                    attr: { 'data-title': installment },
+                                                                    css: { 'active': $index() == 0 }
+                                                                    "></span>
+                                                            </div>
+                                                            <input type="range" class="slider" min="0" max="2" value="0"
+                                                                data-bind="
+                                                                event: { change: $parent.calculatorRange }
+                                                                ">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-12">
+                                                    <p class="form__label" data-bind="i18n: 'Down Payment:'"></p>
+
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <input type="number" class="form-control"
+                                                                    name="down-payment" min="0"
+                                                                    data-bind="attr: { value: $parent.getMinDownPmnt(barem.min, barem.max, barem.limit, barem.perc) }, event: { keyup: $parent.downPmnt(), change: $parent.downPmnt() }">
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <button type="button"
+                                                                    class="action action-calculator dark w-100"
+                                                                    data-bind="i18n: 'Calculate', click: $parent.getAjaxRequest()"></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="calculator-col">
-                            <div class="result calculator-result">
-                                <p data-bind="i18n: 'Calculation result:'"></p>
-    
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <p class="result__label" data-bind="i18n: 'Total Payable:'"></p>
-                                        <p class="result__value total-payable">
-                                            <span class="price"></span> Ft
-                                        </p>
-                                    </div>
-    
-                                    <div class="col-lg-6">
-                                        <p class="result__label" data-bind="i18n: 'Monthly Instalment:'"></p>
-                                        <p class="result__value monthly-instalment">
-                                            <span class="price"></span> Ft
-                                        </p>
-                                    </div>
-    
-                                    <div class="col-lg-6">
-                                        <p class="result__label" data-bind="i18n: 'THM:'"></p>
-                                        <p class="result__value thm">
-                                            <span class="value">0</span>%
-                                        </p>
-                                    </div>
-    
-                                    <div class="col-lg-6">
-                                        <p class="result__label" data-bind="i18n: 'Handling Fee:'"></p>
-                                        <p class="result__value">0 Ft</p>
-                                    </div>
-    
-                                    <div class="col-lg-6"></div>
-                                    <div class="col-lg-6">
-                                        <a class="text-primary" target="_blank" data-bind="attr: {href: getCofidisData().termsUrl} ,i18n: 'Terms and Conditions'"></a>
-                                    </div>
-                                </div>
 
-                                <div class="result__error">
-                                    <span class="error-text" data-bind="i18n: 'Minimum Down Payment: '">></span>
-                                    <span class="price"></span>
-                                    <span class="error-response" data-bind="i18n: 'Error'"></span>
+                                    <div class="calculator-col">
+                                        <div class="result calculator-result">
+                                            <p data-bind="i18n: 'Calculation result:'"></p>
+
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <p class="result__label" data-bind="i18n: 'Total Payable:'"></p>
+                                                    <p class="result__value total-payable">
+                                                        <span class="price"></span> Ft
+                                                    </p>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <p class="result__label" data-bind="i18n: 'Monthly Instalment:'">
+                                                    </p>
+                                                    <p class="result__value monthly-instalment">
+                                                        <span class="price"></span> Ft
+                                                    </p>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <p class="result__label" data-bind="i18n: 'THM:'"></p>
+                                                    <p class="result__value thm">
+                                                        <span class="value">0</span>%
+                                                    </p>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <p class="result__label" data-bind="i18n: 'Handling Fee:'"></p>
+                                                    <p class="result__value">0 Ft</p>
+                                                </div>
+
+                                                <div class="col-lg-6"></div>
+                                                <div class="col-lg-6">
+                                                    <a class="text-primary" target="_blank"
+                                                        data-bind="attr: {href: $parent.getCofidisData().termsUrl} ,i18n: 'Terms and Conditions'"></a>
+                                                </div>
+                                            </div>
+
+                                            <div class="result__error">
+                                                <span class="error-text"
+                                                    data-bind="i18n: 'Minimum Down Payment: '">></span>
+                                                <span class="price"></span>
+                                                <span class="error-response" data-bind="i18n: 'Error'"></span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -124,20 +173,18 @@
 
         <div class="checkout-agreements-block">
             <!-- ko foreach: $parent.getRegion('before-place-order') -->
-                <!-- ko template: getTemplate() --><!-- /ko -->
+            <!-- ko template: getTemplate() -->
+            <!-- /ko -->
             <!--/ko-->
         </div>
         <div class="actions-toolbar">
             <div class="primary">
-                <button class="action primary checkout"
-                        type="submit"
-                        data-bind="
+                <button class="action primary checkout" type="submit" data-bind="
                         click: placeOrder,
                         attr: {title: $t('Place Order')},
                         css: {disabled: !isPlaceOrderActionAllowed()},
                         enable: (getCode() == isChecked())
-                        "
-                        disabled>
+                        " disabled>
                     <span data-bind="i18n: 'Place Order'"></span>
                 </button>
             </div>

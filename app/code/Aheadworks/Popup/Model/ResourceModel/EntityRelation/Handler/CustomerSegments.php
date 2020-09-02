@@ -1,9 +1,4 @@
 <?php
-/**
- * Copyright 2019 aheadWorks. All rights reserved.
-See LICENSE.txt for license details.
- */
-
 namespace Aheadworks\Popup\Model\ResourceModel\EntityRelation\Handler;
 
 use Aheadworks\Popup\Model\Popup;
@@ -115,6 +110,7 @@ class CustomerSegments implements HandlerInterface
                 $dataToSave
             );
         } catch (\Exception $exception) {
+            return $this;
         }
 
         return $this;

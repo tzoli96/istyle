@@ -1,9 +1,4 @@
 <?php
-/**
- * Copyright 2019 aheadWorks. All rights reserved.
-See LICENSE.txt for license details.
- */
-
 namespace Aheadworks\Popup\Model\ResourceModel\Popup\Grid;
 
 use Magento\Framework\Api\SearchCriteriaInterface;

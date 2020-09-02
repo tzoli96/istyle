@@ -1,9 +1,4 @@
 <?php
-/**
- * Copyright 2019 aheadWorks. All rights reserved.
-See LICENSE.txt for license details.
- */
-
 namespace Aheadworks\Popup\Block;
 
 use Aheadworks\Popup\Model\ResourceModel\Popup\Collection;
@@ -222,6 +217,7 @@ class Popup extends Template
         /* prepare popup from backend for preview */
         if ($this->getRequest()->getParam('preview', 0)) {
             $popupsContentArr = [];
+            // phpcs:disable Magento2.Functions
             $popupInfo = json_decode(base64_decode($this->getRequest()->getParam('popup_info', '')));
             $id = $popupInfo->popupId;
             $popupsContentArr[$id]['preview'] = true;
@@ -308,6 +304,7 @@ class Popup extends Template
      */
     private function __getExcludedPopupIds()
     {
+        // phpcs:disable Magento2.Security.Superglobal
         $keys = array_keys($_COOKIE);
         $pattern = '/' . Event::VIEWED_POPUP_COUNT_COOKIE_NAME . '*/';
         $popupKeys = preg_grep($pattern, $keys);

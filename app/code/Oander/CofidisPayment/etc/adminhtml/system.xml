@@ -34,27 +34,19 @@
 				<field id="instructions" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="70" translate="label" type="textarea">
 					<label>Instructions</label>
 				</field>
-				<field id="minimum_total" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="80" translate="label" type="text">
-					<label>Minimum Order Total</label>
-					<validate>validate-zero-or-greater</validate>
-				</field>
-				<field id="maximum_total" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="90" translate="label" type="text">
-					<label>Maximum Order Total</label>
-					<validate>validate-zero-or-greater</validate>
-				</field>
-				<field id="environment" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="100" translate="label" type="select">
+				<field id="environment" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="80" translate="label" type="select">
 					<label>Environment</label>
 					<comment/>
 					<source_model>Oander\CofidisPayment\Model\Config\Source\Environment</source_model>
 				</field>
-				<field id="shop_id" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="110" translate="label" type="text">
+				<field id="shop_id" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="90" translate="label" type="text">
 					<label>Shop ID</label>
 					<depends>
 						<field id="environment">1</field>
 					</depends>
 					<validate>required-entry</validate>
 				</field>
-				<field id="shop_id_test" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="110" translate="label" type="text">
+				<field id="shop_id_test" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="100" translate="label" type="text">
 					<label>Test Shop ID</label>
 					<depends>
 						<field id="environment">0</field>
@@ -68,42 +60,44 @@
 					</depends>
 					<validate>required-entry</validate>
 				</field>
-				<field id="iv_code_test" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="110" translate="label" type="text">
+				<field id="iv_code_test" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="120" translate="label" type="text">
 					<label>Test IV code</label>
 					<depends>
 						<field id="environment">0</field>
 					</depends>
 					<validate>required-entry</validate>
 				</field>
-				<field id="key" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="110" translate="label" type="text">
+				<field id="key" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="130" translate="label" type="text">
 					<label>Key</label>
 					<depends>
 						<field id="environment">1</field>
 					</depends>
 					<validate>required-entry</validate>
 				</field>
-				<field id="key_test" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="110" translate="label" type="text">
+				<field id="key_test" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="140" translate="label" type="text">
 					<label>Test Key</label>
 					<depends>
 						<field id="environment">0</field>
 					</depends>
 					<validate>required-entry</validate>
 				</field>
-				<field id="construction_group" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="110" translate="label" type="text">
-					<label>Construction Group</label>
-					<validate>required-entry</validate>
+				<field id="ownshares" translate="label" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Ownshare Intervals</label>
+					<frontend_model>Oander\CofidisPayment\Block\Adminhtml\Form\Field\Ownshares</frontend_model>
+					<backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
 					<depends>
 						<field id="environment">1</field>
 					</depends>
 				</field>
-				<field id="construction_group_test" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="110" translate="label" type="text">
-					<label>Test Construction Group</label>
-					<validate>required-entry</validate>
+				<field id="ownshares_test" translate="label" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Ownshare Intervals Test</label>
+					<frontend_model>Oander\CofidisPayment\Block\Adminhtml\Form\Field\Ownshares</frontend_model>
+					<backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
 					<depends>
 						<field id="environment">0</field>
 					</depends>
 				</field>
-				<field id="termsandcondition_url" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="110" translate="label" type="text">
+				<field id="termsandcondition_url" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="170" translate="label" type="text">
 					<label>Terms And Conditions URL</label>
 					<validate>required-entry validate-url</validate>
 				</field>

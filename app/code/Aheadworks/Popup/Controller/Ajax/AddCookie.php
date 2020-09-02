@@ -1,9 +1,4 @@
 <?php
-/**
- * Copyright 2019 aheadWorks. All rights reserved.
-See LICENSE.txt for license details.
- */
-
 namespace Aheadworks\Popup\Controller\Ajax;
 
 use Aheadworks\Popup\Model\Source\Event;
@@ -116,7 +111,11 @@ class AddCookie extends \Aheadworks\Popup\Controller\Ajax
             Event::VIEWED_PAGE_COUNT_COOKIE_NAME
         );
         if (null !== $cookieValue) {
-            return json_decode($cookieValue);
+            $cookieArray = json_decode($cookieValue);
+            if (strlen($cookieValue) > 2000) {
+                array_shift($cookieArray);
+            }
+            return $cookieArray;
         } else {
             return [];
         }

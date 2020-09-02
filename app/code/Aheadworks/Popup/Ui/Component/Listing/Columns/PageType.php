@@ -1,9 +1,4 @@
 <?php
-/**
- * Copyright 2019 aheadWorks. All rights reserved.
-See LICENSE.txt for license details.
- */
-
 namespace Aheadworks\Popup\Ui\Component\Listing\Columns;
 
 use Magento\Framework\View\Element\UiComponentFactory;
@@ -15,24 +10,6 @@ use Magento\Framework\View\Element\UiComponent\ContextInterface;
  */
 class PageType extends \Magento\Ui\Component\Listing\Columns\Column
 {
-
-    /**
-     * Constructor
-     *
-     * @param ContextInterface $context
-     * @param UiComponentFactory $uiComponentFactory
-     * @param array $components
-     * @param array $data
-     */
-    public function __construct(
-        ContextInterface $context,
-        UiComponentFactory $uiComponentFactory,
-        array $components = [],
-        array $data = []
-    ) {
-        parent::__construct($context, $uiComponentFactory, $components, $data);
-    }
-
     /**
      * Prepare data source
      *
