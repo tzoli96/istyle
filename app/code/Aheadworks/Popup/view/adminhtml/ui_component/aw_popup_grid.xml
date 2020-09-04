@@ -113,11 +113,20 @@
                 </item>
             </argument>
             <action name="status">
-                <settings>
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">status</item>
+                        <item name="label" xsi:type="string" translate="true">Change status</item>
+                    </item>
+                </argument>
+                <argument name="actions" xsi:type="configurableObject">
+                    <argument name="class" xsi:type="string">Aheadworks\Popup\Ui\Component\MassAction\Status\Options</argument>
+                </argument>
+                <!--<settings>
                     <type>status</type>
                     <label translate="true">Change status</label>
                     <actions class="Aheadworks\Popup\Ui\Component\MassAction\Status\Options"/>
-                </settings>
+                </settings>-->
             </action>
             <action name="delete">
                 <argument name="primaryFieldName" xsi:type="string">id</argument>
