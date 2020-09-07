@@ -53,11 +53,11 @@ final class ConfigProvider implements ConfigProviderInterface
             'size'      => 'small',
         );
 
-        $barems = $this->config->getOwnshares();
+        $barems = array();
         foreach ($this->config->getOwnshares() as $id => $ownshare)
         {
-            if(!$this->helper->isAllowedByMinimumTotalAmount($this->checkoutSession->getQuote()->getGrandTotal(), $ownshare))
-                unset($barems[$id]);
+            if($this->helper->isAllowedByMinimumTotalAmount($this->checkoutSession->getQuote()->getGrandTotal(), $ownshare))
+                array_push($barems, $ownshare);
         }
 
         return [
