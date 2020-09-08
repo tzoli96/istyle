@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e50b08bd269fca1905c98b13faf5c90b",
+    "content-hash": "5a9c48238c91e36e5969788e66010535",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8158,11 +8158,11 @@
         },
         {
             "name": "oander/module-api-checkout",
-            "version": "1.3.3",
+            "version": "1.3.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-checkout.git",
-                "reference": "a035406b3f908548981ce009b67d63c19d956480"
+                "reference": "e325dc0c2360807bb5e5a7e888c57c326a7e1d61"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -8183,7 +8183,7 @@
                 "proprietary"
             ],
             "description": "API Checkout module.",
-            "time": "2018-09-05T09:32:38+00:00"
+            "time": "2020-09-08T10:51:08+00:00"
         },
         {
             "name": "oander/module-api-checkout-unity-pickup",
@@ -8333,11 +8333,11 @@
         },
         {
             "name": "oander/module-api-order-attachment",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-order-attachment.git",
-                "reference": "be3e60bedc1d413c4e9ead52c28143abdf1928bf"
+                "reference": "d78da93f1a296bb84a0bf1b719e1b71ded927e5f"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8357,7 +8357,7 @@
                 "proprietary"
             ],
             "description": "Api Gateway Order Attachment",
-            "time": "2018-06-19T14:33:44+00:00"
+            "time": "2020-09-08T10:52:36+00:00"
         },
         {
             "name": "oander/module-api-product",
