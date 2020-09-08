@@ -60,6 +60,7 @@ final class Customweb_FirstDataConnect_Util {
 		'SEK' => '752',
 		'SGD' => '702',
 		'TRY' => '949',
+		'RSD' => '941',
 		'USD' => '840',
 		'ZAR' => '710' 
 	);
@@ -74,7 +75,10 @@ final class Customweb_FirstDataConnect_Util {
 		'zh_CN',
 		'zh_TW',
 		'pt_BR',
-		'es_ES'
+		'es_ES',
+        'sr_RS',
+        'sr_Lat_RS',
+        'hu_HU'
 		
 		
 	);
