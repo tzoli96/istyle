@@ -1,11 +1,10 @@
 # iStyle M2   
 
+
 **Utoljára frissítve:** 2017.05.14.
 
 **Tartalomjegyzék:**
 
-* [Sass-lint](#sass-lint)
- 
 ## <a name="sass-lint"></a>Sass-lint
 A projekthez be lett állítva **sass-lint**. Ezzel egységesen (konfigurációs .yml fájlból) lehet scss-t írni. A leírás **PhpStorm**-hoz készült.
 
