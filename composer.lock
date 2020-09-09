@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5a9c48238c91e36e5969788e66010535",
+    "content-hash": "b48686736f470b9c22140e4b0e322f8a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9357,11 +9357,11 @@
         },
         {
             "name": "oander/module-news",
-            "version": "dev-44342_44327_master",
+            "version": "1.2.5.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-news.git",
-                "reference": "c7a36d751ba219fc4ed0e992f236d3a737eeaf71"
+                "reference": "947fc5ad2092e248a49d97e128fee14c2341302f"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9380,7 +9380,7 @@
                 "proprietary"
             ],
             "description": "News",
-            "time": "2020-07-06T11:48:24+00:00"
+            "time": "2020-09-09T11:35:22+00:00"
         },
         {
             "name": "oander/module-ocbase",
@@ -10481,11 +10481,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "dev-develop",
+            "version": "1.0.258",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "d8c0946eeef2c137d601d95b6be39437f4a6949b"
+                "reference": "bd9305f0f4ec2c99a061311d29a4fa0abf102fa8"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10501,7 +10501,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2020-09-07T07:46:38+00:00"
+            "time": "2020-09-09T11:40:49+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -15169,10 +15169,8 @@
         "oander/module-api-index": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-multislider": 20,
-        "oander/module-news": 20,
         "oander/module-salesforce-service": 20,
         "oander/theme-hodor": 20,
-        "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,
