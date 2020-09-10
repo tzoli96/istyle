@@ -15171,6 +15171,7 @@
         "oander/module-multislider": 20,
         "oander/module-salesforce-service": 20,
         "oander/theme-hodor": 20,
+        "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,
