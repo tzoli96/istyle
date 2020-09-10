@@ -154,7 +154,8 @@
         "oander/module-xtento-order-unity-pickup-export": "1.0.0",
         "oander/module-unity-dpd-cz-pickup": "1.0.2",
         "oander/module-unity-dpd-sk-pickup": "1.0.2",
-        "xtento/module-xtcore": "2.1.0"
+        "xtento/module-xtcore": "2.1.0",
+        "oander/theme-istyle": "dev-develop"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
