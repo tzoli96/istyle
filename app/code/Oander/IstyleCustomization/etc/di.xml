@@ -87,4 +87,10 @@
         <plugin name="IstyleCustomization::CatalogProductViewObserver" type="Oander\IstyleCustomization\Plugin\Reports\Observer\CatalogProductViewObserver" sortOrder="100"/>
     </type>
     <preference for="Innobyte\MStart\Controller\Payment\Response" type="Oander\IstyleCustomization\Rewrite\Innobyte\MStart\Controller\Payment\Response"/>
+    <!-- #44918 START -->
+    <preference for="Magento\Checkout\Api\ShippingInformationManagementInterface" type="Oander\IstyleCustomization\Preference\Magento\Checkout\Model\ShippingInformationManagement" />
+    <type name="Magento\Quote\Model\PaymentMethodManagement">
+        <plugin name="IstyleCustomization::PaymentMethodObserver" type="Oander\IstyleCustomization\Plugin\Magento\Quote\Model\PaymentMethodManagement" sortOrder="100"/>
+    </type>
+    <!-- #44918 END -->
 </config>

@@ -3,6 +3,7 @@
 	<module name="Oander_IstyleCustomization" setup_version="1.0.3">
 		<sequence>
 			<module name="Avalon_Costompayment" />
+			<module name="Magento_Checkout" />
 		</sequence>
 	</module>
 </config>
