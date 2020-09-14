@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b48686736f470b9c22140e4b0e322f8a",
+    "content-hash": "4e82e00a509b144a43b4169b71c6351a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9303,11 +9303,11 @@
         },
         {
             "name": "oander/module-multislider",
-            "version": "dev-41567-config",
+            "version": "4.0.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-multi-slider.git",
-                "reference": "5c8b5e2fa7293d0ce07f1845f280f379d6ad0b99"
+                "reference": "567fddaf24eb043bf123bdf45dc6a1eda3839510"
             },
             "require": {
                 "oander/module-base": ">=1.2.11",
@@ -9326,7 +9326,7 @@
                 "proprietary"
             ],
             "description": "Slider module",
-            "time": "2020-02-21T09:07:53+00:00"
+            "time": "2020-09-14T16:15:57+00:00"
         },
         {
             "name": "oander/module-name-switcher",
@@ -15168,7 +15168,6 @@
         "innobyte/module-cetelem": 20,
         "oander/module-api-index": 20,
         "oander/module-core-bug-fix": 20,
-        "oander/module-multislider": 20,
         "oander/module-salesforce-service": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
