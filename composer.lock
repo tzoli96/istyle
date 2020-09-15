@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e82e00a509b144a43b4169b71c6351a",
+    "content-hash": "7d7e3a9efdb031012692c76c8906f259",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -934,16 +934,16 @@
         },
         {
             "name": "composer/semver",
-            "version": "1.5.1",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "c6bea70230ef4dd483e6bbcab6005f682ed3a8de"
+                "reference": "114f819054a2ea7db03287f5efb757e2af6e4079"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/c6bea70230ef4dd483e6bbcab6005f682ed3a8de",
-                "reference": "c6bea70230ef4dd483e6bbcab6005f682ed3a8de",
+                "url": "https://api.github.com/repos/composer/semver/zipball/114f819054a2ea7db03287f5efb757e2af6e4079",
+                "reference": "114f819054a2ea7db03287f5efb757e2af6e4079",
                 "shasum": ""
             },
             "require": {
@@ -991,7 +991,21 @@
                 "validation",
                 "versioning"
             ],
-            "time": "2020-01-13T12:06:48+00:00"
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-09-09T09:34:06+00:00"
         },
         {
             "name": "composer/spdx-licenses",
@@ -9789,11 +9803,11 @@
         },
         {
             "name": "oander/module-product-widget-warehouse-manager-extender",
-            "version": "1.0.1.7",
+            "version": "45951.x-dev",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-product-widget-warehouse-manager-extender.git",
-                "reference": "e98e29489d1c4404b66aa8aa8957903a14d0b463"
+                "reference": "40d6e317c9f66f5837f164628dc25121a21794ce"
             },
             "require": {
                 "oander/module-warehouse-manager-conditions": "*",
@@ -9811,7 +9825,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2020-08-14T11:24:46+00:00"
+            "time": "2020-09-15T15:15:53+00:00"
         },
         {
             "name": "oander/module-producturlresolver",
@@ -9897,7 +9911,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "fd84076134d55efa818105d10e87ec7c5910d241"
+                "reference": "c2c5e166cd925e2373f1c9670ba0abf6d098c0a5"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9917,7 +9931,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2020-09-02T12:02:54+00:00"
+            "time": "2020-09-11T11:51:42+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -10485,7 +10499,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "f327f6ecc938b45b9905b460a53ff349a44ca734"
+                "reference": "3cc2d0ea96e6548143593ec218e2d9f871a872f3"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10501,7 +10515,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2020-09-10T12:15:03+00:00"
+            "time": "2020-09-15T15:45:05+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10772,16 +10786,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.28",
+            "version": "2.0.29",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "d1ca58cf33cb21046d702ae3a7b14fdacd9f3260"
+                "reference": "497856a8d997f640b4a516062f84228a772a48a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/d1ca58cf33cb21046d702ae3a7b14fdacd9f3260",
-                "reference": "d1ca58cf33cb21046d702ae3a7b14fdacd9f3260",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/497856a8d997f640b4a516062f84228a772a48a8",
+                "reference": "497856a8d997f640b4a516062f84228a772a48a8",
                 "shasum": ""
             },
             "require": {
@@ -10790,7 +10804,6 @@
             "require-dev": {
                 "phing/phing": "~2.7",
                 "phpunit/phpunit": "^4.8.35|^5.7|^6.0",
-                "sami/sami": "~2.0",
                 "squizlabs/php_codesniffer": "~2.0"
             },
             "suggest": {
@@ -10860,7 +10873,21 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2020-07-08T09:08:33+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/terrafrost",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpseclib",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-09-08T04:24:43+00:00"
         },
         {
             "name": "plugincompany/customergroupswitching",
@@ -15168,6 +15195,7 @@
         "innobyte/module-cetelem": 20,
         "oander/module-api-index": 20,
         "oander/module-core-bug-fix": 20,
+        "oander/module-product-widget-warehouse-manager-extender": 20,
         "oander/module-salesforce-service": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
