@@ -22,6 +22,8 @@
 namespace Oander\IstyleCustomization\Rewrite\Anowave\Ec\Preference;
 
 use Magento\Framework\Url\EncoderInterface;
+use Magento\Framework\Data\Form\FormKey;
+use Magento\Framework\View\Element\FormKey as FormKeyView;
 
 class Related extends \Anowave\Ec\Preference\Related
 {
@@ -32,12 +34,18 @@ class Related extends \Anowave\Ec\Preference\Related
     private $urlEncoder;
 
     /**
+     * @var FormKey
+     */
+    private $formKey;
+
+    /**
      * Related constructor.
      * @param \Magento\Catalog\Block\Product\Context $context
      * @param \Magento\Checkout\Model\ResourceModel\Cart $checkoutCart
      * @param \Magento\Catalog\Model\Product\Visibility $catalogProductVisibility
      * @param \Magento\Checkout\Model\Session $checkoutSession
      * @param \Magento\Framework\Module\Manager $moduleManager
+     * @param FormKey $formKey
      * @param EncoderInterface $urlEncoder
      * @param array $data
      */
@@ -48,10 +56,12 @@ class Related extends \Anowave\Ec\Preference\Related
         \Magento\Checkout\Model\Session $checkoutSession,
         \Magento\Framework\Module\Manager $moduleManager,
         EncoderInterface $urlEncoder,
+        FormKey $formKey,
         array $data = []
     ) {
         parent::__construct($context, $checkoutCart, $catalogProductVisibility, $checkoutSession, $moduleManager, $data);
         $this->urlEncoder = $urlEncoder;
+        $this->formKey = $formKey;
     }
 
     /**
@@ -89,5 +99,36 @@ class Related extends \Anowave\Ec\Preference\Related
     public function encodeUrl($url)
     {
         return $this->urlEncoder->encode($url);
+    }
+
+    /**
+     * Get form key
+     *
+     * @return string
+     */
+    public function getFormKey()
+    {
+        return \Zend_Json::encode($this->formKey->getFormKey());
+    }
+
+    /**
+     * Get form key html
+     *
+     * @return string
+     */
+    public function getFormKeyHtml()
+    {
+        $formKeyHtml = '';
+        $formKeyBlock = $this->getLayout()->getBlock('formkey');
+        if (!$formKeyBlock) {
+            $formKeyBlock = $this->getLayout()->createBlock(
+                FormKeyView::class,
+                'formkey'
+            );
+        }
+        if (is_object($formKeyBlock)) {
+            $formKeyHtml = $formKeyBlock->toHtml();
+        }
+        return $formKeyHtml;
     }
 }
