@@ -60,7 +60,7 @@ return array (
     'Magento_ConfigurableProduct' => 1,
     'Magento_Contact' => 1,
     'Magento_Cookie' => 1,
-    'Aheadworks_Autorelated' => 0,
+    'Aheadworks_Autorelated' => 1,
     'Magento_CurrencySymbol' => 1,
     'Amasty_Shiprestriction' => 1,
     'Magento_CustomerImportExport' => 1,
