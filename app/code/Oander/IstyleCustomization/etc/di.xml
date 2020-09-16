@@ -93,4 +93,6 @@
         <plugin name="IstyleCustomization::PaymentMethodObserver" type="Oander\IstyleCustomization\Plugin\Magento\Quote\Model\PaymentMethodManagement" sortOrder="100"/>
     </type>
     <!-- #44918 END -->
+
+    <preference for="Anowave\Ec\Preference\Related" type="Oander\IstyleCustomization\Rewrite\Anowave\Ec\Preference\Related" />
 </config>
