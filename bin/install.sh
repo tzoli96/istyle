@@ -8,6 +8,18 @@ EFS_PRELIVE="${EFS}/live"
 INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
 DEV_MASTER_ID="i-0810073885f247b7c"
 DUMP_FILE="/mnt/istyle-storage/istyle/dbdumps/istyle_full_$(date +%F-%H%M%S).sql"
+SLACK_WEBHOOK="https://hooks.slack.com/services/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"
+
+send_to_slack() {
+  local MESSAGE="${1}"
+  echo "$MESSAGE"
+  PAYLOAD="payload={
+    \"channel\": \"#istyle-collab\",
+    \"username\": \"${INSTANCE_ID}\",
+    \"text\": \"$MESSAGE\"
+    }"
+  curl -X POST --data-urlencode "${PAYLOAD}" ${SLACK_WEBHOOK} &> /dev/null
+}
 
 # FUNCTIONS
 magento() {
@@ -144,5 +156,5 @@ echo "================================================="
 echo "              END OF DEPLOY SCRIPT               "
 echo "================================================="
 echo
-
+send_to_slack "iStyle Deploy ended on DEV"
 exit 0
