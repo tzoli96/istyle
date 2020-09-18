@@ -1,14 +1,24 @@
+<?php
+if ($this->helper('Avalon\Costompayment\Helper\Data')->getConfig('avalon_custompaymentmethod_tab_options/properties_tbiro/rotbi_unicid')){
+    $rotbi_unicid = $this->helper('Avalon\Costompayment\Helper\Data')->getConfig('avalon_custompaymentmethod_tab_options/properties_tbiro/rotbi_unicid');
+}else{
+    $rotbi_unicid = "";
+}	
+$tbiro_ch = curl_init();
+curl_setopt($tbiro_ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($tbiro_ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($tbiro_ch, CURLOPT_URL, $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl() . '/function/getparameters.php?cid='.$rotbi_unicid);
+$paramstbiro=json_decode(curl_exec($tbiro_ch), true);
+curl_close($tbiro_ch);
+?>
+<?php if ($paramstbiro['tbi_container_status'] == 'Yes'){ ?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css" integrity="sha512-DD6Lm09YDHzhW3K4eLJ9Y7sFrBwtCF+KuSWOLYFqKsZ6RX4ifCu9vWqM4R+Uy++aBWe6wD4csgQRzGKp5vP6tg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" integrity="sha512-ZV9KawG2Legkwp3nAlxLIVFudTauWuBpC10uEafMHYL0Sarrz5A7G79kXh5+5+woxQ5HM559XX2UZjMJ36Wplg==" crossorigin="anonymous" />
+
 <style>
 /* *{padding:0;margin:0;}*/
 
 /* fontawesom */
-@font-face {
-	font-family: 'FontAwesome';
-	src: url('../fonts/fontawesome-webfont.eot?v=4.4.0');
-	src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.4.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.4.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.4.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.4.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.4.0#fontawesomeregular') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
 .fa {
 	display: inline-block;
 	font: normal normal normal 14px/1 FontAwesome;
@@ -92,20 +102,6 @@
 	margin-top:12px;
 }	
 </style>
-<?php
-if ($this->helper('Avalon\Costompayment\Helper\Data')->getConfig('avalon_custompaymentmethod_tab_options/properties_tbiro/rotbi_unicid')){
-    $rotbi_unicid = $this->helper('Avalon\Costompayment\Helper\Data')->getConfig('avalon_custompaymentmethod_tab_options/properties_tbiro/rotbi_unicid');
-}else{
-    $rotbi_unicid = "";
-}	
-$tbiro_ch = curl_init();
-curl_setopt($tbiro_ch, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($tbiro_ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($tbiro_ch, CURLOPT_URL, $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl() . '/function/getparameters.php?cid='.$rotbi_unicid);
-$paramstbiro=json_decode(curl_exec($tbiro_ch), true);
-curl_close($tbiro_ch);
-?>
-<?php if ($paramstbiro['tbi_container_status'] == 'Yes'){ ?>
 <div class="tbiro_float" onclick="tbiroChangeContainer();">
 	<img src="<?php echo $this->helper('Avalon\Costompayment\Helper\Data')->getTbiroLiveUrl(); ?>/dist/img/tbi_logo.png" class="tbiro-my-float">
 </div>
