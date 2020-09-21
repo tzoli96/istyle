@@ -154,6 +154,7 @@
         "oander/module-unity-dpd-cz-pickup": "1.0.2",
         "oander/module-unity-dpd-sk-pickup": "1.0.2",
         "xtento/module-xtcore": "2.1.0",
+        "vaimo/composer-patches": "4.6.*",
         "oander/theme-istyle": "dev-develop"
     },
     "require-dev": {
@@ -209,7 +210,12 @@
         }
     ],
     "extra": {
-        "magento-force": "override"
+        "magento-force": "override",
+        "patches": {
+            "magento/product-community-edition": {
+                "Mstart curl header #42875": "patches/magento/mstart_curl_header.patch"
+            }
+        }
     },
     "sonarData": {
         "envMap": {
