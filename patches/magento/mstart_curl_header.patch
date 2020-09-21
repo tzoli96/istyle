@@ -1,12 +1,12 @@
 diff --git a/vendor/magento/framework/HTTP/Client/Curl.php b/vendor/magento/framework/HTTP/Client/Curl.php
-index e4a27fd7..59e8dc2b 100644
+index d49926fa..59e8dc2b 100644
 --- a/vendor/magento/framework/HTTP/Client/Curl.php
 +++ b/vendor/magento/framework/HTTP/Client/Curl.php
 @@ -414,7 +414,7 @@ class Curl implements \Magento\Framework\HTTP\ClientInterface
      {
          if ($this->_headerCount == 0) {
              $line = explode(" ", trim($data), 3);
--            if (count($line) <2 ) {
+-            if (count($line) != 3) {
 +            if (count($line) < 2) {
                  return $this->doError("Invalid response line returned from server: " . $data);
              }
