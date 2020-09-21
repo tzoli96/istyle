@@ -1,0 +1,45 @@
+<div class="content">
+    <?php
+    $currentProductId=$block->getProduct()->getId();
+    $parentProduct=$block->getParentProduct($currentProductId);
+    if($parentProduct):?>
+        <table class="admin__dynamic-rows data-grid" data-role="grid">
+            <thead>
+                <tr>
+                    <th class="data-grid-th">
+                        <?= __("ID")?>
+                    </th>
+                    <th class="data-grid-th">
+                        <?= __("Product name")?>
+                    </th>
+                    <th class="data-grid-th">
+                        <?= __("Product status")?>
+                    </th>
+                    <th class="data-grid-th">
+                        <?= __("Action")?>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+        <?php
+        foreach($parentProduct as $parentId){
+            $parent=$block->getProductById($parentId);
+            ?>
+                <tr class="data-row">
+                    <td> <div class="data-grid-cell-content" ><?= $parent->getId()?></div></td>
+                    <td> <div class="data-grid-cell-content" ><?= $parent->getName()?></div></td>
+                    <td> <div class="data-grid-cell-content" ><?= $block->getProductStatus($parent->getStatus())?></div></td>
+                    <td> <div class="data-grid-cell-content" > <a target="_blank" href="<?=$block->getAdminUrlProduct($parent->getId())?>"> <?= __("View")?></a></div></td>
+                </tr>
+            <?php
+        }
+        ?>
+            </tbody>
+        </table>
+        <?php
+    else: ?>
+    <?=  __('This simple product is not associated to any configurable products.'); ?>
+    <?php
+    endif;
+    ?>
+</div>
