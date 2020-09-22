@@ -1,5 +1,6 @@
 <div class="content">
     <?php
+    if($block->getProduct()->getTypeId() === "simple"):
     $currentProductId=$block->getProduct()->getId();
     $parentProduct=$block->getParentProduct($currentProductId);
     if($parentProduct):?>
@@ -40,6 +41,9 @@
     else: ?>
     <?=  __('This simple product is not associated to any configurable products.'); ?>
     <?php
+    endif;
+    else:
+        echo __('This is not a simple product.');
     endif;
     ?>
 </div>

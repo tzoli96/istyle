@@ -22,15 +22,18 @@ class AssociatedConfigProduct extends Template
     protected $configureProduct;
 
     /**
-     * @var string
-     */
-    protected $_template = 'catalog/product/edit/associated_config_product.phtml';
-
-    /**
      * @var Registry|null
      */
     protected $_coreRegistry = null;
 
+    /**
+     * AssociatedConfigProduct constructor.
+     * @param ProductRepositoryInterface $productRepository
+     * @param Configurable $configureProduct
+     * @param Context $context
+     * @param Registry $registry
+     * @param array $data
+     */
     public function __construct(
         ProductRepositoryInterface $productRepository,
         Configurable $configureProduct,
@@ -45,6 +48,17 @@ class AssociatedConfigProduct extends Template
         parent::__construct($context, $data);
     }
 
+    /**
+     * @return string
+     */
+    public function getTemplate()
+    {
+        return "catalog/product/edit/associated_config_product.phtml";
+    }
+
+    /**
+     * @return mixed|null
+     */
     public function getProduct()
     {
         return $this->_coreRegistry->registry('current_product');
@@ -59,7 +73,10 @@ class AssociatedConfigProduct extends Template
         return $this->productRepository->getById($id);
     }
 
-
+    /**
+     * @param $id
+     * @return array|false
+     */
     public function getParentProduct($id){
         $product=$this->configureProduct->getParentIdsByChild($id);
         if(isset($product[0])){
