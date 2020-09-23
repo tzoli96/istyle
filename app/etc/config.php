@@ -183,6 +183,7 @@ return array (
     'Oander_CofidisPayment' => 1,
     'Oander_ConfigurableProduct' => 1,
     'Oander_ConfigurableProductAttribute' => 1,
+    'Oander_ConfigurationProductsShow' => 1,
     'Oander_CookieLaw' => 1,
     'Oander_CoreBugFix' => 1,
     'Oander_CurrencyManager' => 1,
