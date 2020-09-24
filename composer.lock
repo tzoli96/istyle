@@ -8409,11 +8409,11 @@
         },
         {
             "name": "oander/module-api-product",
-            "version": "1.0.31",
+            "version": "1.0.31.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-product.git",
-                "reference": "ac3cd6844172a43a450ffdce48eb469c28e111ff"
+                "reference": "a81fe2088971e8d86bb68c7d78c340e5d11d8802"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -8435,7 +8435,7 @@
                 "proprietary"
             ],
             "description": "Backend API to Product",
-            "time": "2018-11-12T10:28:43+00:00"
+            "time": "2020-09-24T13:00:16+00:00"
         },
         {
             "name": "oander/module-api-product-attribute",
