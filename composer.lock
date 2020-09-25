@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d12872318a26a3f9b9cf0e99ea6f4a7a",
+    "content-hash": "1ad39b3a342b90226470b42cdb4ca328",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9072,11 +9072,11 @@
         },
         {
             "name": "oander/module-email-additional-data",
-            "version": "1.0.5",
+            "version": "1.0.5.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-email-additional-data.git",
-                "reference": "34f6694f574d472086518e5c59f6b513d8c9a43a"
+                "reference": "5c34548593279e60d82310f6b7303a333d360318"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9095,7 +9095,7 @@
                 "proprietary"
             ],
             "description": "Email Additional Data",
-            "time": "2017-10-06T10:52:40+00:00"
+            "time": "2020-09-25T08:46:48+00:00"
         },
         {
             "name": "oander/module-extension-exterminator",
