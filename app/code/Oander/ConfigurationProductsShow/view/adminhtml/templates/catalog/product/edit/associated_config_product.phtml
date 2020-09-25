@@ -25,14 +25,16 @@
         <?php
         foreach($parentProduct as $parentId){
             $parent=$block->getProductById($parentId);
-            ?>
-                <tr class="data-row">
-                    <td> <div class="data-grid-cell-content" ><?= $parent->getId()?></div></td>
-                    <td> <div class="data-grid-cell-content" ><?= $parent->getName()?></div></td>
-                    <td> <div class="data-grid-cell-content" ><?= $block->getProductStatus($parent->getStatus())?></div></td>
-                    <td> <div class="data-grid-cell-content" > <a target="_blank" href="<?=$block->getAdminUrlProduct($parent->getId())?>"> <?= __("View")?></a></div></td>
-                </tr>
-            <?php
+                if($block->checkProductInStore($parent->getStoreIds())){
+                    ?>
+                    <tr class="data-row">
+                        <td> <div class="data-grid-cell-content" ><?= $parent->getId()?></div></td>
+                        <td> <div class="data-grid-cell-content" ><?= $parent->getName()?></div></td>
+                        <td> <div class="data-grid-cell-content" ><?= $block->getProductStatus($parent->getStatus())?></div></td>
+                        <td> <div class="data-grid-cell-content" > <a target="_blank" href="<?=$block->getAdminUrlProduct($parent->getId())?>"> <?= __("View")?></a></div></td>
+                    </tr>
+                    <?php
+                }
         }
         ?>
             </tbody>
