@@ -74,6 +74,19 @@ class AssociatedConfigProduct extends Template
     }
 
     /**
+     * @param $productStores
+     * @return bool
+     */
+    public function checkProductInStore($productStores){
+        $currentStore=$this->_storeManager->getStore()->getId();
+        if(in_array($currentStore,$productStores) || $currentStore == 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    /**
      * @param $id
      * @return array|false
      */
