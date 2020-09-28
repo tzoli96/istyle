@@ -156,7 +156,14 @@ class ProductResolver extends \Mirasvit\Feed\Export\Resolver\ProductResolver
             );
             $websiteparentIds = $this->productRelation->getConnection()->fetchCol($select);
             if (count($websiteparentIds)) {
-                return $this->productFactory->create()->load($websiteparentIds[0]);
+                //Sort PaerntsId
+                $sortedParentIds=array_reverse($websiteparentIds,true);
+                foreach ($sortedParentIds as $parentId){
+                    $parentData=$this->productFactory->create()->load($parentId);
+                    if($parentData->getStatus() == 1){
+                        return $parentData;
+                    }
+                }
             } else {
                 return $product;
             }
