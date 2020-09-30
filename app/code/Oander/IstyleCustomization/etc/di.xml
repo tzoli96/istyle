@@ -95,4 +95,8 @@
     <!-- #44918 END -->
 
     <preference for="Anowave\Ec\Preference\Related" type="Oander\IstyleCustomization\Rewrite\Anowave\Ec\Preference\Related" />
+
+    <type name="Xtento\OrderExport\Model\Export\Data">
+        <plugin name="IstyleCustomization::XtentoItem" type="Oander\IstyleCustomization\Plugin\Xtento\OrderExport\Model\Export\Data" sortOrder="100"/>
+    </type>
 </config>
