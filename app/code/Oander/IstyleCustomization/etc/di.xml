@@ -99,4 +99,8 @@
     <type name="Xtento\OrderExport\Model\Export\Data">
         <plugin name="IstyleCustomization::XtentoItem" type="Oander\IstyleCustomization\Plugin\Xtento\OrderExport\Model\Export\Data" sortOrder="100"/>
     </type>
+
+    <type name="Magento\Catalog\Model\Product\Action">
+        <plugin name="IstyleCustomization::WHExternalDisable" type="Oander\IstyleCustomization\Plugin\Magento\Catalog\Model\Product\Action" sortOrder="1"/>
+    </type>
 </config>
