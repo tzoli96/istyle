@@ -103,4 +103,10 @@
     <type name="Magento\Catalog\Model\Product\Action">
         <plugin name="IstyleCustomization::WHExternalDisable" type="Oander\IstyleCustomization\Plugin\Magento\Catalog\Model\Product\Action" sortOrder="1"/>
     </type>
+
+    <!-- #46683 START -->
+    <type name="Magento\Customer\CustomerData\Customer">
+        <plugin disabled="false" name="Oander_IstyleCustomization_Plugin_Magento_Customer_CustomerData_Customer" sortOrder="10" type="Oander\IstyleCustomization\Plugin\Magento\Customer\CustomerData\Customer"/>
+    </type>
+    <!-- #46683 END -->
 </config>
