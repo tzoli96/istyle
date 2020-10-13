@@ -70,7 +70,7 @@ class Data extends OriginalClass
                 ->withProduct($product)
                 ->withStoreId($storeId);
         }
-        */
+
 
         if (!in_array($product->getVisibility(), [
             Visibility::VISIBILITY_BOTH,
@@ -81,6 +81,7 @@ class Data extends OriginalClass
                 ->withProduct($product)
                 ->withStoreId($storeId);
         }
+        */
 
         if (!$this->configHelper->getShowOutOfStock($storeId)) {
             $stockItem = $this->stockRegistry->getStockItem($product->getId());
