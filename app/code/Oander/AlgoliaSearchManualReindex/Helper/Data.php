@@ -43,28 +43,20 @@ class Data extends OriginalClass
     }
 
     /**
-     * Check if product can be index on Algolia
-     *
      * @param Product $product
-     * @param int     $storeId
-     *
-     * @throws ProductDisabledException
-     * @throws ProductDeletedException
-     * @throws ProductNotVisibleException
-     * @throws ProductOutOfStockException
-     *
+     * @param int $storeId
      * @return bool
-     *
      */
     public function canProductBeReindexed($product, $storeId)
     {
+        /*
         if ($product->isDeleted() === true) {
             throw (new ProductDeletedException())
                 ->withProduct($product)
                 ->withStoreId($storeId);
         }
 
-        /* Disabled Status
+        Disabled Status
         if ($product->getStatus() == Status::STATUS_DISABLED) {
             throw (new ProductDisabledException())
                 ->withProduct($product)
@@ -81,7 +73,7 @@ class Data extends OriginalClass
                 ->withProduct($product)
                 ->withStoreId($storeId);
         }
-        */
+
 
         if (!$this->configHelper->getShowOutOfStock($storeId)) {
             $stockItem = $this->stockRegistry->getStockItem($product->getId());
@@ -92,6 +84,7 @@ class Data extends OriginalClass
             }
         }
 
+        */
         return true;
     }
 }
