@@ -49,6 +49,7 @@ class Data extends OriginalClass
      */
     public function canProductBeReindexed($product, $storeId)
     {
+
         /*
         if ($product->isDeleted() === true) {
             throw (new ProductDeletedException())
