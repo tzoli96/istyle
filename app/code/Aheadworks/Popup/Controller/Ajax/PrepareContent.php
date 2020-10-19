@@ -49,7 +49,7 @@ class PrepareContent extends \Aheadworks\Popup\Controller\Ajax
         $resultJson = $this->resultFactory->create(ResultFactory::TYPE_JSON);
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
-
+        $resultPage->setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0', true);
         $nameInLayout = $this->getRequest()->getParam('name_in_layout', '');
 
         $blockInstance = null;
