@@ -9536,11 +9536,11 @@
         },
         {
             "name": "oander/module-order-attachment",
-            "version": "1.0.4",
+            "version": "1.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-order-attachment.git",
-                "reference": "21a1cfc4cdc8a5876982684625f8a6c79b557515"
+                "reference": "a4820ae6a70e09d489d8f9beae7e1391e46a745f"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9559,7 +9559,7 @@
                 "proprietary"
             ],
             "description": "Order Attachment",
-            "time": "2020-09-10T07:40:17+00:00"
+            "time": "2020-10-21T07:56:37+00:00"
         },
         {
             "name": "oander/module-order-comment",

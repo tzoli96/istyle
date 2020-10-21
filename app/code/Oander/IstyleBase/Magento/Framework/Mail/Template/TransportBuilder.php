@@ -32,4 +32,22 @@ class TransportBuilder extends \Magento\Framework\Mail\Template\TransportBuilder
         $this->message->setFrom($result['email'], $result['name']);
         return $this;
     }
+
+    /**
+     * @param $content
+     * @param $name
+     * @return $this
+     */
+    public function addAttachment($content, $name)
+    {
+        $this->message->createAttachment(
+            $content,
+            \Zend_Mime::TYPE_OCTETSTREAM,
+            \Zend_Mime::DISPOSITION_ATTACHMENT,
+            \Zend_Mime::ENCODING_BASE64,
+            $name
+        );
+
+        return $this;
+    }
 }
