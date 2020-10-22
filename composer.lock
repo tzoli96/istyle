@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5029fed7fad6d88b92411caea062705d",
+    "content-hash": "9417fa84a402b1760880f48f3fa99f60",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -990,6 +990,20 @@
                 "semver",
                 "validation",
                 "versioning"
+            ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
             ],
             "time": "2020-09-27T13:13:07+00:00"
         },
@@ -6933,7 +6947,6 @@
                 "zendframework/zend-view": "~2.4.6"
             },
             "type": "metapackage",
-            "extra": [],
             "license": [
                 "OSL-3.0",
                 "AFL-3.0"
@@ -9351,11 +9364,11 @@
         },
         {
             "name": "oander/module-multislider",
-            "version": "4.0.0.1",
+            "version": "1.2.9.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-multi-slider.git",
-                "reference": "567fddaf24eb043bf123bdf45dc6a1eda3839510"
+                "reference": "a61e2f2056a2a7c1fedefca0742eda6bc2d2b4ae"
             },
             "require": {
                 "oander/module-base": ">=1.2.11",
@@ -9374,7 +9387,7 @@
                 "proprietary"
             ],
             "description": "Slider module",
-            "time": "2020-09-14T16:15:57+00:00"
+            "time": "2020-10-20T08:56:51+00:00"
         },
         {
             "name": "oander/module-name-switcher",
@@ -9997,11 +10010,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.12.18",
+            "version": "1.1.12.22",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "e5d46461ec6ae8c27faf2ebcbac1b78b028e11a2"
+                "reference": "719a251d48aa08501782d63c21e6c393879bf867"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -10030,7 +10043,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2020-10-09T10:23:39+00:00"
+            "time": "2020-10-21T23:22:28+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -10616,20 +10629,20 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v9.99.99",
+            "version": "v9.99.100",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95"
+                "reference": "996434e5492cb4c3edcb9168db6fbb1359ef965a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95",
-                "reference": "84b4dfb120c6f9b4ff7b3685f9b8f1aa365a0c95",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/996434e5492cb4c3edcb9168db6fbb1359ef965a",
+                "reference": "996434e5492cb4c3edcb9168db6fbb1359ef965a",
                 "shasum": ""
             },
             "require": {
-                "php": "^7"
+                "php": ">= 7"
             },
             "require-dev": {
                 "phpunit/phpunit": "4.*|5.*",
@@ -10657,7 +10670,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2018-07-02T15:55:56+00:00"
+            "time": "2020-10-15T08:29:30+00:00"
         },
         {
             "name": "pelago/emogrifier",
@@ -10906,6 +10919,20 @@
                 "twofish",
                 "x.509",
                 "x509"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/terrafrost",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpseclib",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
+                    "type": "tidelift"
+                }
             ],
             "time": "2020-09-08T04:24:43+00:00"
         },
@@ -11737,6 +11764,20 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-09-02T16:06:40+00:00"
         },
         {
@@ -15277,6 +15318,20 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-03-15T09:38:08+00:00"
         },
         {
@@ -15336,5 +15391,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
