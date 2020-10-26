@@ -9059,11 +9059,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.1.3.5",
+            "version": "1.1.3.6",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "af031d6610d6041c422134ac97d4bcb3d42ccddb"
+                "reference": "dbc671aa5cc3a6aba6c3ee8d0366155073161bf7"
             },
             "require": {
                 "php": "7.*"
@@ -9081,7 +9081,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2020-09-26T10:01:21+00:00"
+            "time": "2020-10-22T12:53:03+00:00"
         },
         {
             "name": "oander/module-email-additional-data",
