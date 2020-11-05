@@ -10308,6 +10308,35 @@
             "time": "2020-08-01T20:14:38+00:00"
         },
         {
+            "name": "oander/module-url-rewrite-basic",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-url-rewrite-basic.git",
+                "reference": "5b24e3bc584a62d146dfdf436a20c1d650c9a779"
+            },
+            "require": {
+                "magento/module-url-rewrite": "*",
+                "oander/module-base": "*",
+                "oander/module-test-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\UrlRewriteBasic\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Url Rewrite csv module",
+            "time": "2017-11-07T09:55:21+00:00"
+        },
+        {
             "name": "oander/module-warehouse-manager",
             "version": "1.4.26.3",
             "source": {
