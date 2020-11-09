@@ -197,7 +197,7 @@ class Popup extends Template
      *
      * @return array
      */
-    public function getPopupsArrayContentHtml()
+    public function getPopupsArrayContentHtml($cookies = [])
     {
         $rFrom = [
             '"' . ActionInterface::PARAM_NAME_URL_ENCODED . '":',
@@ -230,7 +230,7 @@ class Popup extends Template
             return $popupsContentArr;
         }
 
-        $excludedIds = $this->__getExcludedPopupIds();
+        $excludedIds = $this->__getExcludedPopupIds($cookies);
         $customerPageViewed = $this->__getCustomerPageViewedCount();
 
         $popupCollection
@@ -302,10 +302,14 @@ class Popup extends Template
      *
      * @return array
      */
-    private function __getExcludedPopupIds()
+    private function __getExcludedPopupIds($cookies = [])
     {
+        if (empty($cookies)) {
+            $cookies = $_COOKIE;
+        }
+
         // phpcs:disable Magento2.Security.Superglobal
-        $keys = array_keys($_COOKIE);
+        $keys = array_keys($cookies);
         $pattern = '/' . Event::VIEWED_POPUP_COUNT_COOKIE_NAME . '*/';
         $popupKeys = preg_grep($pattern, $keys);
         $result = [];

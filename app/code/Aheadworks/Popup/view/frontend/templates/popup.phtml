@@ -35,7 +35,8 @@
                         name_in_layout:  '<?php echo $block->escapeHtml($block->getNameInLayout());?>',
                         product_id: '<?php echo $block->escapeHtml($block->getProductId())?>',
                         preview: '<?php echo $block->escapeHtml($block->getRequest()->getParam('preview', 0))?>',
-                        popup_info: '<?php echo $block->escapeHtml($block->getRequest()->getParam('popup_info', ""))?>'
+                        popup_info: '<?php echo $block->escapeHtml($block->getRequest()->getParam('popup_info', ""))?>',
+                        cookies: decodeURI(document.cookie)
                     },
                     complete: function(response) {
                         try {
