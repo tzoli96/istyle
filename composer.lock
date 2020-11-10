@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf15ca4ee864cd590ff96e6290d23c0a",
+    "content-hash": "43ca01478868913089d288fee5a820b8",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -10310,11 +10310,11 @@
         },
         {
             "name": "oander/module-url-rewrite-basic",
-            "version": "1.0.1",
+            "version": "1.0.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-url-rewrite-basic.git",
-                "reference": "5b24e3bc584a62d146dfdf436a20c1d650c9a779"
+                "reference": "9c6859eea98ddd7c5db5faac948484591e1e0bda"
             },
             "require": {
                 "magento/module-url-rewrite": "*",
@@ -10335,7 +10335,7 @@
                 "proprietary"
             ],
             "description": "Oander Url Rewrite csv module",
-            "time": "2017-11-07T09:55:21+00:00"
+            "time": "2020-11-10T07:49:42+00:00"
         },
         {
             "name": "oander/module-warehouse-manager",
