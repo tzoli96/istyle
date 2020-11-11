@@ -56,6 +56,7 @@ class PrepareContent extends \Aheadworks\Popup\Controller\Ajax
 
         /** @var \Aheadworks\Popup\Block\Popup $blockInstance */
         $blockInstance = $resultPage->getLayout()->createBlock(Popup::class, $nameInLayout);
+        $cookies = $this->cookiesToArray($this->getRequest()->getParam('cookies',''));
 
         if ($blockInstance) {
             $productId = $this->getRequest()->getParam('product_id', null);
@@ -65,7 +66,7 @@ class PrepareContent extends \Aheadworks\Popup\Controller\Ajax
                 ['id' => $productId, 'preview' => $isPreview, 'popup_info' => $popupInfo]
             );
 
-            $result['popups'] = json_encode($this->getPopupsContentHtml($blockInstance));
+            $result['popups'] = json_encode($this->getPopupsContentHtml($blockInstance, $cookies));
             $result['success'] = true;
         } else {
             $result['success'] = false;
@@ -75,15 +76,36 @@ class PrepareContent extends \Aheadworks\Popup\Controller\Ajax
     }
 
     /**
+     * @param $cookies
+     * @return array
+     */
+    private function cookiesToArray($cookies)
+    {
+        $result = [];
+        $tmpCookies = [];
+        if(strpos($cookies,';') !== false){
+            $tmpCookies = explode(';', $cookies);
+        }
+        foreach ($tmpCookies as $cookie) {
+            if(strpos($cookie,'=' ) !== false){
+                $tmpCookie = explode('=', $cookie);
+                $result[trim($tmpCookie[0])] = $tmpCookie[1];
+            }
+        }
+
+        return $result;
+    }
+
+    /**
      * Retrieve Popups content
      *
      * @param \Aheadworks\Popup\Block\Popup $block
      * @return array
      */
-    private function getPopupsContentHtml($block)
+    private function getPopupsContentHtml($block, $cookies = [])
     {
         if (!$this->config->getHidePopupForMobileDevices() && !$this->config->getHidePopupForSearchEngines()) {
-            return $block->getPopupsArrayContentHtml();
+            return $block->getPopupsArrayContentHtml($cookies);
         }
 
         $userAgent = $this->getRequest()->getHeader('User-Agent');
@@ -96,7 +118,7 @@ class PrepareContent extends \Aheadworks\Popup\Controller\Ajax
             || ($this->config->getHidePopupForSearchEngines() && $isBot)) {
             return $result;
         } else {
-            return $block->getPopupsArrayContentHtml();
+            return $block->getPopupsArrayContentHtml($cookies);
         }
     }
 }

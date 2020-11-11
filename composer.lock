@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "325e36f12ff1ac48c777a7c9a4938c53",
+    "content-hash": "a76f8575e759bbebebabb0cde35c4ef5",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6933,6 +6933,7 @@
                 "zendframework/zend-view": "~2.4.6"
             },
             "type": "metapackage",
+            "extra": [],
             "license": [
                 "OSL-3.0",
                 "AFL-3.0"
@@ -10308,6 +10309,35 @@
             "time": "2020-08-01T20:14:38+00:00"
         },
         {
+            "name": "oander/module-url-rewrite-basic",
+            "version": "1.0.1.3",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-url-rewrite-basic.git",
+                "reference": "73d472f9355dd80f5b2bf5a6e63ad8ed66604889"
+            },
+            "require": {
+                "magento/module-url-rewrite": "*",
+                "oander/module-base": "*",
+                "oander/module-test-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\UrlRewriteBasic\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Url Rewrite csv module",
+            "time": "2020-11-10T22:46:36+00:00"
+        },
+        {
             "name": "oander/module-warehouse-manager",
             "version": "1.4.26.6",
             "source": {
@@ -10532,7 +10562,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "7c30945db9dce079fd0116b88aa58548d46ea60d"
+                "reference": "e872a1e691f8aee0912187a141dfe97d7ec99afd"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10548,7 +10578,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2020-10-08T15:15:06+00:00"
+            "time": "2020-11-05T16:24:37+00:00"
         },
         {
             "name": "oyejorge/less.php",

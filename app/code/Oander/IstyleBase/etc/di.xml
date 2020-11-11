@@ -25,7 +25,6 @@
     <type name="Magento\Catalog\Model\Product">
         <plugin name="Oander_IstyleBase::magento_catalog_model_product" type="Oander\IstyleBase\Plugin\Catalog\Model\Product"/>
     </type>
-    <preference for="Oander\WarehouseManager\Model\Indexer\WarehouseItem" type="Oander\IstyleBase\Model\Indexer\WarehouseItem"/>
     <preference for="Oander\DiscountBadge\Model\DiscountCalculator" type="Oander\IstyleBase\DiscountBadge\Model\DiscountCalculator"/>
     <preference for="Amasty\Payrestriction\Model\Restrict" type="Oander\IstyleBase\Magento\Amasty\Payrestriction\Model\Restrict"/>
     <preference for="Oander\OrderAttachment\Magento\Sales\Model\Order\Email\SenderBuilder" type="Oander\IstyleBase\Magento\Sales\Model\Order\Email\SenderBuilder"/>
