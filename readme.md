@@ -1,7 +1,6 @@
 # iStyle M2   
 
 
-
 **Utoljára frissítve:** 2017.05.14.
 
 **Tartalomjegyzék:**
