@@ -147,7 +147,7 @@ define(
                     dataType: 'json'
                 }).done(function (data) {
                     if (data.CalcData) {
-                        $this.setAjaxResponse(data.CalcData[0].Amount, data.CalcData[0].Month, data.CalcData[0].THM, data.CalcData[0].Installment);
+                        $this.setAjaxResponse(data.CalcData[0].Amount, data.CalcData[0].Month, data.CalcData[0].THM, data.CalcData[0].Installment, data.CalcData[0].Downpmnt);
                     }
                     else if (data.Error) {
                         $(selectors.currentTab).find('.messages--cofidis').removeClass('hide');
@@ -158,9 +158,9 @@ define(
                 });
             },
 
-            setAjaxResponse: function (amount, month, thm, installment) {
+            setAjaxResponse: function (amount, month, thm, installment, downpmnt) {
                 $(selectors.currentTab).find(responses.amount).html(this.getFormatPrice(amount));
-                $(selectors.currentTab).find(responses.totalPayable).html(this.getFormatPrice(installment * month));
+                $(selectors.currentTab).find(responses.totalPayable).html(this.getFormatPrice(amount - downpmnt));
                 $(selectors.currentTab).find(responses.installmentMonths).html(month);
                 $(selectors.currentTab).find(responses.monthlyInstalment).html(this.getFormatPrice(installment));
                 $(selectors.currentTab).find(responses.thm).html((thm * 100));
