@@ -57,7 +57,7 @@ class Index extends Action
         );
 
         $parameters=http_build_query($postdata);
-        $ch = curl_init('https://cofidis.webdesign.hu/hidden/?' .
+        $ch = curl_init('https://www.cofidis.hu/calculatorweb/wcalc_eles/hidden/?' .
         $parameters);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
 
