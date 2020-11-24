@@ -62,7 +62,7 @@ class Index extends \Magento\Framework\View\Element\Template
             'order_id'  => $order->getIncrementId(),                                            //alap
             //'deliveryMethod' => '1',                                                          //alap de nem kell
             'identification_type' => '1',                                                       //alap de fix 1
-            'shop_nev' => $order->getBillingAddress()->getName(),                               //telefonos, name of payer
+            'shop_nev' => $order->getBillingAddress()->getLastname() . ' ' . $order->getBillingAddress()->getFirstname(),    //telefonos, name of payer
             'shop_telefon' => $order->getBillingAddress()->getTelephone(),                      //telefonos, phone number of payer
             'shop_email' => $order->getBillingAddress()->getEmail(),                        //telefonos, email of payer
         );
