@@ -10279,11 +10279,11 @@
         },
         {
             "name": "oander/module-unity-pickup",
-            "version": "1.0.18.18",
+            "version": "1.0.18.19",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-unity-pickup.git",
-                "reference": "59fcb4c81d8a26c7ad6077aa8c58690cbfac0fcf"
+                "reference": "455ef508f856761ad3b124f5b1f0177034a45da0"
             },
             "require": {
                 "oander/module-base": "*",
