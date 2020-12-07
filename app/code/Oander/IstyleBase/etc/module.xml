@@ -22,6 +22,9 @@
     <module name="Oander_IstyleBase" setup_version="1.0.5">
         <sequence>
             <module name="Oander_Base" />
+            <module name="Amasty_Payrestriction" />
+            <module name="Amasty_CommonRules" />
+            <module name="Amasty_Base" />
         </sequence>
     </module>
 

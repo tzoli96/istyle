@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "325e36f12ff1ac48c777a7c9a4938c53",
+    "content-hash": "2ff90c97edb8953cdd0efe1790ad9c4f",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -6933,6 +6933,7 @@
                 "zendframework/zend-view": "~2.4.6"
             },
             "type": "metapackage",
+            "extra": [],
             "license": [
                 "OSL-3.0",
                 "AFL-3.0"
@@ -10278,11 +10279,11 @@
         },
         {
             "name": "oander/module-unity-pickup",
-            "version": "1.0.18.16",
+            "version": "1.0.18.19",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-unity-pickup.git",
-                "reference": "a29cbbc94a1e76d8786e879d61475abdf5f1d25a"
+                "reference": "455ef508f856761ad3b124f5b1f0177034a45da0"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10305,7 +10306,7 @@
                 "proprietary"
             ],
             "description": "Oander Unity Pickup",
-            "time": "2020-08-01T20:14:38+00:00"
+            "time": "2020-11-13T14:26:46+00:00"
         },
         {
             "name": "oander/module-url-rewrite-basic",
@@ -10334,15 +10335,15 @@
                 "proprietary"
             ],
             "description": "Oander Url Rewrite csv module",
-            "time": "2017-11-07T09:55:21+00:00"
+            "time": "2020-11-10T22:46:36+00:00"
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.26.3",
+            "version": "1.4.26.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "b8f5ec6dff4f4c7b9839c6929b1d51286654c09b"
+                "reference": "421e7debf626d3e88847bba96549441f055b0a13"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10363,7 +10364,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2020-10-30T12:19:18+00:00"
+            "time": "2020-11-19T15:58:36+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
@@ -10561,7 +10562,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "7c30945db9dce079fd0116b88aa58548d46ea60d"
+                "reference": "5bb814558c4dbac7fddfa4c4a1806469da4be86f"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10577,7 +10578,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2020-10-08T15:15:06+00:00"
+            "time": "2020-11-17T22:04:19+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -11224,16 +11225,16 @@
         },
         {
             "name": "seld/jsonlint",
-            "version": "1.8.2",
+            "version": "1.8.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/jsonlint.git",
-                "reference": "590cfec960b77fd55e39b7d9246659e95dd6d337"
+                "reference": "9ad6ce79c342fbd44df10ea95511a1b24dee5b57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/590cfec960b77fd55e39b7d9246659e95dd6d337",
-                "reference": "590cfec960b77fd55e39b7d9246659e95dd6d337",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/9ad6ce79c342fbd44df10ea95511a1b24dee5b57",
+                "reference": "9ad6ce79c342fbd44df10ea95511a1b24dee5b57",
                 "shasum": ""
             },
             "require": {
@@ -11269,7 +11270,7 @@
                 "parser",
                 "validator"
             ],
-            "time": "2020-08-25T06:56:57+00:00"
+            "time": "2020-11-11T09:19:24+00:00"
         },
         {
             "name": "seld/phar-utils",
@@ -11720,16 +11721,16 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.46",
+            "version": "v3.4.47",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "4e1da3c110c52d868f8a9153b7de3ebc381fba78"
+                "reference": "b6b6ad3db3edb1b4b1c1896b1975fb684994de6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/4e1da3c110c52d868f8a9153b7de3ebc381fba78",
-                "reference": "4e1da3c110c52d868f8a9153b7de3ebc381fba78",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/b6b6ad3db3edb1b4b1c1896b1975fb684994de6e",
+                "reference": "b6b6ad3db3edb1b4b1c1896b1975fb684994de6e",
                 "shasum": ""
             },
             "require": {
@@ -11760,7 +11761,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2020-10-24T10:57:07+00:00"
+            "time": "2020-11-16T17:02:08+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -15255,7 +15256,7 @@
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v3.4.46",
+            "version": "v3.4.47",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stopwatch.git",

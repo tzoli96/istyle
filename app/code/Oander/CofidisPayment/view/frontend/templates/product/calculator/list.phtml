@@ -310,7 +310,7 @@ use \Oander\CofidisPayment\Enum\Ownshare;
               dataType: 'json'
             }).done(function(data) {
               if (data.CalcData) {
-                setAjaxResponse(data.CalcData[0].Amount, data.CalcData[0].Month, data.CalcData[0].THM, data.CalcData[0].Installment);
+                setAjaxResponse(data.CalcData[0].Amount, data.CalcData[0].Month, data.CalcData[0].THM, data.CalcData[0].Installment, data.CalcData[0].Downpmnt);
               } else if (data.Error) {
                 $(currentTabSelector).find('.messages--cofidis').removeClass('hide');
                 $(currentTabSelector).find('.messages--cofidis').find('.message.error').html($t('Wrong calculation parameters'));
@@ -320,11 +320,11 @@ use \Oander\CofidisPayment\Enum\Ownshare;
             });
           }
 
-          function setAjaxResponse(amount, month, thm, installment) {
+          function setAjaxResponse(amount, month, thm, installment, downpmnt) {
             var currentTab = $(currentTabSelector);
 
             currentTab.find(responses.amount).html(formatPrice(amount));
-            currentTab.find(responses.totalPayable).html(formatPrice(installment * month));
+            currentTab.find(responses.totalPayable).html(formatPrice(amount - downpmnt));
             currentTab.find(responses.installmentMonths).html(month);
             currentTab.find(responses.monthlyInstalment).html(formatPrice(installment));
             currentTab.find(responses.thm).html((thm * 100));

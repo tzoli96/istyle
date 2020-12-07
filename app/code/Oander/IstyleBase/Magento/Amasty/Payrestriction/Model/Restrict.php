@@ -10,6 +10,7 @@ use Magento\Framework\App\ProductMetadataInterface;
 use Magento\Framework\App\State;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Payment\Model\Method\AbstractMethod;
+use Magento\Quote\Model\Quote;
 use Magento\Quote\Model\Quote\Address;
 use Magento\Quote\Model\Quote\Item;
 
@@ -25,6 +26,23 @@ class Restrict extends OriginalClass
      */
     private $salesRuleValidator;
 
+    /**
+     * @var ProductMetadataInterface
+     */
+    private $productMetaData;
+
+
+    /**
+     * @var Collection
+     */
+    protected $ruleCollection;
+
+    /**
+     * @var State
+     */
+    protected $appState;
+
+
     public function __construct(
         Collection $ruleCollection,
         State $appState,
@@ -33,6 +51,50 @@ class Restrict extends OriginalClass
     ) {
         parent::__construct($ruleCollection, $appState, $salesRuleValidator, $productMetaData);
         $this->salesRuleValidator = $salesRuleValidator;
+        $this->productMetaData = $productMetaData;
+        $this->appState = $appState;
+        $this->ruleCollection = $ruleCollection;
+    }
+
+    /**
+     * @param AbstractMethod[] $paymentMethods
+     * @param Quote|null $quote
+     *
+     * @return mixed
+     * @throws LocalizedException
+     */
+    public function restrictMethods($paymentMethods, $quote = null)
+    {
+        if (!$quote) {
+            return $paymentMethods;
+        }
+
+        if ($this->productMetaData->getVersion() <= '2.2.1') {
+            $quote->collectTotals();
+        }
+
+        $address = $quote->getShippingAddress();
+        $items = $quote->getAllItems();
+        $address->setItemsToValidateRestrictions($items);
+        $hasBackOrders = false;
+        $hasNoBackOrders = false;
+
+        /** @var Item $item */
+        foreach ($items as $item){
+            if ($item->getBackorders() > 0 )
+            {
+                $hasBackOrders = true;
+            } else {
+                $hasNoBackOrders = true;
+            }
+
+            if ($hasBackOrders && $hasNoBackOrders) {
+                break;
+            }
+        }
+        $paymentMethods = $this->validateMethodsHotFix($paymentMethods, $address, $items);
+
+        return $paymentMethods;
     }
 
     /**
@@ -43,17 +105,12 @@ class Restrict extends OriginalClass
      * @return AbstractMethod[]
      * @throws LocalizedException
      */
-    private function validateMethods($paymentMethods, $address, $items)
+    private function validateMethodsHotFix($paymentMethods, $address, $items)
     {
         foreach ($paymentMethods as $key => $method) {
             /** @var Rule $rule */
-            foreach ($this->getRules($address) as $rule) {
-                if ($rule->restrict($method)
-                    && $this->salesRuleValidator->validate($rule, $items)
-                    && $rule->validate($address, $items)
-                ) {
-                    unset($paymentMethods[$key]);
-                }
+            $rules=$this->getRules($address);
+            foreach ($rules as $rule) {
                 //HOT FIX
                 if($address->getQuote()->getStoreId() == self::HOT_FIX_STORE_ID
                     && $method->getCode() === self::HOT_FIX_PAYMENTMEHODE_CODE
@@ -61,10 +118,20 @@ class Restrict extends OriginalClass
                 ) {
                     unset($paymentMethods[$key]);
                 }
+
+                $rule->getId();
+                if ($rule->restrict($method)
+                    && $this->salesRuleValidator->validate($rule, $items)
+                    && $rule->validate($address, $items)
+                ) {
+                    $rule->getId();
+                    unset($paymentMethods[$key]);
+                }
             }
 
         }
 
+        $test=$paymentMethods;
         return $paymentMethods;
     }
 
@@ -83,9 +150,7 @@ class Restrict extends OriginalClass
             if ($this->appState->getAreaCode() == FrontNameResolver::AREA_CODE) {
                 $this->allRules->addFieldToFilter('for_admin', 1);
             }
-
             $this->allRules->load();
-
             /** @var Rule $rule */
             foreach ($this->allRules as $rule
             ){

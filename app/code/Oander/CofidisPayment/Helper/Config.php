@@ -135,14 +135,26 @@ class Config extends AbstractHelper
         $ownshares = [];
         if($this->isLive($storeId))
         {
-            if(is_string($this->getConfig($storeId)[ConfigEnum::OWNSHARES])) {
-                $ownshares = unserialize($this->getConfig($storeId)[ConfigEnum::OWNSHARES]);
+            if(isset($this->getConfig($storeId)[ConfigEnum::OWNSHARES])) {
+                if (is_string($this->getConfig($storeId)[ConfigEnum::OWNSHARES])) {
+                    $ownshares = unserialize($this->getConfig($storeId)[ConfigEnum::OWNSHARES]);
+                }
+            }
+            else
+            {
+                $ownshares = [];
             }
         }
         else
         {
-            if(is_string($this->getConfig($storeId)[ConfigEnum::OWNSHARES_TEST])) {
-                $ownshares = unserialize($this->getConfig($storeId)[ConfigEnum::OWNSHARES_TEST]);
+            if(isset($this->getConfig($storeId)[ConfigEnum::OWNSHARES_TEST])) {
+                if (is_string($this->getConfig($storeId)[ConfigEnum::OWNSHARES_TEST])) {
+                    $ownshares = unserialize($this->getConfig($storeId)[ConfigEnum::OWNSHARES_TEST]);
+                }
+            }
+            else
+            {
+                $ownshares = [];
             }
         }
         if(count($ownshares)>0)
@@ -186,7 +198,10 @@ class Config extends AbstractHelper
      */
     public function getTermsUrl($storeId = null)
     {
-        return $this->getConfig($storeId)[ConfigEnum::TERMS_URL];
+        if(isset($this->getConfig($storeId)[ConfigEnum::TERMS_URL]))
+            return $this->getConfig($storeId)[ConfigEnum::TERMS_URL];
+        else
+            return $this->_getUrl();
     }
 
     /**
