@@ -10309,11 +10309,11 @@
         },
         {
             "name": "oander/module-url-rewrite-basic",
-            "version": "1.0.1",
+            "version": "1.0.1.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-url-rewrite-basic.git",
-                "reference": "5b24e3bc584a62d146dfdf436a20c1d650c9a779"
+                "reference": "d106429733209000b3469dd8a952dfde396bec6d"
             },
             "require": {
                 "magento/module-url-rewrite": "*",
