@@ -324,7 +324,7 @@ use \Oander\CofidisPayment\Enum\Ownshare;
             var currentTab = $(currentTabSelector);
 
             currentTab.find(responses.amount).html(formatPrice(amount));
-            currentTab.find(responses.totalPayable).html(formatPrice(amount - downpmnt));
+            currentTab.find(responses.totalPayable).html((thm != 0) ? formatPrice(installment * month) : formatPrice(amount - downpmnt));
             currentTab.find(responses.installmentMonths).html(month);
             currentTab.find(responses.monthlyInstalment).html(formatPrice(installment));
             currentTab.find(responses.thm).html((thm * 100));

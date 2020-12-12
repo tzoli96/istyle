@@ -160,7 +160,7 @@ define(
 
             setAjaxResponse: function (amount, month, thm, installment, downpmnt) {
                 $(selectors.currentTab).find(responses.amount).html(this.getFormatPrice(amount));
-                $(selectors.currentTab).find(responses.totalPayable).html(this.getFormatPrice(amount - downpmnt));
+                $(selectors.currentTab).find(responses.totalPayable).html((thm != 0) ? this.getFormatPrice(installment * month) : this.getFormatPrice(amount - downpmnt));
                 $(selectors.currentTab).find(responses.installmentMonths).html(month);
                 $(selectors.currentTab).find(responses.monthlyInstalment).html(this.getFormatPrice(installment));
                 $(selectors.currentTab).find(responses.thm).html((thm * 100));
