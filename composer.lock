@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2ff90c97edb8953cdd0efe1790ad9c4f",
+    "content-hash": "5e48456192afc3f548a47e4a4622b2e4",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -537,16 +537,16 @@
         },
         {
             "name": "bigfish/paymentgateway",
-            "version": "3.5.0",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bigfish-hu/payment-gateway-php-sdk.git",
-                "reference": "c997329e9c8c287234ba3dbb237951c0e43cdb69"
+                "reference": "100cfb45113f97f52d6075637b0af5426887a05c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/c997329e9c8c287234ba3dbb237951c0e43cdb69",
-                "reference": "c997329e9c8c287234ba3dbb237951c0e43cdb69",
+                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/100cfb45113f97f52d6075637b0af5426887a05c",
+                "reference": "100cfb45113f97f52d6075637b0af5426887a05c",
                 "shasum": ""
             },
             "require": {
@@ -575,7 +575,7 @@
                 "payment",
                 "webshop"
             ],
-            "time": "2020-06-15T04:43:06+00:00"
+            "time": "2020-10-21T05:13:41+00:00"
         },
         {
             "name": "bigfishpaymentgateway/pmgw",
@@ -934,20 +934,20 @@
         },
         {
             "name": "composer/semver",
-            "version": "1.7.1",
+            "version": "1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "38276325bd896f90dfcfe30029aa5db40df387a7"
+                "reference": "647490bbcaf7fc4891c58f47b825eb99d19c377a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/38276325bd896f90dfcfe30029aa5db40df387a7",
-                "reference": "38276325bd896f90dfcfe30029aa5db40df387a7",
+                "url": "https://api.github.com/repos/composer/semver/zipball/647490bbcaf7fc4891c58f47b825eb99d19c377a",
+                "reference": "647490bbcaf7fc4891c58f47b825eb99d19c377a",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.2 || ^7.0"
+                "php": "^5.3.2 || ^7.0 || ^8.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.5 || ^5.0.5"
@@ -991,20 +991,20 @@
                 "validation",
                 "versioning"
             ],
-            "time": "2020-09-27T13:13:07+00:00"
+            "time": "2020-12-03T15:47:16+00:00"
         },
         {
             "name": "composer/spdx-licenses",
-            "version": "1.5.4",
+            "version": "1.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/spdx-licenses.git",
-                "reference": "6946f785871e2314c60b4524851f3702ea4f2223"
+                "reference": "de30328a7af8680efdc03e396aad24befd513200"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/6946f785871e2314c60b4524851f3702ea4f2223",
-                "reference": "6946f785871e2314c60b4524851f3702ea4f2223",
+                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/de30328a7af8680efdc03e396aad24befd513200",
+                "reference": "de30328a7af8680efdc03e396aad24befd513200",
                 "shasum": ""
             },
             "require": {
@@ -1016,7 +1016,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-main": "1.x-dev"
                 }
             },
             "autoload": {
@@ -1051,7 +1051,7 @@
                 "spdx",
                 "validator"
             ],
-            "time": "2020-07-15T15:35:07+00:00"
+            "time": "2020-12-03T16:04:16+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -7062,16 +7062,16 @@
         },
         {
             "name": "mageplaza/module-core",
-            "version": "1.4.9",
+            "version": "1.4.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mageplaza/module-core.git",
-                "reference": "3c531ab1b1390ae04f6a9886d0d2f0a5d40788b9"
+                "reference": "d050c9f35b04197e97b6747d7dbf1f164b1f26fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/3c531ab1b1390ae04f6a9886d0d2f0a5d40788b9",
-                "reference": "3c531ab1b1390ae04f6a9886d0d2f0a5d40788b9",
+                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/d050c9f35b04197e97b6747d7dbf1f164b1f26fe",
+                "reference": "d050c9f35b04197e97b6747d7dbf1f164b1f26fe",
                 "shasum": ""
             },
             "type": "magento2-module",
@@ -7096,7 +7096,7 @@
                 }
             ],
             "description": "Mageplaza Core for Magento 2",
-            "time": "2020-08-04T17:20:33+00:00"
+            "time": "2020-12-07T08:10:17+00:00"
         },
         {
             "name": "mageplaza/module-gdpr",
@@ -10279,11 +10279,11 @@
         },
         {
             "name": "oander/module-unity-pickup",
-            "version": "1.0.18.19",
+            "version": "1.1.0.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-unity-pickup.git",
-                "reference": "455ef508f856761ad3b124f5b1f0177034a45da0"
+                "reference": "58fd95049fd75ea145f1471caa0723c7da207cf0"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10306,7 +10306,7 @@
                 "proprietary"
             ],
             "description": "Oander Unity Pickup",
-            "time": "2020-11-13T14:26:46+00:00"
+            "time": "2020-12-14T15:07:53+00:00"
         },
         {
             "name": "oander/module-url-rewrite-basic",
