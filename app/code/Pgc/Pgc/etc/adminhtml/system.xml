@@ -21,6 +21,18 @@
                 <group id="pgc_cc" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>CreditCard</label>
 
+                    <field id="title" translate="title" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Title</label>
+                        <config_path>payment/pgc_creditcard/title</config_path>
+                    </field>
+                    <field id="instructions" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Instructions</label>
+                        <config_path>payment/pgc_creditcard/instructions</config_path>
+                    </field>
+                    <field id="callback_url" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Callback Url</label>
+                        <config_path>payment/pgc_creditcard/callback_url</config_path>
+                    </field>
                     <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                         <label>Enabled</label>
                         <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>

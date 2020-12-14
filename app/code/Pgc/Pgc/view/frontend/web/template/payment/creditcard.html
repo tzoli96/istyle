@@ -9,6 +9,7 @@
         </label>
     </div>
     <div class="payment-method-content">
+        <p data-bind="html: getInstructions()"></p>
         <!-- ko foreach: getRegion('messages') -->
         <!-- ko template: getTemplate() --><!-- /ko -->
         <!--/ko-->

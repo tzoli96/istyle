@@ -2,22 +2,30 @@
 
 namespace Pgc\Pgc\Controller\Payment;
 
+use Magento\Checkout\Api\PaymentInformationManagementInterface;
+use Magento\Checkout\Model\Session;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Framework\UrlInterface;
 use Magento\Payment\Helper\Data;
 use Magento\Sales\Model\Order;
+use Magento\Store\Model\StoreManagerInterface;
 
 class Frontend extends Action
 {
+
     /**
-     * @var \Magento\Checkout\Model\Session
+     * @var StoreManagerInterface
+     */
+    private $storeManager;
+    /**
+     * @var Session
      */
     private $session;
 
     /**
-     * @var \Magento\Checkout\Api\PaymentInformationManagementInterface
+     * @var PaymentInformationManagementInterface
      */
     private $paymentInformation;
 
@@ -43,13 +51,19 @@ class Frontend extends Action
 
     /**
      * Frontend constructor.
+     * @param StoreManagerInterface $storeManager
      * @param Context $context
-     * @param \Magento\Checkout\Model\Session $checkoutSession
+     * @param Session $checkoutSession
+     * @param PaymentInformationManagementInterface $paymentInformation
+     * @param Data $paymentHelper
+     * @param \Pgc\Pgc\Helper\Data $pgcHelper
+     * @param JsonFactory $resultJsonFactory
      */
     public function __construct(
+        StoreManagerInterface $storeManager,
         Context $context,
-        \Magento\Checkout\Model\Session $checkoutSession,
-        \Magento\Checkout\Api\PaymentInformationManagementInterface $paymentInformation,
+        Session $checkoutSession,
+        PaymentInformationManagementInterface $paymentInformation,
         Data $paymentHelper,
         \Pgc\Pgc\Helper\Data $pgcHelper,
         JsonFactory $resultJsonFactory
@@ -61,6 +75,7 @@ class Frontend extends Action
         $this->urlBuilder = $context->getUrl();
         $this->pgcHelper = $pgcHelper;
         $this->resultJsonFactory = $resultJsonFactory;
+        $this->storeManager = $storeManager;
     }
 
     public function execute()
@@ -81,7 +96,6 @@ class Frontend extends Action
         $transactionType = $this->pgcHelper->getPaymentConfigData('transaction_type', $paymentMethod, null);
         //file_put_contents('/var/www/ikari.aufbix.org/public_html/magento2/sig.txt', print_r($this->pgcHelper->getPaymentConfigData('shared_secret', $paymentMethod, null), TRUE));
         $order = $this->session->getLastRealOrder();
-
         $transaction = null; 
         switch ($transactionType) {
             case 'debit':
@@ -140,7 +154,11 @@ class Frontend extends Action
         $transaction->setCancelUrl($baseUrl . 'payment/redirect?reason=cancel');
         $transaction->setErrorUrl($baseUrl . 'payment/redirect?reason=error');
 
-        $transaction->setCallbackUrl($baseUrl . 'payment/callback');
+        $transaction->setCallbackUrl($this->pgcHelper->getPaymentConfigData(
+            'callback_url',
+            $paymentMethod,
+            $this->storeManager->getStore()->getId()
+        ));
 
 //        $this->prepare3dSecure2Data($transaction, $order);
         //file_put_contents('/var/www/ikari.aufbix.org/public_html/magento2/tran.txt', print_r($transaction, TRUE));
