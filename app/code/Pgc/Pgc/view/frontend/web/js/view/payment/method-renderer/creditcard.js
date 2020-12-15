@@ -11,12 +11,13 @@ define(
             defaults: {
                 template: "Pgc_Pgc/payment/creditcard"
             },
-
             initialize: function() {
                 this._super();
                 this.config = window.checkoutConfig.payment[this.getCode()];
             },
-
+            getInstructions: function () {
+                return this.config.instructions;
+            },
             afterPlaceOrder: function () {
 
                 this.redirectAfterPlaceOrder = false;

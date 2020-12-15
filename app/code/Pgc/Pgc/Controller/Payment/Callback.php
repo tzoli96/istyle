@@ -8,11 +8,18 @@ use Magento\Framework\App\CsrfAwareActionInterface;
 use Magento\Framework\App\Request\Http;
 use Magento\Framework\App\Request\InvalidRequestException;
 use Magento\Framework\App\RequestInterface;
+use Magento\Sales\Api\Data\OrderInterfaceFactory;
 use Magento\Sales\Model\Order;
 use Magento\Sales\Model\Service\InvoiceService;
+use Magento\Sales\Model\Order\Email\Sender\OrderSender;
+use Pgc\Pgc\Helper\Data;
 
 class Callback extends Action
 {
+    /**
+     * @var OrderSender
+     */
+    private $orderSender;
 
     /**
      * @var OrderFactory
@@ -20,19 +27,21 @@ class Callback extends Action
     private $orderFactory;
 
     /**
-     * @var \Pgc\Pgc\Helper\Data
+     * @var Data
      */
     private $pgcHelper;
 
 
     public function __construct(
+        OrderSender $orderSender,
         Context $context,
-        \Magento\Sales\Api\Data\OrderInterfaceFactory $orderFactory,
-        \Pgc\Pgc\Helper\Data $pgcHelper
+        OrderInterfaceFactory $orderFactory,
+        Data $pgcHelper
     ) {
         parent::__construct($context);
         $this->orderFactory = $orderFactory;
         $this->pgcHelper = $pgcHelper;
+        $this->orderSender = $orderSender;
     }
 
     public function execute()
@@ -91,7 +100,7 @@ class Callback extends Action
         }
         else if($data['result'] == 'OK') {
             if($data['transactionType'] == 'DEBIT' || $data['transactionType'] == 'PREAUTHORIZE')  
-            { 
+            {
                 $order->setState(Order::STATE_PROCESSING);
                 $order->setStatus(Order::STATE_PROCESSING);
                 $payment = $order->getPayment();
@@ -113,6 +122,7 @@ class Callback extends Action
                         $payment->authorize(false, $amount); // false = offline = registerAuthorizationNotification
                         break;
                 }
+                $this->orderSender->send($order, true);
                 $payment->save();
                 $order->save();
             }
