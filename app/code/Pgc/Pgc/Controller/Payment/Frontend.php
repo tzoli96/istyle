@@ -154,11 +154,21 @@ class Frontend extends Action
         $transaction->setCancelUrl($baseUrl . 'payment/redirect?reason=cancel');
         $transaction->setErrorUrl($baseUrl . 'payment/redirect?reason=error');
 
-        $transaction->setCallbackUrl($this->pgcHelper->getPaymentConfigData(
+        if($this->pgcHelper->getPaymentConfigData(
             'callback_url',
             $paymentMethod,
             $this->storeManager->getStore()->getId()
-        ));
+        )){
+            $transaction->setCallbackUrl($this->pgcHelper->getPaymentConfigData(
+                'callback_url',
+                $paymentMethod,
+                $this->storeManager->getStore()->getId()
+            ));
+        } else
+            {
+            $transaction->setCallbackUrl($baseUrl . 'payment/callback');
+        }
+
 
 //        $this->prepare3dSecure2Data($transaction, $order);
         //file_put_contents('/var/www/ikari.aufbix.org/public_html/magento2/tran.txt', print_r($transaction, TRUE));

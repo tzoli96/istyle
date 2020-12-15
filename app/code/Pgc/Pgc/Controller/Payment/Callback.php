@@ -101,8 +101,8 @@ class Callback extends Action
         else if($data['result'] == 'OK') {
             if($data['transactionType'] == 'DEBIT' || $data['transactionType'] == 'PREAUTHORIZE')  
             {
-                $order->setState(Order::STATE_COMPLETE);
-                $order->setStatus(Order::STATE_COMPLETE);
+                $order->setState(Order::STATE_PROCESSING);
+                $order->setStatus(Order::STATE_PROCESSING);
                 $payment = $order->getPayment();
                 $payment->setAmountAuthorized($order->getTotalDue());
                 $payment->setCcOwner(strtoupper($data['returnData']['creditcardData']['cardHolder']));
