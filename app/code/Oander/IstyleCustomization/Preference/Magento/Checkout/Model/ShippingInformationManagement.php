@@ -10,7 +10,9 @@ use Magento\Framework\Exception\StateException;
 use Magento\Quote\Api\Data\AddressInterface;
 use Magento\Quote\Api\Data\CartInterface;
 use Magento\Quote\Model\QuoteAddressValidator;
+use Oander\UnityPickup\Api\QuoteRepositoryInterface as PickupQuoteRepositoryInterface;
 use Psr\Log\LoggerInterface as Logger;
+use Oander\UnityPickup\Enum\CarrierEnum;
 
 class ShippingInformationManagement implements \Magento\Checkout\Api\ShippingInformationManagementInterface
 {
@@ -81,6 +83,11 @@ class ShippingInformationManagement implements \Magento\Checkout\Api\ShippingInf
     private $shippingFactory;
 
     /**
+     * @var PickupQuoteRepositoryInterface
+     */
+    private $pickupQuoteRepository;
+
+    /**
      * @param \Magento\Quote\Api\PaymentMethodManagementInterface $paymentMethodManagement
      * @param \Magento\Checkout\Model\PaymentDetailsFactory $paymentDetailsFactory
      * @param \Magento\Quote\Api\CartTotalRepositoryInterface $cartTotalsRepository
@@ -101,7 +108,8 @@ class ShippingInformationManagement implements \Magento\Checkout\Api\ShippingInf
         Logger $logger,
         \Magento\Customer\Api\AddressRepositoryInterface $addressRepository,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
-        \Magento\Quote\Model\Quote\TotalsCollector $totalsCollector
+        \Magento\Quote\Model\Quote\TotalsCollector $totalsCollector,
+        PickupQuoteRepositoryInterface $pickupQuoteRepository
     ) {
         $this->paymentMethodManagement = $paymentMethodManagement;
         $this->paymentDetailsFactory = $paymentDetailsFactory;
@@ -112,6 +120,7 @@ class ShippingInformationManagement implements \Magento\Checkout\Api\ShippingInf
         $this->addressRepository = $addressRepository;
         $this->scopeConfig = $scopeConfig;
         $this->totalsCollector = $totalsCollector;
+        $this->pickupQuoteRepository = $pickupQuoteRepository;
     }
 
     /**
@@ -125,6 +134,12 @@ class ShippingInformationManagement implements \Magento\Checkout\Api\ShippingInf
         $billingAddress = $addressInformation->getBillingAddress();
         $carrierCode = $addressInformation->getShippingCarrierCode();
         $methodCode = $addressInformation->getShippingMethodCode();
+
+        if ($carrierCode == CarrierEnum::CARRIER_CODE
+            && $this->pickupQuoteRepository->getPickupId($cartId) < 1
+        ) {
+            throw new InputException(__('Please select a pickup point.'));
+        }
 
         if (!$address->getCustomerAddressId()) {
             $address->setCustomerAddressId(null);

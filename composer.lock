@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c522b6714068d6ef3e2c7266757abcfa",
+    "content-hash": "37e188e76e8db2f2f9d5963f14cedc90",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -10279,11 +10279,11 @@
         },
         {
             "name": "oander/module-unity-pickup",
-            "version": "1.1.0.0",
+            "version": "1.1.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-unity-pickup.git",
-                "reference": "58fd95049fd75ea145f1471caa0723c7da207cf0"
+                "reference": "00cc2ffdddff36d4db22c8b3155bafb57bfded65"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10306,7 +10306,7 @@
                 "proprietary"
             ],
             "description": "Oander Unity Pickup",
-            "time": "2020-12-14T15:07:53+00:00"
+            "time": "2020-12-16T13:52:31+00:00"
         },
         {
             "name": "oander/module-url-rewrite-basic",
@@ -11177,20 +11177,23 @@
         },
         {
             "name": "seld/cli-prompt",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/cli-prompt.git",
-                "reference": "a19a7376a4689d4d94cab66ab4f3c816019ba8dd"
+                "reference": "b8dfcf02094b8c03b40322c229493bb2884423c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/cli-prompt/zipball/a19a7376a4689d4d94cab66ab4f3c816019ba8dd",
-                "reference": "a19a7376a4689d4d94cab66ab4f3c816019ba8dd",
+                "url": "https://api.github.com/repos/Seldaek/cli-prompt/zipball/b8dfcf02094b8c03b40322c229493bb2884423c5",
+                "reference": "b8dfcf02094b8c03b40322c229493bb2884423c5",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.12.63"
             },
             "type": "library",
             "extra": {
@@ -11221,7 +11224,7 @@
                 "input",
                 "prompt"
             ],
-            "time": "2017-03-18T11:32:45+00:00"
+            "time": "2020-12-15T21:32:01+00:00"
         },
         {
             "name": "seld/jsonlint",
