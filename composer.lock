@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "37e188e76e8db2f2f9d5963f14cedc90",
+    "content-hash": "e31c6c3ae61b29bfeb0aa3bf12ddabf3",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -10279,11 +10279,11 @@
         },
         {
             "name": "oander/module-unity-pickup",
-            "version": "1.1.0.1",
+            "version": "1.1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-unity-pickup.git",
-                "reference": "00cc2ffdddff36d4db22c8b3155bafb57bfded65"
+                "reference": "0cca58c9907abe91fe40af76066eef96c5b12065"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10306,7 +10306,7 @@
                 "proprietary"
             ],
             "description": "Oander Unity Pickup",
-            "time": "2020-12-16T13:52:31+00:00"
+            "time": "2020-12-16T16:20:58+00:00"
         },
         {
             "name": "oander/module-url-rewrite-basic",
@@ -15358,5 +15358,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
