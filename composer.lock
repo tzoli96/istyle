@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a388086fbc21268b83ef52416f7ffd81",
+    "content-hash": "37dbb388e6cb4a8a64024a2dd80ca369",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9096,6 +9096,33 @@
             ],
             "description": "Email Additional Data",
             "time": "2020-09-25T08:46:48+00:00"
+        },
+        {
+            "name": "oander/module-event-based-exporter",
+            "version": "1.0.5.8",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/oander-event-based-exporter.git",
+                "reference": "bc672c47155aa59493b0b88409bd885b835f8d30"
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.3",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\EventBasedExporter\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Event Based eXporter",
+            "time": "2020-12-15T14:27:52+00:00"
         },
         {
             "name": "oander/module-extension-exterminator",
