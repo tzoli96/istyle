@@ -4,7 +4,7 @@
 	<move element="logo" destination="header-wrapper" after="nav-toggle" />
 
 		<referenceContainer name="content">
-			<block class="Oander\CofidisPayment\Block\Checkout\Index" name="cofidis.checkout.index" template="Oander_CofidisPayment::checkout/index.phtml"/>
+			<block class="Oander\CofidisPayment\Block\Checkout\Index" name="cofidis.checkout.index" template="Oander_CofidisPayment::checkout/index.phtml" cacheable="false"/>
 		</referenceContainer>
 
 		<referenceContainer name="header-wrapper">

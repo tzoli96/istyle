@@ -42,8 +42,6 @@ class Index extends \Magento\Framework\View\Element\Template
 
     public function getIframeParams()
     {
-        /** @TODO ObjectManager create nelkul (csak deven) a $this->_checkoutSession->getData() egy ures tombot add vissza... ????  */
-        \Magento\Framework\App\ObjectManager::getInstance()->create('\Magento\Checkout\Model\Session');
         $order = $this->_checkoutSession->getLastRealOrder();
         $order = \Magento\Framework\App\ObjectManager::getInstance()->create('Magento\Sales\Model\OrderFactory')->create()->load($order->getId());
         $productnames = [];
