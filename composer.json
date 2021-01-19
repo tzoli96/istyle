@@ -128,7 +128,7 @@
         "oander/module-salesforce": "1.2.0.4",
         "oander/module-salesforce-service": "dev-45689-file-upload-fix",
         "oander/module-salesforce-widget": "1.0.7",
-        "oander/module-salesforcereservation": "1.1.14",
+        "oander/module-salesforcereservation": "1.1.12.22",
         "oander/module-shipping": "1.0.3",
         "oander/module-stuck-process-remover": "1.0.0.1",
         "oander/module-test-base": "1.0.1",
