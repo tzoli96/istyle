@@ -167,7 +167,7 @@ return array (
     'Oander_ApiProductAttribute' => 1,
     'Oander_Shipping' => 1,
     'Oander_AppleMusic' => 1,
-    'Oander_ApplePay' => 1,
+    'Oander_ApplePay' => 0,
     'Oander_WarehouseManagerConditions' => 1,
     'Oander_ApiCategory' => 1,
     'Oander_BundlePriceSwitcher' => 1,
