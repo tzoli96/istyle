@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6e30baa23aa6622dde5bf8c961cf1366",
+    "content-hash": "1914cdbc243e35a7e92dd9d3fd9b9812",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -3564,6 +3564,7 @@
                 "magento/module-cookie": "100.1.*"
             },
             "type": "magento2-module",
+            "extra": [],
             "autoload": {
                 "files": [
                     "registration.php"
@@ -7900,11 +7901,11 @@
         },
         {
             "name": "oander/library-pick-pack-pont",
-            "version": "1.0.7",
+            "version": "1.0.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-pick-pack-pont.git",
-                "reference": "855722dba3c51eb799b3b85a28131d3a43601ef1"
+                "reference": "c318bad97ea9d63569ae40ee18bf586c22a851a4"
             },
             "require": {
                 "php": "7.*"
@@ -7922,7 +7923,7 @@
                 "proprietary"
             ],
             "description": "Oander Pick Pack Pont Library",
-            "time": "2017-11-22T15:20:31+00:00"
+            "time": "2021-01-20T11:05:10+00:00"
         },
         {
             "name": "oander/module-adminrestriction",
@@ -8634,11 +8635,11 @@
         },
         {
             "name": "oander/module-bundle-price-switcher",
-            "version": "1.0.1.9",
+            "version": "1.0.1.10",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-bundle-price-switcher.git",
-                "reference": "2f8cf1a00e97b483f70df4b74cef07f2c502fbf1"
+                "reference": "bef3127b7f43bdf310388ed7e7963e99eaabe160"
             },
             "require": {
                 "oander/module-bundle": ">=1.0.3.2",
@@ -8656,7 +8657,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2021-01-11T20:56:05+00:00"
+            "time": "2021-01-21T11:32:37+00:00"
         },
         {
             "name": "oander/module-cardondeliverypayment",
