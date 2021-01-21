@@ -218,7 +218,7 @@
                 "Mstart curl header #42875": "patches/magento/mstart_curl_header.patch"
             },
             "magento/module-catalog": {
-                "Image role fix #48758": "patches/magento/image_role_fix.patch"
+                "Image role fix #48758": "patches/magento/image_role_allstore_fix.patch"
             }
         }
     },

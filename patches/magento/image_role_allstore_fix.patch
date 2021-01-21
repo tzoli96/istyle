@@ -1,0 +1,33 @@
+diff --git a/Model/Product/Gallery/CreateHandler.php b/Model/Product/Gallery/CreateHandler.php
+--- a/Model/Product/Gallery/CreateHandler.php	(date 1611230312664)
++++ b/Model/Product/Gallery/CreateHandler.php	(date 1611230312664)
+@@ -168,11 +168,24 @@
+                 $product->setData($mediaAttrCode . '_label', $existImages[$attrData]['label']);
+             }
+ 
+-            $product->addAttributeUpdate(
+-                $mediaAttrCode,
+-                $product->getData($mediaAttrCode),
+-                $product->getStoreId()
+-            );
++            $allStoreViewProductAttribute=$product->getResource()->getAttributeRawValue($product->getId(),$mediaAttrCode,0);
++
++            if(empty($allStoreViewProductAttribute)){
++                $product->addAttributeUpdate(
++                    $mediaAttrCode,
++                    $product->getData($mediaAttrCode),
++                    0
++                );
++            }
++
++
++            if(!empty($product->getData($mediaAttrCode))) {
++                $product->addAttributeUpdate(
++                    $mediaAttrCode,
++                    $product->getData($mediaAttrCode),
++                    $product->getStoreId()
++                );
++            }
+         }
+ 
+         $product->setData($attrCode, $value);
