@@ -13,9 +13,7 @@ use Magento\ConfigurableProduct\Model\Product\Type\Configurable;
 use Magento\Framework\App\ResourceConnection;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
-use Magento\Catalog\Model\ResourceModel\Product\Relation as ProductRelation;
 use Magento\Store\Model\StoreManagerInterface;
-
 
 /**
  * Class ProductSaveAfter
@@ -27,11 +25,6 @@ class ProductSaveAfter implements ObserverInterface
      * @var ProductRepositoryInterface
      */
     protected $productRepository;
-
-    /**
-     * @var ProductRelation
-     */
-    protected $productRelation;
 
     /**
      * @var ProductFactory
@@ -49,26 +42,31 @@ class ProductSaveAfter implements ObserverInterface
     protected $storeManager;
 
     /**
+     * @var Configurable
+     */
+    protected $configurableProduct;
+
+    /**
      * ProductSaveAfter constructor.
      *
      * @param ProductRepositoryInterface $productRepository
-     * @param ProductRelation $productRelation
      * @param ProductFactory $productFactory
      * @param ResourceConnection $resource
      * @param StoreManagerInterface $storeManager
+     * @param Configurable $configurableProduct
      */
     public function __construct(
         ProductRepositoryInterface $productRepository,
-        ProductRelation $productRelation,
         ProductFactory $productFactory,
         ResourceConnection $resource,
-        StoreManagerInterface $storeManager
+        StoreManagerInterface $storeManager,
+        Configurable $configurableProduct
     ) {
         $this->productRepository = $productRepository;
-        $this->productRelation = $productRelation;
         $this->productFactory = $productFactory;
         $this->resource = $resource;
         $this->storeManager = $storeManager;
+        $this->configurableProduct = $configurableProduct;
     }
 
     /**
@@ -86,10 +84,9 @@ class ProductSaveAfter implements ObserverInterface
             $storeId = (int)$product->getStoreId();
             $store = $this->storeManager->getStore($storeId);
             $this->storeManager->setCurrentStore($store);
-            $websiteId = $store->getWebsiteId();
 
             /** @var Product $parentProduct */
-            $parentProducts = $this->getParents($product, $websiteId);
+            $parentProducts = $this->getParents($product, $storeId);
             foreach ($parentProducts as $parentProduct) {
                 if ($parentProduct && $parentProduct->getTypeId() == Configurable::TYPE_CODE
                     && $parentProduct->getStatus() == Status::STATUS_ENABLED
@@ -115,35 +112,25 @@ class ProductSaveAfter implements ObserverInterface
 
     }
 
-    public function getParents($product, $websiteId)
+    public function getParents($product, $storeId)
     {
+        $parentByChild=$this->configurableProduct->getParentIdsByChild($product->getId());
         $parents = [];
-
-        $select = $this->productRelation->getConnection()->select()->from(
-            $this->productRelation->getMainTable(),
-            ['parent_id']
-        )->where(
-            'child_id = ?',
-            $product->getId()
-        );
-        $parentIds = $this->productRelation->getConnection()->fetchCol($select);
-        if (count($parentIds)) {
-            /** @var  $store */
-            $parentIdsstring = implode(',', $parentIds);
-            $select = $this->resource->getConnection()->select()->from(
-                $this->resource->getTableName('catalog_product_website'),
-                ['product_id']
-            )->where(
-                "product_id IN ({$parentIdsstring}) and website_id = {$websiteId}"
-            );
-            $parentIds = $this->productRelation->getConnection()->fetchCol($select);
-            if (count($parentIds)) {
-                foreach ($parentIds as $parentId) {
-                    $parents[] = $this->productFactory->create()->load($parentId);
-                }
+        if (isset($parentByChild[0])) {
+            foreach ($parentByChild as $parent)
+            {
+                $parents[]=$parent;
+            }
+        }
+        $parentProduct = [];
+        if (count($parents)) {
+            foreach ($parents as $parentId) {
+                $parentProduct[]=$this->productFactory->create()
+                   ->setStoreId($storeId)
+                   ->load($parentId);
             }
         }
 
-        return $parents;
+        return $parentProduct;
     }
 }
