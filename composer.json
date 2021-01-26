@@ -65,7 +65,7 @@
         "oander/module-api-cache": "1.0.0",
         "oander/module-api-category": "1.0.11",
         "oander/module-api-checkout": "1.3.4",
-        "oander/module-api-customer": "1.0.10",
+        "oander/module-api-customer": "1.0.10.3",
         "oander/module-api-gateway": "1.0.25.4",
         "oander/module-api-image": "1.0.26",
         "oander/module-api-index": "dev-42374-reindex-list",
