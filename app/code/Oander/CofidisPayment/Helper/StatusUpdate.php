@@ -179,7 +179,7 @@ class StatusUpdate extends AbstractHelper
                 case "5":
                     if ($order->getStatus() != self::STATE_PROCESSING) {
                         $payment = $order->getPayment();
-                        if (!$payment->getEntityId()) {
+                        if ($payment->getEntityId()) {
                             $payment->registerAuthorizationNotification($order->getGrandTotal());
                             $payment->registerCaptureNotification($order->getGrandTotal());
                             $this->logger->addDebug($order->getIncrementId() . ": Payment added");
