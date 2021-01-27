@@ -8882,11 +8882,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.30.32",
+            "version": "1.0.30.34",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "f1e4c5a6ae8f496f122ea6bed3806c7aae4ce263"
+                "reference": "66fd9286c8added5d7a738bc7fca8ca004c981c3"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8905,7 +8905,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2020-12-16T14:26:56+00:00"
+            "time": "2021-01-27T12:40:22+00:00"
         },
         {
             "name": "oander/module-cookie-law",
