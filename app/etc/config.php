@@ -249,6 +249,7 @@ return array (
     'PluginCompany_LicenseManager' => 1,
     'Replace_BuybackCalculator' => 1,
     'Rudracomputech_Nestpay' => 1,
+    'StripeIntegration_Payments' => 1,
     'Ubertheme_Ubdatamigration' => 1,
     'Xtento_OrderExport' => 1,
     'Oander_XtentoOrderUnityPickupExport' => 1,
