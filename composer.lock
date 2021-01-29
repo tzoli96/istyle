@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b6a994481b6ebe301342fbb7eb4e717",
+    "content-hash": "5bd5776866efc287a8055aa88e88b8f8",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1787,11 +1787,11 @@
         },
         {
             "name": "innobyte/module-cetelem",
-            "version": "dev-#41554-updated",
+            "version": "dev-47923-ecom2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-cetelem.git",
-                "reference": "fef14d7f83a480d177da2b21146dadd2a1b25cf4"
+                "reference": "04330396cb900d712b03e77adaa8649969d98c7b"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1807,7 +1807,7 @@
                 }
             },
             "description": "Innobyte Cetelem Module",
-            "time": "2020-03-18T14:24:55+00:00"
+            "time": "2021-01-29T15:09:53+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
