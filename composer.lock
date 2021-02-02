@@ -1791,7 +1791,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-cetelem.git",
-                "reference": "04330396cb900d712b03e77adaa8649969d98c7b"
+                "reference": "57ae3fa3d13a459fbe2469ba5fb54704cd4e8a5f"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1807,7 +1807,7 @@
                 }
             },
             "description": "Innobyte Cetelem Module",
-            "time": "2021-01-29T15:09:53+00:00"
+            "time": "2021-02-02T11:49:57+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
