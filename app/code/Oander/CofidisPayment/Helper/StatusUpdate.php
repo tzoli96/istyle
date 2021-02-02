@@ -167,9 +167,11 @@ class StatusUpdate extends AbstractHelper
             $this->logger->addDebug($order->getIncrementId() . ": Need update by comment");
             switch ($cofidisStatusId) {
                 case "1":
-                case "2":
                 case "3":
                 case "4":
+                    $order->addStatusHistoryComment($this->getComment($cofidisStatusId));
+                    break;
+                case "2":
                     if (!$order->getEmailSent()) {
                         $this->orderSender->send($order);
                         $this->logger->addDebug($order->getIncrementId() . ": New order email sent");
