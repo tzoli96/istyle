@@ -109,12 +109,12 @@
         <plugin disabled="false" name="Oander_IstyleCustomization_Plugin_Magento_Customer_CustomerData_Customer" sortOrder="10" type="Oander\IstyleCustomization\Plugin\Magento\Customer\CustomerData\Customer"/>
     </type>
     <!-- #46683 END -->
-    <!-- #46266 START -->
+    <!-- #46266 START
     <type name="Magento\Eav\Model\Entity\AttributeLoader">
         <plugin name="IstyleCustomization::EntityAttributeLoader" type="Oander\IstyleCustomization\Plugin\Magento\Eav\Model\Entity\AttributeLoader"/>
     </type>
     <type name="Magento\Eav\Model\Entity\AbstractEntity">
         <plugin name="IstyleCustomization::EntityAbstractEntity" type="Oander\IstyleCustomization\Plugin\Magento\Eav\Model\Entity\AbstractEntity"/>
     </type>
-    <!-- #46266 END -->
+     #46266 END -->
 </config>
