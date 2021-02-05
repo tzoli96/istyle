@@ -10,7 +10,7 @@ use Magento\Sales\Model\Order;
  */
 class Update extends \Magento\Framework\App\Action\Action
 {
-    const ACTION_KEY = '/costompayment/status/update';
+    const ACTION_KEY = 'costompayment/status/update';
 
     const PARAM_ORDER_ID = 'order_id';
     const PARAM_STATUS_ID = 'status_id';
