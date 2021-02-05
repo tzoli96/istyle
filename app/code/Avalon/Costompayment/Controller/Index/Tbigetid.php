@@ -2,6 +2,8 @@
 
 namespace Avalon\Costompayment\Controller\Index;
 
+use Avalon\Costompayment\Controller\Status\Update;
+
 /**
  * Class Tbigetid
  * @package Avalon\Costompayment\Controller\Index
@@ -113,7 +115,7 @@ class Tbigetid extends \Magento\Framework\App\Action\Action
             $paramstbiro = json_decode(curl_exec($tbiro_ch), true);
             curl_close($tbiro_ch);
 
-            $tbiro_url = $this->tbiHelper->getTbiroLiveUrl() . "/function/status.php";
+            $tbiro_url = $this->_url->getUrl(Update::ACTION_KEY);
             if (!is_null($this->getOrder()->getBillingAddress())) {
                 $billingstreet = $this->getOrder()->getBillingAddress()->getStreet();
             }
