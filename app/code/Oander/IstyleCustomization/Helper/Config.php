@@ -79,6 +79,32 @@ class Config extends AbstractHelper
     /**
      * @return bool
      */
+    public function isUrlCheckerEnabled()
+    {
+        return (bool) $this->scopeConfig->getValue(
+            'oander_session_checker/url/enabled',
+            ScopeInterface::SCOPE_STORE
+        );
+    }
+
+    /**
+     * @return array
+     */
+    public function getUrlCheckerEmailReceivers(): array
+    {
+        $value = (string) $this->scopeConfig->getValue(
+            'oander_session_checker/url/email_receivers',
+            ScopeInterface::SCOPE_STORE
+        );
+        $value = explode(';', $value);
+
+        return (array) array_filter($value);
+    }
+
+
+    /**
+     * @return bool
+     */
     public function isBasicDescriptionLazyLoadEnabled()
     {
         return (bool)$this->scopeConfig->getValue(
