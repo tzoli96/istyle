@@ -7982,11 +7982,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.18.6",
+            "version": "1.0.18.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "3ea94161f9dde353bbca52777409cccd7f2f7368"
+                "reference": "26ba8f6f719694a2330f252fc76052bf2379f059"
             },
             "require": {
                 "oander/module-warehouse-manager": ">=1.4.25.6"
