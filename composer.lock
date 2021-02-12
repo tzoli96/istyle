@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5bd5776866efc287a8055aa88e88b8f8",
+    "content-hash": "abdc1917bd6e1c1a8a3dc3284a8b1804",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1055,258 +1055,6 @@
             "time": "2020-12-03T16:04:16+00:00"
         },
         {
-            "name": "doctrine/annotations",
-            "version": "v1.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/annotations.git",
-                "reference": "54cacc9b81758b14e3ce750f205a393d52339e97"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/54cacc9b81758b14e3ce750f205a393d52339e97",
-                "reference": "54cacc9b81758b14e3ce750f205a393d52339e97",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/lexer": "1.*",
-                "php": "^5.6 || ^7.0"
-            },
-            "require-dev": {
-                "doctrine/cache": "1.*",
-                "phpunit/phpunit": "^5.7"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.4.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\Common\\Annotations\\": "lib/Doctrine/Common/Annotations"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
-                },
-                {
-                    "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com"
-                },
-                {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com"
-                },
-                {
-                    "name": "Johannes Schmitt",
-                    "email": "schmittjoh@gmail.com"
-                }
-            ],
-            "description": "Docblock Annotations Parser",
-            "homepage": "http://www.doctrine-project.org",
-            "keywords": [
-                "annotations",
-                "docblock",
-                "parser"
-            ],
-            "time": "2017-02-24T16:22:25+00:00"
-        },
-        {
-            "name": "doctrine/cache",
-            "version": "v1.6.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/cache.git",
-                "reference": "eb152c5100571c7a45470ff2a35095ab3f3b900b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/eb152c5100571c7a45470ff2a35095ab3f3b900b",
-                "reference": "eb152c5100571c7a45470ff2a35095ab3f3b900b",
-                "shasum": ""
-            },
-            "require": {
-                "php": "~5.5|~7.0"
-            },
-            "conflict": {
-                "doctrine/common": ">2.2,<2.4"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.8|~5.0",
-                "predis/predis": "~1.0",
-                "satooshi/php-coveralls": "~0.6"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.6.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\Common\\Cache\\": "lib/Doctrine/Common/Cache"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
-                },
-                {
-                    "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com"
-                },
-                {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com"
-                },
-                {
-                    "name": "Johannes Schmitt",
-                    "email": "schmittjoh@gmail.com"
-                }
-            ],
-            "description": "Caching library offering an object-oriented API for many cache backends",
-            "homepage": "http://www.doctrine-project.org",
-            "keywords": [
-                "cache",
-                "caching"
-            ],
-            "time": "2017-07-22T12:49:21+00:00"
-        },
-        {
-            "name": "doctrine/instantiator",
-            "version": "1.0.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8e884e78f9f0eb1329e445619e04456e64d8051d",
-                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3,<8.0-DEV"
-            },
-            "require-dev": {
-                "athletic/athletic": "~0.1.8",
-                "ext-pdo": "*",
-                "ext-phar": "*",
-                "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "~2.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\Instantiator\\": "src/Doctrine/Instantiator/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Marco Pivetta",
-                    "email": "ocramius@gmail.com",
-                    "homepage": "http://ocramius.github.com/"
-                }
-            ],
-            "description": "A small, lightweight utility to instantiate objects in PHP without invoking their constructors",
-            "homepage": "https://github.com/doctrine/instantiator",
-            "keywords": [
-                "constructor",
-                "instantiate"
-            ],
-            "time": "2015-06-14T21:17:01+00:00"
-        },
-        {
-            "name": "doctrine/lexer",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/lexer.git",
-                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/lexer/zipball/1febd6c3ef84253d7c815bed85fc622ad207a9f8",
-                "reference": "1febd6c3ef84253d7c815bed85fc622ad207a9f8",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^4.5"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\Common\\Lexer\\": "lib/Doctrine/Common/Lexer"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
-                },
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com"
-                },
-                {
-                    "name": "Johannes Schmitt",
-                    "email": "schmittjoh@gmail.com"
-                }
-            ],
-            "description": "PHP Doctrine Lexer parser library that can be used in Top-Down, Recursive Descent Parsers.",
-            "homepage": "https://www.doctrine-project.org/projects/lexer.html",
-            "keywords": [
-                "annotations",
-                "docblock",
-                "lexer",
-                "parser",
-                "php"
-            ],
-            "time": "2019-06-08T11:03:04+00:00"
-        },
-        {
             "name": "extensa/module-dsk",
             "version": "2.0.0.2",
             "source": {
@@ -1791,7 +1539,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-cetelem.git",
-                "reference": "57ae3fa3d13a459fbe2469ba5fb54704cd4e8a5f"
+                "reference": "96cfd729dcb9539aaf371bc74e0049bb7374f0ef"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1807,7 +1555,7 @@
                 }
             },
             "description": "Innobyte Cetelem Module",
-            "time": "2021-02-02T11:49:57+00:00"
+            "time": "2021-02-02T13:13:55+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
@@ -1856,229 +1604,6 @@
             },
             "description": "Innobyte MStart Payment Module",
             "time": "2018-03-23T20:06:08+00:00"
-        },
-        {
-            "name": "innobyte/module-nlb",
-            "version": "0.0.5",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/innobyte-nlbpayment.git",
-                "reference": "e03fab4eac8480f4cb72f504556fc4f1e064208f"
-            },
-            "require": {
-                "magento/module-checkout": "^100.1.2",
-                "php": "7.0.2|7.0.4|~7.0.6"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Innobyte\\NLB\\": ""
-                }
-            },
-            "description": "Innobyte NLB Payment Module",
-            "time": "2019-05-07T13:42:55+00:00"
-        },
-        {
-            "name": "innobyte/module-swedbank",
-            "version": "1.1.1",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/innobyte-swedbank.git",
-                "reference": "8ae8eac757a0b4ab40499ee70452abf5909f942e"
-            },
-            "require": {
-                "magento/module-checkout": "^100.1.2",
-                "php": "7.0.2|7.0.4|~7.0.6",
-                "swedbank-spp/swedbank-payment-portal": "^0.9"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Innobyte\\Swedbank\\": ""
-                }
-            },
-            "description": "Innobyte Swedbank Module",
-            "time": "2018-10-15T10:47:05+00:00"
-        },
-        {
-            "name": "jms/metadata",
-            "version": "1.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/schmittjoh/metadata.git",
-                "reference": "e5854ab1aa643623dc64adde718a8eec32b957a8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/metadata/zipball/e5854ab1aa643623dc64adde718a8eec32b957a8",
-                "reference": "e5854ab1aa643623dc64adde718a8eec32b957a8",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "doctrine/cache": "~1.0",
-                "symfony/cache": "~3.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.5.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Metadata\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Asmir Mustafic",
-                    "email": "goetas@gmail.com"
-                },
-                {
-                    "name": "Johannes M. Schmitt",
-                    "email": "schmittjoh@gmail.com"
-                }
-            ],
-            "description": "Class/method/property metadata management in PHP",
-            "keywords": [
-                "annotations",
-                "metadata",
-                "xml",
-                "yaml"
-            ],
-            "time": "2018-10-26T12:40:10+00:00"
-        },
-        {
-            "name": "jms/parser-lib",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/schmittjoh/parser-lib.git",
-                "reference": "c509473bc1b4866415627af0e1c6cc8ac97fa51d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/parser-lib/zipball/c509473bc1b4866415627af0e1c6cc8ac97fa51d",
-                "reference": "c509473bc1b4866415627af0e1c6cc8ac97fa51d",
-                "shasum": ""
-            },
-            "require": {
-                "phpoption/phpoption": ">=0.9,<2.0-dev"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "JMS\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache2"
-            ],
-            "description": "A library for easily creating recursive-descent parsers.",
-            "time": "2012-11-18T18:08:43+00:00"
-        },
-        {
-            "name": "jms/serializer",
-            "version": "1.14.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/schmittjoh/serializer.git",
-                "reference": "ba908d278fff27ec01fb4349f372634ffcd697c0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/serializer/zipball/ba908d278fff27ec01fb4349f372634ffcd697c0",
-                "reference": "ba908d278fff27ec01fb4349f372634ffcd697c0",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/annotations": "^1.0",
-                "doctrine/instantiator": "^1.0.3",
-                "jms/metadata": "^1.3",
-                "jms/parser-lib": "1.*",
-                "php": "^5.5|^7.0",
-                "phpcollection/phpcollection": "~0.1",
-                "phpoption/phpoption": "^1.1"
-            },
-            "conflict": {
-                "twig/twig": "<1.12"
-            },
-            "require-dev": {
-                "doctrine/orm": "~2.1",
-                "doctrine/phpcr-odm": "^1.3|^2.0",
-                "ext-pdo_sqlite": "*",
-                "jackalope/jackalope-doctrine-dbal": "^1.1.5",
-                "phpunit/phpunit": "^4.8|^5.0",
-                "propel/propel1": "~1.7",
-                "psr/container": "^1.0",
-                "symfony/dependency-injection": "^2.7|^3.3|^4.0",
-                "symfony/expression-language": "^2.6|^3.0",
-                "symfony/filesystem": "^2.1",
-                "symfony/form": "~2.1|^3.0",
-                "symfony/translation": "^2.1|^3.0",
-                "symfony/validator": "^2.2|^3.0",
-                "symfony/yaml": "^2.1|^3.0",
-                "twig/twig": "~1.12|~2.0"
-            },
-            "suggest": {
-                "doctrine/cache": "Required if you like to use cache functionality.",
-                "doctrine/collections": "Required if you like to use doctrine collection types as ArrayCollection.",
-                "symfony/yaml": "Required if you'd like to serialize data to YAML format."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.14-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "JMS\\Serializer": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Johannes M. Schmitt",
-                    "email": "schmittjoh@gmail.com"
-                },
-                {
-                    "name": "Asmir Mustafic",
-                    "email": "goetas@gmail.com"
-                }
-            ],
-            "description": "Library for (de-)serializing data of any complexity; supports XML, JSON, and YAML.",
-            "homepage": "http://jmsyst.com/libs/serializer",
-            "keywords": [
-                "deserialization",
-                "jaxb",
-                "json",
-                "serialization",
-                "xml"
-            ],
-            "time": "2020-02-22T20:59:37+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
@@ -2194,29 +1719,6 @@
                 "terminal"
             ],
             "time": "2015-01-18T14:31:58+00:00"
-        },
-        {
-            "name": "leanpay/payment",
-            "version": "0.0.2.4",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/leanpay-payment.git",
-                "reference": "5016c5a4fa937afe723cf4fe382bf7287e6d842f"
-            },
-            "require": {
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Leanpay\\Payment\\": ""
-                }
-            },
-            "description": "N/A",
-            "time": "2018-12-05T16:36:11+00:00"
         },
         {
             "name": "liquid/liquid",
@@ -8010,7 +7512,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2020-07-29T13:41:06+00:00"
+            "time": "2021-02-08T14:35:36+00:00"
         },
         {
             "name": "oander/module-amasty-xnotif-bundle-price-switcher-extender",
@@ -9103,33 +8605,6 @@
             "time": "2020-12-15T14:27:52+00:00"
         },
         {
-            "name": "oander/module-extension-exterminator",
-            "version": "1.0.0.1",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/module-extension-exterminator.git",
-                "reference": "2afc6c3c79f6d9fbb888b04e4fdde32f32ab99af"
-            },
-            "require": {
-                "oander/module-base": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\ExtensionExterminator\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Oander Extension Exterminator module",
-            "time": "2018-10-15T13:05:31+00:00"
-        },
-        {
             "name": "oander/module-extracheckoutsummary",
             "version": "1.0.0.0",
             "source": {
@@ -9785,33 +9260,6 @@
             ],
             "description": "Product Description Widget",
             "time": "2019-10-03T15:02:40+00:00"
-        },
-        {
-            "name": "oander/module-product-faq",
-            "version": "1.0.0.9",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/module-product-faq.git",
-                "reference": "3d139ed8ff12e462c813f1b30874cbe3524f5c2d"
-            },
-            "require": {
-                "oander/module-base": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\ProductFaq\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Product Faq",
-            "time": "2019-11-11T17:07:13+00:00"
         },
         {
             "name": "oander/module-product-icons",
@@ -10750,109 +10198,6 @@
             "time": "2015-05-15T11:37:51+00:00"
         },
         {
-            "name": "phpcollection/phpcollection",
-            "version": "0.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/schmittjoh/php-collection.git",
-                "reference": "f2bcff45c0da7c27991bbc1f90f47c4b7fb434a6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/php-collection/zipball/f2bcff45c0da7c27991bbc1f90f47c4b7fb434a6",
-                "reference": "f2bcff45c0da7c27991bbc1f90f47c4b7fb434a6",
-                "shasum": ""
-            },
-            "require": {
-                "phpoption/phpoption": "1.*"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "PhpCollection": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache2"
-            ],
-            "authors": [
-                {
-                    "name": "Johannes M. Schmitt",
-                    "email": "schmittjoh@gmail.com"
-                }
-            ],
-            "description": "General-Purpose Collection Library for PHP",
-            "keywords": [
-                "collection",
-                "list",
-                "map",
-                "sequence",
-                "set"
-            ],
-            "time": "2015-05-17T12:39:23+00:00"
-        },
-        {
-            "name": "phpoption/phpoption",
-            "version": "1.7.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/schmittjoh/php-option.git",
-                "reference": "994ecccd8f3283ecf5ac33254543eb0ac946d525"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/994ecccd8f3283ecf5ac33254543eb0ac946d525",
-                "reference": "994ecccd8f3283ecf5ac33254543eb0ac946d525",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^5.5.9 || ^7.0 || ^8.0"
-            },
-            "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.4.1",
-                "phpunit/phpunit": "^4.8.35 || ^5.7.27 || ^6.5.6 || ^7.0 || ^8.0 || ^9.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "PhpOption\\": "src/PhpOption/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Johannes M. Schmitt",
-                    "email": "schmittjoh@gmail.com"
-                },
-                {
-                    "name": "Graham Campbell",
-                    "email": "graham@alt-three.com"
-                }
-            ],
-            "description": "Option Type for PHP",
-            "keywords": [
-                "language",
-                "option",
-                "php",
-                "type"
-            ],
-            "time": "2020-07-20T17:29:33+00:00"
-        },
-        {
             "name": "phpseclib/phpseclib",
             "version": "2.0.30",
             "source": {
@@ -11379,40 +10724,17 @@
             "time": "2014-09-22T08:40:36+00:00"
         },
         {
-            "name": "splitit/paymentmethod",
-            "version": "0.2.0",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/splitit-paymentmethod.git",
-                "reference": "d848b48cce2b33817b165dfc44f61c072334c7a2"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Splitit\\Paymentmethod\\": ""
-                }
-            },
-            "license": [
-                "OSL-3.0"
-            ],
-            "description": "Splitit integration for Magento 2",
-            "time": "2019-11-12T11:55:20+00:00"
-        },
-        {
             "name": "stripe/stripe-php",
-            "version": "v7.69.0",
+            "version": "v7.72.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "6716cbc4ebf8cba7d45374a059c7c6e5bf53277d"
+                "reference": "e502d1e97ec7857038d2131ded3134af964a55c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/6716cbc4ebf8cba7d45374a059c7c6e5bf53277d",
-                "reference": "6716cbc4ebf8cba7d45374a059c7c6e5bf53277d",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/e502d1e97ec7857038d2131ded3134af964a55c5",
+                "reference": "e502d1e97ec7857038d2131ded3134af964a55c5",
                 "shasum": ""
             },
             "require": {
@@ -11456,102 +10778,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2021-01-22T03:21:13+00:00"
-        },
-        {
-            "name": "swedbank-spp/swedbank-payment-portal",
-            "version": "v0.9.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Swedbank-SPP/swedbank-payment-portal.git",
-                "reference": "38bfce0d476461ee207ad0302164cff16a32548e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Swedbank-SPP/swedbank-payment-portal/zipball/38bfce0d476461ee207ad0302164cff16a32548e",
-                "reference": "38bfce0d476461ee207ad0302164cff16a32548e",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/cache": "^1.6",
-                "guzzlehttp/guzzle": "^5.0|^6.0|^7.0",
-                "jms/serializer": "^1.1",
-                "symfony/config": "^2.8|^3.0|^4.0|^5.0",
-                "symfony/dependency-injection": "^2.8|^3.0|^4.0|^5.0",
-                "symfony/yaml": "~2.8|~3.0|~4.0|~5.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "SwedbankPaymentPortal\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "The Swedbank Payment Portal API Library provides access to the online banking system through which e-commerce transactions can be initiated and fulfilled by facilitating the exchange of bank data.",
-            "time": "2020-07-29T16:18:33+00:00"
-        },
-        {
-            "name": "symfony/config",
-            "version": "v2.8.52",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/config.git",
-                "reference": "7dd5f5040dc04c118d057fb5886563963eb70011"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/7dd5f5040dc04c118d057fb5886563963eb70011",
-                "reference": "7dd5f5040dc04c118d057fb5886563963eb70011",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.9",
-                "symfony/filesystem": "~2.3|~3.0.0",
-                "symfony/polyfill-ctype": "~1.8"
-            },
-            "require-dev": {
-                "symfony/yaml": "~2.7|~3.0.0"
-            },
-            "suggest": {
-                "symfony/yaml": "To use the yaml reference dumper"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.8-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Config\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Config Component",
-            "homepage": "https://symfony.com",
-            "time": "2018-11-26T09:38:12+00:00"
+            "time": "2021-02-09T03:22:51+00:00"
         },
         {
             "name": "symfony/console",
@@ -11610,69 +10837,6 @@
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
             "time": "2015-07-26T09:08:40+00:00"
-        },
-        {
-            "name": "symfony/dependency-injection",
-            "version": "v2.8.52",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "c306198fee8f872a8f5f031e6e4f6f83086992d8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/c306198fee8f872a8f5f031e6e4f6f83086992d8",
-                "reference": "c306198fee8f872a8f5f031e6e4f6f83086992d8",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.9"
-            },
-            "conflict": {
-                "symfony/expression-language": "<2.6"
-            },
-            "require-dev": {
-                "symfony/config": "~2.2|~3.0.0",
-                "symfony/expression-language": "~2.6|~3.0.0",
-                "symfony/yaml": "~2.3.42|~2.7.14|~2.8.7|~3.0.7"
-            },
-            "suggest": {
-                "symfony/config": "",
-                "symfony/expression-language": "For using expressions in service container configuration",
-                "symfony/proxy-manager-bridge": "Generate service proxies to lazy load them",
-                "symfony/yaml": ""
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.8-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\DependencyInjection\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony DependencyInjection Component",
-            "homepage": "https://symfony.com",
-            "time": "2019-04-16T11:33:46+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -12259,56 +11423,6 @@
                 }
             ],
             "description": "Symfony Process Component",
-            "homepage": "https://symfony.com",
-            "time": "2018-11-11T11:18:13+00:00"
-        },
-        {
-            "name": "symfony/yaml",
-            "version": "v2.8.52",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/yaml.git",
-                "reference": "02c1859112aa779d9ab394ae4f3381911d84052b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/02c1859112aa779d9ab394ae4f3381911d84052b",
-                "reference": "02c1859112aa779d9ab394ae4f3381911d84052b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.9",
-                "symfony/polyfill-ctype": "~1.8"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.8-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Yaml\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
             "time": "2018-11-11T11:18:13+00:00"
         },
@@ -14224,6 +13338,60 @@
     ],
     "packages-dev": [
         {
+            "name": "doctrine/instantiator",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/instantiator.git",
+                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8e884e78f9f0eb1329e445619e04456e64d8051d",
+                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3,<8.0-DEV"
+            },
+            "require-dev": {
+                "athletic/athletic": "~0.1.8",
+                "ext-pdo": "*",
+                "ext-phar": "*",
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~2.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Doctrine\\Instantiator\\": "src/Doctrine/Instantiator/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco Pivetta",
+                    "email": "ocramius@gmail.com",
+                    "homepage": "http://ocramius.github.com/"
+                }
+            ],
+            "description": "A small, lightweight utility to instantiate objects in PHP without invoking their constructors",
+            "homepage": "https://github.com/doctrine/instantiator",
+            "keywords": [
+                "constructor",
+                "instantiate"
+            ],
+            "time": "2015-06-14T21:17:01+00:00"
+        },
+        {
             "name": "fabpot/php-cs-fixer",
             "version": "v1.13.3",
             "source": {
@@ -15320,6 +14488,126 @@
             "time": "2014-05-01T03:07:07+00:00"
         },
         {
+            "name": "symfony/config",
+            "version": "v2.8.52",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/config.git",
+                "reference": "7dd5f5040dc04c118d057fb5886563963eb70011"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/config/zipball/7dd5f5040dc04c118d057fb5886563963eb70011",
+                "reference": "7dd5f5040dc04c118d057fb5886563963eb70011",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9",
+                "symfony/filesystem": "~2.3|~3.0.0",
+                "symfony/polyfill-ctype": "~1.8"
+            },
+            "require-dev": {
+                "symfony/yaml": "~2.7|~3.0.0"
+            },
+            "suggest": {
+                "symfony/yaml": "To use the yaml reference dumper"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Config\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Config Component",
+            "homepage": "https://symfony.com",
+            "time": "2018-11-26T09:38:12+00:00"
+        },
+        {
+            "name": "symfony/dependency-injection",
+            "version": "v2.8.52",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/dependency-injection.git",
+                "reference": "c306198fee8f872a8f5f031e6e4f6f83086992d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/c306198fee8f872a8f5f031e6e4f6f83086992d8",
+                "reference": "c306198fee8f872a8f5f031e6e4f6f83086992d8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9"
+            },
+            "conflict": {
+                "symfony/expression-language": "<2.6"
+            },
+            "require-dev": {
+                "symfony/config": "~2.2|~3.0.0",
+                "symfony/expression-language": "~2.6|~3.0.0",
+                "symfony/yaml": "~2.3.42|~2.7.14|~2.8.7|~3.0.7"
+            },
+            "suggest": {
+                "symfony/config": "",
+                "symfony/expression-language": "For using expressions in service container configuration",
+                "symfony/proxy-manager-bridge": "Generate service proxies to lazy load them",
+                "symfony/yaml": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\DependencyInjection\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony DependencyInjection Component",
+            "homepage": "https://symfony.com",
+            "time": "2019-04-16T11:33:46+00:00"
+        },
+        {
             "name": "symfony/stopwatch",
             "version": "v3.4.47",
             "source": {
@@ -15362,6 +14650,56 @@
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
             "time": "2020-10-24T10:57:07+00:00"
+        },
+        {
+            "name": "symfony/yaml",
+            "version": "v2.8.52",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/yaml.git",
+                "reference": "02c1859112aa779d9ab394ae4f3381911d84052b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/02c1859112aa779d9ab394ae4f3381911d84052b",
+                "reference": "02c1859112aa779d9ab394ae4f3381911d84052b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.9",
+                "symfony/polyfill-ctype": "~1.8"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.8-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Yaml\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Yaml Component",
+            "homepage": "https://symfony.com",
+            "time": "2018-11-11T11:18:13+00:00"
         },
         {
             "name": "theseer/fdomdocument",

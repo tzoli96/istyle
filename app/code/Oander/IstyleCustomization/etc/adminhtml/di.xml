@@ -30,7 +30,6 @@
     <type name="Magento\Widget\Model\Widget">
         <plugin name="widget_link_quote_replace" type="Oander\IstyleCustomization\Plugin\Widget\Model\Widget" sortOrder="0"/>
     </type>
-    <preference for="Amasty\Base\Model\Serializer" type="Oander\IstyleCustomization\Preference\Amasty\Base\Model\Serializer" />
     <type name="Magento\CatalogImportExport\Model\Import\Product">
         <plugin disabled="false" name="Oander_IstyleCustomization_Plugin_Magento_CatalogImportExport_Model_Import_Product" sortOrder="10" type="Oander\IstyleCustomization\Plugin\Magento\CatalogImportExport\Model\Import\Product"/>
     </type>
