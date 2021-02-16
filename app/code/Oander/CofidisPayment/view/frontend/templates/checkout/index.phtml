@@ -9,9 +9,7 @@ function receiveMessage(event) {
     document.getElementById('cofidis').height = response.iframeheight + 10;
 
     if (response.submitted == '1') {
-        setTimeout(function() {
-            window.location.replace(window.location.protocol + '//' + window.location.hostname + '/checkout/onepage/success/');
-        }, 5000);
+        window.location.replace(window.location.protocol + '//' + window.location.hostname + '/checkout/onepage/success/');
     }
 }
 </script>
