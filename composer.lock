@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "abdc1917bd6e1c1a8a3dc3284a8b1804",
+    "content-hash": "378b810221fa838eac5de0d05ed939cf",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8376,11 +8376,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.30.34",
+            "version": "dev-49198-ce-phtml-render",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "66fd9286c8added5d7a738bc7fca8ca004c981c3"
+                "reference": "af8af7687e4df06fcb334e9195836fcba1f4f319"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8399,7 +8399,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2021-01-27T12:40:22+00:00"
+            "time": "2021-02-17T09:02:00+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -10753,16 +10753,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.72.0",
+            "version": "v7.73.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "e502d1e97ec7857038d2131ded3134af964a55c5"
+                "reference": "15d9e4b5c1076499e9681e7a6801c6945d6d530c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/e502d1e97ec7857038d2131ded3134af964a55c5",
-                "reference": "e502d1e97ec7857038d2131ded3134af964a55c5",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/15d9e4b5c1076499e9681e7a6801c6945d6d530c",
+                "reference": "15d9e4b5c1076499e9681e7a6801c6945d6d530c",
                 "shasum": ""
             },
             "require": {
@@ -10806,7 +10806,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2021-02-09T03:22:51+00:00"
+            "time": "2021-02-17T01:42:32+00:00"
         },
         {
             "name": "symfony/console",
@@ -14776,6 +14776,7 @@
         "composer/composer": 15,
         "innobyte/module-cetelem": 20,
         "oander/module-api-index": 20,
+        "oander/module-configurable-product-attribute": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
         "oander/module-salesforce-service": 20,
