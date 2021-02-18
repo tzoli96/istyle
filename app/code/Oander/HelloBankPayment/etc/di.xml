@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="HelloBankFacade" type="Oander\HelloBankPayment\Model\HelloBankAdapter">
+        <arguments>
+            <argument name="code" xsi:type="const">\Oander\HelloBankPayment\Model\Ui\ConfigProvider::CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Magento\Payment\Block\Info</argument>
+            <argument name="valueHandlerPool" xsi:type="object">HelloBankValueHandlerPool</argument>
+        </arguments>
+    </virtualType>
+
+
+    <virtualType name="HelloBankValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">HelloBankConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="HelloBankConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">Oander\HelloBankPayment\Gateway\Config\ConfigValueHandler</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Oander\HelloBankPayment\Block\Info">
+        <arguments>
+            <argument name="config" xsi:type="object">Oander\HelloBankPayment\Gateway\Config\ConfigValueHandler</argument>
+        </arguments>
+    </type>
+
+    <type name="Oander\HelloBankPayment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">\Oander\HelloBankPayment\Model\Ui\ConfigProvider::CODE</argument>
+        </arguments>
+    </type>
+
+    <type name="Oander\HelloBankPayment\Model\HelloBank">
+        <arguments>
+            <argument name="config" xsi:type="object">Oander\HelloBankPayment\Gateway\Config\ConfigValueHandler</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="hellobank_barems_grid_list_data_source" xsi:type="string">Oander\HelloBankPayment\Model\ResourceModel\Barems\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Oander\HelloBankPayment\Model\ResourceModel\Barems\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">\Oander\HelloBankPayment\Api\Data\BaremInterface::TABLE_NAME</argument>
+            <argument name="resourceModel" xsi:type="string">Oander\HelloBankPayment\Model\ResourceModel\Barems</argument>
+        </arguments>
+    </virtualType>
+
+    <preference for="Oander\HelloBankPayment\Api\Data\BaremRepositoryInterface" type="Oander\HelloBankPayment\Model\Service\BaremRepository"/>
+</config>
+
