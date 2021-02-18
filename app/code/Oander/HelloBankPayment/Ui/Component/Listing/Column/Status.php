@@ -11,11 +11,18 @@ class Status implements ArrayInterface
      */
     public function toOptionArray()
     {
-        return [
-                ['value' => BaremInterface::STATUS_ENABLED, 'label' => __('Enable')],
-                ['value' => BaremInterface::STATUS_DISABLED, 'label' => __('Disable')
+        $options = [
+            0 => [
+                'label' => __('Disable'),
+                'value' => BaremInterface::STATUS_DISABLED
+            ],
+            1  => [
+                'label' => __('Enable'),
+                'value' => BaremInterface::STATUS_ENABLED
             ]
         ];
+
+        return $options;
     }
 
 }

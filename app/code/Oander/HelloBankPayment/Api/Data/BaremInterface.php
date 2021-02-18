@@ -18,8 +18,8 @@ interface BaremInterface
     const UPDATED_AT                = 'updated_at';
     const STATUS_ENABLED            = 1;
     const STATUS_DISABLED           = 0;
-    const INSTALLMENTS_TYPE_FIXED   = 1;
-    const INSTALLMENTS_TYPE_RANGE   = 0;
+    const INSTALLMENTS_TYPE_FIXED   = 2;
+    const INSTALLMENTS_TYPE_RANGE   = 3;
 
     public function getId();
 
@@ -31,6 +31,9 @@ interface BaremInterface
      */
     public function setBaremName($baremName);
 
+    /**
+     * @return int
+     */
     public function getBaremId();
 
     /**
@@ -63,7 +66,6 @@ interface BaremInterface
     /**
      *
      * @param int $priority
-     *
      * @return $this
      */
     public function setPriority($priority);
@@ -131,7 +133,6 @@ interface BaremInterface
     /**
      *
      * @param string $createdAt
-     *
      * @return $this
      */
     public function setCreatedAt($createdAt);
@@ -145,7 +146,6 @@ interface BaremInterface
     /**
      *
      * @param string $updatedAt
-     *
      * @return $this
      */
     public function setUpdatedAt($updatedAt);

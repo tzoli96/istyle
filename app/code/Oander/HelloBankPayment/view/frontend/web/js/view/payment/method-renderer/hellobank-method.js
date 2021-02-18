@@ -1,7 +1,3 @@
-/**
- * Copyright ©2019 Itegration Ltd., Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
 /*browser:true*/
 /*global define*/
 define(
@@ -41,11 +37,7 @@ define(
             },
 
             getPaymentLogoSrc: function () {
-               'asd';
-            },
-
-            getPaymentLogoLink: function () {
-                'test';
+                return window.checkoutConfig.payment.hellobank.logoSrc;
             },
 
             validate: function () {

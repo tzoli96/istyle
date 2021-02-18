@@ -1,0 +1,15 @@
+<?php
+/**
+ * @var $block \Oander\HelloBankPayment\Block\Adminhtml\Barem\AvailableBarems
+ */
+?>
+<?php if($block->getIsPaymentMethodIsActive()) : ?>
+    <div class="admin__field" data-index="available_barems">
+        <label class="admin__field-label">
+            <span><?= __("Available Barems")?></span>
+        </label>
+        <div class="admin__field-control">
+            <a href="<?= $block->getAvailableBaremsUrl() ?>" target="_blank"><?= __("Check")?></a>
+        </div>
+    </div>
+<?php endif; ?>

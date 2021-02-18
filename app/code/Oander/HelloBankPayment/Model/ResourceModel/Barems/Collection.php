@@ -20,4 +20,12 @@ class Collection extends AbstractCollection
     {
         $this->_init(Barems::class, BaremsResourceModel::class);
     }
+
+    /**
+     * @return Collection
+     */
+    public function getAvailableBarems(): Collection
+    {
+        return $this->addFieldToFilter(BaremInterface::STATUS, ['eq' => BaremInterface::STATUS_ENABLED]);
+    }
 }

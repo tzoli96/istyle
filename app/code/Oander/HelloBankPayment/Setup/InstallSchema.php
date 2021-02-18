@@ -41,19 +41,19 @@ class InstallSchema implements InstallSchemaInterface
             'Barem Id'
         )->addColumn(
             BaremInterface::PRIORITY,
-            Table::TYPE_TEXT,
+            Table::TYPE_SMALLINT,
             255,
             [],
             'Barem Priority'
         )->addColumn(
             BaremInterface::MAXIMUM_PRICE,
-            Table::TYPE_TEXT,
+            Table::TYPE_SMALLINT,
             255,
             [],
             'Barem Maximum Price'
         )->addColumn(
             BaremInterface::MINIMUM_PRICE,
-            Table::TYPE_TEXT,
+            Table::TYPE_SMALLINT,
             255,
             [],
             'Barem Minimum Price'

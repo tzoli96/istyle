@@ -1,6 +1,7 @@
 <?php
 namespace Oander\HelloBankPayment\Ui\Component\Listing\Column;
 
+use Oander\HelloBankPayment\Enum\Request;
 use Magento\Framework\UrlInterface;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
@@ -8,11 +9,19 @@ use Magento\Ui\Component\Listing\Columns\Column;
 
 class Actions extends Column
 {
+    /**
+     * @var UrlInterface
+     */
     protected $urlBuilder;
 
-    const URL_DELETE_PATH = 'grid/grid/addrow';
-    const URL_EDIT_PATH = 'grid/grid/addrow';
-
+    /**
+     * Actions constructor.
+     * @param UrlInterface $urlBuilder
+     * @param ContextInterface $context
+     * @param UiComponentFactory $uiComponentFactory
+     * @param array $components
+     * @param array $data
+     */
     public function __construct(
         UrlInterface $urlBuilder,
         ContextInterface $context,
@@ -23,6 +32,11 @@ class Actions extends Column
         $this->urlBuilder = $urlBuilder;
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
+
+    /**
+     * @param array $dataSource
+     * @return array
+     */
     public function prepareDataSource(array $dataSource)
     {
         if (isset($dataSource['data']['items'])) {
@@ -31,7 +45,7 @@ class Actions extends Column
                     $item[$this->getData('name')] = [
                         'edit' => [
                             'href' => $this->urlBuilder->getUrl(
-                                static::URL_EDIT_PATH,
+                                Request::URL_EDIT_PATH,
                                 [
                                     'id' => $item['id'],
                                 ]
@@ -40,7 +54,7 @@ class Actions extends Column
                         ],
                         'delete' => [
                             'href' => $this->urlBuilder->getUrl(
-                                static::URL_DELETE_PATH,
+                                Request::URL_DELETE_PATH,
                                 [
                                     "id" => $item['id'],
                                 ]
@@ -48,7 +62,7 @@ class Actions extends Column
                             'label' => __('Delete'),
                             'confirm' => [
                                 'title' => __('Delete'),
-                                'message' => __('Are you sure you want to delete this row ?'),
+                                'message' => __('Are you sure you want to delete this barem ?'),
                             ],
                         ],
                     ];

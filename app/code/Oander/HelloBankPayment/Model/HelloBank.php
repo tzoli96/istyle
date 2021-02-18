@@ -4,6 +4,7 @@ namespace Oander\HelloBankPayment\Model;
 use Magento\Framework\UrlInterface;
 use Magento\Sales\Model\Order;
 use Magento\Sales\Api\OrderRepositoryInterface;
+use Oander\HelloBankPayment\Enum\Request;
 
 class HelloBank
 {
@@ -16,8 +17,6 @@ class HelloBank
      * @var OrderRepositoryInterface
      */
     private $orderRepository;
-
-    const COMMON_URL = 'hellobank/payment/processing/';
 
     public function __construct(
         OrderRepositoryInterface $orderRepository,
@@ -32,14 +31,14 @@ class HelloBank
      */
     private function getRedirectUrl()
     {
-        return $this->url->getUrl(self::COMMON_URL);
+        return $this->url->getUrl(Request::PAYMENT_PROCCESSING_ACTION);
     }
 
     /**
      * @param Order $order
-     * @return bool
+     * @return void
      */
-    public function handleStatus($order)
+    public function handleStatus(Order $order)
     {
         $order->setStatus(Order::STATE_PROCESSING);
         $order->addStatusToHistory(
@@ -47,7 +46,6 @@ class HelloBank
             'Order processing by HelloBank'
         );
         $this->orderRepository->save($order);
-        return false;
     }
 
 }

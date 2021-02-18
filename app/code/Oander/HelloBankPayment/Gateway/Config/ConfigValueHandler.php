@@ -68,7 +68,7 @@ class ConfigValueHandler extends DefaultConfig
      *
      * @return bool
      */
-    public function getIsActive($storeId = null)
+    public function getIsActive($storeId = null): bool
     {
         return (bool)$this->getValue(self::KEY_ACTIVE, $storeId);
     }
@@ -117,6 +117,15 @@ class ConfigValueHandler extends DefaultConfig
     public function getFutherReviewMessage($storeId = null)
     {
         return (string)$this->getValue(self::KEY_FURTHER_REVIEW_MESSAGE, $storeId);
+    }
+
+    /**
+     *
+     * @return string
+     */
+    public function getLogoSrc(): string
+    {
+        return $this->assetRepository->getUrl('Oander_HelloBankPayment::images/hello-bank.png');
     }
 
 }

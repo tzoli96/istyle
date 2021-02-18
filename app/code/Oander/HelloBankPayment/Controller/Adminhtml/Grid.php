@@ -1,30 +1,37 @@
 <?php
-
 namespace Oander\HelloBankPayment\Controller\Adminhtml;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\View\Result\Page;
-use Magento\Framework\Registry;
+use Magento\Framework\View\Result\PageFactory;
+
+use Oander\HelloBankPayment\Api\Data\BaremRepositoryInterface;
 
 abstract class Grid extends Action
 {
     /**
-     * Core registry
-     *
-     * @var Registry
+     * @var BaremRepositoryInterface
      */
-    protected $coreRegistry = null;
+    protected $baremRepository;
 
     /**
+     * @var PageFactory
+     */
+    protected $resultPageFactory;
+
+    /**
+     * @param BaremRepositoryInterface $baremRepository
      * @param Context $context
-     * @param Registry $coreRegistry
+     * @param PageFactory $resultPageFactory
      */
     public function __construct(
+        BaremRepositoryInterface $baremRepository,
         Context $context,
-        Registry $coreRegistry
+        PageFactory $resultPageFactory
     ) {
-        $this->coreRegistry = $coreRegistry;
+        $this->baremRepository = $baremRepository;
+        $this->resultPageFactory = $resultPageFactory;
         parent::__construct($context);
     }
 
