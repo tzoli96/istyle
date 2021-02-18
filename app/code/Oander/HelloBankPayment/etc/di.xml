@@ -51,7 +51,7 @@
     </type>
     <virtualType name="Oander\HelloBankPayment\Model\ResourceModel\Barems\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
-            <argument name="mainTable" xsi:type="string">\Oander\HelloBankPayment\Api\Data\BaremInterface::TABLE_NAME</argument>
+            <argument name="mainTable" xsi:type="string">oander_hellobank_barems</argument>
             <argument name="resourceModel" xsi:type="string">Oander\HelloBankPayment\Model\ResourceModel\Barems</argument>
         </arguments>
     </virtualType>
