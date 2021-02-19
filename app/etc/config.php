@@ -192,6 +192,7 @@ return array (
     'Oander_ExtraCheckoutSummary' => 1,
     'Oander_FanCourierValidator' => 1,
     'Oander_FreeShippingDisplay' => 1,
+    'Oander_HelloBankPayment' => 1,
     'Oander_HeurekaTracking' => 1,
     'Oander_NameSwitcher' => 1,
     'Oander_ImageExtra' => 1,
