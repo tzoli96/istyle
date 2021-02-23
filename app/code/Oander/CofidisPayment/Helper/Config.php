@@ -42,7 +42,8 @@ class Config extends AbstractHelper
             if (!isset($this->config[$storeId])) {
                 $this->config[$storeId] = (array)$this->scopeConfig->getValue(
                     ConfigEnum::PAYMENT_PATH,
-                    ScopeInterface::SCOPE_STORE
+                    ScopeInterface::SCOPE_STORE,
+                    $storeId
                 );
             }
             return $this->config[$storeId];
