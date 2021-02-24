@@ -202,7 +202,7 @@ class Config extends AbstractHelper
         if(isset($this->getConfig($storeId)[ConfigEnum::TERMS_URL]))
             return $this->getConfig($storeId)[ConfigEnum::TERMS_URL];
         else
-            return $this->_getUrl();
+            return "";
     }
 
     /**
