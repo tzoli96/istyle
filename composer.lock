@@ -8380,7 +8380,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "9b8a9be9c41b163638ad95ef40389de9e2411289"
+                "reference": "1456cd919685988fa6decd8aa20efe31f36e333f"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8399,7 +8399,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2021-02-24T16:30:35+00:00"
+            "time": "2021-02-24T17:51:42+00:00"
         },
         {
             "name": "oander/module-cookie-law",
