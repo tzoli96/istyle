@@ -8380,7 +8380,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "4863f200bfae30997d5b3250e9792f335d0e645a"
+                "reference": "3613697ada541406850579faed302aa1656bcb08"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8399,7 +8399,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2021-02-23T22:45:28+00:00"
+            "time": "2021-02-24T14:13:25+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -10029,7 +10029,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "89a97062ee673cba55d3183a6029fea3c35681dc"
+                "reference": "1166b23a7309441e9df0698ab4528670f2035e76"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10045,7 +10045,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-02-18T13:23:40+00:00"
+            "time": "2021-02-24T14:16:46+00:00"
         },
         {
             "name": "oyejorge/less.php",
