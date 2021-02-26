@@ -214,6 +214,9 @@
             },
             "magento/module-catalog": {
                 "Image role fix #48758": "patches/magento/image_role_allstore_fix.patch"
+            },
+            "magento/module-quote": {
+                "More active quote fix #49850": "patches/magento/module-quote/49850_tobbaktiv_quote.patch"
             }
         }
     },
