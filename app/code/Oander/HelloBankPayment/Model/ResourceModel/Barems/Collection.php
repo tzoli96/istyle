@@ -28,4 +28,22 @@ class Collection extends AbstractCollection
     {
         return $this->addFieldToFilter(BaremInterface::STATUS, ['eq' => BaremInterface::STATUS_ENABLED]);
     }
+
+    /**
+     * @param $disAllowedBarems
+     * @param $grandTotal
+     * @return Collection
+     */
+    public function getDissAllowed($disAllowedBarems=false, $grandTotal=false): Collection
+    {
+        $query = $this->addFieldToFilter(BaremInterface::ID, ['nin' => $disAllowedBarems]);
+
+        if($grandTotal)
+        {
+            $query->addFieldToFilter(BaremInterface::MAXIMUM_PRICE, ['gt' => $grandTotal])
+                ->addFieldToFilter(BaremInterface::MINIMUM_PRICE, ['lt' => $grandTotal]);
+        }
+
+        return $query;
+    }
 }
