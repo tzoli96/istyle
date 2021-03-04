@@ -323,11 +323,17 @@ use \Oander\CofidisPayment\Enum\Ownshare;
           function setAjaxResponse(amount, month, thm, installment, downpmnt) {
             var currentTab = $(currentTabSelector);
 
+            if ((thm * 100) % 1 != 0) {
+              currentTab.find(responses.thm).html((thm * 100).toFixed(2));
+            }
+            else {
+              currentTab.find(responses.thm).html((thm * 100));
+            }
+
             currentTab.find(responses.amount).html(formatPrice(amount));
             currentTab.find(responses.totalPayable).html((thm != 0) ? formatPrice(installment * month) : formatPrice(amount - downpmnt));
             currentTab.find(responses.installmentMonths).html(month);
             currentTab.find(responses.monthlyInstalment).html(formatPrice(installment));
-            currentTab.find(responses.thm).html((thm * 100));
           }
 
           function formatPrice(x) {

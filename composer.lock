@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "378b810221fa838eac5de0d05ed939cf",
+    "content-hash": "aa7b1919692d167ed1996c38b27c38df",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -4979,6 +4979,7 @@
                 "php": "~5.6.5|7.0.2|7.0.4|~7.0.6"
             },
             "type": "magento2-module",
+            "extra": [],
             "autoload": {
                 "files": [
                     "registration.php"
@@ -8376,11 +8377,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "dev-49198-ce-phtml-render",
+            "version": "1.0.30.35",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "1456cd919685988fa6decd8aa20efe31f36e333f"
+                "reference": "7fd1c870fd1dd335995df4215c95f6bcbacd0145"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8399,7 +8400,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2021-02-24T17:51:42+00:00"
+            "time": "2021-03-04T11:50:15+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -14776,7 +14777,6 @@
         "composer/composer": 15,
         "innobyte/module-cetelem": 20,
         "oander/module-api-index": 20,
-        "oander/module-configurable-product-attribute": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
         "oander/module-salesforce-service": 20,

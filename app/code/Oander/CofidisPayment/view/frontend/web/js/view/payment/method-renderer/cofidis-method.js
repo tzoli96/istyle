@@ -159,11 +159,17 @@ define(
             },
 
             setAjaxResponse: function (amount, month, thm, installment, downpmnt) {
+                if ((thm * 100) % 1 != 0) {
+                    $(selectors.currentTab).find(responses.thm).html((thm * 100).toFixed(2));
+                }
+                else {
+                    $(selectors.currentTab).find(responses.thm).html((thm * 100));
+                }
+
                 $(selectors.currentTab).find(responses.amount).html(this.getFormatPrice(amount));
                 $(selectors.currentTab).find(responses.totalPayable).html((thm != 0) ? this.getFormatPrice(installment * month) : this.getFormatPrice(amount - downpmnt));
                 $(selectors.currentTab).find(responses.installmentMonths).html(month);
                 $(selectors.currentTab).find(responses.monthlyInstalment).html(this.getFormatPrice(installment));
-                $(selectors.currentTab).find(responses.thm).html((thm * 100));
             },
 
             getFormatPrice: function (x) {
