@@ -15,6 +15,7 @@ use Magento\Framework\Mail\Template\TransportBuilder;
 use Magento\Store\Model\Store;
 use Magento\Store\Model\StoreManagerInterface;
 use Oander\IstyleCustomization\Helper\Config;
+use Magento\Framework\App\CacheInterface;
 
 /**
  * Class UrlChecker
@@ -45,6 +46,8 @@ class UrlChecker
 
     private $selectSql;
 
+    private $cache;
+
     /**
      * SessionChecker constructor.
      *
@@ -57,11 +60,13 @@ class UrlChecker
         Config $config,
         StoreManagerInterface $storeManager,
         TransportBuilder $transportBuilder,
-        ResourceConnection $resourceConnection
+        ResourceConnection $resourceConnection,
+        CacheInterface $cache
     ) {
         $this->config             = $config;
         $this->transportBuilder   = $transportBuilder;
         $this->storeManager       = $storeManager;
+        $this->cache              = $cache;
         $this->connection = $resourceConnection->getConnection();
     }
 
@@ -91,6 +96,10 @@ class UrlChecker
                         if ($key == $store->getId()) {
                             $value = $store->getName();
                         }
+                        if ($key == 'cp.entity_id') {
+                            $this->cache->clean('catalog_product_'.$value);
+                        }
+
                         $errorTable .= '<td>' . (string)$value . '</td>';
                     }
                     $errorTable .= '</tr>';
@@ -122,7 +131,6 @@ LEFT JOIN `catalog_product_entity_varchar` AS `cpvvs` ON cpvvs.entity_id = cp.en
 LEFT JOIN `url_rewrite` AS `ur` ON ur.entity_id = cp.entity_id AND ur.entity_type = 'product' AND ur.store_id = %s
 WHERE (cpw.website_id = %s) AND (IFNULL(cpss.value, cpsd.value) = 1) AND (IFNULL(cpvs.value, cpvd.value) IN (2, 3, 4)) 
 AND (IFNULL(cpvvs.value, cpvvd.value) IS NOT NULL)
-AND ur.request_path IS NULL
 AND CONCAT(IFNULL(cpvvs.value, cpvvd.value), '.html') NOT IN (SELECT request_path FROM `url_rewrite` WHERE store_id = %s )
 GROUP BY `cp`.`entity_id`",
             $store->getId(),
