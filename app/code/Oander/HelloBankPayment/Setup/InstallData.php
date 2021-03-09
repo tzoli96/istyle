@@ -37,7 +37,7 @@ class InstallData implements InstallDataInterface
             Attribute::PRODUCT_BAREM_CODE,
             [
                 'group' => 'HelloBank',
-                'label' => 'Hello Bank Barems',
+                'label' => 'Disallowed Barems',
                 'type'  => 'text',
                 'input' => 'multiselect',
                 'source' => BaremOptions::class,

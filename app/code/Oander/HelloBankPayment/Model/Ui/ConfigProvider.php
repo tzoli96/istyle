@@ -6,18 +6,18 @@ use Magento\Store\Api\Data\StoreInterface;
 use Oander\HelloBankPayment\Gateway\Config\ConfigValueHandler;
 use Magento\Checkout\Model\Session;
 use Oander\HelloBankPayment\Enum\Attribute;
-use Magento\Catalog\Api\ProductRepositoryInterface;
 use Oander\HelloBankPayment\Api\Data\BaremRepositoryInterface;
 use Oander\HelloBankPayment\Api\Data\BaremInterface;
+use Oander\HelloBankPayment\Model\ResourceModel\Barems\Collection;
 
 class ConfigProvider implements ConfigProviderInterface
 {
     const CODE                = 'hellobank';
 
     /**
-     * @var ProductRepositoryInterface
+     * @var Collection
      */
-    private $productRepository;
+    private $baremCollection;
 
     /**
      * @var ConfigValueHandler
@@ -42,21 +42,21 @@ class ConfigProvider implements ConfigProviderInterface
     /**
      * ConfigProvider constructor.
      *
+     * @param Collection $baremCollection
      * @param BaremRepositoryInterface $baremRepository
-     * @param ProductRepositoryInterface $productRepository
      * @param ConfigValueHandler $helloBankPaymentConfig
      * @param StoreInterface $store
      * @param Session $checkoutSession
      */
     public function __construct(
+        Collection $baremCollection,
         BaremRepositoryInterface $baremRepository,
-        ProductRepositoryInterface $productRepository,
         ConfigValueHandler $helloBankPaymentConfig,
         StoreInterface $store,
         Session $checkoutSession
     ) {
+        $this->baremCollection = $baremCollection;
         $this->baremRepository = $baremRepository;
-        $this->productRepository = $productRepository;
         $this->helloBankPaymentConfig = $helloBankPaymentConfig;
         $this->store = $store;
         $this->checkoutSession = $checkoutSession;
@@ -70,8 +70,9 @@ class ConfigProvider implements ConfigProviderInterface
         return [
             'payment' => [
                 self::CODE => [
-                    'logoSrc' => $this->getLogoSrc(),
-                    'barems'  => $this->getBarems()
+                    'isAcitve'  => $this->getAcitve(),
+                    'logoSrc'   => $this->getLogoSrc(),
+                    'barems'    => $this->getBarems()
                 ],
             ]
         ];
@@ -86,49 +87,41 @@ class ConfigProvider implements ConfigProviderInterface
     }
 
     /**
+     * @return string
+     */
+    private function getAcitve(): string
+    {
+        return $this->helloBankPaymentConfig->getIsActive();
+    }
+
+    /**
      * todo: repository helyett quoteból lekérdezni
      * @return array
      */
     private function getBarems()
     {
-        $items = $this->checkoutSession->getQuote()->getAllVisibleItems();
+        $quote = $this->checkoutSession->getQuote();
+        $items = $quote->getAllVisibleItems();
+        $grandTotal=$quote->getGrandTotal();
         $barems = [];
         foreach($items as $item)
         {
-            $baremAttribute = $this->productRepository
-                ->get($item->getSku())
-                ->getCustomAttribute(Attribute::PRODUCT_BAREM_CODE);
+            $disAllowedBaremsFromQuote = $item->getProduct()->getData(Attribute::PRODUCT_BAREM_CODE);
 
-            if (null !== $baremAttribute && !in_array($baremAttribute->getValue(),$barems))
+            $disAllowedBarems = ($disAllowedBaremsFromQuote) ? $disAllowedBaremsFromQuote->getValue() : false;
+            $avaliabelBarems = $this->baremCollection->getAvailableBarems()
+                ->getDissAllowed($disAllowedBarems, $grandTotal);
+
+            foreach ($avaliabelBarems as $avaliabelBarem)
             {
-                $baremIds=$baremAttribute->getValue();
-                if (strpos($baremIds, ',') !== false)
+                if(!in_array($avaliabelBarem->getData(), $barems))
                 {
-                    $baremIds = explode(',', $baremIds);
-                    foreach ($baremIds as $baremId)
-                    {
-                        $barem=$this->baremRepository->getById($baremId);
-                        $barems[] = [
-                            "id"        => $barem->getId(),
-                            "name"      => $barem->getName(),
-                            "min_price" => $barem->getMinPrice(),
-                            "max_price" => $barem->getMaxPrice(),
-                            "priority"  => $barem->getPriority(),
-                        ];
-                    }
-                } else {
-                    $barem = $this->baremRepository->getById($baremIds);
-                    $barems[] = [
-                        "id"        => $barem->getId(),
-                        "name"      => $barem->getName(),
-                        "min_price" => $barem->getMinPrice(),
-                        "max_price" => $barem->getMaxPrice(),
-                        "priority"  => $barem->getPriority(),
-                    ];
+                    $barems[] = $avaliabelBarem->getData();
                 }
             }
 
         }
+
         return $barems;
     }
 

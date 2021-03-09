@@ -119,7 +119,7 @@
         <field name="max_price">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="label" xsi:type="string">Minimum price</item>
+                    <item name="label" xsi:type="string">Maximum price</item>
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="dataType" xsi:type="string">number</item>
                     <item name="formElement" xsi:type="string">input</item>
