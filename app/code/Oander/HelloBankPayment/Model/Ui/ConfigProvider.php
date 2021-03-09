@@ -123,8 +123,6 @@ class ConfigProvider implements ConfigProviderInterface
                     ->addFieldToFilter(BaremInterface::ID, ['nin' => $disAllowedBarems])
                     ->getItems();
 
-            $availableBarems=$this->baremCheck->fillterTotal($availableBarems,$grandTotal);
-
             foreach ($availableBarems as $availableBarem)
             {
                 if(!in_array($availableBarem->getData(), $barems))
