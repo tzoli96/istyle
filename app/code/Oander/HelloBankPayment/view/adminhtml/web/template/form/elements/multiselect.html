@@ -1,0 +1,30 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<select multiple class="admin__control-multiselect hellobank-barem" data-bind="
+    attr: {
+        name: inputName,
+        id: uid,
+        size: size ? size : '6',
+        disabled: disabled,
+        'aria-describedby': noticeId,
+        placeholder: placeholder
+    },
+    hasFocus: focused,
+    optgroup: options,
+    selectedOptions: value,
+    optionsValue: 'value',
+    optionsText: 'label'"
+/>
+<style>
+    .hellobank-barem option {
+        background: #cecece;
+    }
+    .hellobank-barem option:not(:checked) {
+        background-color: #ffffff;
+    }
+
+</style>
