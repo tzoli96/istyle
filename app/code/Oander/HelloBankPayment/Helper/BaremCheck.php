@@ -6,6 +6,7 @@ use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
 use Magento\Quote\Api\Data\CartInterface;
 use Oander\HelloBankPayment\Enum\Attribute;
+use Oander\HelloBankPayment\Api\Data\BaremInterface;
 
 class BaremCheck extends AbstractHelper
 {
@@ -44,29 +45,22 @@ class BaremCheck extends AbstractHelper
         return $response;
     }
 
-    /*
-     * todo: elvileg quote->getItems->getProduct()->getCustomAttribute("attname..") is le lehet kérdezni ha etc/catalog_att.xml meg van adva, de nekem localon nem sikerült le kérdezni
-    public function checkItHasBarem(CartInterface $quote = null): bool
+    /**
+     * @param $collection
+     * @param $grandTotal
+     * @return array
+     */
+    public function fillterTotal($collection,$grandTotal)
     {
-        $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/test.log');
-        $logger = new \Zend\Log\Logger();
-        $logger->addWriter($writer);
-        $response = false;
-
-        foreach ($quote->getItems() as $item)
+        $result = [];
+        foreach($collection as $item)
         {
-            $logger->info($item->getProduct()->getAttributeText(Attribute::PRODUCT_BAREM_CODE));
-            $logger->info($item->getProduct()->getCustomAttribute(Attribute::PRODUCT_BAREM_CODE));
-            $logger->info($item->getProduct()->getProductAttribute(Attribute::PRODUCT_BAREM_CODE));
-            $logger->info($item->getProduct()->getData(Attribute::PRODUCT_BAREM_CODE));
-            if (null !== $item->getProduct()->getCustomAttribute(Attribute::PRODUCT_BAREM_CODE))
+            if($item->getData(BaremInterface::MINIMUM_PRICE) <= $grandTotal &&
+                $item->getData(BaremInterface::MAXIMUM_PRICE) >= $grandTotal)
             {
-                $response = true;
-                break;
+                $result[] = $item;
             }
         }
-
-        return $response;
+        return $result;
     }
-    */
 }
