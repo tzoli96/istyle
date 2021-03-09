@@ -1,7 +1,6 @@
 <?php
 namespace Oander\HelloBankPayment\Ui\DataProviders\Product\Form\Modifier;
 
-use Magento\Catalog\Api\Data\ProductAttributeInterface;
 use Magento\Catalog\Model\Locator\LocatorInterface;
 use Magento\Catalog\Ui\DataProvider\Product\Form\Modifier\AbstractModifier;
 use Magento\Framework\Stdlib\ArrayManager;
@@ -12,9 +11,8 @@ use Oander\HelloBankPayment\Model\Config\Product\BaremOptions;
 /**
  * Data provider for "Custom Attribute" field of product page
  */
-class CustomAttr extends AbstractModifier
+class HelloBank extends AbstractModifier
 {
-    const SUGGEST_FILTER_URI = 'vendor_module/something/suggestCustomAttr';
 
     /**
      * @param LocatorInterface            $locator
@@ -73,7 +71,7 @@ class CustomAttr extends AbstractModifier
                 'arguments' => [
                     'data' => [
                         'config' => [
-                            'label'         => __('Custom Attribute'),
+                            'label'         => __('HelloBank Barem'),
                             'dataScope'     => '',
                             'breakLine'     => false,
                             'formElement'   => 'container',
