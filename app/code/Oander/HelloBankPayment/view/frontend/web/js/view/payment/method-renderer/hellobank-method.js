@@ -14,14 +14,21 @@ define(
 
         return Component.extend({
 
-            secureCode: ko.observable(''),
-
             initialize: function () {
                 this._super();
                 return this;
             },
             defaults: {
-                template: "Oander_HelloBankPayment/payment/hellobank-payment-method"
+                template: "Oander_HelloBankPayment/payment/hellobank-payment-method",
+                response: ''
+            },
+            initObservable: function () {
+
+                this._super()
+                    .observe([
+                        'response'
+                    ]);
+                return this;
             },
 
             getCode: function () {
@@ -31,7 +38,9 @@ define(
             getData: function () {
                 var data = {
                     'method': this.item.method,
-                    'additional_data': {}
+                    'additional_data': {
+                        'response': this.response()
+                    }
                 };
                 return data;
             },
@@ -50,7 +59,14 @@ define(
                     this.placeOrder();
                 }
             },
-
+            getResponse: function() {
+                return _.map(window.checkoutConfig.payment.hellobank.response, function(value, key) {
+                    return {
+                        'value': key,
+                        'response': value
+                    }
+                });
+            },
             /**
              * After place order callback
              */

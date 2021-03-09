@@ -10,9 +10,15 @@ use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Quote\Api\CartRepositoryInterface;
 use Magento\Sales\Model\Order;
+use Oander\HelloBankPayment\Gateway\Config;
+use Oander\HelloBankPayment\Helper\Config as HelperConfig;
 
-class Processing extends Action
+class KoState extends Action
 {
+    /**
+     * @var HelperConfig
+     */
+    private $helperConfig;
     /**
      * @var CheckoutSession
      */
@@ -31,15 +37,18 @@ class Processing extends Action
      * @param CheckoutSession $checkoutSession
      * @param CartRepositoryInterface $quoteRepository
      * @param HelloBankModel $helloBankModel
+     * @param HelperConfig $helperConfig
      */
     public function __construct(
         Context $context,
         CheckoutSession $checkoutSession,
         CartRepositoryInterface $quoteRepository,
-        HelloBankModel $helloBankModel
+        HelloBankModel $helloBankModel,
+        HelperConfig $helperConfig
     ) {
         $this->checkoutSession = $checkoutSession;
         $this->helloBankModel = $helloBankModel;
+        $this->helperConfig = $helperConfig;
         parent::__construct($context);
     }
 
@@ -53,13 +62,16 @@ class Processing extends Action
     {
         /** @var Order $order */
         $order = $this->checkoutSession->getLastRealOrder();
-
         /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
 
         if ($order instanceof Order) {
-
-            $this->helloBankModel->handleStatus($order);
+            $returnData = $this->getRequest()->getParams();
+            $this->helloBankModel->handle(
+                $order,
+                $this->helperConfig->getPaymentData($returnData,Config::HELLOBANK_REPONSE_TYPE_KO),
+                    Config::HELLOBANK_REPONSE_TYPE_KO
+            );
             $resultRedirect->setPath('checkout/onepage/success');
         }
 

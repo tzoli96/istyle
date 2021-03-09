@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<body>
+    <referenceBlock name="order_info">
+        <block class="Oander\HelloBankPayment\Block\Adminhtml\Order\View\HelloBankStatus" name="sales_order_view_hellobank_status" template="order/view/hellobank_status.phtml" after="" />
+    </referenceBlock>
+</body>
+</page>
