@@ -39,9 +39,14 @@ class Display extends Template
         parent::__construct($context, $data);
     }
 
+    private function product()
+    {
+        return $this->registry->registry('product');
+    }
+
     private function getDisallowedBarems()
     {
-        $disAllowedBarems= $this->registry->registry('product')->getCustomAttribute(Attribute::PRODUCT_BAREM_CODE);
+        $disAllowedBarems= $this->product()->getCustomAttribute(Attribute::PRODUCT_BAREM_CODE);
         return ($disAllowedBarems) ? $disAllowedBarems->getValue() : false;
     }
 
@@ -50,14 +55,26 @@ class Display extends Template
      */
     public function getBarems()
     {
-        $avaliabelBarems = $this->baremCollection->getAvailableBarems();
+
+        $availableBarems = $this->baremCollection->AddFillterAvailableBarems()
+        ->addFieldToFilter(BaremInterface::ID, ['nin' => $this->getDisallowedBarems()]);
 
         $barems = [];
-        foreach ($avaliabelBarems as $avaliabelBarem)
+        foreach ($availableBarems->getItems() as $availableBarem)
         {
-            if(!in_array($avaliabelBarem->getData(), $barems))
+            if(!in_array($availableBarem->getData(), $barems))
             {
-                $barems[] = $avaliabelBarem->getData();
+                if($this->product()->getTypeId() === "simple")
+                {
+                    if($availableBarem->getData(BaremInterface::MINIMUM_PRICE) <= $this->product()->getPrice() &&
+                        $availableBarem->getData(BaremInterface::MAXIMUM_PRICE) >= $this->product()->getPrice() )
+                    {
+                        $barems[] = $availableBarem->getData();
+                    }
+                }else {
+                    $barems[] = $availableBarem->getData();
+                }
+
             }
         }
         return $barems;

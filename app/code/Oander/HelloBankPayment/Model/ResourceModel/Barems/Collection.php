@@ -24,7 +24,7 @@ class Collection extends AbstractCollection
     /**
      * @return Collection
      */
-    public function getAvailableBarems(): Collection
+    public function AddFillterAvailableBarems(): Collection
     {
         return $this->addFieldToFilter(BaremInterface::STATUS, ['eq' => BaremInterface::STATUS_ENABLED]);
     }

@@ -34,7 +34,7 @@ class BaremOptions extends AbstractSource
     {
         if ($this->options === null) {
             try {
-                $baremCollection = $this->baremCollection->getAvailableBarems();
+                $baremCollection = $this->baremCollection->AddFillterAvailableBarems();
 
                 foreach ($baremCollection as $barem) {
                     $this->options[] = [

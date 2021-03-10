@@ -47,6 +47,8 @@ class ConfigProvider implements ConfigProviderInterface
      */
     private $baremCheck;
 
+    private $barems = [];
+
     /**
      * ConfigProvider constructor.
      *
@@ -120,27 +122,22 @@ class ConfigProvider implements ConfigProviderInterface
         $items = $quote->getAllVisibleItems();
         $grandTotal=$quote->getGrandTotal();
         $barems = [];
-        foreach($items as $item)
+        foreach ($items as $item)
         {
-            $disAllowedBaremsFromQuote = $item->getProduct()->getData(Attribute::PRODUCT_BAREM_CODE);
-
-            $disAllowedBarems = ($disAllowedBaremsFromQuote) ? $disAllowedBaremsFromQuote : false;
-
-            $availableBarems = $this->baremCollection->getAvailableBarems()
-                    ->addFieldToFilter(BaremInterface::ID, ['nin' => $disAllowedBarems])
-                    ->getItems();
-
-            foreach ($availableBarems as $availableBarem)
+            $productBarems = $item->getProduct()->getData(Attribute::PRODUCT_BAREM_CODE);
+            if($productBarems)
             {
-                if(!in_array($availableBarem->getData(), $barems))
+                foreach($this->baremCheck->fillterTotal($productBarems,$grandTotal) as $item)
                 {
-                    $barems[] = $availableBarem->getData();
+                    if(!in_array($item->getData(),$barems))
+                        $barems [] = $item->getData();
                 }
             }
-
         }
 
+
         return $barems;
+
     }
 
 
