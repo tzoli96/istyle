@@ -223,7 +223,7 @@ class Tbigetid extends \Magento\Framework\App\Action\Action
                 // send to softinteligens
                 $tbiro_post = [
                     'store_id' => $tbiro_store_id,
-                    'order_id' => $paramstbiroadd['newid'],
+                    'order_id' => $this->getOrder()->getIncrementId(),
                     'back_ref' => $tbiro_url,
                     'order_total' => $tbiro_price,
                     'username' => $tbiro_username,

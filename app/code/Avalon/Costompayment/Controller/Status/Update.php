@@ -3,6 +3,7 @@
 namespace Avalon\Costompayment\Controller\Status;
 
 use Magento\Sales\Model\Order;
+use Magento\Sales\Model\Order\Payment\Transaction as PaymentTransaction;
 
 /**
  * Class Update
@@ -101,6 +102,9 @@ class Update extends \Magento\Framework\App\Action\Action
     public function execute()
     {
         try {
+            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+            $config = $objectManager->get('\Magento\Sales\Model\Order\Config');
+
             $requestContent = $this->getRequest()->getContent();
             file_put_contents(
                 '/var/www/istyle.eu/webroot/var/log/oander/tbi.log',
@@ -121,6 +125,16 @@ class Update extends \Magento\Framework\App\Action\Action
                     date('Y-m-d H:i:s') . ' | NOT Json! ' . PHP_EOL,
                     FILE_APPEND
                 );
+
+                file_put_contents(
+                    '/var/www/istyle.eu/webroot/var/log/oander/tbi.log',
+                    date('Y-m-d H:i:s') . ' | ORDERINFO: ' . var_export($requestContent, true) . PHP_EOL,
+                    FILE_APPEND
+                );
+
+                ini_set('display_errors', 1);
+                error_reporting(E_ALL);
+
                 if (!$privateKey = openssl_pkey_get_private(file_get_contents($this->filesystem
                         ->getDirectoryRead(\Magento\Framework\App\Filesystem\DirectoryList::VAR_DIR)
                         ->getAbsolutePath() . 'keys/private_bg.key'))
@@ -141,7 +155,19 @@ class Update extends \Magento\Framework\App\Action\Action
                 $a_key = openssl_pkey_get_details($privateKey);
                 $chunkSize = ceil($a_key['bits'] / 8);
                 $decryptedRequestContent = '';
+
+                if ((strpos($requestContent, 'order_data=')) !== FALSE) {
+                    $requestData = explode('order_data=', $requestContent);
+                    $requestContent = $requestData[1];
+                }
                 $encrypted = base64_decode($requestContent);
+
+                file_put_contents(
+                    '/var/www/istyle.eu/webroot/var/log/oander/tbi.log',
+                    date('Y-m-d H:i:s') . ' | $encrypted: ' . var_export($encrypted, true) . PHP_EOL,
+                    FILE_APPEND
+                );
+
                 while ($encrypted) {
                     $chunk = substr($encrypted, 0, $chunkSize);
                     $encrypted = substr($encrypted, $chunkSize);
@@ -158,8 +184,15 @@ class Update extends \Magento\Framework\App\Action\Action
                 }
                 openssl_free_key($privateKey);
 
+                file_put_contents(
+                    '/var/www/istyle.eu/webroot/var/log/oander/tbi.log',
+                    date('Y-m-d H:i:s') . ' | $decryptedRequestContent: ' . var_export($decryptedRequestContent, true) . PHP_EOL,
+                    FILE_APPEND
+                );
+
                 $orderInfo = json_decode($decryptedRequestContent, true);
             }
+
 
             file_put_contents(
                 '/var/www/istyle.eu/webroot/var/log/oander/tbi.log',
@@ -167,9 +200,15 @@ class Update extends \Magento\Framework\App\Action\Action
                 FILE_APPEND
             );
 
+            if (!isset($orderInfo[self::PARAM_ORDER_ID])) {
+                throw new \Exception('Missing order ID');
+            }
 
             $order = $this->order->loadByIncrementId($orderInfo[self::PARAM_ORDER_ID]);
-            //$order = $this->orderRepository->get($orderInfo[self::PARAM_ORDER_ID]);
+            if (!$order) {
+                throw new \Exception('Order with %s id does not exist',$orderInfo[self::PARAM_ORDER_ID]);
+            }
+
             $payment = $order->getPayment();
 
             file_put_contents(
@@ -191,6 +230,8 @@ class Update extends \Magento\Framework\App\Action\Action
                 && in_array($orderInfo[self::PARAM_MESSAGE], self::STATUS_APPROVED[self::PARAM_MESSAGE])
             ) {
                 $payment->setIsTransactionApproved(true);
+                $order->setState(Order::STATE_PENDING_PAYMENT);
+                $order->setStatus($config->getStateDefaultStatus($order->getState()));
 
                 file_put_contents(
                     '/var/www/istyle.eu/webroot/var/log/oander/tbi.log',
@@ -202,6 +243,7 @@ class Update extends \Magento\Framework\App\Action\Action
             ) {
                 $payment->setIsTransactionApproved(false);
                 $order->setState(Order::STATE_CANCELED);
+                $order->setStatus($config->getStateDefaultStatus($order->getState()));
 
                 file_put_contents(
                     '/var/www/istyle.eu/webroot/var/log/oander/tbi.log',
@@ -211,7 +253,7 @@ class Update extends \Magento\Framework\App\Action\Action
             } elseif ($orderInfo[self::PARAM_STATUS_ID] == self::STATUS_PENDING[self::PARAM_STATUS_ID]
                 && in_array($orderInfo[self::PARAM_MESSAGE], self::STATUS_PENDING[self::PARAM_MESSAGE])
             ) {
-                $order->setState(Order::STATE_PENDING_PAYMENT);
+                $order->setState(Order::STATE_PROCESSING);
 
                 file_put_contents(
                     '/var/www/istyle.eu/webroot/var/log/oander/tbi.log',
@@ -223,6 +265,7 @@ class Update extends \Magento\Framework\App\Action\Action
             ) {
                 $payment->setIsTransactionApproved(false);
                 $order->setState(Order::STATE_CANCELED);
+                $order->setStatus($config->getStateDefaultStatus($order->getState()));
 
                 file_put_contents(
                     '/var/www/istyle.eu/webroot/var/log/oander/tbi.log',
@@ -231,11 +274,60 @@ class Update extends \Magento\Framework\App\Action\Action
                 );
             }
 
-            $payment->setAdditionalInformation(
-                [\Magento\Sales\Model\Order\Payment\Transaction::RAW_DETAILS => $orderInfo]
+            file_put_contents(
+                '/var/www/istyle.eu/webroot/var/log/oander/tbi.log',
+                date('Y-m-d H:i:s') . ' | t1'. PHP_EOL,
+                FILE_APPEND
             );
 
-            $this->orderRepository->save($order);
+            /** @var \Magento\Sales\Model\Order\Payment\Transaction\BuilderInterface $trans */
+            $trans = $objectManager->get('\Magento\Sales\Model\Order\Payment\Transaction\BuilderInterface');
+            file_put_contents(
+                '/var/www/istyle.eu/webroot/var/log/oander/tbi.log',
+                date('Y-m-d H:i:s') . ' | t2'. PHP_EOL,
+                FILE_APPEND
+            );
+            ini_set('display_errors', 1);
+            error_reporting(E_ALL);
+
+            $transaction = $trans->setPayment($payment)
+                ->setOrder($order)
+                ->setTransactionId($order->getIncrementId())
+                ->setAdditionalInformation(
+                    [\Magento\Sales\Model\Order\Payment\Transaction::RAW_DETAILS => (array)$orderInfo]
+                )
+                ->setFailSafe(true)
+                ->build(PaymentTransaction::TYPE_CAPTURE);
+            $transaction->setIsClosed(false);
+            $id = $transaction->save()->getTransactionId();
+
+            $payment->setLastTransId($id);
+            $payment->setTransactionId($id);
+            $payment->setIsTransactionClosed(0);
+            $order->setPayment($payment);
+
+
+            file_put_contents(
+                '/var/www/istyle.eu/webroot/var/log/oander/tbi.log',
+                date('Y-m-d H:i:s') . ' | t3'.$id. PHP_EOL,
+                FILE_APPEND
+            );
+
+            $order->setPayment($payment);
+
+            $payment->save();
+            file_put_contents(
+                '/var/www/istyle.eu/webroot/var/log/oander/tbi.log',
+                date('Y-m-d H:i:s') . ' | t4'. PHP_EOL,
+                FILE_APPEND
+            );
+            $order->save();
+            file_put_contents(
+                '/var/www/istyle.eu/webroot/var/log/oander/tbi.log',
+                date('Y-m-d H:i:s') . ' | t5'. PHP_EOL,
+                FILE_APPEND
+            );
+            $transaction->save()->getTransactionId();
 
             file_put_contents(
                 '/var/www/istyle.eu/webroot/var/log/oander/tbi.log',
