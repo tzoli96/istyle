@@ -10,8 +10,10 @@ use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Quote\Api\CartRepositoryInterface;
 use Magento\Sales\Model\Order;
+use Oander\HelloBankPayment\Gateway\Config;
+use Oander\HelloBankPayment\Helper\Config as HelperConfig;
 
-class Processing extends Action
+class OkState extends Action
 {
     /**
      * @var CheckoutSession
@@ -23,21 +25,29 @@ class Processing extends Action
      */
     private $helloBankModel;
 
+    /**
+     * @var HelperConfig
+     */
+    private $helperConfig;
+
 
     /**
      * Processing constructor.
      *
+     * @param HelperConfig $helperConfig
      * @param Context $context
      * @param CheckoutSession $checkoutSession
      * @param CartRepositoryInterface $quoteRepository
      * @param HelloBankModel $helloBankModel
      */
     public function __construct(
+        HelperConfig $helperConfig,
         Context $context,
         CheckoutSession $checkoutSession,
         CartRepositoryInterface $quoteRepository,
         HelloBankModel $helloBankModel
     ) {
+        $this->helperConfig = $helperConfig;
         $this->checkoutSession = $checkoutSession;
         $this->helloBankModel = $helloBankModel;
         parent::__construct($context);
@@ -49,6 +59,7 @@ class Processing extends Action
      * @return Redirect
      * @throws LocalizedException
      */
+    //
     public function execute()
     {
         /** @var Order $order */
@@ -58,8 +69,11 @@ class Processing extends Action
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
 
         if ($order instanceof Order) {
-
-            $this->helloBankModel->handleStatus($order);
+            $returnData = $this->getRequest()->getParams();
+            $this->helloBankModel->handleStatus(
+                $order,
+                $this->helperConfig->getPaymentData($returnData,Config::HELLOBANK_REPONSE_TYPE_OK)
+            );
             $resultRedirect->setPath('checkout/onepage/success');
         }
 

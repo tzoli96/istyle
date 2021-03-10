@@ -4,9 +4,7 @@
         <arguments>
             <argument name="modifiers" xsi:type="array">
                 <item name="custom-attribute" xsi:type="array">
-                    <item name="class" xsi:type="string">
-                        Oander\HelloBankPayment\Ui\DataProviders\Product\Form\Modifier\HelloBank
-                    </item>
+                    <item name="class" xsi:type="string">Oander\HelloBankPayment\Ui\DataProviders\Product\Form\Modifier\HelloBank</item>
                     <item name="sortOrder" xsi:type="number">10</item>
                 </item>
             </argument>

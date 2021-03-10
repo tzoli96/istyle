@@ -1,0 +1,21 @@
+<?php
+/**
+ * @var $block \Oander\HelloBankPayment\Block\Adminhtml\Order\View\HelloBankStatus
+ */
+?>
+<?php
+if($block->hasHelloBank()){
+    ?>
+    <section class="admin__page-section">
+        <div class="admin__page-section-title">
+            <span class="title"><?php /* @escapeNotVerified */ echo __('HelloBank') ?></span>
+        </div>
+
+        <div class="admin__page-section-content">
+            <strong>HelloBank Status:</strong>
+            <?= $block->getStatusValue()?>
+        </div>
+    </section>
+    <?php
+}
+?>
