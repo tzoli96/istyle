@@ -40,7 +40,7 @@ class UpgradeData implements UpgradeDataInterface
                 [
                     'type' => Table::TYPE_TEXT,
                     'length' => 255,
-                    'comment' =>'Custom Attribute'
+                    'comment' =>'HelloBank Status Order'
                 ]
             );
 

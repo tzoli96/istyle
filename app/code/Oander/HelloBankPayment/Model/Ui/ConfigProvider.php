@@ -10,6 +10,8 @@ use Oander\HelloBankPayment\Api\Data\BaremRepositoryInterface;
 use Oander\HelloBankPayment\Api\Data\BaremInterface;
 use Oander\HelloBankPayment\Model\ResourceModel\Barems\Collection;
 use Oander\HelloBankPayment\Helper\BaremCheck;
+use Oander\HelloBankPayment\Gateway\Config as ConfigHelper;
+
 
 class ConfigProvider implements ConfigProviderInterface
 {
@@ -81,7 +83,12 @@ class ConfigProvider implements ConfigProviderInterface
                 self::CODE => [
                     'isAcitve'  => $this->getAcitve(),
                     'logoSrc'   => $this->getLogoSrc(),
-                    'barems'    => $this->getBarems()
+                    'barems'    => $this->getBarems(),
+                    'response' => [
+                        ConfigHelper::HELLOBANK_REPONSE_TYPE_OK => __('Application approved automatically (OK)'),
+                        ConfigHelper::HELLOBANK_REPONSE_TYPE_KO => __('Application subject to further review (KO)')
+                    ]
+
                 ],
             ]
         ];

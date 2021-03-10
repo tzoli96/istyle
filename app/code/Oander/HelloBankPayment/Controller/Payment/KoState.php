@@ -67,10 +67,9 @@ class KoState extends Action
 
         if ($order instanceof Order) {
             $returnData = $this->getRequest()->getParams();
-            $this->helloBankModel->handle(
+            $this->helloBankModel->handleStatus(
                 $order,
-                $this->helperConfig->getPaymentData($returnData,Config::HELLOBANK_REPONSE_TYPE_KO),
-                    Config::HELLOBANK_REPONSE_TYPE_KO
+                $this->helperConfig->getPaymentData($returnData,Config::HELLOBANK_REPONSE_TYPE_KO)
             );
             $resultRedirect->setPath('checkout/onepage/success');
         }

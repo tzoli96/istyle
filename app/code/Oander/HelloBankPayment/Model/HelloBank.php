@@ -6,6 +6,7 @@ use Magento\Framework\UrlInterface;
 use Magento\Sales\Model\Order;
 use Magento\Sales\Api\OrderRepositoryInterface;
 use Magento\Sales\Model\Order\Invoice;
+use Magento\Sales\Model\Order\Payment;
 use Magento\Sales\Model\Order\Payment\Transaction;
 use Oander\HelloBankPayment\Enum\Request;
 use Oander\HelloBankPayment\Gateway\Config;
@@ -77,10 +78,8 @@ class HelloBank
             switch ($urlType)
             {
                 case Config::HELLOBANK_REPONSE_TYPE_OK:
+                    $this->handleStatus($order,$paymentData['status']);
 
-                    $order->setStatus(Order::STATE_PROCESSING);
-                    $this->orderRepository->save($order);
-                    $this->setHelloBankStatus($order, $paymentData['status']);
                     $this->postActions($order);
                     break;
 
@@ -108,14 +107,47 @@ class HelloBank
 
     /**
      * @param Order $order
-     * @param null $status
+     * @param null $paymentData
      * @return bool
+     * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function handleStatus(Order $order, $status = null)
+    public function handleStatus(Order $order, $paymentData = null)
     {
-        switch ($status) {
+        switch ($paymentData['status']) {
             case CONFIG::HELLOBANK_RESPONSE_STATE_APPROVED:
+
+                $this->setHelloBankStatus($order, $paymentData['status']);
+                $order->setStatus(Order::STATE_PROCESSING);
+
+                // Transaction Id Generate
+                $payment=$order->getPayment();
+                /** @var $payment Payment */
+                $transactionId=(isset($paymentData['id'])) ? $paymentData['id'] : random_int(0, 10000);
+                $payment->setTransactionId($transactionId);
+                $payment->setIsTransactionClosed(true);
+
+                //Invoce Generate
+                        /** @var Invoice $invoice */
+                        $invoice = $this->invoiceService->prepareInvoice($order);
+                        /** @noinspection PhpUndefinedMethodInspection */
+                        $invoice->setRequestedCaptureCase(Invoice::CAPTURE_ONLINE);
+                        $invoice->register();
+
+                        /** @var DBTransaction $transactionSave */
+                        $transactionSave = $this->transactionFactory->create()
+                            ->addObject($invoice)
+                            ->addObject($invoice->getOrder());
+
+                        $transactionSave->save();
+
+                $this->orderSender->send($order);
+                $this->orderRepository->save($order);
+
             case CONFIG::HELLOBANK_RESPONSE_STATE_FURTHER_REVIEW:
+
+                $this->setHelloBankStatus($order, $paymentData['status']);
+                $this->orderSender->send($order);
+
             case CONFIG::HELLOBANK_RESPONSE_STATE_PRE_APPROVAL:
             case CONFIG::HELLOBANK_RESPONSE_STATE_CANCELLED:
             case CONFIG::HELLOBANK_RESPONSE_STATE_REJECTED:
@@ -128,8 +160,8 @@ class HelloBank
 
     public function postActions($order = null, $paymentData = null)
     {
-        //Random int elméltileg HelloBanktól kéne kapjuk?
-        $transactionId=random_int(100, 50000);
+        //numaut = transcationID ?
+        $transactionId=$paymentData['id'];
         try {
             $payment = $order->getPayment();
             $payment->setLastTransId($transactionId);
@@ -161,7 +193,6 @@ class HelloBank
             $order->save();
             $transaction->save()->getTransactionId();
             $this->createInvoce($order);
-            $this->orderSender->send($order);
         } catch (\Exception $e) {
             die($e->getMessage());
         }

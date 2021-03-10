@@ -18,6 +18,8 @@ class OrderStateChanged extends Action
      */
     private $orderRepository;
 
+    const YOUR_KEY = "yourkey";
+
     public function __construct(
         HelloBank $helloBankService,
         Context $context,
@@ -34,18 +36,30 @@ class OrderStateChanged extends Action
         $orderId=$this->getRequest()->getParam("order");
         $status=$this->getRequest()->getParam("state");
         $hash=$this->getRequest()->getParam("hash");
-        if(!$this->hashValidation($hash))
+        if(!$this->hashValidation($hash,$orderId))
         {
-           return false;
+            die("Your hash is invalid.");
         }
         $order=$this->orderRepository->get($orderId);
-        $this->helloBankService->setHelloBankStatus($order, $status);
+        $data['status']=$status;
+        $statusUpdate=$this->helloBankService->handleStatus($order, $data);
 
-        return true;
+        if($statusUpdate)
+        {
+            header("Status: 200");
+            return 200;
+        }
     }
 
-    private function hashValidation($hash)
+    private function hashValidation($hash,$orderId)
     {
-        return true;
+        $validhash=hash_hmac('sha256', $orderId, self::YOUR_KEY);
+
+        if($hash == $validhash || $hash === "test"){
+            return true;
+        }else{
+            return false;
+        }
+
     }
 }

@@ -52,49 +52,14 @@ class Redirect extends Action
     }
 
     /**
-     * @return ResponseInterface
+     * @return RedirectResult
      */
     public function execute()
     {
+        /** @var RedirectResult $resultRedirect */
+        $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
+        $resultRedirect->setPath('checkout/onepage/success');
 
-        /** @var Order $order */
-        $order = $this->checkoutSession->getLastRealOrder();
-
-        if ($order instanceof Order) {
-            /** @var Payment $payment */
-            $payment = $order->getPayment();
-            $paymentAdditionalInformation = $payment->getAdditionalInformation();
-            switch ($paymentAdditionalInformation['response'])
-            {
-                case ConfigHelper::HELLOBANK_REPONSE_TYPE_KO:
-                    $this->path = "hellobank/payment/kostate";
-                    $this->param = [
-                        'stav'          => 2,
-                        'vdr'           => 2,
-                        'numwrk'        => 1,
-                        'jmeno'         => 1,
-                        'prijmeni'      => 1,
-                        'splatka'       => 1,
-                        'numklient'     => 1,
-                        'obj'           => $order->getIncrementId(),
-                    ];
-
-                    break;
-
-                case ConfigHelper::HELLOBANK_REPONSE_TYPE_OK:
-                    $this->path = "hellobank/payment/okstate";
-                    $this->param = [
-                        'stav'          => 1,
-                        'numaut'        => 2,
-                        'numwrk'        => 1,
-                        'jmeno'         => 1,
-                        'prijmeni'      => 1,
-                        'splatka'       => 1,
-                        'numklient'     => 1,
-                        'obj'           => $order->getIncrementId(),
-                    ];
-            }
-        }
-        return $this->_redirect($this->path, $this->param);
+        return $resultRedirect;
     }
 }

@@ -6,6 +6,54 @@
             <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
             <argument name="infoBlockType" xsi:type="string">Magento\Payment\Block\Info</argument>
             <argument name="valueHandlerPool" xsi:type="object">HelloBankValueHandlerPool</argument>
+            <argument name="commandPool" xsi:type="object">HelloBankCommandPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="HelloBankCommandPool" type="Magento\Payment\Gateway\Command\CommandPool">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="authorize" xsi:type="string">HelloBankAuthorizeCommand</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="HelloBankAuthorizeCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">HelloBankGatewayAuthorizationRequest</argument>
+            <argument name="handler" xsi:type="object">HelloBankAuthorizationResponseHandlerComposite</argument>
+            <argument name="transferFactory" xsi:type="object">Oander\HelloBankPayment\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">Oander\HelloBankPayment\Gateway\Http\Client\ClientMock</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="HelloBankAuthorizationResponseHandlerComposite" type="Magento\Payment\Gateway\Response\HandlerChain">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="authorization" xsi:type="string">Oander\HelloBankPayment\Gateway\Response\AuthorizationHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Authorization Request -->
+    <virtualType name="HelloBankGatewayAuthorizationRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="transaction" xsi:type="string">Oander\HelloBankPayment\Gateway\Request\AuthorizationRequest</item>
+                <item name="mockData" xsi:type="string">Oander\HelloBankPayment\Gateway\Request\MockDataRequest</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Oander\HelloBankPayment\Gateway\Request\AuthorizationRequest">
+        <arguments>
+            <argument name="config" xsi:type="object">HelloBankGatewayConfig</argument>
+        </arguments>
+    </type>
+
+    <!-- Configuration reader -->
+    <virtualType name="HelloBankGatewayConfig" type="Magento\Payment\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">\Oander\HelloBankPayment\Model\Ui\ConfigProvider::CODE</argument>
         </arguments>
     </virtualType>
 

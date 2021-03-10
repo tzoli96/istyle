@@ -1,5 +1,4 @@
 <?php
-
 namespace Oander\HelloBankPayment\Observer;
 
 use Magento\Framework\Event\Observer;
