@@ -117,4 +117,10 @@
         <plugin name="IstyleCustomization::EntityAbstractEntity" type="Oander\IstyleCustomization\Plugin\Magento\Eav\Model\Entity\AbstractEntity"/>
     </type>
      #46266 END -->
+
+    <!-- #49441 START -->
+    <type name="Magento\Quote\Model\QuoteRepository">
+        <plugin name="IstyleCustomization::QuoteRepository" type="Oander\IstyleCustomization\Plugin\Magento\Quote\Model\QuoteRepository" sortOrder="1"/>
+    </type>
+    <!-- #49441 END -->
 </config>
