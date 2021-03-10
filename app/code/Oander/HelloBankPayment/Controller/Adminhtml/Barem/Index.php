@@ -13,7 +13,7 @@ class Index extends Grid
     {
         /** @var Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
-        $this->initPage($resultPage)->getConfig()->getTitle()->prepend(__('Barems'));
+        $this->initPage($resultPage)->getConfig()->getTitle()->prepend(__('Baremek grid '));
 
         return $resultPage;
     }
