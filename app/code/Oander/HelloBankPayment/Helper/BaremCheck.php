@@ -21,6 +21,8 @@ class BaremCheck extends AbstractHelper
      */
     private $baremCollection;
 
+    private $disAllowedBarems = [];
+
     public function __construct(
         CollectionFactory $baremCollection,
         ProductRepositoryInterface $productRepository,
@@ -37,28 +39,9 @@ class BaremCheck extends AbstractHelper
      */
     public function checkItHasBarem(CartInterface $quote = null): bool
     {
-        $response = false;
         $grandTotal=$quote->getGrandTotal();
-        $barems = [];
-        foreach ($quote->getItems() as $item)
-        {
-            $productBarems = $item->getProduct()->getData(Attribute::PRODUCT_BAREM_CODE);
-            if($productBarems)
-            {
-                foreach($this->fillterTotal($productBarems,$grandTotal) as $item)
-                {
-                    if(!in_array($item->getData(),$barems))
-                        $barems [] = $item->getData();
-                }
-            }
-        }
-
-        if(null != $barems)
-        {
-            $response = true;
-        }
-
-        return $response;
+        $results = $this->fillterTotal($quote->getItems(), $grandTotal);
+        return (is_array($results) && count($results) > 0) ? true : false;
     }
 
     /**
@@ -66,22 +49,42 @@ class BaremCheck extends AbstractHelper
      * @param $grandTotal
      * @return array
      */
-    public function fillterTotal($disAllowedItems, $grandTotal)
+    public function fillterTotal($items, $grandTotal)
     {
         $result = [];
+        $disAllowedItems = $this->fillterTotalBarem($items);
         $collection =  $this->baremCollection->create()
-            ->addFieldToFilter(BaremInterface::STATUS, ['eq' => BaremInterface::STATUS_ENABLED])
-            ->addFieldToFilter(BaremInterface::ID, ['nin' => $disAllowedItems]);
+            ->addFieldToFilter(BaremInterface::STATUS, ['eq' => BaremInterface::STATUS_ENABLED]);
+        if($disAllowedItems)
+        {
+            $collection->addFieldToFilter(BaremInterface::ID, ['nin' => $disAllowedItems]);
+        }
 
         foreach($collection as $item)
         {
-            $item->getData();
             if($item->getData(BaremInterface::MINIMUM_PRICE) <= $grandTotal &&
                 $item->getData(BaremInterface::MAXIMUM_PRICE) >= $grandTotal)
             {
-                $result[] = $item;
+                $result[] = $item->getData();
             }
         }
         return $result;
+    }
+
+    /**
+     * @param $collection
+     * @return array
+     */
+    private function fillterTotalBarem($collection)
+    {
+        foreach($collection as $item){
+            $currentDisAllowedProductAttribute = $item->getProduct()->getData(Attribute::PRODUCT_BAREM_CODE);
+            if($currentDisAllowedProductAttribute)
+            {
+                $explode = explode(",", $currentDisAllowedProductAttribute);
+                $this->disAllowedBarems = array_merge($this->disAllowedBarems, $explode);
+            }
+        }
+        return $this->disAllowedBarems;
     }
 }

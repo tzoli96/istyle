@@ -113,7 +113,6 @@ class ConfigProvider implements ConfigProviderInterface
     }
 
     /**
-     * todo: repository helyett quoteból lekérdezni
      * @return array
      */
     private function getBarems()
@@ -121,23 +120,7 @@ class ConfigProvider implements ConfigProviderInterface
         $quote = $this->checkoutSession->getQuote();
         $items = $quote->getAllVisibleItems();
         $grandTotal=$quote->getGrandTotal();
-        $barems = [];
-        foreach ($items as $item)
-        {
-            $productBarems = $item->getProduct()->getData(Attribute::PRODUCT_BAREM_CODE);
-            if($productBarems)
-            {
-                foreach($this->baremCheck->fillterTotal($productBarems,$grandTotal) as $item)
-                {
-                    if(!in_array($item->getData(),$barems))
-                        $barems [] = $item->getData();
-                }
-            }
-        }
-
-
-        return $barems;
-
+        return $this->baremCheck->fillterTotal($items, $grandTotal);
     }
 
 
