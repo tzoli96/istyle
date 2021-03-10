@@ -61,4 +61,17 @@ class QuoteRepository
         $this->registry->unregister(self::QUOTE_REGISTRY . $quote->getId());
         $this->registry->register(self::QUOTE_REGISTRY . $quote->getId(), $quote);
     }
+
+    /**
+     * @param \Magento\Quote\Model\QuoteRepository $subject
+     * @param \Magento\Quote\Api\Data\CartInterface $quote
+     * @return \Magento\Quote\Api\Data\CartInterface[]
+     */
+    public function beforeDelete(
+        \Magento\Quote\Model\QuoteRepository $subject,
+        \Magento\Quote\Api\Data\CartInterface $quote
+    ) {
+        $this->registry->unregister(self::QUOTE_REGISTRY . $quote->getId());
+        return [$quote];
+    }
 }
