@@ -47,13 +47,13 @@ class InstallSchema implements InstallSchemaInterface
             'Barem Priority'
         )->addColumn(
             BaremInterface::MAXIMUM_PRICE,
-            Table::TYPE_SMALLINT,
+            Table::TYPE_TEXT,
             255,
             [],
             'Barem Maximum Price'
         )->addColumn(
             BaremInterface::MINIMUM_PRICE,
-            Table::TYPE_SMALLINT,
+            Table::TYPE_TEXT,
             255,
             [],
             'Barem Minimum Price'

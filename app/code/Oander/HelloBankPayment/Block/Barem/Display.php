@@ -50,8 +50,7 @@ class Display extends Template
      */
     public function getBarems()
     {
-        $avaliabelBarems = $this->baremCollection->getAvailableBarems()
-        ->getDissAllowed($this->getDisallowedBarems());
+        $avaliabelBarems = $this->baremCollection->getAvailableBarems();
 
         $barems = [];
         foreach ($avaliabelBarems as $avaliabelBarem)

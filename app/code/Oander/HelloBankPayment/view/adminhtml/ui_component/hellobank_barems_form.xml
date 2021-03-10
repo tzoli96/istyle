@@ -7,7 +7,7 @@
             <item name="provider" xsi:type="string">hellobank_barems_form.hellobank_barems_form_data_source</item>
             <item name="deps" xsi:type="string">hellobank_barems_form.hellobank_barems_form_data_source</item>
         </item>
-        <item name="label" xsi:type="string" translate="true">Edit article</item>
+        <item name="label" xsi:type="string" translate="true">Edit Barems</item>
         <item name="config" xsi:type="array">
             <item name="dataScope" xsi:type="string">data</item>
             <item name="namespace" xsi:type="string">hellobank_barems_form</item>
