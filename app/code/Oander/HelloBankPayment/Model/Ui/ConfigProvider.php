@@ -8,7 +8,7 @@ use Magento\Checkout\Model\Session;
 use Oander\HelloBankPayment\Enum\Attribute;
 use Oander\HelloBankPayment\Api\Data\BaremRepositoryInterface;
 use Oander\HelloBankPayment\Api\Data\BaremInterface;
-use Oander\HelloBankPayment\Model\ResourceModel\Barems\Collection;
+use Oander\HelloBankPayment\Model\ResourceModel\Barems\CollectionFactory;
 use Oander\HelloBankPayment\Helper\BaremCheck;
 use Oander\HelloBankPayment\Gateway\Config as ConfigHelper;
 
@@ -18,7 +18,7 @@ class ConfigProvider implements ConfigProviderInterface
     const CODE                = 'hellobank';
 
     /**
-     * @var Collection
+     * @var CollectionFactory
      */
     private $baremCollection;
 
@@ -53,7 +53,7 @@ class ConfigProvider implements ConfigProviderInterface
      * ConfigProvider constructor.
      *
      * @param BaremCheck $baremCheck
-     * @param Collection $baremCollection
+     * @param CollectionFactory $baremCollection
      * @param BaremRepositoryInterface $baremRepository
      * @param ConfigValueHandler $helloBankPaymentConfig
      * @param StoreInterface $store
@@ -61,7 +61,7 @@ class ConfigProvider implements ConfigProviderInterface
      */
     public function __construct(
         BaremCheck $baremCheck,
-        Collection $baremCollection,
+        CollectionFactory $baremCollection,
         BaremRepositoryInterface $baremRepository,
         ConfigValueHandler $helloBankPaymentConfig,
         StoreInterface $store,
@@ -117,12 +117,26 @@ class ConfigProvider implements ConfigProviderInterface
      */
     private function getBarems()
     {
+        $result = [];
         $quote = $this->checkoutSession->getQuote();
         $items = $quote->getAllVisibleItems();
-        $grandTotal=$quote->getGrandTotal();
-        return $this->baremCheck->fillterTotal($items, $grandTotal);
+        foreach($items as $item)
+        {
+            $currentDisAllowedProductAttribute = $item->getProduct()->getData(Attribute::PRODUCT_BAREM_CODE);
+            $availableBarems = $this->baremCollection->create()->AddFillterAvailableBarems()
+                ->addFieldToFilter(BaremInterface::ID, ['nin' => $currentDisAllowedProductAttribute]);
+
+            foreach($availableBarems as $barems)
+            {
+                if(!in_array($barems->getData() ,$result))
+                {
+                    $result[] = $barems->getData();
+                }
+            }
+        }
+
+        return $result;
+
     }
-
-
 
 }
