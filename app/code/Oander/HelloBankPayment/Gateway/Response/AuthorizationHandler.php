@@ -50,10 +50,14 @@ class AuthorizationHandler implements HandlerInterface
         $payment->setIsTransactionPending(true);
         /** @var Order $order */
         $order = $payment->getOrder();
-        $order->setCanSendNewEmailFlag(false);
 
-        $type=($response['path'] === "hellobank/payment/okstate")
-            ? ConfigGateWay::HELLOBANK_REPONSE_TYPE_OK : ConfigGateWay::HELLOBANK_REPONSE_TYPE_KO;
+        if($response['path'] === "hellobank/payment/okstate")
+        {
+            $type = ConfigGateWay::HELLOBANK_REPONSE_TYPE_OK;
+        }else{
+            $order->setCanSendNewEmailFlag(false);
+            $type = ConfigGateWay::HELLOBANK_REPONSE_TYPE_KO;
+        }
         $paymentData = $this->configHelper->getPaymentData($response, $type);
         $this->helloBankService->handleStatus($order, $paymentData);
 
