@@ -124,7 +124,7 @@ class HelloBank
                 /** @var $payment Payment */
                 $transactionId=(isset($paymentData['id'])) ? $paymentData['id'] : random_int(0, 10000);
                 $payment->setTransactionId($transactionId);
-                $payment->setIsTransactionClosed(true);
+                $payment->setIsTransactionClosed(false);
 
                 //Invoce Generate
                         /** @var Invoice $invoice */
