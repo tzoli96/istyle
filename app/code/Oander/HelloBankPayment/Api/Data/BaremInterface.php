@@ -20,6 +20,7 @@ interface BaremInterface
     const STATUS_DISABLED           = 0;
     const INSTALLMENTS_TYPE_FIXED   = 2;
     const INSTALLMENTS_TYPE_RANGE   = 3;
+    const EQUITY                    = 'equity';
 
     public function getId();
 
