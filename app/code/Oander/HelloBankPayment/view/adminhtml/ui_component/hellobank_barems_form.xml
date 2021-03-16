@@ -135,47 +135,6 @@
                     <item name="label" xsi:type="string" translate="true">Installments type</item>
                     <item name="formElement" xsi:type="string">select</item>
                     <item name="source" xsi:type="string">barems</item>
-                    <item name="switcherConfig" xsi:type="array">
-                        <item name="enabled" xsi:type="boolean">true</item>
-                        <item name="rules" xsi:type="array">
-                            <item name="0" xsi:type="array">
-                                <item name="value" xsi:type="number">2</item>
-                                <item name="actions" xsi:type="array">
-                                    <item name="0" xsi:type="array">
-                                        <item name="target" xsi:type="string">hellobank_barems_form.hellobank_barems_form.general.installments</item>
-                                        <item name="callback" xsi:type="string">hide</item>
-                                    </item>
-                                </item>
-                            </item>
-                            <item name="1" xsi:type="array">
-                                <item name="value" xsi:type="number">3</item>
-                                <item name="actions" xsi:type="array">
-                                    <item name="0" xsi:type="array">
-                                        <item name="target" xsi:type="string">hellobank_barems_form.hellobank_barems_form.general.installments</item>
-                                        <item name="callback" xsi:type="string">show</item>
-                                    </item>
-                                </item>
-                            </item>
-                            <item name="2" xsi:type="array">
-                                <item name="value" xsi:type="number">2</item>
-                                <item name="actions" xsi:type="array">
-                                    <item name="0" xsi:type="array">
-                                        <item name="target" xsi:type="string">hellobank_barems_form.hellobank_barems_form.general.default_installment</item>
-                                        <item name="callback" xsi:type="string">hide</item>
-                                    </item>
-                                </item>
-                            </item>
-                            <item name="3" xsi:type="array">
-                                <item name="value" xsi:type="number">3</item>
-                                <item name="actions" xsi:type="array">
-                                    <item name="0" xsi:type="array">
-                                        <item name="target" xsi:type="string">hellobank_barems_form.hellobank_barems_form.general.default_installment</item>
-                                        <item name="callback" xsi:type="string">show</item>
-                                    </item>
-                                </item>
-                            </item>
-                        </item>
-                    </item>
                 </item>
             </argument>
         </field>
@@ -194,6 +153,17 @@
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="label" xsi:type="string">Default installment</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">barems</item>
+                </item>
+            </argument>
+        </field>
+        <field name="equity">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Equity</item>
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">input</item>
