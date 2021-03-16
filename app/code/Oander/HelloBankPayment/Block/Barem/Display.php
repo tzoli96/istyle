@@ -8,11 +8,16 @@ use Oander\HelloBankPayment\Api\Data\BaremRepositoryInterface;
 use Oander\HelloBankPayment\Api\Data\BaremInterface;
 use Oander\HelloBankPayment\Model\ResourceModel\Barems\CollectionFactory;
 use Magento\Framework\Registry;
-use Magento\Catalog\Model\Product;
+use Magento\Framework\Json\Helper\Data as JsonHelper;
 use Oander\HelloBankPayment\Enum\Attribute;
 
 class Display extends Template
 {
+    /**
+     * @var JsonHelper
+     */
+    private $jsonHelper;
+
     /**
      * @var CollectionFactory
      */
@@ -30,12 +35,14 @@ class Display extends Template
 
 
     public function __construct(
+        JsonHelper $jsonHelper,
         ProductRepositoryInterface $productRepsitory,
         Registry $registry,
         CollectionFactory $baremCollection,
         Template\Context $context,
         array $data = []
     ) {
+        $this->jsonHelper = $jsonHelper;
         $this->productRepsitory = $productRepsitory;
         $this->baremCollection = $baremCollection;
         $this->registry = $registry;
@@ -54,9 +61,17 @@ class Display extends Template
     }
 
     /**
-     * @return array
+     * @return string
      */
     public function getBarems()
+    {
+       return $this->jsonHelper->jsonEncode($this->getBaremsData());
+    }
+
+    /**
+     * @return array
+     */
+    private function getBaremsData()
     {
 
         if($this->product()->getTypeId() == "configurable")
