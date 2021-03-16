@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa7b1919692d167ed1996c38b27c38df",
+    "content-hash": "f0f8010db12fabfe2fdb17651ec7d920",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -855,20 +855,6 @@
                 "certificate",
                 "ssl",
                 "tls"
-            ],
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
             ],
             "time": "2021-01-12T12:10:35+00:00"
         },
@@ -9528,6 +9514,33 @@
             "time": "2018-02-20T13:54:50+00:00"
         },
         {
+            "name": "oander/module-structured-data",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/module-structured-data.git",
+                "reference": "266d41cf700de0ba3b037de220890745e995e5d8"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Oander\\StructuredData\\": ""
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Oander Google Structured Data",
+            "time": "2021-02-12T15:35:46+00:00"
+        },
+        {
             "name": "oander/module-stuck-process-remover",
             "version": "1.0.0.1",
             "source": {
@@ -10300,20 +10313,6 @@
                 "twofish",
                 "x.509",
                 "x509"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/terrafrost",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/phpseclib",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-12-17T05:42:04+00:00"
         },
@@ -14787,6 +14786,5 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }
