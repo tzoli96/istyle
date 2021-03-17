@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f0f8010db12fabfe2fdb17651ec7d920",
+    "content-hash": "6544efc8bc968b46f6e7aeacbc5fb449",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -855,6 +855,20 @@
                 "certificate",
                 "ssl",
                 "tls"
+            ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
             ],
             "time": "2021-01-12T12:10:35+00:00"
         },
@@ -8363,11 +8377,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.30.35",
+            "version": "1.0.30.36",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "7fd1c870fd1dd335995df4215c95f6bcbacd0145"
+                "reference": "5bda72027e415e7a47319c50febc86b78d1d466e"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8386,7 +8400,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2021-03-04T11:50:15+00:00"
+            "time": "2021-03-16T17:26:59+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -10313,6 +10327,20 @@
                 "twofish",
                 "x.509",
                 "x509"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/terrafrost",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpseclib",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
+                    "type": "tidelift"
+                }
             ],
             "time": "2020-12-17T05:42:04+00:00"
         },
@@ -14786,5 +14814,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
