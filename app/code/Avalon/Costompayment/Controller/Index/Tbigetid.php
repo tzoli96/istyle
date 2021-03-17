@@ -207,12 +207,12 @@ class Tbigetid extends \Magento\Framework\App\Action\Action
             curl_setopt($tbiro_add_ch, CURLOPT_VERBOSE, true);
             $paramstbiroadd = json_decode(curl_exec($tbiro_add_ch), true);
 
-            file_put_contents('/var/www/istyle.eu/webroot/var/log/oander/tbi.log', date('Y-m-d H:i:s').' | REQUEST url: '.$this->tbiHelper->getTbiroLiveUrl() . '/function/addorders.php?cid=' . $tbiro_unicid.' data: '. var_export($tbiro_post,true).PHP_EOL,FILE_APPEND);
-            file_put_contents('/var/www/istyle.eu/webroot/var/log/oander/tbi.log', date('Y-m-d H:i:s').' | RESPONSE: '. var_export($paramstbiroadd,true).PHP_EOL,FILE_APPEND);
+            $this->tbiHelper->addLog('REQUEST url: '.$this->tbiHelper->getTbiroLiveUrl(). '/function/addorders.php?cid=', $tbiro_post);
+            $this->tbiHelper->addLog('RESPONSE: ', $paramstbiroadd);
             if ($paramstbiroadd === FALSE) {
                 $err = curl_error($tbiro_add_ch);
-                file_put_contents('/var/www/istyle.eu/webroot/var/log/oander/tbi.log', date('Y-m-d H:i:s').' | ERROR-RESPONSE: '. var_export($err,true).PHP_EOL,FILE_APPEND);
 
+                $this->tbiHelper->addLog('ERROR-RESPONSE: '.(string)$err);
             }
 
 
