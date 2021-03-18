@@ -1,17 +1,18 @@
 <?php /** @var $block \Oander\CofidisPayment\Block\Checkout\Index */ ?>
 
 <script type="text/javascript">
-window.addEventListener('message', receiveMessage, false);
-
-function receiveMessage(event) {
-    var response = JSON.parse(event.data);
-
-    document.getElementById('cofidis').height = response.iframeheight + 10;
-
-    if (response.submitted == '1') {
-        window.location.replace(window.location.protocol + '//' + window.location.hostname + '/checkout/onepage/success/');
+    window.addEventListener('message', receiveMessage, false);
+    var fixHeight = false;
+    function receiveMessage(event) {
+        var response = JSON.parse(event.data);
+        if (!fixHeight) {
+            document.getElementById('cofidis').height = response.iframeheight + 10;
+            fixHeight = true;
+        }
+        if (response.submitted == '1') {
+            window.location.replace(window.location.protocol + '//' + window.location.hostname + '/checkout/onepage/success/');
+        }
     }
-}
 </script>
 
 <ul class="opc-progress-bar list-unstyled hidden-md-down success">
