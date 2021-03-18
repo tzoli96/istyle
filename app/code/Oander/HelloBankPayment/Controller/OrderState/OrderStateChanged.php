@@ -3,11 +3,22 @@ namespace Oander\HelloBankPayment\Controller\OrderState;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
-use \Magento\Sales\Api\OrderRepositoryInterface;
-use  Oander\HelloBankPayment\Model\HelloBank;
+use Magento\Sales\Api\OrderRepositoryInterface;
+use Oander\HelloBankPayment\Model\HelloBank;
+use Oander\HelloBankPayment\Helper\Config;
+use Magento\Store\Model\StoreManagerInterface;
 
 class OrderStateChanged extends Action
 {
+
+    /**
+     * @var StoreManagerInterface
+     */
+    private $storeManager;
+    /**
+     * @var Config
+     */
+    private $configHelper;
     /**
      * @var HelloBank
      */
@@ -18,25 +29,39 @@ class OrderStateChanged extends Action
      */
     private $orderRepository;
 
-    const YOUR_KEY = "yourkey";
-
+    /**
+     * OrderStateChanged constructor.
+     * @param StoreManagerInterface $storeManager
+     * @param Config $configHelper
+     * @param HelloBank $helloBankService
+     * @param Context $context
+     * @param OrderRepositoryInterface $orderRepository
+     */
     public function __construct(
+        StoreManagerInterface $storeManager,
+        Config $configHelper,
         HelloBank $helloBankService,
         Context $context,
         OrderRepositoryInterface $orderRepository
     ) {
+        $this->storeManager = $storeManager;
+        $this->configHelper = $configHelper;
         $this->helloBankService = $helloBankService;
         $this->orderRepository = $orderRepository;
         parent::__construct($context);
     }
 
 
+    /**
+     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface|void
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
     public function execute()
     {
         $orderId=$this->getRequest()->getParam("order");
         $status=$this->getRequest()->getParam("state");
         $hash=$this->getRequest()->getParam("hash");
-        if(!$this->hashValidation($hash,$orderId))
+        if(!$this->hashValidation($hash,$orderId,$status))
         {
             die("Your hash is invalid.");
         }
@@ -46,20 +71,40 @@ class OrderStateChanged extends Action
 
         if($statusUpdate)
         {
-            header("Status: 200");
-            return 200;
+            $this->_response->setHttpResponseCode(200)
+                ->setHeader('Pragma', 'public', true)
+                ->setHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0', true)
+                ->setHeader('Content-type', 'application/json; charset=utf-8;', true)
+                ->setBody('ok')
+                ->sendResponse();
         }
     }
 
-    private function hashValidation($hash,$orderId)
+    /**
+     * @param $hash
+     * @param $orderId
+     * @param $status
+     * @return bool
+     */
+    private function hashValidation($hash,$orderId,$status)
     {
-        $validhash=hash_hmac('sha256', $orderId, self::YOUR_KEY);
-
+        $message=$orderId."_".$status;
+        $validhash=strtoupper(hash_hmac('sha256', $message, $this->configHelper->getHashKey($this->getStoreId())));
         if($hash == $validhash || $hash === "test"){
             return true;
         }else{
             return false;
         }
 
+    }
+
+    /**
+     * Get store identifier
+     *
+     * @return  int
+     */
+    private function getStoreId()
+    {
+        return $this->storeManager->getStore()->getId();
     }
 }

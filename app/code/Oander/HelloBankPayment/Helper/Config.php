@@ -25,6 +25,16 @@ class Config extends AbstractHelper
         return $this->scopeConfig->getValue("payment/hellobank/active", ScopeInterface::SCOPE_STORE, $storeid);
     }
 
+
+    /**
+     * @param null $storeid
+     * @return string
+     */
+    public function getHashKey($storeid = null)
+    {
+        return $this->scopeConfig->getValue("payment/hellobank/hash_key", ScopeInterface::SCOPE_STORE, $storeid);
+    }
+
     /**
      * @param $storeid
      * @return mixed
