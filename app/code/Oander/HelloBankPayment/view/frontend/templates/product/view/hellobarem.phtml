@@ -1,14 +1,285 @@
 <?php
+
 /**
  * @var $block \Oander\HelloBankPayment\Block\Barem\Display
  */
 ?>
+<?php if (
+    $block->getIsActive()
+    && $block->getBaremsData()
+    && in_array($block->getProductType(), ["simple", "configurable", "bundle"])
+) : ?>
+    <div class="data item title" data-role="collapsible">
+        <a class="data switch d-none" tabindex="-1" href="#hellobank" data-toggle="switch">
+            <?php echo __('Hello Bank Online Installments'); ?>
+        </a>
+    </div>
+    <div id="hellobank" class="data item content d-none" data-role="content" data-mage-init='{"oanderHelloBank": {
+                "page": "product",
+                "sellerId": <?= $block->getSellerId() ?>,
+                "productType": "<?= $block->getProductType() ?>",
+                "price": <?= $block->getProductPrice() ?>,
+                "config": <?= $block->getBarems() ?>
+            }}'>
+        <div class="tabs tabs--calculator">
+            <?php if ($block->getProductType() == "simple" || $block->getProductType() == "bundle") : ?>
+                <?php
+                $barems = $block->getBaremsData();
+                function sortByPriority($a, $b)
+                {
+                    return $a['priority'] <=> $b['priority'];
+                }
+                usort($barems, 'sortByPriority');
+                ?>
+                <div class="tabs__titles">
+                    <?php foreach ($barems as $key => $barem) : ?>
+                        <div
+                            class="tabs__title <?= ($key == 0) ? 'active' : '' ?>"
+                            data-tab-index="<?= $key ?>"
+                            data-barem-id="<?= $barem['barem_id'] ?>">
+                            <?= $barem['name']; ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <div class="tabs__contents">
+                    <?php foreach ($barems as $key => $barem) : ?>
+                        <div
+                            class="tabs__content <?= ($key == 0) ? 'active' : '' ?>"
+                            data-tab-index="<?= $key ?>"
+                            data-barem-id="<?= $barem['barem_id'] ?>"
+                            data-barem-min="<?= $barem['min_price'] ?>"
+                            data-barem-max="<?= $barem['max_price'] ?>">
+                            <div class="catalog-calculator">
+                                <div class="calculator-wrapper">
+                                    <div class="calculator-loader"></div>
+                                    <div class="calculator-row">
+                                        <div class="calculator-col">
+                                            <div class="form calculator-form">
+                                                <p><?= __('Choose loan:') ?></p>
 
-<h1><?= __("Hellobank Barems:")?></h1>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p class="form__label"><?= __('Installments:') ?></p>
+                                                        <span class="form__installment months"><?= $barem['default_installment'] ?></span>
+                                                        <span class="form__installment"><?= __('months') ?></span>
+                                                    </div>
 
-<?php
-/*
- * Registryből lett lekérdezve mentés után cache flush.
- */
-var_dump($block->getBarems());
-?>
+                                                    <div class="col-6">
+                                                        <p class="form__label"><?= __('Purchase Amount:') ?></p>
+                                                        <p class="form__value amount">
+                                                            <span class="price"><?= $block->getProductPrice() ?></span> <?= $block->getSymbol() ?>
+                                                        </p>
+                                                    </div>
+
+                                                    <?php if ($barem['installments_type'] == 3) : ?>
+                                                        <div class="col-12">
+                                                            <div class="calculator-range-wrapper range-calculator">
+                                                                <p class="calculator-range-title"><?= __('Choose an installment:') ?></p>
+                                                                <?php
+                                                                $installments = explode(',', preg_replace('/\s+/', '', $barem['installments']));
+                                                                $months = 0;
+                                                                ?>
+                                                                <div class="calculator-range">
+                                                                    <div class="calculator-steps">
+                                                                        <?php foreach ($installments as $month => $mValue) : ?>
+                                                                            <span data-title="<?= $mValue; ?>" <?= ($mValue == $barem['default_installment']) ? 'class="active"' : '' ?>></span>
+                                                                            <?php $months++; ?>
+                                                                        <?php endforeach; ?>
+                                                                    </div>
+                                                                    <input type="range" class="slider" min="0" max="<?= $months - 1 ?>" value="0">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <?php endif; ?>
+
+                                                    <?php if ($barem['equity'] == "0") : ?>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12">
+                                                                        <button type="button" class="action action-calculator dark w-100"><?= __('Calculate') ?></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <?php elseif (is_numeric($barem['equity']) && $barem['equity'] > 0) : ?>
+                                                        <div class="col-12">
+                                                            <p class="form__label down-payment"><?= __('Down Payment') ?></p>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                        <input type="number" value="<?= $barem['equity'] ?>" class="form-control" name="down-payment" min="0">
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <button type="button" class="action action-calculator dark w-100"><?= __('Calculate') ?></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <?php else : ?>
+                                                        <div class="col-12">
+                                                            <p class="form__label down-payment"><?= __('Down Payment') ?></p>
+                                                            <div class="form-group">
+                                                                <div class="row">
+                                                                    <div class="col-sm-6">
+                                                                        <input type="number" value="0" class="form-control" name="down-payment" min="0">
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        <button type="button" class="action action-calculator dark w-100"><?= __('Calculate') ?></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    <?php endif; ?>
+
+                                                    <div class="col-12">
+                                                        <p class="form__label insurance"><?= __('Insurance:') ?></p>
+
+                                                        <div class="form-group">
+                                                            <div class="insurances">
+                                                                <div class="row"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calculator-col">
+                                            <div class="result calculator-result">
+                                                <p><?= __('Calculation result:') ?></p>
+
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <p class="result__label"><?= __('Total Payable:') ?></p>
+                                                        <p class="result__value total-payable"><span class="price"></span></p>
+                                                    </div>
+
+                                                    <div class="col-lg-6">
+                                                        <p class="result__label"><?= __('Monthly Instalment:') ?></p>
+                                                        <p class="result__value monthly-instalment"><span class="price"></span></p>
+                                                    </div>
+
+                                                    <div class="col-lg-6">
+                                                        <p class="result__label"><?= __('THM') ?>:</p>
+                                                        <p class="result__value thm"><span class="value"></span>%</p>
+                                                    </div>
+
+                                                    <div class="col-lg-6">
+                                                        <p class="result__label"><?= __('Annual interest rate') ?>:</p>
+                                                        <p class="result__value interest-rate"><span class="value"></span>%</p>
+                                                    </div>
+
+                                                    <div class="col-lg-6">
+                                                        <p class="result__label"><?= __('Handling Fee') ?>:</p>
+                                                        <p class="result__value handling-fee"><span class="price"></span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php else : ?>
+                <div class="tabs__titles"></div>
+                <div class="tabs__contents"></div>
+                <div class="tabs__content d-none">
+                    <div class="catalog-calculator">
+                        <div class="calculator-wrapper">
+                            <div class="calculator-loader"></div>
+                            <div class="calculator-row">
+                                <div class="calculator-col">
+                                    <div class="form calculator-form">
+                                        <p><?= __('Choose loan:') ?></p>
+
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p class="form__label"><?= __('Installments:') ?></p>
+                                                <span class="form__installment months"></span>
+                                                <span class="form__installment"><?= __('months') ?></span>
+                                            </div>
+
+                                            <div class="col-6">
+                                                <p class="form__label"><?= __('Purchase Amount:') ?></p>
+                                                <p class="form__value amount">
+                                                    <span class="price"></span>
+                                                </p>
+                                            </div>
+
+                                            <div class="col-12 col-range">
+                                                <div class="calculator-range-wrapper range-calculator">
+                                                    <p class="calculator-range-title"><?= __('Choose an installment:') ?></p>
+
+                                                    <div class="calculator-range"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12 col-down-payment">
+                                                <p class="form__label down-payment"><?= __('Down Payment') ?></p>
+
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <div class="col-sm-6 col-dp">
+                                                            <input type="number" value="0" class="form-control" name="down-payment" min="0">
+                                                        </div>
+                                                        <div class="col-sm-6 col-dp-btn">
+                                                            <button type="button" class="action action-calculator dark w-100"><?= __('Calculate') ?></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <p class="form__label insurance"><?= __('Insurance:') ?></p>
+
+                                                <div class="form-group">
+                                                    <div class="insurances">
+                                                        <div class="row"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="calculator-col">
+                                    <div class="result calculator-result">
+                                        <p><?= __('Calculation result:') ?></p>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <p class="result__label"><?= __('Total Payable:') ?></p>
+                                                <p class="result__value total-payable"><span class="price"></span></p>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <p class="result__label"><?= __('Monthly Instalment:') ?></p>
+                                                <p class="result__value monthly-instalment"><span class="price"></span></p>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <p class="result__label"><?= __('THM') ?>:</p>
+                                                <p class="result__value thm"><span class="value"></span>%</p>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <p class="result__label"><?= __('Annual interest rate') ?>:</p>
+                                                <p class="result__value interest-rate"><span class="value"></span>%</p>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <p class="result__label"><?= __('Handling Fee') ?>:</p>
+                                                <p class="result__value handling-fee"><span class="price"></span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+<?php endif; ?>
