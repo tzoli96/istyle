@@ -8,7 +8,7 @@ define([
   $.widget('oander.oanderHelloBank', {
     classes: {
       tab: '.data.switch[href="#hellobank"]',
-      calculator: '#hellobank',
+      calculator: '.hellobank-calculator',
       loader: '.calculator-loader',
       priceBox: '.product-info-price [data-role=priceBox]',
     },
@@ -25,13 +25,18 @@ define([
       this._range();
       this._getInsurances();
 
-      if (this.options.productType == 'configurable') {
-        this._config();
+      if (this.options.page == "product") {
+        if (this.options.productType == 'configurable') {
+          this._config();
+        }
+        else if (this.options.productType == 'bundle') {
+          this._bundle();
+        }
+        else if (this.options.productType == 'simple') {
+          this._actionCalculator();
+        }
       }
-      else if (this.options.productType == 'bundle') {
-        this._bundle();
-      }
-      else if (this.options.productType == 'simple') {
+      else if (this.options.page == "checkout") {
         this._actionCalculator();
       }
     },
@@ -336,9 +341,16 @@ define([
       if (status == 'ok') ok = true;
 
       if (ok) {
-        var result = $('#hellobank')
+        var result = $(this.classes.calculator)
           .find('.tabs__content.active')
           .find('.catalog-calculator');
+
+        if (this.options.page == 'checkout') {
+          var result = $(this.classes.calculator)
+            .find('.tabs__content.active')
+            .find('.checkout-calculator');
+        }
+
         var values = $(res).find('vysledek');
         var value = {
           month: values.find('pocetSplatek').text(),

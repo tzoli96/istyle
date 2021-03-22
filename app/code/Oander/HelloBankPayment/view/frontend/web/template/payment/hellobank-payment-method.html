@@ -1,3 +1,4 @@
+<!-- ko if: getBarems().length > 0 -->
 <div class="payment-method" data-bind="css: {'_active': (getCode() == isChecked())}">
     <div class="payment-method-title field choice">
         <input type="radio"
@@ -17,6 +18,213 @@
             <!-- ko foreach: $parent.getRegion(getBillingAddressFormName()) -->
             <!-- ko template: getTemplate() --><!-- /ko -->
             <!--/ko-->
+        </div>
+
+        <div id="hellobank" class="hellobank-calculator d-none" data-bind='mageInit: {"oanderHelloBank": {
+            "page": "checkout",
+            "sellerId": getSellerId(),
+            "price": getPrice(),
+        }}'>
+            <div class="tabs tabs--calculator">
+                <div
+                    class="tabs__titles"
+                    data-bind="foreach: { data: getBarems(), as: 'barem' }">
+                    <div
+                        class="tabs__title"
+                        data-bind="
+                        css: { 'active': $index() == 0 },
+                        attr: {
+                            'data-tab-index': $index,
+                            'data-barem-id': barem.barem_id,
+                        }">
+                        <span data-bind="text: barem.name"></span>
+                    </div>
+                </div>
+                <div
+                    class="tabs__contents"
+                    data-bind="foreach: { data: getBarems(), as: 'barem' }">
+                    <div
+                        class="tabs__content"
+                        data-bind="
+                        css: { 'active': $index() == 0 },
+                        attr: {
+                            'data-tab-index': $index,
+                            'data-barem-id': barem.barem_id,
+                            'data-barem-min': barem.barem_min,
+                            'data-barem-max': barem.barem_max,
+                        }">
+                        <div class="alert alert-danger d-none"></div>
+                        <div class="checkout-calculator">
+                            <div class="calculator-wrapper">
+                                <div class="calculator-loader"></div>
+                                <div class="calculator-row">
+                                    <div class="calculator-col">
+                                        <div class="form calculator-form">
+                                            <p data-bind="i18n: 'Choose loan:'"></p>
+                                            
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <p class="form__label" data-bind="i18n: 'Installments:'"></p>
+                                                    <span class="form__installment months" data-bind="text: barem.default_installment"></span>
+                                                    <span class="form__installment" data-bind="i18n: 'months'"></span>
+                                                </div>
+
+                                                <div class="col-6">
+                                                    <p class="form__label" data-bind="i18n: 'Purchase amount:'"></p>
+                                                    <p class="form__value amount">
+                                                        <span class="price" data-bind="text: $parent.getFormattedPrice($parent.getPrice())"></span>
+                                                    </p>
+                                                </div>
+
+                                                <!-- ko if: barem.installments_type == 3 -->
+                                                <div class="col-12">
+                                                    <div class="calculator-range-wrapper range-calculator">
+                                                        <p class="calculator-range-title" data-bind="i18n: 'Choose an installment:'"></p>
+                                                        <div class="calculator-range">
+                                                            <div class="calculator-steps"
+                                                                data-bind="foreach: { data: $parent.getInstallmentsByBaremId(barem.barem_id), as: 'installment' }">
+                                                                <span data-bind="
+                                                                    attr: { 'data-title': installment },
+                                                                    css: { 'active': $index() == 0 }
+                                                                    "></span>
+                                                            </div>
+                                                            <input type="range" class="slider" min="0" value="0"
+                                                                data-bind="
+                                                                attr: { max: $parent.getInstallmentsByBaremId(barem.barem_id).length - 1 }
+                                                                ">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /ko -->
+
+                                                <!-- ko if: $parent.parseInt(barem.equity) == 0 -->
+                                                <div class="col-12 d-none">
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-sm-12">
+                                                                <button type="button" class="action action-calculator dark w-100" data-bind="i18n: 'Calculate'"></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /ko -->
+
+                                                <!-- ko if: $parent.parseInt(barem.equity) > 0 -->
+                                                <div class="col-12">
+                                                    <p class="form__label down-payment" data-bind="i18n: 'Down Payment'"></p>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <input
+                                                                    type="number"
+                                                                    class="form-control down-payment-min"
+                                                                    name="down-payment"
+                                                                    min="0"
+                                                                    data-bind="value: barem.equity, attr: { 'data-down-payment-min': barem.equity }">
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <button type="button" class="action action-calculator dark w-100" data-bind="i18n: 'Calculate'"></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /ko -->
+
+                                                <!-- ko ifnot: $parent.parseInt(barem.equity) == '' -->
+                                                <!-- ko if: ($parent.parseInt(barem.min_price) <= $parent.getPrice()) && ($parent.parseInt(barem.max_price) >= $parent.getPrice()) -->
+                                                <div class="col-12">
+                                                    <p class="form__label down-payment" data-bind="i18n: 'Down Payment'"></p>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <input
+                                                                    type="number"
+                                                                    value="0"
+                                                                    class="form-control down-payment-min"
+                                                                    name="down-payment"
+                                                                    min="0"
+                                                                    data-bind="attr: { 'data-down-payment-min': barem.equity }">
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <button type="button" class="action action-calculator dark w-100" data-bind="i18n: 'Calculate'"></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /ko -->
+
+                                                <!-- ko if: $parent.getPrice() > $parent.parseInt(barem.max_price) -->
+                                                <div class="col-12">
+                                                    <p class="form__label down-payment" data-bind="i18n: 'Down Payment'"></p>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <input
+                                                                    type="number"
+                                                                    class="form-control down-payment-calc"
+                                                                    name="down-payment"
+                                                                    min="0"
+                                                                    data-bind="value: $parent.getMinLoan(barem.max_price)">
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <button type="button" class="action action-calculator dark w-100" data-bind="i18n: 'Calculate'"></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /ko -->
+                                                <!-- /ko -->
+
+                                                <div class="col-12">
+                                                    <p class="form__label insurance" data-bind="i18n: 'Insurance:'"></p>
+
+                                                    <div class="form-group">
+                                                        <div class="insurances">
+                                                            <div class="row"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calculator-col">
+                                        <div class="result calculator-result">
+                                            <p data-bind="i18n: 'Calculation result:'"></p>
+
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <p class="result__label" data-bind="i18n: 'Total Payable:'"></p>
+                                                    <p class="result__value total-payable"><span class="price"></span></p>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <p class="result__label" data-bind="i18n: 'Monthly Instalment:'"></p>
+                                                    <p class="result__value monthly-instalment"><span class="price"></span></p>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <p class="result__label" data-bind="i18n: 'THM:'"></p></p>
+                                                    <p class="result__value thm"><span class="value"></span>%</p>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <p class="result__label" data-bind="i18n: 'Annual interest rate:'"></p>
+                                                    <p class="result__value interest-rate"><span class="value"></span>%</p>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <p class="result__label" data-bind="i18n: 'Handling Fee:'"></p>
+                                                    <p class="result__value handling-fee"><span class="price"></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="field required">
@@ -58,3 +266,4 @@
         </div>
     </div>
 </div>
+<!-- /ko -->
