@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6047113464db1829fa2d40b31aa0635b",
+    "content-hash": "55302576ba2ed6269ef9bf8eae907a5c",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -880,20 +880,6 @@
                 "certificate",
                 "ssl",
                 "tls"
-            ],
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
             ],
             "time": "2021-01-12T12:10:35+00:00"
         },
@@ -8566,11 +8552,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.1.3.6",
+            "version": "1.1.3.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "dbc671aa5cc3a6aba6c3ee8d0366155073161bf7"
+                "reference": "c5ec6df1a9345de1d5a9815b09c64af8b1a5696f"
             },
             "require": {
                 "php": "7.*"
@@ -8588,7 +8574,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2020-10-22T12:53:03+00:00"
+            "time": "2021-03-22T09:31:08+00:00"
         },
         {
             "name": "oander/module-email-additional-data",
@@ -10352,20 +10338,6 @@
                 "twofish",
                 "x.509",
                 "x509"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/terrafrost",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/phpseclib",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-12-17T05:42:04+00:00"
         },
@@ -14839,6 +14811,5 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }

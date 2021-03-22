@@ -1,0 +1,117 @@
+<?php
+/**
+ * Copyright 2019 aheadWorks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+
+use Magento\Framework\App\Action\Action;
+
+// @codingStandardsIgnoreFile
+
+/* @var $block \Oander\AutorelatedWarehouseManagerExtender\Block\Related */
+?>
+<?php if ($arpBlocks = $block->getBlocks()) : ?>
+    <?php foreach ($arpBlocks as $arpBlock) : ?>
+        <?php $isGridTemplate = $block->isGridTemplate($arpBlock->getRule()->getTemplateId()) ?>
+
+        <div data-aw-arp-block-rule-id="<?php /* @noEscape */ echo $block->getRuleIdForBlock($arpBlock) ?>"
+             data-mage-init='<?php /* @noEscape */ echo $block->getDataMageInitForBlock($arpBlock) ?>'
+             class="aw-arp-container mt-4 <?php /* @noEscape */ echo $block->getAdditionalCssClassesForBlock($arpBlock) ?>"
+             <?= (!$isGridTemplate) ? 'style="opacity: 0"' : '' ?>>
+            <div class="products-grid block-products-list">
+                <h3 class="block-title text-center"><?php echo $block->escapeHtml($arpBlock->getRule()->getTitle()) ?></h3>
+                <h4 class="block-title text-center"><?php echo $block->escapeHtml($arpBlock->getRule()->getSubtitle()) ?></h4>
+
+                <div data-aw-arp-block="items"
+                     class="aw-arp-container__items product-items products list <?= ($isGridTemplate) ? 'row mx-0' : '' ?>">
+                    <?php $productItemClass = ($isGridTemplate) ? 'col-6 col-md-4 col-lg-3' : '' ?>
+                    <?php foreach ($arpBlock->getProducts() as $productModel) : ?>
+                        <div class="product product-item item <?= $productItemClass ?>">
+                            <div class="product-item-info">
+                                <?php
+                                $productUrl = $block->getProductUrl($productModel);
+                                $isSaleable = $productModel->isSaleable();
+                                ?>
+                                <a data-mage-init='<?= /* @noEscape */ $block->jsonEncode($block->getSendClickStatisticsMageInitParams($arpBlock)) ?>'
+                                   href="<?php /* @noEscape */ echo $productUrl ?>"
+                                   class="product-item-photo">
+                                    <div class="product-image-container">
+                                        <span class="product-image-wrapper">
+                                            <img class="product-image-photo"
+                                                 src="<?php /* @noEscape */ echo $block->getImage($productModel, 'product_base_image')->getImageUrl(); ?>"
+                                                 width="240" height="300" alt="<?php echo $block->escapeHtml($productModel->getName()) ?>">
+                                        </span>
+                                    </div>
+                                </a>
+
+                                <div class="product-item-details">
+                                    <a data-mage-init='<?= /* @noEscape */ $block->jsonEncode($block->getSendClickStatisticsMageInitParams($arpBlock)) ?>'
+                                       title="<?php echo $block->escapeHtml($productModel->getName()) ?>"
+                                       href="<?php /* @noEscape */ echo $productUrl ?>"
+                                       class="product-item-name"><?php echo $block->escapeHtml($productModel->getName()) ?>
+                                    </a>
+
+                                    <?php if (!empty($block->getColorSwatcherData($productModel))) : ?>
+                                        <div class="swatch-attribute color">
+                                            <div class="swatch-attribute-options clearfix">
+                                                <?php foreach ($block->getColorSwatcherData($productModel) as $colorTitle => $colorSwatcher): ?>
+                                                    <?php if (isset($colorSwatcher['swatchhex'])): ?>
+                                                        <div class="swatch-option color" title="<?php echo $colorTitle ?>" option-label="<?php echo $colorTitle ?>" style="background: <?php echo $colorSwatcher['swatchhex'] ?> no-repeat center; background-size: initial;"></div>
+                                                    <?php endif; ?>
+                                                    <?php if (isset($colorSwatcher['swatchurl'])): ?>
+                                                        <div class="swatch-option color" title="<?php echo $colorTitle ?>" option-label="<?php echo $colorTitle ?>">
+                                                            <img src="<?php echo $colorSwatcher['swatchurl'] ?>"/>
+                                                        </div>
+                                                    <?php endif; ?>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <div class="price-box">
+                                        <?php /* @noEscape */ echo $block->getProductPrice($productModel) ?>
+                                    </div>
+                                    <?php if ($productStock = $block->getProductStock($productModel)): ?>
+                                        <div class="warehouse-in-stock" data-color="<?php echo $productStock->getStockStatus() ?>">
+                                            <p><?php echo $productStock->getStockStatusText() ?></p>
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <div class="product-item-actions">
+                                        <div class="actions-secondary">
+                                            <a href="<?= $productUrl ?>" class="action outline-primary"
+                                               tabindex="0"><?= __('More info') ?></a>
+                                        </div>
+
+                                        <?php if ($arpBlock->getRule()->getIsDisplayAddToCart()) : ?>
+                                            <div class="actions-primary" style="display: block">
+                                                <?php if ($isSaleable && $productModel->getTypeId() == \Magento\Catalog\Model\Product\Type::TYPE_SIMPLE): ?>
+                                                    <?php $addToCartUrl = $block->getAddToCartUrl($productModel, ['awarp_rule' => $arpBlock->getRule()->getId()]); ?>
+                                                    <form data-role="tocart-form"
+                                                          action="<?php /* @noEscape */ echo $addToCartUrl; ?>"
+                                                          method="post">
+                                                        <?php /* @noEscape */ echo $block->getFormKeyHtml() ?>
+                                                        <input type="hidden" name="product" value="<?php /* @noEscape */ echo $productModel->getEntityId(); ?>">
+                                                        <input type="hidden" name="<?php /* @noEscape */ echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php /* @noEscape */ echo $block->encodeUrl($addToCartUrl); ?>">
+                                                        <button type="submit"
+                                                                title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
+                                                                class="action tocart primary">
+                                                            <i class="icon icon-cart-plus"></i>
+                                                            <img class="addtocart-loader"
+                                                                 src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('svg/loader-white.svg'); ?>"
+                                                                 alt="<?php /* @escapeNotVerified */ echo __('Loading...'); ?>">
+                                                        </button>
+                                                    </form>
+                                                <?php endif; ?>
+                                            </div>
+                                        <?php endif ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endforeach ?>
+                </div>
+            </div>
+        </div>
+    <?php endforeach ?>
+<?php endif; ?>
