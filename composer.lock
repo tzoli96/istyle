@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6544efc8bc968b46f6e7aeacbc5fb449",
+    "content-hash": "6047113464db1829fa2d40b31aa0635b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -151,6 +151,31 @@
                 "Commercial"
             ],
             "description": "Cron Schedule List by Amasty"
+        },
+        {
+            "name": "amasty/meta",
+            "version": "1.1.11",
+            "dist": {
+                "type": "zip",
+                "url": "https://composer.amasty.com/community/packages/meta-1.1.11.zip"
+            },
+            "require": {
+                "amasty/base": ">=1.9.7",
+                "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|^7.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "Amasty\\Meta\\": ""
+                }
+            },
+            "license": [
+                "Commercial"
+            ],
+            "description": "Meta Tags Templates by Amasty"
         },
         {
             "name": "amasty/module-advanced-conditions",
@@ -856,20 +881,6 @@
                 "ssl",
                 "tls"
             ],
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2021-01-12T12:10:35+00:00"
         },
         {
@@ -1350,16 +1361,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.7.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "53330f47520498c0ae1f61f7e2c90f55690c06a3"
+                "reference": "35ea11d335fd638b5882ff1725228b3d35496ab1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/53330f47520498c0ae1f61f7e2c90f55690c06a3",
-                "reference": "53330f47520498c0ae1f61f7e2c90f55690c06a3",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/35ea11d335fd638b5882ff1725228b3d35496ab1",
+                "reference": "35ea11d335fd638b5882ff1725228b3d35496ab1",
                 "shasum": ""
             },
             "require": {
@@ -1417,7 +1428,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2020-09-30T07:37:11+00:00"
+            "time": "2021-03-21T16:25:00+00:00"
         },
         {
             "name": "heureka/overenozakazniky",
@@ -4979,7 +4990,6 @@
                 "php": "~5.6.5|7.0.2|7.0.4|~7.0.6"
             },
             "type": "magento2-module",
-            "extra": [],
             "autoload": {
                 "files": [
                     "registration.php"
@@ -6428,7 +6438,6 @@
                 "zendframework/zend-view": "~2.4.6"
             },
             "type": "metapackage",
-            "extra": [],
             "license": [
                 "OSL-3.0",
                 "AFL-3.0"
@@ -10327,20 +10336,6 @@
                 "twofish",
                 "x.509",
                 "x509"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/terrafrost",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/phpseclib",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
-                    "type": "tidelift"
-                }
             ],
             "time": "2020-12-17T05:42:04+00:00"
         },
@@ -14814,6 +14809,5 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }
