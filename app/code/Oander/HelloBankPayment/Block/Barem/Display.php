@@ -112,7 +112,7 @@ class Display extends Template
             {
                 if($this->product()->getTypeId() === "simple")
                 {
-                    if($availableBarem->getData(BaremInterface::MINIMUM_PRICE) <= $this->product()->getPrice())
+                    if($availableBarem->getData(BaremInterface::MINIMUM_PRICE) <= round($this->product()->getPriceInfo()->getPrice('final_price')->getAmount()->getValue()))
                     {
                         $barems[] = $availableBarem->getData();
                     }
