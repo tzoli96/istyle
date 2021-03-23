@@ -7,6 +7,7 @@ use Magento\Sales\Api\OrderRepositoryInterface;
 use Oander\HelloBankPayment\Model\HelloBank;
 use Oander\HelloBankPayment\Helper\Config;
 use Magento\Store\Model\StoreManagerInterface;
+use Oander\HelloBankPayment\Gateway\Config as GatewayConfig;
 
 class OrderStateChanged extends Action
 {
@@ -66,8 +67,15 @@ class OrderStateChanged extends Action
             die("Your hash is invalid.");
         }
         $order=$this->orderRepository->get($orderId);
+
+        $hellobankStatus = $order->getHelloBankStatus();
+        if(!$this->handleStatus($hellobankStatus, $status))
+        {
+            die("Fail");
+        }
+
         $data['status']=$status;
-        $statusUpdate=$this->helloBankService->handleStatus($order, $data,true);
+        $statusUpdate=$this->helloBankService->handleStatus($order, $data, true);
 
         if($statusUpdate)
         {
@@ -106,5 +114,36 @@ class OrderStateChanged extends Action
     private function getStoreId()
     {
         return $this->storeManager->getStore()->getId();
+    }
+
+    /**
+     * @param $hellobankStatus
+     * @param $status
+     * @return bool
+     */
+    private function handleStatus($hellobankStatus, $status)
+    {
+        $response = false;
+        if($hellobankStatus != $status)
+        {
+
+            switch ($hellobankStatus) {
+                case GatewayConfig::HELLOBANK_RESPONSE_STATE_FURTHER_REVIEW:
+                     if($status == GatewayConfig::HELLOBANK_RESPONSE_STATE_APPROVED
+                         || $status == GatewayConfig::HELLOBANK_RESPONSE_STATE_CANCELLED
+                     ) {
+                         $response = true;
+                     }else{
+                         $response = false;
+                     }
+                    break;
+                default:
+                    $response = true;
+            }
+        }else{
+            $response = false;
+        }
+        return $response;
+
     }
 }
