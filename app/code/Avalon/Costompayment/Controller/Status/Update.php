@@ -148,7 +148,8 @@ class Update extends \Magento\Framework\App\Action\Action
                     $requestData = explode('order_data=', $requestContent);
                     $requestContent = $requestData[1];
                 }
-                $encrypted = base64_decode($requestContent);
+                //$encrypted = base64_decode($requestContent);
+                $encrypted = $requestContent;
 
 
                 $this->tbiHelper->addLog('$encrypted:', $encrypted);
