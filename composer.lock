@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "55302576ba2ed6269ef9bf8eae907a5c",
+    "content-hash": "9891e14e0452f585983070088933c431",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -880,6 +880,20 @@
                 "certificate",
                 "ssl",
                 "tls"
+            ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
             ],
             "time": "2021-01-12T12:10:35+00:00"
         },
@@ -8388,11 +8402,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.30.36",
+            "version": "1.0.30.37",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "5bda72027e415e7a47319c50febc86b78d1d466e"
+                "reference": "b9b7bf80230f71242067f1b7bada97c3f600929c"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8411,7 +8425,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2021-03-16T17:26:59+00:00"
+            "time": "2021-03-23T12:05:05+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -10339,6 +10353,20 @@
                 "x.509",
                 "x509"
             ],
+            "funding": [
+                {
+                    "url": "https://github.com/terrafrost",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpseclib",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2020-12-17T05:42:04+00:00"
         },
         {
@@ -10778,16 +10806,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.75.0",
+            "version": "v7.76.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "d377a667cd789b99ccab768441a5a2160cc4ea80"
+                "reference": "47e66d4186712be33c593fe820dccf270a04d5d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/d377a667cd789b99ccab768441a5a2160cc4ea80",
-                "reference": "d377a667cd789b99ccab768441a5a2160cc4ea80",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/47e66d4186712be33c593fe820dccf270a04d5d6",
+                "reference": "47e66d4186712be33c593fe820dccf270a04d5d6",
                 "shasum": ""
             },
             "require": {
@@ -10831,7 +10859,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2021-02-22T14:31:21+00:00"
+            "time": "2021-03-22T16:50:21+00:00"
         },
         {
             "name": "symfony/console",
@@ -14811,5 +14839,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

@@ -62,8 +62,7 @@ class BaremCheck extends AbstractHelper
 
         foreach($collection as $item)
         {
-            if($item->getData(BaremInterface::MINIMUM_PRICE) <= $grandTotal &&
-                $item->getData(BaremInterface::MAXIMUM_PRICE) >= $grandTotal)
+            if($item->getData(BaremInterface::MINIMUM_PRICE) <= $grandTotal)
             {
                 $result[] = $item->getData();
             }
