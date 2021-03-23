@@ -109,100 +109,54 @@ class HelloBank
      * @param Order $order
      * @param null $paymentData
      * @return bool
-     * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function handleStatus(Order $order, $paymentData = null)
+    public function handleStatus(Order $order, $paymentData = null, $forced=null)
     {
+        $this->setHelloBankStatus($order, $paymentData['status']);
         switch ($paymentData['status']) {
             case CONFIG::HELLOBANK_RESPONSE_STATE_APPROVED:
 
-                $this->setHelloBankStatus($order, $paymentData['status']);
                 $order->setStatus(Order::STATE_PROCESSING);
-
-                // Transaction Id Generate
+                $order->setState(Order::STATE_PROCESSING);
                 $payment=$order->getPayment();
                 /** @var $payment Payment */
                 $transactionId=(isset($paymentData['id'])) ? $paymentData['id'] : random_int(0, 10000);
-                $payment->setTransactionId($transactionId);
-                $payment->setIsTransactionClosed(false);
-
-                //Invoce Generate
-                        /** @var Invoice $invoice */
-                        $invoice = $this->invoiceService->prepareInvoice($order);
-                        /** @noinspection PhpUndefinedMethodInspection */
-                        $invoice->setRequestedCaptureCase(Invoice::CAPTURE_ONLINE);
-                        $invoice->register();
-
-                        /** @var DBTransaction $transactionSave */
-                        $transactionSave = $this->transactionFactory->create()
-                            ->addObject($invoice)
-                            ->addObject($invoice->getOrder());
-
-                        $transactionSave->save();
-
-                $this->orderSender->send($order);
+                $this->generateTranscation($transactionId, $payment, $order);
+                $this->invoiceGenerate($order);
                 $this->orderRepository->save($order);
 
             case CONFIG::HELLOBANK_RESPONSE_STATE_FURTHER_REVIEW:
-
-                $this->setHelloBankStatus($order, $paymentData['status']);
-                $this->orderSender->send($order);
-
             case CONFIG::HELLOBANK_RESPONSE_STATE_PRE_APPROVAL:
             case CONFIG::HELLOBANK_RESPONSE_STATE_CANCELLED:
+
+                $order->cancel();
+                $order->setStatus(Order::STATE_CANCELED);
+                $order->setState(Order::STATE_CANCELED);
+                $this->orderRepository->save($order);
+
             case CONFIG::HELLOBANK_RESPONSE_STATE_REJECTED:
             case CONFIG::HELLOBANK_RESPONSE_STATE_READY_FOR_SHIPPING:
             case CONFIG::HELLOBANK_RESPONSE_STATE_WAITING_FOR_DELIVERY:
+            case CONFIG::HELLOBANK_RESPONSE_STATE_DISBURSED:
+
+                $order->setStatus(Order::STATE_COMPLETE);
+                $order->setState(Order::STATE_COMPLETE);
+                $this->orderRepository->save($order);
+
             default:
         }
-        return true;
-    }
-
-    public function postActions($order = null, $paymentData = null)
-    {
-        //numaut = transcationID ?
-        $transactionId=$paymentData['id'];
-        try {
-            $payment = $order->getPayment();
-            $payment->setLastTransId($transactionId);
-            $payment->setTransactionId($transactionId);
-            $payment->setAdditionalInformation(
-                [Transaction::RAW_DETAILS => (array) $paymentData]
-            );
-            $formatedPrice = $order->getBaseCurrency()->formatTxt(
-                $order->getGrandTotal()
-            );
-
-            $message = __('The authorized amount is %1.', $formatedPrice);
-            $trans = $this->transactionBuilder;
-            $transaction = $trans->setPayment($payment)
-                ->setOrder($order)
-                ->setTransactionId($transactionId)
-                ->setAdditionalInformation(
-                    [Transaction::RAW_DETAILS => $transactionId]
-                )
-                ->setFailSafe(true)
-                ->build(Transaction::TYPE_CAPTURE);
-
-            $payment->addTransactionCommentsToOrder(
-                $transaction,
-                $message
-            );
-            $payment->setParentTransactionId(null);
-            $payment->save();
-            $order->save();
-            $transaction->save()->getTransactionId();
-            $this->createInvoce($order);
-        } catch (\Exception $e) {
-            die($e->getMessage());
+        if(!$forced)
+        {
+            $this->orderSender->send($order);
         }
+        return true;
     }
 
     /**
      * @param $order
      * @return void
      */
-    private function createInvoce($order)
+    private function invoiceGenerate($order)
     {
         /** @var Invoice $invoice */
         $invoice = $this->invoiceService->prepareInvoice($order);
@@ -214,7 +168,33 @@ class HelloBank
         $transactionSave = $this->transactionFactory->create()
             ->addObject($invoice)
             ->addObject($invoice->getOrder());
+
         $transactionSave->save();
+    }
+
+    /**
+     * @param $transactionId
+     * @param $payment
+     * @param $order
+     * @return void
+     */
+    private function generateTranscation($transactionId, $payment, $order)
+    {
+        $payment->setLastTransId($transactionId);
+        $payment->setTransactionId($transactionId);
+        $trans = $this->transactionBuilder;
+        $transaction = $trans->setPayment($payment)
+            ->setOrder($order)
+            ->setTransactionId($transactionId)
+            ->setAdditionalInformation(
+                [Transaction::RAW_DETAILS => $transactionId]
+            )
+            ->setFailSafe(true)
+            ->build(Transaction::TYPE_CAPTURE);
+
+        $payment->setParentTransactionId(null);
+        $payment->save();
+        $transaction->save()->getTransactionId();
     }
 
 }

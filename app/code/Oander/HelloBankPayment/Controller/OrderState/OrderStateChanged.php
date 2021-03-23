@@ -67,7 +67,7 @@ class OrderStateChanged extends Action
         }
         $order=$this->orderRepository->get($orderId);
         $data['status']=$status;
-        $statusUpdate=$this->helloBankService->handleStatus($order, $data);
+        $statusUpdate=$this->helloBankService->handleStatus($order, $data,true);
 
         if($statusUpdate)
         {
@@ -86,7 +86,7 @@ class OrderStateChanged extends Action
      * @param $status
      * @return bool
      */
-    private function hashValidation($hash,$orderId,$status)
+    private function hashValidation($hash, $orderId, $status)
     {
         $message=$orderId."_".$status;
         $validhash=strtoupper(hash_hmac('sha256', $message, $this->configHelper->getHashKey($this->getStoreId())));
