@@ -127,7 +127,9 @@ class HelloBank
                 break;
 
             case CONFIG::HELLOBANK_RESPONSE_STATE_FURTHER_REVIEW:
+                break;
             case CONFIG::HELLOBANK_RESPONSE_STATE_PRE_APPROVAL:
+                break;
             case CONFIG::HELLOBANK_RESPONSE_STATE_CANCELLED:
 
                 $order->cancel();
@@ -136,8 +138,11 @@ class HelloBank
                 $this->orderRepository->save($order);
             break;
             case CONFIG::HELLOBANK_RESPONSE_STATE_REJECTED:
+                break;
             case CONFIG::HELLOBANK_RESPONSE_STATE_READY_FOR_SHIPPING:
+                break;
             case CONFIG::HELLOBANK_RESPONSE_STATE_WAITING_FOR_DELIVERY:
+                break;
             case CONFIG::HELLOBANK_RESPONSE_STATE_DISBURSED:
 
                 $order->setStatus(Order::STATE_COMPLETE);

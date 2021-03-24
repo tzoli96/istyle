@@ -51,19 +51,19 @@ class Config extends AbstractHelper
     public function getPaymentData($request,$type): array
     {
         $data = [
-                'status'            => $request["stav"],
-                'number'            => $request["numwrk"],
-                'customer_name'     => $request["jmeno"],
-                'receipts'          => $request["prijmeni"],
-                'payment'           => $request["splatka"],
-                'customer_number'   => $request["numklient"],
-                'order_number'      => $request["obj"],
+                'status'            =>  (isset($request["stav"])) ? $request["stav"]: null,
+                'number'            =>  (isset($request["numwrk"])) ? $request["stav"]: null,
+                'customer_name'     =>  (isset($request["jmeno"])) ? $request["jmeno"]: null,
+                'receipts'          =>  (isset($request["prijmeni"])) ? $request["prijmeni"]: null,
+                'payment'           =>  (isset($request["splatka"])) ? $request["splatka"]: null,
+                'customer_number'   =>  (isset($request["numklient"])) ? $request["numklient"]: null,
+                'order_number'      =>  (isset($request["obj"])) ? $request["obj"]: null,
             ];
         if($type == HelperConfig::HELLOBANK_REPONSE_TYPE_KO)
         {
-            $data['seller_id']  = $request['vdr'];
+            $data['seller_id']  = (isset($request['vdr'])) ? $request['vdr'] : null;
         } else {
-            $data['id']         = $request['numaut'];
+            $data['id']         = (isset($request['numaut'])) ? $request['numaut'] : null;
         }
 
         return $data;
