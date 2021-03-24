@@ -153,21 +153,21 @@ define(
                 var values = $(calculatedData).find('vysledek');
                 var value = {
                     kodProdejce: window.checkoutConfig.payment.hellobank.sellerId,
-                    kodBaremu: values.find('kodBaremu'),
-                    kodPojisteni: values.find('kodPojisteni'),
-                    cenaZbozi: values.find('cenaZbozi'),
-                    primaPlatba: values.find('primaPlatba'),
-                    vyseUveru: values.find('vyseUveru'),
+                    kodBaremu: values.find('kodBaremu').text(),
+                    kodPojisteni: values.find('kodPojisteni').text(),
+                    cenaZbozi: values.find('cenaZbozi').text(),
+                    primaPlatba: values.find('primaPlatba').text(),
+                    vyseUveru: values.find('vyseUveru').text(),
                     pocetSplatek: values.find('pocetSplatek').text(),
-                    odklad: values.find('odklad'),
+                    odklad: values.find('odklad').text(),
                     vyseSplatky: values.find('vyseSplatky').text(),
                     cenaUveru: values.find('cenaUveru').text(),
                     RPSN: values.find('RPSN').text(),
                     ursaz: values.find('ursaz').text(),
                     celkovaCastka: values.find('celkovaCastka').text(),
                     recalc: 0,
-                    url_back_ok: url.build('?ok'),
-                    url_back_ko: url.build('?ko'),
+                    url_back_ok: url.build('hellobank/payment/kostate'),
+                    url_back_ko: url.build('hellobank/payment/okstate'),
                 };
 
                 var form = $('<form>', { action: loanUrl, method: 'post' });
