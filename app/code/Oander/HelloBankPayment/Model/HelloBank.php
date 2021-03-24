@@ -124,6 +124,7 @@ class HelloBank
                 $this->generateTranscation($transactionId, $payment, $order);
                 $this->invoiceGenerate($order);
                 $this->orderRepository->save($order);
+                break;
 
             case CONFIG::HELLOBANK_RESPONSE_STATE_FURTHER_REVIEW:
             case CONFIG::HELLOBANK_RESPONSE_STATE_PRE_APPROVAL:
@@ -133,7 +134,7 @@ class HelloBank
                 $order->setStatus(Order::STATE_CANCELED);
                 $order->setState(Order::STATE_CANCELED);
                 $this->orderRepository->save($order);
-
+            break;
             case CONFIG::HELLOBANK_RESPONSE_STATE_REJECTED:
             case CONFIG::HELLOBANK_RESPONSE_STATE_READY_FOR_SHIPPING:
             case CONFIG::HELLOBANK_RESPONSE_STATE_WAITING_FOR_DELIVERY:
@@ -142,7 +143,7 @@ class HelloBank
                 $order->setStatus(Order::STATE_COMPLETE);
                 $order->setState(Order::STATE_COMPLETE);
                 $this->orderRepository->save($order);
-
+            break;
             default:
         }
         if(!$forced)
