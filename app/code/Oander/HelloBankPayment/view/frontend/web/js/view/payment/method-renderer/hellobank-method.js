@@ -82,6 +82,10 @@ define(
                 return window.checkoutConfig.payment.hellobank.sellerId;
             },
 
+            getOrderId: function () {
+                return window.checkoutConfig.payment.hellobank.orderId;
+            },
+
             getFormattedPrice: function (price) {
                 var priceFormat = {
                     decimalSymbol: '.',
@@ -140,6 +144,43 @@ define(
 
             parseInt: function (value) {
                 return parseInt(value);
+            },
+
+            helloPlaceOrder: function () {
+                var loanUrl = 'https://www.cetelem.cz/cetelem2_webshop.php/zadost-o-pujcku/on-line-zadost-o-pujcku';
+                var calculatedData = window.calculatedData;
+
+                var values = $(calculatedData).find('vysledek');
+                var value = {
+                    kodProdejce: window.checkoutConfig.payment.hellobank.sellerId,
+                    kodBaremu: values.find('kodBaremu'),
+                    kodPojisteni: values.find('kodPojisteni'),
+                    cenaZbozi: values.find('cenaZbozi'),
+                    primaPlatba: values.find('primaPlatba'),
+                    vyseUveru: values.find('vyseUveru'),
+                    pocetSplatek: values.find('pocetSplatek').text(),
+                    odklad: values.find('odklad'),
+                    vyseSplatky: values.find('vyseSplatky').text(),
+                    cenaUveru: values.find('cenaUveru').text(),
+                    RPSN: values.find('RPSN').text(),
+                    ursaz: values.find('ursaz').text(),
+                    celkovaCastka: values.find('celkovaCastka').text(),
+                    recalc: 0,
+                    url_back_ok: url.build('?ok'),
+                    url_back_ko: url.build('?ko'),
+                };
+
+                var form = $('<form>', { action: loanUrl, method: 'post' });
+                $.each(value,
+                    function (key, value) {
+                        $(form).append(
+                            $('<input>', { type: 'hidden', name: key, value: value })
+                        );
+                    });
+                $(form).append(
+                    $('<input>', { type: 'hidden', name: 'obj', value: this.getOrderId() })
+                );
+                $(form).appendTo('body').submit();
             },
 
             /**

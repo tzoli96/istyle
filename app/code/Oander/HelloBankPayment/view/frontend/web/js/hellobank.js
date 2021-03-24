@@ -316,6 +316,9 @@ define([
           },
           dataType: 'xml'
         }).done(function (res) {
+          if (self.options.page == 'checkout') {
+            window.calculatedData = res;
+          }
           self._setCalculateResponse(res);
           $(self.classes.calculator).find(self.classes.loader).hide();
           $(self.classes.tab).removeClass('d-none');
