@@ -68,7 +68,7 @@
         "oander/module-api-image": "1.0.26",
         "oander/module-api-index": "dev-42374-reindex-list",
         "oander/module-api-order-attachment": "1.0.3",
-        "oander/module-api-product": "1.0.31.6",
+        "oander/module-api-product": "1.0.31.5",
         "oander/module-api-product-attribute": "1.0.21",
         "oander/module-api-warehouse-manager": "1.1.2.3",
         "oander/module-apple-music": "1.0.0.2",
@@ -219,6 +219,9 @@
             },
             "magento/module-quote": {
                 "More active quote fix #49850": "patches/magento/module-quote/49850_tobbaktiv_quote.patch"
+            },
+            "magento/module-eav": {
+                "MAGETWO-71136 attribute-cache-fix #46266": "patches/magento/module-eav/46266_attribute_cache_fix_MAGETWO-71136.patch"
             }
         }
     },
