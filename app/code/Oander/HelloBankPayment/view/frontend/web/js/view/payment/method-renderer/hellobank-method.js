@@ -31,7 +31,7 @@ define(
             initObservable: function () {
                 this._super()
                     .observe([
-                        'response'
+                        'response',
                     ]);
                 return this;
             },
@@ -44,7 +44,8 @@ define(
                 var data = {
                     'method': this.item.method,
                     'additional_data': {
-                        'response': this.response()
+                        'response': this.response(),
+                        'values': this.getCalculatedData(),
                     }
                 };
                 return data;
@@ -80,10 +81,6 @@ define(
 
             getSellerId: function () {
                 return window.checkoutConfig.payment.hellobank.sellerId;
-            },
-
-            getOrderId: function () {
-                return window.checkoutConfig.payment.hellobank.orderId;
             },
 
             getFormattedPrice: function (price) {
@@ -146,48 +143,38 @@ define(
                 return parseInt(value);
             },
 
-            helloPlaceOrder: function () {
-                var loanUrl = 'https://www.cetelem.cz/cetelem2_webshop.php/zadost-o-pujcku/on-line-zadost-o-pujcku';
-                var calculatedData = window.calculatedData;
+            getValue: function (array, key) {
+                return array.find(key).text();
+            },
 
-                var values = $(calculatedData).find('vysledek');
-                var value = {
+            getCalculatedData: function () {
+                var calculatedData = $(window.calculatedData).find('vysledek');
+                var values = {
                     kodProdejce: window.checkoutConfig.payment.hellobank.sellerId,
-                    kodBaremu: values.find('kodBaremu').text(),
-                    kodPojisteni: values.find('kodPojisteni').text(),
-                    cenaZbozi: values.find('cenaZbozi').text(),
-                    primaPlatba: values.find('primaPlatba').text(),
-                    vyseUveru: values.find('vyseUveru').text(),
-                    pocetSplatek: values.find('pocetSplatek').text(),
-                    odklad: values.find('odklad').text(),
-                    vyseSplatky: values.find('vyseSplatky').text(),
-                    cenaUveru: values.find('cenaUveru').text(),
-                    RPSN: values.find('RPSN').text(),
-                    ursaz: values.find('ursaz').text(),
-                    celkovaCastka: values.find('celkovaCastka').text(),
+                    kodBaremu: this.getValue(calculatedData, 'kodBaremu'),
+                    kodPojisteni: this.getValue(calculatedData, 'kodPojisteni'),
+                    cenaZbozi: this.getValue(calculatedData, 'cenaZbozi'),
+                    primaPlatba: this.getValue(calculatedData, 'primaPlatba'),
+                    vyseUveru: this.getValue(calculatedData, 'vyseUveru'),
+                    pocetSplatek: this.getValue(calculatedData, 'pocetSplatek'),
+                    odklad: this.getValue(calculatedData, 'odklad'),
+                    vyseSplatky: this.getValue(calculatedData, 'vyseSplatky'),
+                    cenaUveru: this.getValue(calculatedData, 'cenaUveru'),
+                    RPSN: this.getValue(calculatedData, 'RPSN'),
+                    ursaz: this.getValue(calculatedData, 'ursaz'),
+                    celkovaCastka: this.getValue(calculatedData, 'celkovaCastka'),
                     recalc: 0,
                     url_back_ok: url.build('hellobank/payment/kostate'),
                     url_back_ko: url.build('hellobank/payment/okstate'),
                 };
 
-                var form = $('<form>', { action: loanUrl, method: 'post' });
-                $.each(value,
-                    function (key, value) {
-                        $(form).append(
-                            $('<input>', { type: 'hidden', name: key, value: value })
-                        );
-                    });
-                $(form).append(
-                    $('<input>', { type: 'hidden', name: 'obj', value: this.getOrderId() })
-                );
-                $(form).appendTo('body').submit();
+                return values;
             },
 
             /**
              * After place order callback
              */
             afterPlaceOrder: function () {
-                redirectOnSuccessAction.redirectUrl = url.build('hellobank/payment/redirect/');
                 this.redirectAfterPlaceOrder = true;
             },
         });
