@@ -63,13 +63,6 @@ class RequestBuild extends AbstractHelper
                 'kodBaremu'         => $params['kodBaremu'],
                 'kodPojisteni'      => $params['kodPojisteni'],
                 'cenaZbozi'         => $params['cenaZbozi'],
-                'primaPlatba'       => $params['primaPlatba'],
-                'vyseUveru'         => $params['vyseUveru'],
-                'pocetSplatek'      => $params['pocetSplatek'],
-                'odklad'            => $params['odklad'],
-                'vyseSplatky'       => $params['vyseSplatky'],
-                'cenaUveru'         => $params['cenaUveru'],
-                'RPSN'              => $params['RPSN'],
                 'ursaz'             => $params['ursaz'],
                 'celkovaCastka'     => $params['celkovaCastka'],
                 'recalc'            => 0,
@@ -88,9 +81,8 @@ class RequestBuild extends AbstractHelper
     public function execute($param,$incrementId)
     {
 
-        die();
         $this->curlClient->post(self::LOAN_URL, $this->paramsMake($param,$incrementId));
-        $this->redirect2->redirect("",self::LOAN_URL,"POST");
+
         return $this->curlClient->getBody();
     }
 }

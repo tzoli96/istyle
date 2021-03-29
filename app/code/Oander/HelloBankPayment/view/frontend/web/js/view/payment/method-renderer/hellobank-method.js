@@ -10,9 +10,10 @@ define(
         'mage/url',
         'Magento_Checkout/js/model/quote',
         'Magento_Checkout/js/model/totals',
-        'Magento_Catalog/js/price-utils'
+        'Magento_Catalog/js/price-utils',
+        'Magento_Checkout/js/action/place-order',
     ],
-    function (Component, ko, $, redirectOnSuccessAction, validators, url, quote, totals, priceUtils) {
+    function (Component, ko, $, redirectOnSuccessAction, validators, url, quote, totals, priceUtils,placeOrderAction,) {
         'use strict';
 
         return Component.extend({
@@ -194,7 +195,7 @@ define(
                 return calculatedData.find(key).text();
             },
 
-            helloPlaceOrder: function () {
+            helloPlaceOrder: function (orderId) {
                 var loanUrl = 'https://www.cetelem.cz/cetelem2_webshop.php/zadost-o-pujcku/on-line-zadost-o-pujcku';
                 var calculatedData = window.calculatedData;
 
@@ -226,19 +227,46 @@ define(
                         );
                     });
                 $(form).append(
-                    $('<input>', { type: 'hidden', name: 'obj', value: Math.floor((Math.random()*1000) + 1)
-                    })
+                    $('<input>', { type: 'hidden', name: 'obj', value: orderId })
                 );
                 $(form).appendTo('body').submit();
             },
-
             /**
-             * After place order callback
+             * @override
              */
-            afterPlaceOrder: function () {
-                //redirectOnSuccessAction.redirectUrl = url.build('hellobank/payment/redirect/');
-                this.redirectAfterPlaceOrder = true;
-            },
+            placeOrder: function (data, event) {
+                var self = this;
+
+                if (event) {
+                    event.preventDefault();
+                }
+
+                if (this.validate() && validators.validate()) {
+                    this.isPlaceOrderActionAllowed(false);
+
+                    var placeOrder;
+                    if (this.getPlaceOrderDeferredObject) {
+                        placeOrder = this.getPlaceOrderDeferredObject();
+                    } else {
+                        placeOrder = $.when(placeOrderAction(this.getData(), this.redirectAfterPlaceOrder, this.messageContainer));
+                    }
+                    placeOrder
+                        .fail(
+                            function () {
+                                self.preventFormReload = false;
+                                self.isPlaceOrderActionAllowed(true);
+                            }
+                        ).done(
+                        function (orderId) {
+                            self.helloPlaceOrder(orderId);
+                        }
+                    );
+
+                    return true;
+                }
+
+                return false;
+            }
         });
     }
 );

@@ -12,13 +12,14 @@ use Magento\Quote\Api\CartRepositoryInterface;
 use Magento\Sales\Model\Order;
 use Oander\HelloBankPayment\Gateway\Config;
 use Oander\HelloBankPayment\Helper\Config as HelperConfig;
+use Magento\Sales\Api\OrderRepositoryInterface;
 
 class KoState extends Action
 {
     /**
-     * @var HelperConfig
+     * @var OrderRepositoryInterface
      */
-    private $helperConfig;
+    protected $orderRepository;
     /**
      * @var CheckoutSession
      */
@@ -29,26 +30,33 @@ class KoState extends Action
      */
     private $helloBankModel;
 
+    /**
+     * @var HelperConfig
+     */
+    private $helperConfig;
+
 
     /**
      * Processing constructor.
      *
+     * @param HelperConfig $helperConfig
      * @param Context $context
      * @param CheckoutSession $checkoutSession
      * @param CartRepositoryInterface $quoteRepository
      * @param HelloBankModel $helloBankModel
-     * @param HelperConfig $helperConfig
      */
     public function __construct(
+        OrderRepositoryInterface $orderRepository,
+        HelperConfig $helperConfig,
         Context $context,
         CheckoutSession $checkoutSession,
         CartRepositoryInterface $quoteRepository,
-        HelloBankModel $helloBankModel,
-        HelperConfig $helperConfig
+        HelloBankModel $helloBankModel
     ) {
+        $this->orderRepository = $orderRepository;
+        $this->helperConfig = $helperConfig;
         $this->checkoutSession = $checkoutSession;
         $this->helloBankModel = $helloBankModel;
-        $this->helperConfig = $helperConfig;
         parent::__construct($context);
     }
 
@@ -58,10 +66,13 @@ class KoState extends Action
      * @return Redirect
      * @throws LocalizedException
      */
+    //
     public function execute()
     {
+        $orderId=$this->getRequest()->getParam("obj");
         /** @var Order $order */
-        $order = $this->checkoutSession->getLastRealOrder();
+        $order = $this->orderRepository->get($orderId);
+
         /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
 
@@ -69,10 +80,10 @@ class KoState extends Action
             $returnData = $this->getRequest()->getParams();
             $this->helloBankModel->handleStatus(
                 $order,
-                $this->helperConfig->getPaymentData($returnData,Config::HELLOBANK_REPONSE_TYPE_KO),
+                $this->helperConfig->getPaymentData($returnData,Config::HELLOBANK_REPONSE_TYPE_OK),
                 true
             );
-            $resultRedirect->setPath('checkout/onepage/success');
+            $resultRedirect->setPath('checkout/onepage/success',['params' => $returnData]);
         }
 
         return $resultRedirect;

@@ -6,7 +6,6 @@ use Magento\Checkout\Model\Session as CheckoutSession;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\Controller\Result\Redirect as RedirectResult;
-use Magento\Framework\Controller\ResultFactory;
 use Magento\Sales\Model\Order;
 use Magento\Sales\Model\Order\Payment;
 use Oander\HelloBankPayment\Helper\Config as PaymentHelper;
@@ -17,6 +16,9 @@ use Magento\Framework\View\Result\PageFactory;
 
 class Redirect extends Action
 {
+
+    const LOAN_URL = "https://www.cetelem.cz/cetelem2_webshop.php/zadost-o-pujcku/on-line-zadost-o-pujcku";
+
     /**
      * @var RequestBuild
      */
@@ -88,16 +90,12 @@ class Redirect extends Action
      */
     public function execute()
     {
-        /** @var RedirectResult $resultRedirect */
-        $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
-        $resultRedirect->setPath('checkout/onepage/success');
         /** @var Order $order */
         $order = $this->checkoutSession->getLastRealOrder();
         if ($order instanceof Order) {
             /** @var Payment $payment */
             $payment = $order->getPayment();
-            $this->_redirect("https://www.cetelem.cz/cetelem2_webshop.php/zadost-o-pujcku/on-line-zadost-o-pujcku",
-                $this->requestBuild->paramsMake($payment->getAdditionalInformation(),$order->getIncrementId()) );
+            return $this->requestBuild->execute($payment->getAdditionalInformation(),$order->getIncrementId());
         }
 
     }
