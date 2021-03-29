@@ -20,7 +20,18 @@ define(
 
             defaults: {
                 template: "Oander_HelloBankPayment/payment/hellobank-payment-method",
-                response: '',
+                kodBaremu: '',
+                kodPojisteni: '',
+                cenaZbozi: '',
+                primaPlatba: '',
+                vyseUveru: '',
+                pocetSplatek: '',
+                odklad: '',
+                vyseSplatky: '',
+                cenaUveru: '',
+                RPSN: '',
+                ursaz: '',
+                celkovaCastka: '',
             },
 
             initialize: function () {
@@ -31,7 +42,18 @@ define(
             initObservable: function () {
                 this._super()
                     .observe([
-                        'response',
+                        'kodBaremu',
+                        'kodPojisteni',
+                        'cenaZbozi',
+                        'primaPlatba',
+                        'vyseUveru',
+                        'pocetSplatek',
+                        'odklad',
+                        'vyseSplatky',
+                        'cenaUveru',
+                        'RPSN',
+                        'ursaz',
+                        'celkovaCastka',
                     ]);
                 return this;
             },
@@ -44,8 +66,18 @@ define(
                 var data = {
                     'method': this.item.method,
                     'additional_data': {
-                        'response': this.response(),
-                        'values': this.getCalculatedData(),
+                        'kodBaremu': this.getValue('kodBaremu'),
+                        'kodPojisteni': this.getValue('kodPojisteni'),
+                        'cenaZbozi': this.getValue('cenaZbozi'),
+                        'primaPlatba': this.getValue('primaPlatba'),
+                        'vyseUveru': this.getValue('vyseUveru'),
+                        'pocetSplatek': this.getValue('pocetSplatek'),
+                        'odklad': this.getValue('odklad'),
+                        'vyseSplatky': this.getValue('vyseSplatky'),
+                        'cenaUveru': this.getValue('cenaUveru'),
+                        'RPSN': this.getValue('RPSN'),
+                        'ursaz': this.getValue('ursaz'),
+                        'celkovaCastka': this.getValue('celkovaCastka'),
                     }
                 };
                 return data;
@@ -67,9 +99,23 @@ define(
             },
 
             getResponse: function () {
+                var self = this;
                 return _.map(window.checkoutConfig.payment.hellobank.response, function (value, key) {
                     return {
                         'value': key,
+                        'kodBaremu': self.getValue('kodBaremu'),
+                        'kodPojisteni': self.getValue('kodPojisteni'),
+                        'cenaZbozi': self.getValue('cenaZbozi'),
+                        'primaPlatba': self.getValue('primaPlatba'),
+                        'vyseUveru': self.getValue('vyseUveru'),
+                        'pocetSplatek': self.getValue('pocetSplatek'),
+                        'odklad': self.getValue('odklad'),
+                        'vyseSplatky': self.getValue('vyseSplatky'),
+                        'cenaUveru': self.getValue('cenaUveru'),
+                        'RPSN': self.getValue('RPSN'),
+                        'ursaz': self.getValue('ursaz'),
+                        'celkovaCastka': self.getValue('celkovaCastka'),
+                        'recalc': 0,
                         'response': value
                     }
                 });
@@ -143,38 +189,16 @@ define(
                 return parseInt(value);
             },
 
-            getValue: function (array, key) {
-                return array.find(key).text();
-            },
-
-            getCalculatedData: function () {
+            getValue: function ( key) {
                 var calculatedData = $(window.calculatedData).find('vysledek');
-                var values = {
-                    kodProdejce: window.checkoutConfig.payment.hellobank.sellerId,
-                    kodBaremu: this.getValue(calculatedData, 'kodBaremu'),
-                    kodPojisteni: this.getValue(calculatedData, 'kodPojisteni'),
-                    cenaZbozi: this.getValue(calculatedData, 'cenaZbozi'),
-                    primaPlatba: this.getValue(calculatedData, 'primaPlatba'),
-                    vyseUveru: this.getValue(calculatedData, 'vyseUveru'),
-                    pocetSplatek: this.getValue(calculatedData, 'pocetSplatek'),
-                    odklad: this.getValue(calculatedData, 'odklad'),
-                    vyseSplatky: this.getValue(calculatedData, 'vyseSplatky'),
-                    cenaUveru: this.getValue(calculatedData, 'cenaUveru'),
-                    RPSN: this.getValue(calculatedData, 'RPSN'),
-                    ursaz: this.getValue(calculatedData, 'ursaz'),
-                    celkovaCastka: this.getValue(calculatedData, 'celkovaCastka'),
-                    recalc: 0,
-                    url_back_ok: url.build('hellobank/payment/kostate'),
-                    url_back_ko: url.build('hellobank/payment/okstate'),
-                };
-
-                return values;
+                return calculatedData.find(key).text();
             },
 
             /**
              * After place order callback
              */
             afterPlaceOrder: function () {
+                redirectOnSuccessAction.redirectUrl = url.build('hellobank/payment/redirect/');
                 this.redirectAfterPlaceOrder = true;
             },
         });

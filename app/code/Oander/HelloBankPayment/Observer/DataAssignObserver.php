@@ -8,9 +8,21 @@ use Magento\Quote\Api\Data\PaymentInterface;
 class DataAssignObserver extends AbstractDataAssignObserver
 {
     const PAYMENT_RESPONSE_RESULT = 'response';
+    const PAYMENT_RESPONSE_VALUES = 'values';
 
     private $additionalInformationList = [
-        self::PAYMENT_RESPONSE_RESULT
+            'kodBaremu',
+            'kodPojisteni',
+            'cenaZbozi',
+            'primaPlatba',
+            'vyseUveru',
+            'pocetSplatek',
+            'odklad',
+            'vyseSplatky',
+            'cenaUveru',
+            'RPSN',
+            'ursaz',
+            'celkovaCastka',
     ];
 
     public function execute(Observer $observer)
