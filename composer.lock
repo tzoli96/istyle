@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f61e9aed9a97e95932308652b264586",
+    "content-hash": "7cdd5abdc8a0f9ffb46d059372ff1a31",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -4051,6 +4051,7 @@
                 "php": "~5.6.5|7.0.2|7.0.4|~7.0.6"
             },
             "type": "magento2-module",
+            "extra": [],
             "autoload": {
                 "files": [
                     "registration.php"
@@ -8552,11 +8553,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.1.3.8",
+            "version": "1.1.3.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "5b8f3f8872c659bd52992939cafccd8edc7505b6"
+                "reference": "ca8a4d19fad5589b76fa234699b67cd2219c9991"
             },
             "require": {
                 "php": "7.*"
@@ -8574,7 +8575,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2021-03-24T17:37:00+00:00"
+            "time": "2021-03-29T20:11:45+00:00"
         },
         {
             "name": "oander/module-email-additional-data",
@@ -10061,30 +10062,6 @@
             ],
             "description": "Hodor template",
             "time": "2018-06-25T12:40:24+00:00"
-        },
-        {
-            "name": "oander/theme-istyle",
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "9d89ca2c4b3c66d2b91f8b138c29e9684e8dfd05"
-            },
-            "require": {
-                "oander/module-base": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-theme",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ]
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "iStyle M2 Theme",
-            "time": "2021-03-22T08:41:21+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -14805,11 +14782,11 @@
         "oander/module-product-widget-warehouse-manager-extender": 20,
         "oander/module-salesforce-service": 20,
         "oander/theme-hodor": 20,
-        "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
