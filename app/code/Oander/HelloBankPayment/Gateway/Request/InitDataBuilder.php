@@ -1,12 +1,11 @@
 <?php
 namespace Oander\HelloBankPayment\Gateway\Request;
 
-
 use Magento\Payment\Gateway\ConfigInterface;
 use Magento\Payment\Gateway\Data\PaymentDataObjectInterface;
 use Magento\Payment\Gateway\Request\BuilderInterface;
 
-class AuthorizationRequest implements BuilderInterface
+class InitDataBuilder implements BuilderInterface
 {
     /**
      * @var ConfigInterface

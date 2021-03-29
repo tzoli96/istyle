@@ -3,7 +3,7 @@ namespace Oander\HelloBankPayment\Gateway\Validator;
 
 use Magento\Payment\Gateway\Validator\AbstractValidator;
 use Magento\Payment\Gateway\Validator\ResultInterface;
-use Oander\HelloBankPayment\Gateway\Http\Client\ClientMock;
+use Oander\HelloBankPayment\Gateway\Http\Client\HelloBankClient;
 
 class ResponseCodeValidator extends AbstractValidator
 {
@@ -43,6 +43,6 @@ class ResponseCodeValidator extends AbstractValidator
     private function isSuccessfulTransaction(array $response)
     {
         return isset($response[self::RESULT_CODE])
-        && $response[self::RESULT_CODE] !== ClientMock::FAILURE;
+        && $response[self::RESULT_CODE] !== HelloBankClient::FAILURE;
     }
 }

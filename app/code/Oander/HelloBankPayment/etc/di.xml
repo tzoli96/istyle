@@ -6,45 +6,44 @@
             <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
             <argument name="infoBlockType" xsi:type="string">Magento\Payment\Block\Info</argument>
             <argument name="valueHandlerPool" xsi:type="object">HelloBankValueHandlerPool</argument>
-            <!--<argument name="commandPool" xsi:type="object">HelloBankCommandPool</argument>-->
+            <argument name="commandPool" xsi:type="object">HelloBankCommandPool</argument>
         </arguments>
     </virtualType>
 
     <virtualType name="HelloBankCommandPool" type="Magento\Payment\Gateway\Command\CommandPool">
         <arguments>
             <argument name="commands" xsi:type="array">
-                <item name="authorize" xsi:type="string">HelloBankAuthorizeCommand</item>
+                <item name="initialize" xsi:type="string">HelloBankInitializeCommand</item>
             </argument>
         </arguments>
     </virtualType>
 
-    <virtualType name="HelloBankAuthorizeCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+    <virtualType name="HelloBankInitializeCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
         <arguments>
-            <argument name="requestBuilder" xsi:type="object">HelloBankGatewayAuthorizationRequest</argument>
-            <argument name="handler" xsi:type="object">HelloBankAuthorizationResponseHandlerComposite</argument>
+            <argument name="requestBuilder" xsi:type="object">HelloBankGatewayInitalizationRequest</argument>
+            <argument name="handler" xsi:type="object">HelloBankInitalizationResponseHandlerComposite</argument>
             <argument name="transferFactory" xsi:type="object">Oander\HelloBankPayment\Gateway\Http\TransferFactory</argument>
-            <argument name="client" xsi:type="object">Oander\HelloBankPayment\Gateway\Http\Client\ClientMock</argument>
+            <argument name="client" xsi:type="object">Oander\HelloBankPayment\Gateway\Http\Client\HelloBankClient</argument>
         </arguments>
     </virtualType>
 
-    <virtualType name="HelloBankAuthorizationResponseHandlerComposite" type="Magento\Payment\Gateway\Response\HandlerChain">
+    <virtualType name="HelloBankInitalizationResponseHandlerComposite" type="Magento\Payment\Gateway\Response\HandlerChain">
         <arguments>
             <argument name="handlers" xsi:type="array">
-                <item name="authorization" xsi:type="string">Oander\HelloBankPayment\Gateway\Response\AuthorizationHandler</item>
+                <item name="payment_details" xsi:type="string">Oander\HelloBankPayment\Gateway\Response\InitHandler</item>
             </argument>
         </arguments>
     </virtualType>
 
-    <!-- Authorization Request -->
-    <virtualType name="HelloBankGatewayAuthorizationRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+    <!-- Initalization Request -->
+    <virtualType name="HelloBankGatewayInitalizationRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
         <arguments>
             <argument name="builders" xsi:type="array">
-                <item name="transaction" xsi:type="string">Oander\HelloBankPayment\Gateway\Request\AuthorizationRequest</item>
-                <item name="mockData" xsi:type="string">Oander\HelloBankPayment\Gateway\Request\MockDataRequest</item>
+                <item name="init_data" xsi:type="string">Oander\HelloBankPayment\Gateway\Request\InitDataBuilder</item>
             </argument>
         </arguments>
     </virtualType>
-    <type name="Oander\HelloBankPayment\Gateway\Request\AuthorizationRequest">
+    <type name="Oander\HelloBankPayment\Gateway\Request\InitDataBuilder">
         <arguments>
             <argument name="config" xsi:type="object">HelloBankGatewayConfig</argument>
         </arguments>

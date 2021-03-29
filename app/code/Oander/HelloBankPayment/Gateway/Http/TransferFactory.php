@@ -36,13 +36,6 @@ class TransferFactory implements TransferFactoryInterface
         return $this->transferBuilder
             ->setBody($request)
             ->setMethod('POST')
-            ->setHeaders(
-                [
-                    MockDataRequest::HELLO_BANK_URL => isset($request[MockDataRequest::HELLO_BANK_URL])
-                        ? $request[MockDataRequest::HELLO_BANK_URL]
-                        : null
-                ]
-            )
             ->build();
     }
 }

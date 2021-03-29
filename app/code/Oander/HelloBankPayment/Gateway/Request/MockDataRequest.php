@@ -4,7 +4,7 @@ namespace Oander\HelloBankPayment\Gateway\Request;
 
 use Magento\Payment\Gateway\Data\PaymentDataObjectInterface;
 use Magento\Payment\Gateway\Request\BuilderInterface;
-use Oander\HelloBankPayment\Gateway\Http\Client\ClientMock;
+use Oander\HelloBankPayment\Gateway\Http\Client\HelloBankClient;
 
 class MockDataRequest implements BuilderInterface
 {

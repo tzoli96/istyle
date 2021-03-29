@@ -194,11 +194,49 @@ define(
                 return calculatedData.find(key).text();
             },
 
+            helloPlaceOrder: function () {
+                var loanUrl = 'https://www.cetelem.cz/cetelem2_webshop.php/zadost-o-pujcku/on-line-zadost-o-pujcku';
+                var calculatedData = window.calculatedData;
+
+                var values = $(calculatedData).find('vysledek');
+                var value = {
+                    kodProdejce: window.checkoutConfig.payment.hellobank.sellerId,
+                    kodBaremu: values.find('kodBaremu').text(),
+                    kodPojisteni: values.find('kodPojisteni').text(),
+                    cenaZbozi: values.find('cenaZbozi').text(),
+                    primaPlatba: values.find('primaPlatba').text(),
+                    vyseUveru: values.find('vyseUveru').text(),
+                    pocetSplatek: values.find('pocetSplatek').text(),
+                    odklad: values.find('odklad').text(),
+                    vyseSplatky: values.find('vyseSplatky').text(),
+                    cenaUveru: values.find('cenaUveru').text(),
+                    RPSN: values.find('RPSN').text(),
+                    ursaz: values.find('ursaz').text(),
+                    celkovaCastka: values.find('celkovaCastka').text(),
+                    recalc: 0,
+                    url_back_ok: url.build('hellobank/payment/kostate'),
+                    url_back_ko: url.build('hellobank/payment/okstate'),
+                };
+
+                var form = $('<form>', { action: loanUrl, method: 'post' });
+                $.each(value,
+                    function (key, value) {
+                        $(form).append(
+                            $('<input>', { type: 'hidden', name: key, value: value })
+                        );
+                    });
+                $(form).append(
+                    $('<input>', { type: 'hidden', name: 'obj', value: Math.floor((Math.random()*1000) + 1)
+                    })
+                );
+                $(form).appendTo('body').submit();
+            },
+
             /**
              * After place order callback
              */
             afterPlaceOrder: function () {
-                redirectOnSuccessAction.redirectUrl = url.build('hellobank/payment/redirect/');
+                //redirectOnSuccessAction.redirectUrl = url.build('hellobank/payment/redirect/');
                 this.redirectAfterPlaceOrder = true;
             },
         });

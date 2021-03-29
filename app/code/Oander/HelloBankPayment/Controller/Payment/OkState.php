@@ -62,6 +62,8 @@ class OkState extends Action
     //
     public function execute()
     {
+        var_dump($this->getRequest()->getParams());
+        die();
         /** @var Order $order */
         $order = $this->checkoutSession->getLastRealOrder();
 

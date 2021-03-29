@@ -226,6 +226,17 @@
                 </div>
             </div>
         </div>
+
+        <div class="hello-bank-submit">
+            <button class="action primary checkout"
+                    type="submit"
+                    data-bind="
+                        click: helloPlaceOrder,
+                        attr: {title: $t('Hello Place Order')}
+                        ">
+                <span data-bind="i18n: 'Hello Place Order'"></span>
+            </button>
+        </div>
         <div class="checkout-agreements-block">
             <!-- ko foreach: $parent.getRegion('before-place-order') -->
             <!-- ko template: getTemplate() -->
