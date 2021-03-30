@@ -5,15 +5,15 @@ define(
         'Magento_Checkout/js/view/payment/default',
         'ko',
         'jquery',
-        'Magento_Checkout/js/action/redirect-on-success',
         'Magento_Checkout/js/model/payment/additional-validators',
         'mage/url',
         'Magento_Checkout/js/model/quote',
         'Magento_Checkout/js/model/totals',
         'Magento_Catalog/js/price-utils',
         'Magento_Checkout/js/action/place-order',
+        'Magento_Customer/js/customer-data',
     ],
-    function (Component, ko, $, redirectOnSuccessAction, validators, url, quote, totals, priceUtils,placeOrderAction,) {
+    function (Component, ko, $, validators, url, quote, totals, priceUtils, placeOrderAction, customerData) {
         'use strict';
 
         return Component.extend({
@@ -190,33 +190,46 @@ define(
                 return parseInt(value);
             },
 
-            getValue: function ( key) {
+            getValue: function (key) {
                 var calculatedData = $(window.calculatedData).find('vysledek');
                 return calculatedData.find(key).text();
             },
 
+            getCustomerInfo: function () {
+                var customer = customerData.get('customer');
+                return customer();
+            },
+
+            getCustomerId: function (customerInfo) {
+                customerInfo = customerInfo || this.getCustomerInfo();
+                return customerInfo && customerInfo.data_id;
+            },
+
+            getShippingMethod: function () {
+                return (quote.shippingMethod()['carrier_code'].indexOf('warehouse') > -1) ? 1 : 0;
+            },
+
             helloPlaceOrder: function (orderId) {
                 var loanUrl = 'https://www.cetelem.cz/cetelem2_webshop.php/zadost-o-pujcku/on-line-zadost-o-pujcku';
-                var calculatedData = window.calculatedData;
 
-                var values = $(calculatedData).find('vysledek');
                 var value = {
                     kodProdejce: window.checkoutConfig.payment.hellobank.sellerId,
-                    kodBaremu: values.find('kodBaremu').text(),
-                    kodPojisteni: values.find('kodPojisteni').text(),
-                    cenaZbozi: values.find('cenaZbozi').text(),
-                    primaPlatba: values.find('primaPlatba').text(),
-                    vyseUveru: values.find('vyseUveru').text(),
-                    pocetSplatek: values.find('pocetSplatek').text(),
-                    odklad: values.find('odklad').text(),
-                    vyseSplatky: values.find('vyseSplatky').text(),
-                    cenaUveru: values.find('cenaUveru').text(),
-                    RPSN: values.find('RPSN').text(),
-                    ursaz: values.find('ursaz').text(),
-                    celkovaCastka: values.find('celkovaCastka').text(),
+                    kodBaremu: this.getValue('kodBaremu'),
+                    kodPojisteni: this.getValue('kodPojisteni'),
+                    cenaZbozi: this.getValue('cenaZbozi'),
+                    primaPlatba: this.getValue('primaPlatba'),
+                    vyseUveru: this.getValue('vyseUveru'),
+                    pocetSplatek: this.getValue('pocetSplatek'),
+                    odklad: this.getValue('odklad'),
+                    vyseSplatky: this.getValue('vyseSplatky'),
+                    cenaUveru: this.getValue('cenaUveru'),
+                    RPSN: this.getValue('RPSN'),
+                    ursaz: this.getValue('ursaz'),
+                    celkovaCastka: this.getValue('celkovaCastka'),
                     recalc: 0,
                     url_back_ok: url.build('hellobank/payment/kostate'),
                     url_back_ko: url.build('hellobank/payment/okstate'),
+                    doprava: this.getShippingMethod(),
                 };
 
                 var form = $('<form>', { action: loanUrl, method: 'post' });
@@ -229,6 +242,13 @@ define(
                 $(form).append(
                     $('<input>', { type: 'hidden', name: 'obj', value: orderId })
                 );
+
+                if (this.getCustomerId() != null) {
+                    $(form).append(
+                        $('<input>', { type: 'hidden', name: 'numklient', value: this.getCustomerInfo() })
+                    );
+                }
+
                 $(form).appendTo('body').submit();
             },
             /**

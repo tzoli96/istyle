@@ -5,7 +5,7 @@
             <block class="Oander\HelloBankPayment\Block\OnePage\HelloBankInfo"
                    name="custom.order.success"
                    template="Oander_HelloBankPayment::checkout/success.phtml"
-                   after="-">
+                   after="checkout.order.info">
             </block>
         </referenceContainer>
     </body>

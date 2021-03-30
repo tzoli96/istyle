@@ -1,3 +1,7 @@
 <?php /* @var $block \Oander\HelloBankPayment\Block\OnePage\HelloBankInfo */?>
-<?php echo __('This is a custom content.'); ?>
-<?php var_dump($this->ddParams()); ?>
+<div class="box box-order-hellobank">
+  <h2 class="box-title"><?= __('Hello Bank feedback') ?></h2>
+  <div class="box-content">
+    <?php var_dump($block->ddParams()); ?>
+  </div>
+</div>
