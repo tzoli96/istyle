@@ -152,6 +152,7 @@
         "oander/module-unity-dpd-sk-pickup": "1.0.2",
         "xtento/module-xtcore": "2.1.0",
         "vaimo/composer-patches": "4.6.*",
+        "oander/theme-istyle": "dev-develop",
         "oander/module-url-rewrite-basic": "1.0.1.6",
         "stripe/stripe-php": "^7.69"
     },
