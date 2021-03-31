@@ -14,7 +14,7 @@ use Oander\HelloBankPayment\Gateway\Config;
 use Oander\HelloBankPayment\Helper\Config as HelperConfig;
 use Magento\Sales\Api\OrderRepositoryInterface;
 
-class OkState extends Action
+class KoState extends Action
 {
     /**
      * @var OrderRepositoryInterface
