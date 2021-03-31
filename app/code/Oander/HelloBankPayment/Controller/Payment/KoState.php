@@ -14,7 +14,7 @@ use Oander\HelloBankPayment\Gateway\Config;
 use Oander\HelloBankPayment\Helper\Config as HelperConfig;
 use Magento\Sales\Api\OrderRepositoryInterface;
 
-class KoState extends Action
+class OkState extends Action
 {
     /**
      * @var OrderRepositoryInterface
@@ -72,21 +72,17 @@ class KoState extends Action
         $orderId=$this->getRequest()->getParam("obj");
         /** @var Order $order */
         $order = $this->orderRepository->get($orderId);
-
-        /** @var Redirect $resultRedirect */
-        $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
-
         if ($order instanceof Order) {
             $returnData = $this->getRequest()->getParams();
+            $returnData["state_type"] = "KO";
             $this->helloBankModel->handleStatus(
                 $order,
                 $this->helperConfig->getPaymentData($returnData,Config::HELLOBANK_REPONSE_TYPE_OK),
                 true
             );
-            $resultRedirect->setPath('checkout/onepage/success',['params' => $returnData]);
+            return $this->_redirect('checkout/onepage/success', array('_query' => $returnData));
         }
 
-        return $resultRedirect;
     }
 
     /**
