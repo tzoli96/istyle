@@ -5,14 +5,15 @@ define(
         'Magento_Checkout/js/view/payment/default',
         'ko',
         'jquery',
-        'Magento_Checkout/js/action/redirect-on-success',
         'Magento_Checkout/js/model/payment/additional-validators',
         'mage/url',
         'Magento_Checkout/js/model/quote',
         'Magento_Checkout/js/model/totals',
-        'Magento_Catalog/js/price-utils'
+        'Magento_Catalog/js/price-utils',
+        'Magento_Checkout/js/action/place-order',
+        'Magento_Customer/js/customer-data',
     ],
-    function (Component, ko, $, redirectOnSuccessAction, validators, url, quote, totals, priceUtils) {
+    function (Component, ko, $, validators, url, quote, totals, priceUtils, placeOrderAction, customerData) {
         'use strict';
 
         return Component.extend({
@@ -20,7 +21,18 @@ define(
 
             defaults: {
                 template: "Oander_HelloBankPayment/payment/hellobank-payment-method",
-                response: '',
+                kodBaremu: '',
+                kodPojisteni: '',
+                cenaZbozi: '',
+                primaPlatba: '',
+                vyseUveru: '',
+                pocetSplatek: '',
+                odklad: '',
+                vyseSplatky: '',
+                cenaUveru: '',
+                RPSN: '',
+                ursaz: '',
+                celkovaCastka: '',
             },
 
             initialize: function () {
@@ -31,7 +43,18 @@ define(
             initObservable: function () {
                 this._super()
                     .observe([
-                        'response'
+                        'kodBaremu',
+                        'kodPojisteni',
+                        'cenaZbozi',
+                        'primaPlatba',
+                        'vyseUveru',
+                        'pocetSplatek',
+                        'odklad',
+                        'vyseSplatky',
+                        'cenaUveru',
+                        'RPSN',
+                        'ursaz',
+                        'celkovaCastka',
                     ]);
                 return this;
             },
@@ -44,7 +67,18 @@ define(
                 var data = {
                     'method': this.item.method,
                     'additional_data': {
-                        'response': this.response()
+                        'kodBaremu': this.getValue('kodBaremu'),
+                        'kodPojisteni': this.getValue('kodPojisteni'),
+                        'cenaZbozi': this.getValue('cenaZbozi'),
+                        'primaPlatba': this.getValue('primaPlatba'),
+                        'vyseUveru': this.getValue('vyseUveru'),
+                        'pocetSplatek': this.getValue('pocetSplatek'),
+                        'odklad': this.getValue('odklad'),
+                        'vyseSplatky': this.getValue('vyseSplatky'),
+                        'cenaUveru': this.getValue('cenaUveru'),
+                        'RPSN': this.getValue('RPSN'),
+                        'ursaz': this.getValue('ursaz'),
+                        'celkovaCastka': this.getValue('celkovaCastka'),
                     }
                 };
                 return data;
@@ -66,9 +100,23 @@ define(
             },
 
             getResponse: function () {
+                var self = this;
                 return _.map(window.checkoutConfig.payment.hellobank.response, function (value, key) {
                     return {
                         'value': key,
+                        'kodBaremu': self.getValue('kodBaremu'),
+                        'kodPojisteni': self.getValue('kodPojisteni'),
+                        'cenaZbozi': self.getValue('cenaZbozi'),
+                        'primaPlatba': self.getValue('primaPlatba'),
+                        'vyseUveru': self.getValue('vyseUveru'),
+                        'pocetSplatek': self.getValue('pocetSplatek'),
+                        'odklad': self.getValue('odklad'),
+                        'vyseSplatky': self.getValue('vyseSplatky'),
+                        'cenaUveru': self.getValue('cenaUveru'),
+                        'RPSN': self.getValue('RPSN'),
+                        'ursaz': self.getValue('ursaz'),
+                        'celkovaCastka': self.getValue('celkovaCastka'),
+                        'recalc': 0,
                         'response': value
                     }
                 });
@@ -80,10 +128,6 @@ define(
 
             getSellerId: function () {
                 return window.checkoutConfig.payment.hellobank.sellerId;
-            },
-
-            getOrderId: function () {
-                return window.checkoutConfig.payment.hellobank.orderId;
             },
 
             getFormattedPrice: function (price) {
@@ -146,28 +190,46 @@ define(
                 return parseInt(value);
             },
 
-            helloPlaceOrder: function () {
-                var loanUrl = 'https://www.cetelem.cz/cetelem2_webshop.php/zadost-o-pujcku/on-line-zadost-o-pujcku';
-                var calculatedData = window.calculatedData;
+            getValue: function (key) {
+                var calculatedData = $(window.calculatedData).find('vysledek');
+                return calculatedData.find(key).text();
+            },
 
-                var values = $(calculatedData).find('vysledek');
+            getCustomerInfo: function () {
+                var customer = customerData.get('customer');
+                return customer();
+            },
+
+            getCustomerId: function (customerInfo) {
+                customerInfo = customerInfo || this.getCustomerInfo();
+                return customerInfo && customerInfo.data_id;
+            },
+
+            getShippingMethod: function () {
+                return (quote.shippingMethod()['carrier_code'].indexOf('warehouse') > -1) ? 1 : 0;
+            },
+
+            helloPlaceOrder: function (orderId) {
+                var loanUrl = 'https://www.cetelem.cz/cetelem2_webshop.php/zadost-o-pujcku/on-line-zadost-o-pujcku';
+
                 var value = {
                     kodProdejce: window.checkoutConfig.payment.hellobank.sellerId,
-                    kodBaremu: values.find('kodBaremu').text(),
-                    kodPojisteni: values.find('kodPojisteni').text(),
-                    cenaZbozi: values.find('cenaZbozi').text(),
-                    primaPlatba: values.find('primaPlatba').text(),
-                    vyseUveru: values.find('vyseUveru').text(),
-                    pocetSplatek: values.find('pocetSplatek').text(),
-                    odklad: values.find('odklad').text(),
-                    vyseSplatky: values.find('vyseSplatky').text(),
-                    cenaUveru: values.find('cenaUveru').text(),
-                    RPSN: values.find('RPSN').text(),
-                    ursaz: values.find('ursaz').text(),
-                    celkovaCastka: values.find('celkovaCastka').text(),
+                    kodBaremu: this.getValue('kodBaremu'),
+                    kodPojisteni: this.getValue('kodPojisteni'),
+                    cenaZbozi: this.getValue('cenaZbozi'),
+                    primaPlatba: this.getValue('primaPlatba'),
+                    vyseUveru: this.getValue('vyseUveru'),
+                    pocetSplatek: this.getValue('pocetSplatek'),
+                    odklad: this.getValue('odklad'),
+                    vyseSplatky: this.getValue('vyseSplatky'),
+                    cenaUveru: this.getValue('cenaUveru'),
+                    RPSN: this.getValue('RPSN'),
+                    ursaz: this.getValue('ursaz'),
+                    celkovaCastka: this.getValue('celkovaCastka'),
                     recalc: 0,
                     url_back_ok: url.build('hellobank/payment/kostate'),
                     url_back_ko: url.build('hellobank/payment/okstate'),
+                    doprava: this.getShippingMethod(),
                 };
 
                 var form = $('<form>', { action: loanUrl, method: 'post' });
@@ -178,18 +240,53 @@ define(
                         );
                     });
                 $(form).append(
-                    $('<input>', { type: 'hidden', name: 'obj', value: this.getOrderId() })
+                    $('<input>', { type: 'hidden', name: 'obj', value: orderId })
                 );
+
+                if (this.getCustomerId() != null) {
+                    $(form).append(
+                        $('<input>', { type: 'hidden', name: 'numklient', value: this.getCustomerInfo() })
+                    );
+                }
+
                 $(form).appendTo('body').submit();
             },
-
             /**
-             * After place order callback
+             * @override
              */
-            afterPlaceOrder: function () {
-                redirectOnSuccessAction.redirectUrl = url.build('hellobank/payment/redirect/');
-                this.redirectAfterPlaceOrder = true;
-            },
+            placeOrder: function (data, event) {
+                var self = this;
+
+                if (event) {
+                    event.preventDefault();
+                }
+
+                if (this.validate() && validators.validate()) {
+                    this.isPlaceOrderActionAllowed(false);
+
+                    var placeOrder;
+                    if (this.getPlaceOrderDeferredObject) {
+                        placeOrder = this.getPlaceOrderDeferredObject();
+                    } else {
+                        placeOrder = $.when(placeOrderAction(this.getData(), this.redirectAfterPlaceOrder, this.messageContainer));
+                    }
+                    placeOrder
+                        .fail(
+                            function () {
+                                self.preventFormReload = false;
+                                self.isPlaceOrderActionAllowed(true);
+                            }
+                        ).done(
+                        function (orderId) {
+                            self.helloPlaceOrder(orderId);
+                        }
+                    );
+
+                    return true;
+                }
+
+                return false;
+            }
         });
     }
 );

@@ -87,11 +87,10 @@ class ConfigProvider implements ConfigProviderInterface
                     'logoSrc'   => $this->getLogoSrc(),
                     'barems'    => $this->getBarems(),
                     'sellerId'  => $this->getSellerId(),
-                    'orderId'   => $this->getOrderId(),
                     'response' => [
                         ConfigHelper::HELLOBANK_REPONSE_TYPE_OK => __('Application approved automatically (OK)'),
                         ConfigHelper::HELLOBANK_REPONSE_TYPE_KO => __('Application subject to further review (KO)')
-                    ]
+                    ],
                 ],
             ]
         ];
@@ -146,16 +145,5 @@ class ConfigProvider implements ConfigProviderInterface
     private function getSellerId()
     {
         return $this->helloBankPaymentConfig->getSellerId();
-    }
-
-    /**
-     * @return string
-     */
-    private function getOrderId()
-    {
-        $this->checkoutSession->getQuote()->reserveOrderId();
-        $reservedOrderId = $this->checkoutSession->getQuote()->getReservedOrderId();
-
-        return $reservedOrderId;
     }
 }

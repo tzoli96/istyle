@@ -1,0 +1,49 @@
+<?php
+/* @var $block \Oander\HelloBankPayment\Block\OnePage\HelloBankInfo */
+
+$printedParams = [];
+$params = $block->ddParams();
+$paramsData = [
+  'OK' => [
+    'Authorization number' => 'numaut',
+    'Application number' => 'numwrk',
+    'Client name' => ['jmeno', 'prijmeni'],
+    'Installments' => 'splatka',
+  ],
+  'KO' => [
+    'Application number' => 'numwrk',
+    'Client name' => ['jmeno', 'prijmeni'],
+  ]
+];
+$value = '';
+
+foreach ($paramsData as $state => $value) {
+  if ($state == $params['state_type']) {
+    foreach ($paramsData[$state] as $name => $paramKey) {
+      if (is_array($paramKey)) {
+        $value = '';
+        foreach ($paramKey as $key) {
+          if (isset($params[$key])) {
+            $value .= $params[$key] . ' ';
+          }
+        }
+        $printedParams[$name] = $value;
+      }
+      else {
+        if (isset($params[$paramKey])) {
+          $printedParams[$name] = $params[$paramKey];
+        }
+      }
+    }
+  }
+}
+?>
+
+<div class="box box-order-hellobank">
+  <h2 class="box-title"><?= __('Hello Bank feedback') ?></h2>
+  <div class="box-content">
+    <?php foreach ($printedParams as $name => $value) : ?>
+      <div><?= __($name) ?>: <?= $value ?></div>
+    <?php endforeach; ?>
+  </div>
+</div>

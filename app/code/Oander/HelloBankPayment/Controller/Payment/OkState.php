@@ -12,9 +12,14 @@ use Magento\Quote\Api\CartRepositoryInterface;
 use Magento\Sales\Model\Order;
 use Oander\HelloBankPayment\Gateway\Config;
 use Oander\HelloBankPayment\Helper\Config as HelperConfig;
+use Magento\Sales\Api\OrderRepositoryInterface;
 
 class OkState extends Action
 {
+    /**
+     * @var OrderRepositoryInterface
+     */
+    protected $orderRepository;
     /**
      * @var CheckoutSession
      */
@@ -41,12 +46,14 @@ class OkState extends Action
      * @param HelloBankModel $helloBankModel
      */
     public function __construct(
+        OrderRepositoryInterface $orderRepository,
         HelperConfig $helperConfig,
         Context $context,
         CheckoutSession $checkoutSession,
         CartRepositoryInterface $quoteRepository,
         HelloBankModel $helloBankModel
     ) {
+        $this->orderRepository = $orderRepository;
         $this->helperConfig = $helperConfig;
         $this->checkoutSession = $checkoutSession;
         $this->helloBankModel = $helloBankModel;
@@ -62,23 +69,20 @@ class OkState extends Action
     //
     public function execute()
     {
+        $orderId=$this->getRequest()->getParam("obj");
         /** @var Order $order */
-        $order = $this->checkoutSession->getLastRealOrder();
-
-        /** @var Redirect $resultRedirect */
-        $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
-
+        $order = $this->orderRepository->get($orderId);
         if ($order instanceof Order) {
             $returnData = $this->getRequest()->getParams();
+            $returnData["state_type"] = "OK";
             $this->helloBankModel->handleStatus(
                 $order,
                 $this->helperConfig->getPaymentData($returnData,Config::HELLOBANK_REPONSE_TYPE_OK),
                 true
             );
-            $resultRedirect->setPath('checkout/onepage/success');
+            return $this->_redirect('checkout/onepage/success', array('_query' => $returnData));
         }
 
-        return $resultRedirect;
     }
 
     /**
