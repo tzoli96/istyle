@@ -1,0 +1,64 @@
+Index: /view/base/web/js/form/element/multiselect.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/view/base/web/js/form/element/multiselect.js b/view/base/web/js/form/element/multiselect.js
+--- a/view/base/web/js/form/element/multiselect.js	(date 1617212218076)
++++ b/view/base/web/js/form/element/multiselect.js	(date 1617212218076)
+@@ -1,8 +1,3 @@
+-/**
+- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+- * See COPYING.txt for license details.
+- */
+-
+ define([
+     'underscore',
+     'mageUtils',
+@@ -13,7 +8,10 @@
+     return Select.extend({
+         defaults: {
+             size: 5,
+-            elementTmpl: 'ui/form/element/multiselect'
++            elementTmpl: 'ui/form/element/multiselect',
++            listens: {
++                value: 'setDifferedFromDefault setPrepareToSendData'
++            }
+         },
+ 
+         /**
+@@ -38,6 +36,21 @@
+             return _.isString(value) ? value.split(',') : value;
+         },
+ 
++        /**
++         * Sets the prepared data to dataSource
++         * by path, where key is component link to dataSource with
++         * suffix "-prepared-for-send"
++         *
++         * @param {Array} data - current component value
++         */
++        setPrepareToSendData: function (data) {
++            if (_.isUndefined(data) || !data.length) {
++                data = '';
++            }
++
++            this.source.set(this.dataScope + '-prepared-for-send', data);
++        },
++
+         /**
+          * @inheritdoc
+          */
+
+diff --git a/view/base/web/js/form/client.js b/view/base/web/js/form/client.js
+--- a/view/base/web/js/form/client.js	(date 1487242786000)
++++ b/view/base/web/js/form/client.js	(date 1487242786000)
+@@ -22,7 +22,7 @@
+     function beforeSave(data, url, selectorPrefix, messagesClass) {
+         var save = $.Deferred();
+
+-        data = utils.serialize(data);
++        data = utils.serialize(utils.filterFormData(data));
+
+         data['form_key'] = window.FORM_KEY;
+
