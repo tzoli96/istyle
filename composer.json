@@ -31,7 +31,7 @@
         "infobeans/magento2-flatrate5": "1.0.1",
         "innobyte/magento2-payu": "1.1.8",
         "innobyte/module-bnpparibas": "0.0.6",
-        "innobyte/module-cetelem": "dev-47923-ecom2",
+        "innobyte/module-cetelem": "dev-50046-ownshare-fix",
         "innobyte/module-checkout-success": "0.0.3",
         "innobyte/module-mstart": "0.0.1",
         "mageplaza/module-gdpr": "1.2.0",
