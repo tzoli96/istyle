@@ -6,4 +6,8 @@
     <type name="Magento\Catalog\Helper\Output">
         <plugin name="oander_catalog_helper_output" type="Oander\IstyleCustomization\Plugin\Catalog\Helper\Output"/>
     </type>
+
+    <type name="Magento\Sales\Model\Order\Email\Container\Template">
+        <plugin name="paribas.custom.code" type="Oander\IstyleCustomization\Plugin\Order\Email\Container\ParibasEmail" sortOrder="100"/>
+    </type>
 </config>
