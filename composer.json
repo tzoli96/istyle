@@ -221,11 +221,7 @@
                 "More active quote fix #49850": "patches/magento/module-quote/49850_tobbaktiv_quote.patch"
             },
             "magento/module-eav": {
-                "MAGETWO-71136 attribute-cache-fix #46266": "patches/magento/module-eav/46266_attribute_cache_fix_MAGETWO-71136.patch",
-                "multiselect fix2 #50404": "patches/magento/module-eav/multiselectarraybackend.patch"
-            },
-            "magento/module-ui": {
-                "multiselect fix #50404": "patches/magento/module-ui/multiselectjs.patch"
+                "MAGETWO-71136 attribute-cache-fix #46266": "patches/magento/module-eav/46266_attribute_cache_fix_MAGETWO-71136.patch"
             }
         }
     },
