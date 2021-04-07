@@ -78,8 +78,7 @@ class KoState extends Action
 
             $this->helloBankModel->handleStatus(
                 $order,
-                $this->helperConfig->getPaymentData($returnData,Config::HELLOBANK_REPONSE_TYPE_OK),
-                true
+                $this->helperConfig->getPaymentData($returnData,Config::HELLOBANK_REPONSE_TYPE_OK)
             );
             return $this->_redirect('checkout/onepage/success', array('_query' => $redirectData));
         }
