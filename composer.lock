@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c91fbe46d9f991fc08735805f5273bb3",
+    "content-hash": "cabb62820954f24bc4ade24e27f7d8df",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -5849,7 +5849,6 @@
                 "php": "~5.6.5|7.0.2|7.0.4|~7.0.6"
             },
             "type": "magento2-module",
-            "extra": [],
             "autoload": {
                 "files": [
                     "registration.php"
@@ -8568,11 +8567,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.1.3.12",
+            "version": "1.1.3.13",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "54a3f360082489a916ae72a15aa1df5d4c49abf2"
+                "reference": "38626d901c30c8afbe359561aea918e03fed6e54"
             },
             "require": {
                 "php": "7.*"
@@ -8590,7 +8589,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2021-04-07T13:00:43+00:00"
+            "time": "2021-04-07T16:19:14+00:00"
         },
         {
             "name": "oander/module-email-additional-data",
@@ -10084,7 +10083,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "c45161424fd509bb331c8a34038759fdda35f1b0"
+                "reference": "6d1129807452b7378ba2adf6eabd44d2f9d2187d"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10100,7 +10099,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-04-07T12:58:00+00:00"
+            "time": "2021-04-07T16:16:59+00:00"
         },
         {
             "name": "oyejorge/less.php",
