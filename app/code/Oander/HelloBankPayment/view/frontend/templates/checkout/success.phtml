@@ -8,7 +8,7 @@ if($block->isHelloBank()):
 <div class="box box-order-hellobank">
   <h2 class="box-title"><?= __('Hello Bank feedback') ?></h2>
   <div class="box-content">
-      <?= __("Dear customer, sending the loan application was successful. Hello bank will send you the next steps to complete your purchase to your e-mail. Thank you …")?>
+      <?= $block->getSuccessPageMessage() ?>
   </div>
 </div>
 <?php

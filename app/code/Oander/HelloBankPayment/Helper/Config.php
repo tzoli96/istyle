@@ -25,6 +25,14 @@ class Config extends AbstractHelper
         return $this->scopeConfig->getValue("payment/hellobank/active", ScopeInterface::SCOPE_STORE, $storeid);
     }
 
+    /**
+     * @param $storeid
+     * @return string
+     */
+    public function getSucessPageMessage($storeid = null)
+    {
+        return $this->scopeConfig->getValue("payment/hellobank/successpage_message", ScopeInterface::SCOPE_STORE, $storeid);
+    }
 
     /**
      * @param null $storeid

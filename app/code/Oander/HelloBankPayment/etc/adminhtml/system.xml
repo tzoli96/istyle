@@ -18,6 +18,9 @@
                 <field id="seller_id" translate="label" type="text" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Seller ID</label>
                 </field>
+                <field id="successpage_message" translate="label" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>SuccessPage Message</label>
+                </field>
                 <field id="approval_message" translate="label" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Approval Message</label>
                 </field>
