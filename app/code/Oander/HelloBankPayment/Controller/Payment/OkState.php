@@ -74,13 +74,15 @@ class OkState extends Action
         $order = $this->orderRepository->get($orderId);
         if ($order instanceof Order) {
             $returnData = $this->getRequest()->getParams();
-            $returnData["state_type"] = "OK";
+            $redirectData["is_hellobank"] = true;
+
             $this->helloBankModel->handleStatus(
                 $order,
                 $this->helperConfig->getPaymentData($returnData,Config::HELLOBANK_REPONSE_TYPE_OK),
                 true
             );
-            return $this->_redirect('checkout/onepage/success', array('_query' => $returnData));
+            return $this->_redirect('checkout/onepage/success', array('_query' => $redirectData));
+
         }
 
     }
