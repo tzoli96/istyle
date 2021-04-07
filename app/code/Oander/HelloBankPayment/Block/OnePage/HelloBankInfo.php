@@ -5,14 +5,11 @@ use Magento\Framework\View\Element\Template;
 
 class HelloBankInfo extends Template
 {
-    public function getParams($var)
+    /**
+     * @return bool
+     */
+    public function isHelloBank()
     {
-        return $this->getRequest()->getParam($var);
+        return $this->getRequest()->getParam("is_hellobank");
     }
-
-    public function ddParams()
-    {
-        return $this->getRequest()->getParams();
-    }
-
 }
