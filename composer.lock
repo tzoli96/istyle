@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f61e9aed9a97e95932308652b264586",
+    "content-hash": "e855a56b5a1f218994cbafabfdbe64a1",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -881,6 +881,20 @@
                 "ssl",
                 "tls"
             ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2021-01-12T12:10:35+00:00"
         },
         {
@@ -1560,11 +1574,11 @@
         },
         {
             "name": "innobyte/module-cetelem",
-            "version": "dev-47923-ecom2",
+            "version": "dev-50046-ownshare-fix",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-cetelem.git",
-                "reference": "9aaf93bce0efd18837283b4fa77b7257ce81981a"
+                "reference": "ed81f6df9b03358d1efd064a71fd9558d92f8cef"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1580,7 +1594,7 @@
                 }
             },
             "description": "Innobyte Cetelem Module",
-            "time": "2021-02-18T11:20:41+00:00"
+            "time": "2021-04-01T15:24:17+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
@@ -4051,6 +4065,7 @@
                 "php": "~5.6.5|7.0.2|7.0.4|~7.0.6"
             },
             "type": "magento2-module",
+            "extra": [],
             "autoload": {
                 "files": [
                     "registration.php"
@@ -8552,11 +8567,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.1.3.8",
+            "version": "1.1.3.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "5b8f3f8872c659bd52992939cafccd8edc7505b6"
+                "reference": "60bd6c7705b7473e7de6718919f22ab893aa5ddb"
             },
             "require": {
                 "php": "7.*"
@@ -8574,7 +8589,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2021-03-24T17:37:00+00:00"
+            "time": "2021-03-30T09:06:01+00:00"
         },
         {
             "name": "oander/module-email-additional-data",
@@ -10068,7 +10083,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "9d89ca2c4b3c66d2b91f8b138c29e9684e8dfd05"
+                "reference": "adc42f4ea1047048c933c915e4868d01a189d460"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10084,7 +10099,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-03-22T08:41:21+00:00"
+            "time": "2021-03-31T12:57:07+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10338,6 +10353,20 @@
                 "twofish",
                 "x.509",
                 "x509"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/terrafrost",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpseclib",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
+                    "type": "tidelift"
+                }
             ],
             "time": "2020-12-17T05:42:04+00:00"
         },
@@ -14811,5 +14840,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
