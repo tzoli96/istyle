@@ -12,6 +12,9 @@ use Magento\Eav\Setup\EavSetup;
 use Magento\Eav\Setup\EavSetupFactory;
 use Magento\Sales\Setup\SalesSetupFactory;
 use Magento\Quote\Setup\QuoteSetupFactory;
+use Oander\IstyleCustomization\Enum\OrderAttributeEnum;
+use Magento\Framework\DB\Ddl\Table;
+use Magento\Sales\Model\Order;
 
 /**
  * Upgrade Data script
@@ -72,10 +75,41 @@ class UpgradeData implements UpgradeDataInterface
       
         if (version_compare($context->getVersion(), '1.0.3') < 0) {
             $this->addProductDistributorAttribute($setup);
-        }        
+        }
+
+        if (version_compare($context->getVersion(), '1.0.4') < 0) {
+            $this->addNewOrderAttributeParibas($setup);
+        }
 
         $setup->endSetup();
     }
+
+    /**
+     * @param ModuleDataSetupInterface $setup
+     */
+    private function addNewOrderAttributeParibas(ModuleDataSetupInterface $setup)
+    {
+        $salesSetup = $this->salesSetupFactory->create(['resourceName' => 'sales_setup', 'setup' => $setup]);
+        $salesSetup->addAttribute(Order::ENTITY, OrderAttributeEnum::ORDER_ATTRIBUTE_PARIBAS_PIN, [
+            'type' => Table::TYPE_TEXT,
+            'length'=> 255,
+            'visible' => false,
+            'nullable' => true
+        ]);
+
+        $setup->getConnection()
+            ->addColumn(
+                $setup->getTable('sales_order'),
+                OrderAttributeEnum::ORDER_ATTRIBUTE_PARIBAS_PIN,
+                [
+                    'type' => Table::TYPE_TEXT,
+                    'length' => 255,
+                    'comment' =>'BNP Paribas PIN'
+                ]
+            );
+
+    }
+
 
     private function addProductDistributorAttribute(ModuleDataSetupInterface $setup)
     {

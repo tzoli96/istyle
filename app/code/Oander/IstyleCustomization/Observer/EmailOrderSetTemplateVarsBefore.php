@@ -21,7 +21,7 @@ class EmailOrderSetTemplateVarsBefore implements ObserverInterface
         $transport = $observer->getEvent()->getData('transport');
         $order = $transport->getOrder();
         $shippingAddress = $order->getShippingAddress();
-
+        $transport['paribas_pin'] = $transport->getOrder()->getData("paribas_pin");
         $dob =  null;
         if ($shippingAddress->getDob()) {
             $dob = date('Y-m-d', strtotime((string)$shippingAddress->getDob()));
