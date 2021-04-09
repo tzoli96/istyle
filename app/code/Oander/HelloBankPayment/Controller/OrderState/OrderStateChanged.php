@@ -59,11 +59,19 @@ class OrderStateChanged extends Action
      */
     public function execute()
     {
+        $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/hellobank.log');
+        $logger = new \Zend\Log\Logger();
+        $logger->addWriter($writer);
         $orderId=$this->getRequest()->getParam("order");
         $status=$this->getRequest()->getParam("state");
         $hash=$this->getRequest()->getParam("hash");
+        $logger->info($this->_url->getCurrentUrl());
+        $logger->info("Hash:".$hash);
+        $logger->info("Stats:".$status);
+        $logger->info("Stats:".$orderId);
         if(!$this->hashValidation($hash,$orderId,$status))
         {
+            $logger->info("Hash is invalid");
             die("Your hash is invalid.");
         }
         $order=$this->orderRepository->get($orderId);
@@ -71,6 +79,7 @@ class OrderStateChanged extends Action
         $hellobankStatus = $order->getHelloBankStatus();
         if(!$this->handleStatus($hellobankStatus, $status))
         {
+            $logger->info("Fail");
             die("Fail");
         }
 
@@ -79,6 +88,7 @@ class OrderStateChanged extends Action
 
         if($statusUpdate)
         {
+            $logger->info("ok");
             $this->_response->setHttpResponseCode(200)
                 ->setHeader('Pragma', 'public', true)
                 ->setHeader('Cache-Control', 'must-revalidate, post-check=0, pre-check=0', true)
