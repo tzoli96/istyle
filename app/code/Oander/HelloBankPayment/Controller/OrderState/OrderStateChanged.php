@@ -141,6 +141,7 @@ class OrderStateChanged extends Action
                 case GatewayConfig::HELLOBANK_RESPONSE_STATE_FURTHER_REVIEW:
                      if($status == GatewayConfig::HELLOBANK_RESPONSE_STATE_APPROVED
                          || $status == GatewayConfig::HELLOBANK_RESPONSE_STATE_CANCELLED
+                         || $status == GatewayConfig::HELLOBANK_RESPONSE_STATE_REJECTED
                      ) {
                          $response = true;
                      }else{
