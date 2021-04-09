@@ -1,4 +1,5 @@
 <?php
+
 namespace Oander\HelloBankPayment\Model;
 
 use Magento\Framework\DB\Transaction as DBTransaction;
@@ -56,7 +57,8 @@ class HelloBank
         OrderSender $orderSender,
         InvoiceService $invoiceService,
         TransactionFactory $transactionFactory
-    ) {
+    )
+    {
         $this->transactionBuilder = $transactionBuilder;
         $this->orderRepository = $orderRepository;
         $this->url = $url;
@@ -75,19 +77,18 @@ class HelloBank
 
     public function handle(Order $order, $paymentData = null, $urlType = false)
     {
-            switch ($urlType)
-            {
-                case Config::HELLOBANK_REPONSE_TYPE_OK:
-                    $this->handleStatus($order,$paymentData['status']);
+        switch ($urlType) {
+            case Config::HELLOBANK_REPONSE_TYPE_OK:
+                $this->handleStatus($order, $paymentData['status']);
 
-                    $this->postActions($order);
-                    break;
+                $this->postActions($order);
+                break;
 
-                case Config::HELLOBANK_REPONSE_TYPE_KO:
-                    $this->setHelloBankStatus($order, $paymentData['status']);
-                    $this->orderSender->send($order);
-                default:
-            }
+            case Config::HELLOBANK_REPONSE_TYPE_KO:
+                $this->setHelloBankStatus($order, $paymentData['status']);
+                $this->orderSender->send($order);
+            default:
+        }
     }
 
     /**
@@ -100,7 +101,7 @@ class HelloBank
         $order->setData("hello_bank_status", $status);
         $order->addStatusToHistory(
             $order->getStatus(),
-            "HelloBank Status is :".Config::$hellobankOrderStatus[$status]
+            "HelloBank Status is :" . Config::$hellobankOrderStatus[$status]
         );
         $this->orderRepository->save($order);
     }
@@ -110,7 +111,7 @@ class HelloBank
      * @param null $paymentData
      * @return bool
      */
-    public function handleStatus(Order $order, $paymentData = null, $forced=null)
+    public function handleStatus(Order $order, $paymentData = null, $forced = null)
     {
         $this->setHelloBankStatus($order, $paymentData['status']);
         switch ($paymentData['status']) {
@@ -118,9 +119,9 @@ class HelloBank
 
                 $order->setStatus(Order::STATE_PROCESSING);
                 $order->setState(Order::STATE_PROCESSING);
-                $payment=$order->getPayment();
+                $payment = $order->getPayment();
                 /** @var $payment Payment */
-                $transactionId=(isset($paymentData['id'])) ? $paymentData['id'] : random_int(0, 10000);
+                $transactionId = (isset($paymentData['id'])) ? $paymentData['id'] : random_int(0, 10000);
                 $this->generateTranscation($transactionId, $payment, $order);
                 $this->invoiceGenerate($order);
                 $this->orderRepository->save($order);
@@ -131,28 +132,27 @@ class HelloBank
             case CONFIG::HELLOBANK_RESPONSE_STATE_PRE_APPROVAL:
                 break;
             case CONFIG::HELLOBANK_RESPONSE_STATE_CANCELLED:
-
+            case CONFIG::HELLOBANK_RESPONSE_STATE_REJECTED:
                 $order->cancel();
                 $order->setStatus(Order::STATE_CANCELED);
                 $order->setState(Order::STATE_CANCELED);
                 $this->orderRepository->save($order);
-            break;
-            case CONFIG::HELLOBANK_RESPONSE_STATE_REJECTED:
                 break;
             case CONFIG::HELLOBANK_RESPONSE_STATE_READY_FOR_SHIPPING:
-                break;
             case CONFIG::HELLOBANK_RESPONSE_STATE_WAITING_FOR_DELIVERY:
+                $order->setStatus(Order::STATE_PROCESSING);
+                $order->setState(Order::STATE_PROCESSING);
+                $this->orderRepository->save($order);
                 break;
             case CONFIG::HELLOBANK_RESPONSE_STATE_DISBURSED:
 
                 $order->setStatus(Order::STATE_COMPLETE);
                 $order->setState(Order::STATE_COMPLETE);
                 $this->orderRepository->save($order);
-            break;
+                break;
             default:
         }
-        if(!$forced)
-        {
+        if (!$forced) {
             $this->orderSender->send($order);
         }
         return true;
