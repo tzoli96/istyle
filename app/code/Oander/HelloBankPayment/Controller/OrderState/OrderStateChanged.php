@@ -134,9 +134,6 @@ class OrderStateChanged extends Action
     private function handleStatus($hellobankStatus, $status)
     {
         $response = false;
-        if($hellobankStatus != $status)
-        {
-
             switch ($hellobankStatus) {
                 case GatewayConfig::HELLOBANK_RESPONSE_STATE_FURTHER_REVIEW:
                      if($status == GatewayConfig::HELLOBANK_RESPONSE_STATE_APPROVED
@@ -151,9 +148,6 @@ class OrderStateChanged extends Action
                 default:
                     $response = true;
             }
-        }else{
-            $response = false;
-        }
         return $response;
 
     }
