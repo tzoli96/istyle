@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cabb62820954f24bc4ade24e27f7d8df",
+    "content-hash": "f3b64db68d9addc71fa2e2bcf6a9be88",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8567,11 +8567,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.1.3.13",
+            "version": "1.1.3.14",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "38626d901c30c8afbe359561aea918e03fed6e54"
+                "reference": "2a3f055dfd3c432d5c5ad47bead971263d89bcb2"
             },
             "require": {
                 "php": "7.*"
@@ -8589,7 +8589,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2021-04-07T16:19:14+00:00"
+            "time": "2021-04-13T07:32:26+00:00"
         },
         {
             "name": "oander/module-email-additional-data",
@@ -10083,7 +10083,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "6d1129807452b7378ba2adf6eabd44d2f9d2187d"
+                "reference": "be65933359dd7a65dca4e4f0a994bf6d30bb79a9"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10099,7 +10099,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-04-07T16:16:59+00:00"
+            "time": "2021-04-12T23:53:10+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10807,16 +10807,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.76.0",
+            "version": "v7.77.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "47e66d4186712be33c593fe820dccf270a04d5d6"
+                "reference": "f6724447481f6fb8c2e714165e092adad9ca470a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/47e66d4186712be33c593fe820dccf270a04d5d6",
-                "reference": "47e66d4186712be33c593fe820dccf270a04d5d6",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/f6724447481f6fb8c2e714165e092adad9ca470a",
+                "reference": "f6724447481f6fb8c2e714165e092adad9ca470a",
                 "shasum": ""
             },
             "require": {
@@ -10860,7 +10860,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2021-03-22T16:50:21+00:00"
+            "time": "2021-04-12T17:19:16+00:00"
         },
         {
             "name": "symfony/console",
