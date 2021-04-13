@@ -76,12 +76,12 @@ class OrderStateChanged extends Action
         }
         $order=$this->orderRepository->get($orderId);
 
-        $hellobankStatus = $order->getHelloBankStatus();
+        /*$hellobankStatus = $order->getHelloBankStatus();
         if(!$this->handleStatus($hellobankStatus, $status))
         {
             $logger->info("Fail");
             die("Fail");
-        }
+        }*/
 
         $data['status']=$status;
         $statusUpdate=$this->helloBankService->handleStatus($order, $data, true);
