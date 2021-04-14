@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f3b64db68d9addc71fa2e2bcf6a9be88",
+    "content-hash": "07050e61e5492e64a15f3910b1b297c0",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -880,20 +880,6 @@
                 "certificate",
                 "ssl",
                 "tls"
-            ],
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
             ],
             "time": "2021-01-12T12:10:35+00:00"
         },
@@ -8567,11 +8553,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.1.3.14",
+            "version": "1.1.3.16",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "2a3f055dfd3c432d5c5ad47bead971263d89bcb2"
+                "reference": "3b38cd7af3aa5174ddb136fe297f95102f0ae027"
             },
             "require": {
                 "php": "7.*"
@@ -8589,7 +8575,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2021-04-13T07:32:26+00:00"
+            "time": "2021-04-14T18:10:43+00:00"
         },
         {
             "name": "oander/module-email-additional-data",
@@ -9491,16 +9477,16 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.14.1",
+            "version": "1.1.14.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "8863f95443fe2cf374ee88d6053a9b70ff4be69e"
+                "reference": "8bce6592fd57f31e0cc0c413ccb1dd64574d3541"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
                 "oander/module-cartbutton": "*",
-                "oander/module-dropdown-products": ">=1.1.2.2",
+                "oander/module-dropdown-products": ">=1.1.3.16",
                 "oander/module-ocqueue": "^1.0.3",
                 "oander/module-producturlresolver": "^1.0.0",
                 "oander/module-salesforce": "*"
@@ -9524,7 +9510,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2021-01-19T12:44:57+00:00"
+            "time": "2021-04-14T18:14:25+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -10353,20 +10339,6 @@
                 "twofish",
                 "x.509",
                 "x509"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/terrafrost",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/phpseclib",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
-                    "type": "tidelift"
-                }
             ],
             "time": "2021-04-06T13:56:45+00:00"
         },
@@ -14840,6 +14812,5 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }
