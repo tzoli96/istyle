@@ -85,7 +85,7 @@
         "oander/module-cdninvalidator": "1.0.0",
         "oander/module-checkout": "1.1.0",
         "oander/module-configurable-product": "1.0.0",
-        "oander/module-configurable-product-attribute": "1.0.30.37",
+        "oander/module-configurable-product-attribute": "dev-50159-js-render",
         "oander/module-cookie-law": "1.0.2",
         "oander/module-core-bug-fix": "dev-istyle",
         "oander/module-currency-manager": "1.2.2.3",

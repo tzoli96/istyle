@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "07050e61e5492e64a15f3910b1b297c0",
+    "content-hash": "b833dbea343fbb99748c93f04cbb6e61",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -880,6 +880,20 @@
                 "certificate",
                 "ssl",
                 "tls"
+            ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
             ],
             "time": "2021-01-12T12:10:35+00:00"
         },
@@ -8389,11 +8403,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "1.0.30.37",
+            "version": "dev-50159-js-render",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "b9b7bf80230f71242067f1b7bada97c3f600929c"
+                "reference": "88164741b901ccda62f734a1521ab1f14d96976d"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8412,7 +8426,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2021-03-23T12:05:05+00:00"
+            "time": "2021-04-14T23:03:39+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -10069,7 +10083,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "be65933359dd7a65dca4e4f0a994bf6d30bb79a9"
+                "reference": "b8bbcd9a7902c53767fcbad2a38ffb45e3477d32"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10085,7 +10099,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-04-12T23:53:10+00:00"
+            "time": "2021-04-15T11:42:36+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10339,6 +10353,20 @@
                 "twofish",
                 "x.509",
                 "x509"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/terrafrost",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpseclib",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
+                    "type": "tidelift"
+                }
             ],
             "time": "2021-04-06T13:56:45+00:00"
         },
@@ -14802,6 +14830,7 @@
         "composer/composer": 15,
         "innobyte/module-cetelem": 20,
         "oander/module-api-index": 20,
+        "oander/module-configurable-product-attribute": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
         "oander/module-salesforce-service": 20,
@@ -14812,5 +14841,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
