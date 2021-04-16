@@ -11,10 +11,6 @@ use Magento\Framework\App\Response\RedirectInterface;
 class RequestBuild extends AbstractHelper
 {
     const LOAN_URL = "https://www.cetelem.cz/cetelem2_webshop.php/zadost-o-pujcku/on-line-zadost-o-pujcku";
-    /**
-     * @var UrlInterface
-     */
-    private $urlInterface;
 
     /**
      * @var ConfigValueHandler
@@ -34,18 +30,15 @@ class RequestBuild extends AbstractHelper
     /**
      * RequestBuild constructor.
      * @param ConfigValueHandler $configHandler
-     * @param UrlInterface $urlInterface
      * @param Context $context
      */
     public function __construct(
         ConfigValueHandler $configHandler,
-        UrlInterface $urlInterface,
         Context $context,
         Curl $curlClient,
         RedirectInterface $redirect2
     ) {
         parent::__construct($context);
-        $this->urlInterface = $urlInterface;
         $this->configHandler = $configHandler;
         $this->curlClient = $curlClient;
         $this->redirect2 = $redirect2;
@@ -66,8 +59,8 @@ class RequestBuild extends AbstractHelper
                 'ursaz'             => $params['ursaz'],
                 'celkovaCastka'     => $params['celkovaCastka'],
                 'recalc'            => 0,
-                'url_back_ok'       => $this->urlInterface->getUrl("hellobank/payment/okstate/"),
-                'url_back_ko'       => $this->urlInterface->getUrl("hellobank/payment/kostate/"),
+                'url_back_ok'       => $this->_urlBuilder->getUrl("hellobank/payment/okstate/"),
+                'url_back_ko'       => $this->_urlBuilder->getUrl("hellobank/payment/kostate/"),
                 'obj'               => $incrementId,
             ];
         return $res;

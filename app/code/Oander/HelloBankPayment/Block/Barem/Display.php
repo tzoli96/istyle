@@ -22,11 +22,6 @@ class Display extends Template
     private $jsonHelper;
 
     /**
-     * @var StoreManagerInterface
-     */
-    private $storeConfig;
-
-    /**
      * @var CurrencyFactory
      */
     private $currencyCode;
@@ -55,7 +50,6 @@ class Display extends Template
     public function __construct(
         JsonHelper $jsonHelper,
         ProductRepositoryInterface $productRepsitory,
-        StoreManagerInterface $storeConfig,
         CurrencyFactory $currencyFactory,
         Registry $registry,
         CollectionFactory $baremCollection,
@@ -65,7 +59,6 @@ class Display extends Template
     ) {
         $this->jsonHelper = $jsonHelper;
         $this->productRepsitory = $productRepsitory;
-        $this->storeConfig = $storeConfig;
         $this->currencyCode = $currencyFactory->create();
         $this->baremCollection = $baremCollection;
         $this->helloBankPaymentConfig = $helloBankPaymentConfig;
@@ -189,7 +182,7 @@ class Display extends Template
      */
     public function getSymbol()
     {
-        $currentCurrency = $this->storeConfig->getStore()->getCurrentCurrencyCode();
+        $currentCurrency = $this->_storeManager->getStore()->getCurrentCurrencyCode();
         $currency = $this->currencyCode->load($currentCurrency);
 
         return $currency->getCurrencySymbol();
