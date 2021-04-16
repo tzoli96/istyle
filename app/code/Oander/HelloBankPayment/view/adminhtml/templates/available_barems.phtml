@@ -3,13 +3,14 @@
  * @var $block \Oander\HelloBankPayment\Block\Adminhtml\Barem\AvailableBarems
  */
 ?>
-<?php if($block->getIsPaymentMethodIsActive()) : ?>
-    <div class="admin__field" data-index="available_barems">
-        <label class="admin__field-label">
-            <span><?= __("Available Barems")?></span>
-        </label>
-        <div class="admin__field-control">
-            <a href="<?= $block->getAvailableBaremsUrl() ?>&typ=info" target="_blank"><?= __("Check")?></a>
-        </div>
+<div class="admin__field" data-index="available_barems">
+    <label class="admin__field-label">
+        <span><?= __("Available Barems")?></span>
+    </label>
+    <div class="admin__field-control">
+        <a href="<?= $block->getAvailableBaremsUrl() ?>&typ=info" target="_blank"><?= __("Check")?></a>
     </div>
-<?php endif; ?>
+    <div class="admin__field-note" data-bind="attr: {id: noticeId}">
+        <span data-bind="text: notice">Please fill Seller ID in global config to use this function.</span>
+    </div>
+</div>

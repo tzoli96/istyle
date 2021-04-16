@@ -38,16 +38,6 @@ class AvailableBarems extends Template
      */
     public function getAvailableBaremsUrl()
     {
-        return ($this->helper->getPaymnetMethodIsActive($this->currentStoreId))
-            ? $this->helper::AVAILABLE_BAREMS_URL.$this->helper->getPaymentMethodSellerId($this->currentStoreId)
-            : false;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getIsPaymentMethodIsActive(): bool
-    {
-        return $this->helper->getPaymnetMethodIsActive($this->currentStoreId);
+        return (\Oander\HelloBankPayment\Helper\Config::AVAILABLE_BAREMS_URL . $this->helper->getPaymentMethodSellerId($this->currentStoreId));
     }
 }

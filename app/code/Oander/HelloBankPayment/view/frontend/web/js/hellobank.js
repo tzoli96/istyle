@@ -256,14 +256,14 @@ define([
       if (downpayment < loanMin) {
         return {
           status: 0,
-          message: 'Minimum downpayment:',
+          message: $t('Minimum downpayment:'),
           price: this._getFormattedPrice(loanMin),
         }
       }
       else if (downpayment > loanMax) {
         return {
           status: 0,
-          message: 'Maximum downpayment:',
+          message: $t('Maximum downpayment:'),
           price: this._getFormattedPrice(loanMax),
         }
       }

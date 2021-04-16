@@ -8,8 +8,7 @@
              module="Oander_HelloBankPayment"
              sortOrder="1300"
              resource="Oander_HelloBankPayment::hellobank_group"
-             parent="Oander_Base::base"
-             dependsOnConfig="payment/hellobank/active" />
+             parent="Oander_Base::base"/>
 
         <add id="Oander_HelloBankPayment::barems"
              title="Barem Management"
@@ -17,8 +16,7 @@
              sortOrder="1300"
              resource="Oander_HelloBankPayment::hellobank_group"
              parent="Oander_HelloBankPayment::hellobank_group"
-             action="hellobank/barem/index"
-             dependsOnConfig="payment/hellobank/active" />
+             action="hellobank/barem/index"/>
     </menu>
 
 </config>
