@@ -212,8 +212,7 @@
         "magento-force": "override",
         "patches": {
             "magento/product-community-edition": {
-                "Mstart curl header #42875": "patches/magento/mstart_curl_header.patch",
-                "multiselect lib fix #504041": "patches/lib/misc.patch"
+                "Mstart curl header #42875": "patches/magento/mstart_curl_header.patch"
             },
             "magento/module-catalog": {
                 "Image role fix #48758": "patches/magento/image_role_allstore_fix.patch"
