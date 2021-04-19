@@ -1,0 +1,41 @@
+Index: lib/web/mage/utils/misc.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/lib/web/mage/utils/misc.js b/lib/web/mage/utils/misc.js
+--- a/lib/web/mage/utils/misc.js	(date 1618835415459)
++++ b/lib/web/mage/utils/misc.js	(date 1618835415459)
+@@ -205,6 +205,32 @@
+             }
+ 
+             return formData;
++        },
++
++        /**
++         * Filters data object. Finds properties with suffix
++         * and sets their values to properties with the same name without suffix.
++         *
++         * @param {Object} data - The data object that should be filtered
++         * @param {String} suffix - The string by which data object should be filtered
++         * @param {String} separator - The string that is separator between property and suffix
++         *
++         * @returns {Object} Filtered data object
++         */
++        filterFormData: function (data, suffix, separator) {
++            data = data || {};
++            suffix = suffix || 'prepared-for-send';
++            separator = separator || '-';
++            _.each(data, function (value, key) {
++                if (_.isObject(value) && !value.length) {
++                    this.filterFormData(value, suffix, separator)
++                } else if (_.isString(key) && ~key.indexOf(suffix)) {
++                    data[key.split(separator)[0]] = value;
++                    delete data[key];
++                }
++            }, this);
++
++            return data;
+         }
+     };
+ });
