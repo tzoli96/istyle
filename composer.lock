@@ -9555,11 +9555,11 @@
         },
         {
             "name": "oander/module-structured-data",
-            "version": "1.1.0.1",
+            "version": "1.1.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-structured-data.git",
-                "reference": "bf44dea37ebdce2ee743d4d68d6791c1852088eb"
+                "reference": "2119dd4d7b3c3f386757ba4cc029e372319c3a04"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9578,7 +9578,7 @@
                 "proprietary"
             ],
             "description": "Oander Google Structured Data",
-            "time": "2021-03-23T22:13:50+00:00"
+            "time": "2021-04-19T14:09:57+00:00"
         },
         {
             "name": "oander/module-stuck-process-remover",
