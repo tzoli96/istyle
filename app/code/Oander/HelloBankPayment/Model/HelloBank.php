@@ -116,7 +116,7 @@ class HelloBank
         $this->setHelloBankStatus($order, $paymentData['status']);
         switch ($paymentData['status']) {
             case CONFIG::HELLOBANK_RESPONSE_STATE_APPROVED:
-
+            case CONFIG::HELLOBANK_RESPONSE_STATE_PRE_APPROVAL:
                 $order->setStatus(Order::STATE_PROCESSING);
                 $order->setState(Order::STATE_PROCESSING);
                 $payment = $order->getPayment();
@@ -128,8 +128,6 @@ class HelloBank
                 break;
 
             case CONFIG::HELLOBANK_RESPONSE_STATE_FURTHER_REVIEW:
-                break;
-            case CONFIG::HELLOBANK_RESPONSE_STATE_PRE_APPROVAL:
                 break;
             case CONFIG::HELLOBANK_RESPONSE_STATE_CANCELLED:
             case CONFIG::HELLOBANK_RESPONSE_STATE_REJECTED:
