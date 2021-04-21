@@ -94,16 +94,28 @@ $blocks_cnt = 2;
                                                                 <button type="submit"
                                                                         title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
                                                                         class="block__tocart action tocart primary">
-                                                                    <span class="tocart__text"><?php /* @escapeNotVerified */ echo __('Add to cart'); ?></span>
-                                                                    <img class="addtocart-loader"
-                                                                        src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('svg/loader-white.svg'); ?>"
-                                                                        alt="<?php /* @escapeNotVerified */ echo __('Loading...'); ?>">
+                                                                        <div class="default-text">
+                                                                        <span><?php /* @escapeNotVerified */ echo __('Add to cart'); ?></span>
+                                                                    </div>
+                                                                    <div class="spinner-container">
+                                                                        <img class="addtocart-loader"
+                                                                            src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('svg/loader-white.svg'); ?>"
+                                                                            alt="<?php /* @escapeNotVerified */ echo __('Loading...'); ?>">
+                                                                    </div>
                                                                     <div class="tocart-success">
-                                                                        <span class="tocart-success__icon"></span>
+                                                                        <div class="tocart-success__icon-container">
+                                                                            <div class="icon">
+                                                                                <span class="tocart-success__icon"></span>
+                                                                            </div>
+                                                                        </div>
                                                                         <span class="tocart-success__text"><?php /* @escapeNotVerified */ echo __('Added to cart'); ?></span>
                                                                     </div>
                                                                     <div class="tocart-error">
-                                                                        <span class="tocart-error__icon"></span>
+                                                                        <div class="tocart-error__icon-container">
+                                                                            <div class="icon">
+                                                                                <span class="tocart-error__icon"></span>
+                                                                            </div>
+                                                                        </div>
                                                                         <span class="tocart-error__text"><?php /* @escapeNotVerified */ echo __('Not available'); ?></span>
                                                                     </div>
                                                                 </button>
