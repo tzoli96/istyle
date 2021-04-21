@@ -246,7 +246,7 @@ return array (
     'Oander_UrlRewriteBasic' => 1,
     'Oander_ApiWarehouseManager' => 1,
     'Oander_WarehouseManagerApiIndex' => 1,
-    'Oander_AutorelatedWarehouseManagerExtender' => 0,
+    'Oander_AutorelatedWarehouseManagerExtender' => 1,
     'Oander_ProductDescriptionWidget' => 1,
     'Oander_XtentoOrderExportExtender' => 1,
     'Xtento_XtCore' => 1,
