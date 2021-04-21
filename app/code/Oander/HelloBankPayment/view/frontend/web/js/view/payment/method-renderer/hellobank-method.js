@@ -206,7 +206,7 @@ define(
             },
 
             getShippingMethod: function () {
-                return (quote.shippingMethod()['carrier_code'].indexOf('warehouse') > -1) ? 1 : 0;
+                return (quote.shippingMethod()['carrier_code'].indexOf('warehouse') > -1) ? 0 : 1;
             },
 
             helloPlaceOrder: function (orderId) {
