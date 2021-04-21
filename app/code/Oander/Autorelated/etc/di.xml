@@ -1,16 +1,6 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Oander\Autorelated\Api\Data\RuleInterface" type="Oander\Autorelated\Rewrite\Aheadworks\Autorelated\Model\Data\Rule"/>
+    <preference for="Aheadworks\Autorelated\Api\Data\RuleInterface" type="Oander\Autorelated\Rewrite\Aheadworks\Autorelated\Model\Data\Rule"/>
     <preference for="Aheadworks\Autorelated\Model\Rule" type="Oander\Autorelated\Rewrite\Aheadworks\Autorelated\Model\Rule"/>
     <preference for="Aheadworks\Autorelated\Model\Data\Rule" type="Oander\Autorelated\Rewrite\Aheadworks\Autorelated\Model\Data\Rule"/>
-    <type name="Magento\Framework\EntityManager\MetadataPool">
-        <arguments>
-            <argument name="metadata" xsi:type="array">
-                <item name="Oander\Autorelated\Api\Data\RuleInterface" xsi:type="array">
-                    <item name="entityTableName" xsi:type="string">aw_autorelated_rule</item>
-                    <item name="identifierField" xsi:type="string">id</item>
-                </item>
-            </argument>
-        </arguments>
-    </type>
 </config>

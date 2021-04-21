@@ -16,7 +16,7 @@ use Magento\Framework\DataObject\IdentityInterface;
  * @package Oander\Autorelated\Block
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
-class Related extends \Aheadworks\Autorelated\Block\Related implements IdentityInterface
+class Related extends \Oander\AutorelatedWarehouseManagerExtender\Block\Related implements IdentityInterface
 {
     /**
      * {@inheritdoc}
