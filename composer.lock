@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "283539ff2e185c3713a4fd15bcfdcfc7",
+    "content-hash": "d465fc2abefdcc7c55ec1b04b81abb0b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -881,20 +881,6 @@
                 "certificate",
                 "ssl",
                 "tls"
-            ],
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
             ],
             "time": "2021-01-12T12:10:35+00:00"
         },
@@ -8621,11 +8607,11 @@
         },
         {
             "name": "oander/module-event-based-exporter",
-            "version": "1.0.5.8",
+            "version": "1.0.6.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-event-based-exporter.git",
-                "reference": "bc672c47155aa59493b0b88409bd885b835f8d30"
+                "reference": "dcd45e9356c57858ead392c9beb5fe44f0f0deff"
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.3",
@@ -8644,7 +8630,7 @@
                 "proprietary"
             ],
             "description": "Oander Event Based eXporter",
-            "time": "2020-12-15T14:27:52+00:00"
+            "time": "2021-04-22T14:54:26+00:00"
         },
         {
             "name": "oander/module-extracheckoutsummary",
@@ -10354,20 +10340,6 @@
                 "twofish",
                 "x.509",
                 "x509"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/terrafrost",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/phpseclib",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
-                    "type": "tidelift"
-                }
             ],
             "time": "2021-04-06T13:56:45+00:00"
         },
@@ -14785,6 +14757,5 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }
