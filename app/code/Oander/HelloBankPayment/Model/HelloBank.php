@@ -123,7 +123,9 @@ class HelloBank
                 /** @var $payment Payment */
                 $transactionId = (isset($paymentData['id'])) ? $paymentData['id'] : random_int(0, 10000);
                 $this->generateTranscation($transactionId, $payment, $order);
-                $this->invoiceGenerate($order);
+                if($order->canInvoice()){
+                    $this->invoiceGenerate($order);
+                }
                 $this->orderRepository->save($order);
                 break;
 
