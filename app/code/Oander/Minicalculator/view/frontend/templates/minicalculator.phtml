@@ -1,0 +1,27 @@
+<?php
+/**
+ * @var $block \Oander\Minicalculator\Block\Minicalculator\Minicalculator
+ */
+
+$data = [
+  'productType' => $block->getProductType(),
+  'productPrice' => $block->getProductPrice(),
+  'calculatorData' => $block->getCalculatorData(),
+  'helloBankData' => $block->getHelloBankData(),
+  'barems' => $block->getBarems(),
+  'configurable' => [
+    'calculator' => $block->getConfigurableCalculatorData(),
+    'barems' => $block->getConfigurableBaremsData(),
+  ],
+];
+?>
+
+<div
+  class="block block--minicalculator"
+  data-mage-init='{"oanderMiniCalculator": {"data": <?= json_encode($data) ?>}}'>
+  <div class="block__calculate">
+    <span class="block__lead"></span>
+    <div class="block__content"></div>
+    <div class="block__anchor"></div>
+  </div>
+</div>
