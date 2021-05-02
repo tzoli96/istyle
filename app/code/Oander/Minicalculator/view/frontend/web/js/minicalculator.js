@@ -33,6 +33,9 @@ define([
       }
     },
 
+    /**
+     * Configurable trigger calculator
+     */
     _configurable: function () {
       var self = this;
       var priceBlock = $('.block.block--minicalculator').find('.block__calculate');
@@ -62,6 +65,9 @@ define([
       });
     },
 
+    /**
+     * Bundle trigger calculator
+     */
     _bundle: function () {
       var self = this;
 
@@ -79,13 +85,18 @@ define([
 
         if (finalPrice != null) {
           self._calculator(finalPrice);
-          $('.product-sticky-wrapper').find('.product-info-price').append('ANYAD');
         }
       });
     },
 
+    /**
+     * Calculator
+     * @param {float} configPrice
+     * @param {Number} configProductId
+     */
     _calculator: function (configPrice, configProductId) {
       var self = this;
+      var priceBlock = $('.block.block--minicalculator').find('.block__calculate');
       var price = '';
       var barem = '';
       var installment = '';
@@ -111,7 +122,7 @@ define([
 
       var minDownPayment = (barem.equity) ? Number(barem.min_price) : Number(price - barem.max_price);
 
-      if (barem && (price >= barem.min_price)) {
+      if (barem && (price >= barem.min_price) && self._checkMaxPrice(barem, price)) {
         if (type == 'hellobank') {
           if (xhr && xhr.readyState != null) xhr.abort();
 
@@ -138,11 +149,33 @@ define([
           });
         }
       }
+      else {
+        priceBlock.find('.block__lead').html('');
+        priceBlock.find('.block__content').html('');
+        priceBlock.find('.block__anchor').html('');
+      }
+    },
+
+    /**
+     * Check max price
+     * @param {Array} barem
+     * @param {float} price
+     * @returns
+     */
+    _checkMaxPrice: function (barem, price) {
+      if (barem.equity) {
+        if (price > barem.max_price) return false;
+        return true;
+      }
+      else {
+        return true;
+      }
     },
 
     /**
      * Get barems data by id
-     * @param {*} id
+     * @param {Number} id
+     * @param {Number} productId
      */
     _getBaremsDataById: function (id, productId) {
       var barems = (this.options.data.productType == "configurable") ? this.options.data.configurable.barems : this.options.data.barems;
@@ -176,8 +209,9 @@ define([
 
     /**
      * Render block
-     * @param {*} installment 
-     * @param {*} price 
+     * @param {Number} calculatorId
+     * @param {Number} installment
+     * @param {float} price
      */
     _renderBlock: function (calculatorId, installment, price) {
       var self = this;
@@ -192,8 +226,7 @@ define([
 
     /**
      * Get formatted price
-     * 
-     * @param {*} price 
+     * @param {float} price
      * @returns float
      */
      _getFormattedPrice: function (price) {
