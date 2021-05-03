@@ -19,17 +19,19 @@ define([
      */
     _init: function () {
       if (this.options.data.helloBankData.isActive) {
-        if (this.options.data.productType == "simple") {
-          this._calculator();
-        }
-        else if (this.options.data.productType == "bundle") {
-          this._bundle();
-        }
-        else if (this.options.data.productType == "configurable") {
-          this._configurable();
+        switch (this.options.data.productType) {
+          case "simple":
+            this._calculator();
+            break;
+          case "bundle":
+            this._bundle();
+            break;
+          case "configurable":
+            this._configurable();
+            break;
         }
 
-        $('.product-price-addto').append($('.block.block--minicalculator'));
+        this._moveCalculatorBlock();
       }
     },
 
@@ -38,7 +40,6 @@ define([
      */
     _configurable: function () {
       var self = this;
-      var priceBlock = $('.block.block--minicalculator').find('.block__calculate');
 
       $(this.defaults.priceBox).on('updatePrice', function () {
         var productId = $('[data-role="swatch-options"]').data('mageOanderSwatchRenderer').getProduct();
@@ -46,19 +47,12 @@ define([
         var finalPrice;
 
         if (!$.isEmptyObject(priceBox)) {
-          if (priceBox.finalPrice.final != null) {
-            finalPrice = Math.round(priceBox.finalPrice.final);
-          } else {
-            finalPrice = Math.round(priceBox.finalPrice.amount);
-          }
+          if (priceBox.finalPrice.final != null) finalPrice = Math.round(priceBox.finalPrice.final);
+          finalPrice = Math.round(priceBox.finalPrice.amount);
         }
 
         if (productId != null) {
-          if (self.options.data.configurable.calculator[productId].type === null) {
-            priceBlock.find('.block__lead').html('');
-            priceBlock.find('.block__content').html('');
-            priceBlock.find('.block__anchor').html('');
-          }
+          if (self.options.data.configurable.calculator[productId].type === null) self._clearCalculatorBlock();
 
           self._calculator(finalPrice, productId);
         }
@@ -76,16 +70,11 @@ define([
         var finalPrice;
 
         if (!$.isEmptyObject(priceBox)) {
-          if (priceBox.finalPrice.final != null) {
-            finalPrice = Math.round(priceBox.finalPrice.final);
-          } else {
-            finalPrice = Math.round(priceBox.finalPrice.amount);
-          }
+          if (priceBox.finalPrice.final != null) finalPrice = Math.round(priceBox.finalPrice.final);
+          finalPrice = Math.round(priceBox.finalPrice.amount);
         }
 
-        if (finalPrice != null) {
-          self._calculator(finalPrice);
-        }
+        if (finalPrice != null) self._calculator(finalPrice);
       });
     },
 
@@ -96,31 +85,32 @@ define([
      */
     _calculator: function (configPrice, configProductId) {
       var self = this;
-      var priceBlock = $('.block.block--minicalculator').find('.block__calculate');
-      var price = '';
-      var barem = '';
-      var installment = '';
-      var type = '';
+      var options = self.options.data;
+      var price, barem, installment, type, minDownPayment = '';
 
-      if (this.options.data.productType == 'configurable') {
-        price = Number(configPrice);
-        barem = self._getBaremsDataById(this.options.data.configurable.calculator[configProductId].barem, configProductId);
-        installment = self.options.data.configurable.calculator[configProductId].installment;
-        type = self.options.data.configurable.calculator[configProductId].type;
-      }
-      else if (this.options.data.productType == 'bundle') {
-        price = Number(configPrice);
-        barem = self._getBaremsDataById(this.options.data.calculatorData.barem);
-        installment = self.options.data.calculatorData.installment;
-        type = self.options.data.calculatorData.type;
-      } else {
-        price = Number(self.options.data.productPrice);
-        barem = self._getBaremsDataById(this.options.data.calculatorData.barem);
-        installment = self.options.data.calculatorData.installment;
-        type = self.options.data.calculatorData.type;
+      switch (options.productType) {
+        case "configurable":
+          price = Number(configPrice);
+          barem = self._getBaremsDataById(options.configurable.calculator[configProductId].barem, configProductId);
+          installment = options.configurable.calculator[configProductId].installment;
+          type = options.configurable.calculator[configProductId].type;
+          break;
+        case "bundle":
+          price = Number(configPrice);
+          barem = self._getBaremsDataById(options.calculatorData.barem);
+          installment = options.calculatorData.installment;
+          type = options.calculatorData.type;
+          break;
+        default:
+          price = Number(options.productPrice);
+          barem = self._getBaremsDataById(options.calculatorData.barem);
+          installment = options.calculatorData.installment;
+          type = options.calculatorData.type;
       }
 
-      var minDownPayment = (barem.equity) ? Number(barem.min_price) : Number(price - barem.max_price);
+      minDownPayment = (barem.equity)
+        ? Number(barem.min_price)
+        : Number(price - barem.max_price);
 
       if (barem && (price >= barem.min_price) && self._checkMaxPrice(barem, price)) {
         if (type == 'hellobank') {
@@ -130,7 +120,7 @@ define([
             url: this.defaults.urls.hellobank,
             type: 'GET',
             data: {
-              kodProdejce: self.options.data.helloBankData.sellerId,
+              kodProdejce: options.helloBankData.sellerId,
               kodBaremu: barem.barem_id,
               kodPojisteni: 'S0',
               cenaZbozi: price,
@@ -144,15 +134,13 @@ define([
             
             if (status == 'ok') {
               var values = $(res).find('vysledek');
-              self._renderBlock(type, installment, values.find('vyseSplatky').text());
+              self._renderBlock(type, barem.barem_id, installment, values.find('vyseSplatky').text());
             }
           });
         }
       }
       else {
-        priceBlock.find('.block__lead').html('');
-        priceBlock.find('.block__content').html('');
-        priceBlock.find('.block__anchor').html('');
+        self._clearCalculatorBlock();
       }
     },
 
@@ -178,31 +166,20 @@ define([
      * @param {Number} productId
      */
     _getBaremsDataById: function (id, productId) {
-      var barems = (this.options.data.productType == "configurable") ? this.options.data.configurable.barems : this.options.data.barems;
+      var barems = (this.options.data.productType == "configurable")
+        ? this.options.data.configurable.barems[productId]
+        : this.options.data.barems;
       var data = {};
 
-      if (this.options.data.productType == "configurable") {
-        barems[productId].forEach(function (value) {
-          if (value.id == id) {
-            if (value.equity) data['equity'] = value.equity;
+      barems.forEach(function (value) {
+        if (value.id == id) {
+          if (value.equity) data['equity'] = value.equity;
 
-            data['min_price'] = value.min_price;
-            data['max_price'] = value.max_price;
-            data['barem_id'] = value.barem_id;
-          }
-        });
-      }
-      else {
-        barems.forEach(function (value) {
-          if (value.id == id) {
-            if (value.equity) data['equity'] = value.equity;
-
-            data['min_price'] = value.min_price;
-            data['max_price'] = value.max_price;
-            data['barem_id'] = value.barem_id;
-          }
-        });
-      }
+          data['min_price'] = value.min_price;
+          data['max_price'] = value.max_price;
+          data['barem_id'] = value.barem_id;
+        }
+      });
 
       return data;
     },
@@ -210,18 +187,99 @@ define([
     /**
      * Render block
      * @param {Number} calculatorId
+     * @param {Number} baremId
      * @param {Number} installment
      * @param {float} price
      */
-    _renderBlock: function (calculatorId, installment, price) {
+    _renderBlock: function (calculatorId, baremId, installment, price) {
       var self = this;
       var priceBlock = $('.block.block--minicalculator').find('.block__calculate');
 
       priceBlock.find('.block__lead').html($t('or'));
       priceBlock.find('.block__content').html(installment + ' x ' + self._getFormattedPrice(price));
-      priceBlock.find('.block__anchor').html('<a href="#' + calculatorId + '">' + $t('Go to the installment calculator') + '</a>');
+      priceBlock.find('.block__anchor')
+        .html('<a href="#' + calculatorId + '">' + $t('Go to the installment calculator') + '</a>');
 
       scroller.callScroller(calculatorId, 140);
+
+      priceBlock.find('.block__anchor').on('click', function () {
+        self._changeActiveBarem(calculatorId, baremId, installment);
+      });
+    },
+
+    /**
+     * Change active barem
+     * @param {string} type
+     * @param {Number} baremId
+     * @param {Number} installment
+     */
+     _changeActiveBarem: function (type, baremId, installment) {
+      var self = this;
+
+      if (type == 'hellobank') {
+        var calculator = $('.hellobank-calculator');
+        var barems = calculator.find('.tabs__titles').find('.tabs__title');
+
+        barems.each(function (key, barem) {
+          var currentBaremId = $(barem).attr('data-barem-id');
+
+          if (baremId == currentBaremId) self._changeActiveInstallment(baremId, installment.trim());
+        });
+      }
+    },
+
+    /**
+     * Change active installment
+     * @param {Number} baremId
+     * @param {Number} installment
+     */
+    _changeActiveInstallment: function (baremId, installment) {
+      var calculator = $('.hellobank-calculator');
+      var activeTitle = calculator.find('.tabs__title[data-barem-id="'+ baremId +'"]');
+      var activeContent = calculator.find('.tabs__content[data-barem-id="'+ baremId +'"]');
+
+      if (activeContent.find('.calculator-range').length) {
+        var installmentIndex = 0;
+
+        activeContent.find('.calculator-steps span').each(function (key, value) {
+          if ($(value).attr('data-title') == installment) {
+            $(value).addClass('active');
+            installmentIndex = key;
+          }
+          else {
+            $(value).removeClass('active');
+          }
+        });
+
+        activeContent
+          .find('.form__installment.months')
+          .html(installment);
+
+        activeContent
+          .find('.slider')
+          .attr('value', installmentIndex)
+          .trigger('change');
+      }
+
+      activeTitle.trigger('click');
+    },
+
+    /**
+     * Move calculator block under the price
+     */
+    _moveCalculatorBlock: function () {
+      $('.product-price-addto').append($('.block.block--minicalculator'));
+    },
+
+    /**
+     * Clear calculator block
+     */
+    _clearCalculatorBlock: function () {
+      var priceBlock = $('.block.block--minicalculator').find('.block__calculate');
+
+      priceBlock.find('.block__lead').html('');
+      priceBlock.find('.block__content').html('');
+      priceBlock.find('.block__anchor').html('');
     },
 
     /**

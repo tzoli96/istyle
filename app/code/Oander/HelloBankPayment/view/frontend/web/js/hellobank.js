@@ -585,6 +585,7 @@ define([
           $('<div/>')
             .addClass('tabs__title' + (key == 0 ? ' active' : ''))
             .attr('data-tab-index', key)
+            .attr('data-barem-id', data.barem_id)
             .html(data.name)
         );
       }
