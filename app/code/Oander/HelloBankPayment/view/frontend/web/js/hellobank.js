@@ -495,7 +495,7 @@ define([
     _config: function () {
       var self = this;
       $(this.classes.priceBox).on('updatePrice', function () {
-        var productId = $('[data-role="swatch-options"]').data('mageOanderSwatchRenderer').getProduct();
+        var productId = $('.swatch-option.selected').attr('data-product-id');
         var priceBox = $(self.classes.priceBox).data('mage-priceBox').cache.displayPrices;
         var finalPrice;
 

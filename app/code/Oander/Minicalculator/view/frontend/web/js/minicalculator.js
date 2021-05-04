@@ -42,7 +42,7 @@ define([
       var self = this;
 
       $(this.defaults.priceBox).on('updatePrice', function () {
-        var productId = $('[data-role="swatch-options"]').data('mageOanderSwatchRenderer').getProduct();
+        var productId = $('.swatch-option.selected').attr('data-product-id');
         var priceBox = $(self.defaults.priceBox).data('mage-priceBox').cache.displayPrices;
         var finalPrice;
 

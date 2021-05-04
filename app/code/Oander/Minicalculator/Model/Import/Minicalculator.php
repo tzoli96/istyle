@@ -18,6 +18,9 @@ use Magento\ImportExport\Model\ResourceModel\Import\Data;
 use Magento\Store\Model\StoreManagerInterface;
 use Oander\DropdownProducts\Model\Import\Base\RowValidatorInterface as ValidatorInterface;
 use Oander\Minicalculator\Api\Data\CalculatorInterface;
+use Oander\HelloBankPayment\Api\Data\BaremRepositoryInterface;
+use Oander\Minicalculator\Model\Import\Base\RowValidatorInterface;
+
 
 class Minicalculator extends AbstractEntity
 {
@@ -27,6 +30,10 @@ class Minicalculator extends AbstractEntity
     const INSTALLMENT = 'installment';
     const STORE_CODE = 'store_code';
 
+    /**
+     * @var BaremRepositoryInterface
+     */
+    protected $baremRepository;
     /**
      * @var string
      */
@@ -86,6 +93,7 @@ class Minicalculator extends AbstractEntity
      * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function __construct(
+        BaremRepositoryInterface $baremRepository,
         JsonHelperData $jsonHelper,
         HelperData $importExportData,
         Data $importData,
@@ -99,7 +107,7 @@ class Minicalculator extends AbstractEntity
         ProductLinkInterfaceFactory $productLinkFactory
     )
     {
-
+        $this->baremRepository = $baremRepository;
         $this->jsonHelper = $jsonHelper;
         $this->_importExportData = $importExportData;
         $this->_resourceHelper = $resourceHelper;
@@ -128,6 +136,12 @@ class Minicalculator extends AbstractEntity
                 $this->addRowError(str_replace('%s', $columnName, ValidatorInterface::ERROR_MISSING), $rowNum);
                 return false;
             }
+        }
+
+        $barem=$this->baremRepository->getById($rowData[self::BAREM]);
+        if(!$barem->getId()){
+            $this->addRowError(str_replace('%s', $rowData[self::BAREM], RowValidatorInterface::ERROR_BAREM_NOT_EXIST), $rowNum);
+            $hasError = true;
         }
 
         if (empty($rowData[self::STORE_CODE])) {
