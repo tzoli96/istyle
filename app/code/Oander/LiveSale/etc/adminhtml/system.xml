@@ -23,6 +23,12 @@
                         <field id="*/*/enabled">1</field>
                     </depends>
                 </field>
+                <field id="policy_url" type="text" sortOrder="40" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+                    <label>Policy URL</label>
+                    <depends>
+                        <field id="*/*/enabled">1</field>
+                    </depends>
+                </field>
             </group>
         </section>
     </system>
