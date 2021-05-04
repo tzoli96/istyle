@@ -29,7 +29,7 @@ class Action
 
     public function afterDispatch(
         \Magento\Framework\App\Action\Action $subject,
-        ResponseInterface $result
+        $result
     ) {
         if($this->scopeConfig->isSetFlag("livesale/general/enabled",\Magento\Store\Model\ScopeInterface::SCOPE_STORE)) {
             if($this->scopeConfig->getValue("livesale/general/policy_url",\Magento\Store\Model\ScopeInterface::SCOPE_STORE)) {
