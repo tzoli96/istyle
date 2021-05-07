@@ -226,6 +226,7 @@ define(
                     url_back_ok: url.build('hellobank/payment/kostate'),
                     url_back_ko: url.build('hellobank/payment/okstate'),
                     doprava: 1,
+                    kategorie: 750,
                 };
 
                 var form = $('<form>', { action: loanUrl, method: 'post' });
