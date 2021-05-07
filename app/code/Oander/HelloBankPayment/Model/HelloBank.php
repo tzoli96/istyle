@@ -101,7 +101,8 @@ class HelloBank
         $order->setData("hello_bank_status", $status);
         $order->addStatusToHistory(
             $order->getStatus(),
-            "HelloBank Status is :" . Config::$hellobankOrderStatus[$status]
+            "HelloBank Status is :" . Config::$hellobankOrderStatus[$status],
+            false
         );
         $this->orderRepository->save($order);
     }
@@ -127,6 +128,16 @@ class HelloBank
                     $this->invoiceGenerate($order);
                 }
                 $this->orderRepository->save($order);
+                if(!$order->getEmailSent())
+                {
+                    $this->orderSender->send($order);
+                    $order->addStatusToHistory(
+                        $order->getStatus(),
+                        "The order confirmation email was sent.",
+                        false
+                    );
+                }
+
                 break;
 
             case CONFIG::HELLOBANK_RESPONSE_STATE_FURTHER_REVIEW:
@@ -152,9 +163,7 @@ class HelloBank
                 break;
             default:
         }
-        if (!$forced) {
-            $this->orderSender->send($order);
-        }
+
         return true;
     }
 
