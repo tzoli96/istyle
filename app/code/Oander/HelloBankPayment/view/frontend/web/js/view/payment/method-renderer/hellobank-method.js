@@ -205,10 +205,6 @@ define(
                 return customerInfo && customerInfo.data_id;
             },
 
-            getShippingMethod: function () {
-                return (quote.shippingMethod()['carrier_code'].indexOf('warehouse') > -1) ? 0 : 1;
-            },
-
             helloPlaceOrder: function (orderId) {
                 var loanUrl = 'https://www.cetelem.cz/cetelem2_webshop.php/zadost-o-pujcku/on-line-zadost-o-pujcku';
 
@@ -229,7 +225,7 @@ define(
                     recalc: 0,
                     url_back_ok: url.build('hellobank/payment/kostate'),
                     url_back_ko: url.build('hellobank/payment/okstate'),
-                    doprava: this.getShippingMethod(),
+                    doprava: 1,
                 };
 
                 var form = $('<form>', { action: loanUrl, method: 'post' });
