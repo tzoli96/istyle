@@ -136,6 +136,7 @@ class HelloBank
                         "The order confirmation email was sent.",
                         false
                     );
+                    $this->orderRepository->save($order);
                 }
 
                 break;
