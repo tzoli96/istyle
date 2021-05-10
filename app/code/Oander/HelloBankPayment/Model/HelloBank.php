@@ -16,9 +16,14 @@ use Magento\Sales\Model\Service\InvoiceService;
 use Magento\Sales\Model\Order\Email\Sender\OrderSender;
 use Magento\Framework\DB\TransactionFactory;
 use Oander\HelloBankPayment\Enum\Attribute;
+use Magento\Framework\Event\ManagerInterface;
 
 class HelloBank
 {
+    /**
+     * @var ManagerInterface
+     */
+    protected $eventManager;
 
     /**
      * @var TransactionFactory
@@ -56,7 +61,8 @@ class HelloBank
         UrlInterface $url,
         OrderSender $orderSender,
         InvoiceService $invoiceService,
-        TransactionFactory $transactionFactory
+        TransactionFactory $transactionFactory,
+        ManagerInterface $eventManager
     )
     {
         $this->transactionBuilder = $transactionBuilder;
@@ -65,6 +71,7 @@ class HelloBank
         $this->orderSender = $orderSender;
         $this->invoiceService = $invoiceService;
         $this->transactionFactory = $transactionFactory;
+        $this->eventManager = $eventManager;
     }
 
     /**
@@ -80,8 +87,6 @@ class HelloBank
         switch ($urlType) {
             case Config::HELLOBANK_REPONSE_TYPE_OK:
                 $this->handleStatus($order, $paymentData['status']);
-
-                $this->postActions($order);
                 break;
 
             case Config::HELLOBANK_REPONSE_TYPE_KO:
@@ -118,8 +123,7 @@ class HelloBank
         switch ($paymentData['status']) {
             case CONFIG::HELLOBANK_RESPONSE_STATE_APPROVED:
             case CONFIG::HELLOBANK_RESPONSE_STATE_PRE_APPROVAL:
-                $order->setStatus(Order::STATE_PROCESSING);
-                $order->setState(Order::STATE_PROCESSING);
+                $order->setState(Order::STATE_PROCESSING)->setStatus(Order::STATE_PROCESSING);
                 $payment = $order->getPayment();
                 /** @var $payment Payment */
                 $transactionId = (isset($paymentData['id'])) ? $paymentData['id'] : random_int(0, 10000);
@@ -138,32 +142,31 @@ class HelloBank
                     );
                     $this->orderRepository->save($order);
                 }
-
                 break;
 
             case CONFIG::HELLOBANK_RESPONSE_STATE_FURTHER_REVIEW:
+                $order->setState(Order::STATE_NEW)->setStatus("pending");
+                $this->orderRepository->save($order);
                 break;
             case CONFIG::HELLOBANK_RESPONSE_STATE_CANCELLED:
             case CONFIG::HELLOBANK_RESPONSE_STATE_REJECTED:
                 $order->cancel();
-                $order->setStatus(Order::STATE_CANCELED);
-                $order->setState(Order::STATE_CANCELED);
+                $order->setState(Order::STATE_CANCELED)->setStatus(Order::STATE_CANCELED);
                 $this->orderRepository->save($order);
                 break;
             case CONFIG::HELLOBANK_RESPONSE_STATE_READY_FOR_SHIPPING:
             case CONFIG::HELLOBANK_RESPONSE_STATE_WAITING_FOR_DELIVERY:
-                $order->setStatus(Order::STATE_PROCESSING);
-                $order->setState(Order::STATE_PROCESSING);
+                $order->setState(Order::STATE_PROCESSING)->setStatus(Order::STATE_PROCESSING);
                 $this->orderRepository->save($order);
                 break;
             case CONFIG::HELLOBANK_RESPONSE_STATE_DISBURSED:
-
-                $order->setStatus(Order::STATE_COMPLETE);
-                $order->setState(Order::STATE_COMPLETE);
+                $order->setState(Order::STATE_COMPLETE)->setStatus(Order::STATE_COMPLETE);
                 $this->orderRepository->save($order);
                 break;
             default:
         }
+
+        $this->eventManager->dispatch("sales_order_place_after",['order' => $order]);
 
         return true;
     }
