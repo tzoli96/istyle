@@ -205,6 +205,7 @@ return array (
     'Oander_InstallmentPrices' => 1,
     'Oander_IstyleAws' => 1,
     'Oander_IstyleBase' => 1,
+    'Oander_IstyleCheckout' => 1,
     'Oander_IstyleCustomization' => 1,
     'Oander_Lapker' => 1,
     'Oander_MirasvitFeed' => 1,
