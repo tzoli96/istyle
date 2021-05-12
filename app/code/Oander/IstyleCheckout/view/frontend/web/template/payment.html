@@ -1,0 +1,44 @@
+<!-- ### Step 4: Payment method begin ### -->
+<div class="block block--checkout-step block--payment-method">
+    <div class="card card--checkout-step-header">
+        <span class="card__title" data-bind="i18n: 'Payment method'"></span>
+        <span class="card__action" data-bind="i18n: 'Edit'"></span>
+        <div class="card__content"><span data-bind="text: getPaymentMethod()"></span></div>
+    </div>
+    <div class="block__content">
+        <h3 class="block__title" data-bind="i18n: 'How would you like to pay?'"></h3>
+        <!-- ko if: (quoteIsVirtual) -->
+        <!-- ko foreach: getRegion('customer-email') -->
+        <!-- ko template: getTemplate() -->
+        <!-- /ko -->
+        <!--/ko-->
+        <!--/ko-->
+        <form id="co-payment-form" class="form payments" novalidate="novalidate">
+            <input data-bind='attr: {value: getFormKey()}' type="hidden" name="form_key" />
+            <fieldset class="fieldset">
+                <legend class="legend">
+                    <span data-bind="i18n: 'Payment Information'"></span>
+                </legend><br />
+                <!-- ko foreach: getRegion('beforeMethods') -->
+                <!-- ko template: getTemplate() -->
+                <!-- /ko -->
+                <!-- /ko -->
+                <div id="checkout-payment-method-load" class="opc-payment" data-bind="visible: isPaymentMethodsAvailable">
+                    <!-- ko foreach: getRegion('payment-methods-list') -->
+                    <!-- ko template: getTemplate() -->
+                    <!-- /ko -->
+                    <!-- /ko -->
+                </div>
+                <div class="no-quotes-block" data-bind="visible: isPaymentMethodsAvailable() == false">
+                    <!-- ko i18n: 'No Payment method available.'-->
+                    <!-- /ko -->
+                </div>
+                <!-- ko foreach: getRegion('afterMethods') -->
+                <!-- ko template: getTemplate() -->
+                <!-- /ko -->
+                <!-- /ko -->
+            </fieldset>
+        </form>
+    </div>
+</div>
+<!-- ### Step 4: Payment method end ### -->
