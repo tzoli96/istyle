@@ -60,7 +60,7 @@ class CalculatorInstallment extends AbstractSource
         if (is_null($this->product)) {
             $this->product = $this->registry->registry('product');
 
-            if (!$this->product->getId()) {
+            if (is_null($this->product) || !$this->product->getId()) {
                 return false;
             }
         }
