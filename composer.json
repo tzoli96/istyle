@@ -122,7 +122,7 @@
         "oander/module-producturlresolver": "1.0.2",
         "oander/module-safe-category-index": "1.0.0.1",
         "oander/module-salesforce": "1.2.0.4",
-        "oander/module-salesforce-service": "dev-45689-file-upload-fix",
+        "oander/module-salesforce-service": "0.0.3.52",
         "oander/module-salesforce-widget": "1.0.7",
         "oander/module-salesforcereservation": "1.1.14.2",
         "oander/module-shipping": "1.0.3",
