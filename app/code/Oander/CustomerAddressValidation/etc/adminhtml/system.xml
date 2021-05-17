@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<section id="customer">
+			<group id="address">
+				<field id="zipcity_autofill_enabled" type="select" sortOrder="15" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Enable Zip-City autofill</label>
+					<comment/>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="zipcity_sync" translate="label" sortOrder="16" showInDefault="0" showInWebsite="0" showInStore="1">
+					<label>Sync Zip-City</label>
+					<frontend_model>Oander\CustomerAddressValidation\Block\System\Config\Form\Button</frontend_model>
+				</field>
+				<field id="zipcity_sync_mode" type="select" sortOrder="17" showInWebsite="0" showInStore="0" showInDefault="1" translate="label">
+					<label>Sync mode</label>
+					<comment/>
+					<source_model>Oander\CustomerAddressValidation\Model\Config\Source\ZipcitySyncMode</source_model>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

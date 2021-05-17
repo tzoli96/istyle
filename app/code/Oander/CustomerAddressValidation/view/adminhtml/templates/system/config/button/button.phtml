@@ -1,0 +1,29 @@
+<script>
+    require([
+        'jquery',
+        'prototype',
+    ], function(jQuery){
+        function synczipcity() {
+            jQuery('#oander_customeraddressvalidation_sync').prop('disabled', true);
+            params = {
+            };
+
+            new Ajax.Request('<?php echo $block->getAjaxUrl() ?>', {
+                loaderArea:     false,
+                asynchronous:   true,
+                parameters:     params,
+                onSuccess: function(transport) {
+                    jQuery('#oander_customeraddressvalidation_sync').removeProp('disabled');
+                    var response = JSON.parse(transport.responseText);
+                    alert(response);
+                }
+            });
+        }
+
+        jQuery('#oander_customeraddressvalidation_sync').click(function () {
+            synczipcity();
+        });
+    });
+</script>
+
+<?php echo $block->getButtonHtml() ?>

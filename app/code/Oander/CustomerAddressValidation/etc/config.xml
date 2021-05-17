@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<customer>
+			<address>
+				<zipcity_autofill_enabled>0</zipcity_autofill_enabled>
+				<zipcity_sync/>
+				<zipcity_sync_mode>0</zipcity_sync_mode>
+			</address>
+		</customer>
+	</default>
+</config>
