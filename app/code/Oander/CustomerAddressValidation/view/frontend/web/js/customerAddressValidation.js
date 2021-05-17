@@ -37,7 +37,7 @@ define([
             var value = event.target.value;
             var parentNode = self._closest(event.target, 'fieldset');
 
-            if (isNaN(value) || !value) {
+            if (!value) {
               self.defaults.error = 'postcode_number';
             }
             else {
@@ -57,7 +57,7 @@ define([
        */
       _request: function (postcode, parentNode) {
         var self = this;
-        var postcode = Number(postcode);
+        var postcode = postcode;
         var storecode = self.defaults.storecode;
         var request = new XMLHttpRequest();
 
