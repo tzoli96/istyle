@@ -1,3 +1,9 @@
-<script type="text/javascript">
-  require(['customerAddressValidation']);
+<script type="text/x-magento-init">
+{
+  "*": {
+    "customerAddressValidation": {
+      "storeCode": "<?php echo $block->getStoreCode(); ?>"
+    }
+  }
+}
 </script>
