@@ -45,10 +45,6 @@ class SyncZipCity extends AbstractHelper
      * @var \Magento\Framework\App\ResourceConnection
      */
     private $resourceConnection;
-    /**
-     * @var \Psr\Log\LoggerInterface
-     */
-    private $logger;
 
     /**
      * @param \Magento\Framework\App\Helper\Context $context
@@ -56,7 +52,6 @@ class SyncZipCity extends AbstractHelper
      * @param \Magento\Framework\Filesystem\Io\File $file
      * @param \Magento\Framework\Filesystem\DirectoryList $dir
      * @param \Magento\Framework\File\Csv $csv
-     * @param \Psr\Log\LoggerInterface $logger
      * @param \Magento\Store\Model\StoreRepository $storeRepository
      * @param \Magento\Framework\App\ResourceConnection $resourceConnection
      */
@@ -66,7 +61,6 @@ class SyncZipCity extends AbstractHelper
         \Magento\Framework\Filesystem\Io\File $file,
         \Magento\Framework\Filesystem\DirectoryList $dir,
         \Magento\Framework\File\Csv $csv,
-        \Psr\Log\LoggerInterface $logger,
         \Magento\Store\Model\StoreRepository $storeRepository,
         \Magento\Framework\App\ResourceConnection $resourceConnection
     ) {
@@ -77,7 +71,6 @@ class SyncZipCity extends AbstractHelper
         $this->dir = $dir;
         $this->csv = $csv;
         $this->resourceConnection = $resourceConnection;
-        $this->logger = $logger;
     }
 
     public function syncAll()
@@ -148,7 +141,7 @@ class SyncZipCity extends AbstractHelper
         }
         catch (\Exception $e)
         {
-            $this->logger->error(sprintf("Error during update cityzip pairs for storeid %s: %s", $storeId, $e->getMessage()));
+            $this->_logger->error(sprintf("Error during update cityzip pairs for storeid %s: %s", $storeId, $e->getMessage()));
             return false;
         }
         return true;
