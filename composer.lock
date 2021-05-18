@@ -9436,11 +9436,11 @@
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "dev-45689-file-upload-fix",
+            "version": "0.0.3.52",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "c2c5e166cd925e2373f1c9670ba0abf6d098c0a5"
+                "reference": "c54fad83b09accbcedc94a4d626e55cfdc6bf5f7"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9460,7 +9460,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2020-09-11T11:51:42+00:00"
+            "time": "2021-05-17T10:05:17+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
