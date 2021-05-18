@@ -20,9 +20,10 @@ define([
        * Create
        */
       _create: function () {
-        if (document.body.classList.contains(this.defaults.checkout)) {
-          console.log(this.defaults.storecode);
-          this._validation();
+        if (window.checkoutConfig.isAutoFillCity) {
+          if (document.body.classList.contains(this.defaults.checkout)) {
+            this._validation();
+          }
         }
       },
 
