@@ -5,16 +5,17 @@
 			<group id="address">
 				<field id="zipcity_autofill_enabled" type="select" sortOrder="15" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
 					<label>Enable Zip-City autofill</label>
-					<comment/>
+					<comment>Enable filling City by Zipcode at checkout process</comment>
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
 				</field>
 				<field id="zipcity_sync" translate="label" sortOrder="16" showInDefault="0" showInWebsite="0" showInStore="1">
 					<label>Sync Zip-City</label>
+					<comment>Sync immediately Zip-City database from external source for the current country</comment>
 					<frontend_model>Oander\CustomerAddressValidation\Block\System\Config\Form\Button</frontend_model>
 				</field>
 				<field id="zipcity_sync_mode" type="select" sortOrder="17" showInWebsite="0" showInStore="0" showInDefault="1" translate="label">
-					<label>Sync mode</label>
-					<comment/>
+					<label>Sync mode Zip-City</label>
+					<comment>Run Zip-City sync by Magento standard cron or anble to run it over command line</comment>
 					<source_model>Oander\CustomerAddressValidation\Model\Config\Source\ZipcitySyncMode</source_model>
 				</field>
 			</group>
