@@ -5,7 +5,7 @@
 			<group id="address">
 				<field id="zipcity_autofill_enabled" type="select" sortOrder="15" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
 					<label>Enable Zip-City autofill</label>
-					<comment>Enable filling City by Zipcode at checkout process</comment>
+					<comment><![CDATA[Enable filling City by Zipcode at checkout process. <a href='http://download.geonames.org/export/zip/'>Link</a> to external source]]></comment>
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
 				</field>
 				<field id="zipcity_sync" translate="label" sortOrder="16" showInDefault="0" showInWebsite="0" showInStore="1">
