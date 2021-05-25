@@ -1,0 +1,13 @@
+<?php
+$helper = $this->getHelper();
+
+if ($helper->isEnabled() !== true) {
+    echo('<strong>Extension is disabled</strong>');
+    return;
+}
+
+if (!$helper->getApiKey()) {
+    echo('<strong>Please, enter API key in Stores configuration > Oander > MPTrade</strong>');
+    return;
+}
+?>

@@ -1,0 +1,22 @@
+{
+    "name": "oander/module-mptrade",
+    "description": "MPTrade",
+    "type": "magento2-module",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Turi Zoltan",
+            "email": "zoltan.turi@oander.hu"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Oander\\MPTrade\\": ""
+        }
+    }
+}
