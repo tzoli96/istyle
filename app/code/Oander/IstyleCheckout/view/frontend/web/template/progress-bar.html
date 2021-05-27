@@ -1,28 +1,22 @@
-<!--
-/**
- * Copyright © 2016 Magento. All rights reserved.
- * See COPYING.txt for license details.
- */
--->
 <div class="section__head">
-  <ul class="opc-progress-bar list-unstyled">
-      <!-- ko foreach: { data: steps().sort(sortItems), as: 'item' } -->
-          <li class="opc-progress-bar-item"
-              data-bind="css: item.isVisible() ? '_active' : ($parent.isProcessed(item) ? '_complete' : '')">
-              <span class="opc-progress-bar-item-circle" data-bind="click: $parent.navigateTo"></span>
-              <span class="opc-progress-bar-item-text" data-bind="i18n: item.title, click: $parent.navigateTo"></span>
-          </li>
-      <!-- /ko -->
-      <li class="opc-progress-bar-item _last">
-          <span class="opc-progress-bar-item-circle"></span>
-          <span class="opc-progress-bar-item-text" data-bind="i18n: 'Order confirmation'"></span>
+  <div class="block block--progressbar">
+    <ul class="block__list">
+      <li class="block__item completed" data-step="cart">
+        <span class="block__circle"></span>
+        <span class="block__title" data-bind="i18n: 'Cart'"></span>
       </li>
-  </ul>
-  <!-- ko foreach: { data: steps().sort(sortItems), as: 'item' } -->
-  <div class="opc-progress-bar-current"
-      data-bind="i18n: item.title,
-                  css: { _active: item.isVisible() },
-                  attr: { 'data-step': item.code }">
+      <li class="block__item completed" data-step="information">
+        <span class="block__circle"></span>
+        <span class="block__title" data-bind="i18n: 'Information'"></span>
+      </li>
+      <li class="block__item" data-step="confirmation">
+        <span class="block__circle"></span>
+        <span class="block__title" data-bind="i18n: 'Confirmation'"></span>
+      </li>
+    </ul>
+    <div class="block__line">
+      <span class="line__cart"></span>
+      <span class="line__information"></span>
+    </div>
   </div>
-  <!-- /ko -->
 </div>

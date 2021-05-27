@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d465fc2abefdcc7c55ec1b04b81abb0b",
+    "content-hash": "c8a3005fa15e95acba21697fa5e9cc7a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -10084,7 +10084,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "1c9cb65371fbef244c5d32c890d0dbede484adbd"
+                "reference": "f43ba401b8591dc60c9563f7ea58872510f99e97"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10100,7 +10100,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-05-16T23:24:30+00:00"
+            "time": "2021-05-27T07:42:05+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -14777,7 +14777,6 @@
         "oander/module-configurable-product-attribute": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
-        "oander/module-salesforce-service": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0

@@ -1,7 +1,7 @@
 <!-- ### Step 1: Authentication begin ### -->
 <!-- ko if: (!quoteIsVirtual) -->
 <!-- ko foreach: getRegion('customer-email') -->
-<div class="block block--checkout-step block--authentication">
+<div class="block block--checkout-step block--authentication" data-step="0">
     <div class="card card--checkout-step-header">
         <span class="card__title" data-bind="i18n: 'Email address'"></span>
         <span class="card__action" data-bind="visible: $parent.isLoggedIn(), i18n: 'Edit'"></span>
@@ -18,7 +18,7 @@
 <!-- ### Step 1: Authentication end ### -->
 
 <!-- ### Step 2: Shipping method begin ### -->
-<div class="block block--checkout-step block--shipping-method">
+<div class="block block--checkout-step block--shipping-method" data-step="1">
     <div class="card card--checkout-step-header">
         <span class="card__title" data-bind="i18n: 'Shipping method'"></span>
         <span class="card__action" data-bind="i18n: 'Edit'"></span>
@@ -189,7 +189,7 @@
 <!-- ### Step 2: Shipping method end ### -->
 
 <!-- ### Step 3: Shipping address begin ### -->
-<div class="block block--checkout-step block--shipping-address">
+<div class="block block--checkout-step block--shipping-address" data-step="2">
     <div class="card card--checkout-step-header">
         <span class="card__title" data-bind="i18n: 'Shipping address'"></span>
         <span class="card__action" data-bind="i18n: 'Edit'"></span>
@@ -233,7 +233,7 @@
             <div class="primary">
                 <button data-role="opc-continue" type="submit" class="action next-step primary w-100"
                     data-bind="click: validateStateCity">
-                    <span data-bind="i18n: 'Continue to payment method'"></span>
+                    <span data-bind="i18n: 'Continue to billing address'"></span>
                 </button>
             </div>
         </div>

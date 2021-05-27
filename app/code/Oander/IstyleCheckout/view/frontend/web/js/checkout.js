@@ -25,11 +25,9 @@ define([
       var cardAction = self.defaults.cardCheckoutStep + ' .card__action';
 
       $(document).on('click', cardAction, function () {
+        self._stepCounter($(this));
         $(this).closest(self.defaults.blockCheckoutStep)
-          .toggleClass('is-active');
-        $(this).closest(self.defaults.blockCheckoutStep)
-          .find('.block__content')
-          .slideToggle();
+          .toggleClass('is-active').siblings().removeClass('is-active');
       });
     },
 
@@ -41,17 +39,18 @@ define([
       var actionNextStep = '.action.next-step';
 
       $(document).on('click', actionNextStep, function () {
-        var block = $(this).closest(self.defaults.blockCheckoutStep)
-          .find(self.defaults.cardCheckoutStep)
-          .find('.card__action');
-        var nextBlock = block.closest(self.defaults.blockCheckoutStep)
+        $(this).closest(self.defaults.blockCheckoutStep)
           .next(self.defaults.blockCheckoutStep)
-          .find(self.defaults.cardCheckoutStep)
-          .find('.card__action');
-
-        block.trigger('click');
-        nextBlock.trigger('click');
+          .find(self.defaults.cardCheckoutStep + ' .card__action')
+          .trigger('click');
       });
+    },
+
+    _stepCounter: function (step) {
+      var stepData = step.closest('.block--checkout-step').attr('data-step');
+      var line = $('.block__line').find('.line__information');
+
+      line.css('width', ((stepData * 20) / 2) + '%');
     }
   });
 

@@ -8,6 +8,8 @@ var config = {
         'Oander_IstyleCheckout/template/progress-bar.html',
       'Magento_Checkout/template/shipping.html':
         'Oander_IstyleCheckout/template/shipping.html',
+      'Magento_Checkout/template/billing-address.html':
+        'Oander_IstyleCheckout/template/billing-address.html',
       'Magento_Checkout/template/form/element/email.html':
         'Oander_IstyleCheckout/template/form/element/email.html',
       'Magento_Checkout/template/payment.html':
@@ -16,6 +18,10 @@ var config = {
         'Oander_IstyleCheckout/template/sidebar.html',
       'Magento_Checkout/js/view/form/element/email':
         'Oander_IstyleCheckout/js/view/form/element/email',
+      'Magento_Checkout/template/billing-address/form':
+        'Oander_IstyleCheckout/template/billing-address/form',
+      'Magento_Checkout/template/billing-address/list':
+        'Oander_IstyleCheckout/template/billing-address/list',
     }
   },
   config: {

@@ -1,5 +1,10 @@
+<!-- ko foreach: getRegion('afterMethods') -->
+<!-- ko template: getTemplate() -->
+<!-- /ko -->
+<!-- /ko -->
+
 <!-- ### Step 4: Payment method begin ### -->
-<div class="block block--checkout-step block--payment-method">
+<div class="block block--checkout-step block--payment-method" data-step="4">
     <div class="card card--checkout-step-header">
         <span class="card__title" data-bind="i18n: 'Payment method'"></span>
         <span class="card__action" data-bind="i18n: 'Edit'"></span>
@@ -23,7 +28,8 @@
                 <!-- ko template: getTemplate() -->
                 <!-- /ko -->
                 <!-- /ko -->
-                <div id="checkout-payment-method-load" class="opc-payment" data-bind="visible: isPaymentMethodsAvailable">
+                <div id="checkout-payment-method-load" class="opc-payment"
+                    data-bind="visible: isPaymentMethodsAvailable">
                     <!-- ko foreach: getRegion('payment-methods-list') -->
                     <!-- ko template: getTemplate() -->
                     <!-- /ko -->
@@ -33,10 +39,6 @@
                     <!-- ko i18n: 'No Payment method available.'-->
                     <!-- /ko -->
                 </div>
-                <!-- ko foreach: getRegion('afterMethods') -->
-                <!-- ko template: getTemplate() -->
-                <!-- /ko -->
-                <!-- /ko -->
             </fieldset>
         </form>
     </div>
