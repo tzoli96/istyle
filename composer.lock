@@ -9861,11 +9861,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.26.10",
+            "version": "1.4.26.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "6075bf7ed1058f9a74ae1e239b00b7407a721d7c"
+                "reference": "392c621de681f2a098a6c5b25c3c6711018f1179"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9886,7 +9886,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2020-12-17T10:51:26+00:00"
+            "time": "2021-05-28T11:21:32+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
