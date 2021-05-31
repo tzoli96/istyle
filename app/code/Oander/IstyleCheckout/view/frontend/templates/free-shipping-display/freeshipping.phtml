@@ -1,0 +1,29 @@
+<?php
+/**
+ * Oander_FreeShippingDisplay
+ *
+ * @author  David Belicza <david.belicza@oander.hu>
+ * @license Oander Media Kft. (http://www.oander.hu)
+ */
+?>
+<?php /** @var $this \Oander\FreeShippingDisplay\Block\FreeShipping */?>
+
+<?php if ($this->isEnabled() && $this->hasCartItems()): ?>
+    <?php $text = $this->getText(); ?>
+
+    <div class="free-shipping-container">
+        <?php if ($this->isFree()): ?>
+            <div class="already-free">
+                <p>
+                    <?php echo $text; ?>
+                </p>
+            </div>
+        <?php else: ?>
+            <div class="is-not-free-yet">
+                <p>
+                    <?php echo $text; ?>
+                </p>
+            </div>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>

@@ -33,6 +33,12 @@
             </container>
         </referenceContainer>
 
+        <referenceBlock name="oander_free_shipping_display">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Oander_IstyleCheckout::free-shipping-display/freeshipping.phtml</argument>
+            </action>
+        </referenceBlock>
+
         <move element="oander_free_shipping_display" destination="wrapper.cart.header.container" after="wrapper.cart.header" />
         <move element="applepay.cart.button" destination="wrapper.cart.header.buttons.container" before="wrapper.cart.header.buttons" />
         <move element="checkout_info_box" destination="wrapper" after="-" />

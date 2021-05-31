@@ -4,8 +4,7 @@
 <div
     class="block block--checkout-step block--authentication"
     data-step="email"
-    data-step-count="0"
-    data-bind="attr: { 'data-filled': $parent.isFilled(getEmailValue()) }">
+    data-step-count="0">
     <div class="card card--checkout-step-header">
         <span class="card__title" data-bind="i18n: 'Email address'"></span>
         <span class="card__action" data-bind="visible: $parent.isLoggedIn(), i18n: 'Edit'"></span>
@@ -25,8 +24,7 @@
 <div
     class="block block--checkout-step block--shipping-method"
     data-step="shippingMethod"
-    data-step-count="1"
-    data-bind="attr: { 'data-filled': isFilled(getShippingMethod()) }">
+    data-step-count="1">
     <div class="card card--checkout-step-header">
         <span class="card__title" data-bind="i18n: 'Shipping method'"></span>
         <span class="card__action" data-bind="i18n: 'Edit'"></span>
@@ -200,8 +198,7 @@
 <div
     class="block block--checkout-step block--shipping-address"
     data-step="shippingAddress"
-    data-step-count="2"
-    data-bind="attr: { 'data-filled': isFilled(getShippingAddress()) }">
+    data-step-count="2">
     <div class="card card--checkout-step-header">
         <span class="card__title" data-bind="i18n: 'Shipping address'"></span>
         <span class="card__action" data-bind="i18n: 'Edit'"></span>

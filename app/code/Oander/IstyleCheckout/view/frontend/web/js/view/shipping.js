@@ -69,6 +69,19 @@ define([
 
             break;
           }
+          else {
+            var findElement = setInterval(function () {
+              var element = $('.block--checkout-step[data-step="paymentMethod"]');
+
+              if (element) {
+                triggerPaymentLoad();
+                $('.block--checkout-step[data-step="paymentMethod"] .card__action').trigger('click');
+                clearInterval(findElement);
+              }
+            }, 500);
+
+            break;
+          }
         }
       }
     }),

@@ -41,7 +41,8 @@ define([
       $(document).on('click', actionNextStep, function () {
         $(this).closest(self.defaults.blockCheckoutStep)
           .next(self.defaults.blockCheckoutStep)
-          .find(self.defaults.cardCheckoutStep + ' .card__action')
+          .find(self.defaults.cardCheckoutStep)
+          .find('.card__action')
           .trigger('click');
       });
     },

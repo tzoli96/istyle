@@ -8,13 +8,6 @@ define([
     getBillingAddress: function () {
       var billingAddress = quote.billingAddress();
       var address = '';
-      
-      if (this.isAddressSameAsShipping()) {
-        console.log('same as shipping');
-      }
-      else {
-        console.log('not same as shipping');
-      }
 
       if (billingAddress) {
         (billingAddress.postcode !== '*'
