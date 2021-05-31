@@ -1,3 +1,4 @@
+<?php if ($block->hasCartItems()) : ?>
 <div class="block block--cart-total">
   <h1 class="block__title">
     <?php echo __('Your cart total') ?>
@@ -8,6 +9,7 @@
     <span class="price"><?php echo $block->getPrice()['subTotal']; ?></span>
   </span>
 </div>
+<?php endif; ?>
 
 <!-- remove comment when ajax cart functions are available
 <script>

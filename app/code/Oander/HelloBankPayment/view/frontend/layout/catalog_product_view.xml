@@ -8,6 +8,6 @@
                 template="product/view/hellobarem.phtml" />
         </referenceContainer>
 
-        <move element="hellobank.barem.display" destination="payment.tabs.inner" after="catalog.product.otp.calculator"/>
+        <move element="hellobank.barem.display" destination="payment.tabs.inner" before="-"/>
     </body>
 </page>
