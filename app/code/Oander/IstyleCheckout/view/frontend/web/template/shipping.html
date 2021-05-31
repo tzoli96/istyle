@@ -1,7 +1,11 @@
 <!-- ### Step 1: Authentication begin ### -->
 <!-- ko if: (!quoteIsVirtual) -->
 <!-- ko foreach: getRegion('customer-email') -->
-<div class="block block--checkout-step block--authentication" data-step="0">
+<div
+    class="block block--checkout-step block--authentication"
+    data-step="email"
+    data-step-count="0"
+    data-bind="attr: { 'data-filled': $parent.isFilled(getEmailValue()) }">
     <div class="card card--checkout-step-header">
         <span class="card__title" data-bind="i18n: 'Email address'"></span>
         <span class="card__action" data-bind="visible: $parent.isLoggedIn(), i18n: 'Edit'"></span>
@@ -18,7 +22,11 @@
 <!-- ### Step 1: Authentication end ### -->
 
 <!-- ### Step 2: Shipping method begin ### -->
-<div class="block block--checkout-step block--shipping-method" data-step="1">
+<div
+    class="block block--checkout-step block--shipping-method"
+    data-step="shippingMethod"
+    data-step-count="1"
+    data-bind="attr: { 'data-filled': isFilled(getShippingMethod()) }">
     <div class="card card--checkout-step-header">
         <span class="card__title" data-bind="i18n: 'Shipping method'"></span>
         <span class="card__action" data-bind="i18n: 'Edit'"></span>
@@ -189,7 +197,11 @@
 <!-- ### Step 2: Shipping method end ### -->
 
 <!-- ### Step 3: Shipping address begin ### -->
-<div class="block block--checkout-step block--shipping-address" data-step="2">
+<div
+    class="block block--checkout-step block--shipping-address"
+    data-step="shippingAddress"
+    data-step-count="2"
+    data-bind="attr: { 'data-filled': isFilled(getShippingAddress()) }">
     <div class="card card--checkout-step-header">
         <span class="card__title" data-bind="i18n: 'Shipping address'"></span>
         <span class="card__action" data-bind="i18n: 'Edit'"></span>
@@ -240,3 +252,5 @@
     </div>
 </div>
 <!-- ### Step 3: Shipping address end ### -->
+
+<span data-bind="afterRender: checkStepContent()"></span>

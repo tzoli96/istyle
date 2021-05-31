@@ -7,7 +7,7 @@
 /**
  * Checkout adapter for customer data storage
  */
- define([
+define([
   'jquery',
   'Magento_Customer/js/customer-data'
 ], function ($, storage) {

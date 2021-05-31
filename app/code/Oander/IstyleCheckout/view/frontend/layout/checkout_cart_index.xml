@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="wrapper">
+            <container
+                name="wrapper.cart.header.container"
+                as="wrapper.cart.header.container"
+                htmlTag="header"
+                htmlClass="header header--cart"
+                before="-">
+                <container
+                    name="wrapper.cart.header.buttons.container"
+                    as="wrapper.cart.header.buttons.container"
+                    htmlTag="div"
+                    htmlClass="block block--cart-header-buttons"
+                    after="wrapper.cart.header">
+                    <block
+                        class="Oander\IstyleCheckout\Block\Cart\Totals"
+                        name="wrapper.cart.header.buttons"
+                        template="Oander_IstyleCheckout::cart/header/buttons.phtml" />
+                </container>
+                <block
+                    class="Oander\IstyleCheckout\Block\Cart\Totals"
+                    name="wrapper.cart.header"
+                    template="Oander_IstyleCheckout::cart/header.phtml"
+                    before="-" />
+            </container>
+        </referenceContainer>
+
+        <move element="oander_free_shipping_display" destination="wrapper.cart.header.container" after="wrapper.cart.header" />
+        <move element="applepay.cart.button" destination="wrapper.cart.header.buttons.container" before="wrapper.cart.header.buttons" />
+        <move element="checkout_info_box" destination="wrapper" after="-" />
+
+        <referenceBlock name="page.main.title" remove="true"/>
+    </body>
+</page>

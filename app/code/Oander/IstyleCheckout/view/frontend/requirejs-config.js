@@ -33,6 +33,9 @@ var config = {
       },
       'Magento_Checkout/js/view/payment': {
         'Oander_IstyleCheckout/js/view/payment': true
+      },
+      'Magento_Checkout/js/view/billing-address': {
+        'Oander_IstyleCheckout/js/view/billing-address': true
       }
     }
   }

@@ -17,8 +17,8 @@ define([
         ? title = paymentMethod.title
         : title = paymentMethod.method
 
-      return title ? title : 'Please fill the fields.';
-    }),
+      return title ? title : false;
+    })
   };
 
   return function (target) {

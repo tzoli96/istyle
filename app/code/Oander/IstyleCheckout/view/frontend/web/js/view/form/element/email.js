@@ -138,7 +138,7 @@ define([
     },
 
     getEmailValue: function () {
-      return (this.email()) ? this.email() : 'Please fill the field.';
+      return (this.email()) ? this.email() : false;
     },
 
     /**

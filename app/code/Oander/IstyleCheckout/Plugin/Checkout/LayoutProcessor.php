@@ -8,7 +8,7 @@ use Oander\IstyleCustomization\Helper\Config;
 
 /**
  * Class LayoutProcessor
- * @package Oander\IstyleCustomization\Plugin\Checkout\Model\Checkout+
+ * @package Oander\IstyleCheckout\Plugin\Checkout+
  */
 class LayoutProcessor
 {

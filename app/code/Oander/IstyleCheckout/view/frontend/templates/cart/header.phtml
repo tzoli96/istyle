@@ -1,0 +1,48 @@
+<div class="block block--cart-total">
+  <h1 class="block__title">
+    <?php echo __('Your cart total') ?>
+    <span class="price"><?php echo $block->getPrice()['grandTotal']; ?></span>
+  </h1>
+  <span class="block__lead">
+    <?php echo __('Net grand total') ?>
+    <span class="price"><?php echo $block->getPrice()['subTotal']; ?></span>
+  </span>
+</div>
+
+<!-- remove comment when ajax cart functions are available
+<script>
+  require([
+    'Magento_Checkout/js/model/totals',
+    'Magento_Catalog/js/price-utils'
+  ], function(totals, priceUtils) {
+    'use strict';
+
+    var header = {
+      _init: function () {
+        if (totals.totals()) {
+          var subTotal = totals.totals()['subtotal'];
+          var grandTotal = totals.getSegment('grand_total').value;
+
+          console.log(this._getFormattedPrice(subTotal), this._getFormattedPrice(grandTotal));
+        }
+      },
+
+      _getFormattedPrice: function(price) {
+        var priceFormat = {
+          decimalSymbol: '.',
+          groupLength: 3,
+          groupSymbol: ",",
+          integerRequired: false,
+          pattern: "$%s",
+          precision: 2,
+          requiredPrecision: 2
+        };
+
+        return priceUtils.formatPrice(price, priceFormat);
+      },
+    };
+
+    return header._init();
+  });
+</script>
+-->

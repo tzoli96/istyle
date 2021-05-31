@@ -47,7 +47,7 @@ define([
     },
 
     _stepCounter: function (step) {
-      var stepData = step.closest('.block--checkout-step').attr('data-step');
+      var stepData = step.closest('.block--checkout-step').attr('data-step-count');
       var line = $('.block__line').find('.line__information');
 
       line.css('width', ((stepData * 20) / 2) + '%');
