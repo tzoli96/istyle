@@ -60,22 +60,9 @@ define([
               var element = $('.block--checkout-step[data-step="'+ i +'"]');
 
               if (element) {
-                if (i == 'billingAddress' || i == 'paymentMethod') triggerPaymentLoad();
-
-                $('.block--checkout-step[data-step="'+ i +'"] .card__action').trigger('click');
-                clearInterval(findElement);
-              }
-            }, 500);
-
-            break;
-          }
-          else {
-            var findElement = setInterval(function () {
-              var element = $('.block--checkout-step[data-step="paymentMethod"]');
-
-              if (element) {
-                triggerPaymentLoad();
-                $('.block--checkout-step[data-step="paymentMethod"] .card__action').trigger('click');
+                setTimeout(function () {
+                  $('.block--checkout-step[data-step="'+ i +'"] .card__action').trigger('click');
+                }, 1000);
                 clearInterval(findElement);
               }
             }, 500);

@@ -39,8 +39,9 @@ define([
       var actionNextStep = '.action.next-step';
 
       $(document).on('click', actionNextStep, function () {
-        $(this).closest(self.defaults.blockCheckoutStep)
-          .next(self.defaults.blockCheckoutStep)
+        var stepCount = Number($(this).closest(self.defaults.blockCheckoutStep).attr('data-step-count')) + 1;
+
+        $('.block--checkout-step[data-step-count="'+ stepCount +'"]')
           .find(self.defaults.cardCheckoutStep)
           .find('.card__action')
           .trigger('click');

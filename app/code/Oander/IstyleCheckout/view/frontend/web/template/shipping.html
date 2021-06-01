@@ -1,21 +1,8 @@
 <!-- ### Step 1: Authentication begin ### -->
 <!-- ko if: (!quoteIsVirtual) -->
 <!-- ko foreach: getRegion('customer-email') -->
-<div
-    class="block block--checkout-step block--authentication"
-    data-step="email"
-    data-step-count="0">
-    <div class="card card--checkout-step-header">
-        <span class="card__title" data-bind="i18n: 'Email address'"></span>
-        <span class="card__action" data-bind="visible: $parent.isLoggedIn(), i18n: 'Edit'"></span>
-        <div class="card__content"><span data-bind="text: getEmailValue()"></span></div>
-    </div>
-    <div class="block__content">
-        <h3 class="block__title" data-bind="i18n: 'What is your email address?'"></h3>
-        <!-- ko template: getTemplate() -->
-        <!-- /ko -->
-    </div>
-</div>
+    <!-- ko template: getTemplate() -->
+    <!-- /ko -->
 <!--/ko-->
 <!--/ko-->
 <!-- ### Step 1: Authentication end ### -->

@@ -560,10 +560,14 @@ define([
       $(self.classes.calculator).addClass('d-none');
 
       if (titles.find('.tabs__title').length > 0) {
+        $('.data.item.title:not([aria-controls="hellobank"])').removeClass('active');
+        $('.data.item.content:not(.hellobank-calculator)').hide();
+
         $(self.classes.tab).removeClass('d-none');
         $(self.classes.calculator).removeClass('d-none');
 
-        $(self.classes.tab).trigger('click');
+        $(self.classes.tab).closest('.data.item.title').addClass('active');
+        $(self.classes.calculator).show();
       }
       else {
         if ($('.data.item.title:not([aria-controls="hellobank"])').length > 0) {
