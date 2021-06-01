@@ -81,11 +81,20 @@ class Minicalculator extends Template
 
     /**
      * Get store identifier
-     * @return  int
+     * @return int
      */
     public function getStoreId()
     {
         return $this->_storeManager->getStore()->getId();
+    }
+
+    /**
+     * Get module is active
+     * @return bool
+     */
+    public function getModuleIsActive()
+    {
+        return $this->config->getModuleIsActive($this->getStoreId());
     }
 
     /**

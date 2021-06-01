@@ -562,6 +562,13 @@ define([
       if (titles.find('.tabs__title').length > 0) {
         $(self.classes.tab).removeClass('d-none');
         $(self.classes.calculator).removeClass('d-none');
+
+        $(self.classes.tab).trigger('click');
+      }
+      else {
+        if ($('.data.item.title:not([aria-controls="hellobank"])').length > 0) {
+          $('.data.item.title:not([aria-controls="hellobank"])').first().find('.data.switch').trigger('click');
+        }
       }
 
       self._tabs();

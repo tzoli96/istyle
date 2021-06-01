@@ -16,6 +16,7 @@ $data = [
 ];
 ?>
 
+<?php if ($block->getModuleIsActive()) : ?>
 <div
   class="block block--minicalculator"
   data-mage-init='{"oanderMiniCalculator": {"data": <?= json_encode($data) ?>}}'>
@@ -25,3 +26,4 @@ $data = [
     <div class="block__anchor"></div>
   </div>
 </div>
+<?php endif; ?>

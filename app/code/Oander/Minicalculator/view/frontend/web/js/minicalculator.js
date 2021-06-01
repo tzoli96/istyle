@@ -171,15 +171,17 @@ define([
         : this.options.data.barems;
       var data = {};
 
-      barems.forEach(function (value) {
-        if (value.id == id) {
-          if (value.equity) data['equity'] = value.equity;
+      if (barems) {
+        barems.forEach(function (value) {
+          if (value.id == id) {
+            if (value.equity) data['equity'] = value.equity;
 
-          data['min_price'] = value.min_price;
-          data['max_price'] = value.max_price;
-          data['barem_id'] = value.barem_id;
-        }
-      });
+            data['min_price'] = value.min_price;
+            data['max_price'] = value.max_price;
+            data['barem_id'] = value.barem_id;
+          }
+        });
+      }
 
       return data;
     },
