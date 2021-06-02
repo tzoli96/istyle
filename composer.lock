@@ -9705,7 +9705,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-twisto-pay.git",
-                "reference": "1ffd5fc790a6daababac27565795f84b69f9f9d1"
+                "reference": "80bece853d2b67cfa819595eb60e6d9dd25fa380"
             },
             "require": {
                 "php": "7.*",
@@ -9724,7 +9724,7 @@
                 "proprietary"
             ],
             "description": "Twisto Pay payment method",
-            "time": "2021-06-02T03:47:35+00:00"
+            "time": "2021-06-02T09:09:39+00:00"
         },
         {
             "name": "oander/module-type-hint-fix",
