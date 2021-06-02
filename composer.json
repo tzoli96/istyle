@@ -153,7 +153,9 @@
         "xtento/module-xtcore": "2.1.0",
         "vaimo/composer-patches": "4.6.*",
         "oander/theme-istyle": "dev-develop",
-        "oander/module-url-rewrite-basic": "1.0.1.6"
+        "oander/module-url-rewrite-basic": "1.0.1.6",
+        "oander/module-twisto-pay": "dev-main",
+        "twisto-payments/twisto": "2.18"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",

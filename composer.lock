@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5198c67143ab032a49a5f96017e79d4b",
+    "content-hash": "8e62ce39fb1946f387559abe17c2bd03",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -881,20 +881,6 @@
                 "certificate",
                 "ssl",
                 "tls"
-            ],
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
             ],
             "time": "2021-01-12T12:10:35+00:00"
         },
@@ -9714,6 +9700,33 @@
             "time": "2018-05-16T07:30:24+00:00"
         },
         {
+            "name": "oander/module-twisto-pay",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/module-twisto-pay.git",
+                "reference": "1ffd5fc790a6daababac27565795f84b69f9f9d1"
+            },
+            "require": {
+                "php": "7.*",
+                "twisto-payments/twisto": "2.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\TwistoPay\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Twisto Pay payment method",
+            "time": "2021-06-02T03:47:35+00:00"
+        },
+        {
             "name": "oander/module-type-hint-fix",
             "version": "1.0.1",
             "source": {
@@ -10354,20 +10367,6 @@
                 "twofish",
                 "x.509",
                 "x509"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/terrafrost",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/phpseclib",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
-                    "type": "tidelift"
-                }
             ],
             "time": "2021-04-06T13:56:45+00:00"
         },
@@ -11589,6 +11588,47 @@
                 "yui"
             ],
             "time": "2014-09-22T08:08:50+00:00"
+        },
+        {
+            "name": "twisto-payments/twisto",
+            "version": "2.18",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TwistoPayments/Twisto.php.git",
+                "reference": "89a9361830766205ce9141bfde88515043600161"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TwistoPayments/Twisto.php/zipball/89a9361830766205ce9141bfde88515043600161",
+                "reference": "89a9361830766205ce9141bfde88515043600161",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Twisto\\": "src/Twisto/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Twisto payments a.s.",
+                    "email": "dotaz@twisto.cz"
+                }
+            ],
+            "description": "Library providing support for Twisto.cz payments service",
+            "homepage": "https://github.com/TwistoPayments/Twisto.php",
+            "keywords": [
+                "payments",
+                "twisto"
+            ],
+            "time": "2018-08-16T12:34:34+00:00"
         },
         {
             "name": "vaimo/composer-patches",
@@ -14779,11 +14819,11 @@
         "oander/module-product-widget-warehouse-manager-extender": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
+        "oander/module-twisto-pay": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }
