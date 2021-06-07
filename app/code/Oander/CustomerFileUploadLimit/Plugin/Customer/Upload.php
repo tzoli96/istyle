@@ -82,8 +82,8 @@ class Upload extends OriginalClass
     {
         try {
             $customerId = (int)$this->customerSession->getCustomerId();
-            $result = $this->uploader->saveFileToTmpDir('file');
-            if($result['size'] < 5000000) {
+            if($this->getRequest()->getFiles("file")["size"] < 5000000) {
+                $result = $this->uploader->saveFileToTmpDir('file');
                 $fileName = $result['name'];
                 $currentFilesCount = $this->fileRepository->getFilesByCustomerWebsite(
                     $customerId,
