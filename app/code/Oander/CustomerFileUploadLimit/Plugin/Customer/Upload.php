@@ -13,10 +13,21 @@ use Oander\CustomerFileUpload\Helper\Config;
 use Oander\CustomerFileUpload\Model\Email;
 use Oander\CustomerFileUpload\Model\File;
 use Oander\CustomerFileUpload\Model\FileUploader;
+use Magento\Framework\Filesystem\Driver\File as MagentoFile;
+use Magento\Framework\Filesystem;
+use Magento\Framework\App\Filesystem\DirectoryList;
 
 class Upload extends OriginalClass
 {
+    /**
+     * @var Filesystem
+     */
+    protected $filesystem;
 
+    /**
+     * @var MagentoFile
+     */
+    protected $magentoFile;
     /**
      * @var FileUploader
      */
@@ -62,7 +73,9 @@ class Upload extends OriginalClass
         FileInterfaceFactory $fileFactory,
         StoreManagerInterface $storeManager,
         FileRepositoryInterface $fileRepository,
-        Email $email
+        Email $email,
+        MagentoFile $magentoFile,
+        Filesystem $filesystem
     ) {
         parent::__construct($context, $customerSession, $config, $uploader ,$fileFactory,$storeManager,$fileRepository,$email);
         $this->uploader = $uploader;
@@ -70,6 +83,8 @@ class Upload extends OriginalClass
         $this->storeManager = $storeManager;
         $this->fileRepository = $fileRepository;
         $this->email = $email;
+        $this->magentoFile = $magentoFile;
+        $this->filesystem = $filesystem;
     }
 
     /**
@@ -104,6 +119,11 @@ class Upload extends OriginalClass
                 $this->email->send($this->customerSession->getCustomer());
                 $this->messageManager->addSuccessMessage(__('Document successfully saved'));
             }else{
+                $fileName = $this->getRequest()->getFiles("file")['name'];
+                $mediaRootDir = $this->filesystem->getDirectoryRead(DirectoryList::MEDIA)->getAbsolutePath()."/customer/fileuploads/";
+                if ($this->magentoFile->isExists($mediaRootDir . $fileName)) {
+                    $this->magentoFile->deleteFile($mediaRootDir . $fileName);
+                }
                 $this->messageManager->addErrorMessage(__("A feltöltött fájl mérete meghaladj a 5MB-os limitet."));
             }
         } catch (\Throwable $e) {
