@@ -22,10 +22,6 @@ var config = {
         'Oander_IstyleCheckout/template/billing-address/form',
       'Magento_Checkout/template/billing-address/list':
         'Oander_IstyleCheckout/template/billing-address/list',
-      'Magento_Checkout/js/checkout-data':
-        'Oander_IstyleCheckout/js/checkout-data',
-      'Magento_Checkout/js/action/select-billing-address':
-        'Oander_IstyleCheckout/js/action/select-billing-address',
     }
   },
   config: {
