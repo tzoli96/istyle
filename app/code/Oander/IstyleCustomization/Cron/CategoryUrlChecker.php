@@ -94,16 +94,14 @@ class CategoryUrlChecker
     }
 
     /**
-     * Execute the cron
-     *
-     * @return void
+     * @throws MailException
      */
     public function execute()
     {
-        /*
+
         if (!$this->config->isUrlCheckerEnabled()) {
             return;
-        }*/
+        }
 
         $errorTable = '';
         $stores = $this->storeManager->getStores(false);
@@ -141,7 +139,6 @@ class CategoryUrlChecker
 
     protected function check($store)
     {
-        $data = false;
         $collection = $this->categoryCollectionFactory->create();
         $collection->getSelect()->join(
             ['catalog_category_entity_varchar' => $collection->getTable('catalog_category_entity_varchar')],
@@ -162,7 +159,6 @@ class CategoryUrlChecker
             }
         }
 
-        return $data;
     }
 
     /**
