@@ -1,7 +1,7 @@
 define([
   'ko',
-  'Magento_Checkout/js/checkout-data',
-], function (ko, checkoutData) {
+  'Magento_Checkout/js/model/quote',
+], function (ko, quote) {
   'use strict';
 
   return {
@@ -10,7 +10,7 @@ define([
      * @returns {String}
      */
      getShippingAddress: ko.computed(function () {
-      var shippingAddress = checkoutData.getShippingAddressFromData();
+      var shippingAddress = quote.shippingAddress();
       var address = '';
 
       if (shippingAddress) {
