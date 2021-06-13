@@ -44,14 +44,24 @@ define([
     // @todo: refact: watch quote instead of checkoutdata
     checkStepContent: ko.computed(function () {
       var steps = {
-        email: helpers.isFilled(checkoutData.getInputFieldEmailValue()),
+        email: helpers.isFilled((customer.isLoggedIn()) ? window.checkoutConfig.customerData.email : checkoutData.getInputFieldEmailValue()),
         shippingMethod: helpers.isFilled(checkoutData.getSelectedShippingRate()),
         shippingAddress: helpers.isFilled(helpers.getShippingAddress()),
         billingAddress: helpers.isFilled(checkoutData.getBillingAddressFromData()),
         paymentMethod: helpers.isFilled(checkoutData.getSelectedPaymentMethod()),
       };
 
-      if (!pageLoaded) {
+      var checkShippingMethod = function () {
+        if (helpers.isFilled(checkoutData.getSelectedShippingRate())) {
+          if (quote.shippingMethod()) return true;
+          return false;
+        }
+        else {
+          return true;
+        }
+      }
+
+      if (!pageLoaded && checkShippingMethod()) {
         pageLoaded = true;
 
         for (var i in steps) {

@@ -141,6 +141,12 @@ define([
       return (this.email()) ? this.email() : false;
     },
 
+    getEmail: function () {
+      return (customer.isLoggedIn())
+        ? window.checkoutConfig.customerData.email
+        : checkoutData.getInputFieldEmailValue();
+    },
+
     /**
      * Log in form submitting callback.
      *
