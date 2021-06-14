@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e62ce39fb1946f387559abe17c2bd03",
+    "content-hash": "42962257ce25b001f539753021e2ade9",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -881,20 +881,6 @@
                 "certificate",
                 "ssl",
                 "tls"
-            ],
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
             ],
             "time": "2021-06-07T13:58:28+00:00"
         },
@@ -7526,11 +7512,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.18.9",
+            "version": "1.0.18.10",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "26ba8f6f719694a2330f252fc76052bf2379f059"
+                "reference": "a236d2083c0442688328850638585a2b364d2a35"
             },
             "require": {
                 "oander/module-warehouse-manager": ">=1.4.25.6"
@@ -7554,7 +7540,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2021-02-08T14:35:36+00:00"
+            "time": "2021-06-07T19:36:44+00:00"
         },
         {
             "name": "oander/module-amasty-xnotif-bundle-price-switcher-extender",
@@ -10381,20 +10367,6 @@
                 "twofish",
                 "x.509",
                 "x509"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/terrafrost",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/phpseclib",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
-                    "type": "tidelift"
-                }
             ],
             "time": "2021-04-06T13:56:45+00:00"
         },
@@ -14853,6 +14825,5 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }
