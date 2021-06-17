@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "42962257ce25b001f539753021e2ade9",
+    "content-hash": "203fdb02f535de11c6cd50a412d2b730",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9701,11 +9701,11 @@
         },
         {
             "name": "oander/module-twisto-pay",
-            "version": "dev-main",
+            "version": "1.0.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-twisto-pay.git",
-                "reference": "a98afc80616aeb9e240ebb0c8792bc6b3ec1cdd0"
+                "reference": "30cd010eff3a072f490871fa97a8d4a74060ae8f"
             },
             "require": {
                 "php": "7.*",
@@ -9724,7 +9724,7 @@
                 "proprietary"
             ],
             "description": "Twisto Pay payment method",
-            "time": "2021-06-02T13:35:28+00:00"
+            "time": "2021-06-17T03:25:52+00:00"
         },
         {
             "name": "oander/module-type-hint-fix",
@@ -10281,16 +10281,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.31",
+            "version": "2.0.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "233a920cb38636a43b18d428f9a8db1f0a1a08f4"
+                "reference": "f5c4c19880d45d0be3e7d24ae8ac434844a898cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/233a920cb38636a43b18d428f9a8db1f0a1a08f4",
-                "reference": "233a920cb38636a43b18d428f9a8db1f0a1a08f4",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/f5c4c19880d45d0be3e7d24ae8ac434844a898cd",
+                "reference": "f5c4c19880d45d0be3e7d24ae8ac434844a898cd",
                 "shasum": ""
             },
             "require": {
@@ -10368,7 +10368,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2021-04-06T13:56:45+00:00"
+            "time": "2021-06-12T12:12:59+00:00"
         },
         {
             "name": "plugincompany/customergroupswitching",
@@ -14819,7 +14819,6 @@
         "oander/module-product-widget-warehouse-manager-extender": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
-        "oander/module-twisto-pay": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,
