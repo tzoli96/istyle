@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ac256fddc4ebac1d71e67a721d43e267",
+    "content-hash": "952c539e3d74a151dc9801d2eada2a4f",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9701,11 +9701,11 @@
         },
         {
             "name": "oander/module-twisto-pay",
-            "version": "1.0.0.2",
+            "version": "1.0.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-twisto-pay.git",
-                "reference": "d4aea5025d494efeab7af9cc02a5bfab44e7f3a7"
+                "reference": "453bf142ce501c84e3bb457a2e8a975c5d5beae3"
             },
             "require": {
                 "php": "7.*",
@@ -9724,7 +9724,7 @@
                 "proprietary"
             ],
             "description": "Twisto Pay payment method",
-            "time": "2021-06-17T05:56:30+00:00"
+            "time": "2021-06-17T07:06:07+00:00"
         },
         {
             "name": "oander/module-type-hint-fix",
