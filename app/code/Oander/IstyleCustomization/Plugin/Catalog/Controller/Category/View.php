@@ -35,9 +35,11 @@ class View
         $remove = $this->algoliaConfigHelper->replaceCategories($this->storeManager->getStore()->getId());
 
         if ($isEnabled && $remove) {
-            $layout = $page->getLayout();
-            foreach ($removedLayouts as $removedLayout) {
-                $layout->unsetElement($removedLayout);
+            if(method_exists($page, "getLayout")) {
+                $layout = $page->getLayout();
+                foreach ($removedLayouts as $removedLayout) {
+                    $layout->unsetElement($removedLayout);
+                }
             }
         }
 
