@@ -133,7 +133,7 @@
         "oander/module-translateextended": "1.0.0",
         "oander/module-trustedshop": "1.0.3",
         "oander/module-trustedshop-warehouse-extension": "1.0.3",
-        "oander/module-twisto-pay": "1.0.0.3",
+        "oander/module-twisto-pay": "1.0.0.4",
         "oander/module-type-hint-fix": "1.0.1",
         "oander/module-unity-dpd-cz-pickup": "1.0.2",
         "oander/module-unity-dpd-sk-pickup": "1.0.2",
