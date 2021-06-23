@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb4b3f2973e2487e09c64fe08caaf940",
+    "content-hash": "8df60e03abcbdf447d4c60c12edc4be7",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -881,20 +881,6 @@
                 "certificate",
                 "ssl",
                 "tls"
-            ],
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
             ],
             "time": "2021-06-07T13:58:28+00:00"
         },
@@ -6455,6 +6441,7 @@
                 "zendframework/zend-view": "~2.4.6"
             },
             "type": "metapackage",
+            "extra": [],
             "license": [
                 "OSL-3.0",
                 "AFL-3.0"
@@ -8178,11 +8165,11 @@
         },
         {
             "name": "oander/module-bundle-price-switcher",
-            "version": "1.0.1.10",
+            "version": "dev-52560-fix",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-bundle-price-switcher.git",
-                "reference": "bef3127b7f43bdf310388ed7e7963e99eaabe160"
+                "reference": "10a22809b21ee0e0f77c76b996ded51c1d298311"
             },
             "require": {
                 "oander/module-bundle": ">=1.0.3.2",
@@ -8200,7 +8187,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2021-01-21T11:32:37+00:00"
+            "time": "2021-06-23T06:48:46+00:00"
         },
         {
             "name": "oander/module-cardondeliverypayment",
@@ -10380,20 +10367,6 @@
                 "twofish",
                 "x.509",
                 "x509"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/terrafrost",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/phpseclib",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
-                    "type": "tidelift"
-                }
             ],
             "time": "2021-06-12T12:12:59+00:00"
         },
@@ -14841,6 +14814,7 @@
         "composer/composer": 15,
         "innobyte/module-cetelem": 20,
         "oander/module-api-index": 20,
+        "oander/module-bundle-price-switcher": 20,
         "oander/module-configurable-product-attribute": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
@@ -14851,6 +14825,5 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }
