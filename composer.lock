@@ -9209,11 +9209,11 @@
         },
         {
             "name": "oander/module-pos-locations",
-            "version": "1.1.6.0",
+            "version": "1.1.6.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-pos-locations.git",
-                "reference": "4d5d6b0ff9d408f5da78a09e772e662372b91f6c"
+                "reference": "ddc09a373501afd05dc43adcd035bc776169cf9c"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9232,7 +9232,7 @@
                 "proprietary"
             ],
             "description": "Oander POS Locations module",
-            "time": "2021-06-23T14:17:04+00:00"
+            "time": "2021-06-25T09:06:16+00:00"
         },
         {
             "name": "oander/module-preorder",
@@ -9542,11 +9542,11 @@
         },
         {
             "name": "oander/module-structured-data",
-            "version": "1.1.0.2",
+            "version": "1.2.0.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-structured-data.git",
-                "reference": "2119dd4d7b3c3f386757ba4cc029e372319c3a04"
+                "reference": "8b592afcc6934ab58c0a10fa251a4642a535d55b"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9565,7 +9565,7 @@
                 "proprietary"
             ],
             "description": "Oander Google Structured Data",
-            "time": "2021-04-19T14:09:57+00:00"
+            "time": "2021-06-25T09:08:18+00:00"
         },
         {
             "name": "oander/module-stuck-process-remover",
