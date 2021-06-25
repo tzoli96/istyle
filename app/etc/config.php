@@ -32,6 +32,7 @@ return array (
     'Innobyte_CheckoutSuccess' => 1,
     'Innobyte_MStart' => 1,
     'Innobyte_PayU' => 1,
+    'Jajuma_WebpImages' => 1,
     'MageXo_PaymentHomeCredit' => 1,
     'Magento_Cron' => 1,
     'Magento_AdvancedPricingImportExport' => 1,
