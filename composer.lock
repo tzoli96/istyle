@@ -9209,11 +9209,11 @@
         },
         {
             "name": "oander/module-pos-locations",
-            "version": "1.1.6.1",
+            "version": "1.1.6.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-pos-locations.git",
-                "reference": "ddc09a373501afd05dc43adcd035bc776169cf9c"
+                "reference": "a65c668f6f5bec994b83d15248af14f753101366"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9232,7 +9232,7 @@
                 "proprietary"
             ],
             "description": "Oander POS Locations module",
-            "time": "2021-06-25T09:06:16+00:00"
+            "time": "2021-06-25T13:51:14+00:00"
         },
         {
             "name": "oander/module-preorder",
