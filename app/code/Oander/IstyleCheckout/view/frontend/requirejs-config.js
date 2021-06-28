@@ -20,6 +20,8 @@ var config = {
         'Oander_IstyleCheckout/template/checkout/cart/totals.html',
       'Magento_Tax/template/checkout/cart/totals/grand-total.html':
         'Oander_IstyleCheckout/template/checkout/cart/totals/grand-total.html',
+      'Magento_SalesRule/template/cart/totals/discount.html':
+        'Oander_IstyleCheckout/template/checkout/cart/totals/discount.html',
       'Magento_Checkout/js/view/form/element/email':
         'Oander_IstyleCheckout/js/view/form/element/email',
       'Magento_Checkout/template/billing-address/form':
