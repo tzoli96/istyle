@@ -1,50 +1,39 @@
 <?php if ($block->hasCartItems()) : ?>
-<div class="block block--cart-total">
-  <h1 class="block__title">
-    <?php echo __('Your cart total') ?>
-    <span class="price"><?php echo $block->getPrice()['grandTotal']; ?></span>
-  </h1>
-  <span class="block__lead">
-    <?php echo __('Net grand total') ?>
-    <span class="price"><?php echo $block->getPrice()['subTotal']; ?></span>
-  </span>
-</div>
-<?php endif; ?>
+  <div class="block block--cart-total">
+    <h1 class="block__title">
+      <?php echo __('Your cart total') ?>
+      <span class="price"><?php echo $block->getPrice()['grandTotal']; ?></span>
+    </h1>
+    <span class="block__lead">
+      <?php echo __('Net grand total') ?>
+      <span class="price"><?php echo $block->getPrice()['subTotal']; ?></span>
+    </span>
+  </div>
 
-<!-- remove comment when ajax cart functions are available
-<script>
-  require([
-    'Magento_Checkout/js/model/totals',
-    'Magento_Catalog/js/price-utils'
-  ], function(totals, priceUtils) {
-    'use strict';
+  <div class="block block--under-cart-buttons"></div>
 
-    var header = {
-      _init: function () {
-        if (totals.totals()) {
-          var subTotal = totals.totals()['subtotal'];
-          var grandTotal = totals.getSegment('grand_total').value;
+  <script>
+    require([
+      'jquery',
+    ], function($) {
+      var underCartButtons = document.querySelector('.block.block--under-cart-buttons');
+      var cartItems = document.querySelector('.col-form-cart');
+      var cartButtons = document.querySelector('.block.block--cart-header-buttons');
 
-          console.log(this._getFormattedPrice(subTotal), this._getFormattedPrice(grandTotal));
+      underCartButtons.appendChild(cartButtons.cloneNode(true));
+
+      var watchScroll = function() {
+        var y = window.scrollY;
+        var cartItemsHeight = Number(cartItems.offsetTop + cartItems.offsetHeight - 280);
+
+        if (y >= 280 && y < cartItemsHeight) {
+          underCartButtons.classList.add('is-active');
+        } else {
+          underCartButtons.classList.remove('is-active');
         }
-      },
+      };
 
-      _getFormattedPrice: function(price) {
-        var priceFormat = {
-          decimalSymbol: '.',
-          groupLength: 3,
-          groupSymbol: ",",
-          integerRequired: false,
-          pattern: "$%s",
-          precision: 2,
-          requiredPrecision: 2
-        };
-
-        return priceUtils.formatPrice(price, priceFormat);
-      },
-    };
-
-    return header._init();
-  });
-</script>
--->
+      window.addEventListener('scroll', watchScroll);
+    });
+  </script>
+<?php endif; ?>

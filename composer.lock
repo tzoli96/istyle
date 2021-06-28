@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "69a835ca4a5ab821d0283397a0dfcf4e",
+    "content-hash": "a7c4b82304b98412bccf7b7902845d56",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -563,16 +563,16 @@
         },
         {
             "name": "bigfish/paymentgateway",
-            "version": "3.7.0",
+            "version": "3.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bigfish-hu/payment-gateway-php-sdk.git",
-                "reference": "506762cd71e6a01c004dc2a0903a729721aa269a"
+                "reference": "d2160dec3d2d1ee9557d6e5db378e973a57f0d17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/506762cd71e6a01c004dc2a0903a729721aa269a",
-                "reference": "506762cd71e6a01c004dc2a0903a729721aa269a",
+                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/d2160dec3d2d1ee9557d6e5db378e973a57f0d17",
+                "reference": "d2160dec3d2d1ee9557d6e5db378e973a57f0d17",
                 "shasum": ""
             },
             "require": {
@@ -601,7 +601,7 @@
                 "payment",
                 "webshop"
             ],
-            "time": "2021-01-07T05:48:48+00:00"
+            "time": "2021-05-26T05:40:01+00:00"
         },
         {
             "name": "bigfishpaymentgateway/pmgw",
@@ -881,6 +881,20 @@
                 "certificate",
                 "ssl",
                 "tls"
+            ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
             ],
             "time": "2021-06-07T13:58:28+00:00"
         },
@@ -6441,7 +6455,6 @@
                 "zendframework/zend-view": "~2.4.6"
             },
             "type": "metapackage",
-            "extra": [],
             "license": [
                 "OSL-3.0",
                 "AFL-3.0"
@@ -10097,7 +10110,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "38cc5c2c9b8ddd0f9b559a43068f071b05ed3e1c"
+                "reference": "feef6697a050a1fd95f55ec1ce65feb81377c23b"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10113,7 +10126,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-06-22T08:41:28+00:00"
+            "time": "2021-06-25T09:04:51+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10367,6 +10380,20 @@
                 "twofish",
                 "x.509",
                 "x509"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/terrafrost",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpseclib",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
+                    "type": "tidelift"
+                }
             ],
             "time": "2021-06-12T12:12:59+00:00"
         },
@@ -14825,5 +14852,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
