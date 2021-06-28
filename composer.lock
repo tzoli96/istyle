@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a3eafc025745b6844ed61056e8999ed3",
+    "content-hash": "5b0a22d4fa6c39ef73256003c4cb534e",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -881,6 +881,20 @@
                 "certificate",
                 "ssl",
                 "tls"
+            ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
             ],
             "time": "2021-06-07T13:58:28+00:00"
         },
@@ -8554,11 +8568,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.1.6.0",
+            "version": "1.1.6.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "a52595df5b7c82457219d9ca417eac575f70dba2"
+                "reference": "9b3cca37267940539159ead02ebed7d68ab8ddfa"
             },
             "require": {
                 "php": "7.*"
@@ -8576,7 +8590,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2021-06-23T11:41:43+00:00"
+            "time": "2021-06-28T14:37:06+00:00"
         },
         {
             "name": "oander/module-email-additional-data",
@@ -10097,7 +10111,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "7f5cfc4efbba33d2731cbfd60b552dc7a934c204"
+                "reference": "5ef30d4b6abfb47088fa47699cb3927eee6e1f0e"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10113,7 +10127,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-06-28T08:20:02+00:00"
+            "time": "2021-06-28T15:00:04+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10367,6 +10381,20 @@
                 "twofish",
                 "x.509",
                 "x509"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/terrafrost",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpseclib",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
+                    "type": "tidelift"
+                }
             ],
             "time": "2021-06-12T12:12:59+00:00"
         },
@@ -14825,5 +14853,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

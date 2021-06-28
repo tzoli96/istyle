@@ -27,7 +27,7 @@ class Totals extends Template
      */
     public function getPrice()
     {
-        $subTotal = $this->cart->getQuote()->getSubtotal();
+        $subTotal = $this->cart->getQuote()->getBaseSubtotalWithDiscount();
         $grandTotal = $this->cart->getQuote()->getGrandTotal();
 
         return [
