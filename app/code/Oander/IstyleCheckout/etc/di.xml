@@ -4,4 +4,5 @@
         <plugin name="oander_istylecheckout_modified_checkout_layout_processor" type="Oander\IstyleCheckout\Plugin\Checkout\LayoutProcessor" sortOrder="1"/>
     </type>
     <preference for="Oander\FreeShippingDisplay\Block\FreeShipping" type="Oander\IstyleCheckout\Block\FreeShippingDisplay\FreeShipping"/>
+    <preference for="Magento\Checkout\Block\Cart\Coupon" type="Oander\IstyleCheckout\Block\Cart\Coupon"/>
 </config>

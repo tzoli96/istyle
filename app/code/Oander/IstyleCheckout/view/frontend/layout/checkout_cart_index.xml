@@ -33,9 +33,29 @@
             </container>
         </referenceContainer>
 
+        <referenceContainer name="checkout.cart.methods">
+            <block
+                class="Oander\IstyleCheckout\Block\Cart\Totals"
+                name="checkout.cart.only.grand.total.incl"
+                template="Oander_IstyleCheckout::cart/only-grand-total-incl.phtml"
+                before="-" />
+        </referenceContainer>
+
         <referenceBlock name="oander_free_shipping_display">
             <action method="setTemplate">
                 <argument name="template" xsi:type="string">Oander_IstyleCheckout::free-shipping-display/freeshipping.phtml</argument>
+            </action>
+        </referenceBlock>
+        
+        <referenceBlock name="checkout.cart.methods.onepage.bottom">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Oander_IstyleCheckout::onepage/link.phtml</argument>
+            </action>
+        </referenceBlock>
+
+        <referenceBlock name="checkout.cart.coupon">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Oander_IstyleCheckout::cart/coupon.phtml</argument>
             </action>
         </referenceBlock>
 

@@ -1,0 +1,22 @@
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<!-- ko if: isTaxDisplayedInGrandTotal && isDisplayed() -->
+<tr class="grand totals excl">
+  <th data-bind="i18n: exclTaxLabel" class="mark" colspan="1" scope="row"></th>
+  <td data-bind="attr: {'data-th': exclTaxLabel}" class="amount">
+      <span class="price" data-bind="text: getGrandTotalExclTax()"></span>
+  </td>
+</tr>
+<!-- /ko -->
+<!-- ko if: !isTaxDisplayedInGrandTotal && isDisplayed() -->
+<tr class="grand totals">
+  <th data-bind="i18n: title" class="mark" colspan="1" scope="row"></th>
+  <td data-bind="attr: {'data-th': title}" class="amount">
+      <span class="price" data-bind="text: getValue()"></span>
+  </td>
+</tr>
+<!-- /ko -->
