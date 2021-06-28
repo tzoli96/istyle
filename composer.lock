@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "69a835ca4a5ab821d0283397a0dfcf4e",
+    "content-hash": "4aa445a000c723be4b0bfc46758572c7",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -563,16 +563,16 @@
         },
         {
             "name": "bigfish/paymentgateway",
-            "version": "3.7.0",
+            "version": "3.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bigfish-hu/payment-gateway-php-sdk.git",
-                "reference": "506762cd71e6a01c004dc2a0903a729721aa269a"
+                "reference": "d2160dec3d2d1ee9557d6e5db378e973a57f0d17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/506762cd71e6a01c004dc2a0903a729721aa269a",
-                "reference": "506762cd71e6a01c004dc2a0903a729721aa269a",
+                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/d2160dec3d2d1ee9557d6e5db378e973a57f0d17",
+                "reference": "d2160dec3d2d1ee9557d6e5db378e973a57f0d17",
                 "shasum": ""
             },
             "require": {
@@ -601,7 +601,7 @@
                 "payment",
                 "webshop"
             ],
-            "time": "2021-01-07T05:48:48+00:00"
+            "time": "2021-05-26T05:40:01+00:00"
         },
         {
             "name": "bigfishpaymentgateway/pmgw",
@@ -9701,11 +9701,11 @@
         },
         {
             "name": "oander/module-twisto-pay",
-            "version": "1.0.0.4",
+            "version": "1.0.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-twisto-pay.git",
-                "reference": "778cd6dce1a72f5432708cca14a89f0cce9699c1"
+                "reference": "e186299e834de69b5a5678ae9a0d970ecc7a2fc5"
             },
             "require": {
                 "php": "7.*",
@@ -9724,7 +9724,7 @@
                 "proprietary"
             ],
             "description": "Twisto Pay payment method",
-            "time": "2021-06-22T07:40:42+00:00"
+            "time": "2021-06-28T04:55:55+00:00"
         },
         {
             "name": "oander/module-type-hint-fix",
@@ -10097,7 +10097,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "38cc5c2c9b8ddd0f9b559a43068f071b05ed3e1c"
+                "reference": "feef6697a050a1fd95f55ec1ce65feb81377c23b"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10113,7 +10113,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-06-22T08:41:28+00:00"
+            "time": "2021-06-25T09:04:51+00:00"
         },
         {
             "name": "oyejorge/less.php",
