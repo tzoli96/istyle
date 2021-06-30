@@ -20,10 +20,10 @@
         <?php if (!strlen($block->getCouponCode())) : ?>
           <div class="block block--new-coupon">
             <div class="block__title">
-              <?php echo __('Add coupon code'); ?>
+              <?php echo __('Do you have a discount coupon?'); ?>
             </div>
             <div class="block__input-group">
-              <input type="text" class="block__input input-text form-control input-discount" id="coupon_code" name="coupon_code" placeholder="<?php echo $block->escapeHtml(__('Add coupon code')); ?>" autofocus />
+              <input type="text" class="block__input input-text form-control input-discount" id="coupon_code" name="coupon_code" placeholder="<?php echo $block->escapeHtml(__('Coupon code')); ?>" autofocus />
               <span class="input-group-btn">
                 <button class="block__action action apply primary" type="button" value="<?php /* @escapeNotVerified */ echo __('Apply') ?>">
                   <span><?php /* @escapeNotVerified */ echo __('Apply') ?></span>
