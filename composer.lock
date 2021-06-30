@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "af385d3d14e258fe26f68707bc1d7924",
+    "content-hash": "d32dff00154ebf6ad92ddbafc53772b0",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -881,20 +881,6 @@
                 "certificate",
                 "ssl",
                 "tls"
-            ],
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
             ],
             "time": "2021-06-07T13:58:28+00:00"
         },
@@ -8179,11 +8165,11 @@
         },
         {
             "name": "oander/module-bundle-price-switcher",
-            "version": "dev-52560-fix",
+            "version": "1.0.1.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-bundle-price-switcher.git",
-                "reference": "10a22809b21ee0e0f77c76b996ded51c1d298311"
+                "reference": "a2101baedd44860188f6aae890af7292b1059e52"
             },
             "require": {
                 "oander/module-bundle": ">=1.0.3.2",
@@ -8201,7 +8187,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2021-06-23T06:48:46+00:00"
+            "time": "2021-06-30T10:36:36+00:00"
         },
         {
             "name": "oander/module-cardondeliverypayment",
@@ -9888,11 +9874,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.26.11",
+            "version": "1.4.26.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "392c621de681f2a098a6c5b25c3c6711018f1179"
+                "reference": "edd560ad242257356318ab55a8af11472e32912a"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9913,7 +9899,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2021-05-28T11:21:32+00:00"
+            "time": "2021-06-21T12:48:40+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
@@ -10381,20 +10367,6 @@
                 "twofish",
                 "x.509",
                 "x509"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/terrafrost",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/phpseclib",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
-                    "type": "tidelift"
-                }
             ],
             "time": "2021-06-12T12:12:59+00:00"
         },
@@ -14842,7 +14814,6 @@
         "composer/composer": 15,
         "innobyte/module-cetelem": 20,
         "oander/module-api-index": 20,
-        "oander/module-bundle-price-switcher": 20,
         "oander/module-configurable-product-attribute": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
@@ -14853,6 +14824,5 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }
