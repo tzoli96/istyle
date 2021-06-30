@@ -10,26 +10,21 @@
     </span>
   </div>
 
-  <div class="block block--under-cart-buttons"></div>
-
   <script>
     require([
       'jquery',
     ], function($) {
-      var underCartButtons = document.querySelector('.block.block--under-cart-buttons');
       var cartItems = document.querySelector('.col-form-cart');
       var cartButtons = document.querySelector('.block.block--cart-header-buttons');
-
-      underCartButtons.appendChild(cartButtons.cloneNode(true));
 
       var watchScroll = function() {
         var y = window.scrollY;
         var cartItemsHeight = Number(cartItems.offsetTop + cartItems.offsetHeight - 280);
 
         if (y >= 280 && y < cartItemsHeight) {
-          underCartButtons.classList.add('is-active');
+          cartButtons.classList.add('is-under');
         } else {
-          underCartButtons.classList.remove('is-active');
+          cartButtons.classList.remove('is-under');
         }
       };
 

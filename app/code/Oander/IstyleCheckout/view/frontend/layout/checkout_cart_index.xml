@@ -15,15 +15,21 @@
                 htmlClass="header header--cart"
                 before="-">
                 <container
-                    name="wrapper.cart.header.buttons.container"
-                    as="wrapper.cart.header.buttons.container"
+                    name="wrapper.cart.header.buttons.wrapper"
+                    as="wrapper.cart.header.buttons.wrapper"
                     htmlTag="div"
-                    htmlClass="block block--cart-header-buttons"
+                    htmlClass="block block--cart-header-wrapper"
                     after="wrapper.cart.header">
-                    <block
-                        class="Oander\IstyleCheckout\Block\Cart\Totals"
-                        name="wrapper.cart.header.buttons"
-                        template="Oander_IstyleCheckout::cart/header/buttons.phtml" />
+                    <container
+                        name="wrapper.cart.header.buttons.container"
+                        as="wrapper.cart.header.buttons.container"
+                        htmlTag="div"
+                        htmlClass="block block--cart-header-buttons">
+                        <block
+                            class="Oander\IstyleCheckout\Block\Cart\Totals"
+                            name="wrapper.cart.header.buttons"
+                            template="Oander_IstyleCheckout::cart/header/buttons.phtml" />
+                    </container>
                 </container>
                 <block
                     class="Oander\IstyleCheckout\Block\Cart\Totals"
