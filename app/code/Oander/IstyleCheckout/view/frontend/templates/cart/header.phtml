@@ -10,11 +10,16 @@
     </span>
   </div>
 
+  <div class="block block--under-cart-buttons">
+    <a href="<?php echo $block->getUrl("checkout"); ?>" class="action success" title="<?php echo __('Proceed to Checkout'); ?>"><?php echo __('Proceed to Checkout'); ?></a>
+  </div>
+
   <script>
     require([
       'jquery',
     ], function($) {
       var cartItems = document.querySelector('.col-form-cart');
+      var underCartButtons = document.querySelector('.block.block--under-cart-buttons');
       var cartButtons = document.querySelector('.block.block--cart-header-buttons');
 
       var watchScroll = function() {
@@ -22,9 +27,9 @@
         var cartItemsHeight = Number(cartItems.offsetTop + cartItems.offsetHeight - 280);
 
         if (y >= 280 && y < cartItemsHeight) {
-          cartButtons.classList.add('is-under');
+          underCartButtons.classList.add('is-active');
         } else {
-          cartButtons.classList.remove('is-under');
+          underCartButtons.classList.remove('is-active');
         }
       };
 

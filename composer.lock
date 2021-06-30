@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "04203d9a52b8d507b143d90be8b9cb85",
+    "content-hash": "3c7182a1d69fef4fb17038c9c798ecd8",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9715,11 +9715,11 @@
         },
         {
             "name": "oander/module-twisto-pay",
-            "version": "1.0.0.7",
+            "version": "1.0.0.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-twisto-pay.git",
-                "reference": "eb4933d6479b40a2bc79a9cfbb22a8fef734406f"
+                "reference": "6312976f6c3cfbc88799a65cdef75d6ec39bbc5d"
             },
             "require": {
                 "php": "7.*",
@@ -9738,7 +9738,7 @@
                 "proprietary"
             ],
             "description": "Twisto Pay payment method",
-            "time": "2021-06-28T13:04:37+00:00"
+            "time": "2021-06-30T17:12:52+00:00"
         },
         {
             "name": "oander/module-type-hint-fix",
@@ -10111,7 +10111,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "f4fa4d189c345e775be595c621311a47a83e81ba"
+                "reference": "c6d29c4ff14d86137c515d04dfc96375dfaad066"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10127,7 +10127,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-06-30T13:57:32+00:00"
+            "time": "2021-06-30T17:31:42+00:00"
         },
         {
             "name": "oyejorge/less.php",
