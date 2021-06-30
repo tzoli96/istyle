@@ -213,7 +213,8 @@
         "magento-force": "override",
         "patches": {
             "magento/product-community-edition": {
-                "Mstart curl header #42875": "patches/magento/mstart_curl_header.patch"
+                "Mstart curl header #42875": "patches/magento/mstart_curl_header.patch",
+                "Url replace Transaction RollBack #51122": "patches/magento/module-url-rewrite/51122_url_do_replace.patch"
             },
             "magento/module-catalog": {
                 "Image role fix #48758": "patches/magento/image_role_allstore_fix.patch"
