@@ -1,13 +1,8 @@
 diff --git a/vendor/magento/module-url-rewrite/Model/Storage/DbStorage.php b/vendor/magento/module-url-rewrite/Model/Storage/DbStorage.php
-index 4d71e76f..79ca777d 100644
+index 0974af41..8ada4379 100644
 --- a/vendor/magento/module-url-rewrite/Model/Storage/DbStorage.php
 +++ b/vendor/magento/module-url-rewrite/Model/Storage/DbStorage.php
-@@ -82,19 +82,129 @@ class DbStorage extends AbstractStorage
-     }
- 
-     /**
--     * {@inheritdoc}
-+     * @inheritDoc
+@@ -86,15 +86,123 @@ class DbStorage extends AbstractStorage
       */
      protected function doReplace($urls)
      {
@@ -57,8 +52,6 @@ index 4d71e76f..79ca777d 100644
 +            }
 +        } catch (\Exception $e) {
 +            $this->connection->rollBack();
-+            file_put_contents(BP . "/var/log/temp.log", date('Y-m-d H:i:s').' | \Magento\UrlRewrite\Model\Storage\DbStorage::doReplace Exception: '.var_export($e->getMessage(),true).PHP_EOL, FILE_APPEND | LOCK_EX);
-+
 +            throw $e;
          }
 -        $data = [];
@@ -73,7 +66,7 @@ index 4d71e76f..79ca777d 100644
 +     * @param  UrlRewrite[] $urls
 +     * @return void
 +     */
-+    private function deleteOldUrls(array $urls): void
++    private function deleteOldUrls(array $urls)
 +    {
 +        $oldUrlsSelect = $this->connection->select();
 +        $oldUrlsSelect->from(
@@ -99,7 +92,7 @@ index 4d71e76f..79ca777d 100644
 +
 +        // prevent query locking in a case when nothing to delete
 +        $checkOldUrlsSelect = clone $oldUrlsSelect;
-+        $checkOldUrlsSelect->reset(Select::COLUMNS);
++        $checkOldUrlsSelect->reset(\Magento\Framework\DB\Select::COLUMNS);
 +        $checkOldUrlsSelect->columns('count(*)');
 +        $hasOldUrls = (bool)$this->connection->fetchOne($checkOldUrlsSelect);
 +
@@ -119,7 +112,7 @@ index 4d71e76f..79ca777d 100644
 +     * @param  UrlRewrite[] $urls
 +     * @return array
 +     */
-+    private function prepareUniqueEntities(array $urls): array
++    private function prepareUniqueEntities(array $urls)
 +    {
 +        $uniqueEntities = [];
 +        /** @var UrlRewrite $url */
@@ -139,3 +132,12 @@ index 4d71e76f..79ca777d 100644
      }
  
      /**
+@@ -114,7 +222,7 @@ class DbStorage extends AbstractStorage
+                 && preg_match('#SQLSTATE\[23000\]: [^:]+: 1062[^\d]#', $e->getMessage())
+             ) {
+                 throw new \Magento\Framework\Exception\AlreadyExistsException(
+-                    __('URL key for specified store already exists.' . $e->getMessage())
++                    __('URL key for specified store already exists.')
+                 );
+             }
+             throw $e;
