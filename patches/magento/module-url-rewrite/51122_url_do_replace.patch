@@ -1,8 +1,13 @@
 diff --git a/vendor/magento/module-url-rewrite/Model/Storage/DbStorage.php b/vendor/magento/module-url-rewrite/Model/Storage/DbStorage.php
-index 0974af41..8ada4379 100644
+index 4d71e76f..1937b868 100644
 --- a/vendor/magento/module-url-rewrite/Model/Storage/DbStorage.php
 +++ b/vendor/magento/module-url-rewrite/Model/Storage/DbStorage.php
-@@ -86,15 +86,123 @@ class DbStorage extends AbstractStorage
+@@ -82,19 +82,128 @@ class DbStorage extends AbstractStorage
+     }
+ 
+     /**
+-     * {@inheritdoc}
++     * @inheritDoc
       */
      protected function doReplace($urls)
      {
@@ -52,6 +57,7 @@ index 0974af41..8ada4379 100644
 +            }
 +        } catch (\Exception $e) {
 +            $this->connection->rollBack();
++
 +            throw $e;
          }
 -        $data = [];
@@ -132,12 +138,3 @@ index 0974af41..8ada4379 100644
      }
  
      /**
-@@ -114,7 +222,7 @@ class DbStorage extends AbstractStorage
-                 && preg_match('#SQLSTATE\[23000\]: [^:]+: 1062[^\d]#', $e->getMessage())
-             ) {
-                 throw new \Magento\Framework\Exception\AlreadyExistsException(
--                    __('URL key for specified store already exists.' . $e->getMessage())
-+                    __('URL key for specified store already exists.')
-                 );
-             }
-             throw $e;
