@@ -38,12 +38,13 @@ class QuoteRepository
         $cartId,
         array $sharedStoreIds = []
     ) {
-
-        if ($this->registry->registry(self::QUOTE_REGISTRY . $cartId)) {
-            return $this->registry->registry(self::QUOTE_REGISTRY . $cartId);
+        $quote = $proceed($cartId,$sharedStoreIds);
+        if ($registryQuote = $this->registry->registry(self::QUOTE_REGISTRY . $cartId)) {
+            $quote->setShippingAddress($registryQuote->getShippingAddress());
+            $quote->setBillingAddress($registryQuote->getBillingAddress());
         }
 
-        return $proceed($cartId,$sharedStoreIds);
+        return $quote;
     }
 
     /**
