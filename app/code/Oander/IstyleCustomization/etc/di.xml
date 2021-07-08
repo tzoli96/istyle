@@ -114,5 +114,8 @@
     <type name="Magento\Quote\Model\QuoteRepository">
         <plugin name="IstyleCustomization::QuoteRepository" type="Oander\IstyleCustomization\Plugin\Magento\Quote\Model\QuoteRepository" sortOrder="1"/>
     </type>
+    <type name="Magento\Quote\Model\ResourceModel\Quote">
+        <plugin name="IstyleCustomization::ResourceModelQuote" type="Oander\IstyleCustomization\Plugin\Magento\Quote\Model\ResourceModel\Quote" sortOrder="1"/>
+    </type>
     <!-- #49441 END -->
 </config>

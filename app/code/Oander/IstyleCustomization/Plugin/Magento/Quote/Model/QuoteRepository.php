@@ -49,22 +49,6 @@ class QuoteRepository
 
     /**
      * @param \Magento\Quote\Model\QuoteRepository $subject
-     * @param \Closure $proceed
-     * @param \Magento\Quote\Api\Data\CartInterface $quote
-     */
-    public function aroundSave(
-        \Magento\Quote\Model\QuoteRepository $subject,
-        \Closure $proceed,
-        \Magento\Quote\Api\Data\CartInterface $quote
-    ) {
-        $proceed($quote);
-
-        $this->registry->unregister(self::QUOTE_REGISTRY . $quote->getId());
-        $this->registry->register(self::QUOTE_REGISTRY . $quote->getId(), $quote);
-    }
-
-    /**
-     * @param \Magento\Quote\Model\QuoteRepository $subject
      * @param \Magento\Quote\Api\Data\CartInterface $quote
      * @return \Magento\Quote\Api\Data\CartInterface[]
      */
@@ -73,6 +57,7 @@ class QuoteRepository
         \Magento\Quote\Api\Data\CartInterface $quote
     ) {
         $this->registry->unregister(self::QUOTE_REGISTRY . $quote->getId());
+
         return [$quote];
     }
 }
