@@ -1,0 +1,215 @@
+Index: /Model/ResourceModel/Quote/Item/Collection.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Model/ResourceModel/Quote/Item/Collection.php b/Model/ResourceModel/Quote/Item/Collection.php
+--- a/Model/ResourceModel/Quote/Item/Collection.php	(date 1487242776000)
++++ b/Model/ResourceModel/Quote/Item/Collection.php	(date 1487242776000)
+@@ -5,12 +5,20 @@
+  */
+ namespace Magento\Quote\Model\ResourceModel\Quote\Item;
+ 
++use Magento\Catalog\Api\Data\ProductInterface;
++use Magento\Catalog\Model\ResourceModel\Product\Collection as ProductCollection;
++use Magento\Catalog\Model\Product\Attribute\Source\Status as ProductStatus;
++use Magento\Quote\Model\Quote\Item as QuoteItem;
+ /**
+  * Quote item resource collection
+  */
+ class Collection extends \Magento\Framework\Model\ResourceModel\Db\VersionControl\Collection
+ {
+     /**
++     * @var bool $recollectQuote
++     */
++    private $recollectQuote = false;
++    /**
+      * Collection quote instance
+      *
+      * @var \Magento\Quote\Model\Quote
+@@ -168,10 +176,59 @@
+         $this->_assignOptions();
+         $this->_assignProducts();
+         $this->resetItemsDataChanged();
+-
++        $this->checkBunldeOptions();
+         return $this;
+     }
+ 
++
++    protected function checkBunldeOptions()
++    {
++        foreach($this as $item)
++        {
++            if ($item->getProduct()->getTypeID() == 'bundle') {
++                $bundleSelectionIds = $item->getProduct()->getCustomOption('bundle_selection_ids');
++                $bundleSelectionIds = unserialize($bundleSelectionIds->getValue());
++                if(!empty($bundleSelectionIds))
++                {
++                    if($this->hasInvalidBundleSelectionId($bundleSelectionIds,$item))
++                    {
++                        $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/active_quotes.log');
++                        $logger = new \Zend\Log\Logger();
++                        $logger->addWriter($writer);
++                        $logger->info("This item removed from quote " . $item->getProduct()->getSku());
++                        $item->delete();
++                    }
++                }
++            }
++        }
++    }
++
++    /**
++     * @param $bundleSelectionIds
++     * @param $item
++     * @return bool
++     */
++    private function hasInvalidBundleSelectionId($bundleSelectionIds, $item): bool
++    {
++        $valid = false;
++        foreach ($bundleSelectionIds as $selectionId) {
++            $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/active_quotes.log');
++            $logger = new \Zend\Log\Logger();
++            $logger->addWriter($writer);
++            $query = "SELECT * FROM catalog_product_bundle_selection WHERE selection_id=".$selectionId.";";
++            $row = $this->getConnection()->query($query);
++            $result = $row->fetch();
++
++            if (empty($result)) {
++                $logger->info("__ " . $item->getProduct()->getSku() . " this item has invalid selection id: " . $selectionId);
++                $valid = true;
++                break;
++            }
++        }
++
++        return $valid;
++    }
++
+     /**
+      * Add options to items
+      *
+@@ -224,42 +281,39 @@
+ 
+         $recollectQuote = false;
+         foreach ($this as $item) {
++            /** @var ProductInterface $product */
+             $product = $productCollection->getItemById($item->getProductId());
+-            if ($product) {
+-                $product->setCustomOptions([]);
+-                $qtyOptions = [];
+-                $optionProductIds = [];
+-                foreach ($item->getOptions() as $option) {
+-                    /**
+-                     * Call type-specific logic for product associated with quote item
+-                     */
+-                    $product->getTypeInstance()->assignProductToOption(
+-                        $productCollection->getItemById($option->getProductId()),
+-                        $option,
+-                        $product
+-                    );
+-
+-                    if (is_object($option->getProduct()) && $option->getProduct()->getId() != $product->getId()) {
+-                        $optionProductIds[$option->getProduct()->getId()] = $option->getProduct()->getId();
+-                    }
+-                }
+-
+-                if ($optionProductIds) {
+-                    foreach ($optionProductIds as $optionProductId) {
+-                        $qtyOption = $item->getOptionByCode('product_qty_' . $optionProductId);
+-                        if ($qtyOption) {
+-                            $qtyOptions[$optionProductId] = $qtyOption;
+-                        }
++            try {
++                /** @var QuoteItem $item */
++                $parentItem = $item->getParentItem();
++                $parentProduct = $parentItem ? $parentItem->getProduct() : null;
++            } catch (NoSuchEntityException $exception) {
++                $parentItem = null;
++                $parentProduct = null;
++                $this->_logger->error($exception);
++            }
++            $qtyOptions = [];
++            if ($this->isValidProduct($product) && (!$parentItem || $this->isValidProduct($parentProduct))) {
++                $product->setCustomOptions([]);
++                $optionProductIds = $this->getOptionProductIds($item, $product, $productCollection);
++                foreach ($optionProductIds as $optionProductId) {
++                    $qtyOption = $item->getOptionByCode('product_qty_' . $optionProductId);
++                    if ($qtyOption) {
++                        $qtyOptions[$optionProductId] = $qtyOption;
+                     }
+                 }
+-
+-                $item->setQtyOptions($qtyOptions)->setProduct($product);
+             } else {
+                 $item->isDeleted(true);
+-                $recollectQuote = true;
++                $this->recollectQuote = true;
+             }
+-            $item->checkData();
++            if (!$item->isDeleted()) {
++                $item->setQtyOptions($qtyOptions)->setProduct($product);
++                $item->checkData();
++            }
+         }
++        if ($this->recollectQuote && $this->_quote) {
++            $this->_quote->setTotalsCollectedFlag(false);
++        }
+ 
+         if ($recollectQuote && $this->_quote) {
+             $this->_quote->collectTotals();
+@@ -268,4 +322,55 @@
+ 
+         return $this;
+     }
++
++    /**
++     * Get product Ids from option.
++     *
++     * @param QuoteItem $item
++     * @param ProductInterface $product
++     * @param ProductCollection $productCollection
++     * @return array
++     */
++    private function getOptionProductIds(
++        QuoteItem $item,
++        ProductInterface $product,
++        ProductCollection $productCollection
++    ) {
++        $optionProductIds = [];
++        foreach ($item->getOptions() as $option) {
++            /**
++             * Call type-specific logic for product associated with quote item
++             */
++            $product->getTypeInstance()->assignProductToOption(
++                $productCollection->getItemById($option->getProductId()),
++                $option,
++                $product
++            );
++
++            if (is_object($option->getProduct()) && $option->getProduct()->getId() != $product->getId()) {
++                $isValidProduct = $this->isValidProduct($option->getProduct());
++                if (!$isValidProduct && !$item->isDeleted()) {
++                    $item->isDeleted(true);
++                    $this->recollectQuote = true;
++                    continue;
++                }
++                $optionProductIds[$option->getProduct()->getId()] = $option->getProduct()->getId();
++            }
++        }
++
++        return $optionProductIds;
++    }
++
++    /**
++     * Check is valid product.
++     *
++     * @param ProductInterface $product
++     * @return bool
++     */
++    private function isValidProduct(ProductInterface $product)
++    {
++        $result = ($product && (int)$product->getStatus() !== ProductStatus::STATUS_DISABLED);
++
++        return $result;
++    }
+ }

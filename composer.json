@@ -216,8 +216,7 @@
                 "Image role fix #48758": "patches/magento/image_role_allstore_fix.patch"
             },
             "magento/module-quote": {
-                "More active quote fix #49850": "patches/magento/module-quote/49850_tobbaktiv_quote.patch",
-                "requested option doesnt exits": "patches/magento/module-quote/requested_option_doesnt_exits.patch"
+                "requested option doesnt exits": "patches/magento/module-quote/requested_option.patch"
             },
             "magento/module-eav": {
                 "MAGETWO-71136 attribute-cache-fix #46266": "patches/magento/module-eav/46266_attribute_cache_fix_MAGETWO-71136.patch"
