@@ -47,4 +47,7 @@
     <preference for="Magento\Catalog\Pricing\Price\RegularPrice" type="Oander\IstyleBase\Pricing\RegularPrice"/>
     <preference for="Magento\Catalog\Pricing\Price\FinalPrice" type="Oander\IstyleBase\Pricing\FinalPrice"/>
     <preference for="Magento\Eav\Model\Entity\AttributeCache" type="Oander\IstyleBase\Model\Entity\AttributeCache"/>
+    <!-- Requested option doesn't exits -->
+    <preference for="Magento\Bundle\Model\Product\SaveHandler" type="Oander\IstyleBase\Plugin\Magento\Bundle\Model\Product\SaveHandler"/>
+    <preference for="Magento\Bundle\Controller\Adminhtml\Product\Initialization\Helper\Plugin\Bundle" type="Oander\IstyleBase\Plugin\Magento\Bundle\Controller\Adminhtml\Product\Initialization\Helper\Plugin\Bundle"/>
 </config>
