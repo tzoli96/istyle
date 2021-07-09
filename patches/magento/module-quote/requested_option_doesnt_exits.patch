@@ -1,0 +1,62 @@
+Index: /Model/ResourceModel/Quote/Item/Collection.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/vendor/magento/module-quote/Model/ResourceModel/Quote/Item/Collection.php b/vendor/magento/module-quote/Model/ResourceModel/Quote/Item/Collection.php
+--- a/Model/ResourceModel/Quote/Item/Collection.php	(date 1625638138913)
++++ b/Model/ResourceModel/Quote/Item/Collection.php	(date 1625638138913)
+
+@@ -176,10 +183,59 @@
+         $this->_assignOptions();
+         $this->_assignProducts();
+         $this->resetItemsDataChanged();
+-
++        $this->checkBunldeOptions();
+         return $this;
+     }
+ 
++
++    protected function checkBunldeOptions()
++    {
++        foreach($this as $item)
++        {
++            if ($item->getProduct()->getTypeID() == 'bundle') {
++                $bundleSelectionIds = $item->getProduct()->getCustomOption('bundle_selection_ids');
++                $bundleSelectionIds = unserialize($bundleSelectionIds->getValue());
++                if(!empty($bundleSelectionIds))
++                {
++                    if($this->hasInvalidBundleSelectionId($bundleSelectionIds,$item))
++                    {
++                        $item->delete();
++                    }
++                }
++            }
++        }
++    }
++
++    /**
++     * @param $bundleSelectionIds
++     * @param $item
++     * @return bool
++     */
++    private function hasInvalidBundleSelectionId($bundleSelectionIds, $item): bool
++    {
++        $valid = false;
++        foreach ($bundleSelectionIds as $selectionId) {
++            $query = "SELECT * FROM catalog_product_bundle_selection WHERE selection_id=".$selectionId.";";
++            $row = $this->getConnection()->query($query);
++            $result = $row->fetch();
++
++            if (empty($result)) {
++                $valid = true;
++                break;
++            }
++        }
++
++        return $valid;
++    }
++
+     /**
+      * Add options to items
+      *

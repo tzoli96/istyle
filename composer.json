@@ -212,15 +212,12 @@
     "extra": {
         "magento-force": "override",
         "patches": {
-            "magento/product-community-edition": {
-                "Mstart curl header #42875": "patches/magento/mstart_curl_header.patch",
-                "Url replace Transaction RollBack #51122": "patches/magento/module-url-rewrite/51122_url_do_replace.patch"
-            },
             "magento/module-catalog": {
                 "Image role fix #48758": "patches/magento/image_role_allstore_fix.patch"
             },
             "magento/module-quote": {
-                "More active quote fix #49850": "patches/magento/module-quote/49850_tobbaktiv_quote.patch"
+                "More active quote fix #49850": "patches/magento/module-quote/49850_tobbaktiv_quote.patch",
+                "requested option doesnt exits": "patches/magento/module-quote/requested_option_doesnt_exits.patch"
             },
             "magento/module-eav": {
                 "MAGETWO-71136 attribute-cache-fix #46266": "patches/magento/module-eav/46266_attribute_cache_fix_MAGETWO-71136.patch"
