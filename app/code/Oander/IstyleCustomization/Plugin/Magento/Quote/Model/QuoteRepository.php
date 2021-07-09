@@ -38,28 +38,13 @@ class QuoteRepository
         $cartId,
         array $sharedStoreIds = []
     ) {
-
-        if ($this->registry->registry(self::QUOTE_REGISTRY . $cartId)) {
-            return $this->registry->registry(self::QUOTE_REGISTRY . $cartId);
+        $quote = $proceed($cartId,$sharedStoreIds);
+        if ($registryQuote = $this->registry->registry(self::QUOTE_REGISTRY . $cartId)) {
+            $quote->setShippingAddress($registryQuote->getShippingAddress());
+            $quote->setBillingAddress($registryQuote->getBillingAddress());
         }
 
-        return $proceed($cartId,$sharedStoreIds);
-    }
-
-    /**
-     * @param \Magento\Quote\Model\QuoteRepository $subject
-     * @param \Closure $proceed
-     * @param \Magento\Quote\Api\Data\CartInterface $quote
-     */
-    public function aroundSave(
-        \Magento\Quote\Model\QuoteRepository $subject,
-        \Closure $proceed,
-        \Magento\Quote\Api\Data\CartInterface $quote
-    ) {
-        $proceed($quote);
-
-        $this->registry->unregister(self::QUOTE_REGISTRY . $quote->getId());
-        $this->registry->register(self::QUOTE_REGISTRY . $quote->getId(), $quote);
+        return $quote;
     }
 
     /**
@@ -72,6 +57,7 @@ class QuoteRepository
         \Magento\Quote\Api\Data\CartInterface $quote
     ) {
         $this->registry->unregister(self::QUOTE_REGISTRY . $quote->getId());
+
         return [$quote];
     }
 }

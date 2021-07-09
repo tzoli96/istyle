@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5be07a20c862bee603ac9d6f32dd8474",
+    "content-hash": "1ad4c6758768e2659cee6d377141950d",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1561,11 +1561,11 @@
         },
         {
             "name": "innobyte/module-cetelem",
-            "version": "dev-50046-ownshare-fix",
+            "version": "dev-52773-url-fix",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/innobyte-cetelem.git",
-                "reference": "8b8065ace017d34b2fc2a29b0e7622cc6b30e70a"
+                "reference": "e3aba59bd8c7ec91034a42bbfb92286041ee6a9b"
             },
             "require": {
                 "magento/module-checkout": "^100.1.2",
@@ -1581,7 +1581,7 @@
                 }
             },
             "description": "Innobyte Cetelem Module",
-            "time": "2021-05-05T17:01:13+00:00"
+            "time": "2021-07-06T09:03:03+00:00"
         },
         {
             "name": "innobyte/module-checkout-success",
@@ -8165,11 +8165,11 @@
         },
         {
             "name": "oander/module-bundle-price-switcher",
-            "version": "1.0.1.12",
+            "version": "1.0.1.13",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-bundle-price-switcher.git",
-                "reference": "a2101baedd44860188f6aae890af7292b1059e52"
+                "reference": "54395e71730fade3c8661997d4e57a6e8b9e4838"
             },
             "require": {
                 "oander/module-bundle": ">=1.0.3.2",
@@ -8187,7 +8187,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2021-06-30T10:36:36+00:00"
+            "time": "2021-07-07T14:58:47+00:00"
         },
         {
             "name": "oander/module-cardondeliverypayment",
@@ -8554,11 +8554,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.1.6.3",
+            "version": "1.1.6.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "0404174fca6366b5a204a55448aea7a15f01fb1c"
+                "reference": "91d99cc76ab98675900115562c65357ca79d878f"
             },
             "require": {
                 "php": "7.*"
@@ -8576,7 +8576,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2021-06-30T13:35:13+00:00"
+            "time": "2021-07-06T08:08:30+00:00"
         },
         {
             "name": "oander/module-email-additional-data",
@@ -10097,7 +10097,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "c6d29c4ff14d86137c515d04dfc96375dfaad066"
+                "reference": "446a61e8fdcde548aaec12ce97ee550deaec38f0"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10113,7 +10113,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-06-30T17:31:42+00:00"
+            "time": "2021-07-06T08:08:48+00:00"
         },
         {
             "name": "oyejorge/less.php",

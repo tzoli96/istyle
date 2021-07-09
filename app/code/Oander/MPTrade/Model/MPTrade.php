@@ -18,27 +18,30 @@ class MPTrade implements MPTradeInterface
      */
     protected $curlClient;
 
-    protected $endponint;
+    protected $endpoint;
 
     public function __construct(
         Helper $helper,
         Curl $curlClient
-    ){
+    ) {
         $this->helper = $helper;
-        $this->endponint = ($this->helper->getEnvironment()) ? $this->helper::LIVE_ENDPOINT_URL : $this->helper::TEST_ENDPOINT_URL;
+        $this->endpoint = ($this->helper->getEnvironment()) ? $this->helper::LIVE_ENDPOINT_URL : $this->helper::TEST_ENDPOINT_URL;
         $this->curlClient = $curlClient;
     }
 
-    public function getData($param)
+    /**
+     * @param string $param
+     * @param string $param2
+     * @param string $param3
+     * @return mixed|string
+     */
+    public function getData($param, $param2 = null, $param3 = null)
     {
-        $this->curlClient->addHeader("Authorization","Bearer ".$this->helper->getApiKey());
-        $this->curlClient->get($this->endponint.$param);
+        $params = implode('/', array_filter([$param,$param2,$param3]));
+        $this->curlClient->addHeader("Authorization","Token ".$this->helper->getApiKey());
+        $this->curlClient->get($this->endpoint.$params);
 
-        var_dump($this->curlClient);
-
-        die();
         return $this->curlClient->getBody();
-        // TODO: Implement getData() method.
     }
 
 }
