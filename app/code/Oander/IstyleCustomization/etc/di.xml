@@ -122,5 +122,6 @@
     <type name="Magento\CatalogUrlRewrite\Observer\ProductProcessUrlRewriteSavingObserver">
         <plugin name="Oander_IstyleCustomization_Plugin_Magento_CatalogUrlRewrite_Observer_ProductProcessUrlRewriteSavingObserver" type="Oander\IstyleCustomization\Plugin\Magento\CatalogUrlRewrite\Observer\ProductProcessUrlRewriteSavingObserver" sortOrder="10" disabled="false"/>
     </type>
+    <preference for="Magento\UrlRewrite\Model\Storage\DbStorage" type="Oander\IstyleCustomization\Rewrite\Magento\UrlRewrite\Model\Storage\DbStorage"/>
     <!-- #52805 END -->
 </config>
