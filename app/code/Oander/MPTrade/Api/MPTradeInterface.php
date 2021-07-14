@@ -11,4 +11,9 @@ interface MPTradeInterface
      * @return mixed
      */
     public function getData($param, $param2 = null, $param3 = null);
+
+    /**
+     * @return mixed
+     */
+    public function postData();
 }

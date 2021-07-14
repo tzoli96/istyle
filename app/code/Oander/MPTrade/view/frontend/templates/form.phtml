@@ -1,13 +1,806 @@
 <?php
 $helper = $this->getHelper();
-
-if ($helper->isEnabled() !== true) {
-    echo('<strong>Extension is disabled</strong>');
-    return;
-}
-
-if (!$helper->getApiKey()) {
-    echo('<strong>Please, enter API key in Stores configuration > Oander > MPTrade</strong>');
-    return;
-}
 ?>
+
+<?php if ($helper->isEnabled()) : ?>
+  <div id="mptrade" class="d-none">
+    <section class="section section--mptrade">
+      <div class="section__content">
+        <div class="block block--select-device">
+          <h1 class="block__title"><?= __('Select your device'); ?></h1>
+          <p class="block__lead"><?= __('Remember that the purchase prices listed are indicative. You can always find out the final amount at the store.'); ?></p>
+
+          <div class="block__content">
+            <div class="row row--select-step-one">
+              <div class="col-md-4">
+                <div class="col-select">
+                  <select
+                    class="block__select outline-dark"
+                    name="device-type"
+                    id="device-type"
+                    @change="setType">
+                    <option value=""><?= __('Select a type'); ?></option>
+                    <option
+                      v-for="(type, index) in device.types"
+                      :key="type.pk"
+                      :value="type.seo_name">
+                      {{ translateString(type.name) }}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="col-select">
+                  <select
+                    class="block__select outline-dark"
+                    name="device-brand"
+                    id="device-brand"
+                    :disabled="!device.brands.length"
+                    @change="setBrand">
+                    <option value=""><?= __('Select a brand'); ?></option>
+                    <option
+                      v-for="(brand, index) in device.brands"
+                      :key="brand.pk"
+                      :value="brand.seo_name">
+                      {{ translateString(brand.name) }}
+                    </option>
+                  </select>
+                  <div class="select-loader select-loader--brand">
+                    <img src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/loader-1.gif'); ?>">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="col-select">
+                  <select
+                    class="block__select outline-dark"
+                    name="device-model"
+                    id="device-model"
+                    :disabled="!device.models.length"
+                    @change="setModel">
+                    <option value=""><?= __('Select a model'); ?></option>
+                    <option
+                      v-for="(model, index) in device.models"
+                      :key="model.pk"
+                      :value="model.seo_name">
+                      {{ translateString(model.name) }}
+                    </option>
+                  </select>
+                  <div class="select-loader select-loader--model">
+                    <img src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/loader-1.gif'); ?>">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="block-loader block-loader--colors">
+              <img src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/loader-1.gif'); ?>">
+            </div>
+            <div
+              v-if="device.colors.length"
+              id="select-color"
+              class="row row--select-color">
+              <div class="col-md-12">
+                <p class="row__lead"><?= __('Choose your finish.') ?></p>
+              </div>
+              <div class="col-md-12">
+                <div class="block block--choose-color">
+                  <div
+                    v-for="item in device.colors"
+                    :key="item.pk"
+                    class="block__item"
+                    :class="(selected.device.color == item.seo_name) ? 'selected' : ''"
+                    @click="setColor(item.seo_name)">
+                    <div class="block__figure">
+                      <img
+                        :src="imgUrl + item.image"
+                        :alt="item.name"
+                        :title="item.name"
+                        class="block__img" />
+                    </div>
+                    <div class="block__title">
+                      {{ translateString(item.color.name) }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="block-loader block-loader--appraisals">
+              <img src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/loader-1.gif'); ?>">
+            </div>
+            <div
+              v-if="device.appraisals.length != 0"
+              id="select-appraisal"
+              class="row row--select-appraisal">
+              <div class="col-md-12">
+                <h1 class="row__title"><?= __('Select the status of your device') ?></h1>
+                <p class="row__lead"><?= __('To the best of your knowledge, please place your device into one of the following categories.') ?></p>
+
+                <div class="block block--choose-appraisal">
+                  <div
+                    v-for="item in sortedAppraisals"
+                    :key="item.id"
+                    class="block__item"
+                    :class="(selected.device.appraisal.value == item.id) ? 'selected' : ''"
+                    @click="setAppraisal(item.id, item.default_device_condition_choices)">
+                    <div class="block__title">
+                      {{ translateString(item.device_state_name) }}
+                    </div>
+                    <p class="block__lead" :class="getQualityByLowerCase(item.quality)">
+                      {{ translateString(item.device_state_description) }}
+                    </p>
+                    <p class="block__description" v-html="translateString(item.device_state_short_description)"></p>
+                    <div class="block__price">
+                      <span class="block__price-label">
+                        <?= __('Your purchase price'); ?>
+                      </span>
+                      <span class="block__price-value">
+                        {{ formatPrice(item.price) }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <form
+              v-if="selected.device.appraisal.value">
+              <div class="row row--form">
+                  <div class="col-lg-6 col-form-dynamic">
+                    <h2 class="row__title"><?= __('Detailed status of the device') ?></h2>
+                    <div
+                      v-for="(item, index) in device.appraisals.device_conditions"
+                      :key="item.id"
+                      class="form-group">
+                      <div v-if="item.type == 'boolean' || item.type == 'list'" class="form-label">
+                        <div class="form-info-content" v-html="translateString(item.help_text)"></div>
+                        <label for="">
+                          {{ translateString(item.name) }}
+                          <span class="form-info-icon"></span>
+                        </label>
+                      </div>
+                      <div class="form-value">
+                        <div
+                          v-if="item.type == 'boolean'"
+                          class="form-item">
+                          <div
+                            v-for="choice in item.choices"
+                            :key="choice.value"
+                            class="form-choice">
+                            <input type="radio" :name="item.id" :id="choice.value" :value="choice.value" v-model="dynamicForm[item.id]" :checked="selectByValue(choice.value, item.id)" @change="validateAppraisal(item.id, choice.value)">
+                            <label :for="item.id">{{ choice.label }}</label>
+                          </div>
+                        </div>
+                        <div
+                          v-if="item.type == 'list'"
+                          class="form-item">
+                          <select
+                            class="outline-dark"
+                            name="select"
+                            id="select"
+                            v-model="dynamicForm[item.id]"
+                            @change="validateAppraisal">
+                            <option
+                              v-for="choice in item.choices"
+                              :key="choice.value"
+                              :value="choice.value"
+                              :selected="dynamicForm[item.id] == choice.value">
+                              {{ choice.label }}
+                            </option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-form">
+                    <h2 class="row__title"><?= __('Billing information') ?></h2>
+                    <div
+                      v-for="(form, index) in form.top"
+                      :key="form.name"
+                      class="form-group">
+                      <label :for="form.name">{{ translateString(form.title) }}</label>
+                      <div v-if="form.type == 'input'" class="field">
+                        <input type="text" class="form-control" :class="(form.error) ? 'mage-error' : ''" :id="form.name" v-model="form.value" :placeholder="translateString(form.placeholder)" @keyup="sendButtonState">
+                        <div v-if="form.error" class="mage-error">{{ form.error }}</div>
+                      </div>
+                      <div v-if="form.type == 'textarea'" class="field">
+                        <textarea class="form-control" :class="(form.error) ? 'mage-error' : ''" :id="form.name" rows="4" v-model="form.value" :placeholder="translateString(form.placeholder)" @keyup="sendButtonState"></textarea>
+                        <div v-if="form.error" class="mage-error">{{ form.error }}</div>
+                      </div>
+                    </div>
+                    <div class="row__form-groups">
+                      <div
+                        v-for="(form, index) in form.other"
+                        :key="form.name"
+                        class="form-group">
+                        <label :for="form.name">{{ translateString(form.title) }}</label>
+                        <div v-if="form.type == 'input'" class="field">
+                          <input type="text" class="form-control" :class="(form.error) ? 'mage-error' : ''" :id="form.name" v-model="form.value" :placeholder="translateString(form.placeholder)" @keyup="sendButtonState">
+                          <div v-if="form.error" class="mage-error">{{ form.error }}</div>
+                        </div>
+                        <div v-if="form.type == 'select' && form.name == 'gender'" class="field">
+                          <select
+                            class="outline-dark"
+                            :class="(form.error) ? 'mage-error' : ''"
+                            :name="form.name"
+                            :id="form.name"
+                            v-model="form.value"
+                            @change="setGender, sendButtonState">
+                            <option value=""><?= __('Choose an option') ?></option>
+                            <option
+                              v-for="item in device.genders"
+                              :key="item.identifier"
+                              :value="item.identifier">
+                              {{ item.description }}
+                            </option>
+                          </select>
+                          <div v-if="form.error" class="mage-error">{{ form.error }}</div>
+                        </div>
+                        <div v-if="form.type == 'select' && form.name == 'country_identifier'" class="field">
+                          <select
+                            class="outline-dark"
+                            :class="(form.error) ? 'mage-error' : ''"
+                            :name="form.name"
+                            :id="form.name"
+                            v-model="form.value"
+                            @change="setCountry, sendButtonState">
+                            <option value=""><?= __('Choose an option') ?></option>
+                            <option
+                              v-for="item in device.countries"
+                              :key="item.identifier"
+                              :value="item.identifier">
+                              {{ item.description }}
+                            </option>
+                          </select>
+                          <div v-if="form.error" class="mage-error">{{ form.error }}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    v-if="!success"
+                    type="button"
+                    class="action primary send-form w-100"
+                    :class="(!sendFormAvailable || appraisalError) ? 'disabled' : ''"
+                    @click="sendForm">
+                    <span><?= __('Send form') ?></span>
+                    <img src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('svg/loader-white.svg'); ?>">
+                  </button>
+              </div>
+            </form>
+
+            <div
+              v-if="appraisalError"
+              class="block block--appraisal-error">
+              <p><?= __('Sorry, the specified product does not have the required quality defined.') ?></p>
+              <p><?= __('Purchase cannot be completed.') ?></p>
+            </div>
+
+            <div
+              v-if="buyoutCode"
+              class="block block--successful">
+              <p><?= __('Form submit was successful.') ?></p>
+              <p class="buyout-id"><?= __('Your Buyout ID:') ?> {{ buyoutCode }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    require([
+      'vue',
+      'Oander_MPTrade/js/src/fetchData',
+      'Oander_MPTrade/js/helpers',
+      'jquery',
+      'mage/calendar'
+    ], function(Vue, fetchData, helpers, $) {
+      'use strict';
+
+      return new Vue({
+        el: '#mptrade',
+        data: {
+          endpoint: '<?= $helper->getMagentoEndpoint(); ?>',
+          imgUrl: 'https://mp.cz',
+          error: '',
+          device: {
+            types: [], brands: [], models: [], colors: [], appraisals: [], genders: [], countries: [],
+          },
+          selected: {
+            device: {
+              type: '',
+              brand: '',
+              model: '',
+              color: '',
+              appraisal: {
+                value: '',
+                choices: [],
+              },
+            },
+          },
+          form: {
+            top: [
+              { name: 'imei', title: 'IMEI number', type: 'input', placeholder: 'ex.: 351756051523999', required: true, value: '', error: '' },
+              { name: 'notes', title: 'Comment', type: 'textarea', placeholder: 'Comment', required: false, value: '', error: '' },
+            ],
+            other: [
+              { name: 'personal_identification_number', title: 'Date of birth', type: 'input', placeholder: 'ex.: 1989.01.21.', required: true, value: '', error: '' },
+              { name: 'identity_card_number', title: 'ID or Passport no.', type: 'input', placeholder: 'ex.: BH36599883.', required: true, value: '', error: '' },
+              { name: 'identity_released_by', title: 'Issue the doc', type: 'input', placeholder: 'ex.: Olomouc', required: true, value: '', error: '' },
+              { name: 'identity_valid_to', title: 'Date of expiry (ID)', type: 'input', placeholder: 'ex.: 2019.06.01.', required: true, value: '', error: '' },
+              { name: 'first_name', title: 'Surname', type: 'input', placeholder: 'ex.: Appleseed', required: true, value: '', error: '' },
+              { name: 'last_name', title: 'Given name', type: 'input', placeholder: 'ex.: Johnny', required: true, value: '', error: '' },
+              { name: 'degree_before_name', title: 'Title', type: 'input', placeholder: 'ex.: Sir', required: false, value: '', error: '' },
+              { name: 'gender', title: 'Sex', type: 'select', required: true, value: '', error: '' },
+              { name: 'country_identifier', title: 'Country', type: 'select', required: true, value: '', error: '' },
+              { name: 'city', title: 'City', type: 'input', placeholder: 'ex.: Budapest', required: true, value: '', error: '' },
+              { name: 'postcode', title: 'Postal code', type: 'input', placeholder: 'ex.: 1033', required: true, value: '', error: '' },
+              { name: 'street', title: 'Address', type: 'input', placeholder: 'ex.: Ángel Sanz Briz út 3.', required: true, value: '', error: '' },
+              { name: 'place_of_birth', title: 'Place of birth', type: 'input', placeholder: 'ex.: Budapest', required: true, value: '', error: '' },
+              { name: 'nationality', title: 'Citizenship', type: 'input', placeholder: 'ex.: Hungary', required: true, value: '', error: '' },
+              { name: 'phone_number', title: 'Phone number', type: 'input', placeholder: 'ex.: +36 (20) 123 4567', required: true, value: '', error: '' },
+              { name: 'e_mail', title: 'E-mail address', type: 'input', placeholder: 'ex.: marginseeker@istyle.eu', required: true, value: '', error: '' },
+            ],
+          },
+          dynamicForm: [],
+          sendFormAvailable: false,
+          appraisalError: false,
+          buyoutCode: '',
+          success: false,
+        },
+        computed: {
+          sortedAppraisals() {
+            let appraisalResult = this.device.appraisals.appraisal_result;
+            return (appraisalResult) ? appraisalResult.sort((a, b) => b.price - a.price) : '';
+          }
+        },
+        methods: {
+          getTypes() {
+            fetchData.getData(`${this.endpoint}/product-categories/`)
+              .then(data => {
+                this.device.types = JSON.parse(data);
+                document.querySelector('#mptrade').classList.remove('d-none');
+              })
+              .catch(err => this.error);
+          },
+          setType(e) {
+            if (e.target.value) {
+              this.selected.device.type = e.target.value;
+              this.getBrands();
+            }
+            else {
+              this.selected.device.type = '';
+            }
+
+            this.clearDataByBlock('type');
+          },
+
+          getBrands() {
+            document.querySelector('.select-loader--brand').classList.add('is-active');
+            fetchData.getData(`${this.endpoint}/type-manufacturers/${this.selected.device.type}/`)
+              .then(data => {
+                this.device.brands = JSON.parse(data);
+                document.querySelector('.select-loader--brand').classList.remove('is-active');
+              })
+              .catch(err => this.error);
+          },
+          setBrand(e) {
+            if (e.target.value) {
+              this.selected.device.brand = e.target.value;
+              this.getModels();
+            }
+            else {
+              this.selected.device.brand = '';
+            }
+
+            this.clearDataByBlock('brand');
+          },
+
+          getModels() {
+            document.querySelector('.select-loader--model').classList.add('is-active');
+            fetchData.getData(`${this.endpoint}/master-products/${this.selected.device.type}/${this.selected.device.brand}/`)
+              .then(data => {
+                this.device.models = JSON.parse(data);
+                document.querySelector('.select-loader--model').classList.remove('is-active');
+              })
+              .catch(err => this.error);
+          },
+          setModel(e) {
+            if (e.target.value) {
+              this.selected.device.model = e.target.value;
+              this.getColors();
+
+              helpers.scrollTo('.row--select-color', 140);
+            }
+            else {
+              this.selected.device.model = '';
+            }
+
+            this.clearDataByBlock('model');
+          },
+
+          getColors() {
+            document.querySelector('.block-loader--colors').classList.add('is-active');
+            fetchData.getData(`${this.endpoint}/product-colors/${this.selected.device.model}/`)
+              .then(data => {
+                this.device.colors = JSON.parse(data);
+                document.querySelector('.block-loader--colors').classList.remove('is-active');
+              })
+              .catch(err => this.error);
+          },
+          setColor(seoName) {
+            this.selected.device.color = seoName;
+            this.clearDataByBlock('color');
+            this.getAppraisals();
+
+            helpers.scrollTo('.row--select-appraisal', 140);
+          },
+
+          getAppraisals() {
+            document.querySelector('.block-loader--appraisals').classList.add('is-active');
+            fetchData.getData(`${this.endpoint}/appraisal/${this.selected.device.color}`)
+              .then(data => {
+                this.device.appraisals = JSON.parse(data);
+                document.querySelector('.block-loader--appraisals').classList.remove('is-active');
+              })
+              .catch(err => this.error);
+          },
+          setAppraisal(appraisal, values) {
+            this.selected.device.appraisal.value = appraisal;
+            this.selected.device.appraisal.choices = values;
+
+            this.dynamicForm = [];
+
+            for (let item of this.device.appraisals.device_conditions) {
+              for (let choice of item.choices) {
+                for (let value of values) {
+                  if (choice.value == value) this.dynamicForm[item.id] = value;
+                }
+              }
+            }
+
+            this.getGenders();
+            this.getCountries();
+
+            helpers.scrollTo('.row--form', 60);
+
+            this.getCalendar('personal_identification_number');
+            this.getCalendar('identity_valid_to');
+          },
+
+          getCalendar(item) {
+            var formOther = this.form.other;
+            var settings = {
+              changeMonth: true,
+              changeYear: true,
+              dateFormat: 'yy-mm-dd',
+              maxDate: '+20y'
+            };
+
+            var checkItem = setInterval(function () {
+              if ($('#' + item).length) {
+                $('#' + item).datepicker(settings);
+
+                $('#' + item).on('change', function () {
+                  for (let o of formOther) {
+                    if (o.name == item) o.value = $(this).val();
+                  }
+                });
+
+                clearInterval(checkItem);
+              }
+            }, 500);
+          },
+
+          getGenders() {
+            if (!this.device.genders.length) {
+              fetchData.getData(`${this.endpoint}/type-genders/`)
+                .then(data => this.device.genders = JSON.parse(data))
+                .catch(err => this.error);
+            }
+          },
+          setGender(e) {
+            this.selected.device.gender = e.target.value;
+          },
+
+          getCountries() {
+            if (!this.device.countries.length) {
+              fetchData.getData(`${this.endpoint}/type-countries/`)
+                .then(data => this.device.countries = JSON.parse(data))
+                .catch(err => this.error);
+            }
+          },
+          setCountry(e) {
+            this.selected.device.country = e.target.value;
+          },
+
+          selectByValue(value, itemKey) {
+            for (let choice of this.selected.device.appraisal.choices) {
+              if (choice === value) return true;
+            }
+          },
+
+          formatPrice(price) {
+            return helpers.getFormattedPrice(price);
+          },
+
+          translateString(string) {
+            return helpers.translateString(string);
+          },
+
+          getQualityByLowerCase(string) {
+            return string.replace('+', 'plus').toLowerCase();
+          },
+
+          arr_diff(a1, a2) {
+            var a = [], diff = [];
+
+            for (var i = 0; i < a1.length; i++) {
+              a[a1[i]] = true;
+            }
+
+            for (var i = 0; i < a2.length; i++) {
+              if (a[a2[i]]) {
+                delete a[a2[i]];
+              } else {
+                a[a2[i]] = true;
+              }
+            }
+
+            for (var k in a) {
+              diff.push(k);
+            }
+
+            return diff;
+          },
+
+          validateAppraisal() {
+            let hasAppraisal = '';
+            let dynamicItems = [];
+
+            for (let d in this.dynamicForm) {
+              dynamicItems.push(this.dynamicForm[d]);
+            }
+
+            for (let result of this.device.appraisals.appraisal_result) {
+              let choices = result.default_device_condition_choices.sort();
+              let items = dynamicItems.sort();
+
+              if (choices.length == 12 && items.length > 12) {
+                let diff = this.arr_diff(choices, items);
+
+                if (diff.length == 1 || diff.length == 2) {
+                  let diffIndex = items.findIndex(i => {
+                    return i == diff;
+                  });
+
+                  for (let d in diffIndex) {
+                    items.splice(diffIndex[d], 1);
+                  }
+                }
+              }
+
+              if (JSON.stringify(choices) == JSON.stringify(items)) hasAppraisal = result.id;
+            }
+
+            if (hasAppraisal) {
+              this.appraisalError = false;
+            }
+            else {
+              this.appraisalError = true;
+              helpers.scrollTo('.block--appraisal-error', 0);
+            }
+          },
+
+          clearAppraisal() {
+            this.selected.device.appraisal.value = '';
+            this.selected.device.appraisal.choices = [];
+          },
+
+          clearForm() {
+            for (let t of this.form.top) {
+              t.value = '';
+            }
+
+            for (let o of this.form.other) {
+              o.value = '';
+            }
+
+            this.dynamicForm = [];
+          },
+
+          clearDataByBlock(block) {
+            switch (block) {
+              case 'type':
+                for (let d in this.device) {
+                  if (d != 'types') this.device[d] = [];
+                }
+
+                for (let s in this.selected.device) {
+                  if (s != 'type' && s != 'appraisal') this.selected.device[s] = '';
+                }
+
+                this.clearAppraisal();
+                this.clearForm();
+
+                break;
+
+              case 'brand':
+                for (let d in this.device) {
+                  if (d != 'types' && d != 'brands') this.device[d] = [];
+                }
+
+                for (let s in this.selected.device) {
+                  if (s != 'type' && s != 'brand' && s != 'appraisal') this.selected.device[s] = '';
+                }
+
+                this.clearAppraisal();
+                this.clearForm();
+
+                break;
+
+              case 'model':
+                for (let d in this.device) {
+                  if (d != 'types' && d != 'brands' && d != 'models') this.device[d] = [];
+                }
+
+                for (let s in this.selected.device) {
+                  if (s != 'type' && s != 'brand' && s != 'model' && s != 'appraisal') this.selected.device[s] = '';
+                }
+
+                this.clearAppraisal();
+                this.clearForm();
+
+                break;
+
+              case 'color':
+                for (let d in this.device) {
+                  if (d != 'types' && d != 'brands' && d != 'models' && d != 'colors') this.device[d] = [];
+                }
+
+                for (let s in this.selected.device) {
+                  if (s != 'type' && s != 'brand' && s != 'model' && s != 'color' && s != 'appraisal') this.selected.device[s] = '';
+                }
+
+                this.clearAppraisal();
+                this.clearForm();
+
+                break;
+            }
+          },
+
+          sendButtonState() {
+            let hasEmptyValue = false;
+
+            for (let d of this.form.top) {
+              if (!d.value && d.required) {
+                hasEmptyValue = false;
+              }
+              else {
+                hasEmptyValue = true;
+              }
+            }
+
+            for (let o of this.form.other) {
+              if (!o.value && o.required) {
+                hasEmptyValue = false;
+              }
+              else {
+                hasEmptyValue = true;
+              }
+            }
+
+            this.sendFormAvailable = hasEmptyValue;
+          },
+
+          getFormData() {
+            let data = {};
+            data['buyout_device'] = {};
+            data['customer_data'] = {};
+            data['device_condition_choices'] = [];
+
+            data['user_buyout_code'] = '';
+            data['appraisal_version'] = this.device.appraisals.version;
+            data['device_identifier'] = this.selected.device.color;
+            data['device_type'] = this.selected.device.type;
+
+            for (let d of this.form.top) {
+              data['buyout_device'][d.name] = d.value;
+
+              if (d.name == 'notes') data['note'] = d.value;
+            }
+
+            for (let o of this.form.other) {
+              data['customer_data'][o.name] = o.value;
+            }
+
+            for (let c in this.selected.device.appraisal.choices) {
+              data['device_condition_choices'].push(this.selected.device.appraisal.choices[c]);
+            }
+
+            data['customer_data']['bank_account_full_number'] = '00-0000000000';
+            data['customer_data']['bank_code'] = '0300';
+
+            return data;
+          },
+
+          async sendForm() {
+            const newEndpoint = this.endpoint.replace('mptrade', 'mptrade-buyout');
+
+            document.querySelector('.send-form').classList.add('is-loading');
+
+            try {
+              const res = await fetch(newEndpoint, {
+                method: 'POST',
+                headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(this.getFormData()),
+              });
+
+              const data = await res.json();
+
+              if (JSON.parse(data).user_buyout_code) {
+                this.success = true;
+                this.buyoutCode = JSON.parse(data).user_buyout_code;
+                this.clearError();
+                helpers.scrollTo('.block--successful', 0);
+                document.querySelector('.send-form').classList.remove('is-loading');
+              }
+              else {
+                this.errorHandling(data);
+                document.querySelector('.send-form').classList.remove('is-loading');
+              }
+            }
+            catch (e) {
+              this.error = e;
+            }
+          },
+
+          clearError() {
+            for (let t in this.form.top) {
+              this.form.top[t].error = '';
+            }
+
+            for (let o in this.form.other) {
+              this.form.other[o].error = '';
+            }
+          },
+
+          errorHandling(response) {
+            let res = JSON.parse(response);
+
+            this.clearError();
+
+            if (res.buyout_device) {
+              for (let r in res.buyout_device) {
+                for (let t in this.form.top) {
+                  if (r == this.form.top[t].name) {
+                    this.form.top[t].error = this.translateString(res.buyout_device[r].toString());
+                  }
+                }
+              }
+            }
+
+            if (res.customer_data) {
+              for (let r in res.customer_data) {
+                for (let o in this.form.other) {
+                  if (r == this.form.other[o].name) {
+                    this.form.other[o].error = this.translateString(res.customer_data[r].toString());
+                  }
+                }
+              }
+            }
+          },
+        },
+        created: function() {
+          this.getTypes();
+          helpers.toggleInfo();
+        },
+      });
+    });
+  </script>
+<?php endif; ?>

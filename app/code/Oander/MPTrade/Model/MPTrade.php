@@ -5,6 +5,7 @@ namespace Oander\MPTrade\Model;
 use Oander\MPTrade\Api\MPTradeInterface;
 use Oander\MPTrade\Helper\Data as Helper;
 use Magento\Framework\HTTP\Client\Curl;
+use Magento\Framework\Webapi\Rest\Request;
 
 class MPTrade implements MPTradeInterface
 {
@@ -18,15 +19,22 @@ class MPTrade implements MPTradeInterface
      */
     protected $curlClient;
 
+    /**
+     * @var Request
+     */
+    protected $request;
+
     protected $endpoint;
 
     public function __construct(
         Helper $helper,
-        Curl $curlClient
+        Curl $curlClient,
+        Request $request
     ) {
         $this->helper = $helper;
         $this->endpoint = ($this->helper->getEnvironment()) ? $this->helper::LIVE_ENDPOINT_URL : $this->helper::TEST_ENDPOINT_URL;
         $this->curlClient = $curlClient;
+        $this->request = $request;
     }
 
     /**
@@ -44,4 +52,28 @@ class MPTrade implements MPTradeInterface
         return $this->curlClient->getBody();
     }
 
+    public function postData()
+    {
+        $data = $this->request->getBodyParams();
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $this->endpoint . 'buyout');
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Authorization: Token '.$this->helper->getApiKey(),
+                'Content-Type: application/json'
+            ]
+        );
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+
+        $result = curl_exec($ch);
+        curl_close($ch);
+
+        if ($result === false) {
+            return false;
+        } else {
+           return $result;
+        }
+    }
 }
