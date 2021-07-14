@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "14fcb0235b858c034efb75fdca0f0dd2",
+    "content-hash": "8b74b6f4b04b88ced6e7ea4acc70e68f",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8567,11 +8567,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.1.6.5",
+            "version": "1.1.3.20",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "91d99cc76ab98675900115562c65357ca79d878f"
+                "reference": "c89bae38e6fac8dffd884802114fd1d9f1497e9e"
             },
             "require": {
                 "php": "7.*"
@@ -8589,7 +8589,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2021-07-06T08:08:30+00:00"
+            "time": "2021-07-14T13:17:32+00:00"
         },
         {
             "name": "oander/module-email-additional-data",
@@ -10110,7 +10110,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "f2a44909132e6a0cb3b44066e95c5d6a6f84eefb"
+                "reference": "e02ca7efe9b188b92626607657cfa15aad610fa2"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10126,7 +10126,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-07-14T11:44:17+00:00"
+            "time": "2021-07-14T13:18:33+00:00"
         },
         {
             "name": "oyejorge/less.php",

@@ -291,15 +291,15 @@ $helper = $this->getHelper();
 
   <script>
     require([
-      'vue',
+      'Oander_MPTrade/js/vue.min',
       'Oander_MPTrade/js/src/fetchData',
       'Oander_MPTrade/js/helpers',
       'jquery',
       'mage/calendar'
-    ], function(Vue, fetchData, helpers, $) {
+    ], function(Vue2, fetchData, helpers, $) {
       'use strict';
 
-      return new Vue({
+      return new Vue2({
         el: '#mptrade',
         data: {
           endpoint: '<?= $helper->getMagentoEndpoint(); ?>',
