@@ -37,14 +37,20 @@ define([
 
     toggleInfo: function () {
       $(document).on('click', '.form-info-icon', function (e) {
-        var info = $(this).closest('.form-label').find('.form-info-content:not(.is-active)');
-        $('.form-info-content.is-active').removeClass('is-active');
-        info.addClass('is-active');
+        var info = $(this).closest('.form-label').find('.form-info-content');
+        $('.form-info-content.is-active').not(info).removeClass('is-active');
+
+        info.toggleClass('is-active');
       });
 
       $(document).mouseup(function (e) {
         var info = $('.form-info-content');
-        if (!info.is(e.target) && info.has(e.target).length === 0) info.removeClass('is-active');
+        var infoIcon = $('.form-info-icon');
+
+        if ((!info.is(e.target) && info.has(e.target).length === 0)
+          && !infoIcon.is(e.target) && infoIcon.has(e.target).length === 0) {
+          info.removeClass('is-active');
+        }
       });
     },
   };

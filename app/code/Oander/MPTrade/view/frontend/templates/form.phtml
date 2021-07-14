@@ -278,7 +278,7 @@ $helper = $this->getHelper();
             </div>
 
             <div
-              v-if="buyoutCode"
+              v-if="success"
               class="block block--successful">
               <p><?= __('Form submit was successful.') ?></p>
               <p class="buyout-id"><?= __('Your Buyout ID:') ?> {{ buyoutCode }}</p>
@@ -466,18 +466,30 @@ $helper = $this->getHelper();
 
             helpers.scrollTo('.row--form', 60);
 
-            this.getCalendar('personal_identification_number');
-            this.getCalendar('identity_valid_to');
-          },
-
-          getCalendar(item) {
-            var formOther = this.form.other;
-            var settings = {
+            var identityNumber = {
               changeMonth: true,
               changeYear: true,
               dateFormat: 'yy-mm-dd',
+              maxDate: '-18y'
+            }
+
+            var identityValid = {
+              changeMonth: true,
+              changeYear: true,
+              dateFormat: 'yy-mm-dd',
+              minDate: '+1d',
               maxDate: '+20y'
             };
+
+            this.getCalendar('personal_identification_number', identityNumber);
+            this.getCalendar('identity_valid_to', identityValid);
+
+            this.appraisalError = '';
+            this.success = false;
+          },
+
+          getCalendar(item, settings) {
+            var formOther = this.form.other;
 
             var checkItem = setInterval(function () {
               if ($('#' + item).length) {
@@ -587,6 +599,7 @@ $helper = $this->getHelper();
 
             if (hasAppraisal) {
               this.appraisalError = false;
+              this.selected.device.appraisal.value = hasAppraisal;
             }
             else {
               this.appraisalError = true;
@@ -609,6 +622,8 @@ $helper = $this->getHelper();
             }
 
             this.dynamicForm = [];
+            this.appraisalError = '';
+            this.success = false;
           },
 
           clearDataByBlock(block) {
