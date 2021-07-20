@@ -18,6 +18,17 @@ define([
     }, 2000);
   };
 
+  // Shipping methods tabs
+  $('body').on('click', '.switch--delivery', function(e) {
+    e.preventDefault();
+    var clickedTab = $(this).attr('href').substring(1);
+    
+    $('.delivery-content').addClass('d-none');
+    $('.data.item.title').removeClass('active')
+    $(this).closest('.data.item.title').addClass('active');
+    $('#' + clickedTab).removeClass('d-none');
+  });
+
   var mixin = {
     /**
      * Is logged in
@@ -25,6 +36,38 @@ define([
      */
     isLoggedIn: function () {
       return customer.isLoggedIn() ? false : true;
+    },
+
+    /**
+     * Are tabs needed
+     * @returns {Object}
+     */
+    areTabsNeeded: function() {
+      var ratesArray = this.rates(),
+          firstItem = '',
+          areNeeded = false,
+          firstArray = [],
+          secondArray = [];
+
+      for (var i = 0; i < ratesArray.length; i++) {
+        if (i === 0) {
+          firstItem = ratesArray[0].carrier_code
+          firstArray.push(ratesArray[0]);
+        } else {
+          if (ratesArray[i].carrier_code.charAt(0) !== firstItem.charAt(0)) {
+            areNeeded = true;
+            secondArray.push(ratesArray[i]);
+          } else {
+            firstArray.push(ratesArray[i]);
+          }
+        }
+      }
+
+      return {
+        needed: areNeeded,
+        firstArray: firstArray,
+        secondArray: secondArray
+      };
     },
 
     /**
