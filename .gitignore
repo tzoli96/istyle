@@ -75,3 +75,9 @@ atlassian*
 /ci/tests/_output
 
 /.bash_history
+
+/app/design/frontend/Oander/istyle
+bower.json
+gulpfile.js
+package.json
+package-lock.json
