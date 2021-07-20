@@ -14,6 +14,7 @@ use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
 use Magento\Store\Model\ScopeInterface;
 use Magento\Cms\Api\BlockRepositoryInterface;
+use Magento\Framework\App\ResourceConnection;
 
 /**
  * Class Config
@@ -28,16 +29,25 @@ class Config extends AbstractHelper
     private $blockRepository;
 
     /**
+     * @var ResourceConnection
+     */
+    private $resource;
+
+    /**
      * Config constructor.
      * @param BlockRepositoryInterface $blockRepository
      * @param Context $context
+     * @param ResourceConnection $resource
      */
     public function __construct(
         BlockRepositoryInterface $blockRepository,
-        Context $context
-    ) {
+        Context $context,
+        ResourceConnection $resource
+    )
+    {
         parent::__construct($context);
         $this->blockRepository = $blockRepository;
+        $this->resource = $resource;
     }
 
     /**
@@ -56,7 +66,7 @@ class Config extends AbstractHelper
      */
     public function isSessionCheckerEnabled()
     {
-        return (bool) $this->scopeConfig->getValue(
+        return (bool)$this->scopeConfig->getValue(
             'oander_session_checker/general/enabled',
             ScopeInterface::SCOPE_STORE
         );
@@ -67,13 +77,13 @@ class Config extends AbstractHelper
      */
     public function getSessionCheckerEmailReceivers(): array
     {
-        $value = (string) $this->scopeConfig->getValue(
+        $value = (string)$this->scopeConfig->getValue(
             'oander_session_checker/general/email_receivers',
             ScopeInterface::SCOPE_STORE
         );
         $value = explode(';', $value);
 
-        return (array) array_filter($value);
+        return (array)array_filter($value);
     }
 
     /**
@@ -81,7 +91,7 @@ class Config extends AbstractHelper
      */
     public function isUrlCheckerEnabled()
     {
-        return (bool) $this->scopeConfig->getValue(
+        return (bool)$this->scopeConfig->getValue(
             'oander_session_checker/url/enabled',
             ScopeInterface::SCOPE_STORE
         );
@@ -92,13 +102,13 @@ class Config extends AbstractHelper
      */
     public function getUrlCheckerEmailReceivers(): array
     {
-        $value = (string) $this->scopeConfig->getValue(
+        $value = (string)$this->scopeConfig->getValue(
             'oander_session_checker/url/email_receivers',
             ScopeInterface::SCOPE_STORE
         );
         $value = explode(';', $value);
 
-        return (array) array_filter($value);
+        return (array)array_filter($value);
     }
 
 
@@ -197,7 +207,7 @@ class Config extends AbstractHelper
         $hasAttributeSet = false;
         foreach ($orderItems as $orderItem) {
             if ($product = $orderItem->getProduct()) {
-                if (in_array($product->getAttributeSetId(),$dobAttributeSets)) {
+                if (in_array($product->getAttributeSetId(), $dobAttributeSets)) {
                     $hasAttributeSet = true;
                     break;
                 }
@@ -224,7 +234,7 @@ class Config extends AbstractHelper
             ScopeInterface::SCOPE_STORE
         );
         if (strpos($value, ',') !== false) {
-            $value = explode(',',$value);
+            $value = explode(',', $value);
         }
 
         return (array)$value;
@@ -263,5 +273,23 @@ class Config extends AbstractHelper
         }
 
         return '';
+    }
+
+    /**
+     * Get store by website id
+     *
+     * @param int $websiteId
+     * @return array
+     */
+    public function getStoreByWebsiteId($websiteId)
+    {
+        $connection = $this->resource->getConnection();
+        $storeTable = $this->resource->getTableName('store');
+        $storeSelect = $connection->select()->from($storeTable, ['store_id'])->where(
+            'website_id = ?',
+            $websiteId
+        );
+        $data = $connection->fetchCol($storeSelect);
+        return $data;
     }
 }
