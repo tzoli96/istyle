@@ -14,7 +14,6 @@ use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
 use Magento\Store\Model\ScopeInterface;
 use Magento\Cms\Api\BlockRepositoryInterface;
-use Magento\Framework\App\ResourceConnection;
 
 /**
  * Class Config
@@ -29,25 +28,17 @@ class Config extends AbstractHelper
     private $blockRepository;
 
     /**
-     * @var ResourceConnection
-     */
-    private $resource;
-
-    /**
      * Config constructor.
      * @param BlockRepositoryInterface $blockRepository
      * @param Context $context
-     * @param ResourceConnection $resource
      */
     public function __construct(
         BlockRepositoryInterface $blockRepository,
-        Context $context,
-        ResourceConnection $resource
+        Context $context
     )
     {
         parent::__construct($context);
         $this->blockRepository = $blockRepository;
-        $this->resource = $resource;
     }
 
     /**
@@ -273,23 +264,5 @@ class Config extends AbstractHelper
         }
 
         return '';
-    }
-
-    /**
-     * Get store by website id
-     *
-     * @param int $websiteId
-     * @return array
-     */
-    public function getStoreByWebsiteId($websiteId)
-    {
-        $connection = $this->resource->getConnection();
-        $storeTable = $this->resource->getTableName('store');
-        $storeSelect = $connection->select()->from($storeTable, ['store_id'])->where(
-            'website_id = ?',
-            $websiteId
-        );
-        $data = $connection->fetchCol($storeSelect);
-        return $data;
     }
 }
