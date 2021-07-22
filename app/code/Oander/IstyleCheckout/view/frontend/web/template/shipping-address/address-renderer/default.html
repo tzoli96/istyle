@@ -1,0 +1,53 @@
+<!--
+/**
+ * Oander_NameSwitcher
+ *
+ * @author  David Belicza <david.belicza@oander.hu>
+ * @license Oander Media Kft. (http://www.oander.hu)
+ */
+-->
+<div class="col-sm-6 col-md-4 col-shipping-address-item">
+    <div class="card card--shipping-address-item" data-bind="css: (isSelected() && hasSelectedAddress()) ? 'selected-item' : 'not-selected-item'">
+        <div class="card__head">
+            <!-- ko if: (window.onderNameSwitcher == 1) -->
+            <span><!-- ko text: address().prefix --><!-- /ko --> <!-- ko text: address().lastname --><!-- /ko -->
+            <!-- ko text: address().firstname --><!-- /ko --> <!-- ko text: address().suffix --><!-- /ko --></span>
+            <!-- /ko -->
+            <!-- ko if: (window.onderNameSwitcher != 1) -->
+            <span><!-- ko text: address().prefix --><!-- /ko --> <!-- ko text: address().firstname --><!-- /ko -->
+            <!-- ko text: address().lastname --><!-- /ko --> <!-- ko text: address().suffix --><!-- /ko --></span>
+            <!-- /ko -->
+            <span><!-- ko text: address().telephone --><!-- /ko --></span>
+        </div>
+        <div class="card__content">
+            <span><!-- ko text: address().street --><!-- /ko --></span>
+            <span><!-- ko text: address().city --><!-- /ko -->, <!-- ko text: address().region --><!-- /ko --> <!-- ko text: address().postcode --><!-- /ko --></span>
+            <span><!-- ko text: getCountryName(address().countryId) --><!-- /ko --></span>
+        </div>
+
+        <div class="card__actions">
+            <!-- ko if: (address().isEditable()) -->
+            <button
+                type="button"
+                class="edit-address-link action outline-secondary"
+                data-bind="click: editAddress, visible: address().isEditable()">
+                <span data-bind="i18n: 'Edit'"></span>
+            </button>
+            <!-- /ko -->
+
+            <!-- ko if: (isSelected() && hasSelectedAddress()) -->
+            <button type="button" class="action-select-shipping-item action primary" disabled="disabled">
+                <i class="icon fa fa-check-circle"></i>
+                <span data-bind="i18n: 'Selected'"></span>
+            </button>
+            <!-- /ko -->
+
+            <!-- ko ifnot: (isSelected() && hasSelectedAddress()) -->
+            <button type="button" data-bind="click: selectAddress"
+                    class="action-select-shipping-item action primary">
+                <span data-bind="i18n: 'Ship Here'"></span>
+            </button>
+            <!-- /ko -->
+        </div>
+    </div>
+</div>
