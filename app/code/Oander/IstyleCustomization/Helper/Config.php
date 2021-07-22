@@ -35,7 +35,8 @@ class Config extends AbstractHelper
     public function __construct(
         BlockRepositoryInterface $blockRepository,
         Context $context
-    ) {
+    )
+    {
         parent::__construct($context);
         $this->blockRepository = $blockRepository;
     }
@@ -56,7 +57,7 @@ class Config extends AbstractHelper
      */
     public function isSessionCheckerEnabled()
     {
-        return (bool) $this->scopeConfig->getValue(
+        return (bool)$this->scopeConfig->getValue(
             'oander_session_checker/general/enabled',
             ScopeInterface::SCOPE_STORE
         );
@@ -67,13 +68,13 @@ class Config extends AbstractHelper
      */
     public function getSessionCheckerEmailReceivers(): array
     {
-        $value = (string) $this->scopeConfig->getValue(
+        $value = (string)$this->scopeConfig->getValue(
             'oander_session_checker/general/email_receivers',
             ScopeInterface::SCOPE_STORE
         );
         $value = explode(';', $value);
 
-        return (array) array_filter($value);
+        return (array)array_filter($value);
     }
 
     /**
@@ -81,7 +82,7 @@ class Config extends AbstractHelper
      */
     public function isUrlCheckerEnabled()
     {
-        return (bool) $this->scopeConfig->getValue(
+        return (bool)$this->scopeConfig->getValue(
             'oander_session_checker/url/enabled',
             ScopeInterface::SCOPE_STORE
         );
@@ -92,13 +93,13 @@ class Config extends AbstractHelper
      */
     public function getUrlCheckerEmailReceivers(): array
     {
-        $value = (string) $this->scopeConfig->getValue(
+        $value = (string)$this->scopeConfig->getValue(
             'oander_session_checker/url/email_receivers',
             ScopeInterface::SCOPE_STORE
         );
         $value = explode(';', $value);
 
-        return (array) array_filter($value);
+        return (array)array_filter($value);
     }
 
 
@@ -197,7 +198,7 @@ class Config extends AbstractHelper
         $hasAttributeSet = false;
         foreach ($orderItems as $orderItem) {
             if ($product = $orderItem->getProduct()) {
-                if (in_array($product->getAttributeSetId(),$dobAttributeSets)) {
+                if (in_array($product->getAttributeSetId(), $dobAttributeSets)) {
                     $hasAttributeSet = true;
                     break;
                 }
@@ -224,7 +225,7 @@ class Config extends AbstractHelper
             ScopeInterface::SCOPE_STORE
         );
         if (strpos($value, ',') !== false) {
-            $value = explode(',',$value);
+            $value = explode(',', $value);
         }
 
         return (array)$value;
