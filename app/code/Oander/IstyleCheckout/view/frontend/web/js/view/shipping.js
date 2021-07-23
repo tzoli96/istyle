@@ -124,6 +124,8 @@ define([
           }
         }
       }
+
+      helpers.validateShippingFields(document.querySelector('.form-shipping-address'));
     }),
 
     isFilled: function (value) {
