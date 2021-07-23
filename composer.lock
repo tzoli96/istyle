@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b05510ca49a539558980be4e3f59152",
+    "content-hash": "93eae4f90ac0577ec9469197edad062c",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -881,6 +881,20 @@
                 "certificate",
                 "ssl",
                 "tls"
+            ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
             ],
             "time": "2021-06-07T13:58:28+00:00"
         },
@@ -6569,16 +6583,16 @@
         },
         {
             "name": "mageplaza/module-core",
-            "version": "1.4.10",
+            "version": "1.4.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mageplaza/module-core.git",
-                "reference": "d050c9f35b04197e97b6747d7dbf1f164b1f26fe"
+                "reference": "45cf1e6a79ca82acc1fe82372bbb4e83ea308b6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/d050c9f35b04197e97b6747d7dbf1f164b1f26fe",
-                "reference": "d050c9f35b04197e97b6747d7dbf1f164b1f26fe",
+                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/45cf1e6a79ca82acc1fe82372bbb4e83ea308b6b",
+                "reference": "45cf1e6a79ca82acc1fe82372bbb4e83ea308b6b",
                 "shasum": ""
             },
             "type": "magento2-module",
@@ -6603,7 +6617,7 @@
                 }
             ],
             "description": "Mageplaza Core for Magento 2",
-            "time": "2020-12-07T08:10:17+00:00"
+            "time": "2021-07-21T06:58:49+00:00"
         },
         {
             "name": "mageplaza/module-gdpr",
@@ -10096,7 +10110,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "558d062929683a49fe228bd18c61f622f95960be"
+                "reference": "b4c7fb2eb5fb705f0901176025cadc84d7e29160"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10112,7 +10126,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-07-20T13:39:21+00:00"
+            "time": "2021-07-23T07:39:42+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10366,6 +10380,20 @@
                 "twofish",
                 "x.509",
                 "x509"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/terrafrost",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpseclib",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
+                    "type": "tidelift"
+                }
             ],
             "time": "2021-06-12T12:12:59+00:00"
         },
