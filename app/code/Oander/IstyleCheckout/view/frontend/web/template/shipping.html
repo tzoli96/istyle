@@ -11,7 +11,8 @@
 <div
     class="block block--checkout-step block--shipping-method"
     data-step="shippingMethod"
-    data-step-count="1">
+    data-step-count="1"
+>
     <div class="card card--checkout-step-header">
         <span class="card__title" data-bind="i18n: 'Shipping method'"></span>
         <span class="card__action" data-bind="i18n: 'Edit'"></span>
@@ -46,15 +47,16 @@
                     <div class="shipping-methods__holder table-checkout-shipping-method">
                         <!-- ko if: areTabsNeeded().firstArray.length > 0 -->
                         <div id="tab1" class="data item content delivery-content" data-role="content">
-                            <!-- ko foreach: { data: areTabsNeeded().firstArray, as: 'method'} -->
+                            <!-- ko foreach: { data: areTabsNeeded().firstArray, as: 'method' } -->
                                 <div
-                                    class="row"
-                                    data-bind="click: $parent.selectShippingMethod, attr: {'data-method': method.method_code + '_' + method.carrier_code}, css: {'_active': ($parent.isSelected() == method.carrier_code + '_' + method.method_code || $parent.isSelected() == method.method_code + '_' + method.carrier_code)}">
+                                    class="row shipping-control-row"
+                                    data-bind="click: $parent.selectShippingMethod, attr: {'data-code': method.method_code, 'data-method': method.method_code + '_' + method.carrier_code}, css: {'_active': ($parent.isSelected() == method.carrier_code + '_' + method.method_code || $parent.isSelected() == method.method_code + '_' + method.carrier_code), 'pos' : !Array.isArray(method.extension_attributes) && method.extension_attributes.warehouse_manager_data !== false}">
                                     <div class="col col-method">
                                         <label class="shipping-control-label">
-                                            <!-- ko ifnot: method.error_message -->
-                                            <!-- ko if: $parent.rates().length == 1 -->
-                                            <input
+                                            <div class="shipping-control-holder">
+                                                <!-- ko ifnot: method.error_message -->
+                                                <!-- ko if: $parent.rates().length == 1 -->
+                                                <input
                                                 class="shipping-control-input"
                                                 type="radio"
                                                 data-bind="attr: {
@@ -63,55 +65,82 @@
                                                     'id': 's_method_' + method.method_code,
                                                     'aria-labelledby': 'label_method_' + method.method_code + '_' + method.carrier_code + ' ' + 'label_carrier_' + method.method_code + '_' + method.carrier_code
                                                     }"
-                                            />
-                                            <!-- /ko -->
-                                            <!--ko ifnot: ($parent.rates().length == 1)-->
-                                            <input
-                                                class="shipping-control-input"
-                                                type="radio"
-                                                data-bind="
-                                                    value: method.carrier_code + '_' + method.method_code,
-                                                    checked: $parent.isSelected,
-                                                    attr: {
-                                                        'id': 's_method_' + method.carrier_code + '_' + method.method_code,
-                                                        'aria-labelledby': 'label_method_' + method.method_code + '_' + method.carrier_code + ' ' + 'label_carrier_' + method.method_code + '_' + method.carrier_code
-                                                    },
-                                                    click: $parent.selectShippingMethod"
-                                            />
-                                            <!--/ko-->
-                                            <!-- /ko -->
+                                                />
+                                                <!-- /ko -->
+                                                <!--ko ifnot: ($parent.rates().length == 1)-->
+                                                <input
+                                                    class="shipping-control-input"
+                                                    type="radio"
+                                                    data-bind="
+                                                        value: method.carrier_code + '_' + method.method_code,
+                                                        checked: $parent.isSelected,
+                                                        attr: {
+                                                            'id': 's_method_' + method.carrier_code + '_' + method.method_code,
+                                                            'aria-labelledby': 'label_method_' + method.method_code + '_' + method.carrier_code + ' ' + 'label_carrier_' + method.method_code + '_' + method.carrier_code
+                                                        },
+                                                        click: $parent.selectShippingMethod"
+                                                />
+                                                <!--/ko-->
+                                                <!-- /ko -->
+                                                <span class="shipping-control-description">
+                                                    <span class="description">
+                                                        <span class="title"
+                                                            data-bind="text: method.method_title, attr: {'id': 'label_method_' + method.method_code + '_' + method.carrier_code}">
+                                                        </span>
 
-                                            <span class="shipping-control-description">
-                                                <span class="description">
-                                                    <span class="title"
-                                                        data-bind="text: method.method_title, attr: {'id': 'label_method_' + method.method_code + '_' + method.carrier_code}">
+                                                        <!-- ko if: method.hasOwnProperty('extension_attributes')
+                                                        && method.extension_attributes.hasOwnProperty('method_info') -->
+                                                        <span class="info"
+                                                            data-bind="html: method.extension_attributes.method_info"></span>
+                                                        <!-- /ko -->
+
+                                                        <!-- ko ifnot: method.hasOwnProperty('extension_attributes')
+                                                        && method.extension_attributes.hasOwnProperty('method_group_block')
+                                                        && method.extension_attributes.method_group_block == true -->
+                                                        <span class="carrier"
+                                                            data-bind="text: method.carrier_title, attr: {'id': 'label_carrier_' + method.method_code + '_' + method.carrier_code}">
+                                                        </span>
+                                                        <!-- /ko -->
                                                     </span>
 
-                                                    <!-- ko if: method.hasOwnProperty('extension_attributes')
-                                                    && method.extension_attributes.hasOwnProperty('method_info') -->
-                                                    <span class="info"
-                                                        data-bind="html: method.extension_attributes.method_info"></span>
-                                                    <!-- /ko -->
-
-                                                    <!-- ko ifnot: method.hasOwnProperty('extension_attributes')
-                                                    && method.extension_attributes.hasOwnProperty('method_group_block')
-                                                    && method.extension_attributes.method_group_block == true -->
-                                                    <span class="carrier"
-                                                        data-bind="text: method.carrier_title, attr: {'id': 'label_carrier_' + method.method_code + '_' + method.carrier_code}">
+                                                    <span class="price">
+                                                        <!-- ko foreach: $parent.getRegion('price') -->
+                                                        <!-- ko template: getTemplate() -->
+                                                        <!-- /ko -->
+                                                        <!-- /ko -->
                                                     </span>
-                                                    <!-- /ko -->
                                                 </span>
-
-                                                <span class="price">
-                                                    <!-- ko foreach: $parent.getRegion('price') -->
-                                                    <!-- ko template: getTemplate() -->
-                                                    <!-- /ko -->
-                                                    <!-- /ko -->
-                                                </span>
-                                            </span>
+                                            </div>
+                                            <!-- ko if: !Array.isArray(method.extension_attributes) && method.extension_attributes.warehouse_manager_data !== false  -->
+                                            <div class="shipping-control-pos m-0">
+                                                <div class="row pos-holder">
+                                                    <div
+                                                        class="pos-map col-12 col-lg-5 order-lg-2"
+                                                        data-bind="attr: {id: 'pos-map--' + method.method_code}"
+                                                    ></div>
+                                                    <div class="pos-description col-12 col-lg-7 order-lg-1">
+                                                        <div class="pos-address">address</div>
+                                                        <div
+                                                            class="pos-parking"
+                                                            data-bind="text: method.extension_attributes.warehouse_manager_data[0].parking"
+                                                        ></div>
+                                                        <div class="pos-phone">phone</div>
+                                                        <div class="pos-opening-hour">opening hours</div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 pos-button m-0">
+                                                        <button data-role="opc-continue" type="submit" class="action next-step primary w-100">
+                                                            <span data-bind="i18n: 'Continue to shipping address'"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /ko -->
                                         </label>
                                     </div>
                                 </div>
+
                                 <!-- ko if: method.hasOwnProperty('extension_attributes') && method.extension_attributes.hasOwnProperty('method_container') -->
                                 <div class="row method-container" data-bind="css: method.carrier_code">
                                     <div class="col" colspan="6">
@@ -138,15 +167,16 @@
                         <!-- /ko -->
                         <!-- ko if: areTabsNeeded().secondArray.length > 0 -->
                         <div id="tab2" class="data item content delivery-content d-none" data-role="content">
-                            <!-- ko foreach: { data: areTabsNeeded().secondArray, as: 'method'} -->
+                            <!-- ko foreach: { data: areTabsNeeded().secondArray, as: 'method' } -->
                                 <div
-                                    class="row"
-                                    data-bind="click: $parent.selectShippingMethod, attr: {'data-method': method.method_code + '_' + method.carrier_code}, css: {'_active': ($parent.isSelected() == method.carrier_code + '_' + method.method_code || $parent.isSelected() == method.method_code + '_' + method.carrier_code)}">
+                                    class="row shipping-control-row"
+                                    data-bind="click: $parent.selectShippingMethod, attr: {'data-code': method.method_code, 'data-method': method.method_code + '_' + method.carrier_code}, css: {'_active': ($parent.isSelected() == method.carrier_code + '_' + method.method_code || $parent.isSelected() == method.method_code + '_' + method.carrier_code), 'pos' : !Array.isArray(method.extension_attributes) && method.extension_attributes.warehouse_manager_data !== false}">
                                     <div class="col col-method">
                                         <label class="shipping-control-label">
-                                            <!-- ko ifnot: method.error_message -->
-                                            <!-- ko if: $parent.rates().length == 1 -->
-                                            <input
+                                            <div class="shipping-control-holder">
+                                                <!-- ko ifnot: method.error_message -->
+                                                <!-- ko if: $parent.rates().length == 1 -->
+                                                <input
                                                 class="shipping-control-input"
                                                 type="radio"
                                                 data-bind="attr: {
@@ -155,52 +185,78 @@
                                                     'id': 's_method_' + method.method_code,
                                                     'aria-labelledby': 'label_method_' + method.method_code + '_' + method.carrier_code + ' ' + 'label_carrier_' + method.method_code + '_' + method.carrier_code
                                                     }"
-                                            />
-                                            <!-- /ko -->
-                                            <!--ko ifnot: ($parent.rates().length == 1)-->
-                                            <input
-                                                class="shipping-control-input"
-                                                type="radio"
-                                                data-bind="
-                                                    value: method.carrier_code + '_' + method.method_code,
-                                                    checked: $parent.isSelected,
-                                                    attr: {
-                                                        'id': 's_method_' + method.carrier_code + '_' + method.method_code,
-                                                        'aria-labelledby': 'label_method_' + method.method_code + '_' + method.carrier_code + ' ' + 'label_carrier_' + method.method_code + '_' + method.carrier_code
-                                                    },
-                                                    click: $parent.selectShippingMethod"
-                                            />
-                                            <!--/ko-->
-                                            <!-- /ko -->
+                                                />
+                                                <!-- /ko -->
+                                                <!--ko ifnot: ($parent.rates().length == 1)-->
+                                                <input
+                                                    class="shipping-control-input"
+                                                    type="radio"
+                                                    data-bind="
+                                                        value: method.carrier_code + '_' + method.method_code,
+                                                        checked: $parent.isSelected,
+                                                        attr: {
+                                                            'id': 's_method_' + method.carrier_code + '_' + method.method_code,
+                                                            'aria-labelledby': 'label_method_' + method.method_code + '_' + method.carrier_code + ' ' + 'label_carrier_' + method.method_code + '_' + method.carrier_code
+                                                        },
+                                                        click: $parent.selectShippingMethod"
+                                                />
+                                                <!--/ko-->
+                                                <!-- /ko -->
+                                                <span class="shipping-control-description">
+                                                    <span class="description">
+                                                        <span class="title"
+                                                            data-bind="text: method.method_title, attr: {'id': 'label_method_' + method.method_code + '_' + method.carrier_code}">
+                                                        </span>
 
-                                            <span class="shipping-control-description">
-                                                <span class="description">
-                                                    <span class="title"
-                                                        data-bind="text: method.method_title, attr: {'id': 'label_method_' + method.method_code + '_' + method.carrier_code}">
+                                                        <!-- ko if: method.hasOwnProperty('extension_attributes')
+                                                        && method.extension_attributes.hasOwnProperty('method_info') -->
+                                                        <span class="info"
+                                                            data-bind="html: method.extension_attributes.method_info"></span>
+                                                        <!-- /ko -->
+
+                                                        <!-- ko ifnot: method.hasOwnProperty('extension_attributes')
+                                                        && method.extension_attributes.hasOwnProperty('method_group_block')
+                                                        && method.extension_attributes.method_group_block == true -->
+                                                        <span class="carrier"
+                                                            data-bind="text: method.carrier_title, attr: {'id': 'label_carrier_' + method.method_code + '_' + method.carrier_code}">
+                                                        </span>
+                                                        <!-- /ko -->
                                                     </span>
 
-                                                    <!-- ko if: method.hasOwnProperty('extension_attributes')
-                                                    && method.extension_attributes.hasOwnProperty('method_info') -->
-                                                    <span class="info"
-                                                        data-bind="html: method.extension_attributes.method_info"></span>
-                                                    <!-- /ko -->
-
-                                                    <!-- ko ifnot: method.hasOwnProperty('extension_attributes')
-                                                    && method.extension_attributes.hasOwnProperty('method_group_block')
-                                                    && method.extension_attributes.method_group_block == true -->
-                                                    <span class="carrier"
-                                                        data-bind="text: method.carrier_title, attr: {'id': 'label_carrier_' + method.method_code + '_' + method.carrier_code}">
+                                                    <span class="price">
+                                                        <!-- ko foreach: $parent.getRegion('price') -->
+                                                        <!-- ko template: getTemplate() -->
+                                                        <!-- /ko -->
+                                                        <!-- /ko -->
                                                     </span>
-                                                    <!-- /ko -->
                                                 </span>
-
-                                                <span class="price">
-                                                    <!-- ko foreach: $parent.getRegion('price') -->
-                                                    <!-- ko template: getTemplate() -->
-                                                    <!-- /ko -->
-                                                    <!-- /ko -->
-                                                </span>
-                                            </span>
+                                            </div>
+                                            <!-- ko if: !Array.isArray(method.extension_attributes) && method.extension_attributes.warehouse_manager_data !== false  -->
+                                            <div class="shipping-control-pos m-0">
+                                                <div class="row pos-holder">
+                                                    <div
+                                                        class="pos-map col-12 col-lg-5 order-lg-2"
+                                                        data-bind="attr: {id: 'pos-map--' + method.method_code}"
+                                                    ></div>
+                                                    <div class="pos-description col-12 col-lg-7 order-lg-1">
+                                                        <div class="pos-address">address</div>
+                                                        <div
+                                                            class="pos-parking"
+                                                            data-bind="text: method.extension_attributes.warehouse_manager_data[0].parking"
+                                                        ></div>
+                                                        <div class="pos-phone">phone</div>
+                                                        <div class="pos-opening-hour">opening hours</div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12 pos-button m-0">
+                                                        <button data-role="opc-continue" type="submit" class="action next-step primary w-100">
+                                                            <span data-bind="i18n: 'Continue to shipping address'"></span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- /ko -->
                                         </label>
                                     </div>
                                 </div>
@@ -254,14 +310,9 @@
                 <!-- /ko -->
             </div><!-- /ko -->
         </div>
-
-        <div class="field form-group">
-            <button data-role="opc-continue" type="submit" class="action next-step primary w-100">
-                <span data-bind="i18n: 'Continue to shipping address'"></span>
-            </button>
-        </div>
     </div>
 </div>
+<span data-bind="template: { afterRender: generateMaps() }"></span>
 <!-- ### Step 2: Shipping method end ### -->
 
 <!-- ### Step 3: Shipping address begin ### -->
