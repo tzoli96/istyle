@@ -119,13 +119,44 @@
                                                         data-bind="attr: {id: 'pos-map--' + method.method_code}"
                                                     ></div>
                                                     <div class="pos-description col-12 col-lg-7 order-lg-1">
-                                                        <div class="pos-address">address</div>
+                                                        <!-- ko if: method.extension_attributes.warehouse_manager_data[0].address !== '' -->
+                                                        <div
+                                                            class="pos-address"
+                                                            data-bind="text: method.extension_attributes.warehouse_manager_data[0].address"
+                                                        ></div>
+                                                        <!-- /ko -->
+                                                        <!-- ko if: method.extension_attributes.warehouse_manager_data[0].parking !== '' -->
                                                         <div
                                                             class="pos-parking"
                                                             data-bind="text: method.extension_attributes.warehouse_manager_data[0].parking"
                                                         ></div>
-                                                        <div class="pos-phone">phone</div>
-                                                        <div class="pos-opening-hour">opening hours</div>
+                                                        <!-- /ko -->
+                                                        <!-- ko if: method.extension_attributes.warehouse_manager_data[0].google_structured_data_telephone !== '' -->
+                                                        <div class="pos-phone">
+                                                            <span data-bind="i18n: 'Phone: '"></span>
+                                                            <span data-bind="text: method.extension_attributes.warehouse_manager_data[0].google_structured_data_telephone"></span>
+                                                        </div>
+                                                        <!-- /ko -->
+                                                        <!-- ko if: method.extension_attributes.warehouse_manager_data[0].hasOwnProperty('google_structured_data_opening') && method.extension_attributes.warehouse_manager_data[0].google_structured_data_opening !== null -->
+                                                        <div class="pos-opening-hours">
+                                                            <div class="opening-hours-title" data-bind="i18n: 'Opening Hours'"></div>
+                                                            <!-- ko foreach: { data: method.extension_attributes.warehouse_manager_data[0].google_structured_data_opening, as: 'hours' } -->
+                                                            <div class="opening-hours-item d-flex align-items-center justify-content-between">
+                                                                <span data-bind="text: row_name"></span>
+                                                                <div>
+                                                                    <!-- ko if: opening.indexOf('closed') > -1 || closes.indexOf('closed') > -1 -->
+                                                                    <span data-bind="i18n: 'Closed'"></span>
+                                                                    <!-- /ko -->
+                                                                    <!-- ko ifnot: opening.indexOf('closed') > -1 || closes.indexOf('closed') > -1 -->
+                                                                    <span data-bind="text: opening.slice(0, -3)"></span>
+                                                                    <span> - </span>
+                                                                    <span data-bind="text: closes.slice(0, -3)"></span>
+                                                                    <!-- /ko -->
+                                                                </div>
+                                                            </div>
+                                                            <!-- /ko -->
+                                                        </div>
+                                                        <!-- /ko -->
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -162,6 +193,13 @@
                                     </div>
                                 </div>
                                 <!-- /ko -->
+                            <!-- /ko -->
+                            <!-- ko if: areTabsNeeded().firstArray[0].extension_attributes.length < 1 -->
+                            <div class="field form-group">
+                                <button data-role="opc-continue" type="submit" class="action next-step primary w-100">
+                                    <span data-bind="i18n: 'Continue to shipping address'"></span>
+                                </button>
+                            </div>
                             <!-- /ko -->
                         </div>
                         <!-- /ko -->
@@ -239,13 +277,44 @@
                                                         data-bind="attr: {id: 'pos-map--' + method.method_code}"
                                                     ></div>
                                                     <div class="pos-description col-12 col-lg-7 order-lg-1">
-                                                        <div class="pos-address">address</div>
+                                                        <!-- ko if: method.extension_attributes.warehouse_manager_data[0].address !== '' -->
+                                                        <div
+                                                            class="pos-address"
+                                                            data-bind="text: method.extension_attributes.warehouse_manager_data[0].address"
+                                                        ></div>
+                                                        <!-- /ko -->
+                                                        <!-- ko if: method.extension_attributes.warehouse_manager_data[0].parking !== '' -->
                                                         <div
                                                             class="pos-parking"
                                                             data-bind="text: method.extension_attributes.warehouse_manager_data[0].parking"
                                                         ></div>
-                                                        <div class="pos-phone">phone</div>
-                                                        <div class="pos-opening-hour">opening hours</div>
+                                                        <!-- /ko -->
+                                                        <!-- ko if: method.extension_attributes.warehouse_manager_data[0].google_structured_data_telephone !== '' -->
+                                                        <div class="pos-phone">
+                                                            <span data-bind="i18n: 'Phone: '"></span>
+                                                            <span data-bind="text: method.extension_attributes.warehouse_manager_data[0].google_structured_data_telephone"></span>
+                                                        </div>
+                                                        <!-- /ko -->
+                                                        <!-- ko if: method.extension_attributes.warehouse_manager_data[0].hasOwnProperty('google_structured_data_opening') && method.extension_attributes.warehouse_manager_data[0].google_structured_data_opening !== null -->
+                                                        <div class="pos-opening-hours">
+                                                            <div class="opening-hours-title" data-bind="i18n: 'Opening Hours'"></div>
+                                                            <!-- ko foreach: { data: method.extension_attributes.warehouse_manager_data[0].google_structured_data_opening, as: 'hours' } -->
+                                                            <div class="opening-hours-item d-flex align-items-center justify-content-between">
+                                                                <span data-bind="text: row_name"></span>
+                                                                <div>
+                                                                    <!-- ko if: opening.indexOf('closed') > -1 || closes.indexOf('closed') > -1 -->
+                                                                    <span data-bind="i18n: 'Closed'"></span>
+                                                                    <!-- /ko -->
+                                                                    <!-- ko ifnot: opening.indexOf('closed') > -1 || closes.indexOf('closed') > -1 -->
+                                                                    <span data-bind="text: opening.slice(0, -3)"></span>
+                                                                    <span> - </span>
+                                                                    <span data-bind="text: closes.slice(0, -3)"></span>
+                                                                    <!-- /ko -->
+                                                                </div>
+                                                            </div>
+                                                            <!-- /ko -->
+                                                        </div>
+                                                        <!-- /ko -->
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -282,6 +351,13 @@
                                     </div>
                                 </div>
                                 <!-- /ko -->
+                            <!-- /ko -->
+                            <!-- ko if: areTabsNeeded().secondArray[0].extension_attributes.length < 1 -->
+                            <div class="field form-group">
+                                <button data-role="opc-continue" type="submit" class="action next-step primary w-100">
+                                    <span data-bind="i18n: 'Continue to shipping address'"></span>
+                                </button>
+                            </div>
                             <!-- /ko -->
                         </div>
                         <!-- /ko -->

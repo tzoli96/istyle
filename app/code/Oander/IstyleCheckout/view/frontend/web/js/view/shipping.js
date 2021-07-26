@@ -28,6 +28,9 @@ define([
 		$('.data.item.title').removeClass('active')
 		$(this).closest('.data.item.title').addClass('active');
 		$('#' + clickedTab).removeClass('d-none');
+
+		// Triggering resize because of the open street map centering bug
+		window.dispatchEvent(new Event('resize'));
 	});
 
 	// Shipping methods onclick
@@ -37,7 +40,11 @@ define([
 		if (that.siblings('.pos').length > 0) {
 			// waiting for css transition end
 			setTimeout(function() {
-				$('html, body').animate({ scrollTop: that.offset().top - 75 }, 500);
+				$('html, body').animate({ scrollTop: that.offset().top - 75 }, 500, function() {
+
+					// Triggering resize because of the open street map centering bug
+					window.dispatchEvent(new Event('resize'));
+				});
 			}, 500);
 		}
 	});
@@ -143,42 +150,55 @@ define([
 
 		// Genarate OpenStreetMaps
 		generateMaps: function() {
-			console.log(this.areTabsNeeded().firstArray);
-			console.log(this.areTabsNeeded().secondArray);
+			var loopThroughArrays = function(array) {
+				var maps = [];
 
-			// var loopThroughArrays = function(array) {
-			// 	for (var i = 0; i < array.length; i++) {
-			// 		console.log(array);
-			// 		if (array[i].extension_attributes.warehouse_manager_data !== false) {
-			// 			var methodCode = array[i].method_code;
-			// 			var mapElement = document.getElementById('pos-map--' + methodCode),
-			// 				pinImage = 'https://istyle.hu/media/oander/shop/stores/3/map-marker.png',
-			// 				pinWidth = 40;
+				for (var i = 0; i < array.length; i++) {
+					if (array[i].extension_attributes.warehouse_manager_data !== false) {
+						var methodCode = array[i].method_code,
+								mapElement = document.getElementById('pos-map--' + methodCode),
+								template = '<div id="map' + i + '" style="width: 100%; height: 100%;"></div>',
+								pinImage = array[i].extension_attributes.warehouse_manager_data[0].pin_image,
+								pinWidth = array[i].extension_attributes.warehouse_manager_data[0].pin_width,
+								latitude = array[i].extension_attributes.warehouse_manager_data[0].geo_codes.split(',')[0] * 1,
+								longitude = array[i].extension_attributes.warehouse_manager_data[0].geo_codes.split(',')[1] * 1;
 
-			// 			// Create Leaflet map on map element.
-			// 			var map = L.map(mapElement, {
-			// 				center: [47.497913, 19.040236],
-			// 				zoom: 100,
-			// 				dragging: !L.Browser.mobile,
-			// 				tap: !L.Browser.mobile
-			// 			});
-
-			// 			// Creating a Layer object
-			// 			var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+						mapElement.innerHTML = template;
 						
-			// 			// Adding layer to the map
-			// 			map.addLayer(layer);
-			// 		}
-			// 	}
-			// };
+						// Create Leaflet map on map element.
+						maps.push(L.map('map' + i, {
+							center: [latitude, longitude],
+							zoomControl: false,
+							zoom: 20,
+							dragging: !L.Browser.mobile,
+							tap: !L.Browser.mobile
+						}));
+				
+						// Creating marker icon
+						var icon = L.icon({
+							iconUrl: pinImage,
+							iconSize: [pinWidth / 2, 'auto']
+						});
 
-			// if (this.areTabsNeeded().firstArray.length > 0 && this.areTabsNeeded().firstArray[0].carrier_code === 'warehouse_pickup') {
-			// 	loopThroughArrays(this.areTabsNeeded().firstArray);
-			// }
+						// Creating a Layer object
+						var layer = new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+						
+						// Adding layer to the map
+						maps[i].addLayer(layer);
 
-			// if (this.areTabsNeeded().secondArray.length > 0 && this.areTabsNeeded().secondArray[0].carrier_code === 'warehouse_pickup') {
-			// 	loopThroughArrays(this.areTabsNeeded().secondArray);
-			// }
+						// Adding marker to the map
+						L.marker([latitude, longitude], {icon: icon}).addTo(maps[i]);
+					}
+				}
+			};
+
+			if (this.areTabsNeeded().firstArray.length > 0 && this.areTabsNeeded().firstArray[0].carrier_code === 'warehouse_pickup') {
+				loopThroughArrays(this.areTabsNeeded().firstArray);
+			}
+
+			if (this.areTabsNeeded().secondArray.length > 0 && this.areTabsNeeded().secondArray[0].carrier_code === 'warehouse_pickup') {
+				loopThroughArrays(this.areTabsNeeded().secondArray);
+			}
 		}
 
 	};
