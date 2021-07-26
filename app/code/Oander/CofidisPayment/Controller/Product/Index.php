@@ -60,6 +60,7 @@ class Index extends Action
         $ch = curl_init('https://www.cofidis.hu/calculatorweb/wcalc_eles/hidden/?' .
         $parameters);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+        curl_setopt($ch,CURLOPT_TIMEOUT_MS, 1000);
 
         $result->setData(['output' => curl_exec($ch)]);
     }

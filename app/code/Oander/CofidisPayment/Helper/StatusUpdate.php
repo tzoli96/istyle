@@ -126,6 +126,7 @@ class StatusUpdate extends AbstractHelper
             $ch = curl_init($this->config->getStatusUrl($order->getStoreId()) . '?' . $parameters);
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch,CURLOPT_TIMEOUT_MS, 1000);
             $result = curl_exec($ch);
             $result = json_decode($result);
 
