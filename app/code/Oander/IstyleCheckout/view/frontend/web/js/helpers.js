@@ -1,7 +1,8 @@
 define([
   'ko',
   'Magento_Checkout/js/model/quote',
-], function (ko, quote) {
+  'jquery'
+], function (ko, quote, $) {
   'use strict';
 
   return {
@@ -38,6 +39,38 @@ define([
     isFilled: function (value) {
       if (value) return 'filled';
       return '';
+    },
+
+    validateShippingFields: function (form) {
+      var self = this;
+
+      if (form) {
+        var fields = form.querySelectorAll('.form-group');
+
+        for (var field in fields) {
+          if (typeof fields[field] == 'object') {
+            var fieldElement = $(fields[field]).find('.form-control');
+
+            fieldElement.on('keyup change', function () {
+              self.classHandler($(this));
+            });
+
+            self.classHandler(fieldElement);
+          }
+        }
+      }
+    },
+
+    classHandler: function (element) {
+      var formGroup = $(element).closest('.form-group');
+
+      if ($(element).val().length > 0) {
+        if (formGroup.find('.field-tooltip').length) formGroup.addClass('has-field-tooltip');
+        formGroup.addClass('filled');
+      }
+      else {
+        formGroup.removeClass('filled');
+      }
     }
   }
 });

@@ -403,26 +403,37 @@
     </div>
     <div class="block__content">
         <h3 class="block__title" data-bind="i18n: 'Where can we send your order?'"></h3>
-        <!-- ko foreach: getRegion('address-list') -->
-        <!-- ko template: getTemplate() -->
-        <!-- /ko -->
-        <!--/ko-->
+        <div class="field addresses">
+            <div class="control">
+              <div class="shipping-address-items row">
+                <!-- ko foreach: getRegion('address-list') -->
+                <!-- ko template: getTemplate() -->
+                <!-- /ko -->
+                <!--/ko-->
 
-        <!-- ko foreach: getRegion('address-list-additional-addresses') -->
-        <!-- ko template: getTemplate() -->
-        <!-- /ko -->
-        <!--/ko-->
+                <!-- ko foreach: getRegion('address-list-additional-addresses') -->
+                <!-- ko template: getTemplate() -->
+                <!-- /ko -->
+                <!--/ko-->
 
-        <!-- Address form pop up -->
-        <!-- ko if: (!isFormInline) -->
-        <button type="button" data-bind="click: showFormPopUp, visible: !isNewAddressAdded()"
-            class="action outline-primary action-show-popup">
-            <span data-bind="i18n: 'New Address'"></span></button>
-        <div id="opc-new-shipping-address" data-bind="visible: isFormPopUpVisible()">
-            <!-- ko template: 'Magento_Checkout/shipping-address/form' -->
-            <!-- /ko -->
+                <!-- ko if: (!isFormInline) -->
+                <div class="col-sm-6 col-md-4 col-shipping-address-item">
+                    <div
+                        data-bind="click: showForm, visible: !isNewAddressAdded() && !isFormVisible()"
+                        class="card card--new-address">
+                        <span class="card__icon"></span>
+                        <span class="card__title" data-bind="i18n: 'Add new address'"></span>
+                    </div>
+                </div>
+                <div class="block block--new-shipping-address col-sm-12" id="new-shipping-address" data-bind="visible: isFormVisible()">
+                    <h3 class="block__title" data-bind="i18n: 'New shipping address'"></h3>
+                    <!-- ko template: 'Magento_Checkout/shipping-address/form' -->
+                    <!-- /ko -->
+                </div>
+                <!-- /ko -->
+                </div>
+            </div>
         </div>
-        <!-- /ko -->
 
         <!-- ko foreach: getRegion('before-form') -->
         <!-- ko template: getTemplate() -->
@@ -437,8 +448,8 @@
 
         <div class="actions-toolbar" id="shipping-method-buttons-container">
             <div class="primary">
-                <button data-role="opc-continue" type="submit" class="action next-step primary w-100"
-                    data-bind="click: validateStateCity">
+                <button data-role="opc-continue" type="submit" class="action primary w-100"
+                    data-bind="click: shippingBtn">
                     <span data-bind="i18n: 'Continue to billing address'"></span>
                 </button>
             </div>

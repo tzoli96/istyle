@@ -23,12 +23,18 @@ var config = {
         'Oander_IstyleCheckout/template/checkout/cart/totals/grand-total.html',
       'Magento_SalesRule/template/cart/totals/discount.html':
         'Oander_IstyleCheckout/template/checkout/cart/totals/discount.html',
+      'Magento_Checkout/template/shipping-address/address-renderer/default.html':
+        'Oander_IstyleCheckout/template/shipping-address/address-renderer/default.html',
+      'Magento_Checkout/template/shipping-address/list.html':
+        'Oander_IstyleCheckout/template/shipping-address/list.html',
       'Magento_Checkout/js/view/form/element/email':
         'Oander_IstyleCheckout/js/view/form/element/email',
       'Magento_Checkout/template/billing-address/form':
         'Oander_IstyleCheckout/template/billing-address/form',
       'Magento_Checkout/template/billing-address/list':
         'Oander_IstyleCheckout/template/billing-address/list',
+      'Magento_Checkout/js/view/shipping-address/address-renderer/default':
+        'Oander_IstyleCheckout/js/view/shipping-address/address-renderer/default'
     }
   },
   config: {
