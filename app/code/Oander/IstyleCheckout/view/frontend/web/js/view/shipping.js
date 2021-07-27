@@ -132,11 +132,20 @@ define([
 					firstItem = ratesArray[0].carrier_code;
 					firstArray.push(ratesArray[0]);
 				} else {
-					if (ratesArray[i].carrier_code.charAt(0) !== firstItem.charAt(0)) {
-					areNeeded = true;
-					secondArray.push(ratesArray[i]);
+					if (firstItem === 'warehouse_pickup') {
+						if (ratesArray[i].carrier_code !== 'warehouse_pickup') {
+							areNeeded = true;
+							secondArray.push(ratesArray[i]);
+						} else {
+							firstArray.push(ratesArray[i]);
+						}
 					} else {
-					firstArray.push(ratesArray[i]);
+						if (ratesArray[i].carrier_code === 'warehouse_pickup') {
+							areNeeded = true;
+							secondArray.push(ratesArray[i]);
+						} else {
+							firstArray.push(ratesArray[i]);
+						}
 					}
 				}
 			}
@@ -169,7 +178,7 @@ define([
 						maps.push(L.map('map' + i, {
 							center: [latitude, longitude],
 							zoomControl: false,
-							zoom: 20,
+							zoom: 16,
 							dragging: !L.Browser.mobile,
 							tap: !L.Browser.mobile
 						}));
