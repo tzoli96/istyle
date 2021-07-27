@@ -30,10 +30,11 @@ class ReplaceImageTag
             return $output;
         }
 
-        $regex = '/<img([^<]+\s|\s)src=(\"|' . "\')([^<]+?\.(png|jpg|jpeg))[^<]+>(?!(<\/pic|\s*<\/pic))/mi";
+        $regex = '/<img([^<]+\s|\s)(src|data-src)=(\"|' . "\')([^<]+?\.(png|jpg|jpeg))[^<]+>(?!(<\/pic|\s*<\/pic))/mi";
         if (preg_match_all($regex, $output, $images, PREG_OFFSET_CAPTURE) === false) {
             return $output;
         }
+
         $accumulatedChange = 0;
         $baseUrl = $this->storeManager->getStore()->getBaseUrl();
         $mediaUrl = $this->storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
@@ -43,7 +44,7 @@ class ReplaceImageTag
         foreach ($images[0] as $index => $image) {
             $offset = $image[1] + $accumulatedChange;
             $htmlTag = $images[0][$index][0];
-            $imageUrl = $images[3][$index][0];
+            $imageUrl = $images[4][$index][0];
 
             /**
              * Skip when image is not from same server
