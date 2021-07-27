@@ -169,7 +169,7 @@ define([
 						maps.push(L.map('map' + i, {
 							center: [latitude, longitude],
 							zoomControl: false,
-							zoom: 20,
+							zoom: 16,
 							dragging: !L.Browser.mobile,
 							tap: !L.Browser.mobile
 						}));
