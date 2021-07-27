@@ -34,7 +34,11 @@ var config = {
       'Magento_Checkout/template/billing-address/list':
         'Oander_IstyleCheckout/template/billing-address/list',
       'Magento_Checkout/js/view/shipping-address/address-renderer/default':
-        'Oander_IstyleCheckout/js/view/shipping-address/address-renderer/default'
+        'Oander_IstyleCheckout/js/view/shipping-address/address-renderer/default',
+      'Magento_Customer/js/action/check-email-availability':
+        'Oander_IstyleCheckout/js/action/check-email-availability',
+      'Magento_Customer/js/action/login':
+        'Oander_IstyleCheckout/js/action/login'
     }
   },
   config: {

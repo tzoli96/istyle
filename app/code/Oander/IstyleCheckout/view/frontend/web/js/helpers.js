@@ -41,6 +41,11 @@ define([
       return '';
     },
 
+    /**
+     * Validate shipping fields
+     * @param {HTMLElement} form
+     * @returns {Void}
+     */
     validateShippingFields: function (form) {
       var self = this;
 
@@ -61,15 +66,22 @@ define([
       }
     },
 
+    /**
+     * Class handler
+     * @param {HTMLElement} element
+     * @returns {Void}
+     */
     classHandler: function (element) {
       var formGroup = $(element).closest('.form-group');
 
-      if ($(element).val().length > 0) {
-        if (formGroup.find('.field-tooltip').length) formGroup.addClass('has-field-tooltip');
-        formGroup.addClass('filled');
-      }
-      else {
-        formGroup.removeClass('filled');
+      if ($(element).length) {
+        if ($(element).val().length > 0) {
+          if (formGroup.find('.field-tooltip').length) formGroup.addClass('has-field-tooltip');
+          formGroup.addClass('filled');
+        }
+        else {
+          formGroup.removeClass('filled');
+        }
       }
     }
   }
