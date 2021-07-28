@@ -17,6 +17,9 @@ define([
       hasPasswordValue: ko.observable(false),
       errorMessage: ko.observable(false),
     },
+    shippingAddress: {
+      continueBtn: ko.observable(false),
+    },
     localStorageObject: {
       auth: {
         hasValidEmailAddress: false,

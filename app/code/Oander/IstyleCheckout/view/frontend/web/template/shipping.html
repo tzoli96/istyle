@@ -446,14 +446,33 @@
         <!-- /ko -->
         <!-- /ko -->
 
+        <!-- ko if: (isFormInline) -->
         <div class="actions-toolbar" id="shipping-method-buttons-container">
             <div class="primary">
-                <button data-role="opc-continue" type="submit" class="action primary w-100"
-                    data-bind="click: shippingBtn">
+                <button
+                    data-role="opc-continue"
+                    type="submit"
+                    class="action primary w-100"
+                    data-bind="click: shippingBtn, enable: continueBtn">
                     <span data-bind="i18n: 'Continue to billing address'"></span>
                 </button>
             </div>
         </div>
+        <!-- /ko -->
+
+        <!-- ko if: (!isFormInline) -->
+        <div class="actions-toolbar" id="shipping-method-buttons-container">
+            <div class="primary">
+                <button
+                    data-role="opc-continue"
+                    type="submit"
+                    class="action primary w-100"
+                    data-bind="click: shippingBtn, enable: (isFormVisible() ? continueBtn : hasSelectedAddress() ? true : false)">
+                    <span data-bind="i18n: 'Continue to billing address'"></span>
+                </button>
+            </div>
+        </div>
+        <!-- /ko -->
     </div>
 </div>
 <!-- ### Step 3: Shipping address end ### -->

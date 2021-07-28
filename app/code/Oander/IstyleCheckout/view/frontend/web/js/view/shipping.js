@@ -6,8 +6,10 @@ define([
 	'Magento_Checkout/js/checkout-data',
 	'Oander_IstyleCheckout/js/helpers',
 	'Oander_IstyleCheckout/js/leaflet',
+	'Oander_IstyleCheckout/js/model/shipping-address/form-state',
+	'Oander_IstyleCheckout/js/model/store',
 	'domReady!'
-], function ($, ko, customer, quote, checkoutData, helpers, L) {
+], function ($, ko, customer, quote, checkoutData, helpers, L, state, store) {
 	'use strict';
 
 	var pageLoaded = false;
@@ -50,6 +52,8 @@ define([
 	});
 
 	var mixin = {
+		continueBtn: store.shippingAddress.continueBtn,
+
 		/**
 		 * Is logged in
 		 * @returns {Boolean}
@@ -211,7 +215,6 @@ define([
 				loopThroughArrays(this.areTabsNeeded().secondArray);
 			}
 		}
-
 	};
 
 	return function (target) {
