@@ -34,6 +34,11 @@ class ReplaceImageTag
         if (preg_match_all($regex, $output, $images, PREG_OFFSET_CAPTURE) === false) {
             return $output;
         }
+        $regexBackGround = '/background(-image)?:.*?url\(\s*(?<url>.*?)\s*\)/mi';
+        if (preg_match_all($regexBackGround, $output, $images2, PREG_OFFSET_CAPTURE) === false) {
+            return $output;
+        }
+
 
         $accumulatedChange = 0;
         $baseUrl = $this->storeManager->getStore()->getBaseUrl();
@@ -41,6 +46,24 @@ class ReplaceImageTag
         $mediaUrlWithoutBaseUrl = str_replace($baseUrl, '', $mediaUrl);
         $excludeImageAttributes = $this->getExcludeImageAttributes();
         $customSrcSetTag = $this->helper->getCustomSrcSetTag() ? $this->helper->getCustomSrcSetTag() : '';
+
+        foreach($images2[2] as $index=> $image)
+        {
+            $imageUrl = $image[0];
+            $offset =   $image[1];
+            /**
+             * Skip when image is not from same server
+             */
+            if (strpos($imageUrl, $baseUrl)  === false) {
+                continue;
+            }
+
+            $imageConvertPath = $this->helper->convert($imageUrl);
+            $output = substr_replace($output, $imageConvertPath, $offset, strlen($imageUrl));
+
+        }
+
+
         foreach ($images[0] as $index => $image) {
             $offset = $image[1] + $accumulatedChange;
             $htmlTag = $images[0][$index][0];
