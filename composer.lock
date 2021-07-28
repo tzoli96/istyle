@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6092e84ee58f07ed5c4cfab98ec63f6d",
+    "content-hash": "6a9b1326fde1e0305b97e4639f34c0fb",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -882,20 +882,6 @@
                 "ssl",
                 "tls"
             ],
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2021-06-07T13:58:28+00:00"
         },
         {
@@ -1125,11 +1111,11 @@
         },
         {
             "name": "fancourier/customshipping",
-            "version": "2.1.14",
+            "version": "2.1.14.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:oandermedia/fancourie-customshipping.git",
-                "reference": "05a6ff1fbe7eb5d85951bd183152583628a1c537"
+                "url": "git@github.com:oandermedia/fancourier-customshipping.git",
+                "reference": "3c3f89d9b77ecf4b678ec31711a07c02c1c91039"
             },
             "require": {
                 "php": "~5.5.0|~5.6.0|~7.0.0"
@@ -1154,7 +1140,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2018-10-01T08:43:27+00:00"
+            "time": "2021-07-28T20:10:43+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -10381,20 +10367,6 @@
                 "x.509",
                 "x509"
             ],
-            "funding": [
-                {
-                    "url": "https://github.com/terrafrost",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/phpseclib",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2021-06-12T12:12:59+00:00"
         },
         {
@@ -14851,6 +14823,5 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }

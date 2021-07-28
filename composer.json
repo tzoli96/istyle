@@ -27,7 +27,7 @@
         "anowave/package": "0.0.3",
         "bigfishpaymentgateway/pmgw": "3.1.0.2",
         "extensa/module-dsk": "2.0.0.2",
-        "fancourier/customshipping":"2.1.14",
+        "fancourier/customshipping":"2.1.14.1",
         "infobeans/magento2-flatrate5": "1.0.1",
         "innobyte/magento2-payu": "1.1.8",
         "innobyte/module-bnpparibas": "0.0.6",
