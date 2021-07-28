@@ -59,7 +59,7 @@ class ReplaceImageTag
             }
 
             $imageConvertPath = $this->helper->convert($imageUrl);
-            $output = substr_replace($output, $imageConvertPath, $offset, strlen($imageUrl));
+            $output = str_replace($imageUrl, $imageConvertPath, $output);
 
         }
 
