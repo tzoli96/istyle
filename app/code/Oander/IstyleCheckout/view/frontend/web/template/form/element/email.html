@@ -11,76 +11,104 @@
         <div class="card__content"><span data-bind="text: getEmail()"></span></div>
     </div>
     <div class="block__content">
-        <h3 class="block__title" data-bind="i18n: 'What is your email address?'"></h3>
-        <!-- ko ifnot: isCustomerLoggedIn() -->
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-12">
+                <!-- ko ifnot: isPasswordVisible() -->
+                <h3 class="block__title" data-bind="i18n: 'What is your email address?'"></h3>
+                <p class="block__lead" data-bind="i18n: 'If you are already a registered customer, you will have the opportunity to log in.'"></p>
+                <!-- /ko -->
 
-        <!-- ko foreach: getRegion('before-login-form') -->
-        <!-- ko template: getTemplate() -->
-        <!-- /ko -->
-        <!-- /ko -->
-        <form class="form form-login" data-role="email-with-possible-login" autocomplete="off" data-bind="submit:login"
-            method="post">
-            <fieldset id="customer-email-fieldset" class="fieldset customer-email-fieldset"
-                data-bind="blockLoader: isLoading">
-                <div class="field form-group required">
-                    <label class="label" for="customer-email">
-                        <span data-bind="i18n: 'Email Address'"></span>
-                    </label>
-                    <div class="control _with-tooltip">
-                        <input class="input-text form-control" autocomplete="off" type="email" data-bind="
-                            attr:{placeholder: $t('email_placeholder')},
-                            textInput: email,
-                            hasFocus: emailFocused" name="username"
-                            data-validate="{required:true, 'validate-email':true}" id="customer-email" />
-                        <h4 class="mt-3" data-bind="fadeVisible: isPasswordVisible() == false">
-                            <!-- ko i18n: 'You can create an account after checkout.'-->
-                            <!-- /ko -->
-                        </h4>
+                <!-- ko if: isPasswordVisible() -->
+                <h3 class="block__title">
+                    <!-- ko i18n: 'Hi' --><!-- /ko -->
+                    <!-- ko text: firstname --><!-- /ko -->!
+                </h3>
+                <p class="block__lead" data-bind="i18n: 'We look forward to seeing you again! Please log in to continue your purchase.'"></p>
+                <!-- /ko -->
+
+                <!-- ko ifnot: isCustomerLoggedIn() -->
+
+                <!-- ko foreach: getRegion('before-login-form') -->
+                <!-- ko template: getTemplate() -->
+                <!-- /ko -->
+                <!-- /ko -->
+
+                <form class="form form-login" data-role="email-with-possible-login" autocomplete="off" data-bind="submit:login"
+                    method="post">
+                    <!-- ko if: auth.errorMessage -->
+                    <div class="messages">
+                        <div class="message error" data-bind="i18n: auth.errorMessage"></div>
                     </div>
-                </div>
+                    <!-- /ko -->
 
-                <!--Hidden fields -->
-                <fieldset class="fieldset hidden-fields" data-bind="fadeVisible: isPasswordVisible">
+                    <fieldset id="customer-email-fieldset" class="fieldset customer-email-fieldset"
+                        data-bind="blockLoader: isLoading">
+                        <div
+                            class="field field-full form-group required"
+                            data-bind="css: { 'filled': auth.hasValidEmailAddress }">
+                            <label class="label" for="customer-email">
+                                <span data-bind="i18n: 'Email Address'"></span>
+                            </label>
+                            <div class="control _with-tooltip">
+                                <input class="input-text form-control" autocomplete="off" type="email" data-bind="
+                                    attr:{placeholder: $t('email_placeholder')},
+                                    textInput: email,
+                                    hasFocus: emailFocused" name="username"
+                                    data-validate="{required:true, 'validate-email':true}" id="customer-email" />
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!--Hidden fields -->
+                    <fieldset class="fieldset hidden-fields" data-bind="visible: isPasswordVisible">
+                        <div class="field field-full form-group">
+                            <label class="label" for="customer-password">
+                                <span data-bind="i18n: 'Password'"></span>
+                            </label>
+                            <div class="control">
+                                <input class="input-text form-control" type="password"
+                                    data-bind="attr:{placeholder: $t('password_placeholder')}" name="password"
+                                    id="customer-password" data-validate="{required:true}" autocomplete="off" />
+                            </div>
+
+                        </div>
+                        <!-- ko foreach: getRegion('additional-login-form-fields') -->
+                        <!-- ko template: getTemplate() -->
+                        <!-- /ko -->
+                        <!-- /ko -->
+                        <div class="actions-toolbar">
+                            <input name="context" type="hidden" value="checkout" />
+                            <div class="primary">
+                                <button
+                                    type="submit"
+                                    class="action login primary"
+                                    data-action="checkout-method-login"
+                                    data-bind="enable: auth.hasPasswordValue">
+                                    <span data-bind="i18n: 'Login'"></span>
+                                </button>
+                            </div>
+                            <div class="secondary">
+                                <a class="action link remind" data-bind="attr: { href: forgotPasswordUrl }">
+                                    <span data-bind="i18n: 'Forgot Your Password?'"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <!--Hidden fields -->
                     <div class="field form-group">
-                        <label class="label" for="customer-password">
-                            <span data-bind="i18n: 'Password'"></span>
-                        </label>
-                        <div class="control">
-                            <input class="input-text form-control" type="password"
-                                data-bind="attr:{placeholder: $t('password_placeholder')}" name="password"
-                                id="customer-password" data-validate="{required:true}" autocomplete="off" />
-                            <h4 class="mt-3"
-                                data-bind="i18n: 'You already have an account with us. Sign in or continue as guest.'">
-                            </h4>
-                        </div>
-
+                        <!-- ko ifnot: isPasswordVisible() -->
+                        <button
+                            data-role="opc-continue"
+                            type="submit"
+                            class="action next-step primary w-100"
+                            data-bind="enable: auth.hasValidEmailAddress">
+                            <span data-bind="i18n: 'Continue to shipping method'"></span>
+                        </button>
+                        <!-- /ko -->
                     </div>
-                    <!-- ko foreach: getRegion('additional-login-form-fields') -->
-                    <!-- ko template: getTemplate() -->
-                    <!-- /ko -->
-                    <!-- /ko -->
-                    <div class="actions-toolbar">
-                        <input name="context" type="hidden" value="checkout" />
-                        <div class="primary">
-                            <button type="submit" class="action login primary" data-action="checkout-method-login"><span
-                                    data-bind="i18n: 'Login'"></span></button>
-                        </div>
-                        <div class="secondary">
-                            <a class="action link remind" data-bind="attr: { href: forgotPasswordUrl }">
-                                <span data-bind="i18n: 'Forgot Your Password?'"></span>
-                            </a>
-                        </div>
-                    </div>
-                </fieldset>
-                <!--Hidden fields -->
-            </fieldset>
-        </form>
-        <div class="field form-group">
-            <button data-role="opc-continue" type="submit" class="action next-step primary w-100">
-                <span data-bind="i18n: 'Continue to shipping method'"></span>
-            </button>
+                </form>
+                <!-- /ko -->
+            </div>
         </div>
-        <!-- /ko -->
-
     </div>
 </div>
