@@ -102,6 +102,8 @@ define([
                     } else {
                         context.find(this.options.mediaGallerySelector).on('gallery:loaded', function (loadedGallery) {
                             loadedGallery = context.find(this.options.mediaGallerySelector).data('gallery');
+                            console.log('---- jajuma loadedGallery swatch rederer updateData - data: ----');
+                            console.log(imagesToUpdate);
                             loadedGallery.updateData(imagesToUpdate);
                         }.bind(this));
                     }
