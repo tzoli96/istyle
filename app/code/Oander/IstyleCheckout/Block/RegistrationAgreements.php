@@ -6,7 +6,7 @@ use Magento\CheckoutAgreements\Model\ResourceModel\Agreement\CollectionFactory;
 use Magento\Framework\View\Element\Template\Context;
 use Magento\Store\Model\ScopeInterface;
 
-class Agreements extends \Magento\CheckoutAgreements\Block\Agreements
+class RegistrationAgreements extends \Magento\CheckoutAgreements\Block\Agreements
 {
     public function __construct(
         Context $context,
