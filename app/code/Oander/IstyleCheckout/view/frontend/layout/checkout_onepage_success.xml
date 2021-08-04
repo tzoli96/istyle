@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <referenceBlock class="Oander\IstyleCheckout\Block\Checkout\Success\Registration"
+                    name="checkout.registration"
+                    template="Oander_IstyleCheckout::checkout/success/registration.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="order.success.additional.info">
+            <block class="Oander\IstyleCheckout\Block\Checkout\Success\StorePickup"
+                    name="istyle_checkout.success.store.pickup"
+                    template="Oander_IstyleCheckout::checkout/success/store_pickup.phtml"
+                    after="checkout.order.info"/>
+        </referenceContainer>
+    </body>
+</page>

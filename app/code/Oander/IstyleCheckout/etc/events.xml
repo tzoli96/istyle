@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+	<event name="warehouse_manager_pickup_shipping_method">
+		<observer instance="Oander\IstyleCheckout\Observer\PickupShippingMethod" name="oander_istyle_checkout_observer_warehouse_manager_pickup_shipping_method"/>
+	</event>
+	<event name="oander_warehouse_save_before">
+		<observer instance="Oander\IstyleCheckout\Observer\WarehouseSaveBefore" name="oander_istyle_checkout_observer_warehouse_save_before"/>
+	</event>
+</config>

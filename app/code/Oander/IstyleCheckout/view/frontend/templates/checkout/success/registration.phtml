@@ -1,0 +1,58 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<div id="registration" data-bind="scope:'registration'" style="display: block">
+    <div class="field password required" data-mage-init='{"passwordStrengthIndicator": {}}'>
+        <label for="password" class="label"><span><?php /* @escapeNotVerified */ echo __('Password') ?></span></label>
+        <div class="control">
+            <input type="password" name="password" id="password"
+                   title="<?php /* @escapeNotVerified */ echo __('Password') ?>"
+                   class="input-text"
+                   data-password-min-length="<?php echo $block->escapeHtml($block->getMinimumPasswordLength()) ?>"
+                   data-password-min-character-sets="<?php echo $block->escapeHtml($block->getRequiredCharacterClassesNumber()) ?>"
+                   data-validate="{required:true, 'validate-customer-password':true}"
+                   autocomplete="off">
+            <div id="password-strength-meter-container" data-role="password-strength-meter" >
+                <div id="password-strength-meter" class="password-strength-meter">
+                    <?php /* @escapeNotVerified */ echo __('Password Strength'); ?>:
+                    <span id="password-strength-meter-label" data-role="password-strength-meter-label" >
+                        <?php /* @escapeNotVerified */ echo __('No Password'); ?>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "#registration": {
+                "Magento_Ui/js/core/app": {
+                   "components": {
+                        "registration": {
+                            "component": "Oander_IstyleCheckout/js/view/registration",
+                            "config": {
+                                "registrationUrl": "<?php /* @escapeNotVerified */ echo $block->getCreateAccountUrl(); ?>",
+                                "email": "<?php /* @escapeNotVerified */ echo $block->getEmailAddress(); ?>"
+                            },
+                            "children": {
+                                "errors": {
+                                    "component": "Magento_Ui/js/view/messages",
+                                    "sortOrder": 0,
+                                    "displayArea": "messages",
+                                    "config": {
+                                        "autoHideTimeOut": -1
+                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</div>
