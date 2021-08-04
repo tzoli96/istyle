@@ -34,7 +34,6 @@ class GalleryPlugin
             $itemImage->full_webp = $webpFullImageUrl;
             $newImagesItems[] = $itemImage;
         }
-
         return json_encode($newImagesItems);
     }
 }
