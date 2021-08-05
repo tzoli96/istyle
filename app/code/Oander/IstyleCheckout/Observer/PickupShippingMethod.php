@@ -12,6 +12,8 @@ use Oander\IstyleCheckout\Helper\WarehousePos;
  */
 class PickupShippingMethod implements ObserverInterface
 {
+    const WAREHOUSE_MANAGER_DATA = 'warehouse_manager_data';
+
     /**
      * @var WarehousePos
      */
@@ -40,7 +42,7 @@ class PickupShippingMethod implements ObserverInterface
 
         if ($methodChooser && $shippingMethod) {
             $warehouseId = preg_replace('/[^0-9.]+/', '', $shippingMethod->getMethodCode());
-            $methodChooser->setWarehouseManagerData([$this->warehousePosHelper->getPosLocationInfo($warehouseId)]);
+            $methodChooser->setData(self::WAREHOUSE_MANAGER_DATA,$this->warehousePosHelper->getPosLocationInfo($warehouseId));
             $observer->setData('methodChooser', $methodChooser);
         }
     }

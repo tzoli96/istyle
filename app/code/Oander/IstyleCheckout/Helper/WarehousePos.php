@@ -81,19 +81,21 @@ class WarehousePos extends AbstractHelper
      */
     public function getPosLocationInfo($warehouseId)
     {
-        $posLocationInfo = [];
+        $posLocationInfo = false;
         $posLocation = $this->getPosLocationFromWarehouseId($warehouseId);
         if ($posLocation) {
             $posLocationInfo = [
-                ShopInterface::ADDRESS => $posLocation->getAddress(),
-                ShopInterface::GEO_ADDRESS => $posLocation->getGeoAddress(),
-                ShopInterface::PARKING => $posLocation->getParking(),
-                ShopInterface::GEO_CODES => $posLocation->getGeoCodes(),
-                ShopInterface::GOOGLE_OPENING => $posLocation->getGoogleOpening(),
-                ShopInterface::GOOGLE_TELEPHONE => $posLocation->getGoogleTelephone(),
-                ConfigEnum::GENERAL_SETTINGS_PIN_IMAGE => $this->posLocationHelper->getPinImage(),
-                ConfigEnum::GENERAL_SETTINGS_PIN_WIDTH => $this->posLocationHelper->getPinWidth(),
-                ConfigEnum::GENERAL_SETTINGS_MAP_ZOOM => $this->posLocationHelper->getMapZoom()
+                [
+                    ShopInterface::ADDRESS => $posLocation->getAddress(),
+                    ShopInterface::GEO_ADDRESS => $posLocation->getGeoAddress(),
+                    ShopInterface::PARKING => $posLocation->getParking(),
+                    ShopInterface::GEO_CODES => $posLocation->getGeoCodes(),
+                    ShopInterface::GOOGLE_OPENING => $posLocation->getGoogleOpening(),
+                    ShopInterface::GOOGLE_TELEPHONE => $posLocation->getGoogleTelephone(),
+                    ConfigEnum::GENERAL_SETTINGS_PIN_IMAGE => $this->posLocationHelper->getPinImage(),
+                    ConfigEnum::GENERAL_SETTINGS_PIN_WIDTH => $this->posLocationHelper->getPinWidth(),
+                    ConfigEnum::GENERAL_SETTINGS_MAP_ZOOM => $this->posLocationHelper->getMapZoom()
+                ]
             ];
         }
 

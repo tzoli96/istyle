@@ -5,6 +5,7 @@ namespace Oander\IstyleCheckout\Controller\Account;
 use Magento\Customer\Model\Session;
 use Magento\Framework\App\Action\Context;
 use Magento\Checkout\Model\Session as CheckoutSession;
+use Magento\Customer\Model\Url as CustomerUrl;
 
 /**
  * Class Create
@@ -25,6 +26,11 @@ class Create extends \Magento\Checkout\Controller\Account\Create
     protected $oanderOrderCustomerService;
 
     /**
+     * @var CustomerUrl
+     */
+    protected $url;
+
+    /**
      * Create constructor.
      * @param Context $context
      * @param CheckoutSession $checkoutSession
@@ -39,11 +45,13 @@ class Create extends \Magento\Checkout\Controller\Account\Create
         \Magento\Customer\Model\Session $customerSession,
         \Magento\Sales\Api\OrderCustomerManagementInterface $orderCustomerService,
         \Oander\IstyleCheckout\Model\Order\CustomerManagement $oanderOrderCustomerService,
-        \Magento\Framework\Controller\Result\Json $resultJson
+        \Magento\Framework\Controller\Result\Json $resultJson,
+        \Magento\Customer\Model\Url $url
     ) {
         parent::__construct($context, $checkoutSession, $customerSession, $orderCustomerService);
         $this->oanderOrderCustomerService = $oanderOrderCustomerService;
         $this->resultJson = $resultJson;
+        $this->url = $url;
     }
 
     /**
@@ -72,11 +80,10 @@ class Create extends \Magento\Checkout\Controller\Account\Create
             ];
         }
         try {
-            $this->oanderOrderCustomerService->createCustmer($orderId, $password);
-            $response = [
-                'errors' => false,
-                'message' => __('A letter with further instructions will be sent to your email.')
-            ];
+            $customer = $this->oanderOrderCustomerService->createCustmer($orderId, $password);
+            $email = $this->url->getEmailConfirmationUrl($customer->getEmail());
+
+            $response['message'] = __('You must confirm your account. Please check your email for the confirmation link or <a href="%1">click here</a> for a new link.', $email);
         } catch (\Exception $e) {
             $this->messageManager->addExceptionMessage($e, $e->getMessage());
             throw $e;

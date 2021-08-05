@@ -47,7 +47,7 @@ define(
                 this.creationStarted(true);
                 $.post(
                     this.registrationUrl,
-                    {'password': 'Test1234'} //@TODO
+                    $('#registration').serializeArray()
                 ).done(
                     function (response) {
 

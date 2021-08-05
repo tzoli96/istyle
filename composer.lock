@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a9b1326fde1e0305b97e4639f34c0fb",
+    "content-hash": "66bd66c88fc4e4058bd7b1aa7f138d74",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9700,11 +9700,11 @@
         },
         {
             "name": "oander/module-twisto-pay",
-            "version": "1.0.0.9",
+            "version": "1.0.0.10",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-twisto-pay.git",
-                "reference": "7e1e84e69d1aac8fbf519ec14f34d3bd9e116702"
+                "reference": "f004098553d10174ba8b85f774f08a4a58fbfb4d"
             },
             "require": {
                 "php": "7.*",
@@ -9723,7 +9723,7 @@
                 "proprietary"
             ],
             "description": "Twisto Pay payment method",
-            "time": "2021-07-16T13:26:14+00:00"
+            "time": "2021-07-28T20:32:03+00:00"
         },
         {
             "name": "oander/module-type-hint-fix",
@@ -9813,11 +9813,11 @@
         },
         {
             "name": "oander/module-unity-pickup",
-            "version": "1.1.0.2",
+            "version": "1.1.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-unity-pickup.git",
-                "reference": "0cca58c9907abe91fe40af76066eef96c5b12065"
+                "reference": "51f0995661bd1df751b820d3f01691a6d31cd983"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9840,7 +9840,7 @@
                 "proprietary"
             ],
             "description": "Oander Unity Pickup",
-            "time": "2020-12-16T16:20:58+00:00"
+            "time": "2021-08-05T11:24:12+00:00"
         },
         {
             "name": "oander/module-url-rewrite-basic",
@@ -9873,11 +9873,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.26.15",
+            "version": "1.4.28",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "0662f336ba86ae333ea895d2ed9e07bee6fce885"
+                "reference": "4413be577db72b5bce77cb74d838d0eb70b206f8"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9898,7 +9898,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2021-07-23T10:57:19+00:00"
+            "time": "2021-08-05T11:21:07+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
