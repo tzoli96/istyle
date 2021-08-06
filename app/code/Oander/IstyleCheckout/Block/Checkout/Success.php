@@ -17,7 +17,7 @@ class Success extends \Innobyte\CheckoutSuccess\Block\Onepage\Success
 
         $order = $this->_checkoutSession->getLastRealOrder();
         $this->addData([
-            'first_name' => $order->getBillingAddress()->getFirstname()
+            'customer_firstname' => $order->getBillingAddress()->getFirstname()
         ]);
     }
 }
