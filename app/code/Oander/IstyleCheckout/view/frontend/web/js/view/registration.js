@@ -65,6 +65,13 @@ define(
                         messageList.addErrorMessage(response);
                     }.bind(this)
                 );
+            },
+
+            /**
+             * Enable/disable submit button
+             */
+            disableSubmit: function() {
+                
             }
         });
     }
