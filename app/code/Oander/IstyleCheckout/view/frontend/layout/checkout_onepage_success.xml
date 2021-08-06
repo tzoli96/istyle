@@ -5,6 +5,7 @@
             <referenceBlock class="Oander\IstyleCheckout\Block\Checkout\Success\Registration" name="checkout.registration" template="Oander_IstyleCheckout::checkout/success/registration.phtml">
                 <block class="Magento\CheckoutAgreements\Block\Agreements" template="Magento_Customer::form/register-agreements.phtml" name="register_agreements" />
             </referenceBlock>
+            <referenceBlock name="checkout.success" class="Oander\IstyleCheckout\Block\Checkout\Success" />
         </referenceContainer>
         <referenceContainer name="order.success.additional.info">
             <block class="Oander\IstyleCheckout\Block\Checkout\Success\StorePickup" name="istyle_checkout.success.store.pickup" template="Oander_IstyleCheckout::checkout/success/store_pickup.phtml" after="checkout.order.info"/>
