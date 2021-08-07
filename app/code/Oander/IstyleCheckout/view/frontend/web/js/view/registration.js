@@ -71,7 +71,13 @@ define(
              * Enable/disable submit button
              */
             disableSubmit: function() {
-                
+                $('#register-agreements .checkbox').on('click', function() {
+                    if ($(this).closest('li.item').find('.checkbox').not(':checked').length !== 0 ) {
+                        $(this).closest('.checkout-success-registration').find('.create-account .action.primary').attr('disabled','disabled');
+                    } else {
+                        $(this).closest('.checkout-success-registration').find('.create-account .action.primary').removeAttr('disabled');
+                    }
+                });
             }
         });
     }
