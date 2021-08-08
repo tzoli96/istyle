@@ -18,6 +18,16 @@ define([
       errorMessage: ko.observable(false),
     },
     shippingAddress: {
+      selectedShippingAddress: ko.observable(false),
+      continueBtn: ko.observable(false),
+    },
+    billingAddress: {
+      selectedBillingAddress: ko.observable({}),
+      hasSelectedAddress: ko.observable(false),
+      newAddress: ko.observable({}),
+      hasNewAddress: ko.observable(false),
+      tabSelector: ko.observable('billing-person'),
+      formIsVisible: ko.observable(false),
       continueBtn: ko.observable(false),
     },
     localStorageObject: {
@@ -26,6 +36,18 @@ define([
         emailHasUser: false,
         hasPasswordValue: false,
       },
+      shippingAddress: {
+        selectedShippingAddress: false,
+      },
+      billingAddress: {
+        selectedBillingAddress: {},
+        hasSelectedAddress: false,
+        newAddress: {},
+        hasNewAddress: false,
+        tabSelector: 'billing-person',
+        formIsVisible: false,
+        continueBtn: ko.observable(false),
+      }
     },
 
     /**
@@ -35,6 +57,7 @@ define([
     setLocalStorage: function () {
       if (!localStorage.getItem('istyle-checkout')) localStorage.setItem('istyle-checkout', JSON.stringify({}));
 
+      // Auth
       this.auth.hasValidEmailAddress.subscribe(function (value) {
         this.localStorageObject.auth.hasValidEmailAddress = value;
         this.updateLocalStorage();
@@ -47,6 +70,42 @@ define([
 
       this.auth.hasPasswordValue.subscribe(function (value) {
         this.localStorageObject.auth.hasPasswordValue = value;
+        this.updateLocalStorage();
+      }, this);
+
+      // Billing address
+      this.billingAddress.selectedBillingAddress.subscribe(function (value) {
+        this.localStorageObject.billingAddress.selectedBillingAddress = value;
+        this.updateLocalStorage();
+      }, this);
+
+      this.billingAddress.hasSelectedAddress.subscribe(function (value) {
+        this.localStorageObject.billingAddress.hasSelectedAddress = value;
+        this.updateLocalStorage();
+      }, this);
+
+      this.billingAddress.newAddress.subscribe(function (value) {
+        this.localStorageObject.billingAddress.newAddress = value;
+        this.updateLocalStorage();
+      }, this);
+
+      this.billingAddress.hasNewAddress.subscribe(function (value) {
+        this.localStorageObject.billingAddress.hasNewAddress = value;
+        this.updateLocalStorage();
+      }, this);
+
+      this.billingAddress.tabSelector.subscribe(function (value) {
+        this.localStorageObject.billingAddress.tabSelector = value;
+        this.updateLocalStorage();
+      }, this);
+
+      this.billingAddress.formIsVisible.subscribe(function (value) {
+        this.localStorageObject.billingAddress.formIsVisible = value;
+        this.updateLocalStorage();
+      }, this);
+
+      this.billingAddress.continueBtn.subscribe(function (value) {
+        this.localStorageObject.billingAddress.continueBtn = value;
         this.updateLocalStorage();
       }, this);
     },

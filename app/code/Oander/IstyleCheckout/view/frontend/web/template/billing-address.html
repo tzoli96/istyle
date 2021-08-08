@@ -10,38 +10,13 @@
   </div>
   <div class="block__content">
     <h3 class="block__title" data-bind="i18n: 'Billing address'"></h3>
-    <div class="billing-address-same-as-shipping-block field choice" data-bind="visible: canUseShippingAddress()">
-      <label class="custom-control custom-checkbox" data-bind="attr: {for: 'billing-address-same-as-shipping-'}">
-        <input type="checkbox" class="custom-control-input" name="billing-address-same-as-shipping"
-          data-bind="checked: isAddressSameAsShipping, click: useShippingAddress, attr: {id: 'billing-address-same-as-shipping-'}" />
-        <span class="custom-control-indicator"></span>
-        <span class="custom-control-description"
-          data-bind="i18n: 'My billing and shipping address are the same'"></span>
-      </label>
-    </div>
 
-    <!-- ko template: 'Magento_Checkout/billing-address/details' -->
-    <!-- /ko -->
-    <fieldset class="fieldset" data-bind="visible: !isAddressDetailsVisible()">
+    <fieldset class="fieldset">
       <!-- ko template: 'Magento_Checkout/billing-address/list' -->
       <!-- /ko -->
       <!-- ko template: 'Magento_Checkout/billing-address/form' -->
       <!-- /ko -->
-      <div class="actions-toolbar">
-        <button class="action outline-secondary" type="button" data-bind="click: cancelAddressEdit">
-          <span data-bind="i18n: 'Cancel'"></span>
-        </button>
-        <button class="action primary" type="button" data-bind="click: updateAddress">
-          <span data-bind="i18n: 'Update'"></span>
-        </button>
-      </div>
     </fieldset>
-
-    <div class="field form-group">
-      <button data-role="opc-continue" type="submit" class="action next-step primary w-100">
-        <span data-bind="i18n: 'Continue to payment method'"></span>
-      </button>
-    </div>
   </div>
 </div>
 <!-- ### Step 4: Billing address end ### -->
