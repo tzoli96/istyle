@@ -6,11 +6,143 @@
 -->
 <div class="field field-select-billing">
   <div class="control" data-bind="if: (addressOptions.length > 1)">
-      <select name="billing_address_id" data-bind="
-      options: addressOptions,
-      optionsText: addressOptionsText,
-      value: selectedAddress,
-      event: {change: onAddressChange(selectedAddress())};
-  "></select>
+    <div class="row">
+      <!-- ko foreach: { data: addressOptions, as: 'address' } -->
+      <div
+        class="col-sm-6 col-md-4 col-shipping-address-item"
+        data-bind="visible: address.customerAddressId">
+        <div
+          class="card card--shipping-address-item"
+          data-bind="css: ($parent.isSelectedByAddressId(address.customerAddressId)) ? 'selected-item' : 'not-selected-item'">
+          <div class="card__head">
+            <!-- ko if: (window.onderNameSwitcher == 1) -->
+            <span>
+              <!-- ko text: address.lastname --><!-- /ko -->
+              <!-- ko text: address.firstname --><!-- /ko -->
+            </span>
+            <!-- /ko -->
+            <!-- ko if: (window.onderNameSwitcher != 1) -->
+            <span>
+              <!-- ko text: address.firstname --><!-- /ko -->
+              <!-- ko text: address.lastname --><!-- /ko -->
+            </span>
+            <!-- /ko -->
+            <span><!-- ko text: address.telephone --><!-- /ko --></span>
+          </div>
+          <div class="card__content">
+            <span><!-- ko text: address.street --><!-- /ko --></span>
+            <span><!-- ko text: address.city --><!-- /ko -->, <!-- ko text: address.postcode --><!-- /ko --></span>
+            <span><!-- ko text: $parent.getCountryName(address.countryId) --><!-- /ko --></span>
+          </div>
+
+          <div class="card__actions">
+            <!-- ko if: ($parent.isSelectedByAddressId(address.customerAddressId)) -->
+            <button
+              type="button"
+              class="action-select-shipping-item action primary"
+              disabled="disabled">
+              <i class="icon fa fa-check-circle"></i>
+              <span data-bind="i18n: 'Selected'"></span>
+            </button>
+            <!-- /ko -->
+
+            <!-- ko ifnot: ($parent.isSelectedByAddressId(address.customerAddressId)) -->
+            <button
+              type="button"
+              class="action-select-shipping-item action primary"
+              data-bind="click: $parent.selectBillingAddressItem.bind(address)">
+              <span data-bind="i18n: 'Ship Here'"></span>
+            </button>
+            <!-- /ko -->
+          </div>
+        </div>
+      </div>
+      <!-- /ko -->
+      <!-- ko ifnot: formIsVisible -->
+      <!-- ko ifnot: hasNewAddress -->
+      <div class="col-sm-6 col-md-4 col-shipping-address-item">
+        <div
+            class="card card--new-address"
+            data-bind="click: addNewAddress">
+            <span class="card__icon"></span>
+            <span class="card__title" data-bind="i18n: 'Add new address'"></span>
+        </div>
+      </div>
+      <!-- /ko -->
+
+      <!-- ko if: hasNewAddress -->
+      <div class="col-sm-6 col-md-4 col-shipping-address-item">
+        <div
+          class="card card--shipping-address-item"
+          data-bind="css: ((selectedBillingAddress().status == 'new') && hasSelectedAddress) ? 'selected-item' : 'not-selected-item'">
+          <div class="card__head">
+            <!-- ko ifnot: newAddress().company -->
+              <!-- ko if: (window.onderNameSwitcher == 1) -->
+              <span>
+                <!-- ko text: newAddress().lastname --><!-- /ko -->
+                <!-- ko text: newAaddress().firstname --><!-- /ko -->
+              </span>
+              <!-- /ko -->
+              <!-- ko if: (window.onderNameSwitcher != 1) -->
+              <span>
+                <!-- ko text: newAddress().firstname --><!-- /ko -->
+                <!-- ko text: newAddress().lastname --><!-- /ko -->
+              </span>
+              <!-- /ko -->
+              <span><!-- ko text: newAddress().telephone --><!-- /ko --></span>
+            <!-- /ko -->
+            <!-- ko if: newAddress().company -->
+              <span><!-- ko text: newAddress().company --><!-- /ko --></span>
+              <span><!-- ko i18n: 'VAT' --><!-- /ko -->: <!-- ko text: newAddress().vatId --><!-- /ko --></span>
+            <!-- /ko -->
+          </div>
+          <div class="card__content">
+            <span><!-- ko text: newAddress().street --><!-- /ko --></span>
+            <span><!-- ko text: newAddress().city --><!-- /ko -->, <!-- ko text: newAddress().postcode --><!-- /ko --></span>
+            <span><!-- ko text: getCountryName(newAddress().countryId) --><!-- /ko --></span>
+          </div>
+
+          <div class="card__actions">
+            <button
+              type="button"
+              class="edit-address-link action outline-secondary"
+              data-bind="click: addNewAddress">
+              <span data-bind="i18n: 'Edit'"></span>
+            </button>
+
+            <!-- ko if: ((selectedBillingAddress().status == 'new') && hasSelectedAddress) -->
+            <button
+              type="button"
+              class="action-select-shipping-item action primary"
+              disabled="disabled">
+              <i class="icon fa fa-check-circle"></i>
+              <span data-bind="i18n: 'Selected'"></span>
+            </button>
+            <!-- /ko -->
+
+            <!-- ko ifnot: ((selectedBillingAddress().status == 'new') && hasSelectedAddress) -->
+            <button
+              type="button"
+              class="action-select-shipping-item action primary"
+              data-bind="click: selectBillingAddressItem.bind('', 'new')">
+              <span data-bind="i18n: 'Ship Here'"></span>
+            </button>
+            <!-- /ko -->
+          </div>
+        </div>
+      </div>
+      <!-- /ko -->
+
+      <div class="col-12">
+        <button
+          data-role="opc-continue"
+          type="submit"
+          class="action primary w-100"
+          data-bind="click: selectedBillingContinue, enable: hasSelectedAddress">
+          <span data-bind="i18n: 'Continue to payment method'"></span>
+        </button>
+      </div>
+      <!-- /ko -->
+    </div>
   </div>
 </div>

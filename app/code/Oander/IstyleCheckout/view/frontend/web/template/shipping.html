@@ -453,7 +453,7 @@
                     data-role="opc-continue"
                     type="submit"
                     class="action primary w-100"
-                    data-bind="click: shippingBtn, enable: continueBtn">
+                    data-bind="click: shippingBtn, css: { 'not-active': !continueBtn()}">
                     <span data-bind="i18n: 'Continue to billing address'"></span>
                 </button>
             </div>
@@ -467,7 +467,7 @@
                     data-role="opc-continue"
                     type="submit"
                     class="action primary w-100"
-                    data-bind="click: shippingBtn, enable: (isFormVisible() ? continueBtn : hasSelectedAddress() ? true : false)">
+                    data-bind="click: shippingBtn, css: (isFormVisible() ? (!continueBtn() ? 'not-active' : '') : hasSelectedAddress() ? '' : 'not-active')">
                     <span data-bind="i18n: 'Continue to billing address'"></span>
                 </button>
             </div>

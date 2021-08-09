@@ -6,21 +6,53 @@
 -->
 <div class="billing-address-form">
   <!-- ko foreach: getRegion('before-fields') -->
-  <!-- ko template: getTemplate() --><!-- /ko -->
+  <!-- ko template: getTemplate() -->
+  <!-- /ko -->
   <!--/ko-->
-  <form data-hasrequired="* Required Fields">
-      <fieldset id="billing-new-address-form" class="fieldset address">
-          <!-- ko foreach: getRegion('additional-fieldsets') -->
-          <!-- ko template: getTemplate() --><!-- /ko -->
-          <!--/ko-->
-          <!-- ko if: (isCustomerLoggedIn && customerHasAddresses) -->
-          <div class="choice field inside">
-            <input type="checkbox" class="checkbox" id="billing-save-in-address-book" data-bind="checked: saveInAddressBook" />
-            <label class="label" for="billing-save-in-address-book">
-                <span data-bind="i18n: 'Save in address book'"></span>
-            </label>
+  <form data-hasrequired="* Required Fields" data-bind="visible: (isCustomerLoggedIn) ? formIsVisible : true">
+    <fieldset id="billing-new-address-form" class="fieldset address">
+      <h3
+        class="block__title"
+        data-bind="visible: formIsVisible, i18n: 'New shipping address'"></h3>
+
+      <div class="tab tab--billing-address">
+        <div class="data items tab__titles">
+          <div
+            class="data item title tab__title active">
+            <div
+              class="data switch tab__switch"
+              data-tab="billing-person"
+              data-bind="i18n: 'billing_tab_person'"></div>
           </div>
+          <div
+            class="data item title tab__title">
+            <div
+              class="data switch tab__switch"
+              data-tab="billing-company"
+              data-bind="i18n: 'billing_tab_company'"></div>
+          </div>
+        </div>
+        <div
+          class="form form--billing-address"
+          data-tab="billing-person">
+          <!-- ko foreach: getRegion('additional-fieldsets') -->
+          <!-- ko template: getTemplate() -->
           <!-- /ko -->
-      </fieldset>
+          <!--/ko-->
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- if: formIsVisible -->
+    <button
+      data-role="opc-continue"
+      type="submit"
+      class="action primary w-100"
+      data-bind="click: billingContinue, css: { 'not-active': !continueBtn() }">
+      <span data-bind="i18n: 'Continue to payment method'"></span>
+    </button>
+    <!-- /ko -->
   </form>
+
+  <div data-bind="afterRender: formChanges()"></div>
 </div>
