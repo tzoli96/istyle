@@ -21,6 +21,11 @@ define(
                 isFormVisible: true,
                 recaptchaId: null
             },
+            recaptcha: {
+                formSelector: '#registration.checkout-success-registration',
+                targetId: 'mp_recaptcha_reg',
+                renderId: null,
+            },
 
             /**
              * Initialize observable properties
@@ -32,21 +37,23 @@ define(
                     .observe('creationStarted');
 
 
-                var self = this;
-                window.recaptchaOnload = function () {
-                    grecaptcha.ready(function() {
-                        var target = 'mp_recaptcha_reg',
-                            parameters = {
+                if (this.isRecaptchaEnabled && !$('#'+this.recaptcha.targetId).length) {
+                    var self = this;
+                    window.recaptchaOnload = function () {
+                        $(self.recaptcha.formSelector).append('<div class="g-recaptcha" id=' + self.recaptcha.targetId + '></div>');
+                        grecaptcha.ready(function () {
+                            var parameters = {
                                 'sitekey': self.invisibleKey,
                                 'size': 'invisible',
                                 'theme': self.theme,
                                 'badge': self.position,
                                 'hl': self.language
                             };
-                        self.recaptchaId = grecaptcha.render(target, parameters);
-                    });
-                };
-                require(['//www.google.com/recaptcha/api.js?onload=recaptchaOnload&render=explicit']);
+                            self.recaptcha.renderId = grecaptcha.render(self.recaptcha.targetId, parameters);
+                        });
+                    };
+                    require(['//www.google.com/recaptcha/api.js?onload=recaptchaOnload&render=explicit']);
+                }
 
                 return this;
             },
@@ -62,35 +69,40 @@ define(
              * Create new user account
              */
             createAccount: function () {
-
                 this.creationStarted(true);
 
-                var self = this;
-                grecaptcha.reset(self.recaptchaId);
-                grecaptcha.execute(self.recaptchaId).then(function (token) {
+                if (this.isRecaptchaEnabled) {
+                    var self = this;
+                    grecaptcha.reset(self.recaptcha.renderId);
+                    grecaptcha.execute(self.recaptcha.renderId).then(function (token) {
+                        self.createAccountAjax();
+                    });
+                } else {
+                    this.createAccountAjax();
+                }
+            },
 
-                    $.post(
-                        self.registrationUrl,
-                        $('#registration').serializeArray()
-                    ).done(
-                        function (response) {
-
-                            if (response.errors == false) {
-                                self.accountCreated(true)
-                            } else {
-                                messageList.addErrorMessage(response);
-                            }
-                            self.isFormVisible(false);
-                        }.bind(self)
-                    ).fail(
-                        function (response) {
-                            self.accountCreated(false)
-                            self.isFormVisible(false);
+            createAccountAjax: function () {
+                $.post(
+                    this.registrationUrl,
+                    $(this.recaptcha.formSelector).serializeArray()
+                ).done(
+                    function (response) {
+                        if (response.errors == false) {
+                            $('.account-created').text(response.message)
+                            this.accountCreated(true)
+                        } else {
                             messageList.addErrorMessage(response);
-                        }.bind(self)
-                    );
-                });
-
+                        }
+                        this.isFormVisible(false);
+                    }.bind(this)
+                ).fail(
+                    function (response) {
+                        this.accountCreated(false)
+                        this.isFormVisible(false);
+                        messageList.addErrorMessage(response);
+                    }.bind(this)
+                );
             },
 
             /**

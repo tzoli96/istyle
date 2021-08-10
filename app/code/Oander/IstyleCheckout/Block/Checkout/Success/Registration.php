@@ -6,7 +6,7 @@ use Magento\Customer\Model\AccountManagement;
 use Oander\IstyleCheckout\Controller\Account\Create;
 use Mageplaza\GoogleRecaptcha\Helper\Data as MageplazaHelperData;
 use Magento\Framework\View\Element\Template;
-
+use Oander\IstyleCheckout\Plugin\Mageplaza\GoogleRecaptcha\Model\System\Config\Source\Frontend\Forms;
 
 /**
  * Class Registration
@@ -84,6 +84,21 @@ class Registration extends \Magento\Checkout\Block\Registration
     public function getRequiredCharacterClassesNumber()
     {
         return $this->_scopeConfig->getValue(AccountManagement::XML_PATH_REQUIRED_CHARACTER_CLASSES_NUMBER);
+    }
+
+    /**
+     * @return bool
+     */
+    public function isRecaptchaEnabled()
+    {
+        $enabled = false;
+        if ($this->mageplazaHelperData->isCaptchaFrontend()
+            && in_array(Forms::TYPE_OANDER_SUCCESS_CREATE_USER, $this->mageplazaHelperData->getFormsFrontend())
+        ) {
+            $enabled = true;
+        }
+
+        return $enabled;
     }
 
     /**
