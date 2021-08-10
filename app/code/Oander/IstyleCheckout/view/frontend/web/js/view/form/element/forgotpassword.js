@@ -12,14 +12,15 @@ define([
     emailFieldStatus: ko.observable(false),
     emailMessage: ko.observable(false),
     popup: '',
-    recaptchaId: '',
     options: {
       type: 'popup',
       responsive: true,
       innerScroll: true,
       title: $t('Forgot password'),
       modalClass: 'modal-forgot-password',
-      buttons: false
+      buttons: false,
+      recaptchaTargetId: 'mp_recaptcha_forgot',
+      recaptchaId: null
     },
 
     /**
@@ -35,33 +36,22 @@ define([
       block.modal('openModal');
 
       this.form();
-    },
 
-    recaptcha: function () {
-      var self = this;
-
-      window.recaptchaOnload = function () {
+      if (window.checkoutConfig.mpRecaptcha.forgotPasswordEnabled && !$('#'+this.options.recaptchaTargetId).length) {
+        var self = this;
+        $('#form-validate.form--forgot-password').append('<div class="g-recaptcha" id=' + self.options.recaptchaTargetId + '></div>');
         grecaptcha.ready(function () {
-          var recaptchaBlock = setInterval(function () {
-            if ($('#mp_recaptcha_forgot_password').length) {
-              var target = 'mp_recaptcha_forgot_password';
-              var parameters = {
-                'sitekey': window.checkoutConfig.istyle_checkout.get_invisible_key,
-                'size': 'invisible',
-                'theme': window.checkoutConfig.istyle_checkout.get_theme_frontend,
-                'badge': window.checkoutConfig.istyle_checkout.get_position_frontend,
-                'hl': window.checkoutConfig.istyle_checkout.get_language_code
-              };
-
-              self.recaptchaId = grecaptcha.render(target, parameters);
-
-              clearInterval(recaptchaBlock);
-            }
-          }, 500);
+          var parameters = {
+            'sitekey': window.checkoutConfig.mpRecaptcha.sitekey,
+            'size': 'invisible',
+            'theme': window.checkoutConfig.mpRecaptcha.theme,
+            'badge': window.checkoutConfig.mpRecaptcha.position,
+            'hl': window.checkoutConfig.mpRecaptcha.language,
+          };
+          self.options.recaptchaId = grecaptcha.render(self.options.recaptchaTargetId, parameters);
         });
       }
 
-      require(['//www.google.com/recaptcha/api.js?onload=recaptchaOnload&render=explicit']);
     },
 
     /**
@@ -77,7 +67,14 @@ define([
       self.validateField(email);
 
       action.on('click', function () {
-        self.send(email.val(), urlBuilder.build('rest/hu_hu/V1/new_checkout/forgetpassword'));
+        if (window.checkoutConfig.mpRecaptcha.forgotPasswordEnabled) {
+          grecaptcha.reset(self.options.recaptchaId);
+          grecaptcha.execute(self.options.recaptchaId).then(function (token) {
+            self.send(email.val(), urlBuilder.build('rest/hu_hu/V1/new_checkout/forgetpassword'));
+          });
+        } else {
+          self.send(email.val(), urlBuilder.build('rest/hu_hu/V1/new_checkout/forgetpassword'));
+        }
       });
     },
 
@@ -127,15 +124,17 @@ define([
       var block = $('.block--forgot-password');
       var msg;
 
-      grecaptcha.reset(self.recaptchaId);
-      grecaptcha.execute(self.recaptchaId).then(function (token) {
-        if (xhr && xhr.readyState != null) {
-          xhr.abort();
-        }
-      });
+      if (xhr && xhr.readyState != null) {
+        xhr.abort();
+      }
 
       var data = new FormData();
       data.append('customerEmail', email);
+
+      if (window.checkoutConfig.mpRecaptcha.forgotPasswordEnabled) {
+        data.append('g-recaptcha-response', $('.g-recaptcha-response').val());
+        data.append('storeCode', window.checkoutConfig.storeCode);
+      }
 
       self.emailMessage(false);
 

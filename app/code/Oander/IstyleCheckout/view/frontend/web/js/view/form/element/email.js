@@ -74,8 +74,6 @@ define([
 
       if (store.getLocalStorage()) this.localStorageHandler(store.getLocalStorage());
 
-      forgotPassword.recaptcha();
-
       return this;
     },
 

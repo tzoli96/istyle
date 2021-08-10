@@ -12,6 +12,8 @@ use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Exception\SecurityViolationException;
 use Oander\IstyleCheckout\Api\ForgetPasswordInterface;
 use Magento\Framework\Json\Helper\Data;
+use Oander\IstyleCheckout\Helper\MageplazaRecaptcha;
+use Magento\Store\Model\StoreManagerInterface;
 
 class ForgetPassword implements ForgetPasswordInterface
 {
@@ -38,18 +40,32 @@ class ForgetPassword implements ForgetPasswordInterface
     protected $jsonHelper;
 
     /**
+     * @var MageplazaRecaptcha
+     */
+    protected $mageplazaRecaptcha;
+
+    /**
+     * @var StoreManagerInterface
+     */
+    protected $storeManager;
+
+    /**
      * @param Session $customerSession
      * @param AccountManagementInterface $customerAccountManagement
      * @param Escaper $escaper
      * @param RequestInterface $request
      * @param Data $jsonHelper
+     * @param MageplazaRecaptcha $mageplazaRecaptcha
+     * @param StoreManagerInterface $storeManager
      */
     public function __construct(
         Session                    $customerSession,
         AccountManagementInterface $customerAccountManagement,
         Escaper                    $escaper,
         RequestInterface           $request,
-        Data                       $jsonHelper
+        Data                       $jsonHelper,
+        MageplazaRecaptcha         $mageplazaRecaptcha,
+        StoreManagerInterface      $storeManager
     )
     {
         $this->session = $customerSession;
@@ -57,6 +73,8 @@ class ForgetPassword implements ForgetPasswordInterface
         $this->escaper = $escaper;
         $this->request = $request;
         $this->jsonHelper = $jsonHelper;
+        $this->mageplazaRecaptcha = $mageplazaRecaptcha;
+        $this->storeManager = $storeManager;
     }
 
     /**
@@ -66,8 +84,12 @@ class ForgetPassword implements ForgetPasswordInterface
     public function execute()
     {
         $customerEmail = $this->request->getParam(self::CUSTOMER_EMAIL_PARAM);
+        $storeCode = $this->request->getParam(self::STORE_CODE, null);
+        $storeId = $this->storeManager->getStore($storeCode)->getId();
         $resultData = [];
-        if ($customerEmail) {
+        if ($customerEmail
+            && $this->mageplazaRecaptcha->checkCaptcha($storeId)
+        ) {
             if (!\Zend_Validate::is($customerEmail, 'EmailAddress')) {
                 $this->session->setForgottenEmail($customerEmail);
                 $resultData = [
