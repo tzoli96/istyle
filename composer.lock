@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66bd66c88fc4e4058bd7b1aa7f138d74",
+    "content-hash": "811b2c77f1bfd6d90dbc88dc44407807",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8447,7 +8447,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "871c02af806f131145f101da6c3eb9e371d26654"
+                "reference": "129453c05de0fa4b7fac345b16ce96be529c7c6e"
             },
             "require": {
                 "php": "7.*"
@@ -8465,7 +8465,7 @@
                 "proprietary"
             ],
             "description": "Core bug fixes for Magento 2.x",
-            "time": "2019-09-09T07:56:55+00:00"
+            "time": "2021-08-05T17:23:43+00:00"
         },
         {
             "name": "oander/module-currency-manager",
@@ -10092,11 +10092,11 @@
         },
         {
             "name": "oander/theme-istyle",
-            "version": "dev-develop",
+            "version": "dev-53339-success-page",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "4a8ba4579e6aee79a9e8f6ae3cb40a3db530e5d9"
+                "reference": "cc0abf83ef581d0065605ea48d48092c3b07d50f"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10112,7 +10112,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-08-04T11:03:36+00:00"
+            "time": "2021-08-09T08:19:41+00:00"
         },
         {
             "name": "oyejorge/less.php",
