@@ -4,6 +4,7 @@
  * See COPYING.txt for license details.
  */
 
+/* @var $block \Oander\IstyleCheckout\Block\Checkout\Success\Registration */
 // @codingStandardsIgnoreFile
 ?>
 <div class="row">
@@ -44,7 +45,7 @@
             <div class="form-group">
                 <?php echo $block->getChildHtml('register_agreements'); ?>
             </div>
-
+            <div class="g-recaptcha" id="mp_recaptcha_reg"></div>
             <!-- ko template: getTemplate() --><!-- /ko -->
             <script type="text/x-magento-init">
                 {
@@ -55,7 +56,11 @@
                                     "component": "Oander_IstyleCheckout/js/view/registration",
                                     "config": {
                                         "registrationUrl": "<?php /* @escapeNotVerified */ echo $block->getCreateAccountUrl(); ?>",
-                                        "email": "<?php /* @escapeNotVerified */ echo $block->getEmailAddress(); ?>"
+                                        "email": "<?php /* @escapeNotVerified */ echo $block->getEmailAddress(); ?>",
+                                        "invisibleKey": "<?= /* @escapeNotVerified */ $block->getInvisibleKey() ?>",
+                                        "language": "<?= /* @escapeNotVerified */ $block->getLanguageCode() ?>",
+                                        "position": "<?= /* @escapeNotVerified */ $block->getPositionFrontend() ?>",
+                                        "theme": "<?= /* @escapeNotVerified */ $block->getThemeFrontend() ?>"
                                     },
                                     "children": {
                                         "errors": {

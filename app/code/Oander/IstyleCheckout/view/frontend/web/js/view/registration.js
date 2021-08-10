@@ -20,7 +20,8 @@ define(
                 template: 'Magento_Checkout/registration',
                 accountCreated: false,
                 creationStarted: false,
-                isFormVisible: true
+                isFormVisible: true,
+                recaptchaId: null
             },
 
             /**
@@ -31,6 +32,23 @@ define(
                     .observe('accountCreated')
                     .observe('isFormVisible')
                     .observe('creationStarted');
+
+
+                var self = this;
+                window.recaptchaOnload = function () {
+                    grecaptcha.ready(function() {
+                        var target = 'mp_recaptcha_reg',
+                            parameters = {
+                                'sitekey': self.invisibleKey,
+                                'size': 'invisible',
+                                'theme': self.theme,
+                                'badge': self.position,
+                                'hl': self.language
+                            };
+                        self.recaptchaId = grecaptcha.render(target, parameters);
+                    });
+                };
+                require(['//www.google.com/recaptcha/api.js?onload=recaptchaOnload&render=explicit']);
 
                 return this;
             },
@@ -46,27 +64,35 @@ define(
              * Create new user account
              */
             createAccount: function () {
-                this.creationStarted(true);
-                $.post(
-                    this.registrationUrl,
-                    $('#registration').serializeArray()
-                ).done(
-                    function (response) {
 
-                        if (response.errors == false) {
-                            this.accountCreated(true)
-                        } else {
+                this.creationStarted(true);
+
+                var self = this;
+                grecaptcha.reset(self.recaptchaId);
+                grecaptcha.execute(self.recaptchaId).then(function (token) {
+
+                    $.post(
+                        self.registrationUrl,
+                        $('#registration').serializeArray()
+                    ).done(
+                        function (response) {
+
+                            if (response.errors == false) {
+                                self.accountCreated(true)
+                            } else {
+                                messageList.addErrorMessage(response);
+                            }
+                            self.isFormVisible(false);
+                        }.bind(self)
+                    ).fail(
+                        function (response) {
+                            self.accountCreated(false)
+                            self.isFormVisible(false);
                             messageList.addErrorMessage(response);
-                        }
-                        this.isFormVisible(false);
-                    }.bind(this)
-                ).fail(
-                    function (response) {
-                        this.accountCreated(false)
-                        this.isFormVisible(false);
-                        messageList.addErrorMessage(response);
-                    }.bind(this)
-                );
+                        }.bind(self)
+                    );
+                });
+
             },
 
             /**
