@@ -16,8 +16,9 @@ define([
   'Magento_Checkout/js/model/full-screen-loader',
   'mage/translate',
   'Oander_IstyleCheckout/js/model/store',
-  'mage/validation'
-], function ($, Component, ko, customer, checkEmailAvailability, loginAction, quote, checkoutData, fullScreenLoader, $t, store) {
+  'Oander_IstyleCheckout/js/view/form/element/forgotpassword',
+  'mage/validation',
+], function ($, Component, ko, customer, checkEmailAvailability, loginAction, quote, checkoutData, fullScreenLoader, $t, store, forgotPassword) {
   'use strict';
 
   var validatedEmail = checkoutData.getValidatedEmailValue();
@@ -53,6 +54,8 @@ define([
       hasPasswordValue: store.auth.hasPasswordValue,
       errorMessage: store.auth.errorMessage,
     },
+    emailFieldStatus: forgotPassword.emailFieldStatus,
+    emailMessage: forgotPassword.emailMessage,
 
     /**
      * Initializes observable properties of instance
@@ -70,6 +73,8 @@ define([
       }, this);
 
       if (store.getLocalStorage()) this.localStorageHandler(store.getLocalStorage());
+
+      forgotPassword.recaptcha();
 
       return this;
     },
@@ -277,6 +282,10 @@ define([
           fullScreenLoader.stopLoader();
         });
       }
+    },
+
+    forgotPasswordOpenModal: function () {
+      forgotPassword.openModal();
     }
   });
 });

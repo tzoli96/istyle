@@ -4,6 +4,7 @@
         <arguments>
             <argument name="configProviders" xsi:type="array">
                 <item name="checkout_add_website_block" xsi:type="object">Oander\IstyleCheckout\Model\WebsiteIdConfigProvider</item>
+                <item name="recaptcha_config" xsi:type="object">Oander\IstyleCheckout\Model\RecaptchaConfigProvider</item>
             </argument>
         </arguments>
     </type>
