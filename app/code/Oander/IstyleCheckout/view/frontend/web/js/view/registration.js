@@ -8,7 +8,9 @@ define(
     [
         'jquery',
         'uiComponent',
-        'Magento_Ui/js/model/messageList'
+        'Magento_Ui/js/model/messageList',
+        'mage/validation',
+        'passwordStrengthIndicator'
     ],
     function ($, Component, messageList) {
         'use strict';
@@ -71,6 +73,8 @@ define(
              * Enable/disable submit button
              */
             disableSubmit: function() {
+                this.validateField($('#password'));
+
                 $('#register-agreements .checkbox').on('click', function() {
                     if ($(this).closest('li.item').find('.checkbox').not(':checked').length !== 0 ) {
                         $(this).closest('.checkout-success-registration').find('.create-account .action.primary').attr('disabled','disabled');
@@ -78,7 +82,29 @@ define(
                         $(this).closest('.checkout-success-registration').find('.create-account .action.primary').removeAttr('disabled');
                     }
                 });
-            }
+            },
+
+            /**
+             * Validate
+             * @param {HTMLElement} field
+             * @returns {Void}
+             */
+            validateField: function (field) {
+                var form = $('#registration'),
+                    validator;
+        
+                form.validation();
+                validator = form.validate();
+        
+                field.on('keyup change', function () {
+                    if ($(this).val().length > 0) {
+                        console.log(validator.check($(this)));
+                        field.valid();
+                    } else {
+                        !field.valid();
+                    }
+                });
+            },
         });
     }
 );

@@ -11,10 +11,8 @@ $_item = $block->getItem();
 ?>
 <tr id="order-item-row-bundle-<?php /* @escapeNotVerified */ echo $_item->getId() ?>">
     <td class="col picture">
-        <img src="<?php echo $this->helper('Magento\Catalog\Helper\Image')
-        ->init($_item->getProduct(), 'mini_cart_product_thumbnail')
-        ->setImageFile($_item->getProduct()->getImage())
-        ->getUrl(); ?>" alt="<?php echo $block->escapeHtml($_item->getName()) ?>">
+        <img src="<?php echo $this->helper('Magento\Catalog\Helper\Image')->init($_item->getProduct(), 'mini_cart_product_thumbnail')
+        ->getUrl() ?>" alt="<?php echo $block->escapeHtml($_item->getName()) ?>">
     </td>
     <td class="col name" data-th="<?php echo $block->escapeHtml(__('Product Name')); ?>">
         <strong class="product name product-item-name"><?php echo $block->escapeHtml($_item->getName()) ?></strong>
