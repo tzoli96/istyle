@@ -111,8 +111,6 @@ define([
             this.setBillingAddress(store.billingAddress.newAddress());
           }
 
-          console.log('form is visible');
-
           if (store.billingAddress.selectedBillingAddress().isCompany) {
             $(formElements.tabs).find('.tab__switch[data-tab="billing-company"]').trigger('click');
             $(formElements.companyField).find('.form-control').focus();
