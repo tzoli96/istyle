@@ -14,4 +14,5 @@
     <type name="Mageplaza\GoogleRecaptcha\Model\System\Config\Source\Frontend\Forms">
         <plugin name="oander_istylecheckout_mageplaza_recaptcha_forms" type="Oander\IstyleCheckout\Plugin\Mageplaza\GoogleRecaptcha\Model\System\Config\Source\Frontend\Forms" sortOrder="1"/>
     </type>
+    <preference for="Magento\CheckoutAgreements\Model\AgreementsProvider" type="Oander\IstyleCheckout\Model\AgreementsProvider"/>
 </config>
