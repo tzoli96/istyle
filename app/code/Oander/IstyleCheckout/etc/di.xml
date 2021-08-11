@@ -10,5 +10,9 @@
     <preference for="Magento\CheckoutAgreements\Controller\Adminhtml\Agreement\Edit" type="Oander\IstyleCheckout\Controller\Adminhtml\Agreement\Edit"/>
     <preference for="Magento\CheckoutAgreements\Model\AgreementsConfigProvider" type="Oander\IstyleCheckout\Model\AgreementsConfigProvider"/>
     <preference for="Magento\CheckoutAgreements\Block\Agreements" type="Oander\IstyleCheckout\Block\RegistrationAgreements"/>
+    <preference for="Oander\IstyleCheckout\Api\ForgetPasswordInterface" type="Oander\IstyleCheckout\Model\ForgetPassword" />
+    <type name="Mageplaza\GoogleRecaptcha\Model\System\Config\Source\Frontend\Forms">
+        <plugin name="oander_istylecheckout_mageplaza_recaptcha_forms" type="Oander\IstyleCheckout\Plugin\Mageplaza\GoogleRecaptcha\Model\System\Config\Source\Frontend\Forms" sortOrder="1"/>
+    </type>
     <preference for="Magento\CheckoutAgreements\Model\AgreementsProvider" type="Oander\IstyleCheckout\Model\AgreementsProvider"/>
 </config>
