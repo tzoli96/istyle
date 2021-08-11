@@ -35,7 +35,7 @@ class AgreementsConfigProvider extends \Magento\CheckoutAgreements\Model\Agreeme
         $agreementConfiguration['isEnabled'] = (bool)($isAgreementsEnabled && count($agreementsList) > 0);
 
         foreach ($agreementsList as $agreement) {
-            if($agreement->getAgreementType() === "checkout")
+            if($agreement->getAgreementType() === "checkout" || $agreement->getAgreementType()==null)
             {
                 $agreementConfiguration['agreements'][] = [
                     'content' => $agreement->getIsHtml()
