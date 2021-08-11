@@ -7,6 +7,8 @@ var config = {
         'Oander_IstyleCheckout/template/onepage.html',
       'Magento_Checkout/template/progress-bar.html':
         'Oander_IstyleCheckout/template/progress-bar.html',
+      'Magento_Checkout/template/registration.html':
+        'Oander_IstyleCheckout/template/registration.html',
       'Magento_Checkout/template/shipping.html':
         'Oander_IstyleCheckout/template/shipping.html',
       'Magento_Checkout/template/billing-address.html':
