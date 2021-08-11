@@ -55,9 +55,23 @@ define([
      * @returns {Void}
      */
     formChanges: function () {
+      var self = this;
       var formElements = this.formElements();
 
       this.tabs();
+
+      $('.block--billing-address .card__action').on('click', function () {
+        if (!store.billingAddress.hasNewAddress()) {
+          self.setBillingAddress(quote.shippingAddress());
+          $(formElements.tabs).find('.tab__switch[data-tab="billing-person"]').trigger('click');
+        }
+        else {
+          self.setBillingAddress(store.billingAddress.newAddress());
+        }
+
+        helpers.validateShippingFields(document.querySelector('.form--billing-address'));
+        self.checkValidatedFields(document.querySelector('.form--billing-address'));
+      });
 
       this.setBillingAddress(quote.shippingAddress());
 
@@ -96,6 +110,8 @@ define([
           else {
             this.setBillingAddress(store.billingAddress.newAddress());
           }
+
+          console.log('form is visible');
 
           if (store.billingAddress.selectedBillingAddress().isCompany) {
             $(formElements.tabs).find('.tab__switch[data-tab="billing-company"]').trigger('click');
@@ -207,8 +223,8 @@ define([
       $(formElements.vatIdField).hide();
       $(formElements.vatIdField).removeClass('_required');
 
-      $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text(names.firstname);
-      $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text(names.lastname);
+      $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text($t(names.firstname));
+      $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text($t(names.lastname));
     },
 
     /**
@@ -227,8 +243,8 @@ define([
       $(formElements.vatIdField).show();
       $(formElements.vatIdField).addClass('_required');
 
-      $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text(names.firstname);
-      $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text(names.lastname);
+      $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text($t(names.firstname));
+      $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text($t(names.lastname));
 
       $(formElements.companyField).find('.form-control').focus();
 

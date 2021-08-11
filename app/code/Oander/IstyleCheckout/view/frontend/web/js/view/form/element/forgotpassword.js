@@ -66,7 +66,9 @@ define([
 
       self.validateField(email);
 
-      action.on('click', function () {
+      action.on('click', function (e) {
+        e.preventDefault();
+
         if (window.checkoutConfig.mpRecaptcha.forgotPasswordEnabled) {
           grecaptcha.reset(self.options.recaptchaId);
           grecaptcha.execute(self.options.recaptchaId).then(function (token) {
@@ -74,6 +76,12 @@ define([
           });
         } else {
           self.send(email.val(), urlBuilder.build('rest/hu_hu/V1/new_checkout/forgetpassword'));
+        }
+      });
+
+      email.on('keypress', function (e) {
+        if (e.keyCode == 13) {
+          e.preventDefault();
         }
       });
     },

@@ -149,11 +149,14 @@ define([
 
       loginForm.validation();
 
-      if (focused === false && !!this.email()) {
-        return !!$(emailSelector).valid();
-      }
-
       validator = loginForm.validate();
+
+      if (!this.email()) {
+        !$(emailSelector).valid();
+      }
+      else {
+        $(emailSelector).valid();
+      }
 
       if (validator.check(emailSelector)) {
         store.auth.hasValidEmailAddress(true);
