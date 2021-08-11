@@ -1,0 +1,46 @@
+<?php
+/**
+ * @var \Oander\IstyleCheckout\Block\OnePage\Success\StorePickup $block
+ */
+?>
+
+<?php if ($block->isStorePickup()): ?>
+    <div class="checkout-success-map">
+        <div id="map" style="width: 100%; height: 100%;"></div>
+    </div>
+
+    <script type="text/javascript">
+        require(['jquery', 'leaflet'], function($, L) {
+            $('body').addClass('store-pickup');
+            var whArray = <?php echo json_encode($block->getPosLocationData()); ?>,
+                pinImage = whArray[0].pin_image,
+                pinWidth = whArray[0].pin_width,
+                latitude = whArray[0].geo_codes.split(',')[0] * 1,
+                longitude = whArray[0].geo_codes.split(',')[1] * 1;
+            
+            // Create Leaflet map on map element.
+            var whMap = L.map('map', {
+                center: [latitude, longitude],
+                zoomControl: false,
+                zoom: 16,
+                dragging: !L.Browser.mobile,
+                tap: !L.Browser.mobile
+            });
+
+            // Creating marker icon
+            var icon = L.icon({
+                iconUrl: pinImage,
+                iconSize: [pinWidth / 2, 'auto']
+            });
+
+            // Creating a Layer object
+            var layer = new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+            
+            // Adding layer to the map
+            whMap.addLayer(layer);
+
+            // Adding marker to the map
+            L.marker([latitude, longitude], {icon: icon}).addTo(whMap);
+        });
+    </script>
+<?php endif; ?>

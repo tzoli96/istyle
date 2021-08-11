@@ -1,0 +1,34 @@
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<!-- ko foreach: getRegion('messages') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+<!--/ko-->
+<div>
+    <!-- ko if: isFormVisible -->
+    <p
+        class="email-tracking"
+        data-bind="i18n: 'You can track your order status by creating an account.'"
+    ></p>
+    <p class="email-address">
+        <span data-bind="i18n: 'Email Address'"></span>:
+        <span data-bind="text: getEmailAddress()"></span>
+    </p>
+    <form
+        class="create-account"
+        method="post"
+        data-bind="submit: createAccount"
+    >
+        <input
+            disabled
+            type="submit"
+            class="action primary"
+            data-bind="value: $t('Create an Account')"
+        />
+    </form>
+    <span data-bind="afterRender: disableSubmit()"></span>
+    <!-- /ko -->
+</div>
