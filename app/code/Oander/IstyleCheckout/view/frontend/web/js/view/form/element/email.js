@@ -151,12 +151,14 @@ define([
 
       validator = loginForm.validate();
 
-      if (!this.email()) {
-        !$(emailSelector).valid();
-      }
-      else {
-        $(emailSelector).valid();
-      }
+      $(emailSelector).on('keyup change', function () {
+        if (!$(this).val().length) {
+          !$(emailSelector).valid();
+        }
+        else {
+          $(emailSelector).valid();
+        }
+      });
 
       if (validator.check(emailSelector)) {
         store.auth.hasValidEmailAddress(true);
