@@ -41,6 +41,12 @@
                     </div>
                     <!-- /ko -->
 
+                    <!-- ko if: emailMessage -->
+                    <div class="messages">
+                        <div class="message success" data-bind="i18n: emailMessage"></div>
+                    </div>
+                    <!-- /ko -->
+
                     <fieldset id="customer-email-fieldset" class="fieldset customer-email-fieldset"
                         data-bind="blockLoader: isLoading">
                         <div
@@ -88,7 +94,7 @@
                                 </button>
                             </div>
                             <div class="secondary">
-                                <a class="action link remind" data-bind="attr: { href: forgotPasswordUrl }">
+                                <a class="action link remind" data-bind="click: forgotPasswordOpenModal">
                                     <span data-bind="i18n: 'Forgot Your Password?'"></span>
                                 </a>
                             </div>
@@ -110,5 +116,47 @@
                 <!-- /ko -->
             </div>
         </div>
+    </div>
+</div>
+
+<div class="block block--forgot-password d-none">
+    <div class="block__form">
+        <form
+            class="form form--forgot-password"
+            id="form-validate">
+            <div>
+                <fieldset class="fieldset">
+                    <div
+                        class="field field-full email required form-group"
+                        data-bind="css: { 'filled': emailFieldStatus }">
+                        <label
+                            for="forgot-password"
+                            class="label">
+                            <!-- ko i18n: 'Email Address' --><!-- /ko -->
+                        </label>
+                        <div class="control">
+                            <input
+                                type="email"
+                                name="forgot-email"
+                                id="forgot-email"
+                                class="input-text form-control"
+                                autocomplete="off"
+                                data-bind="attr: { 'placeholder': $t('Email Address') }, value: getEmail()"
+                                data-validate="{ required: true, 'validate-email': true }">
+                        </div>
+                    </div>
+                    <h4 data-bind="i18n: 'Please enter your email address below to receive a password reset link.'"></h4>
+                </fieldset>
+                <div class="actions-toolbar">
+                    <button
+                        type="button"
+                        class="action submit primary"
+                        data-bind="enable: emailFieldStatus">
+                        <!-- ko i18n: 'Reset my password' --><!-- /ko -->
+                    </button>
+                </div>
+                <div class="g-recaptcha" id="mp_recaptcha_forgot_password"></div>
+            </div>
+        </form>
     </div>
 </div>
