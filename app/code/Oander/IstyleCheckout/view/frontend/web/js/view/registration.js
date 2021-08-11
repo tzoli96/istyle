@@ -15,6 +15,9 @@ define(
     function ($, Component, messageList) {
         'use strict';
 
+        var isPasswordStrength = false,
+            isCheckboxChecked = false;
+
         return Component.extend({
             defaults: {
                 template: 'Magento_Checkout/registration',
@@ -37,7 +40,6 @@ define(
                     .observe('accountCreated')
                     .observe('isFormVisible')
                     .observe('creationStarted');
-
 
                 if (this.isRecaptchaEnabled && !$('#'+this.recaptcha.targetId).length) {
                     var self = this;
@@ -85,24 +87,33 @@ define(
             },
 
             createAccountAjax: function () {
+                var self = this;
+                $('.reg-messages .message').removeClass('success error');
+                $('.reg-messages').slideUp();
                 $.post(
                     this.registrationUrl,
                     $(this.recaptcha.formSelector).serializeArray()
                 ).done(
                     function (response) {
-                        if (response.errors == false) {
-                            $('.account-created').text(response.message)
-                            this.accountCreated(true)
+                        if (response.errors === false) {
+                            $('#registration').slideUp(400, function() {
+                                $('.reg-messages .message').html(response.message);
+                                $('.reg-messages .message').addClass('success');
+                                $('.reg-messages').slideDown();
+                            });
+                            // this.accountCreated(true)
                         } else {
-                            messageList.addErrorMessage(response);
+                            $('.reg-messages .message').html(response.message);
+                            $('.reg-messages .message').addClass('error');
+                            $('.reg-messages').slideDown();
                         }
-                        this.isFormVisible(false);
                     }.bind(this)
                 ).fail(
                     function (response) {
-                        this.accountCreated(false)
-                        this.isFormVisible(false);
-                        messageList.addErrorMessage(response);
+                        this.accountCreated(false);
+                        $('.reg-messages .message').text(self.generalErrorMessage);
+                        $('.reg-messages .message').addClass('error');
+                        $('.reg-messages').slideDown();
                     }.bind(this)
                 );
             },
@@ -115,9 +126,13 @@ define(
 
                 $('#register-agreements .checkbox').on('click', function() {
                     if ($(this).closest('li.item').find('.checkbox').not(':checked').length !== 0 ) {
+                        isCheckboxChecked = false;
                         $(this).closest('.checkout-success-registration').find('.create-account .action.primary').attr('disabled','disabled');
-                    } else {
+                    } else if ($(this).closest('li.item').find('.checkbox').not(':checked').length === 0 && isPasswordStrength) {
+                        isCheckboxChecked = true;
                         $(this).closest('.checkout-success-registration').find('.create-account .action.primary').removeAttr('disabled');
+                    } else {
+                        isCheckboxChecked = true;
                     }
                 });
             },
@@ -134,12 +149,15 @@ define(
                 form.validation();
                 validator = form.validate();
         
-                field.on('keyup change', function () {
-                    if ($(this).val().length > 0) {
-                        console.log(validator.check($(this)));
-                        field.valid();
+                field.on('keyup change paste', function () {
+                    if (validator.check($(this)) && isCheckboxChecked) {
+                        isPasswordStrength = true;
+                        $('.create-account .action.primary').removeAttr('disabled');
+                    } else if (validator.check($(this))) {
+                        isPasswordStrength = true;
                     } else {
-                        !field.valid();
+                        isPasswordStrength = false;
+                        $('.create-account .action.primary').attr('disabled','disabled');
                     }
                 });
             },

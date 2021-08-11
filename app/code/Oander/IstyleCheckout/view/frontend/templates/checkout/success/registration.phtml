@@ -16,7 +16,7 @@
         >
             <div
                 class="form-group field password required"
-                data-mage-init='{"passwordStrengthIndicator": {}}'
+                data-bind="mageInit: {'passwordStrengthIndicator': {}}"
             >
                 <label for="password" class="label"><span><?php /* @escapeNotVerified */ echo __('Password') ?></span></label>
                 <div class="control">
@@ -61,7 +61,8 @@
                                         "invisibleKey": "<?= /* @escapeNotVerified */ $block->getInvisibleKey() ?>",
                                         "language": "<?= /* @escapeNotVerified */ $block->getLanguageCode() ?>",
                                         "position": "<?= /* @escapeNotVerified */ $block->getPositionFrontend() ?>",
-                                        "theme": "<?= /* @escapeNotVerified */ $block->getThemeFrontend() ?>"
+                                        "theme": "<?= /* @escapeNotVerified */ $block->getThemeFrontend() ?>",
+                                        "generalErrorMessage": "<?= /* @escapeNotVerified */ __('Server error during registration.') ?>"
                                     },
                                     "children": {
                                         "errors": {
@@ -80,5 +81,8 @@
                 }
             </script>
         </form>
+        <div class="reg-messages messages">
+            <div class="message"></div>
+        </div>
     </div>
 </div>

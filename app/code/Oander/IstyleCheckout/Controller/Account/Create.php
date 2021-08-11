@@ -85,8 +85,10 @@ class Create extends \Magento\Checkout\Controller\Account\Create
 
             $response['message'] = __('You must confirm your account. Please check your email for the confirmation link or <a href="%1">click here</a> for a new link.', $email);
         } catch (\Exception $e) {
-            $this->messageManager->addExceptionMessage($e, $e->getMessage());
-            throw $e;
+            $response = [
+                'errors' => true,
+                'message' => $e->getMessage()
+            ];
         }
 
         return $this->resultJson->setData($response);
