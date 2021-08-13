@@ -105,7 +105,7 @@ class Form extends Generic
                 'title' => __('Agreement Type'),
                 'name' => 'agreement_type',
                 'required' => true,
-                'options' => ['checkout' => __('Checkout'), 'registration' => __('Registration')]
+                'options' => ['all' => __('All'), 'checkout' => __('Checkout'), 'registration' => __('Registration')]
             ]
         );
 

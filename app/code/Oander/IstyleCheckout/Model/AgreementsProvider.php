@@ -21,6 +21,7 @@ class AgreementsProvider extends \Magento\CheckoutAgreements\Model\AgreementsPro
             $agreementCollection->addFieldToFilter('is_active', 1);
             $agreementCollection->addFieldToFilter('agreement_type', [
                 'eq'    => 'checkout',
+                'eq'    => 'all',
                 'null'
             ]);
             $agreementCollection->addFieldToFilter('mode', AgreementModeOptions::MODE_MANUAL);
