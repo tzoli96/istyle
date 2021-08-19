@@ -4,11 +4,15 @@
  * See COPYING.txt for license details.
  */
 -->
-<div class="block block--checkout-step block--authentication" data-step="email" data-step-count="0">
+<div
+    class="block block--checkout-step block--authentication"
+    data-step="auth"
+    data-step-count="0"
+    data-bind="css: { 'is-active': $parent.isActive('auth') }">
     <div class="card card--checkout-step-header">
         <span class="card__title" data-bind="i18n: 'Email address'"></span>
         <span class="card__action" data-bind="visible: $parent.isLoggedIn(), i18n: 'Edit'"></span>
-        <div class="card__content"><span data-bind="text: getEmail()"></span></div>
+        <div class="card__content"><span data-bind="i18n: getEmail()"></span></div>
     </div>
     <div class="block__content">
         <div class="row justify-content-center">
@@ -106,8 +110,8 @@
                         <button
                             data-role="opc-continue"
                             type="submit"
-                            class="action next-step primary w-100"
-                            data-bind="enable: auth.hasValidEmailAddress">
+                            class="action primary w-100"
+                            data-bind="enable: auth.hasValidEmailAddress, click: authContinue">
                             <span data-bind="i18n: 'Continue to shipping method'"></span>
                         </button>
                         <!-- /ko -->

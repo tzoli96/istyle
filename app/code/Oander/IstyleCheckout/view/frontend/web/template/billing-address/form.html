@@ -9,7 +9,9 @@
   <!-- ko template: getTemplate() -->
   <!-- /ko -->
   <!--/ko-->
-  <form data-hasrequired="* Required Fields" data-bind="visible: (isCustomerLoggedIn) ? formIsVisible : true">
+  <form
+    data-hasrequired="* Required Fields"
+    data-bind="visible: (isCustomerLoggedIn) ? ((addressOptions.length > 1) ? formIsVisible : true) : true">
     <fieldset id="billing-new-address-form" class="fieldset address">
       <h3
         class="block__title"
@@ -53,6 +55,6 @@
     </button>
     <!-- /ko -->
   </form>
-
-  <div data-bind="afterRender: formChanges()"></div>
 </div>
+
+<div data-bind="afterRender: formChanges()"></div>

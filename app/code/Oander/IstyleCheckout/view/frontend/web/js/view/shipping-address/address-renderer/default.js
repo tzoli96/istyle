@@ -65,7 +65,7 @@ define([
     },
 
     validateShippingFields: function () {
-      helpers.validateShippingFields(document.querySelector('.form-shipping-address'));
+      helpers.validateShippingFields($('.form-shipping-address'));
     },
 
     scrollToForm: function () {

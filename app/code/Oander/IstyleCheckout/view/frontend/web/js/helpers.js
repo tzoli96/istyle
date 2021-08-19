@@ -8,40 +8,32 @@ define([
 
   return {
     fieldsContent: {},
+    interval: 500,
+
     /**
      * Get shipping address
      * @returns {String}
      */
-     getShippingAddress: ko.computed(function () {
+    getShippingAddress: ko.computed(function () {
       var shippingAddress = quote.shippingAddress();
       var address = '';
 
       if (shippingAddress) {
         (shippingAddress.postcode !== '*'
-        && (shippingAddress.postcode !== undefined && shippingAddress.postcode !== '')
-        && (shippingAddress.city !== undefined && shippingAddress.city !== '')
-        && (shippingAddress.street !== undefined && shippingAddress.street !== '')
-        && (shippingAddress.firstname !== undefined && shippingAddress.firstname !== '')
-        && (shippingAddress.lastname !== undefined && shippingAddress.lastname !== ''))
-        ? address = shippingAddress.firstname + ' ' + shippingAddress.lastname + ', ' + shippingAddress.street[0] + ', ' + shippingAddress.city + ', ' + shippingAddress.postcode
-        : address = false;
+          && (shippingAddress.postcode !== undefined && shippingAddress.postcode !== '')
+          && (shippingAddress.city !== undefined && shippingAddress.city !== '')
+          && (shippingAddress.street !== undefined && shippingAddress.street !== '')
+          && (shippingAddress.firstname !== undefined && shippingAddress.firstname !== '')
+          && (shippingAddress.lastname !== undefined && shippingAddress.lastname !== ''))
+          ? address = shippingAddress.firstname + ' ' + shippingAddress.lastname + ', ' + shippingAddress.street[0] + ', ' + shippingAddress.city + ', ' + shippingAddress.postcode
+          : address = 'Please enter your shipping address.';
       }
       else {
-        address = false;
+        address = 'Please enter your shipping address.';
       }
 
       return address;
     }),
-
-    /**
-     * Is filled
-     * @param {Object<String> | String} value
-     * @returns String
-     */
-    isFilled: function (value) {
-      if (value) return 'filled';
-      return '';
-    },
 
     /**
      * Validate shipping fields
@@ -51,22 +43,20 @@ define([
     validateShippingFields: function (form) {
       var self = this;
 
-      self.watchRequiredFields(form);
+      if (form.hasClass('form-shipping-address')) self.watchRequiredFields(form);
 
       if (form) {
-        var fields = form.querySelectorAll('.form-group');
+        var fields = form.find('.form-group');
 
-        for (var field in fields) {
-          if (typeof fields[field] == 'object') {
-            var fieldElement = $(fields[field]).find('.form-control');
+        fields.each(function (index, field) {
+          var fieldElement = $(field).find('.form-control');
 
-            fieldElement.on('keyup change', function () {
-              self.classHandler($(this));
-            });
+          fieldElement.on('keyup change', function () {
+            self.classHandler($(this));
+          });
 
-            self.classHandler(fieldElement);
-          }
-        }
+          self.classHandler(fieldElement);
+        });
       }
     },
 
@@ -98,20 +88,19 @@ define([
       var self = this;
 
       if (form) {
-        var fields = form.querySelectorAll('.form-group._required, .form-group.true');
+        var fields = form.find('.form-group._required, .form-group.true');
 
-        for (var field in fields) {
-          if ((typeof fields[field] == 'object'
-            && !fields[field].getAttribute('style'))) {
-            var fieldElement = $(fields[field]).find('.form-control');
+        fields.each(function (index, field) {
+          if (!$(field).attr('style')) {
+            var fieldElement = $(field).find('.form-control');
 
             fieldElement.on('keyup change', function () {
-              self.requiredHandler($(this), Number(field));
+              self.requiredHandler($(this), Number(index));
             });
 
-            self.requiredHandler(fieldElement, Number(field));
+            self.requiredHandler(fieldElement, Number(index));
           }
-        }
+        });
       }
     },
 
@@ -156,6 +145,22 @@ define([
       else {
         store.shippingAddress.continueBtn(false);
       }
+    },
+
+    /**
+     * Step counter
+     * @param {HTMLElement} step
+     * @returns {Void}
+     */
+    stepCounter: function (step) {
+      var stepData = step.attr('data-step-count');
+
+      var lineInterval = setInterval(function () {
+        if ($('.block__line').find('.line__information').length > 0) {
+          $('.block__line').find('.line__information').css('width', ((stepData * 20) / 2) + '%');
+          clearInterval(lineInterval);
+        }
+      }, this.interval);
     }
   }
 });

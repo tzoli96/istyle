@@ -2,11 +2,12 @@
 <div
   class="block block--checkout-step block--billing-address"
   data-step="billingAddress"
-  data-step-count="3">
+  data-step-count="3"
+  data-bind="visible: isBillingAddressVisible, css: { 'is-active': isActive('billingAddress') }">
   <div class="card card--checkout-step-header">
     <span class="card__title" data-bind="i18n: 'Billing address'"></span>
     <span class="card__action" data-bind="i18n: 'Edit'"></span>
-    <div class="card__content"><span data-bind="text: getBillingAddress()"></span></div>
+    <div class="card__content"><span data-bind="i18n: getBillingAddress()"></span></div>
   </div>
   <div class="block__content">
     <h3 class="block__title" data-bind="i18n: 'Billing address'"></h3>
