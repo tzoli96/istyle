@@ -1,6 +1,7 @@
 define([
   'jquery',
-], function ($) {
+  'Oander_IstyleCheckout/js/model/store',
+], function ($, store) {
   'use strict';
 
   $.widget('oander.oanderIstyleCheckout', {
@@ -25,6 +26,7 @@ define([
       var cardAction = self.defaults.cardCheckoutStep + ' .card__action';
 
       $(document).on('click', cardAction, function () {
+        store.steps.active($(this).closest(self.defaults.blockCheckoutStep).attr('data-step'));
         self._stepCounter($(this));
         $(this).closest(self.defaults.blockCheckoutStep)
           .toggleClass('is-active').siblings().removeClass('is-active');

@@ -12,11 +12,11 @@
     class="block block--checkout-step block--shipping-method"
     data-step="shippingMethod"
     data-step-count="1"
->
+    data-bind="visible: isShippingMethodVisible, css: { 'is-active': isActive('shippingMethod') }">
     <div class="card card--checkout-step-header">
         <span class="card__title" data-bind="i18n: 'Shipping method'"></span>
         <span class="card__action" data-bind="i18n: 'Edit'"></span>
-        <div class="card__content"><span data-bind="text: getShippingMethod()"></span></div>
+        <div class="card__content"><span data-bind="i18n: getShippingMethod()"></span></div>
     </div>
     <div class="block__content">
         <h3 class="block__title" data-bind="i18n: 'How would you like to receive your order?'"></h3>
@@ -161,7 +161,9 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-12 pos-button m-0">
-                                                        <div class="action next-step primary w-100">
+                                                        <div
+                                                            class="action primary w-100"
+                                                            data-bind="click: $parent.shippingMethodContinue">
                                                             <span data-bind="i18n: 'Continue to shipping address'"></span>
                                                         </div>
                                                     </div>
@@ -196,7 +198,9 @@
                             <!-- /ko -->
                             <!-- ko if: areTabsNeeded().firstArray[0].extension_attributes.length < 1 -->
                             <div class="field form-group">
-                                <div class="action next-step primary w-100">
+                                <div
+                                    class="action primary w-100"
+                                    data-bind="click: shippingMethodContinue">
                                     <span data-bind="i18n: 'Continue to shipping address'"></span>
                                 </div>
                             </div>
@@ -319,7 +323,9 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-12 pos-button m-0">
-                                                        <div class="action next-step primary w-100">
+                                                        <div
+                                                            class="action primary w-100"
+                                                            data-bind="click: $parent.shippingMethodContinue">
                                                             <span data-bind="i18n: 'Continue to shipping address'"></span>
                                                         </div>
                                                     </div>
@@ -354,7 +360,9 @@
                             <!-- /ko -->
                             <!-- ko if: areTabsNeeded().secondArray[0].extension_attributes.length < 1 -->
                             <div class="field form-group">
-                                <div class="action next-step primary w-100">
+                                <div
+                                    class="action primary w-100"
+                                    data-bind="click: shippingMethodContinue">
                                     <span data-bind="i18n: 'Continue to shipping address'"></span>
                                 </div>
                             </div>
@@ -395,11 +403,12 @@
 <div
     class="block block--checkout-step block--shipping-address"
     data-step="shippingAddress"
-    data-step-count="2">
+    data-step-count="2"
+    data-bind="visible: isShippingAddressVisible, css: { 'is-active': isActive('shippingAddress') }">
     <div class="card card--checkout-step-header">
         <span class="card__title" data-bind="i18n: 'Shipping address'"></span>
         <span class="card__action" data-bind="i18n: 'Edit'"></span>
-        <div class="card__content"><span data-bind="text: getShippingAddress()"></span></div>
+        <div class="card__content"><span data-bind="i18n: getShippingAddress()"></span></div>
     </div>
     <div class="block__content">
         <h3 class="block__title" data-bind="i18n: 'Where can we send your order?'"></h3>

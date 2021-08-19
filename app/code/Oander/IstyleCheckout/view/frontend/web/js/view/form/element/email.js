@@ -149,16 +149,11 @@ define([
 
       loginForm.validation();
 
-      validator = loginForm.validate();
+      if (focused === false && !!this.email()) {
+        return !!$(emailSelector).valid();
+      }
 
-      $(emailSelector).on('keyup change', function () {
-        if (!$(this).val().length) {
-          !$(emailSelector).valid();
-        }
-        else {
-          $(emailSelector).valid();
-        }
-      });
+      validator = loginForm.validate();
 
       if (validator.check(emailSelector)) {
         store.auth.hasValidEmailAddress(true);
@@ -289,6 +284,14 @@ define([
 
     forgotPasswordOpenModal: function () {
       forgotPassword.openModal();
+    },
+
+    authContinue: function () {
+      if (store.auth.hasValidEmailAddress()) {
+        store.steps.auth(true);
+        store.steps.active('shippingMethod');
+        $('.block--shipping-method').find('.card__action').trigger('click');
+      }
     }
   });
 });

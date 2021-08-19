@@ -7,11 +7,12 @@
 <div
     class="block block--checkout-step block--payment-method"
     data-step="paymentMethod"
-    data-step-count="4">
+    data-step-count="4"
+    data-bind="visible: isPaymentMethodVisible, css: { 'is-active': isActive('paymentMethod') }">
     <div class="card card--checkout-step-header">
         <span class="card__title" data-bind="i18n: 'Payment method'"></span>
         <span class="card__action" data-bind="i18n: 'Edit'"></span>
-        <div class="card__content"><span data-bind="text: getPaymentMethod()"></span></div>
+        <div class="card__content"><span data-bind="i18n: getPaymentMethod()"></span></div>
     </div>
     <div class="block__content">
         <h3 class="block__title" data-bind="i18n: 'How would you like to pay?'"></h3>
@@ -46,4 +47,6 @@
         </form>
     </div>
 </div>
+
+<span data-bind="template: { afterRender: paymentData() }"></span>
 <!-- ### Step 4: Payment method end ### -->
