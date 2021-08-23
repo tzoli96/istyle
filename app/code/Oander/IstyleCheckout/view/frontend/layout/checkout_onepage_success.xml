@@ -13,6 +13,7 @@
         <referenceContainer name="order.success.additional.info">
             <block class="Oander\IstyleCheckout\Block\Checkout\Success\StorePickup" name="istyle_checkout.success.store.pickup" template="Oander_IstyleCheckout::checkout/success/store_pickup.phtml" before="checkout.order.info"/>
         </referenceContainer>
+        <referenceBlock name="checkout.order.info" class="Oander\IstyleCheckout\Block\Checkout\Success\StorePickupInfo"/>
         <referenceBlock name="customer.newsletter" remove="true"/>
     </body>
 </page>
