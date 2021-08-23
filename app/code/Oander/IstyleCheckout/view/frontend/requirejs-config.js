@@ -3,8 +3,6 @@ var config = {
     '*': {
       oanderIstyleCheckout: 'Oander_IstyleCheckout/js/checkout',
       leaflet: 'Oander_IstyleCheckout/js/leaflet',
-      'Magento_Checkout/template/onepage.html':
-        'Oander_IstyleCheckout/template/onepage.html',
       'Magento_Checkout/template/progress-bar.html':
         'Oander_IstyleCheckout/template/progress-bar.html',
       'Magento_Checkout/template/registration.html':
