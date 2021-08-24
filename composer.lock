@@ -8461,7 +8461,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-core-bug-fix.git",
-                "reference": "129453c05de0fa4b7fac345b16ce96be529c7c6e"
+                "reference": "871c02af806f131145f101da6c3eb9e371d26654"
             },
             "require": {
                 "php": "7.*"
@@ -8479,7 +8479,7 @@
                 "proprietary"
             ],
             "description": "Core bug fixes for Magento 2.x",
-            "time": "2021-08-05T17:23:43+00:00"
+            "time": "2019-09-09T07:56:55+00:00"
         },
         {
             "name": "oander/module-currency-manager",
@@ -10110,7 +10110,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "2ba35410bbdea6aedc91b6e6d1003478e39207e7"
+                "reference": "8b56d7f2cf1c6bf4f1f1a53cd72b6eef6959b000"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10126,7 +10126,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-08-24T08:34:43+00:00"
+            "time": "2021-08-24T10:20:19+00:00"
         },
         {
             "name": "oyejorge/less.php",
