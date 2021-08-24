@@ -185,6 +185,18 @@ define([
           this.localStorageObject.steps.active = 'shippingMethod';
         }
 
+        if (window.checkoutConfig.checkoutUrl.indexOf('reservation_id') > -1) {
+          this.steps.auth(true);
+          this.steps.shippingMethod(true);
+          this.steps.shippingAddress(true);
+          this.steps.active('billingAddress');
+
+          this.localStorageObject.steps.auth = true;
+          this.localStorageObject.steps.shippingMethod = true;
+          this.localStorageObject.steps.shippingAddress = true;
+          this.localStorageObject.steps.active = 'billingAddress';
+        }
+
         currentLS['steps'] = this.localStorageObject.steps;
         
         localStorage.setItem('istyle-checkout', JSON.stringify(currentLS));

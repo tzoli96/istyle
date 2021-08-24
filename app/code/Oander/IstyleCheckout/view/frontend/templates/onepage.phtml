@@ -13,11 +13,67 @@
       <img src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/loader-1.gif'); ?>" alt="<?php /* @escapeNotVerified */ echo __('Loading...'); ?>" style="position: absolute;">
     </div>
   </div>
-  <section
-    class="section section--checkout"
-    data-mage-init='{"oanderIstyleCheckout": {}}'>
+  <section class="section section--checkout" data-mage-init='{"oanderIstyleCheckout": {}}'>
+    <!-- ko foreach: getRegion('authentication') -->
     <!-- ko template: getTemplate() -->
     <!-- /ko -->
+    <!--/ko-->
+
+    <!-- ko foreach: getRegion('messages') -->
+    <!-- ko template: getTemplate() -->
+    <!-- /ko -->
+    <!--/ko-->
+    <div class="section__wrapper row">
+      <div class="section__content col-12 col-lg-7">
+        <div class="block block--product-reservation">
+          <div class="block__content-final">
+            <h1 class="block__title">
+              <?php echo __('Your product has arrived. 🎉'); ?>
+            </h1>
+
+            <?php
+            echo $this->getLayout()
+            ->createBlock("Magento\Cms\Block\Block")
+            ->setBlockId("reservation_final_checkout_info")
+            ->toHtml();
+            ?>
+
+            <?php
+            echo $this->getLayout()
+            ->createBlock("Oander\SalesforceReservation\Block\Checkout\Dropdown")
+            ->setTemplate("Oander_SalesforceReservation::checkout/dropdown.phtml")
+            ->toHtml();
+            ?>
+          </div>
+
+          <div class="block__content-precheckout">
+            <?php
+            echo $this->getLayout()
+            ->createBlock("Magento\Cms\Block\Block")
+            ->setBlockId("reservation_precheckout_info")
+            ->toHtml();
+            ?>
+          </div>
+        </div>
+
+        <!-- ko foreach: getRegion('progressBar') -->
+        <!-- ko template: getTemplate() -->
+        <!-- /ko -->
+        <!--/ko-->
+
+        <!-- ko foreach: getRegion('steps') -->
+        <!-- ko template: getTemplate() -->
+        <!-- /ko -->
+        <!--/ko-->
+      </div>
+
+      <div class="section__aside col-12 col-lg-4 offset-lg-1">
+        <!-- ko foreach: getRegion('sidebar') -->
+        <!-- ko template: getTemplate() -->
+        <!-- /ko -->
+        <!--/ko-->
+      </div>
+    </div>
   </section>
   <script type="text/x-magento-init">
     {
