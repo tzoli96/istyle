@@ -50,7 +50,7 @@
                             <!-- ko foreach: { data: areTabsNeeded().firstArray, as: 'method' } -->
                                 <div
                                     class="row shipping-control-row"
-                                    data-bind="click: $parent.selectShippingMethod, attr: {'data-code': method.method_code, 'data-method': method.method_code + '_' + method.carrier_code}, css: {'_active': ($parent.isSelected() == method.carrier_code + '_' + method.method_code || $parent.isSelected() == method.method_code + '_' + method.carrier_code), 'pos' : !Array.isArray(method.extension_attributes) && method.extension_attributes.warehouse_manager_data !== false}">
+                                    data-bind="click: $parent.selectShippingMethod, attr: {'data-code': method.method_code, 'data-method': method.method_code + '_' + method.carrier_code}, css: {'_active': ($parent.isSelected() == method.carrier_code + '_' + method.method_code || $parent.isSelected() == method.method_code + '_' + method.carrier_code), 'pos' : !Array.isArray(method.extension_attributes) && method.extension_attributes.hasOwnProperty('warehouse_manager_data') && method.extension_attributes.warehouse_manager_data !== false}">
                                     <div class="col col-method">
                                         <label class="shipping-control-label">
                                             <div class="shipping-control-holder">
@@ -111,7 +111,8 @@
                                                     </span>
                                                 </span>
                                             </div>
-                                            <!-- ko if: !Array.isArray(method.extension_attributes) && method.extension_attributes.warehouse_manager_data !== false  -->
+                                            <!-- TODO: extension_attributes can be an empty array and object -->
+                                            <!-- ko if: !Array.isArray(method.extension_attributes) && method.extension_attributes.hasOwnProperty('warehouse_manager_data') && method.extension_attributes.warehouse_manager_data !== false  -->
                                             <div class="shipping-control-pos m-0">
                                                 <div class="row pos-holder">
                                                     <div
@@ -212,7 +213,7 @@
                             <!-- ko foreach: { data: areTabsNeeded().secondArray, as: 'method' } -->
                                 <div
                                     class="row shipping-control-row"
-                                    data-bind="click: $parent.selectShippingMethod, attr: {'data-code': method.method_code, 'data-method': method.method_code + '_' + method.carrier_code}, css: {'_active': ($parent.isSelected() == method.carrier_code + '_' + method.method_code || $parent.isSelected() == method.method_code + '_' + method.carrier_code), 'pos' : !Array.isArray(method.extension_attributes) && method.extension_attributes.warehouse_manager_data !== false}">
+                                    data-bind="click: $parent.selectShippingMethod, attr: {'data-code': method.method_code, 'data-method': method.method_code + '_' + method.carrier_code}, css: {'_active': ($parent.isSelected() == method.carrier_code + '_' + method.method_code || $parent.isSelected() == method.method_code + '_' + method.carrier_code), 'pos' : !Array.isArray(method.extension_attributes) && method.extension_attributes.hasOwnProperty('warehouse_manager_data') && method.extension_attributes.warehouse_manager_data !== false}">
                                     <div class="col col-method">
                                         <label class="shipping-control-label">
                                             <div class="shipping-control-holder">
@@ -273,7 +274,8 @@
                                                     </span>
                                                 </span>
                                             </div>
-                                            <!-- ko if: !Array.isArray(method.extension_attributes) && method.extension_attributes.warehouse_manager_data !== false  -->
+                                            <!-- TODO: extension_attributes can be an empty array and object -->
+                                            <!-- ko if: !Array.isArray(method.extension_attributes) && method.extension_attributes.hasOwnProperty('warehouse_manager_data') && method.extension_attributes.warehouse_manager_data !== false  -->
                                             <div class="shipping-control-pos m-0">
                                                 <div class="row pos-holder">
                                                     <div
