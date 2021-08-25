@@ -47,8 +47,22 @@ class Info
             $order = $this->_checkoutSession->getLastRealOrder();
             return $this->getPosLocationData($order);
         }
+        if($method=="getShippingTitle")
+        {
+            $order = $this->_checkoutSession->getLastRealOrder();
+            return $this->getShippingTitle($order);
+        }
         $result = $proceed($method, $args);
         return $result;
+    }
+
+    public function aroundGetShippingTitle(
+        $subject,
+        \Closure $proceed
+    )
+    {
+        $order = $this->_checkoutSession->getLastRealOrder();
+        return $this->getShippingTitle($order);
     }
 
     /**
@@ -102,7 +116,7 @@ class Info
                                 }
                                 else
                                 {
-                                    $output .= '<div class="text-right"><span>' . $openingItem['opening'] . '</span><span>-</span>' . $openingItem['closes'] . '</div>';
+                                    $output .= '<div class="text-right"><span>' . date('G:i', strtotime($openingItem['opening'])) . '</span><span>-</span><span>' . date('G:i', strtotime($openingItem['closes'])) . '</span></div>';
                                 }
                                 $output .= '</div>';
                             }
@@ -133,14 +147,30 @@ class Info
 
     /**
      * @param $order \Magento\Sales\Model\Order
-     * @return array
+     * @return array|boolean
      * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getPosLocationData($order)
+    private function getPosLocationData($order)
     {
-        $warehouseId = preg_replace('/[^0-9.]+/', '', $order->getShippingMethod());
-        return $this->warehousePosHelper->getPosLocationInfo($warehouseId);
+        if($this->isStorePickup($order))
+        {
+            $warehouseId = preg_replace('/[^0-9.]+/', '', $order->getShippingMethod());
+            return $this->warehousePosHelper->getPosLocationInfo($warehouseId);
+        }
+        return false;
     }
 
+    /**
+     * @param $order \Magento\Sales\Model\Order
+     * @return \Magento\Framework\Phrase|null
+     */
+    private function getShippingTitle($order)
+    {
+        if($this->isStorePickup($order))
+        {
+            return __('Store Information');
+        }
+        return null;
+    }
 
 }
