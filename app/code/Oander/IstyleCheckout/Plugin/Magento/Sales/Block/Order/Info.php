@@ -102,9 +102,12 @@ class Info
                     $posData = $posData[0];
                     if (is_array($posData)) {
                         $output = "";
-                        $output .= '<div class="pos-address">' . $posData[ShopInterface::ADDRESS] . '</div>';
-                        $output .= '<div class="pos-info">' . $posData[ShopInterface::PARKING] . '</div>';
-                        $output .= '<div class="pos-phone">' . $posData[ShopInterface::GOOGLE_TELEPHONE] . '</div>';
+                        if(!empty($posData[ShopInterface::ADDRESS]))
+                            $output .= '<div class="pos-address">' . $posData[ShopInterface::ADDRESS] . '</div>';
+                        if(!empty($posData[ShopInterface::PARKING]))
+                            $output .= '<div class="pos-info">' . $posData[ShopInterface::PARKING] . '</div>';
+                        if(!empty($posData[ShopInterface::GOOGLE_TELEPHONE]))
+                            $output .= '<div class="pos-phone">' . __('Phone') . ": " . $posData[ShopInterface::GOOGLE_TELEPHONE] . '</div>';
                         if (is_array($posData[ShopInterface::GOOGLE_OPENING])) {
                             $output .= '<div class="pos-opening-hours"><div class="opening-hours-title mb-1">Opening Hours</div>';
                             foreach ($posData[ShopInterface::GOOGLE_OPENING] as $openingItem) {
@@ -116,7 +119,7 @@ class Info
                                 }
                                 else
                                 {
-                                    $output .= '<div class="text-right"><span>' . date('G:i', strtotime($openingItem['opening'])) . '</span><span>-</span><span>' . date('G:i', strtotime($openingItem['closes'])) . '</span></div>';
+                                    $output .= '<div class="text-right"><span>' . date('H:i', strtotime($openingItem['opening'])) . '</span><span> - </span><span>' . date('H:i', strtotime($openingItem['closes'])) . '</span></div>';
                                 }
                                 $output .= '</div>';
                             }
