@@ -184,7 +184,8 @@ define([
 		// Genarate OpenStreetMaps
 		generateMaps: function () {
 			var loopThroughArrays = function (array) {
-				var maps = [];
+				var maps = [],
+						mapIndex = 0;
 
 				for (var i = 0; i < array.length; i++) {
 					if (array[i].extension_attributes.warehouse_manager_data !== false) {
@@ -217,10 +218,12 @@ define([
 						var layer = new L.TileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
 
 						// Adding layer to the map
-						maps[i].addLayer(layer);
+						maps[mapIndex].addLayer(layer);
 
 						// Adding marker to the map
-						L.marker([latitude, longitude], { icon: icon }).addTo(maps[i]);
+						L.marker([latitude, longitude], { icon: icon }).addTo(maps[mapIndex]);
+
+						mapIndex++;
 					}
 				}
 			};
