@@ -18,7 +18,7 @@ define([
 		var clickedTab = $(this).attr('href').substring(1);
 
 		$('.delivery-content').addClass('d-none');
-		$('.data.item.title').removeClass('active')
+		$('.switch--delivery').closest('.data.item.title').removeClass('active')
 		$(this).closest('.data.item.title').addClass('active');
 		$('#' + clickedTab).removeClass('d-none');
 
@@ -46,6 +46,7 @@ define([
 		continueBtn: store.shippingAddress.continueBtn,
 		isShippingMethodVisible: ko.observable(false),
 		isShippingAddressVisible: ko.observable(false),
+		shippingMethodContinueBtn: ko.observable(false),
 
 		/**
 		 * Is logged in
@@ -74,6 +75,12 @@ define([
 		},
 
 		checkStepContent: function () {
+			quote.shippingMethod.subscribe(function (value) {
+				(value) 
+					? this.shippingMethodContinueBtn(true)
+					: this.shippingMethodContinueBtn(false);
+			}, this);
+
 			// Shipping method
 			if (store.steps.shippingMethod() === true) this.isShippingMethodVisible(true);
 			store.steps.shippingMethod.subscribe(function (value) {
@@ -225,11 +232,6 @@ define([
 			if (this.areTabsNeeded().secondArray.length > 0 && this.areTabsNeeded().secondArray[0].carrier_code === 'warehouse_pickup') {
 				loopThroughArrays(this.areTabsNeeded().secondArray);
 			}
-		},
-
-		// Check if precheckout
-		isPrecheckout: function() {
-			return window.location.href.indexOf('/precheckout/') > -1 ? true : false;
 		},
 	};
 

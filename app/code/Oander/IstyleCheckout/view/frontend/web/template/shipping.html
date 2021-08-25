@@ -161,11 +161,11 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-12 pos-button m-0">
-                                                        <div
+                                                        <button
                                                             class="action primary w-100"
-                                                            data-bind="click: $parent.shippingMethodContinue">
+                                                            data-bind="click: $parent.shippingMethodContinue, enable: $parent.shippingMethodContinueBtn">
                                                             <span data-bind="i18n: 'Continue to shipping address'"></span>
-                                                        </div>
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -198,11 +198,11 @@
                             <!-- /ko -->
                             <!-- ko if: areTabsNeeded().firstArray[0].extension_attributes.length < 1 -->
                             <div class="field form-group">
-                                <div
+                                <button
                                     class="action primary w-100"
-                                    data-bind="click: shippingMethodContinue">
+                                    data-bind="click: shippingMethodContinue, enable: shippingMethodContinueBtn">
                                     <span data-bind="i18n: 'Continue to shipping address'"></span>
-                                </div>
+                                </button>
                             </div>
                             <!-- /ko -->
                         </div>
@@ -323,11 +323,11 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-12 pos-button m-0">
-                                                        <div
+                                                        <button
                                                             class="action primary w-100"
-                                                            data-bind="click: $parent.shippingMethodContinue">
+                                                            data-bind="click: $parent.shippingMethodContinue, enable: $parent.shippingMethodContinueBtn">
                                                             <span data-bind="i18n: 'Continue to shipping address'"></span>
-                                                        </div>
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -360,11 +360,11 @@
                             <!-- /ko -->
                             <!-- ko if: areTabsNeeded().secondArray[0].extension_attributes.length < 1 -->
                             <div class="field form-group">
-                                <div
+                                <button
                                     class="action primary w-100"
-                                    data-bind="click: shippingMethodContinue">
+                                    data-bind="click: shippingMethodContinue, enable: shippingMethodContinueBtn">
                                     <span data-bind="i18n: 'Continue to shipping address'"></span>
-                                </div>
+                            </button>
                             </div>
                             <!-- /ko -->
                         </div>
@@ -477,12 +477,7 @@
                     type="submit"
                     class="action primary w-100"
                     data-bind="click: shippingBtn, css: (isFormVisible() ? (!continueBtn() ? 'not-active' : '') : hasSelectedAddress() ? '' : 'not-active')">
-                    <!-- ko if: isPrecheckout() === false -->
                     <span data-bind="i18n: 'Continue to billing address'"></span>
-                    <!-- /ko -->
-                    <!-- ko if: isPrecheckout() === true -->
-                    <span data-bind="i18n: 'Continue'"></span>
-                    <!-- /ko -->
                 </button>
             </div>
         </div>
