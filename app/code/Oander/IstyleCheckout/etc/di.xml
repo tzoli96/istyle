@@ -15,4 +15,7 @@
         <plugin name="oander_istylecheckout_mageplaza_recaptcha_forms" type="Oander\IstyleCheckout\Plugin\Mageplaza\GoogleRecaptcha\Model\System\Config\Source\Frontend\Forms" sortOrder="1"/>
     </type>
     <preference for="Magento\CheckoutAgreements\Model\AgreementsProvider" type="Oander\IstyleCheckout\Model\AgreementsProvider"/>
+    <type name="Magento\Sales\Block\Order\Info">
+        <plugin name="add_storepickup_pickup_point_to_info" type="Oander\IstyleCheckout\Plugin\Magento\Sales\Block\Order\Info" sortOrder="10" disabled="false"/>
+    </type>
 </config>
