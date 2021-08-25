@@ -233,6 +233,11 @@ define([
 				loopThroughArrays(this.areTabsNeeded().secondArray);
 			}
 		},
+
+		// Check if precheckout
+		isPrecheckout: function() {
+			return window.location.href.indexOf('/precheckout/') > -1 ? true : false;
+		},
 	};
 
 	return function (target) {
