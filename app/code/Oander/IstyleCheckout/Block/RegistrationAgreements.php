@@ -28,9 +28,9 @@ class RegistrationAgreements extends \Magento\CheckoutAgreements\Block\Agreement
                 $agreements = $this->_agreementCollectionFactory->create();
                 $agreements->addStoreFilter($this->_storeManager->getStore()->getId());
                 $agreements->addFieldToFilter('is_active', 1);
-                $agreements->addFieldToFilter('agreement_type', [
-                    'eq' => "registration",
-                    'eq' => "all"
+                $agreements->addFieldToFilter(['agreement_type','agreement_type'], [
+                    ['eq' => "registration"],
+                    ['eq' => "all"]
                 ]);
             }
             $this->setAgreements($agreements);
