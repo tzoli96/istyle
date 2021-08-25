@@ -479,7 +479,12 @@
                     type="submit"
                     class="action primary w-100"
                     data-bind="click: shippingBtn, css: (isFormVisible() ? (!continueBtn() ? 'not-active' : '') : hasSelectedAddress() ? '' : 'not-active')">
+                    <!-- ko if: isPrecheckout() === false -->
                     <span data-bind="i18n: 'Continue to billing address'"></span>
+                    <!-- /ko -->
+                    <!-- ko if: isPrecheckout() === true -->
+                    <span data-bind="i18n: 'Continue'"></span>
+                    <!-- /ko -->
                 </button>
             </div>
         </div>
