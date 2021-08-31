@@ -65,7 +65,7 @@ define([
     isActive: function (step) {
       var currentLS = store.getLocalStorage();
 
-      if (currentLS.steps.active === step) {
+      if (currentLS.steps && (currentLS.steps.active === step)) {
         var deferred = $.Deferred();
 				getPaymentInformationAction(deferred);
         helpers.stepCounter($('[data-step="' + step + '"]'));
