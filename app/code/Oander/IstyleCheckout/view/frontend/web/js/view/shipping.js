@@ -126,7 +126,7 @@ define([
 		isActive: function (step) {
 			var currentLS = store.getLocalStorage();
 
-			if (currentLS.steps.active === step) {
+			if (currentLS.steps && (currentLS.steps.active === step)) {
 				if (currentLS.steps.paymentMethod || currentLS.steps.billingAddress) {
 					var deferred = $.Deferred();
 					getPaymentInformationAction(deferred);
