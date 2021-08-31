@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa6c7143b82a829da1c749b2fc7925f5",
+    "content-hash": "ed859489506477a963f92cd03cae6001",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -881,20 +881,6 @@
                 "certificate",
                 "ssl",
                 "tls"
-            ],
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
             ],
             "time": "2021-06-07T13:58:28+00:00"
         },
@@ -9222,11 +9208,11 @@
         },
         {
             "name": "oander/module-pos-locations",
-            "version": "1.1.6.3",
+            "version": "1.1.6.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-pos-locations.git",
-                "reference": "e1b1adc5e0905c65c0a3ba0d2f6d13b1f3a09189"
+                "reference": "cf22af9e6407e4d55e0e9116a815e239ea6ed41f"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9245,7 +9231,7 @@
                 "proprietary"
             ],
             "description": "Oander POS Locations module",
-            "time": "2021-07-21T09:59:49+00:00"
+            "time": "2021-08-31T14:59:49+00:00"
         },
         {
             "name": "oander/module-preorder",
@@ -10380,20 +10366,6 @@
                 "twofish",
                 "x.509",
                 "x509"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/terrafrost",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/phpseclib",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
-                    "type": "tidelift"
-                }
             ],
             "time": "2021-08-16T04:20:12+00:00"
         },
@@ -14852,6 +14824,5 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }

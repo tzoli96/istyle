@@ -3,6 +3,7 @@
     <type name="Magento\Checkout\Model\CompositeConfigProvider">
         <arguments>
             <argument name="configProviders" xsi:type="array">
+                <item name="storepick_list" xsi:type="object">Oander\IstyleCheckout\Model\StorePickupList</item>
                 <item name="checkout_add_website_block" xsi:type="object">Oander\IstyleCheckout\Model\WebsiteIdConfigProvider</item>
                 <item name="mageplaza_recaptcha" xsi:type="object">Oander\IstyleCheckout\Model\MageplazaRecaptcha</item>
             </argument>
