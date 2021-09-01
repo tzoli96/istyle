@@ -19,6 +19,10 @@ define([
       hasPasswordValue: ko.observable(false),
       errorMessage: ko.observable(false),
     },
+    shippingMethod: {
+      selectedTitle: ko.observable(''),
+      selectedCode: ko.observable(''),
+    },
     shippingAddress: {
       selectedShippingAddress: ko.observable(false),
       continueBtn: ko.observable(false),
@@ -44,6 +48,10 @@ define([
         hasValidEmailAddress: false,
         emailHasUser: false,
         hasPasswordValue: false,
+      },
+      shippingMethod: {
+        selectedTitle: '',
+        selectedCode: '',
       },
       shippingAddress: {
         selectedShippingAddress: false,
@@ -112,6 +120,17 @@ define([
       this.auth.hasPasswordValue.subscribe(function (value) {
         this.localStorageObject.auth.hasPasswordValue = value;
         this.updateLocalStorage('auth', 'hasPasswordValue');
+      }, this);
+
+      // Shipping method
+      this.shippingMethod.selectedTitle.subscribe(function (value) {
+        this.localStorageObject.shippingMethod.selectedTitle = value;
+        this.updateLocalStorage('shippingMethod', 'selectedTitle');
+      }, this);
+
+      this.shippingMethod.selectedCode.subscribe(function (value) {
+        this.localStorageObject.shippingMethod.selectedCode = value;
+        this.updateLocalStorage('shippingMethod', 'selectedCode');
       }, this);
 
       // Billing address

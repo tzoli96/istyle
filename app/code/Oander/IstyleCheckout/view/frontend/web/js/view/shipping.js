@@ -70,8 +70,15 @@ define([
 
 		shippingMethodContinue: function () {
 			store.steps.shippingMethod(true);
-			store.steps.active('shippingAddress');
-			$('.block--shipping-address').find('.card__action').trigger('click');
+
+			if (!helpers.shippingMethodVisibleHandling(store.shippingMethod.selectedCode())) {
+				store.steps.active('shippingAddress');
+				$('.block--shipping-address').find('.card__action').trigger('click');
+			}
+			else {
+				store.steps.active('billingAddress');
+				$('.block--billing-address').find('.card__action').trigger('click');
+			}
 		},
 
 		checkStepContent: function () {
@@ -92,20 +99,56 @@ define([
 				if (value === 'shippingMethod') this.isShippingMethodVisible(true);
 			}, this);
 
-			// Shipping address
-			if (store.steps.shippingAddress() === true) this.isShippingAddressVisible(true);
-			store.steps.shippingAddress.subscribe(function (value) {
-				if (value === true) this.isShippingAddressVisible(true);
+			// Shipping method
+			quote.shippingMethod.subscribe(function (value) {
+				store.shippingMethod.selectedTitle(value.method_title);
+				store.shippingMethod.selectedCode(value.method_code);
+				//if (value) this.shippingMethodBilling(value.method_code);
 			}, this);
 
-			if (store.steps.active() === 'shippingAddress') this.isShippingAddressVisible(true);
+			// Shipping address
+			if (store.steps.shippingAddress() === true
+				&& !helpers.shippingMethodVisibleHandling(store.shippingMethod.selectedCode())) {
+				this.isShippingAddressVisible(true);
+			}
+			else {
+				this.isShippingAddressVisible(false);
+			}
+
+			store.steps.shippingAddress.subscribe(function (value) {
+				if (value === true
+					&& !helpers.shippingMethodVisibleHandling(store.shippingMethod.selectedCode())) {
+					this.isShippingAddressVisible(true);
+				}
+				else {
+					this.isShippingAddressVisible(false);
+				}
+			}, this);
+
+			if (store.steps.active() === 'shippingAddress'
+				&& !helpers.shippingMethodVisibleHandling(store.shippingMethod.selectedCode())) {
+				this.isShippingAddressVisible(true);
+			}
+			else {
+				this.isShippingAddressVisible(false);
+			}
 			store.steps.active.subscribe(function (value) {
-				if (value === 'shippingAddress') this.isShippingAddressVisible(true);
+				if (value === 'shippingAddress'
+					&& !helpers.shippingMethodVisibleHandling(store.shippingMethod.selectedCode())) {
+					this.isShippingAddressVisible(true);
+				}
+				else {
+					this.isShippingAddressVisible(false);
+				}
 			}, this);
 
 			this.validateFields();
 		},
 
+		/**
+		 * Validate fields
+		 * @returns {Void}
+		 */
 		validateFields: ko.computed(function () {
 			if (quote.shippingAddress()) {
 				var formInterval = setInterval(function () {

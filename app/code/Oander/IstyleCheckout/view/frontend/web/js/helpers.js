@@ -161,6 +161,12 @@ define([
           clearInterval(lineInterval);
         }
       }, this.interval);
-    }
+    },
+
+    shippingMethodVisibleHandling: function (method) {
+			console.log('method', method);
+			if (method.indexOf('warehouse') > -1) return true;
+			return false;
+		},
   }
 });
