@@ -53,6 +53,12 @@ class CustomerAddressSaveAfterObserver
         $customer = $customerAddress->getCustomer();
         if ($customer) {
             $customer->load($customer->getId());
+
+            $customerAddressIds = array_keys($customer->getAddresses());
+            if (!in_array($customerAddress->getEntityId(), $customerAddressIds)) {
+                return $proceedObserver($observer);
+            }
+
             $customerDataModel = $this->getDataModel($customer, $customerAddress);
             $this->eventProcessor->processEvent('customer', $customerDataModel);
         }
