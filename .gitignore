@@ -81,3 +81,4 @@ bower.json
 gulpfile.js
 package.json
 package-lock.json
+.sass-lint.yml

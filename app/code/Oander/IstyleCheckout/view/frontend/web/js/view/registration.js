@@ -144,20 +144,23 @@ define(
              */
             validateField: function (field) {
                 var form = $('#registration'),
+                    submitButton = $('.create-account .action.primary'),
                     validator;
         
                 form.validation();
                 validator = form.validate();
         
                 field.on('keyup change paste', function () {
-                    if (validator.check($(this)) && isCheckboxChecked) {
+                    if (validator.check($(this)) && $(this).closest('#registration').find('#register-agreements .checkbox').length === 0) {
+                        submitButton.removeAttr('disabled');
+                    } else if (validator.check($(this)) && isCheckboxChecked) {
                         isPasswordStrength = true;
-                        $('.create-account .action.primary').removeAttr('disabled');
+                        submitButton.removeAttr('disabled');
                     } else if (validator.check($(this))) {
                         isPasswordStrength = true;
                     } else {
                         isPasswordStrength = false;
-                        $('.create-account .action.primary').attr('disabled','disabled');
+                        submitButton.attr('disabled','disabled');
                     }
                 });
             },
