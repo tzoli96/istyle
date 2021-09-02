@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+	<default>
+		<oander_salesforce>
+			<salesforce_loyalty_spending>
+				<enabled>0</enabled>
+				<cart_info/>
+				<max_percent>0</max_percent>
+				<point_value>1</point_value>
+			</salesforce_loyalty_spending>
+		</oander_salesforce>
+	</default>
+</config>

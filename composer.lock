@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ed859489506477a963f92cd03cae6001",
+    "content-hash": "335f302a1d9d66a6a9ce7a0314c00bba",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9394,11 +9394,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.2.0.4",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "f29ceccaf9b38545f6ae43e94a518275ecabedd9"
+                "reference": "b374003d80da8817dfab51ba076a5f2409f72f08"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9417,7 +9417,7 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2020-02-04T16:22:33+00:00"
+            "time": "2021-09-01T20:52:12+00:00"
         },
         {
             "name": "oander/module-salesforce-service",
@@ -14816,6 +14816,7 @@
         "oander/module-configurable-product-attribute": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
+        "oander/module-salesforce": 20,
         "oander/module-salesforcereservation": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,

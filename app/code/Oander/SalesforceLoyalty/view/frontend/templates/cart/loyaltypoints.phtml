@@ -1,0 +1,13 @@
+<?php
+/**
+ * @var $block \Oander\SalesforceLoyalty\Block\Cart\Loyaltypoints
+ */
+?>
+<div>
+    MaxRedeemable:<?= $block->getMaxRedeemablePoints() ?><br>
+    MaxAvailable:<?= $block->getAvailablePoints() ?><br>
+    UsedPoints:<?= $block->getUsedPoints() ?><br>
+    <form id="loyalty-form" action="<?= $block->getLoyaltyPostUrl()?>" method="post">
+        <input type="text" class="block__input input-text form-control input-loyalty" id="amount" name="amount" placeholder="Loyalty points" autofocus="">
+    </form>
+</div>

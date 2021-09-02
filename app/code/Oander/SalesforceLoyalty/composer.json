@@ -1,0 +1,26 @@
+{
+    "name": "oander/module-salesforceloyalty",
+    "description": "Salesforce Loyalty module",
+    "type": "magento2-module",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Mage2Gen",
+            "email": "info@mage2gen.com"
+        },
+        {
+            "name": "J\u00e1nos Pincz\u00e9s",
+            "email": "janos.pinczes@oander.hu"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Oander\\SalesforceLoyalty\\": ""
+        }
+    }
+}

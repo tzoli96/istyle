@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<section id="oander_salesforce">
+			<tab>oander</tab>
+			<group id="salesforce_loyalty_spending" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+				<label>Loyalty Points Spending</label>
+				<field id="enabled" type="select" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Enable points spending</label>
+					<comment/>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="cart_info" type="textarea" sortOrder="20" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Points spending cart info</label>
+					<comment/>
+				</field>
+				<field id="max_percent" type="text" sortOrder="30" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Maximum percentage of cart value</label>
+					<validate>validate-number-range number-range-0-100</validate>
+					<comment>Range between 0 and 100</comment>
+				</field>
+				<field id="point_value" type="text" sortOrder="40" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Value of 1 point</label>
+					<validate>validate-not-negative-number</validate>
+					<comment/>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

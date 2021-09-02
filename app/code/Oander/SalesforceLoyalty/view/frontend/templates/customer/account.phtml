@@ -1,0 +1,19 @@
+<?php
+/**
+ * New Customer block template
+ *
+ * @var $block \Oander\SalesforceLoyalty\Block\Customer\Account
+ */
+?>
+<div>SF ID:<?php echo $block->getSalesforceId() ?></div><br>
+<div>Loyalty Points:<?php echo $block->getLoyaltyPoints() ?></div><br>
+<div id="loyaltyhistory" class="carousel">
+</div>
+
+<script type="text/x-magento-init">
+     {
+         "#loyaltyhistory": {
+             "salesforceLoyaltyHistory": <?php /* @noEscape */ echo $block->getScriptOptions(); ?>
+         }
+     }
+ </script>
