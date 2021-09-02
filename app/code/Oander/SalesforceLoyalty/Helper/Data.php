@@ -51,7 +51,8 @@ class Data extends AbstractHelper
         $maxPoints = 0.0;
         if(!is_float($quoteGrandTotal))
             $quoteGrandTotal = floatval($quoteGrandTotal);
-        $maxPoints = $quoteGrandTotal * (((float)$this->configHelper->getMaxPercent())/100);
+        if($this->configHelper->getMaxPercent())
+            $maxPoints = $quoteGrandTotal * (((float)$this->configHelper->getMaxPercent())/100);
         return $maxPoints;
     }
 

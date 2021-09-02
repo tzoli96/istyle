@@ -60,7 +60,7 @@ class Salesforce extends AbstractHelper
      * @return array
      * @throws LocalizedException
      */
-    public function getCustomerAffiliateTransactions($customer = null, $noOfRecords = 10000, $pageNo = 1)
+    public function getCustomerAffiliateTransactions($customer = null, $noOfRecords = 1000000, $pageNo = 1)
     {
         if(!($customer instanceof \Magento\Customer\Model\Customer))
         {
