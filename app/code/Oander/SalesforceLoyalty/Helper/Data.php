@@ -39,20 +39,15 @@ class Data extends AbstractHelper
     }
 
     /**
-     * @param null|float $quoteGrandTotal
+     * @param $quote \Magento\Quote\Model\Quote|null
      * @return float
      */
-    public function getMaxRedeemablePoints($quoteGrandTotal = null) : float
+    public function getMaxRedeemablePoints($quote = null) : float
     {
-        if(is_null($quoteGrandTotal))
-        {
-            $quoteGrandTotal = $this->checkoutSession->getQuote()->getGrandTotal();
-        }
         $maxPoints = 0.0;
-        if(!is_float($quoteGrandTotal))
-            $quoteGrandTotal = floatval($quoteGrandTotal);
+        $quote = $this->_getQuote($quote);
         if($this->configHelper->getMaxPercent())
-            $maxPoints = $quoteGrandTotal * (((float)$this->configHelper->getMaxPercent())/100);
+            $maxPoints = floatval($quote->getGrandTotal()) * (floatval($this->configHelper->getMaxPercent())/100);
         return $maxPoints;
     }
 
@@ -62,15 +57,12 @@ class Data extends AbstractHelper
      */
     public function getEarnableLoyaltyPoints($quote = null) : int
     {
-        if(is_null($quote))
-        {
-            $quote = $this->checkoutSession->getQuote();
-        }
         $earnablePoints = 0.0;
+        $quote = $this->_getQuote($quote);
         foreach ($quote->getAllVisibleItems() as $item)
         {
             $regularPrice = $item->getProduct()->getPriceInfo()->getPrice('regular_price')->getValue();
-            $itemPrice = is_float($item->getPrice())?$item->getPrice():0.0;
+            $itemPrice = floatval($item->getPrice());
             //Check is it not on sale
             if($itemPrice >= $regularPrice)
             {
@@ -78,5 +70,14 @@ class Data extends AbstractHelper
             }
         }
         return (int)$earnablePoints;
+    }
+
+    private function _getQuote($quote = null)
+    {
+        if(is_null($quote))
+        {
+            $quote = $this->checkoutSession->getQuote();
+        }
+        return $quote;
     }
 }

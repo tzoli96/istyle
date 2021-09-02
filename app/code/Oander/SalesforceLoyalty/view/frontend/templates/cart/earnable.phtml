@@ -1,0 +1,17 @@
+<?php
+/**
+ * @var $block \Oander\SalesforceLoyalty\Block\Cart\Loyaltypoints
+ */
+?>
+<table class="data table loyalty">
+    <tbody>
+    <tr class="loyalty totals">
+        <td class="mark" colspan="1" scope="row">
+            <?php echo __("Earnable Points")?>
+        </td>
+        <td class="amount" data-th="<?php echo __("Earnable Points")?>">
+            <span class="price"><?php echo $block->getFormatedEarnablePoints() ?></span>
+        </td>
+    </tr>
+    </tbody>
+</table>

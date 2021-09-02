@@ -21,16 +21,22 @@
 
 namespace Oander\SalesforceLoyalty\Block\Cart;
 
+use Magento\Framework\Exception\LocalizedException;
+
 class Loyaltypoints extends \Magento\Framework\View\Element\Template
 {
-    /**
-     * @var \Oander\SalesforceLoyalty\Helper\Data
-     */
-    private $loyaltyHelper;
     /**
      * @var \Magento\Checkout\Model\Session
      */
     private $checkoutSession;
+    /**
+     * @var \Magento\Customer\Model\Session
+     */
+    private $customerSession;
+    /**
+     * @var \Oander\SalesforceLoyalty\Helper\Data
+     */
+    private $loyaltyHelper;
     /**
      * @var \Oander\SalesforceLoyalty\Helper\Salesforce
      */
@@ -40,6 +46,7 @@ class Loyaltypoints extends \Magento\Framework\View\Element\Template
      * Constructor
      *
      * @param \Magento\Framework\View\Element\Template\Context $context
+     * @param \Magento\Customer\Model\Session $customerSession
      * @param \Magento\Checkout\Model\Session $checkoutSession
      * @param \Oander\SalesforceLoyalty\Helper\Data $loyaltyHelper
      * @param \Oander\SalesforceLoyalty\Helper\Salesforce $salesforceHelper
@@ -47,15 +54,22 @@ class Loyaltypoints extends \Magento\Framework\View\Element\Template
      */
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
+        \Magento\Customer\Model\Session $customerSession,
         \Magento\Checkout\Model\Session $checkoutSession,
         \Oander\SalesforceLoyalty\Helper\Data $loyaltyHelper,
         \Oander\SalesforceLoyalty\Helper\Salesforce $salesforceHelper,
         array $data = []
     ) {
         parent::__construct($context, $data);
-        $this->loyaltyHelper = $loyaltyHelper;
+        $this->customerSession = $customerSession;
         $this->checkoutSession = $checkoutSession;
+        $this->loyaltyHelper = $loyaltyHelper;
         $this->salesforceHelper = $salesforceHelper;
+    }
+
+    public function isLoggedIn()
+    {
+        return $this->customerSession->isLoggedIn();
     }
 
     public function getLoyaltyPostUrl()
@@ -70,7 +84,7 @@ class Loyaltypoints extends \Magento\Framework\View\Element\Template
 
     public function getUsedPoints()
     {
-        return $this->checkoutSession->getQuote()->getLoyaltyDiscount();
+        return $this->checkoutSession->getQuote()->getData(\Oander\SalesforceLoyalty\Enum\Attribute::LOYALTY_DISCOUNT);
     }
 
     /**
@@ -78,14 +92,38 @@ class Loyaltypoints extends \Magento\Framework\View\Element\Template
      */
     public function getAvailablePoints()
     {
-        return $this->salesforceHelper->getCustomerAffiliatePoints();
+        try {
+            return $this->salesforceHelper->getCustomerAffiliatePoints();
+        } catch (LocalizedException $e) {
+            return $e->getMessage();
+        }
     }
 
     /**
      * @return string
      */
-    public function getAvailablePointsInCash()
+    public function getAvailablePointsCashConverted()
     {
-        return $this->salesforceHelper->getCustomerAffiliatePoints();
+        try {
+            return $this->salesforceHelper->getCustomerAffiliatePointsCashConverted();
+        } catch (LocalizedException $e) {
+            return $e->getMessage();
+        }
+    }
+
+    /**
+     * @return float
+     */
+    public function getEarnablePoints()
+    {
+        return $this->loyaltyHelper->getEarnableLoyaltyPoints();
+    }
+
+    /**
+     * @return string
+     */
+    public function getFormatedEarnablePoints()
+    {
+        return __("+ %1 points", $this->getEarnablePoints());
     }
 }

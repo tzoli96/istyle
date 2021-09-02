@@ -3,11 +3,27 @@
  * @var $block \Oander\SalesforceLoyalty\Block\Cart\Loyaltypoints
  */
 ?>
-<div>
-    MaxRedeemable:<?= $block->getMaxRedeemablePoints() ?><br>
-    MaxAvailable:<?= $block->getAvailablePoints() ?><br>
-    UsedPoints:<?= $block->getUsedPoints() ?><br>
-    <form id="loyalty-form" action="<?= $block->getLoyaltyPostUrl()?>" method="post">
-        <input type="text" class="block__input input-text form-control input-loyalty" id="amount" name="amount" placeholder="Loyalty points" autofocus="">
-    </form>
-</div>
+<?php if($block->isLoggedIn()): ?>
+    <div class="block block--loyalty active" id="block-loyalty" data-collapsible="true" role="tab" aria-selected="false" aria-expanded="1" tabindex="0">
+        <div class="block__content" data-role="content">
+            <form id="loyalty-form" action="<?= $block->getLoyaltyPostUrl()?>" method="post">
+                <div class="fieldset loyalty">
+                    <input type="hidden" name="remove" id="remove-loyalty" value="0">
+                    <div class="block block--new-loyalty">
+                        <div class="block__title"><?php __("Redeem Loyalty Points"); ?></div>
+                        <div>
+                            MaxRedeemable:<?= $block->getMaxRedeemablePoints() ?><br>
+                            MaxAvailablePoints:<?= $block->getAvailablePoints() ?><br>
+                            MaxAvailablePointsInCash:<?= $block->getAvailablePointsCashConverted() ?><br>
+                            UsedPoints:<?= $block->getUsedPoints() ?><br>
+                            <input type="text" class="block__input input-text form-control input-loyalty" id="amount" name="amount" placeholder="Loyalty points" autofocus="">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+<?php else: ?>
+    <div class="block__title"><?php echo __("Redeem Loyalty Points"); ?></div>
+    <?php echo __('Please, <a href="%1" target="_blank">Login</a> or <a href="%2" target="_blank">Login</a> to participate in our Loyalty Program', $block->getUrl("customer/account/create"), $block->getUrl("customer/account/login")); ?>
+<?php endif; ?>

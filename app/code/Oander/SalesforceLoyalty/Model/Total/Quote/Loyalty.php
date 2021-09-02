@@ -57,7 +57,7 @@ class Loyalty extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
         }
 
         //Check maximum redeemable points, and remove if can not be used
-        if($this->configHelper->isSpendingEnabled() && ($this->loyaltyHelper->getMaxRedeemablePoints($quote->getGrandTotal()) >= $quote->getData(\Oander\SalesforceLoyalty\Enum\Attribute::LOYALTY_DISCOUNT))) {
+        if($this->configHelper->isSpendingEnabled() && ($this->loyaltyHelper->getMaxRedeemablePoints($quote) >= $quote->getData(\Oander\SalesforceLoyalty\Enum\Attribute::LOYALTY_DISCOUNT))) {
             $baseDiscount = $quote->getData(\Oander\SalesforceLoyalty\Enum\Attribute::LOYALTY_DISCOUNT);
             $discount = $this->_priceCurrency->convert($baseDiscount);
         }

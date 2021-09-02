@@ -80,19 +80,19 @@ class LoyaltyPost extends \Magento\Checkout\Controller\Cart
         try {
             $redeemablePoints = (int)trim($this->getRequest()->getParam('amount'));
             $maxRedeemablePoints = (int)$this->loyaltyHelper->getMaxRedeemablePoints();
-            $availablePoints = (int)$this->salesforceHelper->getCustomerAffiliatePoints($this->cart->getCustomerSession()->getCustomer());
+            $availablePoints = (int)$this->salesforceHelper->getCustomerAffiliatePointsCashConverted($this->cart->getCustomerSession()->getCustomer());
             if ($redeemablePoints > $maxRedeemablePoints) {
-                $this->messageManager->addSuccess(
+                $this->messageManager->addError(
                     __(
-                        'You can only spend a maximum of %s points for this purchase.',
+                        'You can only spend a maximum of %1 points for this purchase.',
                         $maxRedeemablePoints
                     )
                 );
             }
             else if($redeemablePoints > $availablePoints) {
-                $this->messageManager->addSuccess(
+                $this->messageManager->addError(
                     __(
-                        'You only have %s points available to spend.',
+                        'You only have %1 points available to spend.',
                         $availablePoints
                     )
                 );
