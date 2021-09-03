@@ -73,18 +73,24 @@ class LoyaltyPost extends \Magento\Checkout\Controller\Cart
         $cartQuote = $this->cart->getQuote();
 
         try {
+            $hasError = false;
             $redeemablePoints = (int)trim($this->getRequest()->getParam('amount'));
             $maxRedeemablePoints = (int)$this->loyaltyHelper->getMaxRedeemablePoints();
             $availablePoints = (int)$this->salesforceHelper->getCustomerAffiliatePointsCashConverted($this->cart->getCustomerSession()->getCustomer());
-            if ($redeemablePoints > $maxRedeemablePoints) {
-                $this->messageManager->addError(
-                    __(
-                        'You can only spend a maximum of %1 points for this purchase.',
-                        $maxRedeemablePoints
-                    )
-                );
+            if ($availablePoints > $maxRedeemablePoints)
+            {
+                if ($redeemablePoints > $maxRedeemablePoints) {
+                    $this->messageManager->addError(
+                        __(
+                            'You can only spend a maximum of %1 points for this purchase.',
+                            $maxRedeemablePoints
+                        )
+                    );
+                    $hasError = true;
+                }
             }
-            else if($redeemablePoints > $availablePoints) {
+            else
+            {
                 $this->messageManager->addError(
                     __(
                         'You only have %1 points available to spend.',
@@ -92,7 +98,7 @@ class LoyaltyPost extends \Magento\Checkout\Controller\Cart
                     )
                 );
             }
-            else {
+            if(!$hasError) {
                 $cartQuote->getShippingAddress()->setCollectShippingRates(true);
                 $cartQuote->setLoyaltyDiscount($this->loyaltyHelper->convertPointToAmount($redeemablePoints))->collectTotals();
                 $this->quoteRepository->save($cartQuote);
