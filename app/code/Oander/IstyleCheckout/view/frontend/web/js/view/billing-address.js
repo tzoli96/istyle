@@ -149,7 +149,7 @@ define([
       }, this);
 
       quote.billingAddress.subscribe(function (address) {
-        if (address.postcode != '*') {
+        if (address.postcode !== '*') {
           var selectedBillingAddress = {
             id: address.customerAddressId ? address.customerAddressId : false,
             status: address.customerAddressId ? 'exist' : 'new',
@@ -455,7 +455,7 @@ define([
       var formElements = this.formElements();
 
       var formInterval = setInterval(function () {
-        if ($('[name="billingAddressshared.telephone"] .form-control').length && address.postcode != '*') {
+        if ($('[name="billingAddressshared.telephone"] .form-control').length && address.postcode !== '*') {
           for (var item in address) {
             var elem = formElements.form.querySelector('[name="' + item + '"]');
             var value = address[item];
