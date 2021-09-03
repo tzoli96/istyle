@@ -163,8 +163,12 @@ define([
       }, this.interval);
     },
 
+    /**
+     * Shipping method visible handling
+     * @param {String} method
+     * @returns {Boolean}
+     */
     shippingMethodVisibleHandling: function (method) {
-			console.log('method', method);
 			if (method.indexOf('warehouse') > -1) return true;
 			return false;
 		},

@@ -119,6 +119,7 @@ define([
     formChanges: function () {
       var self = this;
       var formElements = this.formElements();
+      var currentLS = store.getLocalStorage();
 
       this.tabs();
 
@@ -148,21 +149,24 @@ define([
       }, this);
 
       quote.billingAddress.subscribe(function (address) {
-        var selectedBillingAddress = {
-          id: address.customerAddressId ? address.customerAddressId : false,
-          status: address.customerAddressId ? 'exist' : 'new',
-          isCompany: address.company ? true : false,
-          address: address,
-        };
+        if (address.postcode != '*') {
+          var selectedBillingAddress = {
+            id: address.customerAddressId ? address.customerAddressId : false,
+            status: address.customerAddressId ? 'exist' : 'new',
+            isCompany: address.company ? true : false,
+            address: address,
+          };
 
-        store.billingAddress.selectedBillingAddress(selectedBillingAddress);
+          store.billingAddress.selectedBillingAddress(selectedBillingAddress);
 
-        if (!address.customerAddressId) {
-          store.billingAddress.hasNewAddress(true);
-          store.billingAddress.newAddress(address);
+          if (!address.customerAddressId) {
+            address.saveInAddressBook = 1;
+            store.billingAddress.hasNewAddress(true);
+            store.billingAddress.newAddress(address);
+          }
+
+          store.billingAddress.hasSelectedAddress(true);
         }
-
-        store.billingAddress.hasSelectedAddress(true);
       }, this);
 
       store.billingAddress.formIsVisible.subscribe(function (value) {
@@ -198,12 +202,14 @@ define([
       }, this);
 
       // Billing address
-      if (store.steps.billingAddress() === true) this.isBillingAddressVisible(true);
+      if (store.steps.billingAddress() === true
+       || currentLS.steps.billingAddress) this.isBillingAddressVisible(true);
       store.steps.billingAddress.subscribe(function (value) {
         if (value === true) this.isBillingAddressVisible(true);
       }, this);
 
-      if (store.steps.active() === 'billingAddress') this.isBillingAddressVisible(true);
+      if (store.steps.active() === 'billingAddress'
+        || currentLS.steps.active === 'billingAddress') this.isBillingAddressVisible(true);
       store.steps.active.subscribe(function (value) {
         if (value === 'billingAddress') this.isBillingAddressVisible(true);
       }, this);
@@ -449,7 +455,7 @@ define([
       var formElements = this.formElements();
 
       var formInterval = setInterval(function () {
-        if ($('[name="billingAddressshared.telephone"] .form-control').length) {
+        if ($('[name="billingAddressshared.telephone"] .form-control').length && address.postcode != '*') {
           for (var item in address) {
             var elem = formElements.form.querySelector('[name="' + item + '"]');
             var value = address[item];

@@ -8,8 +8,9 @@ define([
 	'Oander_IstyleCheckout/js/leaflet',
 	'Magento_Checkout/js/action/get-payment-information',
 	'Oander_IstyleCheckout/js/model/store',
+	'Magento_Checkout/js/model/shipping-save-processor/default',
 	'domReady!'
-], function ($, ko, customer, quote, checkoutData, helpers, L, getPaymentInformationAction, store) {
+], function ($, ko, customer, quote, checkoutData, helpers, L, getPaymentInformationAction, store, saveShipping) {
 	'use strict';
 
 	// Shipping methods tabs
@@ -78,10 +79,14 @@ define([
 			else {
 				store.steps.active('billingAddress');
 				$('.block--billing-address').find('.card__action').trigger('click');
+
+				saveShipping.saveShippingInformation();
 			}
 		},
 
 		checkStepContent: function () {
+			var currentLS = store.getLocalStorage();
+
 			quote.shippingMethod.subscribe(function (value) {
 				(value) 
 					? this.shippingMethodContinueBtn(true)
@@ -89,60 +94,61 @@ define([
 			}, this);
 
 			// Shipping method
-			if (store.steps.shippingMethod() === true) this.isShippingMethodVisible(true);
+			if (store.steps.shippingMethod()
+			 || currentLS.steps.shippingMethod) {
+				 this.isShippingMethodVisible(true);
+			}
 			store.steps.shippingMethod.subscribe(function (value) {
-				if (value === true) this.isShippingMethodVisible(true);
+				if (value === true) {
+					this.isShippingMethodVisible(true);
+				}
 			}, this);
 
-			if (store.steps.active() === 'shippingMethod') this.isShippingMethodVisible(true);
+			if (store.steps.active() === 'shippingMethod'
+				|| currentLS.steps.active === 'shippingMethod') {
+					this.isShippingMethodVisible(true);
+			}
 			store.steps.active.subscribe(function (value) {
-				if (value === 'shippingMethod') this.isShippingMethodVisible(true);
+				if (value === 'shippingMethod') {
+					this.isShippingMethodVisible(true);
+				}
 			}, this);
 
 			// Shipping method
 			quote.shippingMethod.subscribe(function (value) {
 				store.shippingMethod.selectedTitle(value.method_title);
 				store.shippingMethod.selectedCode(value.method_code);
-				//if (value) this.shippingMethodBilling(value.method_code);
+
+				this.shippingAddressVisibleCondition();
 			}, this);
 
 			// Shipping address
-			if (store.steps.shippingAddress() === true
-				&& !helpers.shippingMethodVisibleHandling(store.shippingMethod.selectedCode())) {
-				this.isShippingAddressVisible(true);
-			}
-			else {
-				this.isShippingAddressVisible(false);
-			}
+			if (store.steps.shippingAddress() === true) this.shippingAddressVisibleCondition();
 
-			store.steps.shippingAddress.subscribe(function (value) {
-				if (value === true
-					&& !helpers.shippingMethodVisibleHandling(store.shippingMethod.selectedCode())) {
-					this.isShippingAddressVisible(true);
-				}
-				else {
-					this.isShippingAddressVisible(false);
-				}
+			store.steps.shippingAddress.subscribe(function () {
+				this.shippingAddressVisibleCondition();
 			}, this);
 
-			if (store.steps.active() === 'shippingAddress'
-				&& !helpers.shippingMethodVisibleHandling(store.shippingMethod.selectedCode())) {
-				this.isShippingAddressVisible(true);
-			}
-			else {
-				this.isShippingAddressVisible(false);
-			}
+			if (store.steps.active() === 'shippingAddress') this.shippingAddressVisibleCondition();
+
 			store.steps.active.subscribe(function (value) {
-				if (value === 'shippingAddress'
-					&& !helpers.shippingMethodVisibleHandling(store.shippingMethod.selectedCode())) {
-					this.isShippingAddressVisible(true);
-				}
-				else {
-					this.isShippingAddressVisible(false);
-				}
+				if (value == 'shippingAddress') this.shippingAddressVisibleCondition();
 			}, this);
 
 			this.validateFields();
+		},
+
+		/**
+		 * Shipping address visible condition
+		 * @returns {Void}
+		 */
+		shippingAddressVisibleCondition: function () {
+			if (helpers.shippingMethodVisibleHandling(store.shippingMethod.selectedCode())) {
+				this.isShippingAddressVisible(false);
+			}
+			else {
+				this.isShippingAddressVisible(true);
+			}
 		},
 
 		/**

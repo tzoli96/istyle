@@ -195,7 +195,7 @@ define([
     checkSteps: function () {
       var currentLS = this.getLocalStorage();
 
-      if (!currentLS['steps'] || currentLS.steps.auth === false) {
+      if (!currentLS.steps || currentLS.steps.auth === false) {
         if (customer.isLoggedIn()) {
           this.steps.auth(true);
           this.steps.active('shippingMethod');
@@ -217,12 +217,27 @@ define([
         }
 
         currentLS['steps'] = this.localStorageObject.steps;
-        
+
         localStorage.setItem('istyle-checkout', JSON.stringify(currentLS));
       }
       else {
-        for (var step in currentLS['steps']) {
-          this.steps[step] = ko.observable(currentLS['steps'][step]);
+        if (!currentLS['steps']) {
+          for (var step in currentLS['steps']) {
+            this.steps[step] = ko.observable(currentLS['steps'][step]);
+          }
+        }
+        else {
+          if (customer.isLoggedIn() && currentLS.steps.active == 'auth') {
+            this.steps.auth(true);
+            this.steps.active('shippingMethod');
+  
+            this.localStorageObject.steps.auth = true;
+            this.localStorageObject.steps.active = 'shippingMethod';
+
+            currentLS['steps'] = this.localStorageObject.steps;
+
+            localStorage.setItem('istyle-checkout', JSON.stringify(currentLS));
+          }
         }
       }
     },
