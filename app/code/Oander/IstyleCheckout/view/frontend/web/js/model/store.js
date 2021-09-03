@@ -19,6 +19,10 @@ define([
       hasPasswordValue: ko.observable(false),
       errorMessage: ko.observable(false),
     },
+    shippingMethod: {
+      selectedTitle: ko.observable(''),
+      selectedCode: ko.observable(''),
+    },
     shippingAddress: {
       selectedShippingAddress: ko.observable(false),
       continueBtn: ko.observable(false),
@@ -44,6 +48,10 @@ define([
         hasValidEmailAddress: false,
         emailHasUser: false,
         hasPasswordValue: false,
+      },
+      shippingMethod: {
+        selectedTitle: '',
+        selectedCode: '',
       },
       shippingAddress: {
         selectedShippingAddress: false,
@@ -114,6 +122,17 @@ define([
         this.updateLocalStorage('auth', 'hasPasswordValue');
       }, this);
 
+      // Shipping method
+      this.shippingMethod.selectedTitle.subscribe(function (value) {
+        this.localStorageObject.shippingMethod.selectedTitle = value;
+        this.updateLocalStorage('shippingMethod', 'selectedTitle');
+      }, this);
+
+      this.shippingMethod.selectedCode.subscribe(function (value) {
+        this.localStorageObject.shippingMethod.selectedCode = value;
+        this.updateLocalStorage('shippingMethod', 'selectedCode');
+      }, this);
+
       // Billing address
       this.billingAddress.selectedBillingAddress.subscribe(function (value) {
         this.localStorageObject.billingAddress.selectedBillingAddress = value;
@@ -176,7 +195,7 @@ define([
     checkSteps: function () {
       var currentLS = this.getLocalStorage();
 
-      if (!currentLS['steps'] || currentLS.steps.auth === false) {
+      if (!currentLS.steps || currentLS.steps.auth === false) {
         if (customer.isLoggedIn()) {
           this.steps.auth(true);
           this.steps.active('shippingMethod');
@@ -198,12 +217,27 @@ define([
         }
 
         currentLS['steps'] = this.localStorageObject.steps;
-        
+
         localStorage.setItem('istyle-checkout', JSON.stringify(currentLS));
       }
       else {
-        for (var step in currentLS['steps']) {
-          this.steps[step] = ko.observable(currentLS['steps'][step]);
+        if (!currentLS['steps']) {
+          for (var step in currentLS['steps']) {
+            this.steps[step] = ko.observable(currentLS['steps'][step]);
+          }
+        }
+        else {
+          if (customer.isLoggedIn() && currentLS.steps.active == 'auth') {
+            this.steps.auth(true);
+            this.steps.active('shippingMethod');
+  
+            this.localStorageObject.steps.auth = true;
+            this.localStorageObject.steps.active = 'shippingMethod';
+
+            currentLS['steps'] = this.localStorageObject.steps;
+
+            localStorage.setItem('istyle-checkout', JSON.stringify(currentLS));
+          }
         }
       }
     },

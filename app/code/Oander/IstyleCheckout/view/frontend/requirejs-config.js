@@ -38,7 +38,9 @@ var config = {
       'Magento_Customer/js/action/check-email-availability':
         'Oander_IstyleCheckout/js/action/check-email-availability',
       'Magento_Customer/js/action/login':
-        'Oander_IstyleCheckout/js/action/login'
+        'Oander_IstyleCheckout/js/action/login',
+      'Magento_Checkout/js/model/shipping-save-processor/default':
+        'Oander_IstyleCheckout/js/model/shipping-save-processor/default'
     }
   },
   config: {

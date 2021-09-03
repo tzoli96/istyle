@@ -161,6 +161,16 @@ define([
           clearInterval(lineInterval);
         }
       }, this.interval);
-    }
+    },
+
+    /**
+     * Shipping method visible handling
+     * @param {String} method
+     * @returns {Boolean}
+     */
+    shippingMethodVisibleHandling: function (method) {
+			if (method.indexOf('warehouse') > -1) return true;
+			return false;
+		},
   }
 });
