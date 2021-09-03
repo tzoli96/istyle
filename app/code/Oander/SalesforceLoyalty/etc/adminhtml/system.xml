@@ -26,5 +26,12 @@
 				</field>
 			</group>
 		</section>
+		<section id="sales">
+			<group id="totals_sort">
+				<field id="loyalty_discount" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+					<label>Loyalty Discount</label>
+				</field>
+			</group>
+		</section>
 	</system>
 </config>

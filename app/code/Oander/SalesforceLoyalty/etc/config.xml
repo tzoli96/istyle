@@ -9,5 +9,10 @@
 				<point_value>1</point_value>
 			</salesforce_loyalty_spending>
 		</oander_salesforce>
+		<sales>
+			<totals_sort>
+				<loyalty_discount>20</loyalty_discount>
+			</totals_sort>
+		</sales>
 	</default>
 </config>

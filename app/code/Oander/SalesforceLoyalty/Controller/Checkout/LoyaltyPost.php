@@ -70,12 +70,7 @@ class LoyaltyPost extends \Magento\Checkout\Controller\Cart
      */
     public function execute()
     {
-        $couponCode = $this->getRequest()->getParam('remove') == 1
-            ? ''
-            : trim($this->getRequest()->getParam('amount'));
-
         $cartQuote = $this->cart->getQuote();
-        //$oldCouponCode = $cartQuote->getCouponCode();
 
         try {
             $redeemablePoints = (int)trim($this->getRequest()->getParam('amount'));
@@ -97,10 +92,12 @@ class LoyaltyPost extends \Magento\Checkout\Controller\Cart
                     )
                 );
             }
-            $cartQuote->getShippingAddress()->setCollectShippingRates(true);
-            $cartQuote->setLoyaltyDiscount($redeemablePoints)->collectTotals();
-            $this->quoteRepository->save($cartQuote);
-            $this->cart->save();
+            else {
+                $cartQuote->getShippingAddress()->setCollectShippingRates(true);
+                $cartQuote->setLoyaltyDiscount($this->loyaltyHelper->convertPointToAmount($redeemablePoints))->collectTotals();
+                $this->quoteRepository->save($cartQuote);
+                $this->cart->save();
+            }
         } catch (\Magento\Framework\Exception\LocalizedException $e) {
             $this->messageManager->addError($e->getMessage());
         } catch (\Exception $e) {

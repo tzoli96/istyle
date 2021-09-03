@@ -54,14 +54,14 @@ class Salesforce extends AbstractHelper
 
     /**
      * @param \Magento\Customer\Model\Customer|null $customer
-     * @return float
+     * @return int
      * @throws LocalizedException
      */
     public function getCustomerAffiliatePoints($customer = null)
     {
         $customer = $this->_getCustomer($customer);
         if(is_null($this->registry->registry(self::REGISTRY_AVAILABLE_POINTS)))
-            $this->registry->register(self::REGISTRY_AVAILABLE_POINTS, $this->soapClient->getCustomerAffiliatePoints($customer));
+            $this->registry->register(self::REGISTRY_AVAILABLE_POINTS, (int)$this->soapClient->getCustomerAffiliatePoints($customer));
         return $this->registry->registry(self::REGISTRY_AVAILABLE_POINTS);
     }
 

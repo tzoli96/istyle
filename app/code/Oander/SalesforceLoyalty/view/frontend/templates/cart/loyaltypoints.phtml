@@ -12,10 +12,15 @@
                     <div class="block block--new-loyalty">
                         <div class="block__title"><?php __("Redeem Loyalty Points"); ?></div>
                         <div>
-                            MaxRedeemable:<?= $block->getMaxRedeemablePoints() ?><br>
+                            <?php if($block->getCartInfoText()): ?>
+                                InfoText:<?= $block->getCartInfoText() ?><br>
+                            <?php endif; ?>
+                            MaxRedeemableErrorMessage:<?=__('You can only spend a maximum of %1 points for this purchase.', $block->getMaxRedeemablePoints())?>
+                            MaxRedeemableErrorMessage:<?=__('You only have %1 points available to spend.', $block->getAvailablePoints())?>
+                            MaxRedeemablePoints:<?= $block->getMaxRedeemablePoints() ?><br>
                             MaxAvailablePoints:<?= $block->getAvailablePoints() ?><br>
-                            MaxAvailablePointsInCash:<?= $block->getAvailablePointsCashConverted() ?><br>
-                            UsedPoints:<?= $block->getUsedPoints() ?><br>
+                            LoyaltyDiscountAmount:<?= $block->getLoyaltyDiscount() ?><br>
+                            LoyaltyDiscountAmountFormated:<?= $block->getLoyaltyDiscountFormated() ?><br>
                             <input type="text" class="block__input input-text form-control input-loyalty" id="amount" name="amount" placeholder="Loyalty points" autofocus="">
                         </div>
                     </div>
@@ -25,5 +30,5 @@
     </div>
 <?php else: ?>
     <div class="block__title"><?php echo __("Redeem Loyalty Points"); ?></div>
-    <?php echo __('Please, <a href="%1" target="_blank">Login</a> or <a href="%2" target="_blank">Login</a> to participate in our Loyalty Program', $block->getUrl("customer/account/create"), $block->getUrl("customer/account/login")); ?>
+    <?php echo __('Please, <a href="%1" target="_blank">Create</a> or <a href="%2" target="_blank">Login</a> to participate in our Loyalty Program', $block->getUrl("customer/account/create"), $block->getUrl("customer/account/login")); ?>
 <?php endif; ?>
