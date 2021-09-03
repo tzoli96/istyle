@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb96a6f1f4eeac9f9caefc670f95457c",
+    "content-hash": "3df5ec23143005e79cae62343b25b098",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8553,11 +8553,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.1.6.10",
+            "version": "1.1.6.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "4bc543761fd5eedab63f61a9387b087667faf3ff"
+                "reference": "ecf12da1a3c613c62450493040516b05958364b7"
             },
             "require": {
                 "php": "7.*"
@@ -8575,7 +8575,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2021-08-12T04:16:12+00:00"
+            "time": "2021-09-03T14:03:42+00:00"
         },
         {
             "name": "oander/module-email-additional-data",
