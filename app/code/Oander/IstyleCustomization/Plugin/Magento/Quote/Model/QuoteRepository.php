@@ -2,7 +2,8 @@
 
 namespace Oander\IstyleCustomization\Plugin\Magento\Quote\Model;
 
-use Magento\Quote\Api\Data\AddressInterface;
+use Magento\Eav\Api\AttributeRepositoryInterface;
+use Magento\Framework\Api\SearchCriteriaBuilder;
 
 /**
  * Class QuoteRepository
@@ -12,46 +13,40 @@ class QuoteRepository
 {
     const QUOTE_REGISTRY = 'quote_data_';
 
-    const REGISTRY_ADDRESS_FIELDS = [
-        AddressInterface::KEY_EMAIL,
-        AddressInterface::KEY_COUNTRY_ID,
-        AddressInterface::KEY_ID,
-        AddressInterface::KEY_REGION_ID,
-        AddressInterface::KEY_REGION_CODE,
-        AddressInterface::KEY_REGION,
-        AddressInterface::KEY_CUSTOMER_ID,
-        AddressInterface::KEY_STREET,
-        AddressInterface::KEY_COMPANY,
-        AddressInterface::KEY_TELEPHONE,
-        AddressInterface::KEY_FAX,
-        AddressInterface::KEY_POSTCODE,
-        AddressInterface::KEY_CITY,
-        AddressInterface::KEY_FIRSTNAME,
-        AddressInterface::KEY_LASTNAME,
-        AddressInterface::KEY_MIDDLENAME,
-        AddressInterface::KEY_PREFIX,
-        AddressInterface::KEY_SUFFIX,
-        AddressInterface::KEY_VAT_ID,
-        AddressInterface::SAME_AS_BILLING,
-        AddressInterface::CUSTOMER_ADDRESS_ID,
-        AddressInterface::SAVE_IN_ADDRESS_BOOK,
-        \Oander\IstyleCustomization\Observer\OrderExportAfter::PFPJ_REG_NO_ATTRIBUTE_CODE,
-        \Oander\IstyleCustomization\Observer\OrderExportAfter::COMPANY_REGISTRATION_NUMBER_ATTRIBUTE_CODE
-    ];
-
     /**
      * @var \Magento\Framework\Registry
      */
     private $registry;
 
     /**
+     * @var SearchCriteriaBuilder
+     */
+    private $searchCriteriaBuilder;
+
+    /**
+     * @var AttributeRepositoryInterface
+     */
+    private $attributeRepository;
+
+    /**
+     * @var array
+     */
+    private $addressAttributeCodes = [];
+
+    /**
      * QuoteRepository constructor.
      * @param \Magento\Framework\Registry $registry
+     * @param AttributeRepositoryInterface $attributeRepository
+     * @param SearchCriteriaBuilder $searchCriteriaBuilder
      */
     public function __construct(
-        \Magento\Framework\Registry $registry
+        \Magento\Framework\Registry $registry,
+        AttributeRepositoryInterface $attributeRepository,
+        SearchCriteriaBuilder $searchCriteriaBuilder
     ) {
         $this->registry = $registry;
+        $this->attributeRepository = $attributeRepository;
+        $this->searchCriteriaBuilder = $searchCriteriaBuilder;
     }
 
     /**
@@ -70,17 +65,17 @@ class QuoteRepository
         $quote = $proceed($cartId,$sharedStoreIds);
 
         if ($registryQuote = $this->registry->registry(self::QUOTE_REGISTRY . $cartId)) {
-            foreach (self::REGISTRY_ADDRESS_FIELDS as $field) {
+            foreach ($this->getCustomerAddressAttributes() as $attributeCode) {
                 if ($registryQuote->getShippingAddress()
-                    && $registryQuote->getShippingAddress()->getData($field)
+                    && $registryQuote->getShippingAddress()->getData($attributeCode)
                 ) {
-                    $quote->getShippingAddress()->setData($field, $registryQuote->getShippingAddress()->getData($field));
+                    $quote->getShippingAddress()->setData($attributeCode, $registryQuote->getShippingAddress()->getData($attributeCode));
                 }
 
                 if ($registryQuote->getBillingAddress()
-                    && $registryQuote->getBillingAddress()->getData($field)
+                    && $registryQuote->getBillingAddress()->getData($attributeCode)
                 ) {
-                    $quote->getBillingAddress()->setData($field, $registryQuote->getBillingAddress()->getData($field));
+                    $quote->getBillingAddress()->setData($attributeCode, $registryQuote->getBillingAddress()->getData($attributeCode));
                 }
             }
         }
@@ -100,5 +95,24 @@ class QuoteRepository
         $this->registry->unregister(self::QUOTE_REGISTRY . $quote->getId());
 
         return [$quote];
+    }
+
+    /**
+     * @return array
+     */
+    private function getCustomerAddressAttributes()
+    {
+        if (empty($this->addressAttributeCodes)) {
+            $searchResult = $this->attributeRepository->getList(
+                \Magento\Customer\Api\AddressMetadataInterface::ENTITY_TYPE_ADDRESS,
+                $this->searchCriteriaBuilder->create()
+            );
+
+            foreach ($searchResult->getItems() as $item) {
+                $this->addressAttributeCodes[] = $item->getAttributeCode();
+            }
+        }
+
+        return $this->addressAttributeCodes;
     }
 }
