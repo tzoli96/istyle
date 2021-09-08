@@ -16,6 +16,7 @@ define([
     _create: function () {
       this._blockToggle();
       this._nextStep();
+      this._scrollToNextStep();
     },
 
     /**
@@ -28,8 +29,8 @@ define([
       $(document).on('click', cardAction, function () {
         store.steps.active($(this).closest(self.defaults.blockCheckoutStep).attr('data-step'));
         self._stepCounter($(this));
-        $(this).closest(self.defaults.blockCheckoutStep)
-          .toggleClass('is-active').siblings().removeClass('is-active');
+        $(this).closest(self.defaults.blockCheckoutStep).toggleClass('is-active').siblings().removeClass('is-active');
+        self._animateToActiveSection();
       });
     },
 
@@ -47,6 +48,26 @@ define([
           .find(self.defaults.cardCheckoutStep)
           .find('.card__action')
           .trigger('click');
+      });
+    },
+
+    /**
+     * Animate to active section
+     */
+    _animateToActiveSection: function() {
+      $('html, body').stop().animate({
+        scrollTop: $('.block--checkout-step.is-active').offset().top - 100
+      }, 400);
+    },
+
+    /**
+     * ScrollTo Next Step
+     */
+    _scrollToNextStep: function() {
+      var self = this;
+
+      $('body').on('click', '.block--checkout-step button.action.primary', function() {
+        self._animateToActiveSection();
       });
     },
 
