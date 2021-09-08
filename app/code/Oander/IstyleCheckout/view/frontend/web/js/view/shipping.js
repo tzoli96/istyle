@@ -97,6 +97,18 @@ define([
 				}
 			}, this);
 
+			if (currentLS.shippingMethod) {
+				if (currentLS.shippingMethod.selectedCode) {
+					this.shippingMethodTab(currentLS.shippingMethod.selectedCode);
+					this.shippingMethodContinueBtn(true);
+
+					$('.shipping-control-row[data-code="' + currentLS.shippingMethod.selectedCode +'"]').trigger('click');
+				}
+				else {
+					this.shippingMethodContinueBtn(false);
+				}
+			}
+
 			// Shipping method
 			if (store.steps.shippingMethod()
 			 || currentLS.steps.shippingMethod) {

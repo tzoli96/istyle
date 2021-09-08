@@ -331,6 +331,7 @@ define([
      */
     formTransform: function (formId) {
       this.fieldsContent = {};
+
       switch (formId) {
         case 'billing-person':
           this.formPerson();
@@ -356,10 +357,14 @@ define([
       $(formElements.companyField).removeClass('_required');
       $(formElements.vatIdField).hide();
       $(formElements.vatIdField).removeClass('_required');
-      $(formElements.pfpjField).hide();
-      if($(formElements.pfpjField).hasClass('_required')) {
-        $(formElements.pfpjField).removeClass('_required');
-        $(formElements.pfpjField).addClass('was_required');
+
+      if ($(formElements.pfpjField).length) {
+        $(formElements.pfpjField).hide();
+
+        if($(formElements.pfpjField).hasClass('_required')) {
+          $(formElements.pfpjField).removeClass('_required');
+          $(formElements.pfpjField).addClass('was_required');
+        }
       }
 
       $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text($t(names.firstname));
@@ -381,10 +386,14 @@ define([
       $(formElements.companyField).addClass('_required');
       $(formElements.vatIdField).show();
       $(formElements.vatIdField).addClass('_required');
-      $(formElements.pfpjField).show();
-      if($(formElements.pfpjField).hasClass('was_required')) {
-        $(formElements.pfpjField).removeClass('was_required');
-        $(formElements.pfpjField).addClass('_required');
+
+      if ($(formElements.pfpjField).length) {
+        $(formElements.pfpjField).show();
+
+        if($(formElements.pfpjField).hasClass('was_required')) {
+          $(formElements.pfpjField).removeClass('was_required');
+          $(formElements.pfpjField).addClass('_required');
+        }
       }
 
 
@@ -395,7 +404,6 @@ define([
 
       this.fieldErrorHandling($(formElements.companyField));
       this.fieldErrorHandling($(formElements.vatIdField));
-      this.fieldErrorHandling($(formElements.pfpjField));
     },
 
     /**
@@ -424,14 +432,19 @@ define([
      * @returns {Void}
      */
     watchField: function (field) {
-      if (!field.find('.form-control').val().length) {
-        field.addClass('_error');
-        field.find('.mage-error').removeClass('d-none');
-        return false;
+      if (field.length) {
+        if (!field.find('.form-control').val().length) {
+          field.addClass('_error');
+          field.find('.mage-error').removeClass('d-none');
+          return false;
+        }
+        else {
+          field.removeClass('_error');
+          field.find('.mage-error').addClass('d-none');
+          return true;
+        }
       }
       else {
-        field.removeClass('_error');
-        field.find('.mage-error').addClass('d-none');
         return true;
       }
     },
@@ -598,7 +611,10 @@ define([
         else {
           $(formElements.companyField).find('.form-control').val('').trigger('change');
           $(formElements.vatIdField).find('.form-control').val('').trigger('change');
-          $(formElements.pfpjField).find('.form-control').val('').trigger('change');
+
+          if ($(formElements.pfpjField).length) {
+            $(formElements.pfpjField).find('.form-control').val('').trigger('change');
+          }
 
           this.updateAddress();
           store.billingAddress.formIsVisible(false);
@@ -614,7 +630,10 @@ define([
         if (activeTab == 'billing-company') {
           this.watchField($(formElements.companyField));
           this.watchField($(formElements.vatIdField));
-          this.watchField($(formElements.pfpjField));
+
+          if ($(formElements.pfpjField).length) {
+            this.watchField($(formElements.pfpjField));
+          }
         }
       }
     },
