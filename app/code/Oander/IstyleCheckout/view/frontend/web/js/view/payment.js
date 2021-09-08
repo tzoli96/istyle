@@ -37,12 +37,20 @@ define([
      * @returns {Void}
      */
     paymentData: function () {
-      if (store.steps.paymentMethod() === true) this.isPaymentMethodVisible(true);
+      var currentLS = store.getLocalStorage();
+
+      if (store.steps.paymentMethod() === true
+        || currentLS.steps.paymentMethod) {
+        this.isPaymentMethodVisible(true);
+      }
       store.steps.paymentMethod.subscribe(function (value) {
         if (value === true) this.isPaymentMethodVisible(true);
       }, this);
 
-      if (store.steps.active() === 'paymentMethod') this.isPaymentMethodVisible(true);
+      if (store.steps.active() === 'paymentMethod'
+        || currentLS.steps.active === 'paymentMethod') {
+          this.isPaymentMethodVisible(true);
+      }
       store.steps.active.subscribe(function (value) {
         if (value === 'paymentMethod') this.isPaymentMethodVisible(true);
       }, this);

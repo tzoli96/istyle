@@ -34,6 +34,7 @@ define([
       hasNewAddress: ko.observable(false),
       formIsVisible: ko.observable(false),
       continueBtn: ko.observable(false),
+      userSelectBillingAddress: ko.observable(false),
     },
     localStorageObject: {
       steps: {
@@ -63,6 +64,7 @@ define([
         hasNewAddress: false,
         formIsVisible: false,
         continueBtn: false,
+        userSelectBillingAddress: false,
       },
     },
 
@@ -162,6 +164,11 @@ define([
       this.billingAddress.continueBtn.subscribe(function (value) {
         this.localStorageObject.billingAddress.continueBtn = value;
         this.updateLocalStorage('billingAddress', 'continueBtn');
+      }, this);
+
+      this.billingAddress.userSelectBillingAddress.subscribe(function (value) {
+        this.localStorageObject.billingAddress.userSelectBillingAddress = value;
+        this.updateLocalStorage('billingAddress', 'userSelectBillingAddress');
       }, this);
     },
 

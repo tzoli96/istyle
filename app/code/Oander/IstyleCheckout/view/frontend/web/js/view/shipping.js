@@ -88,9 +88,13 @@ define([
 			var currentLS = store.getLocalStorage();
 
 			quote.shippingMethod.subscribe(function (value) {
-				(value) 
-					? this.shippingMethodContinueBtn(true)
-					: this.shippingMethodContinueBtn(false);
+				if (value) {
+					this.shippingMethodTab(value.method_code);
+					this.shippingMethodContinueBtn(true);
+				}
+				else {
+					this.shippingMethodContinueBtn(false);
+				}
 			}, this);
 
 			// Shipping method
@@ -142,12 +146,28 @@ define([
 		 * Shipping address visible condition
 		 * @returns {Void}
 		 */
-		shippingAddressVisibleCondition: function () {
+		 shippingAddressVisibleCondition: function () {
+			var currentLS = store.getLocalStorage();
+
 			if (helpers.shippingMethodVisibleHandling(store.shippingMethod.selectedCode())) {
+				this.isShippingAddressVisible(false);
+			}
+			else if (!currentLS.steps.shippingMethod && !store.steps.shippingMethod()) {
 				this.isShippingAddressVisible(false);
 			}
 			else {
 				this.isShippingAddressVisible(true);
+			}
+		},
+
+		/**
+		 * Shipping method tab
+		 * @returns {Void}
+		 */
+		shippingMethodTab: function (value) {
+			if (helpers.shippingMethodVisibleHandling(value)) {
+				$('.shipping-methods__tabs .switch--delivery[href="#tab2"]')
+					.trigger('click');
 			}
 		},
 

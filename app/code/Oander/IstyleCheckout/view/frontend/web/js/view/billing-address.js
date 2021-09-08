@@ -3,13 +3,14 @@ define([
   'ko',
   'mage/translate',
   'Magento_Customer/js/model/customer',
+  'Magento_Customer/js/model/address-list',
   'Magento_Checkout/js/model/quote',
   'Magento_Checkout/js/action/select-billing-address',
   'Oander_IstyleCheckout/js/helpers',
   'Magento_Checkout/js/checkout-data',
   'Magento_Checkout/js/action/get-payment-information',
   'Oander_IstyleCheckout/js/model/store',
-], function ($, ko, $t, customer, quote, selectBillingAddress, helpers, checkoutData, getPaymentInformationAction, store) {
+], function ($, ko, $t, customer, addressList, quote, selectBillingAddress, helpers, checkoutData, getPaymentInformationAction, store) {
   'use strict';
 
   var mixin = {
@@ -22,8 +23,13 @@ define([
     tabSelector: store.billingAddress.tabSelector,
     formIsVisible: store.billingAddress.formIsVisible,
     continueBtn: store.billingAddress.continueBtn,
+    userSelectBillingAddress: store.billingAddress.userSelectBillingAddress,
 
     isBillingAddressVisible: ko.observable(false),
+
+    addressOptions: addressList().filter(function (address) {
+      return address.getType() == 'customer-address';
+    }),
 
     /**
      * Get billing address
@@ -112,6 +118,27 @@ define([
       }, helpers.interval);
     },
 
+    checkUserBilling: function () {
+      var currentLS = store.getLocalStorage();
+
+      if (customer.isLoggedIn()) {
+        if (store.billingAddress.userSelectBillingAddress() || currentLS.billingAddress.userSelectBillingAddress) {
+          return true;
+        }
+        else {
+          if (helpers.shippingMethodVisibleHandling(store.shippingMethod.selectedCode())) {
+            return false;
+          }
+          else {
+            return true;
+          }
+        }
+      }
+      else {
+        return true;
+      }
+    },
+
     /**
      * Form changes
      * @returns {Void}
@@ -149,23 +176,37 @@ define([
       }, this);
 
       quote.billingAddress.subscribe(function (address) {
-        if (address.postcode !== '*') {
-          var selectedBillingAddress = {
-            id: address.customerAddressId ? address.customerAddressId : false,
-            status: address.customerAddressId ? 'exist' : 'new',
-            isCompany: address.company ? true : false,
-            address: address,
-          };
+        if (address) {
+          if (address.postcode 
+              && address.postcode !== '*'
+              && this.checkUserBilling()) {
+            var selectedBillingAddress = {
+              id: address.customerAddressId ? address.customerAddressId : false,
+              status: address.customerAddressId ? 'exist' : 'new',
+              isCompany: address.company ? true : false,
+              address: address,
+            };
 
-          store.billingAddress.selectedBillingAddress(selectedBillingAddress);
+            store.billingAddress.selectedBillingAddress(selectedBillingAddress);
 
-          if (!address.customerAddressId) {
-            address.saveInAddressBook = 1;
-            store.billingAddress.hasNewAddress(true);
-            store.billingAddress.newAddress(address);
+            if (!address.customerAddressId) {
+              address.saveInAddressBook = 1;
+              store.billingAddress.hasNewAddress(true);
+              store.billingAddress.newAddress(address);
+            }
+
+            store.billingAddress.hasSelectedAddress(true);
           }
-
-          store.billingAddress.hasSelectedAddress(true);
+          else {
+            if (address !== null) {
+              quote.billingAddress(null);
+            }
+          }
+        }
+        else {
+          if (address !== null) {
+            quote.billingAddress(null);
+          }
         }
       }, this);
 
@@ -520,6 +561,10 @@ define([
 
       if (address == 'new') {
         selectAddress = store.billingAddress.newAddress();
+      }
+
+      if (customer.isLoggedIn() && addressList().length) {
+        store.billingAddress.userSelectBillingAddress(true);
       }
 
       selectBillingAddress(selectAddress);
