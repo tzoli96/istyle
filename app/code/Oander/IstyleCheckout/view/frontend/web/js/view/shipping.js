@@ -62,7 +62,7 @@ define([
 		 * @returns {String}
 		 */
 		getShippingMethod: ko.computed(function () {
-			return checkoutData.getSelectedShippingRate() ? (quote.shippingMethod() ? quote.shippingMethod().method_title : '') : 'Please select shipping method.';
+			return quote.shippingMethod() ? quote.shippingMethod().method_title : 'Please select shipping method.';
 		}),
 
 		getShippingAddress: ko.computed(function () {
