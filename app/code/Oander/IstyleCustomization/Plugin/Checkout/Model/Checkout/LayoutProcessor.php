@@ -27,6 +27,11 @@ use Oander\IstyleCustomization\Helper\Config;
  */
 class LayoutProcessor
 {
+    const BILLING_ONLY_FIELDS = [
+        \Magento\Customer\Api\Data\AddressInterface::COMPANY,
+        \Magento\Customer\Api\Data\AddressInterface::VAT_ID
+    ];
+
     /** @var \Magento\Framework\App\Config\ScopeConfigInterface */
     private $scopeConfig;
 
@@ -73,6 +78,14 @@ class LayoutProcessor
 
         $quoteItems = $this->checkoutSession->getQuote()->getAllItems();
         $dobShow = $this->configHelper->getDobShow($quoteItems);
+
+
+        foreach (self::BILLING_ONLY_FIELDS as $field) {
+            if(isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"][$field])){
+                $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"][$field]['config']['componentDisabled'] = true;
+            }
+        }
+
 
         if ($this->fanCourierHelper->getValidationLevel() == 'req' || $this->fanCourierHelper->getValidationLevel() == 'valid') {
             $label = (isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]['region_id']['label']))
