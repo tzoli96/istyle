@@ -882,6 +882,20 @@
                 "ssl",
                 "tls"
             ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2021-06-07T13:58:28+00:00"
         },
         {
@@ -1140,7 +1154,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2021-07-28T20:10:43+00:00"
+            "time": "2021-07-28T20:14:21+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -9481,7 +9495,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "c4e989fefd0241d5e2d970540223b70ade697738"
+                "reference": "d8802253cd18fe89810e274c20f8ba999f31be56"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9510,7 +9524,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2021-08-30T14:38:12+00:00"
+            "time": "2021-09-08T16:47:14+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -10366,6 +10380,20 @@
                 "twofish",
                 "x.509",
                 "x509"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/terrafrost",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpseclib",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
+                    "type": "tidelift"
+                }
             ],
             "time": "2021-08-16T04:20:12+00:00"
         },
@@ -14825,5 +14853,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
