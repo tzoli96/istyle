@@ -42,20 +42,6 @@ class Renderer
                             $output .= '<div class="pos-info">' . $posData[ShopInterface::PARKING] . '</div>';
                         if (!empty($posData[ShopInterface::GOOGLE_TELEPHONE]))
                             $output .= '<div class="pos-phone">' . __('Phone') . ": " . $posData[ShopInterface::GOOGLE_TELEPHONE] . '</div>';
-                        if (is_array($posData[ShopInterface::GOOGLE_OPENING])) {
-                            $output .= '<div class="pos-opening-hours"><div class="opening-hours-title mb-1">'.__('Opening Hours').'</div>';
-                            foreach ($posData[ShopInterface::GOOGLE_OPENING] as $openingItem) {
-                                $openingItem = (array)$openingItem;
-                                $output .= '<div class="opening-hours-item"><span>' . __($openingItem['row_name']) . '</span>';
-                                if ($openingItem['closes'] == "closed" || $openingItem['opening'] == "closed") {
-                                    $output .= '<div class="text-right"><span>' . __('Closed') . '</span></div>';
-                                } else {
-                                    $output .= '<div class="text-right"><span>' . date('H:i', strtotime($openingItem['opening'])) . '</span><span> - </span><span>' . date('H:i', strtotime($openingItem['closes'])) . '</span></div>';
-                                }
-                                $output .= '</div>';
-                            }
-                            $output .= '</div>';
-                        }
                         return $output;
                     }
                 }
