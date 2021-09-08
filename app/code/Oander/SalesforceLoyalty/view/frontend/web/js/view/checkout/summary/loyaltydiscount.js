@@ -15,31 +15,24 @@ define(
             },
             totals: quote.getTotals(),
             isTaxDisplayedInGrandTotal: window.checkoutConfig.includeTaxInGrandTotal || false,
+
             isDisplayed: function() {
-                return this.isFullMode();
-            },
-
-            isActive: function() {
-                return (this.totals() && totals.getSegment('loyalty_discount').value > 0);
-            },
-
-            getTitle: function () {
-                return totals.getSegment('loyalty_discount').title;
+                return this.isFullMode() && this.getPureValue() !== 0;
             },
 
             getValue: function() {
                 var price = 0;
-                if (this.totals()) {
+                if (this.totals() && totals.getSegment('loyalty_discount')) {
                     price = totals.getSegment('loyalty_discount').value;
                 }
-                return this.getFormattedPrice(-price);
+                return this.getFormattedPrice(price);
             },
-            getBaseValue: function() {
+            getPureValue: function() {
                 var price = 0;
-                if (this.totals()) {
-                    price = this.totals().loyalty_discount;
+                if (this.totals() && totals.getSegment('loyalty_discount')) {
+                    price = totals.getSegment('loyalty_discount').value;
                 }
-                return priceUtils.formatPrice(price, quote.getBasePriceFormat());
+                return price;
             }
         });
     }

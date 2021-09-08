@@ -59,19 +59,25 @@ class GenerateBlocksAfter implements \Magento\Framework\Event\ObserverInterface
         $action = $observer->getData('full_action_name');
         if($action=="checkout_cart_index")
         {
+            /** @var \Magento\Framework\View\LayoutInterface $layout */
             $layout = $observer->getData('layout');
             if(!($this->checkoutSession->getQuote()->getData(\Oander\SalesforceLoyalty\Enum\Attribute::LOYALTY_DISCOUNT)>0))
             {
                 $earnablePoints = $this->loyaltyHelper->getEarnableLoyaltyPoints();
                 if($earnablePoints>0) {
-                    /** @var \Magento\Framework\View\LayoutInterface $layout */
                     $earnableBlock = $layout->addBlock(\Magento\Framework\View\Element\Template::class, "salesforceloyalty.cart.methods.earnable", "checkout.cart.methods");
                     $earnableBlock->setTemplate("Oander_SalesforceLoyalty::cart/earnable.phtml");
                     $earnableBlock->setFormatedEarnablePoints(__("+ %1 points", $earnablePoints));
                     $layout->reorderChild("checkout.cart.methods", "salesforceloyalty.cart.methods.earnable", "checkout.cart.methods.onepage.bottom", false);
                 }
             }
-            $layout->reorderChild("cart.summary", "salesforceloyalty.cart.loyaltypoints", "checkout.cart.coupon", true);
+            $loyaltypoints = $layout->getBlock("salesforceloyalty.cart.loyaltypoints");
+            if($loyaltypoints) {
+                $parentName = $layout->getParentName("salesforceloyalty.cart.loyaltypoints");
+                $checkoutCartCoupon = $layout->getBlock("checkout.cart.coupon");
+                if($parentName && $checkoutCartCoupon)
+                    $layout->reorderChild($parentName, "salesforceloyalty.cart.loyaltypoints", "checkout.cart.coupon", true);
+            }
         }
     }
 }
