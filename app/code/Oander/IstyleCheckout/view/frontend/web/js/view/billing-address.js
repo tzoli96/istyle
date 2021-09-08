@@ -225,6 +225,7 @@ define([
       var titles = tabs.querySelectorAll('.tab__switch');
       var companyField = form.querySelector('[name="billingAddressshared.company"]');
       var vatIdField = form.querySelector('[name="billingAddressshared.vat_id"]');
+      var pfpjField = form.querySelector('[name="billingAddressshared.custom_attributes.pfpj_reg_no"]');
 
       return {
         form: form,
@@ -232,6 +233,7 @@ define([
         titles: titles,
         companyField: companyField,
         vatIdField: vatIdField,
+        pfpjField: pfpjField,
       }
     },
 
@@ -287,6 +289,7 @@ define([
      * @returns {Void}
      */
     formTransform: function (formId) {
+      this.fieldsContent = {};
       switch (formId) {
         case 'billing-person':
           this.formPerson();
@@ -312,6 +315,11 @@ define([
       $(formElements.companyField).removeClass('_required');
       $(formElements.vatIdField).hide();
       $(formElements.vatIdField).removeClass('_required');
+      $(formElements.pfpjField).hide();
+      if($(formElements.pfpjField).hasClass('_required')) {
+        $(formElements.pfpjField).removeClass('_required');
+        $(formElements.pfpjField).addClass('was_required');
+      }
 
       $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text($t(names.firstname));
       $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text($t(names.lastname));
@@ -332,6 +340,12 @@ define([
       $(formElements.companyField).addClass('_required');
       $(formElements.vatIdField).show();
       $(formElements.vatIdField).addClass('_required');
+      $(formElements.pfpjField).show();
+      if($(formElements.pfpjField).hasClass('was_required')) {
+        $(formElements.pfpjField).removeClass('was_required');
+        $(formElements.pfpjField).addClass('_required');
+      }
+
 
       $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text($t(names.firstname));
       $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text($t(names.lastname));
@@ -340,6 +354,7 @@ define([
 
       this.fieldErrorHandling($(formElements.companyField));
       this.fieldErrorHandling($(formElements.vatIdField));
+      this.fieldErrorHandling($(formElements.pfpjField));
     },
 
     /**
@@ -530,7 +545,7 @@ define([
 
       if (store.billingAddress.continueBtn()) {
         if (activeTab == 'billing-company') {
-          if (this.watchField($(formElements.companyField)) && this.watchField($(formElements.vatIdField))) {
+          if (this.watchField($(formElements.companyField)) && this.watchField($(formElements.vatIdField)) && this.watchField($(formElements.pfpjField)) ) {
             this.updateAddress();
             store.billingAddress.formIsVisible(false);
           }
@@ -538,6 +553,7 @@ define([
         else {
           $(formElements.companyField).find('.form-control').val('').trigger('change');
           $(formElements.vatIdField).find('.form-control').val('').trigger('change');
+          $(formElements.pfpjField).find('.form-control').val('').trigger('change');
 
           this.updateAddress();
           store.billingAddress.formIsVisible(false);
@@ -553,6 +569,7 @@ define([
         if (activeTab == 'billing-company') {
           this.watchField($(formElements.companyField));
           this.watchField($(formElements.vatIdField));
+          this.watchField($(formElements.pfpjField));
         }
       }
     },

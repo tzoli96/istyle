@@ -74,52 +74,6 @@ class LayoutProcessor
         $quoteItems = $this->checkoutSession->getQuote()->getAllItems();
         $dobShow = $this->configHelper->getDobShow($quoteItems);
 
-        $showPfpjRegNo = $this->scopeConfig->getValue('customer/address/show_pfpj_reg_no', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
-        if($showPfpjRegNo == 'req') {
-            $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
-            ['shippingAddress']['children']['shipping-address-fieldset']['children']['pfpj_reg_no'] = [
-                'component' => 'Magento_Ui/js/form/element/abstract',
-                'config' => [
-                    'customScope' => 'shippingAddress',
-                    'customEntry' => null,
-                    'template' => 'ui/form/field',
-                    'elementTmpl' => 'ui/form/element/input',
-                ],
-                'dataScope' => 'shippingAddress.custom_attributes.pfpj_reg_no',
-                'label' => __('Registration Number'),
-                'provider' => 'checkoutProvider',
-                'visible' => true,
-                'validation' => ['required-entry' => true],
-                'sortOrder' => 66,
-                'id' => 'pfpj_reg_no',
-                'options' => [],
-                'filterBy' => null,
-                'customEntry' => null
-            ];
-        } elseif ($showPfpjRegNo == 'opt') {
-            $jsLayout['components']['checkout']['children']['steps']['children']['shipping-step']['children']
-            ['shippingAddress']['children']['shipping-address-fieldset']['children']['pfpj_reg_no'] = [
-                'component' => 'Magento_Ui/js/form/element/abstract',
-                'dataScope' => 'shippingAddress.custom_attributes.pfpj_reg_no',
-                'config' => [
-                    'customScope' => 'shippingAddress',
-                    'customEntry' => null,
-                    'template' => 'ui/form/field',
-                    'elementTmpl' => 'ui/form/element/input',
-                ],
-                'label' => __('Registration Number'),
-                'provider' => 'checkoutProvider',
-                'visible' => true,
-                'validation' => [],
-                'sortOrder' => 66,
-                'id' => 'pfpj_reg_no',
-                'options' => [],
-                'filterBy' => null,
-                'customEntry' => null
-            ];
-        }
-
-
         if ($this->fanCourierHelper->getValidationLevel() == 'req' || $this->fanCourierHelper->getValidationLevel() == 'valid') {
             $label = (isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]['region_id']['label']))
                 ? $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]['region_id']['label']
@@ -323,6 +277,34 @@ class LayoutProcessor
                 $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                 ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
                 ['city']['config']['customScope'] = $dataScopePrefix;
+            }
+
+            $showPfpjRegNo = $this->scopeConfig->getValue('customer/address/show_pfpj_reg_no', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+            if($showPfpjRegNo) {
+
+                $showPfpjRegValidation = ($showPfpjRegNo == 'req') ? ['required-entry' => true] : [];
+
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['afterMethods']['children']['billing-address-form']['children']['form-fields']['children']
+                ['pfpj_reg_no'] = [
+                    'component' => 'Magento_Ui/js/form/element/abstract',
+                    'config' => [
+                        'customScope' => 'billingAddressshared',
+                        'customEntry' => null,
+                        'template' => 'ui/form/field',
+                        'elementTmpl' => 'ui/form/element/input',
+                    ],
+                    'dataScope' => 'billingAddressshared.custom_attributes.pfpj_reg_no',
+                    'label' => __('Registration Number'),
+                    'provider' => 'checkoutProvider',
+                    'visible' => true,
+                    'validation' => $showPfpjRegValidation,
+                    'sortOrder' => 66,
+                    'id' => 'pfpj_reg_no',
+                    'options' => [],
+                    'filterBy' => null,
+                    'customEntry' => null
+                ];
             }
 
         }
