@@ -125,6 +125,9 @@ define([
         if (store.billingAddress.userSelectBillingAddress() || currentLS.billingAddress.userSelectBillingAddress) {
           return true;
         }
+        else if (store.billingAddress.formIsVisible()) {
+          return true;
+        }
         else {
           if (helpers.shippingMethodVisibleHandling(store.shippingMethod.selectedCode())) {
             return false;
@@ -176,6 +179,8 @@ define([
       }, this);
 
       quote.billingAddress.subscribe(function (address) {
+        if (store.billingAddress.formIsVisible()) store.billingAddress.userSelectBillingAddress(true);
+
         if (address) {
           if (address.postcode 
               && address.postcode !== '*'
@@ -198,15 +203,11 @@ define([
             store.billingAddress.hasSelectedAddress(true);
           }
           else {
-            if (address !== null) {
-              quote.billingAddress(null);
-            }
+            if (address !== null) quote.billingAddress(null);
           }
         }
         else {
-          if (address !== null) {
-            quote.billingAddress(null);
-          }
+          if (address !== null) quote.billingAddress(null);
         }
       }, this);
 
@@ -229,7 +230,7 @@ define([
             }
           }
 
-          if (store.getLocalStorage().billingAddress
+          if (store.getLocalStorage().billingAddress.selectedBillingAddress
             ? store.getLocalStorage().billingAddress.selectedBillingAddress.isCompany
             : store.billingAddress.selectedBillingAddress().isCompany) {
             $(formElements.tabs).find('.tab__switch[data-tab="billing-company"]').trigger('click');
@@ -523,31 +524,33 @@ define([
     setBillingAddress: function (address) {
       var formElements = this.formElements();
 
-      var formInterval = setInterval(function () {
-        if ($('[name="billingAddressshared.telephone"] .form-control').length && address.postcode !== '*') {
-          for (var item in address) {
-            var elem = formElements.form.querySelector('[name="' + item + '"]');
-            var value = address[item];
-    
-            if (item == 'street') {
-              elem = formElements.form.querySelector('[name="' + item + '[0]"]');
-            }
-    
-            if (item == 'vatId') {
-              elem = formElements.form.querySelector('[name="vat_id"]');
-            }
-    
-            if (value !== undefined && value !== null) {
-              if (elem) {
-                elem.value = value;
-                elem.dispatchEvent(new Event('change'));
+      if (store.billingAddress.hasSelectedAddress()) {
+        var formInterval = setInterval(function () {
+          if ($('[name="billingAddressshared.telephone"] .form-control').length && address.postcode !== '*') {
+            for (var item in address) {
+              var elem = formElements.form.querySelector('[name="' + item + '"]');
+              var value = address[item];
+      
+              if (item == 'street') {
+                elem = formElements.form.querySelector('[name="' + item + '[0]"]');
+              }
+      
+              if (item == 'vatId') {
+                elem = formElements.form.querySelector('[name="vat_id"]');
+              }
+      
+              if (value !== undefined && value !== null) {
+                if (elem) {
+                  elem.value = value;
+                  elem.dispatchEvent(new Event('change'));
+                }
               }
             }
-          }
 
-          clearInterval(formInterval);
-        }
-      }, helpers.interval);
+            clearInterval(formInterval);
+          }
+        }, helpers.interval);
+      }
     },
 
     /**
@@ -600,6 +603,10 @@ define([
     billingContinue: function () {
       var formElements = this.formElements();
       var activeTab = $(formElements.tabs).find('.tab__title.active').find('.tab__switch').attr('data-tab');
+
+      if (store.billingAddress.formIsVisible()) {
+        store.billingAddress.userSelectBillingAddress(true);
+      };
 
       if (store.billingAddress.continueBtn()) {
         if (activeTab == 'billing-company') {
