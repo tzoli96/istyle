@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3df5ec23143005e79cae62343b25b098",
+    "content-hash": "cf5550d3de268d0cfb57ed89b6131b06",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -882,20 +882,6 @@
                 "ssl",
                 "tls"
             ],
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2021-06-07T13:58:28+00:00"
         },
         {
@@ -1154,7 +1140,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2021-07-28T20:14:21+00:00"
+            "time": "2021-07-28T20:10:43+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -7816,11 +7802,11 @@
         },
         {
             "name": "oander/module-api-gateway",
-            "version": "1.0.25.4",
+            "version": "1.0.26",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-gateway.git",
-                "reference": "633f625a2233cebc527e9ae777154897261b0def"
+                "reference": "205264741c1570f4450fcf7133c39432b27fe9ae"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7840,7 +7826,7 @@
                 "proprietary"
             ],
             "description": "The API Gateway module for ERP connections and import solutions.",
-            "time": "2019-08-23T12:47:28+00:00"
+            "time": "2021-08-21T02:15:33+00:00"
         },
         {
             "name": "oander/module-api-image",
@@ -7989,11 +7975,11 @@
         },
         {
             "name": "oander/module-api-warehouse-manager",
-            "version": "1.1.2.3",
+            "version": "1.1.2.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-warehouse-manager.git",
-                "reference": "599b7895734c51a089817e895d0f96589648cc98"
+                "reference": "a9af7a103dfffa381153f4984e86d8259a3d828f"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -8015,7 +8001,7 @@
                 "proprietary"
             ],
             "description": "Oander_ApiWarehouseManager",
-            "time": "2019-12-10T14:14:08+00:00"
+            "time": "2021-08-21T02:16:49+00:00"
         },
         {
             "name": "oander/module-apple-music",
@@ -10380,20 +10366,6 @@
                 "twofish",
                 "x.509",
                 "x509"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/terrafrost",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/phpseclib",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
-                    "type": "tidelift"
-                }
             ],
             "time": "2021-08-16T04:20:12+00:00"
         },
@@ -14853,6 +14825,5 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }
