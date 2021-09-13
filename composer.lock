@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf5550d3de268d0cfb57ed89b6131b06",
+    "content-hash": "602cf2c5df5dc7c8e7b57efc55dba8f8",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9235,11 +9235,11 @@
         },
         {
             "name": "oander/module-preorder",
-            "version": "1.0.24.1",
+            "version": "1.0.25.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-preorder.git",
-                "reference": "1b015afda15b8a17c0c327140321220fcd94752c"
+                "reference": "731b7f4c6012afd6eb77ed80376e6308d057d6ee"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9259,7 +9259,7 @@
                 "proprietary"
             ],
             "description": "Oander Preorder",
-            "time": "2019-08-23T13:54:51+00:00"
+            "time": "2021-09-13T22:08:38+00:00"
         },
         {
             "name": "oander/module-product-description-widget",
