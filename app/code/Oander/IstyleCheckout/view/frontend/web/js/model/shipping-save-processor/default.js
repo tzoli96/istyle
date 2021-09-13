@@ -97,8 +97,8 @@ define(
 
         if (billingAddress) {
           if (helpers.areAddressesEqual(quote.shippingAddress(), billingAddress)) {
-            billingAddress.saveInAddressBook = 0;
-            billingAddress.save_in_address_book = 0;
+            delete billingAddress.saveInAddressBook;
+            delete billingAddress.save_in_address_book;
           }
           else {
             billingAddress.saveInAddressBook = 1;

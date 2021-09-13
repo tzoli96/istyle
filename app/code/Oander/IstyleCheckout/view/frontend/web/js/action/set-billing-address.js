@@ -31,8 +31,8 @@
               address = quote.billingAddress();
 
           if (helpers.areAddressesEqual(quote.shippingAddress(), address)) {
-            address.saveInAddressBook = 0;
-            address.save_in_address_book = 0;
+            delete address.saveInAddressBook;
+            delete address.save_in_address_book;
           }
           else {
             address.saveInAddressBook = 1;
