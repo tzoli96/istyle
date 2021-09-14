@@ -84,6 +84,18 @@ define([
 			}
 		},
 
+		checkSelectedShippingMethod: function (method) {
+			if (helpers.shippingMethodVisibleHandling(method)) {
+				var stores = window.checkoutConfig.istyle_checkout.stores;
+				var selectedShippingMethod = method.split('_');
+				var selected = stores[selectedShippingMethod[selectedShippingMethod.length - 1]];
+
+				if (selected.regionId && (typeof selected.regionId != 'number')) {
+					this.shippingMethodContinueBtn(false);
+				}
+			}
+		},
+
 		checkStepContent: function () {
 			var currentLS = store.getLocalStorage();
 
@@ -91,6 +103,8 @@ define([
 				if (value) {
 					this.shippingMethodTab(value.method_code);
 					this.shippingMethodContinueBtn(true);
+
+					this.checkSelectedShippingMethod(value.method_code);
 				}
 				else {
 					this.shippingMethodContinueBtn(false);

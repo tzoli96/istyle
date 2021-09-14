@@ -95,17 +95,6 @@ define(
           billingAddress = quote.billingAddress() ? quote.billingAddress() : quote.shippingAddress();
         }
 
-        if (billingAddress) {
-          if (helpers.areAddressesEqual(quote.shippingAddress(), billingAddress)) {
-            delete billingAddress.saveInAddressBook;
-            delete billingAddress.save_in_address_book;
-          }
-          else {
-            billingAddress.saveInAddressBook = 1;
-            billingAddress.save_in_address_book = 1;
-          }
-        }
-
         payload = {
           addressInformation: {
             shipping_address: shippingAddress,

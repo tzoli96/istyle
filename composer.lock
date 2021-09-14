@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b450f98ff10a7aa3924c802648faccfe",
+    "content-hash": "b09d40064243f9291d341a10428b456e",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -882,6 +882,20 @@
                 "ssl",
                 "tls"
             ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2021-06-07T13:58:28+00:00"
         },
         {
@@ -1140,7 +1154,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2021-07-28T20:10:43+00:00"
+            "time": "2021-07-28T20:14:21+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -8553,11 +8567,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.1.6.11",
+            "version": "1.1.6.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "ecf12da1a3c613c62450493040516b05958364b7"
+                "reference": "390365567233f6f0eb32502bcd623d27531c4cac"
             },
             "require": {
                 "php": "7.*"
@@ -8575,7 +8589,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2021-09-03T14:03:42+00:00"
+            "time": "2021-09-14T21:09:06+00:00"
         },
         {
             "name": "oander/module-email-additional-data",
@@ -9481,7 +9495,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "1e487c8d6cd96ecf5686eb6090c9f2d46257d3df"
+                "reference": "4ad4c2771f7496f804d79a697979cbc857e7c508"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9510,7 +9524,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2021-09-08T20:07:18+00:00"
+            "time": "2021-09-14T21:52:11+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -10096,7 +10110,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "43a1b4aa4ea8ceca71943baa8853f92dfc2ce915"
+                "reference": "84558fd6a57be4350eecb691e15686118b06d73a"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10112,7 +10126,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-09-13T08:28:28+00:00"
+            "time": "2021-09-14T21:55:13+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10366,6 +10380,20 @@
                 "twofish",
                 "x.509",
                 "x509"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/terrafrost",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpseclib",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
+                    "type": "tidelift"
+                }
             ],
             "time": "2021-08-16T04:20:12+00:00"
         },
@@ -14825,5 +14853,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
