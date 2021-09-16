@@ -50,6 +50,4 @@
     <!-- Requested option doesn't exits -->
     <preference for="Magento\Bundle\Model\Product\SaveHandler" type="Oander\IstyleBase\Plugin\Magento\Bundle\Model\Product\SaveHandler"/>
     <preference for="Magento\Bundle\Controller\Adminhtml\Product\Initialization\Helper\Plugin\Bundle" type="Oander\IstyleBase\Plugin\Magento\Bundle\Controller\Adminhtml\Product\Initialization\Helper\Plugin\Bundle"/>
-    <preference for="Oander\UnityPickup\Model\Service\QuoteRepository"
-                type="Oander\IstyleBase\Model\Service\QuoteRepository"/>
 </config>
