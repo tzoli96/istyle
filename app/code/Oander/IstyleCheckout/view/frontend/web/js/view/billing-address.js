@@ -604,7 +604,7 @@ define([
       var formElements = this.formElements();
       var activeTab = $(formElements.tabs).find('.tab__title.active').find('.tab__switch').attr('data-tab');
 
-      if (store.billingAddress.formIsVisible()) {
+      if (store.billingAddress.formIsVisible() || addressList().length == 0) {
         store.billingAddress.userSelectBillingAddress(true);
       };
 
