@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b09d40064243f9291d341a10428b456e",
+    "content-hash": "3414fd6cbd29ed0b44982e1bc93efeba",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1140,7 +1140,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2021-07-28T20:10:43+00:00"
+            "time": "2021-07-28T20:14:21+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -9394,11 +9394,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "dev-master",
+            "version": "1.2.0.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "b374003d80da8817dfab51ba076a5f2409f72f08"
+                "reference": "779be6f1dc9199fcf81d50f3aa34af056a1fe0c5"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9417,7 +9417,7 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2021-09-01T20:52:12+00:00"
+            "time": "2021-09-20T12:57:13+00:00"
         },
         {
             "name": "oander/module-salesforce-service",
@@ -10366,6 +10366,20 @@
                 "twofish",
                 "x.509",
                 "x509"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/terrafrost",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpseclib",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
+                    "type": "tidelift"
+                }
             ],
             "time": "2021-08-16T04:20:12+00:00"
         },
@@ -14816,7 +14830,6 @@
         "oander/module-configurable-product-attribute": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
-        "oander/module-salesforce": 20,
         "oander/module-salesforcereservation": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
@@ -14825,5 +14838,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
