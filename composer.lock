@@ -1140,7 +1140,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2021-07-28T20:10:43+00:00"
+            "time": "2021-07-28T20:14:21+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -9813,11 +9813,11 @@
         },
         {
             "name": "oander/module-unity-pickup",
-            "version": "1.1.0.3",
+            "version": "1.1.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-unity-pickup.git",
-                "reference": "51f0995661bd1df751b820d3f01691a6d31cd983"
+                "reference": "6b939f0ae88367404a8f91f408b6d3f36fb37ee7"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9840,7 +9840,7 @@
                 "proprietary"
             ],
             "description": "Oander Unity Pickup",
-            "time": "2021-08-05T11:24:12+00:00"
+            "time": "2021-09-16T10:29:46+00:00"
         },
         {
             "name": "oander/module-url-rewrite-basic",
@@ -10366,6 +10366,20 @@
                 "twofish",
                 "x.509",
                 "x509"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/terrafrost",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpseclib",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
+                    "type": "tidelift"
+                }
             ],
             "time": "2021-08-16T04:20:12+00:00"
         },
@@ -14825,5 +14839,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
