@@ -1,5 +1,5 @@
 <?php
-namespace Oander\IstyleCustomization\Api;
+namespace Oander\IstyleCheckout\Api;
 
 /**
  * Interface for managing customers accounts.

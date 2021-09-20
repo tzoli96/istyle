@@ -125,9 +125,6 @@
     <preference for="Magento\UrlRewrite\Model\Storage\DbStorage" type="Oander\IstyleCustomization\Rewrite\Magento\UrlRewrite\Model\Storage\DbStorage"/>
     <!-- #52805 END -->
 
-    <preference for="Oander\IstyleCustomization\Api\AccountManagementInterface"
-                type="Oander\IstyleCustomization\Model\AccountManagement" />
-
     <!-- #53854 START -->
     <type name="Oander\EventBasedExporter\Observer\CustomerAddressSaveAfterObserver">
         <plugin name="IstyleCustomization::EventBasedExporterCustomerAddressSaveAfterObserver" type="Oander\IstyleCustomization\Plugin\Oander\EventBasedExporter\Observer\CustomerAddressSaveAfterObserver" sortOrder="10" disabled="false"/>

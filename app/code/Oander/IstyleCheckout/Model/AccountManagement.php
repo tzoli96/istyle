@@ -1,10 +1,10 @@
 <?php
 
-namespace Oander\IstyleCustomization\Model;
+namespace Oander\IstyleCheckout\Model;
 
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Json\Helper\Data;
-use Oander\IstyleCustomization\Api\AccountManagementInterface;
+use Oander\IstyleCheckout\Api\AccountManagementInterface;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Customer\Api\CustomerRepositoryInterface;
 

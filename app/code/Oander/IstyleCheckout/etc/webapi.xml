@@ -7,4 +7,10 @@
             <resource ref="anonymous"/>
         </resources>
     </route>
+    <route url="/V1/forcelogin/customers/isEmailAvailable" method="POST">
+        <service class="Oander\IstyleCheckout\Api\AccountManagementInterface" method="isEmailAvailable"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
 </routes>
