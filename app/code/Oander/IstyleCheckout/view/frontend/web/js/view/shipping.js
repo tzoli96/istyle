@@ -62,7 +62,7 @@ define([
 		 * @returns {String}
 		 */
 		getShippingMethod: ko.computed(function () {
-			return checkoutData.getSelectedShippingRate() ? (quote.shippingMethod() ? quote.shippingMethod().method_title : '') : 'Please select shipping method.';
+			return quote.shippingMethod() ? quote.shippingMethod().method_title : 'Please select shipping method.';
 		}),
 
 		getShippingAddress: ko.computed(function () {
@@ -84,14 +84,44 @@ define([
 			}
 		},
 
+		checkSelectedShippingMethod: function (method) {
+			if (helpers.shippingMethodVisibleHandling(method)) {
+				var stores = window.checkoutConfig.istyle_checkout.stores;
+				var selectedShippingMethod = method.split('_');
+				var selected = stores[selectedShippingMethod[selectedShippingMethod.length - 1]];
+
+				if (selected.regionId && (typeof selected.regionId != 'number')) {
+					this.shippingMethodContinueBtn(false);
+				}
+			}
+		},
+
 		checkStepContent: function () {
 			var currentLS = store.getLocalStorage();
 
 			quote.shippingMethod.subscribe(function (value) {
-				(value) 
-					? this.shippingMethodContinueBtn(true)
-					: this.shippingMethodContinueBtn(false);
+				if (value) {
+					this.shippingMethodTab(value.method_code);
+					this.shippingMethodContinueBtn(true);
+
+					this.checkSelectedShippingMethod(value.method_code);
+				}
+				else {
+					this.shippingMethodContinueBtn(false);
+				}
 			}, this);
+
+			if (currentLS.shippingMethod) {
+				if (currentLS.shippingMethod.selectedCode) {
+					this.shippingMethodTab(currentLS.shippingMethod.selectedCode);
+					this.shippingMethodContinueBtn(true);
+
+					$('.shipping-control-row[data-code="' + currentLS.shippingMethod.selectedCode +'"]').trigger('click');
+				}
+				else {
+					this.shippingMethodContinueBtn(false);
+				}
+			}
 
 			// Shipping method
 			if (store.steps.shippingMethod()
@@ -142,12 +172,28 @@ define([
 		 * Shipping address visible condition
 		 * @returns {Void}
 		 */
-		shippingAddressVisibleCondition: function () {
+		 shippingAddressVisibleCondition: function () {
+			var currentLS = store.getLocalStorage();
+
 			if (helpers.shippingMethodVisibleHandling(store.shippingMethod.selectedCode())) {
+				this.isShippingAddressVisible(false);
+			}
+			else if (!currentLS.steps.shippingMethod && !store.steps.shippingMethod()) {
 				this.isShippingAddressVisible(false);
 			}
 			else {
 				this.isShippingAddressVisible(true);
+			}
+		},
+
+		/**
+		 * Shipping method tab
+		 * @returns {Void}
+		 */
+		shippingMethodTab: function (value) {
+			if (helpers.shippingMethodVisibleHandling(value)) {
+				$('.shipping-methods__tabs .switch--delivery[href="#tab2"]')
+					.trigger('click');
 			}
 		},
 

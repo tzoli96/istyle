@@ -40,7 +40,9 @@ var config = {
       'Magento_Customer/js/action/login':
         'Oander_IstyleCheckout/js/action/login',
       'Magento_Checkout/js/model/shipping-save-processor/default':
-        'Oander_IstyleCheckout/js/model/shipping-save-processor/default'
+        'Oander_IstyleCheckout/js/model/shipping-save-processor/default',
+      'Magento_Checkout/js/action/set-billing-address':
+        'Oander_IstyleCheckout/js/action/set-billing-address'
     }
   },
   config: {

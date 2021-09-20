@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "03ddea8ec0a11d15d279674afbd4a633",
+    "content-hash": "b09d40064243f9291d341a10428b456e",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7802,11 +7802,11 @@
         },
         {
             "name": "oander/module-api-gateway",
-            "version": "1.0.25.4",
+            "version": "1.0.26",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-gateway.git",
-                "reference": "633f625a2233cebc527e9ae777154897261b0def"
+                "reference": "205264741c1570f4450fcf7133c39432b27fe9ae"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -7826,7 +7826,7 @@
                 "proprietary"
             ],
             "description": "The API Gateway module for ERP connections and import solutions.",
-            "time": "2019-08-23T12:47:28+00:00"
+            "time": "2021-08-21T02:15:33+00:00"
         },
         {
             "name": "oander/module-api-image",
@@ -7975,11 +7975,11 @@
         },
         {
             "name": "oander/module-api-warehouse-manager",
-            "version": "1.1.2.3",
+            "version": "1.1.2.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-api-warehouse-manager.git",
-                "reference": "599b7895734c51a089817e895d0f96589648cc98"
+                "reference": "a9af7a103dfffa381153f4984e86d8259a3d828f"
             },
             "require": {
                 "oander/module-api-base": "*",
@@ -8001,7 +8001,7 @@
                 "proprietary"
             ],
             "description": "Oander_ApiWarehouseManager",
-            "time": "2019-12-10T14:14:08+00:00"
+            "time": "2021-08-21T02:16:49+00:00"
         },
         {
             "name": "oander/module-apple-music",
@@ -8553,11 +8553,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.1.6.11",
+            "version": "1.1.6.12",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "ecf12da1a3c613c62450493040516b05958364b7"
+                "reference": "390365567233f6f0eb32502bcd623d27531c4cac"
             },
             "require": {
                 "php": "7.*"
@@ -8575,7 +8575,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2021-09-03T14:03:42+00:00"
+            "time": "2021-09-14T21:09:06+00:00"
         },
         {
             "name": "oander/module-email-additional-data",
@@ -9235,11 +9235,11 @@
         },
         {
             "name": "oander/module-preorder",
-            "version": "1.0.24.1",
+            "version": "1.0.25.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-preorder.git",
-                "reference": "1b015afda15b8a17c0c327140321220fcd94752c"
+                "reference": "52db084c06beebcfc202ea6aa00e390ea556c32e"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9259,7 +9259,7 @@
                 "proprietary"
             ],
             "description": "Oander Preorder",
-            "time": "2019-08-23T13:54:51+00:00"
+            "time": "2021-09-14T19:14:30+00:00"
         },
         {
             "name": "oander/module-product-description-widget",

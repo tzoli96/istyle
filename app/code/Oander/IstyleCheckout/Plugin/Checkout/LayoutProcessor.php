@@ -167,40 +167,32 @@ class LayoutProcessor
         }
 
         if ($this->fanCourierHelper->getValidationLevel() == 'req' || $this->fanCourierHelper->getValidationLevel() == 'valid') {
-            $dataScopePrefix = 'billingAddress';
-            if (isset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
-            ['children']['dataScopePrefix'])) {
-                $dataScopePrefix = $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
-                ['children']['dataScopePrefix'];
-            } elseif (isset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
-            ['children']['dataScope'])) {
-                $dataScopePrefix = $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
-                ['children']['dataScope'];
-            }
+            $label = (isset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']['children']['form-fields']['children']['region_id']['label']))
+                ? $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']['children']['form-fields']['children']['region_id']['label']
+                : __('Region');
+                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']['children']['form-fields']['children']
+            ['region'] = [
+                'component' => 'Magento_Ui/js/form/element/abstract',
+                'config' => [
+                    'template' => 'ui/form/field',
+                    'elementTmpl' => 'ui/form/element/input',
+                    'customScope' => 'billingAddress',
+                ],
+                'dataScope' => 'billingAddress.region',
+                'label' => $label,
+                'provider' => 'checkoutProvider',
+                'sortOrder' => 11,
+                'placeholder' => __('region_placeholder'),
+                'validation' => [
+                    'required-entry' => true
+                ],
+                'visible' => true
+            ];
 
             $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
-            ['children']['form-fields']['children']
-            ['region'] = $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
-            ['children']['form-fields']['children']
-            ['region'];
-            $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
-            ['children']['form-fields']['children']
-            ['region']['dataScope'] = $dataScopePrefix.'.'.'region';
-            $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
-            ['children']['form-fields']['children']
-            ['region']['config']['customScope'] = $dataScopePrefix;
-
-            $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
-            ['children']['form-fields']['children']
-            ['city'] = $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
-            ['children']['form-fields']['children']
-            ['city'];
-            $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
-            ['children']['form-fields']['children']
-            ['city']['dataScope'] = $dataScopePrefix.'.'.'city';
-            $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
-            ['children']['form-fields']['children']
-            ['city']['config']['customScope'] = $dataScopePrefix;
+            ['children']['form-fields']['children']['city']['sortOrder'] = 12;
+            $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']['children']['form-fields']['children']
+            ['city']['validation']['required-entry'] = true;
         }
 
         return $jsLayout;

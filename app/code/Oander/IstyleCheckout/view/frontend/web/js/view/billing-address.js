@@ -3,13 +3,14 @@ define([
   'ko',
   'mage/translate',
   'Magento_Customer/js/model/customer',
+  'Magento_Customer/js/model/address-list',
   'Magento_Checkout/js/model/quote',
   'Magento_Checkout/js/action/select-billing-address',
   'Oander_IstyleCheckout/js/helpers',
   'Magento_Checkout/js/checkout-data',
   'Magento_Checkout/js/action/get-payment-information',
   'Oander_IstyleCheckout/js/model/store',
-], function ($, ko, $t, customer, quote, selectBillingAddress, helpers, checkoutData, getPaymentInformationAction, store) {
+], function ($, ko, $t, customer, addressList, quote, selectBillingAddress, helpers, checkoutData, getPaymentInformationAction, store) {
   'use strict';
 
   var mixin = {
@@ -22,8 +23,13 @@ define([
     tabSelector: store.billingAddress.tabSelector,
     formIsVisible: store.billingAddress.formIsVisible,
     continueBtn: store.billingAddress.continueBtn,
+    userSelectBillingAddress: store.billingAddress.userSelectBillingAddress,
 
     isBillingAddressVisible: ko.observable(false),
+
+    addressOptions: addressList().filter(function (address) {
+      return address.getType() == 'customer-address';
+    }),
 
     /**
      * Get billing address
@@ -112,6 +118,30 @@ define([
       }, helpers.interval);
     },
 
+    checkUserBilling: function () {
+      var currentLS = store.getLocalStorage();
+
+      if (customer.isLoggedIn()) {
+        if (store.billingAddress.userSelectBillingAddress() || currentLS.billingAddress.userSelectBillingAddress) {
+          return true;
+        }
+        else if (store.billingAddress.formIsVisible()) {
+          return true;
+        }
+        else {
+          if (helpers.shippingMethodVisibleHandling(store.shippingMethod.selectedCode())) {
+            return false;
+          }
+          else {
+            return true;
+          }
+        }
+      }
+      else {
+        return true;
+      }
+    },
+
     /**
      * Form changes
      * @returns {Void}
@@ -149,23 +179,35 @@ define([
       }, this);
 
       quote.billingAddress.subscribe(function (address) {
-        if (address.postcode !== '*') {
-          var selectedBillingAddress = {
-            id: address.customerAddressId ? address.customerAddressId : false,
-            status: address.customerAddressId ? 'exist' : 'new',
-            isCompany: address.company ? true : false,
-            address: address,
-          };
+        if (store.billingAddress.formIsVisible()) store.billingAddress.userSelectBillingAddress(true);
 
-          store.billingAddress.selectedBillingAddress(selectedBillingAddress);
+        if (address) {
+          if (address.postcode 
+              && address.postcode !== '*'
+              && this.checkUserBilling()) {
+            var selectedBillingAddress = {
+              id: address.customerAddressId ? address.customerAddressId : false,
+              status: address.customerAddressId ? 'exist' : 'new',
+              isCompany: address.company ? true : false,
+              address: address,
+            };
 
-          if (!address.customerAddressId) {
-            address.saveInAddressBook = 1;
-            store.billingAddress.hasNewAddress(true);
-            store.billingAddress.newAddress(address);
+            store.billingAddress.selectedBillingAddress(selectedBillingAddress);
+
+            if (!address.customerAddressId) {
+              address.saveInAddressBook = 1;
+              store.billingAddress.hasNewAddress(true);
+              store.billingAddress.newAddress(address);
+            }
+
+            store.billingAddress.hasSelectedAddress(true);
           }
-
-          store.billingAddress.hasSelectedAddress(true);
+          else {
+            if (address !== null) quote.billingAddress(null);
+          }
+        }
+        else {
+          if (address !== null) quote.billingAddress(null);
         }
       }, this);
 
@@ -188,7 +230,7 @@ define([
             }
           }
 
-          if (store.getLocalStorage().billingAddress
+          if (store.getLocalStorage().billingAddress.selectedBillingAddress
             ? store.getLocalStorage().billingAddress.selectedBillingAddress.isCompany
             : store.billingAddress.selectedBillingAddress().isCompany) {
             $(formElements.tabs).find('.tab__switch[data-tab="billing-company"]').trigger('click');
@@ -225,6 +267,7 @@ define([
       var titles = tabs.querySelectorAll('.tab__switch');
       var companyField = form.querySelector('[name="billingAddressshared.company"]');
       var vatIdField = form.querySelector('[name="billingAddressshared.vat_id"]');
+      var pfpjField = form.querySelector('[name="billingAddressshared.custom_attributes.pfpj_reg_no"]');
 
       return {
         form: form,
@@ -232,6 +275,7 @@ define([
         titles: titles,
         companyField: companyField,
         vatIdField: vatIdField,
+        pfpjField: pfpjField,
       }
     },
 
@@ -287,6 +331,8 @@ define([
      * @returns {Void}
      */
     formTransform: function (formId) {
+      this.fieldsContent = {};
+
       switch (formId) {
         case 'billing-person':
           this.formPerson();
@@ -313,6 +359,15 @@ define([
       $(formElements.vatIdField).hide();
       $(formElements.vatIdField).removeClass('_required');
 
+      if ($(formElements.pfpjField).length) {
+        $(formElements.pfpjField).hide();
+
+        if($(formElements.pfpjField).hasClass('_required')) {
+          $(formElements.pfpjField).removeClass('_required');
+          $(formElements.pfpjField).addClass('was_required');
+        }
+      }
+
       $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text($t(names.firstname));
       $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text($t(names.lastname));
     },
@@ -332,6 +387,16 @@ define([
       $(formElements.companyField).addClass('_required');
       $(formElements.vatIdField).show();
       $(formElements.vatIdField).addClass('_required');
+
+      if ($(formElements.pfpjField).length) {
+        $(formElements.pfpjField).show();
+
+        if($(formElements.pfpjField).hasClass('was_required')) {
+          $(formElements.pfpjField).removeClass('was_required');
+          $(formElements.pfpjField).addClass('_required');
+        }
+      }
+
 
       $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text($t(names.firstname));
       $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text($t(names.lastname));
@@ -368,14 +433,19 @@ define([
      * @returns {Void}
      */
     watchField: function (field) {
-      if (!field.find('.form-control').val().length) {
-        field.addClass('_error');
-        field.find('.mage-error').removeClass('d-none');
-        return false;
+      if (field.length) {
+        if (!field.find('.form-control').val().length) {
+          field.addClass('_error');
+          field.find('.mage-error').removeClass('d-none');
+          return false;
+        }
+        else {
+          field.removeClass('_error');
+          field.find('.mage-error').addClass('d-none');
+          return true;
+        }
       }
       else {
-        field.removeClass('_error');
-        field.find('.mage-error').addClass('d-none');
         return true;
       }
     },
@@ -454,31 +524,33 @@ define([
     setBillingAddress: function (address) {
       var formElements = this.formElements();
 
-      var formInterval = setInterval(function () {
-        if ($('[name="billingAddressshared.telephone"] .form-control').length && address.postcode !== '*') {
-          for (var item in address) {
-            var elem = formElements.form.querySelector('[name="' + item + '"]');
-            var value = address[item];
-    
-            if (item == 'street') {
-              elem = formElements.form.querySelector('[name="' + item + '[0]"]');
-            }
-    
-            if (item == 'vatId') {
-              elem = formElements.form.querySelector('[name="vat_id"]');
-            }
-    
-            if (value !== undefined && value !== null) {
-              if (elem) {
-                elem.value = value;
-                elem.dispatchEvent(new Event('change'));
+      if (store.billingAddress.hasSelectedAddress()) {
+        var formInterval = setInterval(function () {
+          if ($('[name="billingAddressshared.telephone"] .form-control').length && address.postcode !== '*') {
+            for (var item in address) {
+              var elem = formElements.form.querySelector('[name="' + item + '"]');
+              var value = address[item];
+      
+              if (item == 'street') {
+                elem = formElements.form.querySelector('[name="' + item + '[0]"]');
+              }
+      
+              if (item == 'vatId') {
+                elem = formElements.form.querySelector('[name="vat_id"]');
+              }
+      
+              if (value !== undefined && value !== null) {
+                if (elem) {
+                  elem.value = value;
+                  elem.dispatchEvent(new Event('change'));
+                }
               }
             }
-          }
 
-          clearInterval(formInterval);
-        }
-      }, helpers.interval);
+            clearInterval(formInterval);
+          }
+        }, helpers.interval);
+      }
     },
 
     /**
@@ -507,6 +579,10 @@ define([
         selectAddress = store.billingAddress.newAddress();
       }
 
+      if (customer.isLoggedIn() && addressList().length) {
+        store.billingAddress.userSelectBillingAddress(true);
+      }
+
       selectBillingAddress(selectAddress);
       store.billingAddress.hasSelectedAddress(true);
       store.billingAddress.formIsVisible(false);
@@ -528,9 +604,13 @@ define([
       var formElements = this.formElements();
       var activeTab = $(formElements.tabs).find('.tab__title.active').find('.tab__switch').attr('data-tab');
 
+      if (store.billingAddress.formIsVisible() || addressList().length == 0) {
+        store.billingAddress.userSelectBillingAddress(true);
+      };
+
       if (store.billingAddress.continueBtn()) {
         if (activeTab == 'billing-company') {
-          if (this.watchField($(formElements.companyField)) && this.watchField($(formElements.vatIdField))) {
+          if (this.watchField($(formElements.companyField)) && this.watchField($(formElements.vatIdField)) && this.watchField($(formElements.pfpjField)) ) {
             this.updateAddress();
             store.billingAddress.formIsVisible(false);
           }
@@ -538,6 +618,10 @@ define([
         else {
           $(formElements.companyField).find('.form-control').val('').trigger('change');
           $(formElements.vatIdField).find('.form-control').val('').trigger('change');
+
+          if ($(formElements.pfpjField).length) {
+            $(formElements.pfpjField).find('.form-control').val('').trigger('change');
+          }
 
           this.updateAddress();
           store.billingAddress.formIsVisible(false);
@@ -553,6 +637,10 @@ define([
         if (activeTab == 'billing-company') {
           this.watchField($(formElements.companyField));
           this.watchField($(formElements.vatIdField));
+
+          if ($(formElements.pfpjField).length) {
+            this.watchField($(formElements.pfpjField));
+          }
         }
       }
     },

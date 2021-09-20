@@ -172,5 +172,33 @@ define([
 			if (method.indexOf('warehouse') > -1) return true;
 			return false;
 		},
+
+    /**
+     * Are addresses equal
+     * @param {Object} shipping
+     * @param {Object} billing
+     * @returns {Boolean}
+     */
+    areAddressesEqual: function (shipping, billing) {
+      var requiredFields = ['firstname', 'lastname', 'postcode', 'city', 'street', 'telephone'];
+      var equalFieldsCount = 0;
+
+      if (shipping.postcode !== '*') {
+        for (var field in requiredFields) {
+          if (requiredFields[field] !== 'street') {
+            if (shipping[requiredFields[field]] === billing[requiredFields[field]]) equalFieldsCount++;
+          }
+          else {
+            if (shipping[requiredFields[field]][0] === billing[requiredFields[field]][0]) equalFieldsCount++;
+          }
+        }
+
+        if (equalFieldsCount == requiredFields.length) return true;
+        return false;
+      }
+      else {
+        return true;
+      }
+    }
   }
 });
