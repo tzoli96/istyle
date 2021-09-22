@@ -27,6 +27,16 @@ class CustomerManagement extends \Magento\Sales\Model\Order\CustomerManagement
             []
         );
         $addresses = $order->getAddresses();
+        //TODO: Fix it on correct way #54092
+        $excludeKeys = array('entity_id', 'customer_address_id', 'quote_address_id', 'region_id', 'customer_id', 'address_type');
+        $oBillingAddress = $order->getBillingAddress()->getData();
+        $oShippingAddress = $order->getShippingAddress()->getData();
+        $oBillingAddressFiltered = array_diff_key($oBillingAddress, array_flip($excludeKeys));
+        $oShippingAddressFiltered = array_diff_key($oShippingAddress, array_flip($excludeKeys));
+
+        $addressDiff = array_diff($oBillingAddressFiltered, $oShippingAddressFiltered);
+        //TODO:END
+
         foreach ($addresses as $address) {
             $addressData = $this->objectCopyService->copyFieldsetToTarget(
                 'order_address',
@@ -53,7 +63,29 @@ class CustomerManagement extends \Magento\Sales\Model\Order\CustomerManagement
                 $region->setRegionId($address->getRegionId());
                 $customerAddress->setRegion($region);
             }
-            $customerData['addresses'][] = $customerAddress;
+            if(empty($addressDiff))
+            {
+                if($address->getAddressType()==QuoteAddress::ADDRESS_TYPE_BILLING)
+                {
+                    $customerAddress->setIsDefaultShipping(true);
+                    $customerData['addresses'][] = $customerAddress;
+                }
+            }
+            else
+            {
+                if(strpos($order->getShippingMethod(),"warehouse_pickup") !== false)
+                {
+                    if($address->getAddressType()==QuoteAddress::ADDRESS_TYPE_BILLING)
+                    {
+                        $customerAddress->setIsDefaultShipping(true);
+                        $customerData['addresses'][] = $customerAddress;
+                    }
+                }
+                else
+                {
+                    $customerData['addresses'][] = $customerAddress;
+                }
+            }
         }
 
         /** @var \Magento\Customer\Api\Data\CustomerInterface $customer */
