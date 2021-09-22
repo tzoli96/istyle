@@ -405,6 +405,7 @@ define([
 
       this.fieldErrorHandling($(formElements.companyField));
       this.fieldErrorHandling($(formElements.vatIdField));
+      this.fieldErrorHandling($(formElements.pfpjField));
     },
 
     /**
@@ -484,11 +485,13 @@ define([
       var self = this;
 
       if ($(element).length && !isNaN(index)) {
-        if ($(element).val().length > 0) {
-          self.fieldsContent[index] = true;
-        }
-        else {
-          self.fieldsContent[index] = false;
+        if ($(element).closest('.form-group').attr('style') != 'display: none;') {
+          if ($(element).val().length > 0) {
+            self.fieldsContent[index] = true;
+          }
+          else {
+            self.fieldsContent[index] = false;
+          }
         }
       }
 
@@ -607,6 +610,10 @@ define([
       if (store.billingAddress.formIsVisible() || addressList().length == 0) {
         store.billingAddress.userSelectBillingAddress(true);
       };
+
+      if (addressList().length == 1 && (typeof addressList()[0].isDefaultBilling() == "undefined")) {
+        store.billingAddress.userSelectBillingAddress(true);
+      }
 
       if (store.billingAddress.continueBtn()) {
         if (activeTab == 'billing-company') {

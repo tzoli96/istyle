@@ -197,7 +197,10 @@ define([
           return false;
         }
         else {
-          if (equalFieldsCount == requiredFields.length) {
+          if (billing.customerAddressId) {
+            return true;
+          }
+          else if (equalFieldsCount == requiredFields.length) {
             return true;
           }
           else {
