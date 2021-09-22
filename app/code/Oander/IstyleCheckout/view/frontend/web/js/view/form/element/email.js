@@ -22,9 +22,17 @@ define([
   'use strict';
 
   var validatedEmail = checkoutData.getValidatedEmailValue();
+  var currentLS = store.getLocalStorage();
 
   if (validatedEmail && !customer.isLoggedIn()) {
     quote.guestEmail = validatedEmail;
+  }
+
+  if (currentLS.auth) {
+    if (currentLS.auth.emailValue) {
+      validatedEmail = currentLS.auth.emailValue;
+      quote.guestEmail = currentLS.auth.emailValue;
+    }
   }
 
   return Component.extend({
@@ -66,6 +74,8 @@ define([
       this._super()
         .observe(['email', 'emailFocused', 'isLoading', 'isPasswordVisible', 'firstname']);
 
+      var currentLS = store.getLocalStorage();
+
       store.setLocalStorage();
 
       this.isPasswordVisible.subscribe(function (value) {
@@ -73,6 +83,12 @@ define([
       }, this);
 
       if (store.getLocalStorage()) this.localStorageHandler(store.getLocalStorage());
+
+      if (currentLS.auth) {
+        if (currentLS.auth.emailValue) {
+          if (!this.email()) this.email(currentLS.auth.emailValue);
+        }
+      }
 
       return this;
     },
@@ -146,6 +162,8 @@ define([
         emailSelector = loginFormSelector + ' input[name=username]',
         loginForm = $(loginFormSelector),
         validator;
+
+      store.auth.emailValue(this.email());
 
       loginForm.validation();
 

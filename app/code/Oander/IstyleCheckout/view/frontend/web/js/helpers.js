@@ -193,8 +193,17 @@ define([
           }
         }
 
-        if (equalFieldsCount == requiredFields.length) return true;
-        return false;
+        if (billing.company) {
+          return false;
+        }
+        else {
+          if (equalFieldsCount == requiredFields.length) {
+            return true;
+          }
+          else {
+            return false;
+          }
+        }
       }
       else {
         return true;

@@ -112,8 +112,8 @@
                                                 </span>
                                             </div>
                                             <!-- TODO: extension_attributes can be an empty array or object in different shipping methods -->
-                                            <!-- ko if: !Array.isArray(method.extension_attributes) && method.extension_attributes.hasOwnProperty('warehouse_manager_data') && method.extension_attributes.warehouse_manager_data !== false  -->
                                             <div class="shipping-control-pos m-0">
+                                                <!-- ko if: !Array.isArray(method.extension_attributes) && method.extension_attributes.hasOwnProperty('warehouse_manager_data') && method.extension_attributes.warehouse_manager_data !== false  -->
                                                 <div class="row pos-holder">
                                                     <div
                                                         class="pos-map col-12 col-lg-5 order-lg-2"
@@ -160,8 +160,10 @@
                                                         <!-- /ko -->
                                                     </div>
                                                 </div>
+                                                <!-- /ko -->
+                                                <!-- ko if: !Array.isArray(method.extension_attributes) -->
                                                 <div class="row">
-                                                    <div class="col-12 pos-button m-0">
+                                                    <div class="col-12 pos-button">
                                                         <button
                                                             class="action primary w-100"
                                                             data-bind="click: $parent.shippingMethodContinue, enable: $parent.shippingMethodContinueBtn">
@@ -174,8 +176,8 @@
                                                         </button>
                                                     </div>
                                                 </div>
+                                                <!-- /ko -->
                                             </div>
-                                            <!-- /ko -->
                                         </label>
                                     </div>
                                 </div>
@@ -280,8 +282,8 @@
                                                 </span>
                                             </div>
                                             <!-- TODO: extension_attributes can be an empty array or object in different shipping methods -->
-                                            <!-- ko if: !Array.isArray(method.extension_attributes) && method.extension_attributes.hasOwnProperty('warehouse_manager_data') && method.extension_attributes.warehouse_manager_data !== false  -->
                                             <div class="shipping-control-pos m-0">
+                                                <!-- ko if: !Array.isArray(method.extension_attributes) && method.extension_attributes.hasOwnProperty('warehouse_manager_data') && method.extension_attributes.warehouse_manager_data !== false  -->
                                                 <div class="row pos-holder">
                                                     <div
                                                         class="pos-map col-12 col-lg-5 order-lg-2"
@@ -328,8 +330,10 @@
                                                         <!-- /ko -->
                                                     </div>
                                                 </div>
+                                                <!-- /ko -->
+                                                <!-- ko if: !Array.isArray(method.extension_attributes) -->
                                                 <div class="row">
-                                                    <div class="col-12 pos-button m-0">
+                                                    <div class="col-12 pos-button">
                                                         <button
                                                             class="action primary w-100"
                                                             data-bind="click: $parent.shippingMethodContinue, enable: $parent.shippingMethodContinueBtn">
@@ -342,8 +346,8 @@
                                                         </button>
                                                     </div>
                                                 </div>
+                                                <!-- /ko -->
                                             </div>
-                                            <!-- /ko -->
                                         </label>
                                     </div>
                                 </div>

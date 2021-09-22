@@ -15,6 +15,7 @@ define([
     },
     auth: {
       hasValidEmailAddress: ko.observable(false),
+      emailValue: ko.observable(''),
       emailHasUser: ko.observable(false),
       hasPasswordValue: ko.observable(false),
       errorMessage: ko.observable(false),
@@ -47,6 +48,7 @@ define([
       },
       auth: {
         hasValidEmailAddress: false,
+        emailValue: '',
         emailHasUser: false,
         hasPasswordValue: false,
       },
@@ -112,6 +114,11 @@ define([
       this.auth.hasValidEmailAddress.subscribe(function (value) {
         this.localStorageObject.auth.hasValidEmailAddress = value;
         this.updateLocalStorage('auth', 'hasValidEmailAddress');
+      }, this);
+
+      this.auth.emailValue.subscribe(function (value) {
+        this.localStorageObject.auth.emailValue = value;
+        this.updateLocalStorage('auth', 'emailValue');
       }, this);
 
       this.auth.emailHasUser.subscribe(function (value) {
