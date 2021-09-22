@@ -194,7 +194,12 @@ define([
         }
 
         if (billing.company) {
-          return false;
+          if (billing.customerAddressId) {
+            return true;
+          }
+          else {
+            return false;
+          }
         }
         else {
           if (billing.customerAddressId) {
