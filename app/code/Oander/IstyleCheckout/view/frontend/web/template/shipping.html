@@ -161,7 +161,7 @@
                                                     </div>
                                                 </div>
                                                 <!-- /ko -->
-                                                <!-- ko if: !Array.isArray(method.extension_attributes) -->
+                                                <!-- ko if: method.carrier_code === 'warehouse_pickup' && !Array.isArray(method.extension_attributes) -->
                                                 <div class="row">
                                                     <div class="col-12 pos-button">
                                                         <button
@@ -178,18 +178,18 @@
                                                 </div>
                                                 <!-- /ko -->
                                             </div>
+                                            <!-- ko if: method.hasOwnProperty('extension_attributes') && method.extension_attributes.hasOwnProperty('method_container') -->
+                                                <div class="shipping-control-method">
+                                                    <div class="row method-container" data-bind="css: method.carrier_code">
+                                                        <div class="col" colspan="6">
+                                                            <div data-bind="html: method.extension_attributes.method_container"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <!-- /ko -->
                                         </label>
                                     </div>
                                 </div>
-
-                                <!-- ko if: method.hasOwnProperty('extension_attributes') && method.extension_attributes.hasOwnProperty('method_container') -->
-                                <div class="row method-container" data-bind="css: method.carrier_code">
-                                    <div class="col" colspan="6">
-                                        <div data-bind="html: method.extension_attributes.method_container"></div>
-                                    </div>
-                                </div>
-                                <!-- /ko -->
-
                                 <!-- ko if:  method.error_message -->
                                 <div class="row row-error">
                                     <div class="col col-error" colspan="4">
@@ -331,7 +331,7 @@
                                                     </div>
                                                 </div>
                                                 <!-- /ko -->
-                                                <!-- ko if: !Array.isArray(method.extension_attributes) -->
+                                                <!-- ko if: method.carrier_code === 'warehouse_pickup' && !Array.isArray(method.extension_attributes) -->
                                                 <div class="row">
                                                     <div class="col-12 pos-button">
                                                         <button
@@ -348,18 +348,18 @@
                                                 </div>
                                                 <!-- /ko -->
                                             </div>
+                                            <!-- ko if: method.hasOwnProperty('extension_attributes') && method.extension_attributes.hasOwnProperty('method_container') -->
+                                                <div class="shipping-control-method">
+                                                    <div class="row method-container" data-bind="css: method.carrier_code">
+                                                        <div class="col" colspan="6">
+                                                            <div data-bind="html: method.extension_attributes.method_container"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <!-- /ko -->
                                         </label>
                                     </div>
                                 </div>
-
-                                <!-- ko if: method.hasOwnProperty('extension_attributes') && method.extension_attributes.hasOwnProperty('method_container') -->
-                                <div class="row method-container" data-bind="css: method.carrier_code">
-                                    <div class="col" colspan="6">
-                                        <div data-bind="html: method.extension_attributes.method_container"></div>
-                                    </div>
-                                </div>
-                                <!-- /ko -->
-
                                 <!-- ko if:  method.error_message -->
                                 <div class="row row-error">
                                     <div class="col col-error" colspan="4">

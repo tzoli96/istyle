@@ -23,6 +23,7 @@ define([
     shippingMethod: {
       selectedTitle: ko.observable(''),
       selectedCode: ko.observable(''),
+      continueBtn: ko.observable(false),
     },
     shippingAddress: {
       selectedShippingAddress: ko.observable(false),
@@ -55,6 +56,7 @@ define([
       shippingMethod: {
         selectedTitle: '',
         selectedCode: '',
+        continueBtn: false,
       },
       shippingAddress: {
         selectedShippingAddress: false,
@@ -140,6 +142,11 @@ define([
       this.shippingMethod.selectedCode.subscribe(function (value) {
         this.localStorageObject.shippingMethod.selectedCode = value;
         this.updateLocalStorage('shippingMethod', 'selectedCode');
+      }, this);
+
+      this.shippingMethod.continueBtn.subscribe(function (value) {
+        this.localStorageObject.shippingMethod.continueBtn = value;
+        this.updateLocalStorage('shippingMethod', 'continueBtn');
       }, this);
 
       // Billing address
