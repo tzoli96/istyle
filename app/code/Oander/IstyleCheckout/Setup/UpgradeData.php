@@ -39,5 +39,22 @@ class UpgradeData implements UpgradeDataInterface
                 $agreement->save();
             }
         }
+
+        if (version_compare($context->getVersion(), '1.2.1', '<')) {
+            $this->changeBillingAddressDisplay($setup);
+        }
+    }
+
+    private function changeBillingAddressDisplay(ModuleDataSetupInterface $setup)
+    {
+        $setup->getConnection()->delete(
+            $setup->getConnection()->getTableName("core_config_data"),
+            "path = 'checkout/options/display_billing_address_on' and scope<>'default'"
+        );
+        $setup->getConnection()->insertOnDuplicate(
+            $setup->getConnection()->getTableName("core_config_data"),
+            ["scope" =>"default", "scope_id" => 0, "path" => "checkout/options/display_billing_address_on", "value" => 1],
+            ["value"]
+        );
     }
 }
