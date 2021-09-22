@@ -47,7 +47,7 @@ define([
 		continueBtn: store.shippingAddress.continueBtn,
 		isShippingMethodVisible: ko.observable(false),
 		isShippingAddressVisible: ko.observable(false),
-		shippingMethodContinueBtn: ko.observable(false),
+		shippingMethodContinueBtn: store.shippingMethod.continueBtn,
 
 		/**
 		 * Is logged in
@@ -91,7 +91,7 @@ define([
 				var selected = stores[selectedShippingMethod[selectedShippingMethod.length - 1]];
 
 				if (selected.regionId && (typeof selected.regionId != 'number')) {
-					this.shippingMethodContinueBtn(false);
+					store.shippingMethod.continueBtn(false);
 				}
 			}
 		},
@@ -102,32 +102,32 @@ define([
 			quote.shippingMethod.subscribe(function (value) {
 				if (value) {
 					this.shippingMethodTab(value.method_code);
-					this.shippingMethodContinueBtn(true);
+					store.shippingMethod.continueBtn(true);
 
 					this.checkSelectedShippingMethod(value.method_code);
 				}
 				else {
-					this.shippingMethodContinueBtn(false);
+					store.shippingMethod.continueBtn(false);
 				}
 			}, this);
 
 			if (currentLS.shippingMethod) {
 				if (currentLS.shippingMethod.selectedCode) {
 					this.shippingMethodTab(currentLS.shippingMethod.selectedCode);
-					this.shippingMethodContinueBtn(true);
+					store.shippingMethod.continueBtn(true);
 
 					$('.shipping-control-row[data-code="' + currentLS.shippingMethod.selectedCode +'"]').trigger('click');
 				}
 				else {
-					this.shippingMethodContinueBtn(false);
+					store.shippingMethod.continueBtn(false);
 				}
 			}
 
 			// Shipping method
-			if (store.steps.shippingMethod()
-			 || currentLS.steps.shippingMethod) {
-				 this.isShippingMethodVisible(true);
+			if (store.steps.shippingMethod() || currentLS.steps.shippingMethod) {
+				this.isShippingMethodVisible(true);
 			}
+
 			store.steps.shippingMethod.subscribe(function (value) {
 				if (value === true) {
 					this.isShippingMethodVisible(true);
@@ -172,7 +172,7 @@ define([
 		 * Shipping address visible condition
 		 * @returns {Void}
 		 */
-		 shippingAddressVisibleCondition: function () {
+		shippingAddressVisibleCondition: function () {
 			var currentLS = store.getLocalStorage();
 
 			if (helpers.shippingMethodVisibleHandling(store.shippingMethod.selectedCode())) {
@@ -277,7 +277,7 @@ define([
 		},
 
 		// Genarate OpenStreetMaps
-		generateMaps: function () {
+		generateMaps: function() {
 			var loopThroughArrays = function (array) {
 				var maps = [],
 						mapIndex = 0;
@@ -336,6 +336,7 @@ define([
 		isPrecheckout: function() {
 			return window.location.href.indexOf('/precheckout/') > -1 ? true : false;
 		},
+
 	};
 
 	return function (target) {
