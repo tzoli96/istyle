@@ -21,18 +21,34 @@
             >
                 <label for="password" class="label"><span><?php /* @escapeNotVerified */ echo __('Password') ?></span></label>
                 <div class="control">
-                    <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        title="<?php /* @escapeNotVerified */ echo __('Password') ?>"
-                        placeholder="<?php /* @escapeNotVerified */ echo __('Password') ?>"
-                        class="form-control input-text"
-                        data-password-min-length="<?php echo $block->escapeHtml($block->getMinimumPasswordLength()) ?>"
-                        data-password-min-character-sets="<?php echo $block->escapeHtml($block->getRequiredCharacterClassesNumber()) ?>"
-                        data-validate="{required:true, 'validate-customer-password':true}"
-                        autocomplete="off"
-                    >
+                    <div class="password-eye-holder">
+                        <input
+                            type="password"
+                            name="password"
+                            id="password"
+                            title="<?php /* @escapeNotVerified */ echo __('Password') ?>"
+                            placeholder="<?php /* @escapeNotVerified */ echo __('Password') ?>"
+                            class="form-control input-text input-password-eye"
+                            data-password-min-length="<?php echo $block->escapeHtml($block->getMinimumPasswordLength()) ?>"
+                            data-password-min-character-sets="<?php echo $block->escapeHtml($block->getRequiredCharacterClassesNumber()) ?>"
+                            data-validate="{required:true, 'validate-customer-password':true}"
+                            autocomplete="off"
+                        >
+                        <span class="password-eye-icon"></span>
+                        <script type="text/javascript">
+                            var icon = document.querySelector('.password-eye-icon'),
+                                input = document.getElementById('password');
+
+                            icon.addEventListener('click', function (event) {
+                                icon.classList.toggle('show');
+                                if (input.type === 'password') {
+                                    input.type = 'text';
+                                } else {
+                                    input.type = 'password';
+                                }
+                            });
+                        </script>
+                    </div>
                     <div id="password-strength-meter-container" data-role="password-strength-meter" >
                         <div id="password-strength-meter" class="password-strength-meter">
                             <?php /* @escapeNotVerified */ echo __('Password Strength'); ?>:
