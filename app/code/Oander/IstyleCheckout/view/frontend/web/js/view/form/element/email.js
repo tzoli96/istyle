@@ -203,7 +203,7 @@ define([
     getEmail: function () {
       return (customer.isLoggedIn())
         ? window.checkoutConfig.customerData.email
-        : checkoutData.getInputFieldEmailValue();
+        : this.email();
     },
 
     /**
