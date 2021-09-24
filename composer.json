@@ -130,7 +130,7 @@
         "oander/module-structured-data": "1.2.0.4",
         "oander/module-stuck-process-remover": "1.0.0.1",
         "oander/module-test-base": "1.0.1",
-        "oander/module-translateextended": "1.0.0",
+        "oander/module-translateextended": "1.0.0.5",
         "oander/module-trustedshop": "1.0.3",
         "oander/module-trustedshop-warehouse-extension": "1.0.3",
         "oander/module-twisto-pay": "1.0.0.10",
