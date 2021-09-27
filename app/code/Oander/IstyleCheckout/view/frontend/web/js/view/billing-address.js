@@ -357,7 +357,6 @@ define([
       $(formElements.companyField).hide();
       $(formElements.companyField).removeClass('_required');
       $(formElements.vatIdField).hide();
-      $(formElements.vatIdField).removeClass('_required');
 
       if ($(formElements.pfpjField).length) {
         $(formElements.pfpjField).hide();
@@ -386,7 +385,6 @@ define([
       $(formElements.companyField).show();
       $(formElements.companyField).addClass('_required');
       $(formElements.vatIdField).show();
-      $(formElements.vatIdField).addClass('_required');
 
       if ($(formElements.pfpjField).length) {
         $(formElements.pfpjField).show();
@@ -404,7 +402,6 @@ define([
       $(formElements.companyField).find('.form-control').focus();
 
       this.fieldErrorHandling($(formElements.companyField));
-      this.fieldErrorHandling($(formElements.vatIdField));
       this.fieldErrorHandling($(formElements.pfpjField));
     },
 
@@ -617,7 +614,7 @@ define([
 
       if (store.billingAddress.continueBtn()) {
         if (activeTab == 'billing-company') {
-          if (this.watchField($(formElements.companyField)) && this.watchField($(formElements.vatIdField)) && this.watchField($(formElements.pfpjField)) ) {
+          if (this.watchField($(formElements.companyField)) && this.watchField($(formElements.pfpjField)) ) {
             this.updateAddress();
             store.billingAddress.formIsVisible(false);
           }
@@ -643,7 +640,6 @@ define([
       else {
         if (activeTab == 'billing-company') {
           this.watchField($(formElements.companyField));
-          this.watchField($(formElements.vatIdField));
 
           if ($(formElements.pfpjField).length) {
             this.watchField($(formElements.pfpjField));
