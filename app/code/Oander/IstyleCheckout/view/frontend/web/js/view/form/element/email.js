@@ -48,7 +48,7 @@ define([
         emailFocused: 'validateEmail',
       }
     },
-    checkDelay: 2000,
+    checkDelay: 1000,
     checkRequest: null,
     isEmailCheckComplete: null,
     isCustomerLoggedIn: customer.isLoggedIn,
@@ -110,6 +110,8 @@ define([
           self.checkEmailAvailability();
         } else {
           self.isPasswordVisible(false);
+
+          store.auth.hasValidEmailAddress(false);
         }
       }, self.checkDelay);
 
@@ -128,10 +130,24 @@ define([
 
       $.when(this.isEmailCheckComplete).done(function () {
         self.isPasswordVisible(false);
+
+        store.auth.hasValidEmailAddress(true);
         store.auth.emailHasUser(false);
+        store.auth.errorMessage(false);
       }).fail(function () {
         self.isFirstnameExist(self.checkRequest);
         self.isPasswordVisible(true);
+
+        if (self.validateEmail()) {
+          store.auth.hasValidEmailAddress(true);
+        }
+        else {
+          store.auth.hasValidEmailAddress(false);
+        }
+
+        store.auth.emailHasUser(false);
+        store.auth.hasPasswordValue(false);
+        store.auth.errorMessage(false);
       }).always(function () {
         self.isLoading(false);
       });
@@ -173,17 +189,7 @@ define([
 
       validator = loginForm.validate();
 
-      if (validator.check(emailSelector)) {
-        store.auth.hasValidEmailAddress(true);
-        store.auth.emailHasUser(false);
-        store.auth.errorMessage(false);
-      }
-      else {
-        store.auth.hasValidEmailAddress(false);
-        store.auth.emailHasUser(false);
-        store.auth.hasPasswordValue(false);
-        store.auth.errorMessage(false);
-      }
+      store.auth.hasValidEmailAddress(false);
 
       return validator.check(emailSelector);
     },
@@ -211,7 +217,7 @@ define([
      * @param {String} values
      * @returns {Void}
      */
-     isFirstnameExist: function (values) {
+    isFirstnameExist: function (values) {
       var values = JSON.parse(values.responseJSON);
 
       if (values.firstname) {
@@ -294,7 +300,7 @@ define([
       if (this.isPasswordVisible() && $(loginForm).validation() && $(loginForm).validation('isValid')) {
         fullScreenLoader.startLoader();
         store.auth.errorMessage(false);
-        loginAction(loginData).always(function() {
+        loginAction(loginData).always(function () {
           fullScreenLoader.stopLoader();
         });
       }

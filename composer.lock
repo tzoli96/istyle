@@ -9495,7 +9495,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "06a93449893924d4542a9a857f095aa8c1f628b4"
+                "reference": "f85fa1254d1f468a31d657c2a11279e38d452d8c"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9524,7 +9524,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2021-09-23T11:44:34+00:00"
+            "time": "2021-09-27T07:13:57+00:00"
         },
         {
             "name": "oander/module-shipping",

@@ -97,6 +97,7 @@ define([
 		},
 
 		checkStepContent: function () {
+			var self = this;
 			var currentLS = store.getLocalStorage();
 
 			quote.shippingMethod.subscribe(function (value) {
@@ -116,7 +117,7 @@ define([
 					this.shippingMethodTab(currentLS.shippingMethod.selectedCode);
 					store.shippingMethod.continueBtn(true);
 
-					$('.shipping-control-row[data-code="' + currentLS.shippingMethod.selectedCode +'"]').trigger('click');
+					$('.shipping-control-row[data-code="' + currentLS.shippingMethod.selectedCode + '"]').trigger('click');
 				}
 				else {
 					store.shippingMethod.continueBtn(false);
@@ -136,7 +137,7 @@ define([
 
 			if (store.steps.active() === 'shippingMethod'
 				|| currentLS.steps.active === 'shippingMethod') {
-					this.isShippingMethodVisible(true);
+				this.isShippingMethodVisible(true);
 			}
 			store.steps.active.subscribe(function (value) {
 				if (value === 'shippingMethod') {
@@ -148,6 +149,21 @@ define([
 			quote.shippingMethod.subscribe(function (value) {
 				store.shippingMethod.selectedTitle(value.method_title);
 				store.shippingMethod.selectedCode(value.method_code);
+
+				if (self.isReservationCheckout()
+					&& helpers.shippingMethodVisibleHandling(value.method_code)) {
+					checkoutData.setShippingAddressFromData(null);
+
+					quote.shippingAddress().firstname = '';
+					quote.shippingAddress().lastname = '';
+					quote.shippingAddress().city = '';
+					quote.shippingAddress().street = '';
+					quote.shippingAddress().regionCode = '';
+					quote.shippingAddress().telephone = '';
+					quote.shippingAddress().postcode = '';
+
+					self.resetForm();
+				}
 
 				this.shippingAddressVisibleCondition();
 			}, this);
@@ -166,6 +182,17 @@ define([
 			}, this);
 
 			this.validateFields();
+		},
+
+		resetForm: function () {
+			var formInterval = setInterval(function () {
+				if ($('#co-shipping-form').length) {
+					$('#co-shipping-form').trigger('reset');
+					$('#co-shipping-form .form-group._required').removeClass('filled');
+
+					clearInterval(formInterval);
+				}
+			}, 500);
 		},
 
 		/**
@@ -277,10 +304,10 @@ define([
 		},
 
 		// Genarate OpenStreetMaps
-		generateMaps: function() {
+		generateMaps: function () {
 			var loopThroughArrays = function (array) {
 				var maps = [],
-						mapIndex = 0;
+					mapIndex = 0;
 
 				for (var i = 0; i < array.length; i++) {
 					if (array[i].extension_attributes.warehouse_manager_data !== false) {
@@ -333,10 +360,13 @@ define([
 		},
 
 		// Check if precheckout
-		isPrecheckout: function() {
+		isPrecheckout: function () {
 			return window.location.href.indexOf('/precheckout/') > -1 ? true : false;
 		},
 
+		isReservationCheckout: function () {
+			return window.location.href.indexOf('/productreservation/checkout/') > -1 ? true : false;
+		}
 	};
 
 	return function (target) {
