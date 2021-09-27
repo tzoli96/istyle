@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6e36f0b1869fc816d76ddba7bce59b7e",
+    "content-hash": "bd7539e818db2689acc263c199e3d06a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1140,7 +1140,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2021-07-28T20:10:43+00:00"
+            "time": "2021-07-28T20:14:21+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -9477,11 +9477,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "dev-53602_precheckout-success-page-istyle",
+            "version": "1.1.17",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "f85fa1254d1f468a31d657c2a11279e38d452d8c"
+                "reference": "cfc7ae456719fb5010520a996eb4ca32bc5a2049"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9510,7 +9510,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2021-09-27T07:13:57+00:00"
+            "time": "2021-09-27T16:15:40+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -14816,7 +14816,6 @@
         "oander/module-configurable-product-attribute": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
-        "oander/module-salesforcereservation": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
