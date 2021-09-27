@@ -107,7 +107,16 @@ define([
       }
       this.emailCheckTimeout = setTimeout(function () {
         if (self.validateEmail()) {
-          self.checkEmailAvailability();
+          if (store.auth.emailHasUser() == true) {
+            if (store.auth.hasValidEmailAddress() == false) {
+              self.checkEmailAvailability();
+            }
+          }
+          else {
+            if (store.auth.hasValidEmailAddress() == false) {
+              self.checkEmailAvailability();
+            }
+          }
         } else {
           self.isPasswordVisible(false);
 
@@ -145,7 +154,7 @@ define([
           store.auth.hasValidEmailAddress(false);
         }
 
-        store.auth.emailHasUser(false);
+        store.auth.emailHasUser(true);
         store.auth.hasPasswordValue(false);
         store.auth.errorMessage(false);
       }).always(function () {
@@ -183,13 +192,31 @@ define([
 
       loginForm.validation();
 
+      validator = loginForm.validate();
+
+      $(emailSelector).on('keydown', function (e) {
+        var code = (e.keyCode || e.which);
+
+        if (code == 37 || code == 38 || code == 39 || code == 40 || code == 91) {
+          return;
+        }
+
+        store.auth.hasValidEmailAddress(false);
+      });
+
+      if (focused == false) {
+        if (this.email()) {
+          if (store.auth.emailHasUser() == false) {
+            if (store.auth.hasValidEmailAddress() == false) {
+              this.emailHasChanged();
+            }
+          }
+        }
+      }
+
       if (focused === false && !!this.email()) {
         return !!$(emailSelector).valid();
       }
-
-      validator = loginForm.validate();
-
-      store.auth.hasValidEmailAddress(false);
 
       return validator.check(emailSelector);
     },
@@ -218,14 +245,16 @@ define([
      * @returns {Void}
      */
     isFirstnameExist: function (values) {
-      var values = JSON.parse(values.responseJSON);
+      var valuesParse = values.responseJSON ? JSON.parse(values.responseJSON) : '';
 
-      if (values.firstname) {
-        store.auth.emailHasUser(true);
-        this.firstname(values.firstname);
-      }
-      else {
-        store.auth.emailHasUser(false);
+      if (valuesParse) {
+        if (valuesParse.firstname) {
+          store.auth.emailHasUser(true);
+          this.firstname(valuesParse.firstname);
+        }
+        else {
+          store.auth.emailHasUser(false);
+        }
       }
     },
 
@@ -268,13 +297,17 @@ define([
      */
     localStorageHandler: function (localStorage) {
       if (localStorage.auth) {
-        if (localStorage.auth.hasValidEmailAddress) {
-          var loginFormSelector = $('form[data-role=email-with-possible-login]');
-          var email = loginFormSelector.find('[name="username"]');
+        var loginFormSelector = $('form[data-role=email-with-possible-login]');
+        var email = loginFormSelector.find('[name="username"]');
 
+        if (localStorage.auth.hasValidEmailAddress) {
           email.focus();
 
           store.auth.hasValidEmailAddress(true);
+        }
+
+        if (localStorage.auth.emailValue) {
+          this.checkEmailAvailability();
         }
 
         if (localStorage.auth.emailHasUser) {
