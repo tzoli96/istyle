@@ -31,9 +31,9 @@ define([
 	$('body').on('click', '.shipping-control-row', function () {
 		var that = $(this);
 
-		if (that.attr('data-method').indexOf('unity_pickup') > -1) {
-			$('html, body').animate({ scrollTop: that.offset().top - 75 }, 500);
-		}
+		// if (that.attr('data-method').indexOf('unity_pickup') > -1) {
+		// 	$('html, body').animate({ scrollTop: that.offset().top - 75 }, 500);
+		// }
 
 		if (that.siblings('.pos').length > 0) {
 			// waiting for css transition end
