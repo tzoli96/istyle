@@ -25,7 +25,7 @@
                 <!-- ko if: isPasswordVisible() -->
                 <h3 class="block__title">
                     <!-- ko i18n: 'Hi' --><!-- /ko -->
-                    <!-- ko text: firstname --><!-- /ko -->!
+                    <!-- ko text: (firstname != false) ? firstname : '' --><!-- /ko -->!
                 </h3>
                 <p class="block__lead" data-bind="i18n: 'We look forward to seeing you again! Please log in to continue your purchase.'"></p>
                 <!-- /ko -->
