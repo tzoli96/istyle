@@ -152,6 +152,7 @@ define([
 			quote.shippingMethod.subscribe(function (value) {
 				store.shippingMethod.selectedTitle(value.method_title);
 				store.shippingMethod.selectedCode(value.method_code);
+				store.shippingMethod.selectedCarrierCode(value.carrier_code);
 
 				this.shippingAddressVisibleCondition();
 			}, this);
