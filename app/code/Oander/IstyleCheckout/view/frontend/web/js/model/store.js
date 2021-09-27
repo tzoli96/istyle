@@ -24,6 +24,9 @@ define([
       selectedTitle: ko.observable(''),
       selectedCode: ko.observable(''),
       continueBtn: ko.observable(false),
+      unityPickupSettlement: ko.observable(''),
+      unityPickupType: ko.observable(false),
+      unityPickupPoint: ko.observable(''),
     },
     shippingAddress: {
       selectedShippingAddress: ko.observable(false),
@@ -57,6 +60,9 @@ define([
         selectedTitle: '',
         selectedCode: '',
         continueBtn: false,
+        unityPickupSettlement: '',
+        unityPickupType: false,
+        unityPickupPoint: '',
       },
       shippingAddress: {
         selectedShippingAddress: false,
@@ -147,6 +153,21 @@ define([
       this.shippingMethod.continueBtn.subscribe(function (value) {
         this.localStorageObject.shippingMethod.continueBtn = value;
         this.updateLocalStorage('shippingMethod', 'continueBtn');
+      }, this);
+
+      this.shippingMethod.unityPickupSettlement.subscribe(function (value) {
+        this.localStorageObject.shippingMethod.unityPickupSettlement = value;
+        this.updateLocalStorage('shippingMethod', 'unityPickupSettlement');
+      }, this);
+
+      this.shippingMethod.unityPickupType.subscribe(function (value) {
+        this.localStorageObject.shippingMethod.unityPickupType = value;
+        this.updateLocalStorage('shippingMethod', 'unityPickupType');
+      }, this);
+
+      this.shippingMethod.unityPickupPoint.subscribe(function (value) {
+        this.localStorageObject.shippingMethod.unityPickupPoint = value;
+        this.updateLocalStorage('shippingMethod', 'unityPickupPoint');
       }, this);
 
       // Billing address

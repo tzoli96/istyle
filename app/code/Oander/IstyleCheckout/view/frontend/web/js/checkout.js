@@ -66,7 +66,7 @@ define([
     _scrollToNextStep: function() {
       var self = this;
 
-      $('body').on('click', '.block--checkout-step button.action.primary', function() {
+      $('body').on('click', '.block--checkout-step button.action.primary:not(.oup_pickup_button)', function() {
         self._animateToActiveSection();
       });
     },
