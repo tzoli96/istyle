@@ -1,9 +1,10 @@
 define([
   'ko',
   'Magento_Checkout/js/model/quote',
+  'Magento_Checkout/js/checkout-data',
   'jquery',
   'Oander_IstyleCheckout/js/model/store',
-], function (ko, quote, $, store) {
+], function (ko, quote, checkoutData, $, store) {
   'use strict';
 
   return {
@@ -15,7 +16,7 @@ define([
      * @returns {String}
      */
     getShippingAddress: ko.computed(function () {
-      var shippingAddress = quote.shippingAddress();
+      var shippingAddress = quote.shippingAddress() ? quote.shippingAddress() : checkoutData.getShippingAddressFromData();
       var address = '';
 
       if (shippingAddress) {

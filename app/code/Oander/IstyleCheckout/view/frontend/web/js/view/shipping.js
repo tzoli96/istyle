@@ -9,8 +9,9 @@ define([
 	'Magento_Checkout/js/action/get-payment-information',
 	'Oander_IstyleCheckout/js/model/store',
 	'Magento_Checkout/js/model/shipping-save-processor/default',
+	'Magento_Checkout/js/action/set-shipping-information',
 	'domReady!'
-], function ($, ko, customer, quote, checkoutData, helpers, L, getPaymentInformationAction, store, saveShipping) {
+], function ($, ko, customer, quote, checkoutData, helpers, L, getPaymentInformationAction, store, saveShipping, setShippingInformationAction) {
 	'use strict';
 
 	// Shipping methods tabs
@@ -30,10 +31,6 @@ define([
 	// Shipping methods onclick
 	$('body').on('click', '.shipping-control-row', function () {
 		var that = $(this);
-
-		// if (that.attr('data-method').indexOf('unity_pickup') > -1) {
-		// 	$('html, body').animate({ scrollTop: that.offset().top - 75 }, 500);
-		// }
 
 		if (that.siblings('.pos').length > 0) {
 			// waiting for css transition end
@@ -103,9 +100,16 @@ define([
 		checkStepContent: function () {
 			var self = this;
 			var currentLS = store.getLocalStorage();
+			var firstShippingMethod = ko.observable('');
+			var firstShippingMethodLoaded = false;
 
 			quote.shippingMethod.subscribe(function (value) {
 				if (value) {
+					if (!firstShippingMethodLoaded) {
+						firstShippingMethod(value.method_code);
+						firstShippingMethodLoaded = true;
+					}
+
 					this.shippingMethodTab(value.method_code);
 					store.shippingMethod.continueBtn(true);
 
@@ -149,25 +153,32 @@ define([
 				}
 			}, this);
 
+			var triggerWasSuccess = false;
+
 			// Shipping method
 			quote.shippingMethod.subscribe(function (value) {
 				store.shippingMethod.selectedTitle(value.method_title);
 				store.shippingMethod.selectedCode(value.method_code);
-				store.shippingMethod.selectedCarrierCode(value.carrier_code);
 
-				if (self.isReservationCheckout()
-					&& helpers.shippingMethodVisibleHandling(value.method_code)) {
-					checkoutData.setShippingAddressFromData(null);
-
-					quote.shippingAddress().firstname = '';
-					quote.shippingAddress().lastname = '';
-					quote.shippingAddress().city = '';
-					quote.shippingAddress().street = '';
-					quote.shippingAddress().regionCode = '';
-					quote.shippingAddress().telephone = '';
-					quote.shippingAddress().postcode = '';
-
-					self.resetForm();
+				if (self.isReservationCheckout()) {
+					if (helpers.shippingMethodVisibleHandling(firstShippingMethod())) {
+						if (!helpers.shippingMethodVisibleHandling(value.method_code)) {
+							checkoutData.setShippingAddressFromData(null);
+							self.resetForm();
+						}
+						else {
+							if (!triggerWasSuccess) {
+								triggerWasSuccess = true;
+								self.shippingBtnTrigger();
+							}
+						}
+					}
+					else {
+						if (!triggerWasSuccess) {
+							triggerWasSuccess = true;
+							self.shippingBtnTrigger();
+						}
+					}
 				}
 
 				this.shippingAddressVisibleCondition();
@@ -192,10 +203,24 @@ define([
 		resetForm: function () {
 			var formInterval = setInterval(function () {
 				if ($('#co-shipping-form').length) {
-					$('#co-shipping-form').trigger('reset');
-					$('#co-shipping-form .form-group._required').removeClass('filled');
+					if ($('#co-shipping-form').find('[name="shippingAddress.lastname"]').find('.form-control').val().length > 0) {
+						$('#co-shipping-form').trigger('reset');
+						$('#co-shipping-form .form-group').removeClass('filled');
 
-					clearInterval(formInterval);
+						clearInterval(formInterval);
+					}
+				}
+			}, 500);
+		},
+
+		shippingBtnTrigger: function () {
+			var shippingBtnInterval = setInterval(function () {
+				if ($('#co-shipping-form').length) {
+					if ($('#co-shipping-form').find('[name="shippingAddress.lastname"]').find('.form-control').val().length > 0) {
+						$('.block--shipping-address').find('[data-role="opc-continue"]').trigger('click');
+
+						clearInterval(shippingBtnInterval);
+					}
 				}
 			}, 500);
 		},
