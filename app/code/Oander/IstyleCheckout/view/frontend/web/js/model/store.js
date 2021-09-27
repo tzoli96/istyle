@@ -23,6 +23,7 @@ define([
     shippingMethod: {
       selectedTitle: ko.observable(''),
       selectedCode: ko.observable(''),
+      selectedCarrierCode: ko.observable(''),
       continueBtn: ko.observable(false),
       unityPickupSettlement: ko.observable(''),
       unityPickupType: ko.observable(false),
@@ -59,6 +60,7 @@ define([
       shippingMethod: {
         selectedTitle: '',
         selectedCode: '',
+        selectedCarrierCode: '',
         continueBtn: false,
         unityPickupSettlement: '',
         unityPickupType: false,
@@ -148,6 +150,11 @@ define([
       this.shippingMethod.selectedCode.subscribe(function (value) {
         this.localStorageObject.shippingMethod.selectedCode = value;
         this.updateLocalStorage('shippingMethod', 'selectedCode');
+      }, this);
+
+      this.shippingMethod.selectedCarrierCode.subscribe(function (value) {
+        this.localStorageObject.shippingMethod.selectedCarrierCode = value;
+        this.updateLocalStorage('shippingMethod', 'selectedCarrierCode');
       }, this);
 
       this.shippingMethod.continueBtn.subscribe(function (value) {

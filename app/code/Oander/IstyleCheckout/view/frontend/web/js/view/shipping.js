@@ -153,6 +153,7 @@ define([
 			quote.shippingMethod.subscribe(function (value) {
 				store.shippingMethod.selectedTitle(value.method_title);
 				store.shippingMethod.selectedCode(value.method_code);
+				store.shippingMethod.selectedCarrierCode(value.carrier_code);
 
 				if (self.isReservationCheckout()
 					&& helpers.shippingMethodVisibleHandling(value.method_code)) {
