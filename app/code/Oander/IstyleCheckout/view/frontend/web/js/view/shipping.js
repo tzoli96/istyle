@@ -9,9 +9,9 @@ define([
 	'Magento_Checkout/js/action/get-payment-information',
 	'Oander_IstyleCheckout/js/model/store',
 	'Magento_Checkout/js/model/shipping-save-processor/default',
-	'Magento_Checkout/js/action/set-shipping-information',
+	'mage/translate',
 	'domReady!'
-], function ($, ko, customer, quote, checkoutData, helpers, L, getPaymentInformationAction, store, saveShipping, setShippingInformationAction) {
+], function ($, ko, customer, quote, checkoutData, helpers, L, getPaymentInformationAction, store, saveShipping, $t) {
 	'use strict';
 
 	// Shipping methods tabs
@@ -63,7 +63,7 @@ define([
 		 * @returns {String}
 		 */
 		getShippingMethod: ko.computed(function () {
-			return quote.shippingMethod() ? quote.shippingMethod().method_title : 'Please select shipping method.';
+			return quote.shippingMethod() ? quote.shippingMethod().method_title : $t('Please select shipping method.');
 		}),
 
 		getShippingAddress: ko.computed(function () {
@@ -157,29 +157,39 @@ define([
 
 			// Shipping method
 			quote.shippingMethod.subscribe(function (value) {
-				store.shippingMethod.selectedTitle(value.method_title);
-				store.shippingMethod.selectedCode(value.method_code);
+				var currentLS = store.getLocalStorage();
 
 				if (self.isReservationCheckout()) {
-					if (helpers.shippingMethodVisibleHandling(firstShippingMethod())) {
-						if (!helpers.shippingMethodVisibleHandling(value.method_code)) {
-							checkoutData.setShippingAddressFromData(null);
-							self.resetForm();
-						}
-						else {
-							if (!triggerWasSuccess) {
-								triggerWasSuccess = true;
-								self.shippingBtnTrigger();
+					if (currentLS.shippingMethod) {
+						if (currentLS.shippingMethod.selectedCode != value.method_code) {
+							if (helpers.shippingMethodVisibleHandling(firstShippingMethod())) {
+								if (!helpers.shippingMethodVisibleHandling(value.method_code)) {
+									checkoutData.setShippingAddressFromData(null);
+									self.resetForm();
+								}
+								else {
+									if (!helpers.shippingMethodVisibleHandling(value.method_code)) {
+										if (!triggerWasSuccess) {
+											triggerWasSuccess = true;
+											self.shippingBtnTrigger();
+										}
+									}
+								}
+							}
+							else {
+								if (!helpers.shippingMethodVisibleHandling(value.method_code)) {
+									if (!triggerWasSuccess) {
+										triggerWasSuccess = true;
+										self.shippingBtnTrigger();
+									}
+								}
 							}
 						}
 					}
-					else {
-						if (!triggerWasSuccess) {
-							triggerWasSuccess = true;
-							self.shippingBtnTrigger();
-						}
-					}
 				}
+
+				store.shippingMethod.selectedTitle(value.method_title);
+				store.shippingMethod.selectedCode(value.method_code);
 
 				this.shippingAddressVisibleCondition();
 			}, this);
@@ -202,13 +212,34 @@ define([
 
 		resetForm: function () {
 			var formInterval = setInterval(function () {
-				if ($('#co-shipping-form').length) {
-					if ($('#co-shipping-form').find('[name="shippingAddress.lastname"]').find('.form-control').val().length > 0) {
-						$('#co-shipping-form').trigger('reset');
-						$('#co-shipping-form .form-group').removeClass('filled');
+				if ($('#co-shipping-form')
+					.find('[name="shippingAddress.lastname"]')
+					.find('.form-control').length) {
+					var requiredFields = ['firstname', 'lastname', 'postcode', 'city', 'street.0', 'telephone'];
+					var form = $('#co-shipping-form');
 
-						clearInterval(formInterval);
+					for (var field in requiredFields) {
+						var fieldItem = requiredFields[field];
+
+						form
+							.find('[name="shippingAddress.' + fieldItem + '"]')
+							.find('.form-control')
+							.val('')
+							.trigger('change');
+
+						form
+							.find('[name="shippingAddress.' + fieldItem + '"]')
+							.removeClass('_error');
+
+						form
+							.find('[name="shippingAddress.' + fieldItem + '"]')
+							.find('.mage-error')
+							.remove();
 					}
+
+					form.trigger('reset');
+
+					clearInterval(formInterval);
 				}
 			}, 500);
 		},
@@ -216,10 +247,12 @@ define([
 		shippingBtnTrigger: function () {
 			var shippingBtnInterval = setInterval(function () {
 				if ($('#co-shipping-form').length) {
-					if ($('#co-shipping-form').find('[name="shippingAddress.lastname"]').find('.form-control').val().length > 0) {
-						$('.block--shipping-address').find('[data-role="opc-continue"]').trigger('click');
+					if ($('#co-shipping-form').find('[name="shippingAddress.lastname"]').find('.form-control').length) {
+						if ($('#co-shipping-form').find('[name="shippingAddress.lastname"]').find('.form-control').val().length > 0) {
+							$('.block--shipping-address').find('[data-role="opc-continue"]').trigger('click');
 
-						clearInterval(shippingBtnInterval);
+							clearInterval(shippingBtnInterval);
+						}
 					}
 				}
 			}, 500);
@@ -301,7 +334,16 @@ define([
 				firstItem = '',
 				areNeeded = false,
 				firstArray = [],
-				secondArray = [];
+				secondArray = [],
+				days = [
+					$('Monday'),
+					$('Tuesday'),
+					$('Wednesday'),
+					$('Thursday'),
+					$('Friday'),
+					$('Saturday'),
+					$('Sunday'),
+				];
 
 			for (var i = 0; i < ratesArray.length; i++) {
 				if (i === 0) {

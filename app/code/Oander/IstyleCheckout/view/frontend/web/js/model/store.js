@@ -5,6 +5,9 @@ define([
   'use strict';
 
   var store = {
+    general: {
+      quoteId: ko.observable(''),
+    },
     steps: {
       auth: ko.observable(false),
       shippingMethod: ko.observable(false),
@@ -41,8 +44,12 @@ define([
       formIsVisible: ko.observable(false),
       continueBtn: ko.observable(false),
       userSelectBillingAddress: ko.observable(false),
+      region: ko.observable(''),
     },
     localStorageObject: {
+      general: {
+        quoteId: '',
+      },
       steps: {
         auth: false,
         shippingMethod: false,
@@ -77,6 +84,7 @@ define([
         formIsVisible: false,
         continueBtn: false,
         userSelectBillingAddress: false,
+        region: '',
       },
     },
 
@@ -88,6 +96,12 @@ define([
       if (!localStorage.getItem('istyle-checkout')) localStorage.setItem('istyle-checkout', JSON.stringify({}));
 
       this.checkSteps();
+
+      // General
+      this.general.quoteId.subscribe(function (value) {
+        this.localStorageObject.general.quoteId = value;
+        this.updateLocalStorage('general', 'quoteId');
+      });
 
       // Steps
       this.steps.auth.subscribe(function (value) {
@@ -212,6 +226,11 @@ define([
         this.localStorageObject.billingAddress.userSelectBillingAddress = value;
         this.updateLocalStorage('billingAddress', 'userSelectBillingAddress');
       }, this);
+
+      this.billingAddress.region.subscribe(function (value) {
+        this.localStorageObject.billingAddress.region = value;
+        this.updateLocalStorage('billingAddress', 'region');
+      }, this);
     },
 
     /**
@@ -243,6 +262,23 @@ define([
      */
     checkSteps: function () {
       var currentLS = this.getLocalStorage();
+
+      if (window.checkoutConfig.quoteItemData[0].quote_id) {
+        if (currentLS.general) {
+          if (currentLS.general.quoteId && (currentLS.general.quoteId != window.checkoutConfig.quoteItemData[0].quote_id)) {
+            localStorage.setItem('istyle-checkout', JSON.stringify({}));
+
+            this.general.quoteId(window.checkoutConfig.quoteItemData[0].quote_id);
+            this.localStorageObject.general.quoteId = window.checkoutConfig.quoteItemData[0].quote_id;
+            currentLS['general'] = this.localStorageObject.general;
+          }
+        }
+        else {
+          this.general.quoteId(window.checkoutConfig.quoteItemData[0].quote_id);
+          this.localStorageObject.general.quoteId = window.checkoutConfig.quoteItemData[0].quote_id;
+          currentLS['general'] = this.localStorageObject.general;
+        }
+      }
 
       if (!currentLS.steps || currentLS.steps.auth === false) {
         if (customer.isLoggedIn()) {

@@ -5,7 +5,8 @@ define([
   'Oander_IstyleCheckout/js/helpers',
   'Magento_Checkout/js/action/get-payment-information',
   'Oander_IstyleCheckout/js/model/store',
-], function ($, ko, quote, helpers, getPaymentInformationAction, store) {
+  'mage/translate'
+], function ($, ko, quote, helpers, getPaymentInformationAction, store, $t) {
   'use strict';
 
   var mixin = {
@@ -23,7 +24,7 @@ define([
         ? title = paymentMethod.title
         : title = paymentMethod.method
 
-      return title ? title : 'Please select payment method.';
+      return title ? title : $t('Please select payment method.');
     }),
 
     storePaymentData: function () {

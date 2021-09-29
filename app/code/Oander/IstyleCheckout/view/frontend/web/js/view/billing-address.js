@@ -53,11 +53,11 @@ define([
           }
         }
         else {
-          address = 'Please enter your billing address.';
+          address = $t('Please enter your billing address.');
         }
       }
       else {
-        address = 'Please enter your billing address.';
+        address = $t('Please enter your billing address.');
       }
 
       return address;
@@ -73,7 +73,7 @@ define([
 
       if (currentLS.steps && (currentLS.steps.active === step)) {
         var deferred = $.Deferred();
-				getPaymentInformationAction(deferred);
+        getPaymentInformationAction(deferred);
         helpers.stepCounter($('[data-step="' + step + '"]'));
 
         return true;
@@ -178,13 +178,37 @@ define([
         }
       }, this);
 
+      var regionInterval = setInterval(function () {
+        if ($('.form-group[name="billingAddress.region"] .form-control').length) {
+          var region = $('.form-group[name="billingAddress.region"] .form-control');
+          region.on('keyup', function () {
+            store.billingAddress.region($('.form-group[name="billingAddress.region"] .form-control').val());
+          });
+          clearInterval(regionInterval);
+        }
+      }, 500);
+
+      store.billingAddress.region.subscribe(function (value) {
+        quote.billingAddress().region = value;
+      });
+
       quote.billingAddress.subscribe(function (address) {
         if (store.billingAddress.formIsVisible()) store.billingAddress.userSelectBillingAddress(true);
 
         if (address) {
-          if (address.postcode 
-              && address.postcode !== '*'
-              && this.checkUserBilling()) {
+          if (address.postcode
+            && address.postcode !== '*'
+            && this.checkUserBilling()) {
+            if (address.region) {
+              store.billingAddress.region(address.region);
+              quote.billingAddress().region = address.region;
+            }
+            else {
+              if (store.billingAddress.region()) {
+                quote.billingAddress().region = store.billingAddress.region();
+              }
+            }
+
             var selectedBillingAddress = {
               id: address.customerAddressId ? address.customerAddressId : false,
               status: address.customerAddressId ? 'exist' : 'new',
@@ -245,7 +269,7 @@ define([
 
       // Billing address
       if (store.steps.billingAddress() === true
-       || currentLS.steps.billingAddress) this.isBillingAddressVisible(true);
+        || currentLS.steps.billingAddress) this.isBillingAddressVisible(true);
       store.steps.billingAddress.subscribe(function (value) {
         if (value === true) this.isBillingAddressVisible(true);
       }, this);
@@ -349,10 +373,6 @@ define([
      */
     formPerson: function () {
       var formElements = this.formElements();
-      var names = {
-        firstname: 'Firstname',
-        lastname: 'Lastname',
-      };
 
       $(formElements.companyField).hide();
       $(formElements.companyField).removeClass('_required');
@@ -361,14 +381,14 @@ define([
       if ($(formElements.pfpjField).length) {
         $(formElements.pfpjField).hide();
 
-        if($(formElements.pfpjField).hasClass('_required')) {
+        if ($(formElements.pfpjField).hasClass('_required')) {
           $(formElements.pfpjField).removeClass('_required');
           $(formElements.pfpjField).addClass('was_required');
         }
       }
 
-      $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text($t(names.firstname));
-      $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text($t(names.lastname));
+      $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text($t('First Name'));
+      $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text($t('Last Name'));
     },
 
     /**
@@ -377,10 +397,6 @@ define([
      */
     formCompany: function () {
       var formElements = this.formElements();
-      var names = {
-        firstname: 'Contact person firstname',
-        lastname: 'Contact person lastname',
-      };
 
       $(formElements.companyField).show();
       $(formElements.companyField).addClass('_required');
@@ -389,15 +405,14 @@ define([
       if ($(formElements.pfpjField).length) {
         $(formElements.pfpjField).show();
 
-        if($(formElements.pfpjField).hasClass('was_required')) {
+        if ($(formElements.pfpjField).hasClass('was_required')) {
           $(formElements.pfpjField).removeClass('was_required');
           $(formElements.pfpjField).addClass('_required');
         }
       }
 
-
-      $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text($t(names.firstname));
-      $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text($t(names.lastname));
+      $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text($t('Contact person firstname'));
+      $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text($t('Contact person lastname'));
 
       $(formElements.companyField).find('.form-control').focus();
 
@@ -530,15 +545,15 @@ define([
             for (var item in address) {
               var elem = formElements.form.querySelector('[name="' + item + '"]');
               var value = address[item];
-      
+
               if (item == 'street') {
                 elem = formElements.form.querySelector('[name="' + item + '[0]"]');
               }
-      
+
               if (item == 'vatId') {
                 elem = formElements.form.querySelector('[name="vat_id"]');
               }
-      
+
               if (value !== undefined && value !== null) {
                 if (elem) {
                   elem.value = value;
@@ -614,7 +629,7 @@ define([
 
       if (store.billingAddress.continueBtn()) {
         if (activeTab == 'billing-company') {
-          if (this.watchField($(formElements.companyField)) && this.watchField($(formElements.pfpjField)) ) {
+          if (this.watchField($(formElements.companyField)) && this.watchField($(formElements.pfpjField))) {
             this.updateAddress();
             store.billingAddress.formIsVisible(false);
           }

@@ -143,7 +143,7 @@
                                                             <div class="opening-hours-title" data-bind="i18n: 'Opening Hours'"></div>
                                                             <!-- ko foreach: { data: method.extension_attributes.warehouse_manager_data[0].google_structured_data_opening, as: 'hours' } -->
                                                             <div class="opening-hours-item d-flex align-items-center justify-content-between">
-                                                                <span data-bind="text: row_name"></span>
+                                                                <span data-bind="i18n: row_name"></span>
                                                                 <div>
                                                                     <!-- ko if: opening.indexOf('closed') > -1 || closes.indexOf('closed') > -1 -->
                                                                     <span data-bind="i18n: 'Closed'"></span>
@@ -313,7 +313,7 @@
                                                             <div class="opening-hours-title" data-bind="i18n: 'Opening Hours'"></div>
                                                             <!-- ko foreach: { data: method.extension_attributes.warehouse_manager_data[0].google_structured_data_opening, as: 'hours' } -->
                                                             <div class="opening-hours-item d-flex align-items-center justify-content-between">
-                                                                <span data-bind="text: row_name"></span>
+                                                                <span data-bind="i18n: row_name"></span>
                                                                 <div>
                                                                     <!-- ko if: opening.indexOf('closed') > -1 || closes.indexOf('closed') > -1 -->
                                                                     <span data-bind="i18n: 'Closed'"></span>

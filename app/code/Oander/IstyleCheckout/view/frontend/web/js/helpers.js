@@ -4,7 +4,8 @@ define([
   'Magento_Checkout/js/checkout-data',
   'jquery',
   'Oander_IstyleCheckout/js/model/store',
-], function (ko, quote, checkoutData, $, store) {
+  'mage/translate'
+], function (ko, quote, checkoutData, $, store, $t) {
   'use strict';
 
   return {
@@ -27,10 +28,10 @@ define([
           && (shippingAddress.firstname !== undefined && shippingAddress.firstname !== '')
           && (shippingAddress.lastname !== undefined && shippingAddress.lastname !== ''))
           ? address = shippingAddress.firstname + ' ' + shippingAddress.lastname + ', ' + shippingAddress.street[0] + ', ' + shippingAddress.city + ', ' + shippingAddress.postcode
-          : address = 'Please enter your shipping address.';
+          : address = $t('Please enter your shipping address.');
       }
       else {
-        address = 'Please enter your shipping address.';
+        address = $t('Please enter your shipping address.');
       }
 
       return address;
