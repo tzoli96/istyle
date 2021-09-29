@@ -26,7 +26,7 @@ define([
       selectedCarrierCode: ko.observable(''),
       continueBtn: ko.observable(false),
       unityPickupSettlement: ko.observable(''),
-      unityPickupType: ko.observable(false),
+      unityPickupTypes: ko.observable([]),
       unityPickupPoint: ko.observable(''),
     },
     shippingAddress: {
@@ -63,7 +63,7 @@ define([
         selectedCarrierCode: '',
         continueBtn: false,
         unityPickupSettlement: '',
-        unityPickupType: false,
+        unityPickupTypes: [],
         unityPickupPoint: '',
       },
       shippingAddress: {
@@ -167,9 +167,9 @@ define([
         this.updateLocalStorage('shippingMethod', 'unityPickupSettlement');
       }, this);
 
-      this.shippingMethod.unityPickupType.subscribe(function (value) {
-        this.localStorageObject.shippingMethod.unityPickupType = value;
-        this.updateLocalStorage('shippingMethod', 'unityPickupType');
+      this.shippingMethod.unityPickupTypes.subscribe(function (value) {
+        this.localStorageObject.shippingMethod.unityPickupTypes = value;
+        this.updateLocalStorage('shippingMethod', 'unityPickupTypes');
       }, this);
 
       this.shippingMethod.unityPickupPoint.subscribe(function (value) {
