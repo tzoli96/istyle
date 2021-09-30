@@ -623,7 +623,8 @@ define([
         store.billingAddress.userSelectBillingAddress(true);
       };
 
-      if (addressList().length == 1 && (typeof addressList()[0].isDefaultBilling() == "undefined")) {
+      if (addressList().length == 1
+        && (typeof addressList()[0].isDefaultBilling() == "undefined" || addressList()[0].isDefaultBilling() == true)) {
         store.billingAddress.userSelectBillingAddress(true);
       }
 

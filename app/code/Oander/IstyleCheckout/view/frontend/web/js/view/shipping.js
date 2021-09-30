@@ -190,6 +190,7 @@ define([
 
 				store.shippingMethod.selectedTitle(value.method_title);
 				store.shippingMethod.selectedCode(value.method_code);
+				store.shippingMethod.selectedCarrierCode(value.carrier_code);
 
 				this.shippingAddressVisibleCondition();
 			}, this);
@@ -336,13 +337,13 @@ define([
 				firstArray = [],
 				secondArray = [],
 				days = [
-					$('Monday'),
-					$('Tuesday'),
-					$('Wednesday'),
-					$('Thursday'),
-					$('Friday'),
-					$('Saturday'),
-					$('Sunday'),
+					$t('Monday'),
+					$t('Tuesday'),
+					$t('Wednesday'),
+					$t('Thursday'),
+					$t('Friday'),
+					$t('Saturday'),
+					$t('Sunday'),
 				];
 
 			for (var i = 0; i < ratesArray.length; i++) {

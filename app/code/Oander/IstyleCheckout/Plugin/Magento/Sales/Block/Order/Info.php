@@ -109,7 +109,7 @@ class Info
                         if(!empty($posData[ShopInterface::GOOGLE_TELEPHONE]))
                             $output .= '<div class="pos-phone">' . __('Phone') . ": " . $posData[ShopInterface::GOOGLE_TELEPHONE] . '</div>';
                         if (is_array($posData[ShopInterface::GOOGLE_OPENING])) {
-                            $output .= '<div class="pos-opening-hours"><div class="opening-hours-title mb-1">Opening Hours</div>';
+                            $output .= '<div class="pos-opening-hours"><div class="opening-hours-title mb-1">' . __('Opening Hours') . '</div>';
                             foreach ($posData[ShopInterface::GOOGLE_OPENING] as $openingItem) {
                                 $openingItem = (array)$openingItem;
                                 $output .= '<div class="opening-hours-item"><span>' . __($openingItem['row_name']) . '</span>';
