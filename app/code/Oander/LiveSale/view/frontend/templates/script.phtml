@@ -4,8 +4,8 @@
 $configHelper = $this->helper('Oander\LiveSale\Helper\Config');
 ?>
 <script>
-    window.liveSaleUrl = 'https://<?php echo $configHelper->getConfig("livesale/general/instance_name")?>.livesale.me';
+    window.liveSaleUrl = 'https://<?php echo $configHelper->getConfig("livesale/general/instance_name")?>';
     window.clientUrl = '<?php echo $configHelper->getConfig("livesale/general/group_name")?>';
 </script>
-<script async type="text/javascript" src="https://<?php echo $configHelper->getConfig('livesale/general/instance_name')?>.livesale.me/Scripts/chat.js"></script>
-<script async type="text/javascript" src="https://<?php echo $configHelper->getConfig('livesale/general/instance_name')?>.livesale.me/Scripts/cobrowsing.js"></script>
+<script async type="text/javascript" src="https://<?php echo $configHelper->getConfig('livesale/general/instance_name')?>/Scripts/chat.js"></script>
+<script async type="text/javascript" src="https://<?php echo $configHelper->getConfig('livesale/general/instance_name')?>/Scripts/cobrowsing.js"></script>
