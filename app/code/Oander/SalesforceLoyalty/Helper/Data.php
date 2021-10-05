@@ -9,9 +9,12 @@ namespace Oander\SalesforceLoyalty\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
+use Magento\Framework\Registry;
+use Oander\SalesforceLoyalty\Enum\Attribute;
 
 class Data extends AbstractHelper
 {
+    CONST REGISTRY_MAX_REDEEMBLE_POINTS = "maxredeemablepoints";
     /**
      * @var Config
      */
@@ -20,22 +23,28 @@ class Data extends AbstractHelper
      * @var \Magento\Checkout\Model\Session
      */
     private $checkoutSession;
+    /**
+     * @var Registry
+     */
+    private $registry;
 
     /**
-     * Data constructor.
      * @param Context $context
      * @param \Magento\Checkout\Model\Session $checkoutSession
      * @param Config $configHelper
+     * @param Registry $registry
      */
     public function __construct(
         Context $context,
         \Magento\Checkout\Model\Session $checkoutSession,
-        \Oander\SalesforceLoyalty\Helper\Config $configHelper
+        \Oander\SalesforceLoyalty\Helper\Config $configHelper,
+        Registry $registry
     )
     {
         parent::__construct($context);
         $this->configHelper = $configHelper;
         $this->checkoutSession = $checkoutSession;
+        $this->registry = $registry;
     }
 
     /**
@@ -74,8 +83,10 @@ class Data extends AbstractHelper
     {
         $maxPoints = 0.0;
         $quote = $this->_getQuote($quote);
+        $grandTotal = ($quote->getData(Attribute::LOYALTY_DISCOUNT)) ? $quote->getGrandTotal() + $quote->getData(Attribute::LOYALTY_DISCOUNT)
+            : $quote->getGrandTotal();
         if($this->configHelper->getMaxPercent() && $this->configHelper->getPointValue()>0) {
-            $maxSum = floatval($quote->getGrandTotal()) * (floatval($this->configHelper->getMaxPercent()) / 100);
+            $maxSum = floatval($grandTotal) * (floatval($this->configHelper->getMaxPercent()) / 100);
             $maxPoints = $this->convertAmountToPoint($maxSum);
         }
         return round($maxPoints);

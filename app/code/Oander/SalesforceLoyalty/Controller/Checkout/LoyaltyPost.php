@@ -100,7 +100,8 @@ class LoyaltyPost extends \Magento\Checkout\Controller\Cart
             }
             if(!$hasError) {
                 $cartQuote->getShippingAddress()->setCollectShippingRates(true);
-                $cartQuote->setLoyaltyDiscount($this->loyaltyHelper->convertPointToAmount($redeemablePoints))->collectTotals();
+                $cartQuote->setLoyaltyDiscount($this->loyaltyHelper->convertPointToAmount($redeemablePoints));
+                $cartQuote->setLoyaltyPoint($redeemablePoints);
                 $this->quoteRepository->save($cartQuote);
                 $this->cart->save();
             }
