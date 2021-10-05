@@ -9,4 +9,10 @@
     <event name="sales_quote_item_save_after">
         <observer name="oander_salesforceloyalty_quote_item_save" instance="Oander\SalesforceLoyalty\Observer\QuiteItemSave"/>
     </event>
+    <event name="sales_quote_add_item">
+        <observer name="oander_salesforceloyalty_quote_item_add" instance="Oander\SalesforceLoyalty\Observer\QuiteItemSave"/>
+    </event>
+    <event name="sales_quote_remove_item">
+        <observer name="oander_salesforceloyalty_quote_item_remove" instance="Oander\SalesforceLoyalty\Observer\QuiteItemSave"/>
+    </event>
 </config>
