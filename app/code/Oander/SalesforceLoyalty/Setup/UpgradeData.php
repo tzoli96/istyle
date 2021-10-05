@@ -21,25 +21,43 @@
 
 namespace Oander\SalesforceLoyalty\Setup;
 
+use Magento\Framework\DB\Ddl\Table;
 use Magento\Framework\Setup\UpgradeDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Eav\Setup\EavSetup;
 use Magento\Eav\Setup\EavSetupFactory;
+use Magento\Sales\Setup\SalesSetupFactory;
+use Magento\Quote\Setup\QuoteSetupFactory;
+use Oander\SalesforceLoyalty\Enum\Attribute;
 
 class UpgradeData implements UpgradeDataInterface
 {
 
     private $eavSetupFactory;
+    /**
+     * @var QuoteSetupFactory
+     */
+    private $quoteSetupFactory;
+    /**
+     * @var SalesSetupFactory
+     */
+    private $salesSetupFactory;
 
     /**
-     * Constructor
-     *
-     * @param \Magento\Eav\Setup\EavSetupFactory $eavSetupFactory
+     * @param EavSetupFactory $eavSetupFactory
+     * @param QuoteSetupFactory $quoteSetupFactory
+     * @param SalesSetupFactory $salesSetupFactory
      */
-    public function __construct(EavSetupFactory $eavSetupFactory)
+    public function __construct(
+        EavSetupFactory $eavSetupFactory,
+        QuoteSetupFactory $quoteSetupFactory,
+        SalesSetupFactory $salesSetupFactory
+    )
     {
         $this->eavSetupFactory = $eavSetupFactory;
+        $this->quoteSetupFactory = $quoteSetupFactory;
+        $this->salesSetupFactory = $salesSetupFactory;
     }
 
     /**
@@ -53,6 +71,44 @@ class UpgradeData implements UpgradeDataInterface
 
         if (version_compare($context->getVersion(), "1.0.1", "<")) {
             $this->addProductLoyaltyPercentAttribute($eavSetup);
+        }
+        if (version_compare($context->getVersion(), "1.0.2", "<")) {
+            $this->addOrderLoyaltyAttribute($setup);
+        }
+    }
+    /**
+     * @param ModuleDataSetupInterface $setup
+     * @return void
+     */
+    private function addOrderLoyaltyAttribute(ModuleDataSetupInterface $setup)
+    {
+        $attributes = [
+            Attribute::LOYALTY_POINT,
+            Attribute::LOYALTY_BLOCK_TRANSACTION_ID
+        ];
+        foreach ($attributes as $attribute)
+        {
+            $quoteSetup = $this->quoteSetupFactory->create(['setup' => $setup]);
+            $quoteSetup->addAttribute('quote', $attribute,
+                [
+                    'type' => Table::TYPE_INTEGER,
+                    'length' => '11',
+                    'visible' => false,
+                    'required' => false,
+                    'grid' => false
+                ]
+            );
+
+            $salesSetup = $this->salesSetupFactory->create(['setup' => $setup]);
+            $salesSetup->addAttribute('order', $attribute,
+                [
+                    'type' => Table::TYPE_INTEGER,
+                    'length' => '11',
+                    'visible' => false,
+                    'required' => false,
+                    'grid' => false
+                ]
+            );
         }
     }
 

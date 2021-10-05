@@ -21,25 +21,66 @@
 
 namespace Oander\SalesforceLoyalty\Observer\Sales;
 
-class ModelServiceQuoteSubmitBefore implements \Magento\Framework\Event\ObserverInterface
+use Magento\Framework\Event\Observer;
+use Magento\Framework\Event\ObserverInterface;
+use Magento\Quote\Model\Quote;
+use Magento\Sales\Model\Order;
+use Magento\TestFramework\Inspection\Exception;
+use Oander\SalesforceLoyalty\Enum\Attribute;
+use Oander\SalesforceLoyalty\Helper\Data;
+use Oander\SalesforceLoyalty\Helper\Config;
+
+class ModelServiceQuoteSubmitBefore implements ObserverInterface
 {
+    /**
+     * @var Data
+     */
+    protected $loyaltyHelper;
+    /**
+     * @var Config
+     */
+    private $configHelper;
+
+    /**
+     * @param Data $loyaltyHelper
+     * @param Config $configHelper
+     */
+    public function __construct(
+        Data   $loyaltyHelper,
+        Config $configHelper
+    )
+    {
+        $this->loyaltyHelper = $loyaltyHelper;
+        $this->configHelper = $configHelper;
+    }
 
     /**
      * Execute observer
      *
-     * @param \Magento\Framework\Event\Observer $observer
+     * @param Observer $observer
      * @return void
      */
     public function execute(
-        \Magento\Framework\Event\Observer $observer
-    ) {
-        /** @var \Magento\Quote\Model\Quote $quote */
+        Observer $observer
+    )
+    {
+        /** @var Quote $quote */
         $quote = $observer->getData('quote');
-        /** @var \Magento\Sales\Model\Order $order */
+        /** @var Order $order */
         $order = $observer->getData('order');
-        $order->setData(
-            \Oander\SalesforceLoyalty\Enum\Attribute::LOYALTY_DISCOUNT,
-            $quote->getData(\Oander\SalesforceLoyalty\Enum\Attribute::LOYALTY_DISCOUNT)
-        );
+
+        if ($this->configHelper->isSpendingEnabled() &&
+            ($this->loyaltyHelper->getMaxRedeemablePoints($quote) >= $quote->getData(Attribute::LOYALTY_POINT)))
+        {
+            $order->setData(
+                Attribute::LOYALTY_DISCOUNT,
+                $quote->getData(Attribute::LOYALTY_DISCOUNT)
+            );
+            $order->setData(
+                Attribute::LOYALTY_POINT,
+                $quote->getData(Attribute::LOYALTY_POINT)
+            );
+        }
+
     }
 }

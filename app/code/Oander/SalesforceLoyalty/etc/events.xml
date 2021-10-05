@@ -3,4 +3,10 @@
     <event name="sales_model_service_quote_submit_before">
         <observer name="oander_salesforceloyalty_observer_sales_modelservicequotesubmitbefore_sales_model_service_quote_submit_before" instance="Oander\SalesforceLoyalty\Observer\Sales\ModelServiceQuoteSubmitBefore"/>
     </event>
+    <event name="sales_order_place_after">
+        <observer name="oander_salesforceloyalty_point_block" instance="Oander\SalesforceLoyalty\Observer\PointBlock"/>
+    </event>
+    <event name="sales_quote_item_save_after">
+        <observer name="oander_salesforceloyalty_quote_item_save" instance="Oander\SalesforceLoyalty\Observer\QuiteItemSave"/>
+    </event>
 </config>

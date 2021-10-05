@@ -1,72 +1,80 @@
 <?php
 namespace Oander\SalesforceLoyalty\Model\Total\Quote;
+
+use Magento\Framework\Pricing\PriceCurrencyInterface;
+use Magento\Quote\Api\Data\ShippingAssignmentInterface;
+use Magento\Quote\Model\Quote;
+use Magento\Quote\Model\Quote\Address\Total;
+use Magento\Quote\Model\Quote\Address\Total\AbstractTotal;
+use Oander\SalesforceLoyalty\Enum\Attribute;
 use Oander\SalesforceLoyalty\Helper\Config;
+use Oander\SalesforceLoyalty\Helper\Data;
+use Magento\Framework\Registry;
 
 /**
- * Class Custom
- * @package Mageplaza\HelloWorld\Model\Total\Quote
+ * @package Oander\SalesforceLoyalty\Model\Total\Quote
  */
-class Loyalty extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
+class Loyalty extends AbstractTotal
 {
     /**
-     * @var \Magento\Framework\Pricing\PriceCurrencyInterface
+     * @var PriceCurrencyInterface
      */
     protected $_priceCurrency;
     /**
-     * @var \Oander\SalesforceLoyalty\Helper\Data
+     * @var Data
      */
     private $loyaltyHelper;
     /**
      * @var Config
      */
     private $configHelper;
+    /**
+     * @var Registry
+     */
+    private $registry;
 
     /**
-     * Custom constructor.
-     * @param \Magento\Framework\Pricing\PriceCurrencyInterface $priceCurrency
+     * @param PriceCurrencyInterface $priceCurrency
      * @param Config $configHelper
-     * @param \Oander\SalesforceLoyalty\Helper\Data $loyaltyHelper
+     * @param Data $loyaltyHelper
+     * @param Registry $registry
      */
     public function __construct(
-        \Magento\Framework\Pricing\PriceCurrencyInterface $priceCurrency,
-        \Oander\SalesforceLoyalty\Helper\Config $configHelper,
-        \Oander\SalesforceLoyalty\Helper\Data $loyaltyHelper
+        PriceCurrencyInterface $priceCurrency,
+        Config $configHelper,
+        Data $loyaltyHelper,
+        Registry $registry
     ){
         $this->_priceCurrency = $priceCurrency;
         $this->loyaltyHelper = $loyaltyHelper;
         $this->configHelper = $configHelper;
+        $this->registry = $registry;
     }
     /**
-     * @param \Magento\Quote\Model\Quote $quote
-     * @param \Magento\Quote\Api\Data\ShippingAssignmentInterface $shippingAssignment
-     * @param \Magento\Quote\Model\Quote\Address\Total $total
+     * @param Quote $quote
+     * @param ShippingAssignmentInterface $shippingAssignment
+     * @param Total $total
      * @return $this|bool
      */
     public function collect(
-        \Magento\Quote\Model\Quote $quote,
-        \Magento\Quote\Api\Data\ShippingAssignmentInterface $shippingAssignment,
-        \Magento\Quote\Model\Quote\Address\Total $total
+        Quote $quote,
+        ShippingAssignmentInterface $shippingAssignment,
+        Total $total
     )
     {
+        /**
+         * todo: - quote attributum itt tároljuk az a pontot amit beír fe-n át kell számítani devizára.
+         *
+         */
         parent::collect($quote, $shippingAssignment, $total);
-
         $address = $shippingAssignment->getShipping()->getAddress();
         $items = $this->_getAddressItems($address);
-        if (!count($items)) {
+
+        if (!count($items) || !$this->configHelper->isSpendingEnabled() ||
+            !$this->loyaltyHelper->getMaxRedeemablePoints($quote) >= $quote->getData(Attribute::LOYALTY_POINT)) {
             return $this;
         }
-
-        //Check maximum redeemable points, and remove if can not be used
-        /*if($this->configHelper->isSpendingEnabled() && ($this->loyaltyHelper->getMaxRedeemablePoints($quote) >= $quote->getData(\Oander\SalesforceLoyalty\Enum\Attribute::LOYALTY_DISCOUNT))) {
-            $baseDiscount = $quote->getData(\Oander\SalesforceLoyalty\Enum\Attribute::LOYALTY_DISCOUNT);
-            $discount = $this->_priceCurrency->convert($baseDiscount);
-        }
-        else
-        {
-            $baseDiscount = 0;
-            $discount = 0;
-        }*/
-        $baseDiscount = $quote->getData(\Oander\SalesforceLoyalty\Enum\Attribute::LOYALTY_DISCOUNT);
+        $baseDiscount = $quote->getData(Attribute::LOYALTY_DISCOUNT);
         $discount = $this->_priceCurrency->convert($baseDiscount);
         $total->setTotalAmount('loyalty_discount', -$discount);
         $total->setBaseTotalAmount('loyalty_discount', -$baseDiscount);
@@ -74,7 +82,7 @@ class Loyalty extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
         return $this;
     }
 
-    public function fetch(\Magento\Quote\Model\Quote $quote, \Magento\Quote\Model\Quote\Address\Total $total)
+    public function fetch(Quote $quote, Total $total)
     {
         $result = null;
         $amount = $total->getLoyaltyDiscount();
@@ -88,14 +96,6 @@ class Loyalty extends \Magento\Quote\Model\Quote\Address\Total\AbstractTotal
             ];
         }
         return $result;
-    }
-
-    /**
-     * @param $quote \Magento\Quote\Model\Quote
-     */
-    private function needRemoveLoyaltyPoints($quote)
-    {
-
     }
 
     public function getLabel()
