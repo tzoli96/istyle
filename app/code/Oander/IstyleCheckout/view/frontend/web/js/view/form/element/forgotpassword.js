@@ -138,10 +138,10 @@ define([
 
       var data = new FormData();
       data.append('customerEmail', email);
+      data.append('storeCode', window.checkoutConfig.storeCode);
 
       if (window.checkoutConfig.mpRecaptcha.forgotPasswordEnabled) {
         data.append('g-recaptcha-response', $('.g-recaptcha-response').val());
-        data.append('storeCode', window.checkoutConfig.storeCode);
       }
 
       self.emailMessage(false);
