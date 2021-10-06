@@ -189,7 +189,9 @@ define([
       }, 500);
 
       store.billingAddress.region.subscribe(function (value) {
-        quote.billingAddress().region = value;
+        if (quote.billingAddress()) {
+          quote.billingAddress().region = value;
+        }
       });
 
       quote.billingAddress.subscribe(function (address) {
@@ -206,6 +208,12 @@ define([
             else {
               if (store.billingAddress.region()) {
                 quote.billingAddress().region = store.billingAddress.region();
+              }
+
+              if (currentLS.billingAddress) {
+                if (currentLS.billingAddress.region) {
+                  quote.billingAddress().region = currentLS.billingAddress.region;
+                }
               }
             }
 
