@@ -26,6 +26,10 @@ class StorePickupList implements ConfigProviderInterface
      * @var \Magento\Framework\App\Config\ScopeConfigInterface
      */
     private $scopeConfig;
+    /**
+     * @var \Magento\Directory\Model\ResourceModel\Region\Collection
+     */
+    private $regionCollection;
 
     /**
      * WebsiteIdConfigProvider constructor.
@@ -33,17 +37,20 @@ class StorePickupList implements ConfigProviderInterface
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
      * @param \Oander\WarehouseManager\Api\WarehouseRepositoryInterface $warehouseRepository
      * @param \Oander\PosLocations\Model\ResourceModel\Shop\Collection $shopCollection
+     * @param \Magento\Directory\Model\ResourceModel\Region\Collection $regionCollection
      */
     public function __construct(
         StoreManagerInterface $storeManager,
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Oander\WarehouseManager\Api\WarehouseRepositoryInterface $warehouseRepository,
-        \Oander\PosLocations\Model\ResourceModel\Shop\Collection $shopCollection
+        \Oander\PosLocations\Model\ResourceModel\Shop\Collection $shopCollection,
+        \Magento\Directory\Model\ResourceModel\Region\Collection $regionCollection
     ){
         $this->storeManager = $storeManager;
         $this->warehouseRepository = $warehouseRepository;
         $this->shopCollection = $shopCollection;
         $this->scopeConfig = $scopeConfig;
+        $this->regionCollection = $regionCollection;
     }
 
     /**
@@ -64,6 +71,20 @@ class StorePickupList implements ConfigProviderInterface
     {
         $shopIds = [];
         $store = $this->scopeConfig->getValue('general/store_information', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+        $regionId = 0;
+        $region = null;
+        if(!empty($store['region_id']) && is_numeric($store['region_id']))
+        {
+            $regionId = ((int)$store['region_id']);
+        }
+        if($regionId>0)
+        {
+            /** @var \Magento\Directory\Model\Region $regionItem */
+            $regionItem = $this->regionCollection->getItemById($regionId);
+            if($regionItem)
+                $region = $regionItem->getName();
+        }
+
         $warehouses = $this->warehouseRepository->getAllByWebsiteId($websiteId);
         foreach ($warehouses as $warehouse)
         {
@@ -95,7 +116,6 @@ class StorePickupList implements ConfigProviderInterface
                     $result[$warehouse->getId()]['firstname'] = $shop->getFistname();
                     $result[$warehouse->getId()]['lastname'] = $shop->getLastname();
                     $result[$warehouse->getId()]['postcode'] = $shop->getGooglePostalCode();
-                    $result[$warehouse->getId()]['regionId'] = 0;
                     $result[$warehouse->getId()]['saveInAddressBook'] = 0;
                     $result[$warehouse->getId()]['street'] = [$shop->getGoogleAddress()];
                     $result[$warehouse->getId()]['telephone'] = $shop->getGoogleTelephone();
@@ -108,11 +128,14 @@ class StorePickupList implements ConfigProviderInterface
                 $result[$warehouse->getId()]['firstname'] = $store['name'];
                 $result[$warehouse->getId()]['lastname'] = $store['name'];
                 $result[$warehouse->getId()]['postcode'] = $store['postcode'];
-                $result[$warehouse->getId()]['regionId'] = empty($store['region_id'])?0:$store['region_id'];
                 $result[$warehouse->getId()]['saveInAddressBook'] = 0;
                 $result[$warehouse->getId()]['street'] = [$store['street_line1']];
                 $result[$warehouse->getId()]['telephone'] = $store['phone'];
             }
+            if($region) {
+                $result[$warehouse->getId()]['region'] = $region;
+            }
+            $result[$warehouse->getId()]['regionId'] = $regionId;
         }
         return $result;
     }
