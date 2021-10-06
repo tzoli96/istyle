@@ -76,8 +76,9 @@ class LoyaltyPost extends \Magento\Checkout\Controller\Cart
             $hasError = false;
             $redeemablePoints = (int)trim($this->getRequest()->getParam('amount'));
             $maxRedeemablePoints = (int)$this->loyaltyHelper->getMaxRedeemablePoints();
-            $availablePoints = (int)$this->salesforceHelper->getCustomerAffiliatePointsCashConverted($this->cart->getCustomerSession()->getCustomer());
-            if ($availablePoints > $maxRedeemablePoints)
+            $availablePoints = $this->salesforceHelper->getCustomerAffiliatePoints($this->cart->getCustomerSession()->getCustomer());
+            $availablePointsCash = $this->salesforceHelper->getCustomerAffiliatePointsCashConverted($this->cart->getCustomerSession()->getCustomer());
+            if ($availablePointsCash > $maxRedeemablePoints)
             {
                 if ($redeemablePoints > $maxRedeemablePoints) {
                     $this->messageManager->addError(
@@ -89,7 +90,7 @@ class LoyaltyPost extends \Magento\Checkout\Controller\Cart
                     $hasError = true;
                 }
             }
-            else
+            elseif($redeemablePoints > $availablePoints)
             {
                 $this->messageManager->addError(
                     __(
@@ -97,6 +98,7 @@ class LoyaltyPost extends \Magento\Checkout\Controller\Cart
                         $availablePoints
                     )
                 );
+                $hasError = true;
             }
             if(!$hasError) {
                 $cartQuote->getShippingAddress()->setCollectShippingRates(true);
