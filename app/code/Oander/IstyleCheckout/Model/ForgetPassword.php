@@ -85,7 +85,9 @@ class ForgetPassword implements ForgetPasswordInterface
     {
         $customerEmail = $this->request->getParam(self::CUSTOMER_EMAIL_PARAM);
         $storeCode = $this->request->getParam(self::STORE_CODE, null);
-        $storeId = $this->storeManager->getStore($storeCode)->getId();
+        $store = $this->storeManager->getStore($storeCode);
+        $this->storeManager->setCurrentStore($store);
+        $storeId = $store->getId();
         $resultData = [];
         if ($customerEmail
             && $this->mageplazaRecaptcha->checkCaptcha($storeId)
@@ -100,7 +102,8 @@ class ForgetPassword implements ForgetPasswordInterface
             try {
                 $this->customerAccountManagement->initiatePasswordReset(
                     $customerEmail,
-                    AccountManagement::EMAIL_RESET
+                    AccountManagement::EMAIL_RESET,
+                    $store->getWebsiteId()
                 );
                 $resultData = [
                     "status" => "success",
