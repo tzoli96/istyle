@@ -30,7 +30,7 @@ class PointBlock implements ObserverInterface
         /** @var Order $order */
         $order = $observer->getEvent()->getOrder();
         if ($order->getData(Attribute::LOYALTY_DISCOUNT)) {
-            $response = $this->clientHelper->pointBlock($order->getData(Attribute::LOYALTY_DISCOUNT));
+            $response = $this->clientHelper->pointBlock($order->getData(Attribute::LOYALTY_POINT));
             if($response->result->IsSuccess)
             {
                 $order->setData(Attribute::LOYALTY_BLOCK_TRANSACTION_ID,$response->result->BlockingTransactionId);
