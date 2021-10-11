@@ -25,6 +25,13 @@
 					<comment/>
 				</field>
 			</group>
+			<group id="salesforce_loyalty_registration" sortOrder="15" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+				<label>Loyalty Registration</label>
+				<field id="type" type="select" sortOrder="20" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<source_model>Oander\SalesforceLoyalty\Model\Config\Source\RegistrationType</source_model>
+					<label>Loyalty Registration Type</label>
+				</field>
+			</group>
 		</section>
 		<section id="sales">
 			<group id="totals_sort">
