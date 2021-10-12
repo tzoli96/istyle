@@ -1,0 +1,34 @@
+<?php
+/**
+ * @var $block \Magento\CheckoutAgreements\Block\Agreements
+ */
+?>
+<?php if (!$block->getAgreements()) {
+	return;
+} ?>
+<ul id="register-agreements" class="agreements register items list-unstyled">
+	<?php /** @var \Magento\CheckoutAgreements\Api\Data\AgreementInterface $agreement */ ?>
+	<?php foreach ($block->getAgreements() as $agreement): ?>
+        <li class="item mb-2">
+    		<?php if($agreement->getMode() == \Magento\CheckoutAgreements\Model\AgreementModeOptions::MODE_MANUAL): ?>
+                <div id="register-agreements-form-<?php /* @escapeNotVerified */ echo $agreement->getAgreementId()?>"
+                     class="field choice agree required">
+                    <input type="checkbox"
+                           id="agreement-<?php /* @escapeNotVerified */ echo $agreement->getAgreementId()?>"
+                           name="agreement[<?php /* @escapeNotVerified */ echo $agreement->getAgreementId()?>]"
+                           value="1"
+                           title="<?php echo $block->escapeHtml($agreement->getCheckboxText()) ?>"
+                           class="checkbox"
+                    />
+                    <label class="label-agreement" for="agreement-<?php /* @escapeNotVerified */ echo $agreement->getAgreementId()?>">
+                        <?php echo $agreement->getIsHtml() ? $agreement->getCheckboxText() : $block->escapeHtml($agreement->getCheckboxText()) ?>
+                    </label>
+                </div>
+			<?php elseif($agreement->getMode() == \Magento\CheckoutAgreements\Model\AgreementModeOptions::MODE_AUTO): ?>
+                <div id="register-agreements-form-<?php /* @escapeNotVerified */ echo $agreement->getAgreementId()?>" class="field choice agree">
+                    <span><?php echo $agreement->getIsHtml() ? $agreement->getCheckboxText() : $block->escapeHtml($agreement->getCheckboxText()) ?></span>
+                </div>
+			<?php endif; ?>
+        </li>
+	<?php endforeach ?>
+</ul>

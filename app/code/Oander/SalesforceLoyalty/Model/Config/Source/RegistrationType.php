@@ -13,7 +13,7 @@ class RegistrationType implements OptionSourceInterface
     {
         return [
             ['value' => 1, 'label' => __('Store with loyalty term')],
-            ['value' => 2, 'label' => __('Store with normal registration term')],
+            ['value' => 0, 'label' => __('Store with normal registration term')],
 
         ];
     }

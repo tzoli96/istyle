@@ -88,10 +88,10 @@ class Config extends AbstractHelper
     }
 
     /**
-     * @return int
+     * @return bool
      */
-    public function getRegistrationTermType() : int
+    public function getRegistrationTermType() : bool
     {
-        return (int)$this->registration[self::SETTINGS_REGISTRATION_TYPE];
+        return (bool)$this->registration[self::SETTINGS_REGISTRATION_TYPE];
     }
 }

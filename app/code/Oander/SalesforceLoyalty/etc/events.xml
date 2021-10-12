@@ -15,4 +15,7 @@
     <event name="sales_quote_remove_item">
         <observer name="oander_salesforceloyalty_quote_item_remove" instance="Oander\SalesforceLoyalty\Observer\QuiteItemSave"/>
     </event>
+    <event name="customer_save_commit_after">
+        <observer name="oander_salesforceloyalty_customer_change" instance="Oander\SalesforceLoyalty\Observer\CustomerChange"/>
+    </event>
 </config>
