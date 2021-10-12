@@ -512,6 +512,9 @@ class Customweb_Payment_Authorization_DefaultTransaction implements Customweb_Pa
 		foreach ($items as $item) {
 			if ($item instanceof Customweb_Payment_Authorization_IInvoiceItem) {
 				if (!isset($originalItemMap[$item->getSku()])) {
+                    if($item->getAmountIncludingTax() == 0) {
+                        continue;
+                    }
 					throw new Exception(Customweb_I18n_Translation::__(
 						"The capture item with SKU '@sku' is not present in the original order.",
 						array(
@@ -750,6 +753,9 @@ class Customweb_Payment_Authorization_DefaultTransaction implements Customweb_Pa
 		foreach ($items as $item) {
 			if ($item instanceof Customweb_Payment_Authorization_IInvoiceItem) {
 				if (!isset($originalItemMap[$item->getSku()])) {
+					if($item->getAmountIncludingTax() == 0) {
+                        continue;
+                    }
 					throw new Exception(Customweb_I18n_Translation::__(
 							"The refund item with SKU '@sku' is not present in the original order.",
 							array(
@@ -776,11 +782,12 @@ class Customweb_Payment_Authorization_DefaultTransaction implements Customweb_Pa
 	/**
 	 * This method creates a new refund and creates a new history item.
 	 *
-	 * @param double $amount The amount to refund
-	 * @param boolean $close Close the transaction for further refunds
+	 * @param double  $amount The amount to refund
+	 * @param boolean $close  Close the transaction for further refunds
+	 *
 	 * @return Customweb_Payment_Authorization_ITransactionRefund
+	 * @throws \Exception
 	 */
-
 	public function refund($amount, $close = false, $additionalMessage = '') {
 		$items = $amount;
 		if (!is_array($items)) {
@@ -826,8 +833,14 @@ class Customweb_Payment_Authorization_DefaultTransaction implements Customweb_Pa
 	 */
 	public function getNonRefundedLineItems() {
 		$resultingItems = $this->getCapturedLineItems();
-
+		
+		/**
+		 * @var $refund Customweb_Payment_Authorization_ITransactionRefund
+		 */
 		foreach ($this->getRefunds() as $refund){
+			if($refund->getStatus() == Customweb_Payment_Authorization_ITransactionRefund::STATUS_FAILED) {
+				continue;
+			}
 			$items = $refund->getRefundItems();
 			if($items === null){
 				$items = Customweb_Util_Invoice::getItemsByReductionAmount($resultingItems, $refund->getAmount(), $this->getCurrencyCode());

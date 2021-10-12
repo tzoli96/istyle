@@ -208,7 +208,7 @@
 					<source_model>Customweb\FirstDataConnectCw\Model\Config\Source\Generic\Authorizationmethod</source_model>
 				</field>
 			</group><group id="firstdataconnectcw_creditcard" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label">
-				<label>FirstData Connect Credit Card</label>
+				<label>FirstData Connect Credit / Debit Card</label>
 				<field id="model"/>
 				<field id="active" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="0" translate="label" type="select">
 					<label><![CDATA[Enabled]]></label>
@@ -944,6 +944,158 @@
 					<label><![CDATA[Authorization Method]]></label>
 					<comment><![CDATA[Select the authorization method to use for processing this payment method.]]></comment>
 					<source_model>Customweb\FirstDataConnectCw\Model\Config\Source\Bcmc\Authorizationmethod</source_model>
+				</field>
+			</group><group id="firstdataconnectcw_przelewy24" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="100" translate="label">
+				<label>FirstData Connect Przelewy24</label>
+				<field id="model"/>
+				<field id="active" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="0" translate="label" type="select">
+					<label><![CDATA[Enabled]]></label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label><![CDATA[Title]]></label>
+				</field>
+				<field id="description" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="textarea">
+					<label><![CDATA[Description]]></label>
+				</field>
+				<field id="show_image" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="select">
+					<label><![CDATA[Show Image]]></label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="show_payment_id" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="select">
+					<label><![CDATA[Show Payment Id]]></label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<comment><![CDATA[Show the payment id in the order information]]></comment> 
+				</field>
+				<field id="currency" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="50" translate="label" type="multiselect">
+					<label><![CDATA[Allowed Currencies]]></label>
+					<source_model>Customweb\FirstDataConnectCw\Model\Config\Source\Przelewy24\Currency</source_model>
+					<can_be_empty>1</can_be_empty>
+				</field>
+				<field id="base_currency" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="60" translate="label" type="select">
+					<label><![CDATA[Use Base Currency]]></label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<comment><![CDATA[Send amounts to FirstData Connect in store's base currency.]]></comment>
+				</field>
+				<field id="allowspecific" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="70" translate="label" type="allowspecific">
+					<label><![CDATA[Payment from Applicable Countries]]></label>
+					<source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+				</field>
+				<field id="specificcountry" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="80" translate="label" type="multiselect">
+					<label><![CDATA[Payment from Specific Countries]]></label>
+					<source_model>Customweb\FirstDataConnectCw\Model\Config\Source\Przelewy24\Country</source_model>
+					<can_be_empty>1</can_be_empty>
+				</field>
+				<field id="min_order_total" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="90" translate="label" type="text">
+					<label><![CDATA[Minimum Order Total]]></label>
+				</field>
+				<field id="max_order_total" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="100" translate="label" type="text">
+					<label><![CDATA[Maximum Order Total]]></label>
+				</field>
+				<field id="sort_order" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="120" translate="label" type="text">
+					<label><![CDATA[Sort Order]]></label>
+					<frontend_class>validate-number</frontend_class>
+				</field>
+				<field id="settlement" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="130" translate="label" type="select">
+					<label><![CDATA[Invoice Settlement]]></label>
+					<source_model>Customweb\FirstDataConnectCw\Model\Config\Source\Settlement</source_model>
+					<comment><![CDATA[Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status. For captured payments, an invoice is always created.]]></comment>
+				</field>
+				<field id="invoice_email" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="140" translate="label" type="select">
+					<label><![CDATA[Send Invoice Email]]></label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<comment><![CDATA[Send the invoice email automatically after invoice creation.]]></comment>
+					<depends>
+						<field id="settlement">direct</field>
+					</depends>
+				</field>
+			<field id="capturing" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="150" translate="label comment" type="select">
+					<label><![CDATA[Capturing]]></label>
+					<comment><![CDATA[Should the amount be captured automatically after the
+									order (direct) or should the amount only be reserved (deferred)?
+								]]></comment>
+					<source_model>Customweb\FirstDataConnectCw\Model\Config\Source\Capturing</source_model>
+				</field>
+				<field id="authorizationMethod" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="160" translate="label comment" type="select">
+					<label><![CDATA[Authorization Method]]></label>
+					<comment><![CDATA[Select the authorization method to use for processing this payment method.]]></comment>
+					<source_model>Customweb\FirstDataConnectCw\Model\Config\Source\Przelewy24\Authorizationmethod</source_model>
+				</field>
+			</group><group id="firstdataconnectcw_trustly" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="110" translate="label">
+				<label>FirstData Connect Trustly</label>
+				<field id="model"/>
+				<field id="active" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="0" translate="label" type="select">
+					<label><![CDATA[Enabled]]></label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="title" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+					<label><![CDATA[Title]]></label>
+				</field>
+				<field id="description" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="textarea">
+					<label><![CDATA[Description]]></label>
+				</field>
+				<field id="show_image" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="30" translate="label" type="select">
+					<label><![CDATA[Show Image]]></label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="show_payment_id" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label" type="select">
+					<label><![CDATA[Show Payment Id]]></label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<comment><![CDATA[Show the payment id in the order information]]></comment> 
+				</field>
+				<field id="currency" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="50" translate="label" type="multiselect">
+					<label><![CDATA[Allowed Currencies]]></label>
+					<source_model>Customweb\FirstDataConnectCw\Model\Config\Source\Trustly\Currency</source_model>
+					<can_be_empty>1</can_be_empty>
+				</field>
+				<field id="base_currency" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="60" translate="label" type="select">
+					<label><![CDATA[Use Base Currency]]></label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<comment><![CDATA[Send amounts to FirstData Connect in store's base currency.]]></comment>
+				</field>
+				<field id="allowspecific" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="70" translate="label" type="allowspecific">
+					<label><![CDATA[Payment from Applicable Countries]]></label>
+					<source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+				</field>
+				<field id="specificcountry" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="80" translate="label" type="multiselect">
+					<label><![CDATA[Payment from Specific Countries]]></label>
+					<source_model>Customweb\FirstDataConnectCw\Model\Config\Source\Trustly\Country</source_model>
+					<can_be_empty>1</can_be_empty>
+				</field>
+				<field id="min_order_total" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="90" translate="label" type="text">
+					<label><![CDATA[Minimum Order Total]]></label>
+				</field>
+				<field id="max_order_total" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="100" translate="label" type="text">
+					<label><![CDATA[Maximum Order Total]]></label>
+				</field>
+				<field id="sort_order" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="120" translate="label" type="text">
+					<label><![CDATA[Sort Order]]></label>
+					<frontend_class>validate-number</frontend_class>
+				</field>
+				<field id="settlement" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="130" translate="label" type="select">
+					<label><![CDATA[Invoice Settlement]]></label>
+					<source_model>Customweb\FirstDataConnectCw\Model\Config\Source\Settlement</source_model>
+					<comment><![CDATA[Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status. For captured payments, an invoice is always created.]]></comment>
+				</field>
+				<field id="invoice_email" showInDefault="1" showInStore="0" showInWebsite="1" sortOrder="140" translate="label" type="select">
+					<label><![CDATA[Send Invoice Email]]></label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<comment><![CDATA[Send the invoice email automatically after invoice creation.]]></comment>
+					<depends>
+						<field id="settlement">direct</field>
+					</depends>
+				</field>
+			<field id="capturing" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="150" translate="label comment" type="select">
+					<label><![CDATA[Capturing]]></label>
+					<comment><![CDATA[Should the amount be captured automatically after the
+									order (direct) or should the amount only be reserved (deferred)?
+								]]></comment>
+					<source_model>Customweb\FirstDataConnectCw\Model\Config\Source\Capturing</source_model>
+				</field>
+				<field id="authorizationMethod" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="160" translate="label comment" type="select">
+					<label><![CDATA[Authorization Method]]></label>
+					<comment><![CDATA[Select the authorization method to use for processing this payment method.]]></comment>
+					<source_model>Customweb\FirstDataConnectCw\Model\Config\Source\Trustly\Authorizationmethod</source_model>
 				</field>
 			</group>
 		</section>

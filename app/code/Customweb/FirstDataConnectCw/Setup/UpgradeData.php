@@ -88,6 +88,14 @@ class UpgradeData implements UpgradeDataInterface {
 				}
 			}
 		}
+		
+		if (version_compare($context->getVersion(), '1.0.6') < 0) {
+		    $select = $installer->getConnection()->select()->from($installer->getTable('sales_order_status'), 'status')->where('status = :status');
+		    $existingStatus = $installer->getConnection()->fetchOne($select, [ ':status' => 'sellxed_holded' ]);
+		    if ($existingStatus != 'sellxed_holded') {
+		      $installer->getConnection()->insert($installer->getTable('sales_order_status'), ['status' => 'sellxed_holded', 'label' => \__('Sellxed On Hold')]);
+		    }
+		}
 
 		$installer->endSetup();
 	}

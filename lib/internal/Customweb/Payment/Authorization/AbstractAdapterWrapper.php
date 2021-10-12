@@ -52,7 +52,7 @@ abstract class Customweb_Payment_Authorization_AbstractAdapterWrapper implements
 	}
 
 	/**
-	 * (non-PHPdoc)        				  					 			
+	 * (non-PHPdoc)       	   		  			 		  
 	 * @see Customweb_Payment_Authorization_IAdapter::processAuthorization()
 	 */
 	public function processAuthorization(Customweb_Payment_Authorization_ITransaction $transaction, array $parameters) {

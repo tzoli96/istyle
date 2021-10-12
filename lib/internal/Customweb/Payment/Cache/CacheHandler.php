@@ -130,6 +130,6 @@ class Customweb_Payment_Cache_CacheHandler implements Customweb_Payment_Cache_IC
 	}
 
 	protected function isTimeoutExceeded($result){
-		return ($result[self::TIMESTAMP] + $this->getTimeout() <= time());
+	    return is_array($result) && isset($result[self::TIMESTAMP]) && ($result[self::TIMESTAMP] + $this->getTimeout() <= time());
 	}
 }

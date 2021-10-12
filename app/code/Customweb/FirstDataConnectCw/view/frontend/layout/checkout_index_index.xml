@@ -50,6 +50,12 @@
                                                                     	<item name="firstdataconnectcw_bcmc" xsi:type="array">
                                                                     		<item name="isBillingAddressRequired" xsi:type="boolean">true</item>
                                                                     	</item>
+                                                                    	<item name="firstdataconnectcw_przelewy24" xsi:type="array">
+                                                                    		<item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                    	</item>
+                                                                    	<item name="firstdataconnectcw_trustly" xsi:type="array">
+                                                                    		<item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                    	</item>
                                                                     </item>
                                                                 </item>
                                                             </item>
