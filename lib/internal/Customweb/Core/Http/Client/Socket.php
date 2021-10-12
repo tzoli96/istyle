@@ -372,6 +372,9 @@ class Customweb_Core_Http_Client_Socket extends Customweb_Core_Http_Client_Abstr
 		$version = $this->getForcedSslVersion();
 		$rs = null;
 		switch ($version) {
+			case self::SSL_VERSION_TLSV11:
+				$rs = 'tlsv1.1';
+				break;
 			case self::SSL_VERSION_TLSV12:
 				$rs = 'tlsv1.2';
 				break;
@@ -379,7 +382,7 @@ class Customweb_Core_Http_Client_Socket extends Customweb_Core_Http_Client_Abstr
 				$rs = 'tlsv1.3';
 				break;
 			default:
-				$rs = 'tlsv1.2';
+				$rs = 'ssl';
 		}
 		if ($rs === null) {
 			throw new Exception("Invalid state.");

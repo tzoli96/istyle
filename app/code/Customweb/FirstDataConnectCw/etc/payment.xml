@@ -24,6 +24,10 @@
 			<allow_multiple_address>1</allow_multiple_address>
 		</method><method name="firstdataconnectcw_bcmc">
 			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="firstdataconnectcw_przelewy24">
+			<allow_multiple_address>1</allow_multiple_address>
+		</method><method name="firstdataconnectcw_trustly">
+			<allow_multiple_address>1</allow_multiple_address>
 		</method>
     </methods>
 </payment>

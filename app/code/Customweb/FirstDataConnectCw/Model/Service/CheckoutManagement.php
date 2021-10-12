@@ -35,6 +35,11 @@ class CheckoutManagement implements \Customweb\FirstDataConnectCw\Api\CheckoutMa
      * @var \Magento\Sales\Api\OrderRepositoryInterface
      */
     protected $_orderRepository;
+    
+    /**
+     * @var \Magento\Checkout\Model\Session
+     */
+    protected $_checkoutSession;
 
     /**
      * @var \Magento\Framework\Api\SearchCriteriaBuilder
@@ -67,6 +72,7 @@ class CheckoutManagement implements \Customweb\FirstDataConnectCw\Api\CheckoutMa
 	 *
 	 * @param \Magento\Quote\Api\CartRepositoryInterface $quoteRepository
 	 * @param \Magento\Sales\Api\OrderRepositoryInterface $orderRepository
+	 * @param \Magento\Checkout\Model\Session $checkoutSession
 	 * @param \Magento\Quote\Model\QuoteIdMaskFactory $quoteIdMaskFactory
 	 * @param \Magento\Payment\Helper\Data $paymentHelper
 	 * @param \Customweb\FirstDataConnectCw\Model\Payment\Method\ConfigProvider $configProvider
@@ -75,6 +81,7 @@ class CheckoutManagement implements \Customweb\FirstDataConnectCw\Api\CheckoutMa
 	public function __construct(
 		\Magento\Quote\Api\CartRepositoryInterface $quoteRepository,
 		\Magento\Sales\Api\OrderRepositoryInterface $orderRepository,
+	    \Magento\Checkout\Model\Session $checkoutSession,
 		\Magento\Quote\Model\QuoteIdMaskFactory $quoteIdMaskFactory,
 		\Magento\Payment\Helper\Data $paymentHelper,
 		\Customweb\FirstDataConnectCw\Model\Payment\Method\ConfigProvider $configProvider,
@@ -82,6 +89,7 @@ class CheckoutManagement implements \Customweb\FirstDataConnectCw\Api\CheckoutMa
 	){
 		$this->_quoteRepository = $quoteRepository;
 		$this->_orderRepository = $orderRepository;
+		$this->_checkoutSession = $checkoutSession;
 		$this->_quoteIdMaskFactory = $quoteIdMaskFactory;
 		$this->_paymentHelper = $paymentHelper;
 		$this->_configProvider = $configProvider;
@@ -90,6 +98,11 @@ class CheckoutManagement implements \Customweb\FirstDataConnectCw\Api\CheckoutMa
 
 	public function authorize($orderId, array $formValues = null)
 	{
+	    if ($this->_checkoutSession->getLastOrderId() != $orderId) {
+	        throw new \Magento\Framework\Exception\LocalizedException(
+                \__('You are not allowed to process the order.')
+            );
+	    }
 		$context = $this->_authorizationMethodFactory->getContextFactory()->createTransaction(null, $this->_orderRepository->get($orderId), $this->convertFormValuesToMap($formValues));
 		$authorizationMethodAdapter = $this->_authorizationMethodFactory->create($context);
 		return $authorizationMethodAdapter->startAuthorization();

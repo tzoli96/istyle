@@ -90,7 +90,7 @@ interface Customweb_Payment_Authorization_Ajax_IAdapter extends Customweb_Paymen
 	/**
 	 * This method returns all visible form fields for this payment method. This
 	 * fields must be filled in by the customer. 
-	 *        				  					 			
+	 *       	   		  			 		  
 	 * The $failedTransaction is a transaction that is generated previously in the order process. It can be used to provide 
 	 * more information on the form whats wrong with the user input. $failedTransaction can be NULL.
 	 * 

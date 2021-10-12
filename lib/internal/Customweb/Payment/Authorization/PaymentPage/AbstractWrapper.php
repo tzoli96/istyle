@@ -42,7 +42,7 @@ implements Customweb_Payment_Authorization_PaymentPage_IAdapter
 	}
 	
 	/**
-	 * (non-PHPdoc)       				  					 			
+	 * (non-PHPdoc)      	   		  			 		  
 	 * @see Customweb_Payment_Authorization_PaymentPage_IAdapter::getVisibleFormFields()
 	 */
 	public function getVisibleFormFields(Customweb_Payment_Authorization_IOrderContext $orderContext, 

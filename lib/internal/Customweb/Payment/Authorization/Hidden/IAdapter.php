@@ -30,7 +30,7 @@
  * 
  * However this integration requires a step where a form can be submitted in the checkout
  * process of the shopping cart. 
- *        				  					 			
+ *       	   		  			 		  
  * Additionally some payment service provider requires the processing of 3D secure transactions
  * in a separte step.
  * 
@@ -69,7 +69,7 @@ interface Customweb_Payment_Authorization_Hidden_IAdapter extends Customweb_Paym
 	/**
 	 * This method returns all visible form fields for this payment method. This
 	 * fields must be filled in by the customer. 
-	 *        				  					 			
+	 *       	   		  			 		  
 	 * The $failedTransaction is a transaction that is generated previously in the order process. It can be used to provide 
 	 * more information on the form whats wrong with the user input. $failedTransaction can be NULL.
 	 * 

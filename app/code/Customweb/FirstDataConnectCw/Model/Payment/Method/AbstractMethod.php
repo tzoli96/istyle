@@ -298,10 +298,10 @@ class AbstractMethod extends \Magento\Payment\Model\Method\AbstractMethod implem
 	{
 		
 		$arguments = null;
-		return \Customweb_Licensing_FirstDataConnectCw_License::run('md9l2vvcsb0390lj', $this, $arguments);
+		return \Customweb_Licensing_FirstDataConnectCw_License::run('ouk33sotnmfedh90', $this, $arguments);
 	}
 
-	final public function call_30u34ed2arftb95t() {
+	final public function call_ra8u8h0287g067dv() {
 		$arguments = func_get_args();
 		$method = $arguments[0];
 		$call = $arguments[1];
@@ -337,7 +337,7 @@ class AbstractMethod extends \Magento\Payment\Model\Method\AbstractMethod implem
 	}
 
 	/**
-	 * Set transaction id and set transaction as pending if authorization is uncertain.
+	 * Set transaction id.
 	 *
 	 * @param \Magento\Payment\Model\InfoInterface $payment
 	 * @param float $amount
@@ -350,9 +350,6 @@ class AbstractMethod extends \Magento\Payment\Model\Method\AbstractMethod implem
 		$transaction = $this->_registry->registry('firstdataconnectcw_authorization_transaction');
 		if ($transaction instanceof \Customweb\FirstDataConnectCw\Model\Authorization\Transaction) {
 			$payment->setIsTransactionClosed(false);
-			if ($transaction->getTransactionObject()->isAuthorizationUncertain()) {
-				$payment->setIsTransactionPending(true);
-			}
 		}
 		return $this;
 	}

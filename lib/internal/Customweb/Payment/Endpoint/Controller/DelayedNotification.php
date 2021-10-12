@@ -29,7 +29,7 @@
  *
  */
 abstract class Customweb_Payment_Endpoint_Controller_DelayedNotification extends Customweb_Payment_Endpoint_Controller_Abstract {
-
+	
 	const HASH_PARAMETER = 'securityHash';
 	
 	/**
@@ -38,10 +38,10 @@ abstract class Customweb_Payment_Endpoint_Controller_DelayedNotification extends
 	public function process(Customweb_Core_Http_IRequest $request){
 		$transaction = $this->loadTransaction($request);
 		$parameters = $request->getParameters();
-		if (!isset($parameters[self::HASH_PARAMETER])) {
+		if (!isset($parameters[static::HASH_PARAMETER])) {
 			throw new Exception('Security Hash not set');
 		}
-		$transaction->checkSecuritySignature($this->getControllerName() . 'index', $parameters[self::HASH_PARAMETER]);
+		$transaction->checkSecuritySignature($this->getControllerName() . 'index', $parameters[static::HASH_PARAMETER]);
 		
 		$templateContext = new Customweb_Mvc_Template_RenderContext();
 		$templateContext->setSecurityPolicy(new Customweb_Mvc_Template_SecurityPolicy());
@@ -56,17 +56,17 @@ abstract class Customweb_Payment_Endpoint_Controller_DelayedNotification extends
 		$layoutContext->setTitle(Customweb_I18n_Translation::__('Awaiting confirmation'));
 		return $this->getLayoutRenderer()->render($layoutContext);
 	}
-
+	
 	/**
 	 * @Action("check")
 	 */
 	public function check(Customweb_Core_Http_IRequest $request){
 		$transaction = $this->loadTransaction($request);
 		$parameters = $request->getParameters();
-		if (!isset($parameters[self::HASH_PARAMETER])) {
+		if (!isset($parameters[static::HASH_PARAMETER])) {
 			throw new Exception('Security Hash not set');
 		}
-		$transaction->checkSecuritySignature($this->getControllerName() . 'check', $parameters[self::HASH_PARAMETER]);
+		$transaction->checkSecuritySignature($this->getControllerName() . 'check', $parameters[static::HASH_PARAMETER]);
 		$status = 'unkown';
 		$url = null;
 		if ($transaction->isAuthorized()) {
@@ -79,11 +79,11 @@ abstract class Customweb_Payment_Endpoint_Controller_DelayedNotification extends
 		}
 		$json = json_encode(array(
 			'status' => $status,
-			'redirect' => $url 
+			'redirect' => $url
 		));
 		return Customweb_Core_Http_Response::_($json)->setContentType("application/json");
 	}
-
+	
 	/**
 	 *
 	 * @param Customweb_Core_Http_IRequest $request
@@ -104,7 +104,7 @@ abstract class Customweb_Payment_Endpoint_Controller_DelayedNotification extends
 		}
 		return $transaction;
 	}
-
+	
 	abstract protected function getControllerName();
 	
 	protected function getWaitingText(Customweb_Payment_Authorization_ITransaction $transaction) {
@@ -120,17 +120,17 @@ abstract class Customweb_Payment_Endpoint_Controller_DelayedNotification extends
 				}
 			    setTimeout(function() {
 			        window.jQuery.ajax({
-			            url: "' . $this->getUrl($this->getControllerName(), 'check', array('cw_transaction_id' => $transaction->getExternalTransactionId(), self::HASH_PARAMETER => $transaction->getSecuritySignature($this->getControllerName().'check'))) . '",
+			            url: "' . $this->getUrl($this->getControllerName(), 'check', array('cw_transaction_id' => $transaction->getExternalTransactionId(), static::HASH_PARAMETER => $transaction->getSecuritySignature($this->getControllerName().'check'))) . '",
 			            type: "POST",
 			            success: function(data) {
 			                if(data.status == "complete") {
 			            		window.location.replace(data.redirect);
 			            		return;
 			            	}
-			            	cwStatusChecker();			            	
+			            	cwStatusChecker();
 			            },
 			            error: function(request, message, code) {
-			            	cwStatusChecker();	
+			            	cwStatusChecker();
 			            },
 			            dataType: "json",
 			           	cache: false,

@@ -39,7 +39,7 @@ interface Customweb_Payment_Authorization_ITransactionContext {
 	/**
 	 * This method returns the order context.
 	 *
-	 *        				  					 			
+	 *       	   		  			 		  
 	 *
 	 * @return Customweb_Payment_Authorization_IOrderContext OrderContext
 	 */

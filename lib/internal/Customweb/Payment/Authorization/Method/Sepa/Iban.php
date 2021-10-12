@@ -61,16 +61,19 @@ class Customweb_Payment_Authorization_Method_Sepa_Iban {
 		$allowedLength = $format['length'];
 		
 		if (strlen($iban) != $allowedLength) {
-			throw new Exception(Customweb_Core_String::_("The length of the IBAN is invalid."));
+			throw new Customweb_Payment_Exception_PaymentErrorException(
+				new Customweb_Payment_Authorization_ErrorMessage(Customweb_I18n_Translation::__("The length of the IBAN is invalid.")));
 		}
 		
 		$regex = '/^' . $format['format'] . '$/i';
 		if (!preg_match($regex, substr($iban, 4))) {
-			throw new Exception(Customweb_Core_String::_("The format of the IBAN is invalid."));
+			throw new Customweb_Payment_Exception_PaymentErrorException(
+				new Customweb_Payment_Authorization_ErrorMessage(Customweb_I18n_Translation::__("The format of the IBAN is invalid.")));
 		}
 		
 		if (!self::validateCheckSum($iban)) {
-			throw new Exception(Customweb_Core_String::_("The checksum of the IBAN is invalid."));
+			throw new Customweb_Payment_Exception_PaymentErrorException(
+				new Customweb_Payment_Authorization_ErrorMessage(Customweb_I18n_Translation::__("The checksum of the IBAN is invalid.")));
 		}
 		
 		return true;
