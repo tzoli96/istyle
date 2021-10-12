@@ -9,9 +9,14 @@ use Magento\CheckoutAgreements\Model\ResourceModel\Agreement\CollectionFactory;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Customer\Api\CustomerRepositoryInterface;
 use Oander\SalesforceLoyalty\Enum\CustomerAttribute;
+use Oander\SalesforceLoyalty\Helper\Config;
 
 class CustomerChange implements ObserverInterface
 {
+    /**
+     * @var Config
+     */
+    private $helper;
     /**
      * @var CustomerRepositoryInterface
      */
@@ -34,33 +39,37 @@ class CustomerChange implements ObserverInterface
      * @param CollectionFactory $agreementCollectionFactory
      * @param StoreManagerInterface $storeManager
      * @param CustomerRepositoryInterface $customerRepository
+     * @param Config $helper
      */
     public function __construct(
         RequestInterface            $request,
         CollectionFactory           $agreementCollectionFactory,
         StoreManagerInterface       $storeManager,
-        CustomerRepositoryInterface $customerRepository
-    )
-    {
+        CustomerRepositoryInterface $customerRepository,
+        Config                      $helper
+    ){
         $this->request = $request;
         $this->agreementCollectionFactory = $agreementCollectionFactory;
         $this->storeManager = $storeManager;
         $this->customerRepository = $customerRepository;
+        $this->helper = $helper;
     }
 
     public function execute(Observer $observer)
     {
-        $agreementIds = $this->request->getParam("agreement");
-        if ($agreementIds) {
-            array_walk($agreementIds, function (&$value, $key) {
-                $value = $key;
-            });
+        if($this->helper->isSpendingEnabled()){
+            $agreementIds = $this->request->getParam("agreement");
+            if ($agreementIds) {
+                array_walk($agreementIds, function (&$value, $key) {
+                    $value = $key;
+                });
 
-            if ($this->checkHasAgreementId($agreementIds)) {
-                $customer = $this->customerRepository->getById($observer->getEvent()->getCustomer()->getId());
-                if (!$customer->getCustomAttribute(CustomerAttribute::REGISTER_TO_LOYALTY)) {
-                    $customer->setCustomAttribute(CustomerAttribute::REGISTER_TO_LOYALTY, true);
-                    $this->customerRepository->save($customer);
+                if ($this->checkHasAgreementId($agreementIds)) {
+                    $customer = $this->customerRepository->getById($observer->getEvent()->getCustomer()->getId());
+                    if (!$customer->getCustomAttribute(CustomerAttribute::REGISTER_TO_LOYALTY)) {
+                        $customer->setCustomAttribute(CustomerAttribute::REGISTER_TO_LOYALTY, true);
+                        $this->customerRepository->save($customer);
+                    }
                 }
             }
         }

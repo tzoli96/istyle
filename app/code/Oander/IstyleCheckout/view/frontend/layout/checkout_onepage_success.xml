@@ -6,6 +6,7 @@
     <body>
         <referenceContainer name="content">
             <referenceBlock class="Oander\IstyleCheckout\Block\Checkout\Success\Registration" name="checkout.registration" template="Oander_IstyleCheckout::checkout/success/registration.phtml">
+                <block class="Oander\SalesforceLoyalty\Block\SuccessPage\LoyaltyMarketing" template="Oander_SalesforceLoyalty::successpage/loyalty-marketing.phtml" name="loyalty_registration_marekting" />
                 <block class="Magento\CheckoutAgreements\Block\Agreements" template="Magento_Customer::form/register-agreements.phtml" name="register_agreements" />
             </referenceBlock>
             <referenceBlock name="checkout.success" class="Oander\IstyleCheckout\Block\Checkout\Success" />
