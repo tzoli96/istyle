@@ -61,14 +61,14 @@ if [ "${INSTANCE_ID}" == "${DEV_MASTER_ID}" ]; then
   
   echo " MAINTENANCE ENABLE: "
   magento "maintenance:enable"
-  
-  echo " * MAGENTO CACHE DISABLE: "
-  magento "cache:disable"
 
   symlink_check "CREATE DIRECTORY SYMLINK TO UPLOAD FOLDER" "${WEBROOT}/upload" "${EFS}/upload" "${WEBROOT}/"
   
   echo -n " * COPY THE ENV FILE ... "
   if cp -a ${EFS}/env/env.php ${WEBROOT}/app/etc/; then echo OK; else echo FAIL; fi
+  
+  echo " * MAGENTO CACHE DISABLE: "
+  magento "cache:disable"
 
   echo " * MANUALLY CLEANUP GENERATED MAGENTO FOLDERS: "
   echo -n " * /var/di ... "
