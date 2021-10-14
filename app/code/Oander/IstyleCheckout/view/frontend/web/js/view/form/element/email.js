@@ -360,6 +360,7 @@ define([
             setTimeout(function() {
               if (inputField.is(':-webkit-autofill') || inputField.val() !== '') {
                 inputField.trigger('blur change keyup keydown keypress input');
+                $('.block--authentication').trigger('click');
                 self.emailHasChanged();
                 passwordTrigger();
               }

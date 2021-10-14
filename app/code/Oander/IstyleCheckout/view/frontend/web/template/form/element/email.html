@@ -60,11 +60,19 @@
                                 <span data-bind="i18n: 'Email Address'"></span>
                             </label>
                             <div class="control _with-tooltip">
-                                <input class="input-text form-control" autocomplete="off" type="email" data-bind="
-                                    attr:{placeholder: $t('email_placeholder')},
-                                    textInput: email,
-                                    hasFocus: emailFocused" name="username"
-                                    data-validate="{required:true, 'validate-email':true}" id="customer-email" />
+                                <input
+                                    class="input-text form-control"
+                                    autocomplete="off"
+                                    type="email"
+                                    data-bind="
+                                        attr:{placeholder: $t('email_placeholder')},
+                                        textInput: email,
+                                        hasFocus: emailFocused,
+                                        template: {afterRender: (checkAutofill(false))}"
+                                    name="username"
+                                    data-validate="{required:true, 'validate-email':true}"
+                                    id="customer-email"
+                                />
                             </div>
                         </div>
                     </fieldset>
@@ -76,9 +84,16 @@
                                 <span data-bind="i18n: 'Password'"></span>
                             </label>
                             <div class="control">
-                                <input class="input-text form-control" type="password"
-                                    data-bind="attr:{placeholder: $t('password_placeholder')}" name="password"
-                                    id="customer-password" data-validate="{required:true}" autocomplete="off" />
+                                <input
+                                    class="input-text form-control"
+                                    type="password"
+                                    data-bind="
+                                        attr:{placeholder: $t('password_placeholder')}"
+                                    name="password"
+                                    id="customer-password"
+                                    data-validate="{required:true}"
+                                    autocomplete="off"
+                                />
                             </div>
 
                         </div>
