@@ -359,8 +359,9 @@ define([
           emailTrigger = function() {
             setTimeout(function() {
               if (inputField.is(':-webkit-autofill') || inputField.val() !== '') {
-                inputField.trigger('blur change keyup keydown keypress input');
                 $('.block--authentication').trigger('click');
+                inputField.focus();
+                inputField.trigger('blur change keyup keydown keypress input');
                 self.emailHasChanged();
                 passwordTrigger();
               }
