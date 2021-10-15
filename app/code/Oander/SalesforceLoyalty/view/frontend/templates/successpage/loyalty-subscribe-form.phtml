@@ -1,0 +1,25 @@
+<?php
+/**
+ * @var $block \Oander\SalesforceLoyalty\Block\SuccessPage\LoyaltySubscribe
+ */
+?>
+<div class="row">
+    <div class="col-12 col-lg-8 offset-lg-2">
+        <form id="registration"
+              action="<?= $block->getActionUrl()?>"
+              class="checkout-success-registration">
+            <div class="form-group">
+                <?=  $block->getLayout()
+                    ->createBlock('Oander\SalesforceLoyalty\Block\SuccessPage\Agreements')
+                    ->setTemplate('Magento_Customer::form/register-agreements.phtml')
+                    ->toHtml();
+                ?>
+            </div>
+            <input type="submit" class="action primary" value="<?= __("Go")?>">
+
+        </form>
+        <div class="reg-messages messages">
+            <div class="message"></div>
+        </div>
+    </div>
+</div>

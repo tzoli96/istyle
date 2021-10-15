@@ -125,10 +125,10 @@ define(
                 this.validateField($('#password'));
 
                 $('#register-agreements .checkbox').on('click', function() {
-                    if ($(this).closest('.agreements').find('.checkbox').not(':checked').length !== 0 ) {
+                    if ($(this).closest('.agreements').find('.checkbox[data-validate="{required:true}"]').not(':checked').length !== 0 ) {
                         isCheckboxChecked = false;
                         $(this).closest('.checkout-success-registration').find('.create-account .action.primary').attr('disabled','disabled');
-                    } else if ($(this).closest('.agreements').find('.checkbox').not(':checked').length === 0 && isPasswordStrength) {
+                    } else if ($(this).closest('.agreements').find('.checkbox[data-validate="{required:true}"]').not(':checked').length === 0 && isPasswordStrength) {
                         isCheckboxChecked = true;
                         $(this).closest('.checkout-success-registration').find('.create-account .action.primary').removeAttr('disabled');
                     } else {

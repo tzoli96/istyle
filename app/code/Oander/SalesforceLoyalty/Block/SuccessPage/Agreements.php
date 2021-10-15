@@ -1,42 +1,32 @@
 <?php
 
-namespace Oander\IstyleCheckout\Block;
+namespace Oander\SalesforceLoyalty\Block\SuccessPage;
 
-use Magento\CheckoutAgreements\Block\Agreements;
 use Magento\CheckoutAgreements\Model\ResourceModel\Agreement\CollectionFactory;
+use Magento\Framework\View\Element\Template;
 use Magento\Framework\View\Element\Template\Context;
 use Magento\Store\Model\ScopeInterface;
-use Oander\SalesforceLoyalty\Helper\Config;
-use Oander\SalesforceLoyalty\Helper\Config as LoyaltyHelper;
 
-class RegistrationAgreements extends Agreements
+class Agreements extends Template
 {
     /**
-     * @var LoyaltyHelper
+     * @var CollectionFactory
      */
-    private $loyaltyHelper;
-    /**
-     * @var Config
-     */
-    private $helper;
+    protected $_agreementCollectionFactory;
 
     /**
      * @param Context $context
      * @param CollectionFactory $agreementCollectionFactory
-     * @param Config $helper
-     * @param LoyaltyHelper $loyaltyHelper
      * @param array $data
+     * @codeCoverageIgnore
      */
     public function __construct(
         Context $context,
         CollectionFactory $agreementCollectionFactory,
-        Config $helper,
-        LoyaltyHelper $loyaltyHelper,
         array $data = []
-    ){
-        $this->loyaltyHelper = $loyaltyHelper;
-        $this->helper = $helper;
-        parent::__construct($context, $agreementCollectionFactory, $data);
+    ) {
+        $this->_agreementCollectionFactory = $agreementCollectionFactory;
+        parent::__construct($context, $data);
     }
 
     /**
@@ -51,31 +41,13 @@ class RegistrationAgreements extends Agreements
                 $agreements = $this->_agreementCollectionFactory->create();
                 $agreements->addStoreFilter($this->_storeManager->getStore()->getId());
                 $agreements->addFieldToFilter('is_active', 1);
-                $agreementsType = [
-                    ['eq'    => 'registration'],
-                    ['eq'    => 'all'],
+                $agreementsType[] = [
+                    ['eq'    => 'loyalty']
                 ];
-                if($this->loyaltyHelper->getRegistrationTermType())
-                {
-                    $agreementsType[] = [
-                        ['eq'    => 'loyalty']
-                    ];
-                }
-
                 $agreements->addFieldToFilter('agreement_type',$agreementsType);
-
             }
             $this->setAgreements($agreements);
         }
         return $this->getData('agreements');
     }
-
-    /**
-     * @return int
-     */
-    public function getRegistrationType(): int
-    {
-        return $this->helper->getRegistrationTermType();
-    }
-
 }
