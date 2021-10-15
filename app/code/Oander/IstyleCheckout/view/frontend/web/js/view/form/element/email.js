@@ -273,6 +273,8 @@ define([
         passwordInput.on('keyup', function () {
           self.passwordStoreChanges(passwordInput.val());
         });
+
+        self.checkAutofill(true);
       }
     },
 
@@ -302,7 +304,6 @@ define([
 
         if (localStorage.auth.hasValidEmailAddress) {
           email.focus();
-
           store.auth.hasValidEmailAddress(true);
         }
 
@@ -349,6 +350,32 @@ define([
         store.steps.active('shippingMethod');
         $('.block--shipping-method').find('.card__action').trigger('click');
       }
+    },
+
+    checkAutofill: function(param) {
+      var self = this,
+          inputField = $('#customer-email'),
+          passwordField = $('#customer-password'),
+          emailTrigger = function() {
+            setTimeout(function() {
+              if (inputField.is(':-webkit-autofill') || inputField.val() !== '') {
+                $('.block--authentication').trigger('click');
+                inputField.focus();
+                inputField.trigger('blur change keyup keydown keypress input');
+                self.emailHasChanged();
+                passwordTrigger();
+              }
+            }, self.checkDelay);
+          },
+          passwordTrigger = function() {
+            setTimeout(function() {
+              if (passwordField.is(':visible') && passwordField.is(':-webkit-autofill') || passwordField.val() !== '') {
+                store.auth.hasPasswordValue(true);
+              }
+            }, self.checkDelay);
+          };
+
+      param ? passwordTrigger() : emailTrigger();
     }
   });
 });
