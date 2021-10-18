@@ -36,7 +36,7 @@ elseif($block->getCustomerLoyaltyStatus() == 2)
                     class="checkout-success-registration">
                 <div class="form-group">
                     <?=  $block->getLayout()
-                        ->createBlock('Magento\CheckoutAgreements\Block\Agreements')
+                        ->createBlock('Oander\SalesforceLoyalty\Block\SuccessPage\Agreements')
                         ->setTemplate('Magento_Customer::form/register-agreements.phtml')
                         ->toHtml();
                     ?>

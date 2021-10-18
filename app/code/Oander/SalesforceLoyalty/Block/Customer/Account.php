@@ -45,11 +45,12 @@ class Account extends \Magento\Framework\View\Element\Template
     public function getCustomerLoyaltyStatus()
     {
         $response = 0;
-        if($this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTER_TO_LOYALTY)){
-            $response = 1;
-        }elseif($this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTRED_TO_LOYALTY))
-        {
+        if($this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTER_TO_LOYALTY) &&
+            $this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTRED_TO_LOYALTY)){
             $response = 2;
+        }elseif($this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTER_TO_LOYALTY))
+        {
+            $response = 1;
         }
         return $response;
     }
@@ -59,7 +60,9 @@ class Account extends \Magento\Framework\View\Element\Template
      */
     public function getSalesforceId()
     {
-        return $this->customerSession->getCustomer()->getData(\Oander\Salesforce\Enum\Customer::SALESFORCE_ID)?:__("No SF ID");
+        return $this->customerSession->getCustomer()->getData(\Oander\SalesforceReservation\Enum\Customer::SALESFORCE_ID) ?
+            $this->customerSession->getCustomer()->getData(\Oander\SalesforceReservation\Enum\Customer::SALESFORCE_ID)
+            :__("No SF ID");
     }
 
     /**

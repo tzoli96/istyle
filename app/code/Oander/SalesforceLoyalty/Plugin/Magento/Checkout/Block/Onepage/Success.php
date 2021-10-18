@@ -49,11 +49,12 @@ class Success extends extendedSuccess
     public function getCustomerLoyaltyStatus()
     {
         $response = 0;
-        if($this->getCustomerSession()->getCustomer()->getData(CustomerAttribute::REGISTER_TO_LOYALTY)){
-            $response = 1;
-        }elseif($this->getCustomerSession()->getCustomer()->getData(CustomerAttribute::REGISTRED_TO_LOYALTY))
-        {
+        if($this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTER_TO_LOYALTY) &&
+            $this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTRED_TO_LOYALTY)){
             $response = 2;
+        }elseif($this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTER_TO_LOYALTY))
+        {
+            $response = 1;
         }
         return $response;
     }
