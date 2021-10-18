@@ -21,19 +21,37 @@
 
 namespace Oander\SalesforceLoyalty\Setup;
 
+use Magento\Customer\Model\Customer;
+use Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface;
 use Magento\Framework\DB\Ddl\Table;
+use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Setup\UpgradeDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
-use Magento\Eav\Setup\EavSetup;
 use Magento\Eav\Setup\EavSetupFactory;
 use Magento\Sales\Setup\SalesSetupFactory;
 use Magento\Quote\Setup\QuoteSetupFactory;
 use Oander\SalesforceLoyalty\Enum\Attribute;
+use Magento\Eav\Model\Config;
+use Magento\Eav\Model\Entity\Attribute\SetFactory as AttributeSetFactory;
+use Magento\Eav\Model\Entity\Attribute\Set as AttributeSet;
+use Oander\SalesforceLoyalty\Enum\CustomerAttribute;
+use Magento\Cms\Model\BlockFactory;
+use Magento\Store\Api\StoreRepositoryInterface;
 
 class UpgradeData implements UpgradeDataInterface
 {
-
+    /**
+     * @var StoreRepositoryInterface
+     */
+    private $storeRepository;
+    /**
+     * @var BlockFactory
+     */
+    private $blockFactory;
+    /**
+     * @var EavSetupFactory
+     */
     private $eavSetupFactory;
     /**
      * @var QuoteSetupFactory
@@ -43,30 +61,51 @@ class UpgradeData implements UpgradeDataInterface
      * @var SalesSetupFactory
      */
     private $salesSetupFactory;
+    /**
+     * @var Config
+     */
+    private $eavConfig;
+    /**
+     * @var AttributeSetFactory
+     */
+    private $attributeSetFactory;
 
     /**
      * @param EavSetupFactory $eavSetupFactory
      * @param QuoteSetupFactory $quoteSetupFactory
      * @param SalesSetupFactory $salesSetupFactory
+     * @param Config $eavConfig
+     * @param AttributeSetFactory $attributeSetFactory
+     * @param BlockFactory $blockFactory
      */
     public function __construct(
-        EavSetupFactory $eavSetupFactory,
-        QuoteSetupFactory $quoteSetupFactory,
-        SalesSetupFactory $salesSetupFactory
+        EavSetupFactory     $eavSetupFactory,
+        QuoteSetupFactory   $quoteSetupFactory,
+        SalesSetupFactory   $salesSetupFactory,
+        Config              $eavConfig,
+        AttributeSetFactory $attributeSetFactory,
+        BlockFactory        $blockFactory,
+        StoreRepositoryInterface $storeRepository
     )
     {
+        $this->eavConfig = $eavConfig;
         $this->eavSetupFactory = $eavSetupFactory;
         $this->quoteSetupFactory = $quoteSetupFactory;
         $this->salesSetupFactory = $salesSetupFactory;
+        $this->attributeSetFactory = $attributeSetFactory;
+        $this->blockFactory = $blockFactory;
+        $this->storeRepository = $storeRepository;
     }
 
     /**
      * {@inheritdoc}
+     * @throws LocalizedException
      */
     public function upgrade(
         ModuleDataSetupInterface $setup,
-        ModuleContextInterface $context
-    ) {
+        ModuleContextInterface   $context
+    )
+    {
         $eavSetup = $this->eavSetupFactory->create(['setup' => $setup]);
 
         if (version_compare($context->getVersion(), "1.0.1", "<")) {
@@ -75,7 +114,80 @@ class UpgradeData implements UpgradeDataInterface
         if (version_compare($context->getVersion(), "1.0.2", "<")) {
             $this->addOrderLoyaltyAttribute($setup);
         }
+        if (version_compare($context->getVersion(), "1.0.6", "<")) {
+            $this->addCustomerAttribute($eavSetup);
+        }
+        if (version_compare($context->getVersion(), "1.0.8", "<")) {
+            $this->addTemporaryPeriodBlock();
+        }
     }
+
+    /**
+     * @throws \Exception
+     * @return void
+     */
+    private function addTemporaryPeriodBlock()
+    {
+        $stores = $this->storeRepository->getList();
+        $storeIds = [];
+
+        foreach($stores as $store)
+        {
+            $storeIds[] = $store->getId();
+        }
+
+        $this->blockFactory->create()->setData([
+            'title' => 'Temporary Period Loyalty Registration Block',
+            'identifier' => 'temporary_period_loyalty_registration_block',
+            'stores' => $storeIds,
+            'is_active' => 1,
+        ])->save();
+    }
+
+    /**
+     * @param $eavSetup
+     * @throws LocalizedException
+     * @return void
+     */
+    private function addCustomerAttribute($eavSetup)
+    {
+        $attributes = [
+            CustomerAttribute::REGISTRED_TO_LOYALTY,
+            CustomerAttribute::REGISTER_TO_LOYALTY
+        ];
+        $customerEntity = $this->eavConfig->getEntityType(Customer::ENTITY);
+        $attributeSetId = $customerEntity->getDefaultAttributeSetId();
+        /** @var $attributeSet AttributeSet */
+        $attributeSet = $this->attributeSetFactory->create();
+        $attributeGroupId = $attributeSet->getDefaultGroupId($attributeSetId);
+
+        foreach ($attributes as $attribute) {
+            $eavSetup->addAttribute(
+                Customer::ENTITY,
+                $attribute,
+                [
+                    'type' => 'int',
+                    'label' => 'Register to loyalty',
+                    'input' => 'select',
+                    'required' => false,
+                    'visible' => true,
+                    'user_defined' => true,
+                    'system' => 0,
+                    'source' => 'Magento\Eav\Model\Entity\Attribute\Source\Boolean',
+                    'global' => ScopedAttributeInterface::SCOPE_GLOBAL,
+                ]
+            );
+            $attributes = $this->eavConfig->getAttribute(Customer::ENTITY, $attribute);
+            $attributes->addData([
+                'attribute_set_id' => $attributeSetId,
+                'attribute_group_id' => $attributeGroupId,
+                'used_in_forms', ['adminhtml_customer']
+            ]);
+            $attributes->save();
+        }
+
+    }
+
     /**
      * @param ModuleDataSetupInterface $setup
      * @return void
@@ -86,8 +198,7 @@ class UpgradeData implements UpgradeDataInterface
             Attribute::LOYALTY_POINT,
             Attribute::LOYALTY_BLOCK_TRANSACTION_ID
         ];
-        foreach ($attributes as $attribute)
-        {
+        foreach ($attributes as $attribute) {
             $quoteSetup = $this->quoteSetupFactory->create(['setup' => $setup]);
             $quoteSetup->addAttribute('quote', $attribute,
                 [

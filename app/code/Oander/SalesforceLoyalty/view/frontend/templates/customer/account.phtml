@@ -5,15 +5,61 @@
  * @var $block \Oander\SalesforceLoyalty\Block\Customer\Account
  */
 ?>
-<div>SF ID:<?php echo $block->getSalesforceId() ?></div><br>
-<div>Loyalty Points:<?php echo $block->getLoyaltyPoints() ?></div><br>
-<div id="loyaltyhistory" class="carousel">
-</div>
 
-<script type="text/x-magento-init">
-     {
-         "#loyaltyhistory": {
-             "salesforceLoyaltyHistory": <?php /* @noEscape */ echo $block->getScriptOptions(); ?>
-         }
-     }
- </script>
+<?php
+    if ($block->getCustomerLoyaltyStatus() == 1) {
+        echo $block->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId('temporary_period_loyalty_registration_block')->toHtml();
+    } elseif ($block->getCustomerLoyaltyStatus() == 2) {
+?>
+    <div>SF ID:<?php echo $block->getSalesforceId() ?></div>
+    <div>Loyalty Points:<?php echo $block->getLoyaltyPoints() ?></div>
+    <div id="loyaltyhistory" class="carousel"></div>
+    <script type="text/x-magento-init">
+        {
+            "#loyaltyhistory": {
+                "salesforceLoyaltyHistory": <?php /* @noEscape */ echo $block->getScriptOptions(); ?>
+            }
+        }
+    </script>
+<?php } else { ?>
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <form
+                id="registration"
+                action="/salesforceloyalty/customer/loyaltyregistrationprocess"
+                class="loyalty-registration profile"
+            >
+                <div class="form-group">
+                    <?=  $block->getLayout()
+                        ->createBlock('Oander\SalesforceLoyalty\Block\SuccessPage\Agreements')
+                        ->setTemplate('Magento_Customer::form/register-agreements.phtml')
+                        ->toHtml();
+                    ?>
+                </div>
+                <input
+                    id="loyalty-registration"
+                    type="submit"
+                    class="action primary"
+                    value="<?php /* @escapeNotVerified */ echo __('Register') ?>"
+                    disabled
+                >
+                <script type="text/javascript">
+                    require(['jquery'], function($) {
+                        $(function() {
+                            $('#registration.loyalty-registration .checkbox').on('change', function() {
+                                if ($(this).is(':checked')) {
+                                    $('#loyalty-registration').removeAttr('disabled');
+                                } else {
+                                    $('#loyalty-registration').attr('disabled', 'disabled');
+                                }
+                            });
+                        });
+                    });
+                </script>
+            </form>
+            <div class="reg-messages messages">
+                <div class="message"></div>
+            </div>
+        </div>
+    </div>
+<?php } ?>

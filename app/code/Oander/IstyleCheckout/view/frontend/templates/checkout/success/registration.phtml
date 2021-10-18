@@ -9,7 +9,7 @@
 ?>
 <div class="row">
     <div class="col-12 col-lg-8 offset-lg-2">
-        <div class="registration-alert"><?php /* @escapeNotVerified */ echo __('Please sign up so you can shop faster at next time.') ?></div>
+        <?= $block->getChildHtml('loyalty_registration_marekting'); ?>
         <form
             id="registration"
             class="checkout-success-registration"
@@ -62,6 +62,7 @@
             <div class="form-group">
                 <?php echo $block->getChildHtml('register_agreements'); ?>
             </div>
+
 
             <!-- ko template: getTemplate() --><!-- /ko -->
             <script type="text/x-magento-init">

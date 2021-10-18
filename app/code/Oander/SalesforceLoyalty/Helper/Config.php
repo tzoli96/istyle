@@ -20,17 +20,22 @@ use Magento\Store\Model\ScopeInterface;
  */
 class Config extends AbstractHelper
 {
-    const SETTINGS_PATH_SPENDING = 'oander_salesforce/salesforce_loyalty_spending';
-    const SETTINGS_SPENDING_ENABLED = 'enabled';
-    const SETTINGS_SPENDING_CARTINFO = 'cart_info';
-    const SETTINGS_SPENDING_MAXPERCENT = 'max_percent';
-    const SETTINGS_SPENDING_POINTVALUE = 'point_value';
+    const SETTINGS_PATH_SPENDING            = 'oander_salesforce/salesforce_loyalty_spending';
+    const SETTINGS_PATH_REGISTRATION        = 'oander_salesforce/salesforce_loyalty_registration';
+    const SETTINGS_SPENDING_ENABLED         = 'enabled';
+    const SETTINGS_SPENDING_CARTINFO        = 'cart_info';
+    const SETTINGS_SPENDING_MAXPERCENT      = 'max_percent';
+    const SETTINGS_SPENDING_POINTVALUE      = 'point_value';
+    const SETTINGS_REGISTRATION_TYPE        = 'type';
 
     /**
      * @var array
      */
     private $spending;
-
+    /**
+     * @var array
+     */
+    private $registration;
     /**
      * Config constructor.
      *
@@ -42,6 +47,10 @@ class Config extends AbstractHelper
 
         $this->spending = (array)$this->scopeConfig->getValue(
             self::SETTINGS_PATH_SPENDING,
+            ScopeInterface::SCOPE_STORE
+        );
+        $this->registration = (array)$this->scopeConfig->getValue(
+            self::SETTINGS_PATH_REGISTRATION,
             ScopeInterface::SCOPE_STORE
         );
     }
@@ -76,5 +85,13 @@ class Config extends AbstractHelper
     public function getPointValue(): float
     {
         return $value = $this->spending[self::SETTINGS_SPENDING_POINTVALUE] ? floatval($this->spending[self::SETTINGS_SPENDING_POINTVALUE]) : 1.0;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getRegistrationTermType() : bool
+    {
+        return (bool)$this->registration[self::SETTINGS_REGISTRATION_TYPE];
     }
 }
