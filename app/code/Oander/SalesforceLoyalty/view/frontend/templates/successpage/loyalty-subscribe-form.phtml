@@ -8,7 +8,7 @@
         <form
             id="registration"
             action="<?= $block->getActionUrl()?>"
-            class="checkout-success-registration"
+            class="checkout-success-registration loyalty-registration success-page"
         >
             <div class="form-group">
                 <?=  $block->getLayout()
@@ -17,8 +17,26 @@
                     ->toHtml();
                 ?>
             </div>
-            <input type="submit" class="action primary" value="<?= __("Go")?>">
-
+            <input
+                id="loyalty-registration"
+                type="submit"
+                class="action primary"
+                value="<?= __('Register')?>"
+                disabled
+            >
+            <script type="text/javascript">
+                require(['jquery'], function($) {
+                    $(function() {
+                        $('#registration.loyalty-registration .checkbox').on('change', function() {
+                            if ($(this).is(':checked')) {
+                                $('#loyalty-registration').removeAttr('disabled');
+                            } else {
+                                $('#loyalty-registration').attr('disabled', 'disabled');
+                            }
+                        });
+                    });
+                });
+            </script>
         </form>
         <div class="reg-messages messages">
             <div class="message"></div>

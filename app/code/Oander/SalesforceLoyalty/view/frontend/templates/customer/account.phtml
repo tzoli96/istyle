@@ -27,7 +27,7 @@
             <form
                 id="registration"
                 action="/salesforceloyalty/customer/loyaltyregistrationprocess"
-                class="loyalty-profile-registration"
+                class="loyalty-registration profile"
             >
                 <div class="form-group">
                     <?=  $block->getLayout()
@@ -46,7 +46,7 @@
                 <script type="text/javascript">
                     require(['jquery'], function($) {
                         $(function() {
-                            $('#registration.loyalty-profile-registration .checkbox').on('change', function() {
+                            $('#registration.loyalty-registration .checkbox').on('change', function() {
                                 if ($(this).is(':checked')) {
                                     $('#loyalty-registration').removeAttr('disabled');
                                 } else {
