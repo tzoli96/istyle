@@ -24,7 +24,7 @@
  * The history item describes a state of the transaction. 
  * 
  * @author Thomas Hunziker
- *       				  					 			
+ *      	   		  			 		  
  */
 class Customweb_Payment_Authorization_DefaultTransactionHistoryItem implements Customweb_Payment_Authorization_ITransactionHistoryItem {
 	

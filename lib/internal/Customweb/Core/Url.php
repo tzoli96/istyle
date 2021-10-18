@@ -30,31 +30,31 @@ final class Customweb_Core_Url {
 	 * The scheme is the protocol (https, http etc.)
 	 * @var string
 	 */
-	private $scheme = NULL;
+	private $scheme = null;
 
 	/**
 	 * The port number of the URL.
 	 * @var int
 	 */
-	private $port = NULL;
+	private $port = null;
 
 	/**
 	 * Host of the URL
 	 * @var string
 	 */
-	private $host = NULL;
+	private $host = null;
 
 	/**
 	 * Username of the URL
 	 * @var string
 	 */
-	private $user = NULL;
+	private $user = null;
 
 	/**
 	 * Password of the URL
 	 * @var string
 	 */
-	private $pass = NULL;
+	private $pass = null;
 
 	/**
 	 * Path of the URL.
@@ -72,7 +72,7 @@ final class Customweb_Core_Url {
 	 * The query part of the URL as an array.
 	 * @var array
 	 */
-	private $queryAsArray = array();
+	private $queryAsArray = [];
 
 	/**
 	 * Fragment part of the URL.
@@ -124,13 +124,13 @@ final class Customweb_Core_Url {
 	 * @return Customweb_Core_Url
 	 */
 	public function setUrlFromString($url) {
-		$data = array();
+		$data = [];
 		if (is_string($url)) {
 			// Parse the given URL.
 			$data = parse_url($url);
 		}
 		else {
-			throw new InvalidArgumentException('Parameter $url is not string.');
+			throw new InvalidArgumentException("Parameter $url is not string.");
 		}
 
 		foreach ($data as $name => $value) {
@@ -144,11 +144,8 @@ final class Customweb_Core_Url {
 			// We need always a port. Since parse_url does not
 			// always set a port, we do it here depending on the
 			// protocol:
-			switch ($this->scheme) {
+			switch (strtolower($this->scheme)) {
 				case 'https':
-					$this->port = 443;
-					break;
-
 				case 'ssl':
 					$this->port = 443;
 					break;
@@ -157,8 +154,6 @@ final class Customweb_Core_Url {
 					$this->port = 21;
 					break;
 				case 'sftp':
-					$this->port = 22;
-					break;
 				case 'ssh':
 					$this->port = 22;
 					break;
@@ -184,30 +179,30 @@ final class Customweb_Core_Url {
 
 		// some fields shuld only be updated, in case it is a full qualified URL
 		if (strstr($urlString, '://')) {
-			if ($url->getHost() !== NULL) {
+			if (!is_null($url->getHost())) {
 				$this->setHost($url->getHost());
 			}
-			if ($url->getPort() !== NULL) {
+			if (!is_null($url->getPort())) {
 				$this->setPort($url->getPort());
 			}
-			if ($url->getPass() !== NULL) {
+			if (!is_null($url->getPass())) {
 				$this->setPass($url->getPass());
 			}
-			if ($url->getScheme() !== NULL) {
+			if (!is_null($url->getScheme())) {
 				$this->setScheme($url->getScheme());
 			}
-			if ($url->getUser() !== NULL) {
+			if (!is_null($url->getUser() )) {
 				$this->setUser($url->getUser());
 			}
 		}
 		
-		if ($url->getFragment() !== NULL) {
+		if (!is_null($url->getFragment() )) {
 			$this->setFragment($url->getFragment());
 		}
-		if ($url->getPath() !== NULL) {
+		if (!is_null($url->getPath())) {
 			$this->setPath($url->getPath());
 		}
-		if ($url->getQuery() !== NULL) {
+		if (!is_null($url->getQuery())) {
 			$this->setQuery($url->getQuery());
 		}
 		
@@ -275,7 +270,9 @@ final class Customweb_Core_Url {
 		$url .= $this->host;
 		
 		$scheme = strtolower($this->scheme);
-		if (($scheme == 'http' && $this->port != '80') || ($scheme == 'https' && $this->port != '443') || ($scheme != 'https' && $scheme != 'http')) {
+
+		// do not add ports number for 443, and 80 with schemes http or https
+		if (!(in_array($scheme, ['http', 'https']) && in_array($this->port, ['443', '80']))) {
 			$url .= ':' . $this->port;
 		}
 		
@@ -300,7 +297,7 @@ final class Customweb_Core_Url {
 	 */
 	public function setPort($port) {
 		if (!is_int($port)) {
-			throw new InvalidArgumentException("The given port is not an integer.");
+			throw new InvalidArgumentException("The given port $port is not an integer.");
 		}
 		$this->port = $port;
 		return $this;

@@ -35,7 +35,7 @@ require(['jquery', 'domReady', 'prototype'], function($, domReady){
 			var html = '<div class="admin__field admin__field-option">';
 			html += '<input id="capture_no_close" name="invoice[capture_no_close]" value="1" type="checkbox" class="admin__control-checkbox">';
 			html += '<label class="admin__field-label" for="capture_no_close"><?php echo str_replace("'", "\'", __("Capture: Don't Close")) ?></label>';
-			html += '<div class="tooltip"><span class="help"><span></span></span><div class="tooltip-content"><?php echo __('If you select this checkbox, the payment will be captured at the PSP and you can not add additional captures.') ?></div></div>';
+			html += '<div class="tooltip"><span class="help"><span></span></span><div class="tooltip-content"><?php echo __('Unless you select this checkbox, the payment will be captured at the PSP and you can not add additional captures.') ?></div></div>';
 			html += '</div>';
 			$('.order-totals-actions .field-append').before(html);
 			$('select[name="invoice[capture_case]"]').on('change', function(){

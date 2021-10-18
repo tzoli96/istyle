@@ -49,7 +49,13 @@ class Customweb_FirstDataConnect_Configuration {
 	 * @return string
 	 */
 	public function getConfigurationValue($key) {
-		return $this->configurationAdapter->getConfigurationValue($key);
+		$value = $this->configurationAdapter->getConfigurationValue($key);
+
+		if(is_string($value)){
+			$value = trim($value);
+		}
+
+		return $value;
 	}
 
 	/**

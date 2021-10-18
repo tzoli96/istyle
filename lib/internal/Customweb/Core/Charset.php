@@ -247,7 +247,7 @@ abstract class Customweb_Core_Charset {
 				throw new Customweb_Core_Exception_InvalidPatternException($this->regexErrorMessage);
 			}
 			else {
-				throw new Customweb_Core_Exception_InvalidPatternException('Evaluation of regex fails with an unkown error.');
+				throw new Customweb_Core_Exception_InvalidPatternException('Evaluation of regex fails with an unknown error.');
 			}
 		}
 		else {

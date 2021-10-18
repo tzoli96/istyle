@@ -252,7 +252,7 @@ class Customweb_FirstDataConnect_Authorization_AuthorizationHandler {
 				
 				//failed
 				$userMessage = Customweb_I18n_Translation::__("The transaction failed.");
-				$backendMessage = Customweb_I18n_Translation::__('The transaction failed with an unkown error.');
+				$backendMessage = Customweb_I18n_Translation::__('The transaction failed with an unknown error.');
 				if (isset($parameters['fail_reason'])) {
 					$details = null;
 					$backendMessage = Customweb_I18n_Translation::__("Reason: !reason", array("!reason" => $parameters['fail_reason']));
@@ -285,7 +285,7 @@ class Customweb_FirstDataConnect_Authorization_AuthorizationHandler {
 		$paymentMethod = $this->getContainer()->getPaymentMethodByTransaction($transaction);
 		
 		$userMessage = Customweb_I18n_Translation::__("The transaction failed.");
-		$backendMessage = Customweb_I18n_Translation::__('The transaction failed with an unkown error.');
+		$backendMessage = Customweb_I18n_Translation::__('The transaction failed with an unknown error.');
 		if (isset($parameters['fail_reason'])) {
 			$details = null;
 			$backendMessage = Customweb_I18n_Translation::__("Reason: !reason", array("!reason" => $parameters['fail_reason']));

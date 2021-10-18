@@ -29,7 +29,7 @@ interface Customweb_Payment_Authorization_IUpdateTransactionContext {
 	 * The URL to which a PUSH update should be sent, when the payment is processed
 	 * by the payment service provider. The implementator of the interface has to make sure that
 	 * the update URL can be called at any time after the authorization of the payment.
-	 *       				  					 			
+	 *      	   		  			 		  
 	 * @deprecated Use instead the method from the INotificationTransactionContext
 	 * @return String The URL on which a notification is sent.
 	 */

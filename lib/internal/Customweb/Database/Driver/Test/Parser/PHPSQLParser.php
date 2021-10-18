@@ -896,7 +896,7 @@ class Customweb_Database_Driver_Test_Parser_PHPSQLParser extends Customweb_Datab
 				}
 				$parseInfo['alias']['name'] = $str;
 				$parseInfo['alias']['base_expr'] = trim($parseInfo['alias']['base_expr']);
-				continue;
+				break;
 
 			case 'INDEX':
 				if ($token_category == 'CREATE') {
@@ -918,13 +918,11 @@ class Customweb_Database_Driver_Test_Parser_PHPSQLParser extends Customweb_Datab
 			case 'INNER':
 			case 'OUTER':
 				$parseInfo['token_count']++;
-				continue;
 				break;
 
 			case 'FOR':
 				$parseInfo['token_count']++;
 				$skip_next = true;
-				continue;
 				break;
 
 			case 'LEFT':
@@ -948,7 +946,7 @@ class Customweb_Database_Driver_Test_Parser_PHPSQLParser extends Customweb_Datab
 
 			default:
 				if ($upper === "") {
-					continue; # ends the switch statement!
+					break; # ends the switch statement!
 				}
 
 				if ($parseInfo['token_count'] === 0) {

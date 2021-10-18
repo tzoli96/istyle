@@ -33,7 +33,7 @@ final class Customweb_Payment_Util {
 
 	/**
 	 * This method extracts the expiry date (month, year) from a single string.
-	 *        				  					 			
+	 *       	   		  			 		  
 	 *
 	 * @param string $expriyDate
 	 * @return array

@@ -63,7 +63,7 @@ class Customweb_FirstDataConnect_BackendOperation_Adapter_CancelAdapter extends 
 				$errorMessage = 'Server Error! Please contact FirstData Connect';
 			}
 			elseif ($e->getFaultCode() == 'SOAP-ENV:Client') {
-				$errorMessage = 'Unkown Error';
+				$errorMessage = 'Unknown Error';
 				$fault =  $e->getFaultDetail();
 				
 				if(isset($fault->nodeValue)) {
@@ -71,7 +71,7 @@ class Customweb_FirstDataConnect_BackendOperation_Adapter_CancelAdapter extends 
 				}
 			}
 			else {
-				$errorMessage = 'Unkown Error';
+				$errorMessage = 'Unknown Error';
 			}
 		}
 		if (empty($errorMessage) && ($response->getErrorMessage() != null && $response->getErrorMessage()->__toString() != "")) {

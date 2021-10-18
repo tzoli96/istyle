@@ -89,10 +89,10 @@ class Form extends \Magento\Payment\Block\Form
 	{
 		
 		$arguments = null;
-		return \Customweb_Licensing_FirstDataConnectCw_License::run('ea3344jvkir8j1a5', $this, $arguments);
+		return \Customweb_Licensing_FirstDataConnectCw_License::run('rklevpgfucu1ssen', $this, $arguments);
 	}
 
-	final public function call_13rfv6p6eane6dhh() {
+	final public function call_mi5ojsa89sgiv01f() {
 		$arguments = func_get_args();
 		$method = $arguments[0];
 		$call = $arguments[1];

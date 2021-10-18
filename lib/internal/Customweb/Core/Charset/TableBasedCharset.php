@@ -201,7 +201,7 @@ abstract class Customweb_Core_Charset_TableBasedCharset extends Customweb_Core_C
 			if (strlen($string) <= $index) {
 				throw new Customweb_Core_Exception_IndexOutOfBoundException();
 			}
-			return $string{$index};
+			return $string[$index];
 		}
 	}
 	
@@ -310,7 +310,7 @@ abstract class Customweb_Core_Charset_TableBasedCharset extends Customweb_Core_C
 			$max = strlen($string);
 			$buf = "";
 			for($i = 0; $i < $max; $i ++) {
-				$buf .= $this->converCharToUTF8($string{$i}, $table, $ranges);
+				$buf .= $this->converCharToUTF8($string[$i], $table, $ranges);
 			}
 		}
 		

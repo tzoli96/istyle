@@ -39,11 +39,13 @@ class Customweb_Payment_Authorization_Method_Sepa_Bic {
 	public function validate($bic) {
 		
 		if (strlen($bic) < 8) {
-			throw new Exception(Customweb_Core_String::_("The BIC is too short."));
+			throw new Customweb_Payment_Exception_PaymentErrorException(
+				new Customweb_Payment_Authorization_ErrorMessage(Customweb_I18n_Translation::__("The BIC is too short.")));
 		}
 		
 		if (!preg_match('/^[a-z0-9]{4}[a-z]{2}[a-z0-9]{2}([a-z0-9]{3})?$/i', $bic)) {
-			throw new Exception(Customweb_Core_String::_("The BIC has a invalid format."));
+			throw new Customweb_Payment_Exception_PaymentErrorException(
+				new Customweb_Payment_Authorization_ErrorMessage(Customweb_I18n_Translation::__("The BIC has a invalid format.")));
 		}
 		
 		return true;

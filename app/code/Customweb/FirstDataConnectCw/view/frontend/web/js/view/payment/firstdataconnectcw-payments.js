@@ -66,6 +66,14 @@ define([
 			{
 			    type: 'firstdataconnectcw_bcmc',
 			    component: 'Customweb_FirstDataConnectCw/js/view/payment/method-renderer/firstdataconnectcw_bcmc-method'
+			},
+			{
+			    type: 'firstdataconnectcw_przelewy24',
+			    component: 'Customweb_FirstDataConnectCw/js/view/payment/method-renderer/firstdataconnectcw_przelewy24-method'
+			},
+			{
+			    type: 'firstdataconnectcw_trustly',
+			    component: 'Customweb_FirstDataConnectCw/js/view/payment/method-renderer/firstdataconnectcw_trustly-method'
 			});
 	return Component.extend({});
 });
