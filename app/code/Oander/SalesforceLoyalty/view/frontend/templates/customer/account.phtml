@@ -7,49 +7,46 @@
 ?>
 
 <?php
-if($block->getCustomerLoyaltyStatus() == 1) {
-    echo $block->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId('temporary_period_loyalty_registration_block')->toHtml();
-}
-elseif($block->getCustomerLoyaltyStatus() == 2)
-{
-  ?>
+    if($block->getCustomerLoyaltyStatus() == 1) {
+        echo $block->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId('temporary_period_loyalty_registration_block')->toHtml();
+    } elseif($block->getCustomerLoyaltyStatus() == 2) {
+?>
     <div>SF ID:<?php echo $block->getSalesforceId() ?></div><br>
     <div>Loyalty Points:<?php echo $block->getLoyaltyPoints() ?></div><br>
     <div id="loyaltyhistory" class="carousel">
     </div>
 
     <script type="text/x-magento-init">
-     {
-         "#loyaltyhistory": {
-             "salesforceLoyaltyHistory": <?php /* @noEscape */ echo $block->getScriptOptions(); ?>
-         }
-     }
- </script>
-
-    <?php
-}else{
+        {
+            "#loyaltyhistory": {
+                "salesforceLoyaltyHistory": <?php /* @noEscape */ echo $block->getScriptOptions(); ?>
+        }
+    }
+</script>
+<?php
+    } else {
 ?>
     <div class="row">
-        <div class="col-12 col-lg-8 offset-lg-2">
-            <form id="registration"
-                  action="/salesforceloyalty/customer/loyaltyregistrationprocess"
-                    class="checkout-success-registration">
+        <div class="col-12 col-lg-8">
+            <form
+                id="registration"
+                action="/salesforceloyalty/customer/loyaltyregistrationprocess"
+                class="checkout-success-registration"
+            >
                 <div class="form-group">
                     <?=  $block->getLayout()
-                        ->createBlock('Magento\CheckoutAgreements\Block\Agreements')
+                        ->createBlock('Oander\SalesforceLoyalty\Block\SuccessPage\Agreements')
                         ->setTemplate('Magento_Customer::form/register-agreements.phtml')
                         ->toHtml();
                     ?>
                 </div>
                     <input type="submit" class="action primary" value="MEHET">
-
             </form>
             <div class="reg-messages messages">
                 <div class="message"></div>
             </div>
         </div>
     </div>
-
     <?php
 }
 ?>
