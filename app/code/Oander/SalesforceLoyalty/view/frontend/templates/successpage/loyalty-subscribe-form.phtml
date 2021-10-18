@@ -5,9 +5,11 @@
 ?>
 <div class="row">
     <div class="col-12 col-lg-8 offset-lg-2">
-        <form id="registration"
-              action="<?= $block->getActionUrl()?>"
-              class="checkout-success-registration">
+        <form
+            id="registration"
+            action="<?= $block->getActionUrl()?>"
+            class="checkout-success-registration"
+        >
             <div class="form-group">
                 <?=  $block->getLayout()
                     ->createBlock('Oander\SalesforceLoyalty\Block\SuccessPage\Agreements')

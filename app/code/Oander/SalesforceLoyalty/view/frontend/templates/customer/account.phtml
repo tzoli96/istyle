@@ -27,7 +27,7 @@
             <form
                 id="registration"
                 action="/salesforceloyalty/customer/loyaltyregistrationprocess"
-                class="checkout-success-registration"
+                class="loyalty-profile-registration"
             >
                 <div class="form-group">
                     <?=  $block->getLayout()
@@ -37,10 +37,25 @@
                     ?>
                 </div>
                 <input
+                    id="loyalty-registration"
                     type="submit"
                     class="action primary"
                     value="<?php /* @escapeNotVerified */ echo __('Register') ?>"
+                    disabled
                 >
+                <script type="text/javascript">
+                    require(['jquery'], function($) {
+                        $(function() {
+                            $('#registration.loyalty-profile-registration .checkbox').on('change', function() {
+                                if ($(this).is(':checked')) {
+                                    $('#loyalty-registration').removeAttr('disabled');
+                                } else {
+                                    $('#loyalty-registration').attr('disabled', 'disabled');
+                                }
+                            });
+                        });
+                    });
+                </script>
             </form>
             <div class="reg-messages messages">
                 <div class="message"></div>
