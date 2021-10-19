@@ -38,7 +38,7 @@ abstract class Customweb_Core_DateTimeAbstract extends DateTime {
 	protected $dateTimeAsString = '';
 	public function __construct($time = null, $timezone = null) {
 
-		if ($time instanceof DateTime) {
+		if ($time instanceof DateTime || ( (version_compare(PHP_VERSION, '5.5.0') >= 0) && $time instanceof DateTimeInterface)) {
 			$time = $time->format ( 'Y-m-d H:i:sP' );
 		}
 

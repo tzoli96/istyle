@@ -108,8 +108,9 @@ abstract class Checkout extends \Magento\Framework\App\Action\Action
 	 */
 	protected function handleFailure(\Customweb\FirstDataConnectCw\Model\Authorization\Transaction $transaction, $errorMessage)
 	{
-		$this->_checkoutSession->setLastRealOrderId($transaction->getOrder()->getRealOrderId());
-		$this->restoreQuote();
+	    if ($this->_checkoutSession->getLastRealOrderId() == $transaction->getOrder()->getRealOrderId()) {
+            $this->restoreQuote();
+	    }
 
 		$this->messageManager->addErrorMessage($errorMessage);
 // 		$this->_checkoutSession->setFirstDataConnectCwFailureMessage($errorMessage);

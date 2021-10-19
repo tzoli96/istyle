@@ -58,11 +58,17 @@ if [ "${INSTANCE_ID}" == "${DEV_MASTER_ID}" ]; then
   echo
   echo "===== BUILD STAGE ====="
   echo
+  
+  echo " MAINTENANCE ENABLE: "
+  magento "maintenance:enable"
 
   symlink_check "CREATE DIRECTORY SYMLINK TO UPLOAD FOLDER" "${WEBROOT}/upload" "${EFS}/upload" "${WEBROOT}/"
-
+  
   echo -n " * COPY THE ENV FILE ... "
   if cp -a ${EFS}/env/env.php ${WEBROOT}/app/etc/; then echo OK; else echo FAIL; fi
+  
+  echo " * MAGENTO CACHE DISABLE: "
+  magento "cache:disable"
 
   echo " * MANUALLY CLEANUP GENERATED MAGENTO FOLDERS: "
   echo -n " * /var/di ... "
@@ -143,6 +149,10 @@ if [ "${INSTANCE_ID}" == "${DEV_MASTER_ID}" ]; then
   echo
   echo " * REDIS CACHE FLUSH: "
   redis-cli -h istyle-eu-dev-redis.dzzabg.0001.euc1.cache.amazonaws.com flushall
+  
+  echo " MAINTENANCE DISABLE: "
+  magento "maintenance:disable"
+  
   echo
 
 fi

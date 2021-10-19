@@ -90,7 +90,7 @@ class Customweb_FirstDataConnect_Authorization_Server_Adapter extends Customweb_
 					 * @var Customweb_FirstDataConnect_Stubs_Com_IpgOnline_Ipgapi_Schemas_Ipgapi_IPGApiOrderResponse $orderResponse
 					 */
 					if($orderResponse->getErrorMessage() == null){
-						$errorMessage = 'Unkown Error';
+						$errorMessage = 'Unknown Error';
 					}
 					else{
 						$errorMessage = $orderResponse->getErrorMessage()->get();
@@ -98,7 +98,7 @@ class Customweb_FirstDataConnect_Authorization_Server_Adapter extends Customweb_
 					}
 				}
 				else {
-					$errorMessage = 'Unkown Error';
+					$errorMessage = 'Unknown Error';
 				}
 				throw new Customweb_Payment_Exception_PaymentErrorException(
 							new Customweb_Payment_Authorization_ErrorMessage($userMessage, $errorMessage));

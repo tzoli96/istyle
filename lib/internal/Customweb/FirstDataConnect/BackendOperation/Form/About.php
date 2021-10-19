@@ -27,14 +27,14 @@
 class Customweb_FirstDataConnect_BackendOperation_Form_About extends Customweb_Payment_BackendOperation_Form_AbstractAbout {
 	
 	protected function getVersion() {
-		return '3.0.353';	
+		return '3.0.396';	
 	}
 	
 	protected function getReleaseDate() {
-		return 'Wed, 12 Aug 2020 14:38:22 +0200';
+		return 'Thu, 23 Sep 2021 19:26:04 +0200';
 	}
 	
 	protected function getOrderNumber() {
-		return '300014448';
+		return '100025488';
 	}
 }
