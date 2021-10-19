@@ -3,6 +3,11 @@
  * @var $block \Oander\SalesforceLoyalty\Block\SuccessPage\LoyaltySubscribe
  */
 ?>
+<?=  $block->getLayout()
+    ->createBlock('Oander\SalesforceLoyalty\Block\SuccessPage\LoyaltyMarketing')
+    ->setTemplate('Oander_SalesforceLoyalty::successpage/loyalty-marketing.phtml')
+    ->toHtml();
+?>
 <div class="row">
     <div class="col-12 col-lg-8 offset-lg-2">
         <form
@@ -21,7 +26,7 @@
                 id="loyalty-registration"
                 type="submit"
                 class="action primary"
-                value="<?= __('Register')?>"
+                value="<?= __('Create an Account')?>"
                 disabled
             >
             <script type="text/javascript">
