@@ -849,6 +849,12 @@ final class Customweb_Util_Currency {
  			'numericCode' => '678',
  			'decimalPlaces' => '0',
  		),
+ 		'SVC' => array(
+			'code' => 'SVC',
+ 			'name' => 'El Salvador Colon',
+ 			'numericCode' => '222',
+ 			'decimalPlaces' => '2',
+ 		),
  		'SYP' => array(
 			'code' => 'SYP',
  			'name' => 'Syrian pound',
@@ -1063,6 +1069,12 @@ final class Customweb_Util_Currency {
 			'code' => 'ZMW',
  			'name' => 'Zambian kwacha',
  			'numericCode' => '967',
+ 			'decimalPlaces' => '2',
+ 		),
+ 		'ZWL' => array(
+			'code' => 'ZWL',
+ 			'name' => 'Zimbabwe Dollar',
+ 			'numericCode' => '932',
  			'decimalPlaces' => '2',
  		),
  	);

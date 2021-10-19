@@ -124,7 +124,7 @@ class Customweb_FirstDataConnect_Authorization_Recurring_Adapter extends Customw
 					$errorMessage = $orderResponse->getErrorMessage()->get();
 				}
 				else {
-					$errorMessage = 'Unkown Error';
+					$errorMessage = 'Unknown Error';
 				}
 				$transaction->setAuthorizationFailed(new Customweb_Payment_Authorization_ErrorMessage($userMessage, $errorMessage));
 				throw new Customweb_Payment_Exception_RecurringPaymentErrorException($errorMessage);

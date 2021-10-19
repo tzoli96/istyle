@@ -92,7 +92,7 @@ class Customweb_FirstDataConnect_Update_Adapter extends Customweb_FirstDataConne
 				$errorMessage = $e->getFaultDetail();
 			}
 			else {
-				$errorMessage = 'Unkown Error';
+				$errorMessage = 'Unknown Error';
 			}
 		}
 		if (empty($errorMessage) && $response->getSuccessfully()->__toString() == "false") {

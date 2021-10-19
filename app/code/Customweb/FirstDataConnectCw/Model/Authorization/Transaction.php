@@ -634,7 +634,7 @@ class Transaction extends \Magento\Framework\Model\AbstractModel implements \Mag
 		return \dechex($timestamp) . self::HASH_SEPARATOR . $this->_encryptor->hash($this->getEntityId() . $timestamp);
 	}
 
-	public function isValidHash($input, $validity = 500) {
+	public function isValidHash($input, $validity = 5000) {
 		$timestamp = \hexdec(\substr($input, 0, \strpos($input, self::HASH_SEPARATOR)));
 		$hash = \substr($input, \strpos($input, self::HASH_SEPARATOR) + 1);
 		if (!$this->_encryptor->isValidHash($this->getEntityId() . $timestamp, $hash)) {
@@ -673,7 +673,6 @@ class Transaction extends \Magento\Framework\Model\AbstractModel implements \Mag
 		if ($this->getTransactionObject() !== null
 				&& $this->getTransactionObject() instanceof \Customweb_Payment_Authorization_ITransaction
 				&& $this->cachedUncertainFlag != null
-				&& !$this->getTransactionObject()->isCaptured()
 				&& $this->getTransactionObject()->isAuthorizationUncertain() != $this->cachedUncertainFlag) {
 			return true;
 		} else {
@@ -723,12 +722,15 @@ class Transaction extends \Magento\Framework\Model\AbstractModel implements \Mag
 	 */
 	protected function registerReviewAction()
 	{
+	    $context = $this->_authorizationMethodFactory->getContextFactory()->createTransaction($this);
+	    /* @var $adapter \Customweb\FirstDataConnectCw\Model\Authorization\Method\AbstractMethod */
+	    $adapter = $this->_authorizationMethodFactory->create($context);
+	    
 		if ($this->getTransactionObject()->isUncertainTransactionFinallyDeclined()) {
-			$this->getOrderPayment()->deny();
+		    $adapter->decline();
 		} else {
-			$this->getOrderPayment()->accept();
+		    $adapter->accept();
 		}
-		$this->_orderRepository->save($this->getOrder());
 	}
 
 	/**

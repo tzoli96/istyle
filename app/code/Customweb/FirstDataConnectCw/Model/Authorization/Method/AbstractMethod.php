@@ -52,6 +52,13 @@ abstract class AbstractMethod
 	 * @var \Magento\Sales\Model\Order\Email\Sender\InvoiceSender
 	 */
 	protected $_invoiceSender;
+	
+	/**
+	 * Core event manager proxy
+	 *
+	 * @var \Magento\Framework\Event\ManagerInterface
+	 */
+	protected $_eventManager;
 
 	/**
 	 * @var \Customweb\FirstDataConnectCw\Model\DependencyContainer
@@ -104,6 +111,7 @@ abstract class AbstractMethod
 	 * @param \Magento\Sales\Api\OrderRepositoryInterface $orderRepository
 	 * @param \Magento\Sales\Model\Order\Email\Sender\OrderSender $orderSender
 	 * @param \Magento\Sales\Model\Order\Email\Sender\InvoiceSender $invoiceSender
+	 * @param \Magento\Framework\Event\ManagerInterface $eventManager
 	 * @param \Magento\Checkout\Model\Session $checkoutSession
 	 * @param \Customweb\FirstDataConnectCw\Model\DependencyContainer $container
 	 * @param \Customweb\FirstDataConnectCw\Model\Alias\Handler $aliasHandler
@@ -119,6 +127,7 @@ abstract class AbstractMethod
 			\Magento\Sales\Api\OrderRepositoryInterface $orderRepository,
 			\Magento\Sales\Model\Order\Email\Sender\OrderSender $orderSender,
 			\Magento\Sales\Model\Order\Email\Sender\InvoiceSender $invoiceSender,
+            \Magento\Framework\Event\ManagerInterface $eventManager,
 			\Magento\Checkout\Model\Session $checkoutSession,
 			\Customweb\FirstDataConnectCw\Model\DependencyContainer $container,
 			\Customweb\FirstDataConnectCw\Model\Alias\Handler $aliasHandler,
@@ -135,6 +144,7 @@ abstract class AbstractMethod
 		$this->_orderRepository = $orderRepository;
 		$this->_orderSender = $orderSender;
 		$this->_invoiceSender = $invoiceSender;
+		$this->_eventManager = $eventManager;
 		$this->_checkoutSession= $checkoutSession;
 		$this->_container = $container;
 		$this->_aliasHandler = $aliasHandler;
@@ -182,10 +192,10 @@ abstract class AbstractMethod
 		$arguments = array(
 			'transaction' => $transaction,
  		);
-		return \Customweb_Licensing_FirstDataConnectCw_License::run('p4i41bccr4396ivc', $this, $arguments);
+		return \Customweb_Licensing_FirstDataConnectCw_License::run('g5ao3l5r738gmpcp', $this, $arguments);
 	}
 
-	final public function call_mn18tj8r11uofa1g() {
+	final public function call_aaou7u2qrg4ppr42() {
 		$arguments = func_get_args();
 		$method = $arguments[0];
 		$call = $arguments[1];
@@ -218,10 +228,10 @@ abstract class AbstractMethod
 	{
 		
 		$arguments = null;
-		return \Customweb_Licensing_FirstDataConnectCw_License::run('gc4kais3b4dopta6', $this, $arguments);
+		return \Customweb_Licensing_FirstDataConnectCw_License::run('6m51rm6k8fj99a7n', $this, $arguments);
 	}
 
-	final public function call_l52kofuchadpcjso() {
+	final public function call_54rstc252sne3q51() {
 		$arguments = func_get_args();
 		$method = $arguments[0];
 		$call = $arguments[1];
@@ -318,6 +328,38 @@ abstract class AbstractMethod
 			throw new \Magento\Framework\Exception\LocalizedException(__($e->getMessage()), $e);
 		}
 		$this->getContext()->getCustomerContext()->save();
+	}
+	
+	/**
+	 * @return void
+	 */
+	public function accept()
+	{
+	    $order = $this->getContext()->getTransaction()->getOrder();
+	    $order->setState(\Magento\Sales\Model\Order::STATE_PROCESSING)
+	       ->setStatus($order->getConfig()->getStateDefaultStatus(\Magento\Sales\Model\Order::STATE_PROCESSING))
+	       ->addStatusHistoryComment(\__('The uncertain transaction was accepted.'));
+       $this->getOrderRepository()->save($order);
+	}
+	
+	/**
+	 * @return void
+	 */
+	public function decline()
+	{
+	    $payment = $this->getContext()->getTransaction()->getOrderPayment();
+	    $order = $payment->getOrder();
+	    $invoice = $this->getInvoiceByTransactionId($order, $payment->getTransactionId());
+	    if ($invoice instanceof \Magento\Sales\Model\Order\Invoice) {
+	       $invoice->cancel();
+	       $order->addRelatedObject($invoice);
+	    }
+	    try {
+	       $order->registerCancellation(\__('The uncertain transaction was finally declined.'), false);
+	    } catch (\Exception $e) {
+	        $order->addStatusHistoryComment(\__('The uncertain transaction was finally declined.'));
+	    }
+	    $this->getOrderRepository()->save($order);
 	}
 
 	/**
@@ -442,6 +484,10 @@ abstract class AbstractMethod
 
 	private function getCoreRegistry() {
 		return $this->_coreRegistry;
+	}
+	
+	private function getEventManager() {
+	    return $this->_eventManager;
 	}
 
 	private function getOrderSender() {

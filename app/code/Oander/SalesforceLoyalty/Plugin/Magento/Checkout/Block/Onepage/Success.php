@@ -2,7 +2,7 @@
 
 namespace Oander\SalesforceLoyalty\Plugin\Magento\Checkout\Block\Onepage;
 
-use Magento\Checkout\Block\Onepage\Success as extendedSuccess;
+use Innobyte\CheckoutSuccess\Block\Onepage\Success as extendedSuccess;
 use Magento\Checkout\Model\Session;
 use Magento\Framework\View\Element\Template\Context;
 use Magento\Customer\Model\Session\Proxy;
@@ -33,6 +33,10 @@ class Success extends extendedSuccess
     ){
         parent::__construct($context, $checkoutSession, $orderConfig, $httpContext, $data);
         $this->customerSession = $customerSession;
+    }
+
+    public function testelek(){
+        return 'test';
     }
 
     /**

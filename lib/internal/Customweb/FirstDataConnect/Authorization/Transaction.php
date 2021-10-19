@@ -49,13 +49,21 @@ class Customweb_FirstDataConnect_Authorization_Transaction extends Customweb_Pay
 	public function getTransactionSpecificLabels() {
 		$labels = array();
 		$params = $this->getAuthorizationParameters();
-	
+		
 		if (isset($params['cardnumber'])) {
 			$labels['cardnumber'] = array(
-					'label' => Customweb_I18n_Translation::__('Card Number'),
-					'value' => 'xxxx-xxxx-xxxx-'.substr($params['cardnumber'], -4),
+				'label' => Customweb_I18n_Translation::__('Card Number'),
+				'value' => 'xxxx-xxxx-xxxx-'.substr($params['cardnumber'], -4),
 			);
 		}
+		
+		if (isset($params['ccbrand'])) {
+			$labels['ccbrand'] = array(
+				'label' => Customweb_I18n_Translation::__('Card Brand'),
+				'value' => $params['ccbrand'],
+			);
+		}
+		
 		if (isset($params['expyear']) && isset($params['expmonth'])) {
 			$labels['card_expiry'] = array(
 					'label' => Customweb_I18n_Translation::__('Card Expiry Date'),
