@@ -47,7 +47,8 @@ class CustomerChange implements ObserverInterface
         StoreManagerInterface       $storeManager,
         CustomerRepositoryInterface $customerRepository,
         Config                      $helper
-    ){
+    )
+    {
         $this->request = $request;
         $this->agreementCollectionFactory = $agreementCollectionFactory;
         $this->storeManager = $storeManager;
@@ -57,21 +58,33 @@ class CustomerChange implements ObserverInterface
 
     public function execute(Observer $observer)
     {
-        if($this->helper->isSpendingEnabled()){
-            $agreementIds = $this->request->getParam("agreement");
-            if ($agreementIds) {
+        $agreementIds = $this->request->getParam("agreement");
+        if ($this->helper->isSpendingEnabled() && $agreementIds) {
+            if ($this->helper->getRegistrationTermType()) {
                 array_walk($agreementIds, function (&$value, $key) {
                     $value = $key;
                 });
 
                 if ($this->checkHasAgreementId($agreementIds)) {
-                    $customer = $this->customerRepository->getById($observer->getEvent()->getCustomer()->getId());
-                    if (!$customer->getCustomAttribute(CustomerAttribute::REGISTER_TO_LOYALTY)) {
-                        $customer->setCustomAttribute(CustomerAttribute::REGISTER_TO_LOYALTY, true);
-                        $this->customerRepository->save($customer);
-                    }
+                    $this->saveLoyaltyAttribute($observer->getEvent()->getCustomer()->getId());
                 }
+
+            } else {
+                $this->saveLoyaltyAttribute($observer->getEvent()->getCustomer()->getId());
             }
+        }
+    }
+
+    /**
+     * @param $customerId
+     * @return void
+     */
+    private function saveLoyaltyAttribute($customerId)
+    {
+        $customer = $this->customerRepository->getById($customerId);
+        if (!$customer->getCustomAttribute(CustomerAttribute::REGISTER_TO_LOYALTY)) {
+            $customer->setCustomAttribute(CustomerAttribute::REGISTER_TO_LOYALTY, true);
+            $this->customerRepository->save($customer);
         }
     }
 
