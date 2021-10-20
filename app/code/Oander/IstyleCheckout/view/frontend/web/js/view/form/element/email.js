@@ -119,8 +119,10 @@ define([
           }
         } else {
           self.isPasswordVisible(false);
-
           store.auth.hasValidEmailAddress(false);
+          store.auth.emailHasUser(false);
+          $('form[data-role=email-with-possible-login]').find('[name="password"]').val('');
+          store.auth.hasPasswordValue(false);
         }
       }, self.checkDelay);
 
@@ -142,6 +144,8 @@ define([
 
         store.auth.hasValidEmailAddress(true);
         store.auth.emailHasUser(false);
+        $('form[data-role=email-with-possible-login]').find('[name="password"]').val('');
+        store.auth.hasPasswordValue(false);
         store.auth.errorMessage(false);
       }).fail(function () {
         self.isFirstnameExist(self.checkRequest);
