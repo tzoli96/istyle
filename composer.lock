@@ -882,21 +882,6 @@
                 "ssl",
                 "tls"
             ],
-
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2021-09-25T20:32:43+00:00"
         },
         {
@@ -1388,20 +1373,6 @@
             "keywords": [
                 "promise"
             ],
-            "funding": [
-                {
-                    "url": "https://github.com/GrahamCampbell",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/Nyholm",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/promises",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2021-10-07T13:05:22+00:00"
         },
         {
@@ -1493,20 +1464,6 @@
                 "stream",
                 "uri",
                 "url"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/GrahamCampbell",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/Nyholm",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/psr7",
-                    "type": "tidelift"
-                }
             ],
             "time": "2021-10-05T13:56:00+00:00"
         },
@@ -10175,7 +10132,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "03adb46c52c8241089a3743c584a5ee57c33bf67"
+                "reference": "261f43a5addaf1e72229ca2f5e7ced789b5c4155"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10191,7 +10148,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-10-18T16:32:27+00:00"
+            "time": "2021-10-20T09:48:29+00:00"
         },
         {
             "name": "oyejorge/less.php",
