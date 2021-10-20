@@ -49,7 +49,7 @@ class LoyaltyRegistrationProcess extends Action
     public function execute()
     {
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
-        if ($this->helper->isSpendingEnabled()) {
+        if ($this->helper->getLoyaltyServiceEnabled()) {
             $customer = $this->customerRepository->getById($this->customerSession->getId());
             $customer->setCustomAttribute(CustomerAttribute::REGISTER_TO_LOYALTY, true);
             $this->customerRepository->save($customer);

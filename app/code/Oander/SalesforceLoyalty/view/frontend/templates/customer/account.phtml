@@ -8,7 +8,7 @@
 
 <?php
     if ($block->getCustomerLoyaltyStatus() == 1) {
-        echo $block->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId('temporary_period_loyalty_registration_block')->toHtml();
+        echo $block->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId($block->getBlockId())->toHtml();
     } elseif ($block->getCustomerLoyaltyStatus() == 2) {
 ?>
     <div>SF ID:<?php echo $block->getSalesforceId() ?></div>

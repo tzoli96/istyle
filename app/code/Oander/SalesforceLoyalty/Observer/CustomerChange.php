@@ -59,7 +59,7 @@ class CustomerChange implements ObserverInterface
     public function execute(Observer $observer)
     {
         $agreementIds = $this->request->getParam("agreement");
-        if ($this->helper->isSpendingEnabled() && $agreementIds) {
+        if ($this->helper->getLoyaltyServiceEnabled() && $agreementIds) {
             if ($this->helper->getRegistrationTermType()) {
                 array_walk($agreementIds, function (&$value, $key) {
                     $value = $key;

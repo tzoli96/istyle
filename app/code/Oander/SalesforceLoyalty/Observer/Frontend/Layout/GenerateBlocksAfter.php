@@ -21,9 +21,14 @@
 
 namespace Oander\SalesforceLoyalty\Observer\Frontend\Layout;
 
+use Oander\SalesforceLoyalty\Helper\Config;
+
 class GenerateBlocksAfter implements \Magento\Framework\Event\ObserverInterface
 {
-
+    /**
+     * @var Config
+     */
+    private $helperConfig;
     /**
      * @var \Magento\Checkout\Model\Session
      */
@@ -34,17 +39,19 @@ class GenerateBlocksAfter implements \Magento\Framework\Event\ObserverInterface
     private $loyaltyHelper;
 
     /**
-     * LoadBefore constructor.
      * @param \Magento\Checkout\Model\Session $checkoutSession
      * @param \Oander\SalesforceLoyalty\Helper\Data $loyaltyHelper
+     * @param Config $helperConfig
      */
     public function __construct(
         \Magento\Checkout\Model\Session $checkoutSession,
-        \Oander\SalesforceLoyalty\Helper\Data $loyaltyHelper
+        \Oander\SalesforceLoyalty\Helper\Data $loyaltyHelper,
+        Config $helperConfig
     )
     {
         $this->checkoutSession = $checkoutSession;
         $this->loyaltyHelper = $loyaltyHelper;
+        $this->helperConfig = $helperConfig;
     }
 
     /**
@@ -64,7 +71,7 @@ class GenerateBlocksAfter implements \Magento\Framework\Event\ObserverInterface
             if(!($this->checkoutSession->getQuote()->getData(\Oander\SalesforceLoyalty\Enum\Attribute::LOYALTY_DISCOUNT)>0))
             {
                 $earnablePoints = $this->loyaltyHelper->getEarnableLoyaltyPoints();
-                if($earnablePoints>0) {
+                if($earnablePoints>0 && $this->helperConfig->getLoyaltyServiceEnabled()) {
                     $earnableBlock = $layout->addBlock(\Magento\Framework\View\Element\Template::class, "salesforceloyalty.cart.methods.earnable", "checkout.cart.methods");
                     $earnableBlock->setTemplate("Oander_SalesforceLoyalty::cart/earnable.phtml");
                     $earnableBlock->setFormatedEarnablePoints(__("+ %1 points", $earnablePoints));

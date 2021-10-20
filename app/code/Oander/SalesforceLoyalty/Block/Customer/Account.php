@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace Oander\SalesforceLoyalty\Block\Customer;
 
 use Oander\SalesforceLoyalty\Enum\CustomerAttribute;
+use Oander\SalesforceLoyalty\Helper\Data;
 
 class Account extends \Magento\Framework\View\Element\Template
 {
@@ -19,24 +20,29 @@ class Account extends \Magento\Framework\View\Element\Template
      * @var \Magento\Customer\Model\Session
      */
     private $customerSession;
+    /**
+     * @var Data
+     */
+    private $helperData;
 
     /**
-     * Constructor
-     *
      * @param \Magento\Framework\View\Element\Template\Context $context
      * @param \Magento\Customer\Model\Session $customerSession
      * @param \Oander\SalesforceLoyalty\Helper\Salesforce $salesforceHelper
+     * @param Data $helperData
      * @param array $data
      */
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         \Magento\Customer\Model\Session $customerSession,
         \Oander\SalesforceLoyalty\Helper\Salesforce $salesforceHelper,
+        Data $helperData,
         array $data = []
     ) {
         parent::__construct($context, $data);
         $this->salesforceHelper = $salesforceHelper;
         $this->customerSession = $customerSession;
+        $this->helperData = $helperData;
     }
 
     /**
@@ -90,5 +96,13 @@ class Account extends \Magento\Framework\View\Element\Template
         ];
 
         return json_encode($params);
+    }
+
+    /**
+     * @return string
+     */
+    public function getBlockId()
+    {
+        return $this->helperData->getBlockId();
     }
 }

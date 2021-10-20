@@ -8,6 +8,9 @@
 				<max_percent>0</max_percent>
 				<point_value>1</point_value>
 			</salesforce_loyalty_spending>
+			<salesforce_loyalty_registration>
+				<enabled>0</enabled>
+			</salesforce_loyalty_registration>
 		</oander_salesforce>
 		<sales>
 			<totals_sort>

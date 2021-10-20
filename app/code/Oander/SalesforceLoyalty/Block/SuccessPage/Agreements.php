@@ -49,7 +49,7 @@ class Agreements extends Template
                 $agreements = $this->_agreementCollectionFactory->create();
                 $agreements->addStoreFilter($this->_storeManager->getStore()->getId());
                 $agreements->addFieldToFilter('is_active', 1);
-                if($this->helper->getRegistrationTermType())
+                if($this->helper->getRegistrationTermType() && $this->helper->getLoyaltyServiceEnabled())
                 {
                     $agreementsType[] = [
                         ['eq'    => 'loyalty']
