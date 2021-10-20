@@ -70,7 +70,7 @@ class Loyalty extends AbstractTotal
         $address = $shippingAssignment->getShipping()->getAddress();
         $items = $this->_getAddressItems($address);
 
-        if (!count($items) || !$this->configHelper->isSpendingEnabled() ||
+        if (!count($items) || !$this->configHelper->isSpendingEnabled() || !$this->configHelper->getLoyaltyServiceEnabled() &&
             !$this->loyaltyHelper->getMaxRedeemablePoints($quote) >= $quote->getData(Attribute::LOYALTY_POINT)) {
             return $this;
         }

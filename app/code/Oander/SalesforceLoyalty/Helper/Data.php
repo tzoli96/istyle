@@ -11,9 +11,12 @@ use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
 use Magento\Framework\Registry;
 use Oander\SalesforceLoyalty\Enum\Attribute;
+use Magento\Store\Model\StoreManagerInterface;
 
 class Data extends AbstractHelper
 {
+    const MAREKINTG_STATIC_BLOCK = "temporary_period_loyalty_registration_block_";
+
     CONST REGISTRY_MAX_REDEEMBLE_POINTS = "maxredeemablepoints";
     /**
      * @var Config
@@ -29,22 +32,30 @@ class Data extends AbstractHelper
     private $registry;
 
     /**
+     * @var StoreManagerInterface
+     */
+    private $storeManager;
+
+    /**
      * @param Context $context
      * @param \Magento\Checkout\Model\Session $checkoutSession
      * @param Config $configHelper
      * @param Registry $registry
+     * @param StoreManagerInterface $storeManager
      */
     public function __construct(
         Context $context,
         \Magento\Checkout\Model\Session $checkoutSession,
         \Oander\SalesforceLoyalty\Helper\Config $configHelper,
-        Registry $registry
+        Registry $registry,
+        StoreManagerInterface $storeManager
     )
     {
         parent::__construct($context);
         $this->configHelper = $configHelper;
         $this->checkoutSession = $checkoutSession;
         $this->registry = $registry;
+        $this->storeManager = $storeManager;
     }
 
     /**
@@ -145,5 +156,13 @@ class Data extends AbstractHelper
             $quote = $this->checkoutSession->getQuote();
         }
         return $quote;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBlockId()
+    {
+        return self::MAREKINTG_STATIC_BLOCK.$this->storeManager->getStore()->getCode();
     }
 }

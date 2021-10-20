@@ -117,7 +117,7 @@ class UpgradeData implements UpgradeDataInterface
         if (version_compare($context->getVersion(), "1.0.6", "<")) {
             $this->addCustomerAttribute($eavSetup);
         }
-        if (version_compare($context->getVersion(), "1.0.8", "<")) {
+        if (version_compare($context->getVersion(), "1.0.9", "<")) {
             $this->addTemporaryPeriodBlock();
         }
     }
@@ -133,15 +133,13 @@ class UpgradeData implements UpgradeDataInterface
 
         foreach($stores as $store)
         {
-            $storeIds[] = $store->getId();
+            $this->blockFactory->create()->setData([
+                'title' => 'Temporary Period Loyalty Registration Block '.$store->getCode(),
+                'identifier' => 'temporary_period_loyalty_registration_block_'.$store->getCode(),
+                'stores' => $storeIds,
+                'is_active' => 1,
+            ])->save();
         }
-
-        $this->blockFactory->create()->setData([
-            'title' => 'Temporary Period Loyalty Registration Block',
-            'identifier' => 'temporary_period_loyalty_registration_block',
-            'stores' => $storeIds,
-            'is_active' => 1,
-        ])->save();
     }
 
     /**
