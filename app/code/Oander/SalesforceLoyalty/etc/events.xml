@@ -18,4 +18,9 @@
     <event name="customer_save_commit_after">
         <observer name="oander_salesforceloyalty_customer_change" instance="Oander\SalesforceLoyalty\Observer\CustomerChange"/>
     </event>
+    <!-- EBX -->
+    <event name="oander_ebx_convert_customer">
+        <observer name="oander_salesforceloyalty_customer_convert_observer"
+                  instance="Oander\SalesforceLoyalty\Observer\Convert\CustomerConvertObserver"/>
+    </event>
 </config>
