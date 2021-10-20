@@ -4,9 +4,14 @@ namespace Oander\SalesforceLoyalty\Block\SuccessPage;
 
 use Magento\Framework\View\Element\Template;
 use Oander\SalesforceLoyalty\Helper\Data;
+use Magento\Checkout\Model\Session;
 
 class LoyaltyMarketing extends Template
 {
+    /**
+     * @var Session
+     */
+    private $checkoutSession;
     /**
      * @var Data
      */
@@ -15,15 +20,18 @@ class LoyaltyMarketing extends Template
     /**
      * @param Template\Context $context
      * @param Data $helper
+     * @param Session $checkoutSession
      * @param array $data
      */
     public function __construct(
         Template\Context $context,
         Data             $helper,
+        Session          $checkoutSession,
         array            $data = []
     )
     {
         $this->helper = $helper;
+        $this->checkoutSession = $checkoutSession;
         parent::__construct($context, $data);
     }
 
@@ -32,6 +40,6 @@ class LoyaltyMarketing extends Template
      */
     public function getEarnableLoyaltyPoints(): int
     {
-        return $this->helper->getEarnableLoyaltyPoints();
+        return $this->helper->getEarnableLoyaltyPoints($this->checkoutSession->getLastRealOrder());
     }
 }
