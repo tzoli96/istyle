@@ -87,8 +87,7 @@
                                 <input
                                     class="input-text form-control"
                                     type="password"
-                                    data-bind="
-                                        attr:{placeholder: $t('password_placeholder')}"
+                                    data-bind="attr:{placeholder: $t('password_placeholder')}"
                                     name="password"
                                     id="customer-password"
                                     data-validate="{required:true}"
@@ -113,9 +112,12 @@
                                 </button>
                             </div>
                             <div class="secondary">
-                                <a class="action link remind" data-bind="click: forgotPasswordOpenModal">
-                                    <span data-bind="i18n: 'Forgot Your Password?'"></span>
-                                </a>
+                                <a
+                                    class="action link remind"
+                                    data-bind="
+                                        click: forgotPasswordOpenModal,
+                                        i18n: 'Forgot Your Password?'"
+                                ></a>
                             </div>
                         </div>
                     </fieldset>
@@ -161,7 +163,9 @@
                                 class="input-text form-control"
                                 autocomplete="off"
                                 data-bind="attr: { 'placeholder': $t('Email Address') }, value: getEmail()"
-                                data-validate="{ required: true, 'validate-email': true }">
+                                data-validate="{ required: true, 'validate-email': true }"
+                                aria-label="E-mail"
+                            >
                         </div>
                     </div>
                     <h4 data-bind="i18n: 'Please enter your email address below to receive a password reset link.'"></h4>

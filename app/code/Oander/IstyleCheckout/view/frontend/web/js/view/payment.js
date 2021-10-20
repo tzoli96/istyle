@@ -5,9 +5,12 @@ define([
   'Oander_IstyleCheckout/js/helpers',
   'Magento_Checkout/js/action/get-payment-information',
   'Oander_IstyleCheckout/js/model/store',
+  'Magento_Checkout/js/model/payment/method-list',
   'mage/translate'
-], function ($, ko, quote, helpers, getPaymentInformationAction, store, $t) {
+], function ($, ko, quote, helpers, getPaymentInformationAction, store, methodList, $t) {
   'use strict';
+
+  var paymentMethodList = [];
 
   var mixin = {
     isPaymentMethodVisible: ko.observable(false),
@@ -17,12 +20,24 @@ define([
      * @returns {String}
      */
     getPaymentMethod: ko.computed(function () {
-      var paymentMethod = quote.paymentMethod();
-      var title = '';
+      var paymentMethod = quote.paymentMethod(),
+          title = '';
 
-      if (paymentMethod) (paymentMethod.title)
-        ? title = paymentMethod.title
-        : title = paymentMethod.method
+      if (paymentMethodList.length === 0) {
+        paymentMethodList = methodList();
+      }
+
+      if (paymentMethod) {
+        if (paymentMethod.title) {
+          title = paymentMethod.title;
+        } else {
+          for (var i = 0; i < paymentMethodList.length; i++) {
+            if (paymentMethodList[i].method === paymentMethod.method) {
+              title = paymentMethodList[i].title;
+            }
+          }
+        }
+      }
 
       return title ? title : $t('Please select payment method.');
     }),
