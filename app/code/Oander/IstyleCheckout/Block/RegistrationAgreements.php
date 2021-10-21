@@ -55,7 +55,7 @@ class RegistrationAgreements extends Agreements
                     ['eq'    => 'registration'],
                     ['eq'    => 'all'],
                 ];
-                if($this->loyaltyHelper->getRegistrationTermType())
+                if($this->loyaltyHelper->getRegistrationTermType() && $this->loyaltyHelper->getLoyaltyServiceEnabled())
                 {
                     $agreementsType[] = [
                         ['eq'    => 'loyalty']
