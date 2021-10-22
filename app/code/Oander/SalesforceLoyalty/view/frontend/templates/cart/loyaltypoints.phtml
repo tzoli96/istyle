@@ -4,31 +4,108 @@
  */
 ?>
 <?php if($block->isLoggedIn()): ?>
-    <div class="block block--loyalty active" id="block-loyalty" data-collapsible="true" role="tab" aria-selected="false" aria-expanded="1" tabindex="0">
-        <div class="block__content" data-role="content">
+    <div class="block block--loyalty active d-flex align-items-center" id="block-loyalty" data-mage-init='{"collapsible":{"openedState": "active", "active": 1, "saveState": false}}'>
+        <div class="block__content w-100" data-role="content">
             <form id="loyalty-form" action="<?= $block->getLoyaltyPostUrl()?>" method="post">
                 <div class="fieldset loyalty">
-                    <input type="hidden" name="remove" id="remove-loyalty" value="0">
                     <div class="block block--new-loyalty">
-                        <div class="block__title"><?php __("Redeem Loyalty Points"); ?></div>
-                        <div>
-                            <?php if($block->getCartInfoText()): ?>
-                                InfoText:<?= $block->getCartInfoText() ?><br>
-                            <?php endif; ?>
-                            MaxRedeemableErrorMessage:<?=__('You can only spend a maximum of %1 points for this purchase.', $block->getMaxRedeemablePoints())?>
-                            MaxRedeemableErrorMessage:<?=__('You only have %1 points available to spend.', $block->getAvailablePoints())?>
-                            MaxRedeemablePoints:<?= $block->getMaxRedeemablePoints() ?><br>
-                            MaxAvailablePoints:<?= $block->getAvailablePoints() ?><br>
-                            LoyaltyDiscountAmount:<?= $block->getLoyaltyDiscount() ?><br>
-                            LoyaltyDiscountAmountFormated:<?= $block->getLoyaltyDiscountFormated() ?><br>
-                            <input type="text" class="block__input input-text form-control input-loyalty" id="amount" name="amount" placeholder="Loyalty points" autofocus="">
-                        </div>
+                        <?php if($block->getLoyaltyDiscount() > 0): ?>
+                            <div class="loyalty-used d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <span><?= __('Available points'); ?></span>
+                                    <?php if($block->getCartInfoText()): ?>
+                                        <span class="info-block__icon">
+                                            <span class="tooltip"><?= $block->getCartInfoText() ?></span>
+                                        </span>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="loyalty-used__badge d-flex align-items-center">
+                                    <span class="loyalty-used__amount"><?= $block->getLoyaltyDiscountFormated() ?></span>
+                                    <div class="loyalty-used__delete">
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" name="remove" id="remove-loyalty" value="0">
+                        <?php else: ?>
+                            <div class="block__title d-flex align-items-center"><?= __('Redeem Loyalty Points'); ?></div>
+                            <div class="block__content d-flex align-items-center">
+                                <div class="block__content__holder">
+                                    <div class="info-block d-flex align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center">
+                                            <span><?= __('Available points'); ?></span>
+                                            <?php if($block->getCartInfoText()): ?>
+                                                <span class="info-block__icon">
+                                                    <span class="tooltip"><?= $block->getCartInfoText() ?></span>
+                                                </span>
+                                            <?php endif; ?>
+                                        </div>
+                                        <span class="info-block__amount"><?= __('%1 loyalty points', min($block->getMaxRedeemablePoints(), $block->getAvailablePoints()))?></span>
+                                    </div>
+                                    <div class="block__input-group">
+                                        <input
+                                            type="text"
+                                            class="block__input input-text form-control input-loyalty"
+                                            id="amount"
+                                            name="amount"
+                                            placeholder="<?= __('Maximum %1 loyalty points', min($block->getMaxRedeemablePoints(), $block->getAvailablePoints()))?>"
+                                        >
+                                        <span class="input-group-btn">
+                                            <button
+                                                class="block__action action apply primary button-loyalty"
+                                                type="submit"
+                                                value="<?php /* @escapeNotVerified */ echo __('Use') ?>"
+                                                disabled
+                                            >
+                                                <span><?php /* @escapeNotVerified */ echo __('Use') ?></span>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 <?php else: ?>
-    <div class="block__title"><?php echo __("Redeem Loyalty Points"); ?></div>
-    <?php echo __('Please, <a href="%1" target="_blank">Create</a> or <a href="%2" target="_blank">Login</a> to participate in our Loyalty Program', $block->getUrl("customer/account/create"), $block->getUrl("customer/account/login")); ?>
+    <div class="block block--loyalty active" id="block-loyalty">
+        <div class="block__content" data-role="content"></div>
+    </div>
 <?php endif; ?>
+<script>
+    require([
+        'jquery',
+    ], function($) {
+        var userObject = {
+                userPoints: <?= $block->getAvailablePoints() ?>,
+                pointsAvailableForUse: <?= $block->getMaxRedeemablePoints() ?>,
+                discountAmount: <?= $block->getLoyaltyDiscount() ?>,
+                formattedDiscountAmount: '<?= $block->getLoyaltyDiscountFormated() ?>'
+            },
+            referenceNumber = Math.min(userObject.userPoints, userObject.pointsAvailableForUse);
+
+
+        $('.block--new-loyalty .block__title').on('click', function() {
+            $('.block--new-loyalty').addClass('is-active');
+            setTimeout(function() {
+                $('.block--new-loyalty .block__input').focus();
+            }, 600);
+        });
+
+        $('.input-loyalty').on('input', function() {
+            if ($(this).val() > 0 && referenceNumber > 0 && $(this).val() <= referenceNumber) {
+                $('.button-loyalty').removeAttr('disabled');
+            } else {
+                $('.button-loyalty').attr('disabled', 'disabled');
+            }
+        });
+
+        $('.button-loyalty, .loyalty-used__delete').on('click', function(e) {
+            e.preventDefault();
+            $('#loyalty-form').submit();
+        });
+    });
+</script>
