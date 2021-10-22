@@ -11,9 +11,56 @@
         echo $block->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId($block->getBlockId())->toHtml();
     } elseif ($block->getCustomerLoyaltyStatus() == 2) {
 ?>
-    <div>SF ID:<?php echo $block->getSalesforceId() ?></div>
-    <div>Loyalty Points:<?php echo $block->getLoyaltyPoints() ?></div>
-    <div id="loyaltyhistory" class="carousel"></div>
+    <?php
+    echo $this->getLayout()
+    ->createBlock('Magento\Cms\Block\Block')
+    ->setBlockId('loyalty_profile_block')
+    ->toHtml();
+    ?>
+
+    <div class="block block--loyalty-account">
+        <div class="block__head">
+            <div class="row">
+                <div class="col-6">
+                    <div class="block__col">
+                        <p class="block__title"><?= __('Loyalty ID') ?></p>
+                        <span><?php echo $block->getSalesforceId() ?></span>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="block__col">
+                        <p class="block__title"><?= __('Available points') ?></p>
+                        <span><?php echo $block->getLoyaltyPoints() ?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block__content">
+            <div class="block block--loyaltyhistory">
+                <div class="block__table">
+                    <table id="loyaltyhistory" class="table table-striped table--loyalty">
+                        <thead>
+                            <tr>
+                                <td><b><?= __('Transaction date') ?></b></td>
+                                <td><b><?= __('Transaction type') ?></b></td>
+                                <td><b><?= __('Transaction points') ?></b></td>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="block__load">
+                    <img src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/loader-1.gif'); ?>" alt="<?= __('Loading') ?>" title="<?= __('Loading') ?>">
+                </div>
+                <div class="block__pagination">
+                    <div class="pages">
+                        <ul class="items"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/x-magento-init">
         {
             "#loyaltyhistory": {
