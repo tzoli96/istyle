@@ -10,7 +10,7 @@
                 <div class="fieldset loyalty">
                     <div class="block block--new-loyalty">
                         <?php if($block->getLoyaltyDiscount() > 0): ?>
-                            <div class="loyalty-used d-flex align-items-center justify-content-between">
+                            <div class="loyalty-used info-block d-flex align-items-center justify-content-between">
                                 <div class="d-flex align-items-center">
                                     <span><?= __('Available points'); ?></span>
                                     <?php if($block->getCartInfoText()): ?>
@@ -106,6 +106,18 @@
         $('.button-loyalty, .loyalty-used__delete').on('click', function(e) {
             e.preventDefault();
             $('#loyalty-form').submit();
+        });
+
+        $('.info-block__icon').on('click', function () {
+            var mnyTooltip = $(this).closest('.info-block').find('.tooltip');
+
+            $('.tooltip.is-active').removeClass('is-active');
+            mnyTooltip.addClass('is-active');
+        });
+
+        $(document).mouseup(function (e) {
+            var tooltip = $('.tooltip');
+            if (!tooltip.is(e.target) && tooltip.has(e.target).length === 0) tooltip.removeClass('is-active');
         });
     });
 </script>
