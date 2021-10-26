@@ -1,0 +1,8 @@
+<?php if ($this->helper('Magento\Customer\Helper\Address')->isVatAttributeVisible()) : ?>
+    <div class="form-group field taxvat">
+        <label class="label" for="vat_id"><span><?php /* @escapeNotVerified */ echo __('VAT Number') ?></span></label>
+        <div class="control">
+            <input type="text" name="vat_id" value="<?php echo $block->escapeHtml($block->getAddress()->getVatId()) ?>" title="<?php /* @escapeNotVerified */ echo __('VAT Number') ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('vat_id') ?>" id="vat_id">
+        </div>
+    </div>
+<?php endif; ?>
