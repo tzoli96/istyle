@@ -89,7 +89,7 @@ class LayoutProcessor
                 ['children']['form-fields']['children']['vat_id']['sortOrder'] = 11;
             $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
                 ['children']['form-fields']['children']['vat_id']['placeholder'] = __('vat_id_placeholder');
-            if($this->scopeConfig->getValue("customer/address/taxvat_show", \Magento\Store\Model\ScopeInterface::SCOPE_STORE) == "req") {
+            if($this->scopeConfig->getValue("customer/address/taxvat_profile_checkout_required", \Magento\Store\Model\ScopeInterface::SCOPE_STORE)) {
                 $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
                 ['children']['form-fields']['children']['vat_id']['additionalClasses'] = "vat-required";
             }
