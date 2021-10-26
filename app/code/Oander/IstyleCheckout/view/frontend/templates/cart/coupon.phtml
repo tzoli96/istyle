@@ -10,10 +10,19 @@
 ?>
 <div class="block block--discount" id="block-discount" data-mage-init='{"collapsible":{"openedState": "active", "active": 1, "saveState": false}}'>
   <div class="block__content" data-role="content">
-    <form id="discount-coupon-form" action="<?php /* @escapeNotVerified */ echo $block->getUrl('checkout/cart/couponPost') ?>" method="post" data-mage-init='{"discountCode":{"couponCodeSelector": "#coupon_code",
-                            "removeCouponSelector": "#remove-coupon",
-                            "applyButton": "button.action.apply",
-                            "cancelButton": "button.action.cancel"}}'>
+    <form
+      id="discount-coupon-form"
+      action="<?php /* @escapeNotVerified */ echo $block->getUrl('checkout/cart/couponPost') ?>"
+      method="post"
+      data-mage-init='{
+        "discountCode":{
+          "couponCodeSelector": "#coupon_code",
+          "removeCouponSelector": "#remove-coupon",
+          "applyButton": "button.action.apply",
+          "cancelButton": "button.action.cancel"
+        }
+      }'
+    >
       <div class="fieldset coupon<?php strlen($block->getCouponCode()) ? ' applied' : '' ?>">
         <input type="hidden" name="remove" id="remove-coupon" value="0" />
 
@@ -23,7 +32,14 @@
               <?php echo __('Do you have a discount coupon?'); ?>
             </div>
             <div class="block__input-group">
-              <input type="text" class="block__input input-text form-control input-discount" id="coupon_code" name="coupon_code" placeholder="<?php echo $block->escapeHtml(__('Coupon code')); ?>" autofocus />
+              <input
+                type="text"
+                class="block__input input-text form-control input-discount"
+                id="coupon_code"
+                name="coupon_code"
+                placeholder="<?php echo $block->escapeHtml(__('Coupon code')); ?>"
+                autofocus
+              />
               <span class="input-group-btn">
                 <button class="block__action action apply primary" type="button" value="<?php /* @escapeNotVerified */ echo __('Apply') ?>">
                   <span><?php /* @escapeNotVerified */ echo __('Apply') ?></span>

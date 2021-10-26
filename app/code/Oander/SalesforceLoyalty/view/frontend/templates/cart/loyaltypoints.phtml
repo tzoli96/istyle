@@ -56,12 +56,12 @@
                                                 class="block__action action apply primary button-loyalty"
                                                 type="submit"
                                                 value="<?php /* @escapeNotVerified */ echo __('Use') ?>"
-                                                disabled
                                             >
                                                 <span><?php /* @escapeNotVerified */ echo __('Use') ?></span>
                                             </button>
                                         </span>
                                     </div>
+                                    <div class="block__input-error"><?= __('Please enter a valid number'); ?></div>
                                 </div>
                             </div>
                         <?php endif; ?>
@@ -71,7 +71,7 @@
         </div>
     </div>
 <?php else: ?>
-    <div class="block block--loyalty active" id="block-loyalty">
+    <div class="d-none block block--loyalty active" id="block-loyalty">
         <div class="block__content" data-role="content"></div>
     </div>
 <?php endif; ?>
@@ -82,7 +82,7 @@
         var userObject = {
                 userPoints: <?= $block->getAvailablePoints() ?>,
                 pointsAvailableForUse: <?= $block->getMaxRedeemablePoints() ?>,
-                discountAmount: <?= $block->getLoyaltyDiscount() ?>,
+                discountAmount: <?php echo $block->getLoyaltyDiscount() > 0 ? $block->getLoyaltyDiscount() : 0 ?>,
                 formattedDiscountAmount: '<?= $block->getLoyaltyDiscountFormated() ?>'
             },
             referenceNumber = Math.min(userObject.userPoints, userObject.pointsAvailableForUse);
@@ -96,23 +96,46 @@
         });
 
         $('.input-loyalty').on('input', function() {
-            if ($(this).val() > 0 && referenceNumber > 0 && $(this).val() <= referenceNumber) {
-                $('.button-loyalty').removeAttr('disabled');
+            var inputGroup = $(this).closest('.block__input-group'),
+                input = inputGroup.find('.input-loyalty'),
+                inputError = $(this).closest('.block__content__holder').find('.block__input-error');
+            
+            if (input.val() > 0 && referenceNumber > 0 && input.val() <= referenceNumber) {
+                inputGroup.removeClass('error');
+                inputError.fadeOut();
             } else {
-                $('.button-loyalty').attr('disabled', 'disabled');
+                inputGroup.addClass('error');
+                inputError.fadeIn();
             }
         });
 
-        $('.button-loyalty, .loyalty-used__delete').on('click', function(e) {
+        $('.button-loyalty').on('click', function(e) {
+            e.preventDefault();
+
+            var inputGroup = $(this).closest('.block__input-group'),
+                input = inputGroup.find('.input-loyalty'),
+                inputError = $(this).closest('.block__content__holder').find('.block__input-error');
+            
+            if (input.val() > 0 && referenceNumber > 0 && input.val() <= referenceNumber) {
+                inputGroup.removeClass('error');
+                inputError.fadeOut();
+                $('#loyalty-form').submit();
+            } else {
+                inputGroup.addClass('error');
+                inputError.fadeIn();
+            }
+        });
+
+        $('.loyalty-used__delete').on('click', function(e) {
             e.preventDefault();
             $('#loyalty-form').submit();
         });
 
         $('.info-block__icon').on('click', function () {
-            var mnyTooltip = $(this).closest('.info-block').find('.tooltip');
+            var myTooltip = $(this).closest('.info-block').find('.tooltip');
 
             $('.tooltip.is-active').removeClass('is-active');
-            mnyTooltip.addClass('is-active');
+            myTooltip.addClass('is-active');
         });
 
         $(document).mouseup(function (e) {
