@@ -1,0 +1,166 @@
+<?php
+
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Edit customer address template
+ *
+ * @var $block \Oander\IstyleCustomization\Block\Address\Edit
+ */
+?>
+    <form class="form-address-edit" action="<?php /* @escapeNotVerified */ echo $block->getSaveUrl() ?>" method="post" id="form-validate" enctype="multipart/form-data" data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>">
+        <fieldset class="fieldset">
+            <legend class="legend"><span><?php /* @escapeNotVerified */ echo __('Address') ?></span></legend><br>
+            <?php echo $block->getBlockHtml('formkey') ?>
+            <input type="hidden" name="success_url" value="<?php /* @escapeNotVerified */ echo $block->getSuccessUrl() ?>">
+            <input type="hidden" name="error_url" value="<?php /* @escapeNotVerified */ echo $block->getErrorUrl() ?>">
+            <?php echo $block->getNameBlockHtml() ?>
+            <?php $addressAttributes =  $block->getAddressAttributesDefaultOrder() ?>
+            <?php foreach ($addressAttributes as $attribute): ?>
+                <?php echo $block->getChildHtml($attribute[\Oander\IstyleCustomization\Enum\AddressAttributeEnum::COLUMN_ATTRIBUTE]) ?>
+            <?php endforeach; ?>
+
+            <?php if ($block->isDefaultBilling()) : ?>
+                <div class="message info"><?php /* @escapeNotVerified */ echo __("It's a default billing address.") ?></div>
+            <?php elseif ($block->canSetAsDefaultBilling()) : ?>
+                <div class="form-check field choice set billing">
+                    <label class="form-check-label label" for="primary_billing">
+                        <input type="checkbox" id="primary_billing" name="default_billing" value="1" class="form-check-input checkbox">
+                        <span><?php /* @escapeNotVerified */ echo __('Use as my default billing address') ?></span>
+                    </label>
+                </div>
+            <?php else : ?>
+                <input type="hidden" name="default_billing" value="1" />
+            <?php endif; ?>
+
+            <?php if ($block->isDefaultShipping()) : ?>
+                <div class="message info"><?php /* @escapeNotVerified */ echo __("It's a default shipping address.") ?></div>
+            <?php elseif ($block->canSetAsDefaultShipping()) : ?>
+                <div class="form-check field choice set shipping">
+                    <label class="form-check-label" for="primary_shipping">
+                        <input type="checkbox" id="primary_shipping" name="default_shipping" value="1" class="form-check-input checkbox">
+                        <span><?php /* @escapeNotVerified */ echo __('Use as my default shipping address') ?></span>
+                    </label>
+                </div>
+            <?php else : ?>
+                <input type="hidden" name="default_shipping" value="1">
+            <?php endif; ?>
+        </fieldset>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" class="action save primary" data-action="save-address" title="<?php /* @escapeNotVerified */ echo __('Save Address') ?>">
+                    <span><?php /* @escapeNotVerified */ echo __('Save Address') ?></span>
+                </button>
+            </div>
+            <div class="secondary">
+                <a class="action back" href="<?php echo $block->escapeUrl($block->getBackUrl()) ?>"><span><?php /* @escapeNotVerified */ echo __('Go back') ?></span></a>
+            </div>
+            <button type="submit" class="hidden-submit" data-action="save-address" title="<?php /* @escapeNotVerified */ echo __('Save Address') ?>">
+                <span><?php /* @escapeNotVerified */ echo __('Save Address') ?></span>
+            </button>
+        </div>
+    </form>
+
+<?php if (!$block->isRequiredRegion() && !$block->isValidateRegion()) : ?>
+    <script type="text/x-magento-init">
+        {
+        "#form-validate": {
+            "validation": {}
+        },
+        "#country": {
+            "regionUpdater": {
+                "optionalRegionAllowed": <?php /* @escapeNotVerified */ echo ($block->getConfig('general/region/display_all') ? 'true' : 'false'); ?>,
+                "regionListId": "#region_id",
+                "regionInputId": "#region",
+                "postcodeId": "#zip",
+                "form": "#form-validate",
+                "regionJson": <?php /* @escapeNotVerified */ echo $this->helper('Magento\Directory\Helper\Data')->getRegionJson() ?>,
+                "defaultRegion": "<?php /* @escapeNotVerified */ echo $block->getRegionId() ?>",
+                "countriesWithOptionalZip": <?php /* @escapeNotVerified */ echo $this->helper('Magento\Directory\Helper\Data')->getCountriesWithOptionalZip(true) ?>
+            }
+        }
+    }
+</script>
+<?php else : ?>
+    <script type="text/x-magento-init">
+        {
+        "#form-validate": {
+            "validation": {}
+        }
+    }
+</script>
+<?php endif; ?>
+<?php
+if ($block->isValidateRegion()) :
+    echo 'van validate';
+    $baseUrl = $this->getUrl();
+    ?>
+
+    <script>
+        require(["jquery"], function($) {
+            $(document).on('click', '.field.region .dropdown__item', function() {
+                var param = $(this).text();
+                $.ajax({
+                    showLoader: true,
+                    url: "<?php echo $block->getCitiesAjaxUrl() ?>",
+                    data: {
+                        state: param
+                    },
+                    type: "GET",
+                    dataType: 'json'
+                }).done(function(data) {
+                    let citiesData = data.cities;
+                    let citiesDropdown = $('.field.city').find('.dropdown--fc').find('.dropdown__list');
+
+                    $('.field.city .cities.hidden').html('');
+                    citiesDropdown.html('');
+                    $('.field.city .dropdown__search').attr('value', '');
+
+                    for (let index = 0; index < citiesData.length; index++) {
+                        const element = citiesData[index];
+
+                        citiesDropdown.append('<div class="dropdown__item">' + element + '</li>');
+                        $('.field.city .cities.hidden').append('<div class="dropdown__item">' + element + '</li>');
+                    }
+
+                    if ($('.field.city .dropdown__search').attr('disabled')) {
+                        $('.field.city .dropdown__search').removeAttr('disabled');
+                    }
+
+                    $('.field.city .dropdown__item').click(function() {
+                        $('.field.city .dropdown__selected input[name="city"]').attr('value', $(this).text());
+                        $('.field.city .dropdown__search[name="fc-search"]').attr('value', $(this).text());
+                    });
+
+                    $('.field.city .dropdown__search').on('keyup', function() {
+                        let searchVal = $(this).val();
+
+                        $(this).closest('.dropdown--fc').find('.dropdown__list').html('');
+
+                        for (let index = 0; index < citiesData.length; index++) {
+                            const element = citiesData[index];
+
+                            if (element.indexOf(searchVal) > -1 || element.toLowerCase().indexOf(searchVal) > -1) {
+                                $(this).closest('.dropdown--fc').find('.dropdown__list').append('<div class="dropdown__item">' + element + '</div>');
+                            }
+                        }
+
+                        $('.field.city .dropdown__item').click(function() {
+                            $('.field.city .dropdown__selected input[name="city"]').attr('value', $(this).text());
+                            $('.field.city .dropdown__search[name="fc-search"]').attr('value', $(this).text());
+                        });
+                    });
+                });
+            });
+
+        });
+    </script>
+
+<?php endif; ?>

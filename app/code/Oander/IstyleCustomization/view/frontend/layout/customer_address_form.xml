@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <referenceBlock class="\Oander\IstyleCustomization\Block\Address\Edit"  name="customer_address_edit" template="Oander_IstyleCustomization::address/edit.phtml">
+                <block class="\Oander\IstyleCustomization\Block\Address\Edit" name="city" template="Oander_IstyleCustomization::address/fields/city.phtml" cacheable="false"/>
+                <block class="\Oander\IstyleCustomization\Block\Address\Edit" name="company" template="Oander_IstyleCustomization::address/fields/company.phtml" cacheable="false"/>
+                <block class="\Oander\IstyleCustomization\Block\Address\Edit" name="country_id" template="Oander_IstyleCustomization::address/fields/country.phtml" cacheable="false"/>
+                <block class="\Oander\IstyleCustomization\Block\Address\Edit" name="fax" template="Oander_IstyleCustomization::address/fields/fax.phtml" cacheable="false"/>
+                <block class="\Oander\IstyleCustomization\Block\Address\Edit" name="postcode" template="Oander_IstyleCustomization::address/fields/postcode.phtml" cacheable="false"/>
+                <block class="\Oander\IstyleCustomization\Block\Address\Edit" name="region" template="Oander_IstyleCustomization::address/fields/region.phtml" cacheable="false"/>
+                <block class="\Oander\IstyleCustomization\Block\Address\Edit" name="street" template="Oander_IstyleCustomization::address/fields/street.phtml" cacheable="false"/>
+                <block class="\Oander\IstyleCustomization\Block\Address\Edit" name="telephone" template="Oander_IstyleCustomization::address/fields/telephone.phtml" cacheable="false"/>
+                <block class="\Oander\IstyleCustomization\Block\Address\Edit" name="vat_id" template="Oander_IstyleCustomization::address/fields/vat_id.phtml" cacheable="false"/>
+            </referenceBlock>
+        </referenceContainer>
+    </body>
+</page>

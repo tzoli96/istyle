@@ -19,6 +19,7 @@ namespace Oander\IstyleCustomization\Plugin\Checkout\Model\Checkout;
 
 use \Magento\Checkout\Model\Session as CheckoutSession;
 use Oander\FanCourierValidator\Helper\Data;
+use Oander\IstyleCustomization\Enum\AddressAttributeEnum;
 use Oander\IstyleCustomization\Helper\Config;
 
 /**
@@ -457,7 +458,49 @@ class LayoutProcessor
         }
         //END COMMENT
 
+        $this->setAddressAttributesShortOrder($jsLayout);
 
         return $jsLayout;
+    }
+
+
+    /**
+     * @param $jsLayout
+     */
+    protected function setAddressAttributesShortOrder(&$jsLayout)
+    {
+        $addressAttributesPositions = $this->configHelper->getAddressAttributePosition();
+
+        if (isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]))
+        {
+            foreach ($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"] as $shippingAddressAttributeCode => $shippingAddressAttributeValue)
+            {
+                if (isset($addressAttributesPositions[$shippingAddressAttributeCode][AddressAttributeEnum::COLUMN_INDIVIDUAL_POSITION]))
+                {
+                    $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+                    [$shippingAddressAttributeCode]['sortOrder'] = $addressAttributesPositions[$shippingAddressAttributeCode][AddressAttributeEnum::COLUMN_INDIVIDUAL_POSITION];
+                }
+            }
+        }
+
+
+        if (isset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['payments-list']['children']))
+        {
+            foreach ($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['payments-list']['children'] as $paymentCode => $payment)
+            {
+                if (isset($payment['children']['form-fields']['children']))
+                {
+                    foreach ($payment['children']['form-fields']['children'] as $billingAttributeCode => $billingAttributeValue)
+                    {
+                        if (isset($addressAttributesPositions[$billingAttributeCode][AddressAttributeEnum::COLUMN_INDIVIDUAL_POSITION]))
+                        {
+                            $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                            ['payment']['children']['payments-list']['children'][$paymentCode]['children']['form-fields']['children']
+                            [$billingAttributeCode]['sortOrder'] = $addressAttributesPositions[$billingAttributeCode][AddressAttributeEnum::COLUMN_INDIVIDUAL_POSITION];
+                        }
+                    }
+                }
+            }
+        }
     }
 }
