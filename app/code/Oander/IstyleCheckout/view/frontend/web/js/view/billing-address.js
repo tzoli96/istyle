@@ -10,12 +10,13 @@ define([
   'Magento_Checkout/js/checkout-data',
   'Magento_Checkout/js/action/get-payment-information',
   'Oander_IstyleCheckout/js/model/store',
-], function ($, ko, $t, customer, addressList, quote, selectBillingAddress, helpers, checkoutData, getPaymentInformationAction, store) {
+  'Oander_IstyleCheckout/js/view/billing-address/store',
+  'Oander_IstyleCheckout/js/view/billing-address/validate',
+  'Oander_IstyleCheckout/js/view/billing-address/base',
+], function ($, ko, $t, customer, addressList, quote, selectBillingAddress, helpers, checkoutData, getPaymentInformationAction, store, billingAddressStore, billingAddressValidate, billingAddressBase) {
   'use strict';
 
   var mixin = {
-    fieldsContent: {},
-
     selectedBillingAddress: store.billingAddress.selectedBillingAddress,
     hasSelectedAddress: store.billingAddress.hasSelectedAddress,
     newAddress: store.billingAddress.newAddress,
@@ -111,7 +112,7 @@ define([
           }
 
           helpers.validateShippingFields($('.form--billing-address'));
-          self.checkValidatedFields(document.querySelector('.form--billing-address'));
+          billingAddressValidate.checkValidatedFields($('.form--billing-address'));
 
           clearInterval(addressInterval);
         }
@@ -332,7 +333,7 @@ define([
           formElements.form.setAttribute('data-tab', formId);
           self.formTransform(formId);
 
-          self.checkValidatedFields(document.querySelector('.form--billing-address'));
+          billingAddressValidate.checkValidatedFields($('.form--billing-address'));
         });
 
         if (isActive) self.watchSpecificFields(formId);
@@ -351,7 +352,7 @@ define([
         if (formElements.companyField && formElements.vatIdField) {
           self.formTransform(formId);
           helpers.validateShippingFields($('.form--billing-address'));
-          self.checkValidatedFields(document.querySelector('.form--billing-address'));
+          billingAddressValidate.checkValidatedFields($('.form--billing-address'));
           clearInterval(watch);
         }
       }, 1000);
@@ -363,7 +364,8 @@ define([
      * @returns {Void}
      */
     formTransform: function (formId) {
-      this.fieldsContent = {};
+      billingAddressStore.fieldsContent({});
+      billingAddressValidate.mainFields = {};
 
       switch (formId) {
         case 'billing-person':
@@ -385,6 +387,7 @@ define([
       $(formElements.companyField).hide();
       $(formElements.companyField).removeClass('_required');
       $(formElements.vatIdField).hide();
+      if ($(formElements.vatIdField).hasClass('vat-required')) $(formElements.vatIdField).removeClass('_required');
 
       if ($(formElements.pfpjField).length) {
         $(formElements.pfpjField).hide();
@@ -409,6 +412,7 @@ define([
       $(formElements.companyField).show();
       $(formElements.companyField).addClass('_required');
       $(formElements.vatIdField).show();
+      if ($(formElements.vatIdField).hasClass('vat-required')) $(formElements.vatIdField).addClass('_required');
 
       if ($(formElements.pfpjField).length) {
         $(formElements.pfpjField).show();
@@ -425,6 +429,7 @@ define([
       $(formElements.companyField).find('.form-control').focus();
 
       this.fieldErrorHandling($(formElements.companyField));
+      if ($(formElements.vatIdField).hasClass('vat-required')) this.fieldErrorHandling($(formElements.vatIdField));
       this.fieldErrorHandling($(formElements.pfpjField));
     },
 
@@ -468,75 +473,6 @@ define([
       }
       else {
         return true;
-      }
-    },
-
-    /**
-     * Check validated fields
-     * @returns {Void}
-     */
-    checkValidatedFields: function (form) {
-      var self = this;
-
-      if (form) {
-        var fields = form.querySelectorAll('.form-group._required, .form-group.true');
-
-        Array.prototype.forEach.call(fields, function (field, index) {
-          if (field.getAttribute('style') != 'display: none;') {
-            var fieldElement = $(field).find('.form-control');
-
-            fieldElement.on('keyup change', function () {
-              self.requiredHandler($(this), Number(index));
-            });
-
-            self.requiredHandler(fieldElement, Number(index));
-          }
-        });
-      }
-    },
-
-    /**
-     * Required handler
-     * @param {HTMLElement} element
-     * @param {Number} index
-     * @returns {Void}
-     */
-    requiredHandler: function (element, index) {
-      var self = this;
-
-      if ($(element).length && !isNaN(index)) {
-        if ($(element).closest('.form-group').attr('style') != 'display: none;') {
-          if ($(element).val().length > 0) {
-            self.fieldsContent[index] = true;
-          }
-          else {
-            self.fieldsContent[index] = false;
-          }
-        }
-      }
-
-      self.checkRequiredFields();
-    },
-
-    /**
-     * Check required fields
-     * @returns {Void}
-     */
-    checkRequiredFields: function () {
-      var fields = this.fieldsContent;
-      var fieldsLength = 0;
-      var validatedFieldsCount = 0;
-
-      for (var field in fields) {
-        fieldsLength++;
-        if (fields[field]) validatedFieldsCount++;
-      }
-
-      if (fieldsLength === validatedFieldsCount) {
-        store.billingAddress.continueBtn(true);
-      }
-      else {
-        store.billingAddress.continueBtn(false);
       }
     },
 
@@ -592,7 +528,7 @@ define([
     addNewAddress: function () {
       store.billingAddress.hasSelectedAddress(false);
       store.billingAddress.formIsVisible(true);
-      this.scrollToForm($('#billing-new-address-form'));
+      billingAddressBase.scrollToForm($('#billing-new-address-form'));
     },
 
     selectBillingAddressItem: function (address) {
@@ -609,14 +545,6 @@ define([
       selectBillingAddress(selectAddress);
       store.billingAddress.hasSelectedAddress(true);
       store.billingAddress.formIsVisible(false);
-    },
-
-    scrollToForm: function (formElement) {
-      if (formElement.length) {
-        $('html, body').animate({
-          scrollTop: formElement.offset().top - 100
-        }, 500);
-      }
     },
 
     /**
@@ -638,7 +566,8 @@ define([
 
       if (store.billingAddress.continueBtn()) {
         if (activeTab == 'billing-company') {
-          if (this.watchField($(formElements.companyField)) && this.watchField($(formElements.pfpjField))) {
+          if (this.watchField($(formElements.companyField)) && this.watchField($(formElements.pfpjField))
+            && ($(formElements.vatIdField).hasClass('vat-required') ? this.watchField($(formElements.vatIdField)) : '')) {
             this.updateAddress();
             store.billingAddress.formIsVisible(false);
           }
@@ -664,6 +593,7 @@ define([
       else {
         if (activeTab == 'billing-company') {
           this.watchField($(formElements.companyField));
+          if ($(formElements.vatIdField).hasClass('vat-required')) this.watchField($(formElements.vatIdField));
 
           if ($(formElements.pfpjField).length) {
             this.watchField($(formElements.pfpjField));
