@@ -191,7 +191,9 @@ define([
             if (shipping[requiredFields[field]] === billing[requiredFields[field]]) equalFieldsCount++;
           }
           else {
-            if (shipping[requiredFields[field]][0] === billing[requiredFields[field]][0]) equalFieldsCount++;
+            if (Array.isArray(shipping[requiredFields[field]]) && Array.isArray(billing[requiredFields[field]])) {
+              if (shipping[requiredFields[field]][0] === billing[requiredFields[field]][0]) equalFieldsCount++;
+            }
           }
         }
 
