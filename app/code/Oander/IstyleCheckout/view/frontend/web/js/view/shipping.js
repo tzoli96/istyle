@@ -10,8 +10,9 @@ define([
 	'Oander_IstyleCheckout/js/model/store',
 	'Magento_Checkout/js/model/shipping-save-processor/default',
 	'mage/translate',
+	'Oander_IstyleCheckout/js/view/billing-address/sort',
 	'domReady!'
-], function ($, ko, customer, quote, checkoutData, helpers, L, getPaymentInformationAction, store, saveShipping, $t) {
+], function ($, ko, customer, quote, checkoutData, helpers, L, getPaymentInformationAction, store, saveShipping, $t, sort) {
 	'use strict';
 
 	// Shipping methods tabs
@@ -297,6 +298,7 @@ define([
 				var formInterval = setInterval(function () {
 					if ($('.form-shipping-address').length
 						&& $('[name="oanderOrderCommentForm.comment"] .form-control').length) {
+						sort.streetFieldHandler(document.querySelector('.form-shipping-address .form-group.street'));
 						helpers.validateShippingFields($('.form-shipping-address'));
 						clearInterval(formInterval);
 					}
