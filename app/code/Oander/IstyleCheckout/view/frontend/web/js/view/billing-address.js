@@ -349,7 +349,7 @@ define([
 
       var watch = setInterval(function () {
         var formElements = self.formElements();
-        if (formElements.companyField && formElements.vatIdField) {
+        if (formElements.companyField || formElements.vatIdField) {
           self.formTransform(formId);
           helpers.validateShippingFields($('.form--billing-address'));
           billingAddressValidate.checkValidatedFields($('.form--billing-address'));
