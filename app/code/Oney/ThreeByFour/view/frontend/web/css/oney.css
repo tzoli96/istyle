@@ -1,0 +1,1372 @@
+/* POLICES */
+
+@font-face {
+    font-family: GTWalsheim;
+    src: url(../fonts/GTWalsheimRegular.otf),
+    url(../fonts/GTWalsheimRegular.woff);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: GTWalsheim;
+    src: url(../fonts/GTWalsheimBold.otf),
+    url(../fonts/GTWalsheimBold.woff);
+    font-weight: bold;
+}
+@font-face {
+    font-family: GTWalsheim;
+    src: url(../fonts/GT-Walsheim-Medium.otf);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Wigrum;
+    src: url(../fonts/wigrum-regular.otf),
+    url(../fonts/wigrum-regular.woff);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Arial;
+    src: url(../fonts/ArialRegular.ttf),
+    url(../fonts/ArialRegular.woff);
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: Arial;
+    src: url("../fonts/Arial Bold.ttf");
+    font-weight: bold;
+
+}
+
+.oney-cart {
+    text-transform: uppercase;
+    font-size: 11px;
+    width: 100%;
+}
+
+.oney-payment-logo-34 {
+    background: url('../images/34oneytime.png') no-repeat 0 50% / 11rem auto;
+    height: 50px;
+    width: auto;
+    padding-left: 12rem;
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.oney-cart .interog {
+    cursor: pointer;
+    flex: min-content;
+    flex-shrink: 0;
+    text-align: right;
+    width: 1rem;
+}
+
+.oney-cart .interog img{
+    margin-left: auto;
+    width: 3rem;
+    max-width: 3rem;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.open-pedagogique_modal {
+    color: #81bc00;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.legal-block .open-pedagogique_modal {
+    font-size: 10px;
+}
+
+.legend_oney {
+    text-align: left;
+    font-size: 11px;
+    color: #81bc00;
+    margin-bottom: 10px;
+}
+
+/* SIMULATEUR */
+#simulateur-oney {
+    font-family: 'GTWalsheim';
+    text-transform: uppercase;
+    font-size: 12px;
+    position: relative;
+    line-height: 1.2;
+}
+#simulateur-oney .bold-style {
+    font-weight: bold;
+}
+
+#simulateur-oney.pt .right .price, #simulateur-oney .total {
+    font-weight: bold;
+}
+
+.catalog-product-view .payin-oney {
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.catalog-product-view .payin-oney .oney-34-logo{
+    max-width: 20rem;
+}
+
+.catalog-product-view .payin-oney p{
+    align-self: center;
+    margin: auto 0;
+    flex-shrink: 0;
+}
+
+.catalog-product-view .payin-oney .bulle {
+    margin: 0 0.4rem;
+    align-self: center;
+    flex-shrink: 0;
+}
+
+#container_oney_simulation .close {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    font-size: 25px;
+    color: #81bc00;
+    cursor: pointer;
+}
+
+#simulateur-oney.cart-right {
+    float: right;
+    font-size: 15px;
+}
+
+#simulateur-oney.cart-right img {
+    max-height: 60px;
+}
+
+.cart-simulation span.title, .oney-form-list span.click_oney_popup_pedago {
+    align-self: center;
+}
+#simulateur-oney p.title {
+    margin: 2rem 0;
+    text-transform: none;
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+#simulateur-oney .oneyInfo div img, .cart-simulation span img, .oney-form-list span.click_oney_popup_pedago img, .catalog-product-view .open-simulation img {
+    width: 30px;
+}
+
+#simulateur-oney .oneyInfo i.info {
+    display: inline-block;
+    margin-left: 5px;
+    color: #8cbb25 !important;
+    background-color: #FFFFFF !important;
+    border-width: 0px !important;
+    border-radius: 20px;
+    width: 23px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    height: 23px;
+    padding-right: 2px;
+}
+
+#simulateur-oney.fr .next-instalments, #simulateur-oney.fr .total {
+    font-weight: bold;
+}
+#simulateur-oney .footer_pedagogique {
+    text-transform: initial;
+    padding-top: 25px;
+    font-size: 11px;
+}
+#simulateur-oney .footer_pedagogique a {
+    color: #81bc00;
+}
+
+.open-simulation, .close-simulation {
+    cursor: pointer;
+}
+
+/* ONEY POPIN SIMULATION */
+
+.catalog-product-view #container_oney_simulation .oneyPopup {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: -45px;
+    left: -350px;
+    padding: 15px;
+    width: 220px;
+    text-align: left;
+}
+
+.checkout-cart-index #container_oney_simulation .oneyPopup {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: -50px;
+    left: -260px;
+    padding: 15px;
+    width: 220px;
+    text-align: left;
+}
+
+.payment-method-content ul{
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    columns: 2;
+}
+
+.payment-method-content li{
+    list-style-type : disc;
+    margin-bottom: 0.5rem;
+}
+
+.payment-method-content li.oney-no-bullet{
+    list-style-type : none;
+}
+
+.payment-method-content li.second{
+    list-style-type : circle;
+    margin-left : 1rem
+}
+
+.oney-payment-method-content table {
+    width: 50%;
+}
+
+.oney-payment-method-info td {
+    padding: 0;
+}
+
+.oney-payment-method-info li {
+    margin: 0;
+}
+
+#simulateur-oney .oneyPopup .logo-oney {
+    width: 15rem;
+}
+
+#simulateur-oney .oneyPopup .logo-oney.small {
+    width: 8rem;
+}
+
+#simulateur-oney .oneyPopup .logo-oney.centered {
+    width: 10rem;
+}
+
+#simulateur-oney .oneyPopup .conditions {
+    margin-top: 10px;
+    font-size: 10px;
+    text-align: justify;
+}
+
+#simulateur-oney .oneyPopup .arrow {
+    display: inline-block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 20px 12px 20px 0;
+    border-color: transparent #8cbb25 transparent transparent;
+    top: 70px;
+    right: -12px;
+    -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
+
+#simulateur-oney table {
+    margin-bottom: 1rem;
+    font-size: 11px;
+}
+
+#simulateur-oney table td {
+    padding: 0 3px;
+    max-width: 150px;
+    word-break: break-word;
+}
+
+#simulateur-oney table td.right {
+    text-align: right;
+}
+
+.oneyPopup .x-time {
+    width: 50px;
+    float: left;
+}
+
+.oneyPopup .oney-simulation {
+    display: flex;
+    flex-direction: column;
+    min-height: 50px;
+    margin-top: 12px;
+    margin-left: 8px;
+    color: #54565b;
+    text-transform: none;
+}
+
+#simulateur-oney .oneyPopup .oney-simulation .simulation-head {
+    display: flex;
+}
+
+#simulateur-oney .oneyPopup .oney-simulation .simulation-content {
+    width: 100%;
+}
+
+#simulateur-oney .oneyPopup .oney-simulation .price-popin-oney {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #54565b;
+    font-family: "GTWalsheim";
+    margin-left: 1rem;
+    align-self: center;
+}
+#simulateur-oney .oneyPopup .oney-simulation .simulation-description {
+    margin: 0.35rem 0 0 1rem;
+}
+
+#simulateur-oney .oneyPopup .oney-simulation .simulation-description p {
+    margin: 0.5rem 0 0 0;
+}
+/* END ONEY POPIN SIMULATION */
+
+#simulateur-oney .liner {
+    width: 40%;
+    height: 2px;
+    background: #8cbb25;
+    display: inline-block;
+    position: relative;
+    bottom: 4px;
+}
+#simulateur-oney.it .liner {
+    width: 35%;
+}
+
+#simulateur-oney .or-line {
+    text-align: center;
+    font-size: 17px;
+    color: #8cbb25;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.oney-payment-method-content .taeg-oney{
+    font-size: 12px;
+    color: #54565b;
+    font-weight: bold;
+    text-decoration: underline;
+
+}
+
+#simulateur-oney .oneyPopup .taeg-oney{
+    font-size: 11px;
+    color: #54565b;
+    font-weight: bold;
+    text-decoration: underline;
+
+}
+
+#simulateur-oney .oneyPopup .tin-oney {
+    font-size: 11px;
+    color: #54565b;
+}
+#simulateur-oney .oneyPopup .tin-oney span {
+    font-weight: bold;
+}
+
+.oney-payment-method-content .tin-oney, .oney-payment-method-content .mtic-oney  {
+    font-weight: bold;
+}
+
+#simulateur-oney .oneyPopup .mtic-oney {
+    font-size: 11px;
+}
+#simulateur-oney .oneyPopup .mtic-oney span {
+    font-weight: bold;
+}
+
+#simulateur-oney .oneyPopup .taeg-oney.es {
+    text-decoration: underline;
+    font-weight: bold;
+}
+#simulateur-oney .simulation-description {
+    font-weight: normal;
+}
+
+/* FIN SIMULATEUR */
+#container_oney_simulation {
+    background: white;
+    position: absolute;
+    border: 1px solid #81bc00;
+    padding: 10px;
+    z-index: 7;
+    width: 340px;
+    display: none;
+    font-family: GTWalsheim;
+}
+
+#simulateur-oney .oneyPopup .oney-simulation .simulation-description ul{
+    padding: 0;
+    columns: 2;
+    margin-bottom: 0;
+}
+
+#simulateur-oney .oneyPopup .oney-simulation .simulation-description ul li {
+    list-style: none;
+}
+
+#simulateur-oney .oneyPopup .oney-simulation .simulation-description ul li.right {
+    text-align: right;
+}
+
+#simulateur-oney .oneyPopup .oney-simulation .simulation-description ul li p {
+    margin: inherit;
+}
+
+.catalog-product-view #container_oney_simulation {
+    left: -38rem;
+    top: -11rem;
+}
+
+.checkout-cart-index #container_oney_simulation {
+    left: -39rem;
+    top: -6.5rem;
+}
+
+#container_oney_simulation .product {
+    display: block;
+}
+
+@media screen and (max-width: 768px) {
+
+    .catalog-product-view #container_oney_simulation {
+        left: 0;
+        top: 1rem;
+    }
+
+    .checkout-cart-index #container_oney_simulation {
+        left: 2rem;
+        top: 6rem;
+    }
+
+    .catalog-product-view #simulateur-oney .arrow {
+
+        top: -25px;
+        right: 25px;
+        -webkit-transform: rotate(-90deg) scaleX(-1);
+        -ms-transform: rotate(-90deg) scaleX(-1);
+        transform: rotate(-90deg) scaleX(-1);
+    }
+
+    .checkout-cart-index #simulateur-oney .arrow {
+
+        top: -25px;
+        right: 25px;
+        -webkit-transform: rotate(-90deg) scaleX(-1);
+        -ms-transform: rotate(-90deg) scaleX(-1);
+        transform: rotate(-90deg) scaleX(-1);
+    }
+}
+
+/* BULLES */
+.bulle {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 65px;
+    height: 65px;
+    background: #81bc00;
+    border-radius: 50%;
+}
+
+.bulle span {
+    font-family: "GTWalsheim";
+    font-weight: bold;
+    font-size: 36px;
+    color: #fff;
+    text-transform: lowercase !important;
+}
+
+.bulle.small-bulle {
+    width: 26px;
+    height: 26px;
+}
+
+.bulle.small-bulle span {
+    font-size: 16px;
+}
+
+.bulle.smallest-bulle {
+    width: 20px;
+    height: 20px;
+}
+
+.bulle.smallest-bulle span {
+    font-size: 12px;
+}
+.logo-smallest-bulle {
+    max-height: 28px;
+    align-self: center;
+    margin: 0.5rem 0 0 0.5rem;
+}
+
+.bulle.big-bulle {
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 40px;
+    max-height: 40px;
+}
+.logo-big-bulle {
+    max-height: 50px;
+    align-self: center;
+    margin-left: 0.5rem;
+}
+.logo-medium-bulle {
+    max-height: 43px;
+    align-self: center;
+    margin: 0.9rem 0 0  0.5rem;
+}
+.bulle.big-bulle span {
+    font-size: 24px;
+    color: #fff;
+    margin: 0;
+    text-decoration: none;
+}
+
+.bulle.medium-bulle {
+    min-width: 32px;
+    min-height: 32px;
+    max-width: 32px;
+    max-height: 32px;
+}
+
+.bulle.medium-bulle span {
+    font-size: 18px;
+    color: #fff;
+    margin: 0;
+    text-decoration: none;
+}
+
+.banner-oney .bulle {
+    margin: 0.5rem;
+}
+
+.oney-logo-div .bulle {
+    vertical-align: top;
+}
+
+/*** PEDAGOGIQUE ***/
+
+
+.pedagogique_oney .close {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 24px;
+}
+.pedagogique_oney .oney-34-logo {
+    max-width: 50%;
+    align-self: center;
+}
+
+.pedagogique_oney .align_oney {
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.pedagogique_oney .bulle {
+    width: 24px;
+    height: 24px;
+}
+
+.pedagogique_oney .overlay_oney span {
+    position: unset;
+}
+
+.pedagogique_oney .bulle span {
+    font-size: 14px;
+}
+
+.pedagogique_oney.be .bulle span {
+    font-size: 20px;
+}
+.pedagogique_oney.be .bulle {
+    margin-left: auto;
+}
+.pedagogique_oney .cards {
+    width: 35%;
+    margin: 8% auto 0px auto;
+}
+.pedagogique_oney.be .choix_pedagogique img {
+    width: 45%;
+    margin-right: auto;
+    margin-left: 5px;
+    max-height: 90px;
+}
+
+.pedagogique_oney .no-italy .bulle {
+    width: 35px;
+    height: 35px;
+}
+
+.pedagogique_oney .no-italy .bulle span {
+    font-size: 20px;
+}
+
+.pedagogique_oney .content_pedagogique .no-italy .sans_frais {
+    color: #81bc00;
+    text-decoration: underline;
+}
+
+.pedagogique_oney .overlay_oney {
+    display: inline-block;
+    width: 100%;
+    margin: 0 auto 25px;
+    max-width: 700px;
+    border: 1px solid #81bc00;
+    vertical-align: middle;
+    background: #fff;
+}
+
+.pedagogique_oney.italy .overlay_oney {
+    max-width: 640px;
+}
+
+.pedagogique_oney .header_pedagogique {
+    text-align: left;
+    position: relative;
+    padding: 15px;
+}
+
+.pedagogique_oney .header_pedagogique .close_pedagogique {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.pedagogique_oney .header_pedagogique img {
+    width: 12rem;
+}
+
+.pedagogique_oney .header_pedagogique .title_block img {
+    width: 30px;
+}
+
+.pedagogique_oney .header_pedagogique img,
+.pedagogique_oney .header_pedagogique .title_block {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 20px;
+}
+
+.pedagogique_oney .header_pedagogique .title_block {
+    width: calc(100% - 195px);
+    line-height: 22px;
+}
+
+.pedagogique_oney .header_pedagogique img {
+    margin-right: 15px;
+}
+
+.pedagogique_oney .header_pedagogique .title_block p {
+    display: block;
+    text-transform: uppercase;
+    font-family: "GTWalsheim";
+    color: #81bc00;
+    margin: 0 0 0 0;
+    font-size: 16px;
+    text-shadow: none;
+}
+
+.pedagogique_oney .header_pedagogique .title_block p.bold-style {
+    font-weight: bolder;
+}
+
+.pedagogique_oney .content_pedagogique {
+    padding: 15px 25px 5px;
+    line-height: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    border: 1rem;
+}
+
+.pedagogique_oney .content_pedagogique p {
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+.pedagogique_oney .content_pedagogique p.cadenas_text span {
+    vertical-align: middle;
+    padding-left: 5px;
+}
+
+.pedagogique_oney .content_pedagogique .step_nbr_pedagogique {
+    font-weight: bold;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    position: relative;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 0 auto 15px;
+    width: 72.5%;
+    align-self: center;
+}
+
+.pedagogique_oney .content_pedagogique .step_nbr_pedagogique::after {
+    content: '';
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    margin-top: -1px;
+    background: #81bc00;
+}
+
+.pedagogique_oney .content_pedagogique .step_nbr_pedagogique .nbr_pedagogique {
+    display: inline-block;
+    z-index: 2;
+    position: relative;
+    width: 25px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 25px;
+    color: #fff;
+    background: #81bc00;
+}
+
+.pedagogique_oney .content_pedagogique .step_pedagogique {
+    font-weight: normal;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.pedagogique_oney .content_pedagogique .step_pedagogique .bloc_pedagogique {
+    display: inline-block;
+    width: 20rem;
+    min-height: 20rem;
+    padding: 5px;
+    border: 3px solid #81bc00;
+    border-radius: 5px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.pedagogique_oney .content_pedagogique .step_pedagogique .bloc_pedagogique .content_align {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    vertical-align: top;
+}
+
+.pedagogique_oney .content_pedagogique .step_pedagogique .bloc_pedagogique .content_align .title_pedagogique {
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: bolder;
+    color: #81bc00;
+    padding-left: 10px;
+    font-family: Arial;
+    display: table;
+    max-width: 60%;
+    text-align: center;
+}
+
+.pedagogique_oney.international.italy .content_pedagogique .step_pedagogique .bloc_pedagogique .content_align .title_pedagogique > span {
+    display: inline-block;
+    width: calc(100% - 50px);
+    text-align: left;
+    line-height: 16px;
+    padding-left: 5px;
+}
+
+.pedagogique_oney.international.italy .content_pedagogique .step_pedagogique .bloc_pedagogique .content_align .title_pedagogique img {
+    vertical-align: top;
+    max-width: 45px;
+}
+
+.pedagogique_oney.international .content_pedagogique .step_pedagogique .bloc_pedagogique .content_align .align-block {
+    min-height: 60px;
+}
+
+.pedagogique_oney .content_pedagogique .step_pedagogique .bloc_pedagogique .content_align .align-block {
+    text-align: center;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.pedagogique_oney .content_pedagogique .step_pedagogique .bloc_pedagogique .content_align .choix_pedagogique {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.pedagogique_oney .content_pedagogique .step_pedagogique .bloc_pedagogique .content_align .logos_oney {
+    display: block;
+    max-width: 5rem;
+}
+
+#oney_pedagogique_modal .footer_pedagogique {
+    margin-top: 20px;
+    text-align: justify;
+    color: #7a7a7a;
+}
+
+#oney_pedagogique_modal .footer_pedagogique ul {
+    list-style-type: disc;
+    padding-left: 2%;
+    margin-bottom: 0;
+    line-height: 25px;
+}
+
+#oney_pedagogique_modal .footer_pedagogique p {
+    margin-bottom: 0px;
+    font-size: 12px;
+    line-height: normal;
+    font-family: "Arial";
+}
+
+#oney_pedagogique_modal .footer_pedagogique p.title_footer {
+    color: darkgrey;
+    text-transform: uppercase;
+    margin: 1rem 0 0.2rem 0;
+}
+
+#oney_pedagogique_modal .footer_pedagogique img {
+    max-height: 50px;
+}
+
+#oney_pedagogique_modal .footer_pedagogique ul li {
+    font-size: 12px;
+    line-height: normal;
+    list-style: disc;
+    margin-bottom: 0;
+}
+
+#oney_pedagogique_modal .footer_pedagogique ul li.oney-no-bullet {
+    list-style: none;
+}
+
+.pedagogique_oney .title_footer {
+    color: gray;
+    font-weight: bolder;
+    font-size: 13px;
+    text-shadow: unset;
+    font-family: 'Arial';
+}
+
+.pedagogique_oney .x-time {
+    display: inline-block;
+    vertical-align: middle;
+    width: 30px;
+}
+
+.pedagogique_oney .bloc_pedagogique .title-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.pedagogique_oney .bloc_pedagogique .title-block .logos_oney {
+    float: left;
+}
+
+.pedagogique_oney .bloc_pedagogique .cadena {
+    width: 20px;
+    float: left;
+}
+
+.pedagogique_oney .bloc_pedagogique .last-sentence {
+    display: table;
+    margin: auto;
+    text-align: center;
+}
+
+.pedagogique_oney .bloc_pedagogique .last-sentence p {
+    margin-top: 4px;
+    padding-left: 8px;
+    display: table;
+}
+@media screen and (max-width: 1023px){
+    .modal-popup.modal-slide._inner-scroll .modal-inner-wrap {
+        width: auto !important;
+    }
+    .pedagogique_oney .header_pedagogique img {
+        width: 15rem;
+    }
+    .pedagogique_oney .header_pedagogique .title_block{
+        width: auto;
+    }
+    .pedagogique_oney .content_pedagogique .step_pedagogique .bloc_pedagogique {
+        min-width: 20rem;
+        min-height: 11rem;
+        max-height: 15rem;
+        margin-bottom: 1rem;
+        max-width: 40rem;
+        width: auto;
+        display: flex
+    }
+    .pedagogique_oney .content_pedagogique {
+        flex-direction: row;
+        padding:15px 0 5px;
+        justify-content: center;
+    }
+    .pedagogique_oney .content_pedagogique .step_nbr_pedagogique {
+        margin: 0 2rem 0 0;
+        width: 1px;
+        flex-direction: column;
+        height: 28rem;
+    }
+    .pedagogique_oney .content_pedagogique .step_pedagogique {
+        flex-direction: column;
+        max-width: 70%;
+    }
+    .pedagogique_oney .content_pedagogique .step_nbr_pedagogique::after {
+        right: 50%;
+        width: 2px;
+        height: 100%;
+        top: 1px;
+    }
+    .pedagogique_oney .content_pedagogique .step_pedagogique .bloc_pedagogique .content_align {
+        flex-direction: row;
+    }
+    .pedagogique_oney .content_pedagogique .step_pedagogique .bloc_pedagogique .content_align .title_pedagogique {
+        max-width: 20rem;
+        font-size: 12px;
+    }
+    .pedagogique_oney .bloc_pedagogique .last-sentence {
+        margin: auto;
+    }
+}
+@media screen and (min-width: 1024px){
+    .pedagogique_oney .content_pedagogique .step_pedagogique .bloc_pedagogique {
+        width: 33%;
+        margin: 0 0.5rem;
+    }
+}
+/* FIN PEDAGO*/
+
+/** HOMEPAGE */
+.banner-oney {
+    border: 2px solid #80ba3a;
+    margin: 1%;
+    color: #80ba3a;
+}
+.banner-oney a {
+    color: #80ba3a;
+}
+.banner-oney a:hover {
+    text-decoration: none;
+}
+
+.banner-oney .legal-text {
+    color: #54565b;
+    text-align: left;
+    text-transform: none;
+    margin-bottom: 2rem;
+    margin-right: 20%;
+}
+
+.catalog_banner_oney.banner-oney .legal-text {
+    margin-right: 0;
+}
+
+.banner-oney .oney-34-logo {
+    max-width: 20rem;
+}
+
+.banner-oney.non-credit-intermediary a {
+    color: #81bc00;
+}
+
+.banner-oney.non-credit-intermediary a:hover {
+    color: #81bc00;
+    text-decoration: none;
+}
+
+.banner-oney.non-credit-intermediary p {
+    text-transform: none;
+}
+
+.banner-oney.non-credit-intermediary {
+    text-transform: none;
+}
+
+.banner-oney.homepage-pedago {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+    min-height: 15rem;
+}
+
+.centered {
+    text-align: center;
+}
+
+.homepage-pedago .oney_text {
+    color: #80ba3a;
+    line-height: 40px;
+}
+
+.homepage-pedago .oney_text_left {
+    font-weight: normal;
+    display: flex;
+    margin: 1rem 3rem 1rem 0;
+    font-family: 'Wigrum';
+}
+
+.homepage-pedago.non-credit-intermediary .oney_text_right {
+    margin: auto 0;
+    font-size: 28px;
+}
+
+a.homepage-pedago.non-credit-intermediary:hover {
+    color: #81bc00;
+    text-decoration: none;
+}
+
+.homepage-pedago .oney_text_left img {
+    margin: auto;
+    max-width: 30rem;
+}
+
+.homepage-pedago.non-credit-intermediary .oney_text_left img {
+    max-width: 45rem;
+}
+
+.homepage-pedago .oney_text_right { /* If screen > 1048, text align left */
+    font-size: 4rem;
+    text-transform: uppercase;
+    font-family: "GTWalsheim";
+}
+.homepage-pedago.pt .oney_text_right {
+    font-size: 13px;
+}
+
+
+.homepage-pedago .oney_text_right {
+    text-align: left;
+}
+
+.homepage-pedago .oney_logo_top {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 7.5rem;
+    margin-right: 0.7rem;
+}
+
+@media screen and (max-width: 769px) {
+    .homepage-pedago .oney_text_left {
+        display: none
+    }
+    .homepage-pedago .oney_logo_top {
+         display: inline-block;
+     }
+    .homepage-pedago .oney-first-line {
+        max-width: 85%;
+    }
+}
+
+.homepage-pedago .oney_text_right.centered {
+    text-align: center;
+}
+
+.homepage-pedago .oney_text_right .oney-first-line {
+    font-weight: normal;
+}
+
+.homepage-pedago .oney_text_right .oney-first-line p {
+    margin-bottom: 0;
+}
+
+.homepage-pedago .oney_text_right .oney-second-line {
+    display: flex;
+    flex-direction: column;
+}
+
+.homepage-pedago .oney_text_right .oney-second-line .bubble-container {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.homepage-pedago .oney-second-line .nexttologo {
+    font-size: 30px;
+    line-height: 30px;
+    display: inline-flex;
+    margin: auto;
+    max-width: 34rem;
+}
+.homepage-pedago.pt .oney-second-line .nexttologo {
+    font-size: 13px;
+}
+
+.homepage-pedago .oney-second-line .nexttologo p {
+    margin: 0;
+}
+
+.homepage-pedago .oney-third-line {
+    font-size: 30px;
+    line-height: 30px;
+    text-transform: uppercase;
+    display: inline-flex;
+    margin: auto;
+}
+
+.homepage-pedago .oney_text_interog {
+    text-align: right;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.homepage-pedago .oney_text_interog img {
+    margin: auto;
+    vertical-align: middle;
+}
+.homepage-pedago.pt .oney_text_interog .oney-34-logo {
+    width: 90px;
+}
+
+.banner-oney .oney-logos .logos {
+    width: 65px;
+    float: left;
+}
+.banner-oney .oney-logos {
+    margin-top: 2rem;
+}
+.banner-oney .text {
+    width: 65px;
+    float: left;
+}
+
+.banner-oney.catalog_banner_oney {
+    display: grid;
+    padding: 10%;
+    position: relative;
+    text-transform: uppercase;
+    font-family: 'GTWalsheim';
+}
+
+.banner-oney.catalog_banner_oney.pt {
+    font-size: 13px;
+}
+
+.banner-oney.catalog_banner_oney .oney-info {
+    margin-top: 10px;
+}
+
+.banner-oney.catalog_banner_oney .oney-text {
+    font-size: 3.5rem;
+    line-height: 1;
+}
+
+.banner-oney.catalog_banner_oney.pt .oney-text {
+    font-size: 13px;
+}
+
+.banner-oney.catalog_banner_oney .oney-text-description {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.banner-oney.catalog_banner_oney.pt .oney-text-description {
+    font-size: 13px;
+}
+
+.banner-oney.catalog_banner_oney .oney-text.credit-card {
+    line-height: 35px;
+    text-transform: uppercase;
+    font-size: 28px;
+    margin: 3rem auto 0 auto;
+    padding-top: 10px;
+}
+.banner-oney.catalog_banner_oney.pt .oney-text.credit-card {
+    font-size: 13px;
+}
+
+.banner-oney.catalog_banner_oney .oney-img {
+    width: 12rem;
+    margin: auto auto 2rem auto;
+    padding-top: 0.7rem;
+}
+
+.banner-oney.catalog_banner_oney .oney-info {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.banner-oney.catalog_banner_oney .oney-info-logo {
+    width: 40px;
+}
+
+.banner-oney.catalog_banner_oney .oney-34-logo.oney-info-logo {
+    width: 15rem;
+}
+
+.banner-oney.catalog_banner_oney.pt .oney-34-logo.oney-info-logo {
+    width: 90px;
+    padding-bottom: 7px;
+}
+
+.banner-oney .oney-without-commission {
+    font-size: 2rem;
+    text-decoration: underline;
+    margin-top: 1rem;
+}
+.banner-oney.homepage-pedago .oney-without-commission {
+    margin-top: 0;
+}
+
+
+.nr-custom-infobox.oney {
+    padding-left: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background: #fdfdfd;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    line-height: 1.5;
+    margin: 1em 0 1.5em 0;
+}
+.nr-custom-infobox.oney.success {
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    background: #d4edda;
+}
+.nr-custom-infobox.oney.warning {
+    border: 1px solid #ffeeba;
+    background: #fff3cd;
+    color: #856404;
+}
+.nr-custom-infobox.oney.error {
+    border: 1px solid #f5c6cb;
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.oney_not_uppercase {
+    text-transform: none;
+}
+
+.oney-payment-method-content {
+    border: 3px solid #81bc00;
+
+}
+
+.oney-payment-method-content .content-inner {
+    padding: 1rem;
+}
+
+.oney-payment-method-content .content-inner .logo-big-bulle {
+    margin-right: 20px;
+}
+
+.oney-payment-method-content .content-inner .oney-brand {
+    display: flex;
+    align-items: flex-start;
+    margin: auto;
+}
+
+.oney-payment-method-content .content-inner .oney-brand .logo-big-bulle {
+    align-self: flex-start;
+}
+
+.oney-payment-method-content .content-inner .action.primary.checkout.oney {
+    background-color: #81bc00;
+    border-radius: 15px;
+    border-color: #81bc00;
+}
+
+.oney-payment-method-content .content-inner .action.primary.checkout.oney:hover {
+    background-color: #70a300;
+    border-color: #70a300;
+}
+.label-oney-method .customer-label {
+    margin: auto 0 auto 2rem;
+}
+.label-oney-method .bulle {
+    margin: auto;
+}
+
+.simulation_block {
+    font-size: 12px;
+}
+
+.legal-block, .not-exclusive-block {
+    font-size: 10px;
+    margin: 3rem 0 1rem 0;
+}
+.oney-payment-method-content {
+    font-family: "GTWalsheim";
+    color: #54565b;
+}
+#oney_pedagogique_modal a {
+    color: #81bc00;
+}
+
+.special-taeg {
+    font-size: 16px;
+}
+
+.homepage-pedago .special-taeg {
+    font-size: 13px;
+}
+
+.catalog_banner_oney .special-taeg {
+    font-size: 28px;
+}
+.catalog_banner_oney.pt .special-taeg {
+    font-size: 13px;
+}
+
+.legal-block .link-popup {
+    text-decoration: underline;
+}

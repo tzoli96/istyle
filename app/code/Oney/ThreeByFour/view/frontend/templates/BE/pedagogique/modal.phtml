@@ -1,0 +1,105 @@
+<?php
+/** @var \Oney\ThreeByFour\Block\Pedagogique\Modal $this */
+$cc = $this->addCountryCodeTranslation();
+?>
+<?php if ($this->isCreditIntermediary() || !$this->isLegalEnabled()) : ?>
+    <div id="oney_pedagogique_modal" hidden="true">
+        <?php $condition = 'pedago_condition'; ?>
+        <?php
+        $blockMentions = $this->getLayout()
+            ->createBlock(Oney\ThreeByFour\Block\Pedagogique\Mentions::class);
+        $business_transactions = $this->getBusinessTransactions();
+        ?>
+
+        <?php if ($business_transactions): ?>
+            <div class="pedagogique_oney be">
+                <div class="header_pedagogique">
+                    <img src="<?= $this->getViewFileUrl('Oney_ThreeByFour::images/oney.png') ?>" alt="Oney">
+                    <div class="title_block">
+                        <p>
+                            <?= ($this->isFree()) ? __('Pay in %1 free'.$cc, $this->getInstalmentsText()) : __('Pay in %1'.$cc, $this->getInstalmentsText()) ?>
+                            <br/>
+                        </p>
+                        <p><strong><?= __('with your credit card'.$cc) ?></strong></p>
+                    </div>
+                </div>
+
+                <div class="content_pedagogique">
+                    <div class="step_nbr_pedagogique">
+                        <span class="nbr_pedagogique">1</span>
+                        <span class="nbr_pedagogique">2</span>
+                        <span class="nbr_pedagogique">3</span>
+                    </div>
+
+                    <div class="step_pedagogique">
+                        <div class="bloc_pedagogique">
+                            <div class="content_align">
+                                <div class="title-block">
+                                    <p class="title_pedagogique choose"><?= __('Choose'.$cc) ?></p>
+                                </div>
+                                <?php if ($this->isFullLogoShown()): ?>
+                                    <div class="align-block">
+                                        <img class="oney-34-logo"
+                                             src="<?php echo $this->getViewFileUrl('Oney_ThreeByFour::images/34oneytime.png'); ?>">
+                                        <p><?= __('Without fee'.$cc) ?></p>
+                                    </div>
+                                <?php else: ?>
+                                    <div class="align-block">
+                                        <div class="choix_pedagogique">
+                                            <div style="display: flex; margin:1rem 0 0.5rem 0">
+                                                <span class="bulle big-bulle">
+                                                    <span>3x</span>
+                                                </span>
+                                                <img src="<?= $this->getViewFileUrl('Oney_ThreeByFour::images/oney.png') ?>">
+                                            </div>
+                                        </div>
+                                        <p><?= __('Confirm your purchase and select %1 Oney for payment.'.$cc, $this->getInstalmentsText()) ?></p>
+                                        <img class="cards"
+                                             src="<?= $this->getViewFileUrl('Oney_ThreeByFour::images/cards_pictos.jpg') ?>">
+                                    </div>
+                                <?php endif; ?>
+                                <?php if ($this->hasSecure()) : ?>
+                                    <div class="last-sentence">
+                                        <img class="cadena"
+                                             src="<?= $this->getViewFileUrl('Oney_ThreeByFour::images/Cadena.png') ?>">
+                                        <p><?= __('Simple and safe'.$cc); ?></p>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                        <div class="bloc_pedagogique">
+                            <div class="content_align">
+                                <div class="title-block">
+                                    <p class="title_pedagogique ask_information"><?= __('We only ask you for some information'.$cc) ?></p>
+                                </div>
+                                <div class="last-sentence">
+                                    <p>
+                                        <?= __('Complete your request easily and with a few clicks.'.$cc); ?>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bloc_pedagogique">
+                            <div class="content_align">
+                                <div class="title-block">
+                                    <p class="title_pedagogique immediate_response"><?= __('You have an immediate response.'.$cc) ?></p>
+                                </div>
+                                <div class="last-sentence">
+                                    <p><?= __('We will get back to you right away.'.$cc) ?></p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?= $blockMentions->toHtml() ?>
+        <?php endif; ?>
+        <script type="text/x-magento-init">
+        {
+            "*": {
+                "Oney_ThreeByFour/js/modal": {}
+            }
+        }
+
+        </script>
+    </div>
+<?php endif; ?>

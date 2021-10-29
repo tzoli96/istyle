@@ -1,0 +1,73 @@
+<?php
+
+/** @var Oney\ThreeByFour\Block\Pedagogique\Mentions $this */
+
+$business_transactions = $this->getBusinessTransactions();
+$text = '';
+$website = $this->getBaseUrl();
+$minimum = 0;
+$maximum = 0;
+
+foreach ($business_transactions as $key => $business) {
+    $text .= $key . 'x';
+    if (end($business_transactions) !== $business_transactions[$key]) {
+        $text .= ' ';
+    }
+    if($business['min_amount'] < $minimum || $minimum == 0) {
+        $minimum = $business['min_amount'];
+    }
+    if($business['max_amount'] > $maximum || $maximum == 0) {
+        $maximum = $business['max_amount'];
+    }
+}
+
+$minimum = $this->currency($minimum);
+$maximum = $this->currency($maximum);
+?>
+
+<div class="footer_pedagogique">
+    <?php if($this->isFree()) : ?>
+        <p>Soluțiile de Creditare Oney (3xOney si 4xOney) sunt furnizate de Oney Bank persoanelor fizice eligibile gratuit, fiind rambursabile în maximum 60 de zile (pentru 3xOney) sau 90 de zile, dar nu mai mult de 3 luni (pentru 4xOney).</p>
+        <p><u>Exemplu reprezentativ pentru 3x Oney cu titlu gratuit :</u> Pentru un credit de 900 de lei acordat prin 3x Oney pentru achiziții de pe <a href="<?= $website ?>"><?= $website ?></a>, clientul va plăti următoarele sume :
+        <ul>
+            <li class="oney-no-bullet">o rată inițială de 300 lei, apoi</li>
+            <li class="oney-no-bullet">2 rate lunare de 300 lei fiecare, care se rambursează la fiecare 30 de zile de la plata ratei inițiale.</li>
+        </ul></p></br>
+        <p>Pentru un credit rambursat în termen de 60 de zile, rata dobânzii fixe este 0%, iar dobânda anuala efectiva (DAE) este 0%. Obținerea creditului pentru client este gratuită, iar valoarea totală a creditului este de 900 lei.</p>
+        <p><u>Exemplu pentru 4x Oney cu titlu gratuit :</u> Pentru un credit de 1.600 de lei acordat prin 4x Oney pentru achiziții de pe <a href="<?= $website ?>"><?= $website ?></a>, clientul va plăti următoarele sume :
+        <ul><li class="oney-no-bullet">o rată inițială de 400 lei, apoi</li>
+            <li class="oney-no-bullet">3 rate lunare de 400 lei fiecare, care se rambursează la fiecare 30 de zile de la plata ratei inițiale.</li>
+        </ul></p></br>
+        <p>Pentru un credit rambursat în termen de 90 de zile (și nu mai mult de 3 luni), rata dobânzii fixe este 0% și dobânda anuala efectiva (DAE) este 0%. Obținerea creditului pentru client este gratuită, iar valoarea totală a creditului este de 1.600 lei.</p>
+        </br><p>Acesta reprezintă exemplu indicativ pentru o soluție de creditare. Informațiile finale vor fi indicate în e-mailul de confirmare incluzând graficul de rambursare final. Informațiile prezentate în simulatorul de credit sunt orientative și nu reprezintă o obligație contractuală a Oney Bank de a furniza o Soluție de Creditare Oney. Valoarea maximă a creditului pe care îl puteți primi va fi determinat pe baza informațiilor furnizate de dvs. Și va fi supus evaluării interne a Oney Bank.</p>
+        </br><p>Prevederile OUG nr. 50/2010 nu se aplică Soluțiilor de Creditare Oney, care rămân supuse legislației generale privind protecția consumatorilor, incluzând, dar fără a se limita la Ordonanța de Guvern nr. 85/2004 privind protecția consumatorilor la încheierea şi executarea contractelor la distanță privind serviciile financiare (“OUG nr. 85/2004”). Conform OUG nr. 85/2004 beneficiați de un termen de 14 zile calendaristice pentru a vă retrage din contractul de credit începând cu data încheierii contractului de credit. Contractul de credit se consideră a fi încheiat la data recepționarii e-mailului de confirmare, sub rezerva acceptării electronice (prin bifarea căsuței electronice) de către dvs., a Termenilor și Condițiilor Generale aplicabile acordării online a Soluțiilor de Creditare Oney (3xOney și 4xOney) (“Termenii și Condițiile Generale”) și a solicitării creditului de către dvs. prin click pe butonul “Plata în rate” pe website-ul a Oney Bank.</p>
+        </br><p>Îndeplinirea tuturor criteriilor de eligibilitate pentru acordarea Soluțiilor de Creditare Oney, menționate în Termenii si Condițiile Generale, nu vă conferă în mod automat dreptul de a obține Soluțiile de Creditare Oney, care rămân condiționate de aprobarea Oney Bank pe baza analizei sale interne.</p>
+        </br><p>Vă rugăm să rețineți că ulterior efectuării verificărilor interne (in maximum 14 zile de la data acceptării electronice de către dvs. a ofertei de creditare și a Termenilor și Condițiilor Generale) creditul vă poate fi refuzat.</p>
+        </br><p>Soluțiile de Creditare Oney sunt disponibile exclusiv pentru produsele și serviciile vândute online și sunt valabile pentru un credit de minimum <?= $minimum ?> și maxim <?= $maximum ?>.</p>
+        </br><p>Soluțiile de Creditare Oney sunt disponibile și rezervate doar persoanelor fizice majore (minimum 18 ani) având capacitate de exercițiu deplină la data acceptării Termenilor și Condițiilor Generale, care îndeplinesc în mod cumulativ următoarele condiții: (i) sunt rezidenți in România (cetățeni români și cetățeni străini rezidenți români); (ii) sunt consumatori, în înțelesul legislației aplicabile și, prin urmare, nu acționează în scopuri de natură profesională sau comercială; (iii) dețin un card de debit Visa sau Mastercard valabil (excluzând carduri preplătite/carduri care solicită sistematic autorizări cum ar fi VISA Electron și Maestro), emise de o instituție de credit din România sau de o sucursală din România a unei instituții de credit din UE, având un termen de valabilitate ce depășește cu mai mult de 2 luni de zile durata Soluției de Creditare Oney selectate sau dețin orice alte metode de plată, așa cum sunt specificate acestea de Oney Bank.</p>
+        </br><p>Oney Bank este o instituție de credit franceza autorizata sa desfășoare activități de creditare si de plata de Autoritatea Franceză de Control Prudențial și Rezoluție (“ACPR”), organizată și funcționând ca societate pe acțiuni în conformitate cu legislația din Franța, cu un capital social de 51.286.585 euro, înregistrată în Registrul Comerțului și Societăților din Lille Metropole sub numărul 546 380 197, cu sediul situat în str. Avenue de Flandre, nr. 34, Croix (59170), număr de telefon +40317305050 și adresă de email: <a href="mailto:serviciulclienti.ro@oney.com">serviciulclienti.ro@oney.com</a>.</p>
+        </br><p>Oney Bank este supravegheată, în primul rând, de autoritatea competentă franceză, ACPR, precum și de Banca Națională a României (“BNR”) și furnizează Soluțiile de Creditare Oney transfrontalier, fără prezență fizică pe teritoriul României (având în vedere natura exclusiv online a activității de creditare), desfășurând activități de creditare a consumatorilor în România în condițiile libertății de a furniza servicii în conformitate cu prevederile Ordonanței Guvernului 99/2006 privind instituțiile de credit și adecvarea capitalului, cu modificările ulterioare, fiind înregistrată în registrul public al BNR cu privire la instituțiile de credit UE care au notificat prestarea de servicii în mod direct în România, conform notificării din 31/10/2019 (a se vedea lista BNR <a href="https://www.bnr.ro/Registre-si-Liste-717.aspx#IC">https://www.bnr.ro/Registre-si-Liste-717.aspx#IC</a>)”.</p>
+    <?php else: ?>
+        <p>Soluțiile de Creditare Oney (3xOney si 4xOney) sunt furnizate de Oney Bank persoanelor fizice eligibile pentru costuri nesemnificative (maximum 0,5% din valoarea totala a creditului), fiind rambursabile în maximum 60 de zile (pentru 3xOney) sau 90 de zile, dar nu mai mult de 3 luni (pentru 4xOney).</p>
+        <p>Exemplu reprezentativ pentru 3xOney cu costuri nesemnificative : Pentru un credit de 900 de lei acordat prin 3x Oney pentru achiziții de pe <a href="<?= $website ?>"><?= $website ?></a>, clientul va plăti următoarele sume:
+        <ul>
+            <li class="oney-no-bullet">o rată inițială de 304,50 lei, apoi</li>
+            <li class="oney-no-bullet">2 rate lunare de 300 lei fiecare, care se rambursează la fiecare 30 de zile de la plata ratei inițiale.</li>
+        </ul></p></br>
+        <p>Pentru un credit rambursat în termen de 60 de zile, rata dobânzii fixe este 6,08%, iar dobânda anuala efectiva (DAE) este de 6,2993%. Costul pentru client este de 4,50 lei, reprezentând 0,5% din valoarea totală a creditului, iar valoarea totală a creditului este de 904,5 lei.</p>
+        <p>Exemplu reprezentativ pentru 4xOney cu costuri nesemnificative : Pentru un credit de 1.600 de lei acordat prin 4x Oney pentru achiziții de pe <a href="<?= $website ?>"><?= $website ?></a>, clientul va plăti următoarele sume :
+        <ul>
+            <li class="oney-no-bullet">o rată inițială de 408 lei, apoi</li>
+            <li class="oney-no-bullet">3 rate lunare de 400 lei fiecare, care se rambursează la fiecare 30 de zile de la plata ratei inițiale.</li>
+        </ul></p></br>
+        <p>Pentru un credit rambursat în termen de 90 de zile (și nu mai mult de 3 luni), rata dobânzii fixe este 4,06% și dobânda anuala efectiva (DAE) este de 4,1554%. Costul pentru client este de 8 lei, reprezentând 0,5% din valoarea totală a creditului, iar valoarea totală a creditului este de 1.608 lei.</p>
+        </br><p>Acesta reprezintă exemplu indicativ pentru o soluție de creditare. Informațiile finale vor fi indicate în e-mailul de confirmare incluzând graficul de rambursare final. Informațiile prezentate în simulatorul de credit sunt orientative și nu reprezintă o obligație contractuală a Oney Bank de a furniza o Soluție de Creditare Oney. Valoarea maximă a creditului pe care îl puteți primi va fi determinat pe baza informațiilor furnizate de dvs. Și va fi supus evaluării interne a Oney Bank.</p>
+        </br><p>Prevederile OUG nr. 50/2010 privind contractele de credit pentru consumatori, așa cum a fost modificată nu se aplică Soluțiilor de Creditare Oney, care rămân supuse legislației generale privind protecția consumatorilor, incluzând, dar fără a se limita la Ordonanța de Guvern nr. 85/2004 privind protecția consumatorilor la încheierea şi executarea contractelor la distanță privind serviciile financiare (“OUG nr. 85/2004”). Conform OUG nr. 85/2004, beneficiați de un termen de 14 zile calendaristice pentru a vă retrage din contractul de credit începând cu data încheierii contractului de credit. Contractul de credit se consideră a fi încheiat la data primirii e-mailului de confirmare, sub rezerva acceptării electronice (prin bifarea căsuței electronice) de către dvs., a Termenilor și Condițiilor Generale aplicabile acordării online a Soluțiilor de Creditare Oney (3xOney și 4xOney) (“Termenii și Condițiile Generale”) și a solicitării creditului de dvs. prin click pe butonul “Plata în rate” pe website-ul Oney Bank.</p>
+        </br><p>Îndeplinirea criteriilor de eligibilitate pentru acordarea Soluțiilor de Creditare Oney, menționate în Termenii si Condițiile Generale, nu vă conferă în mod automat dreptul de a obține Soluțiile de Creditare Oney, care rămân condiționate de aprobarea Oney Bank pe baza analizei sale interne.</p>
+        </br><p>Vă rugăm să rețineți că ulterior efectuării verificărilor interne (in maximum 14 zile de la data acceptării electronice de către dvs. a ofertei de creditare și a Termenilor și Condițiilor Generale) creditul vă poate fi refuzat.</p>
+        </br><p>Soluțiile de Creditare Oney sunt disponibile exclusiv pentru produsele și serviciile vândute online și sunt valabile pentru un credit de minimum <?= $minimum ?> și maxim <?= $maximum ?>.</p>
+        </br><p>Soluțiile de Creditare Oney sunt disponibile și rezervate doar persoanelor fizice majore (minimum 18 ani) având capacitate de exercițiu deplină la data acceptării Termenilor și Condițiilor Generale, care îndeplinesc cumulativ următoarele condiții: (i) sunt rezidenți in România (cetățeni români și cetățeni străini rezidenți români); (ii) sunt consumatori, în înțelesul legislației aplicabile și prin urmare nu acționează în scopuri de natură profesională sau comercială; (iii) dețin un card de debit Visa sau Mastercard valabil (excluzând carduri preplătite/carduri care solicită sistematic autorizări cum ar fi VISA Electron și Maestro), emise de o instituție de credit din România sau de o sucursală din România a unei instituții de credit din UE, având un termen de valabilitate ce depășește cu mai mult de 2 luni de zile durata Soluției de Creditare Oney selectate, sau dețin orice alte metode de plată, așa cum sunt specificate acestea de Oney Bank.</p>
+        </br><p>Oney Bank este o instituție de credit franceza autorizata sa desfășoare activități de creditare si de plata de Autoritatea Franceză de Control Prudențial și Rezoluție (“ACPR”), organizată și funcționând ca societate pe acțiuni în conformitate cu legislația din Franța, cu un capital social de 51.286.585 euro, înregistrată în Registrul Comerțului și Societăților din Lille Metropole sub numărul 546 380 197, cu sediul situat în str. Avenue de Flandre, nr. 34, Croix (59170), număr de telefon +40317305050 și adresă de email: <a href="mailto:serviciulclienti.ro@oney.com">serviciulclienti.ro@oney.com</a>.</p>
+        </br><p>Oney Bank este supravegheată, în primul rând, de autoritatea competentă franceză, ACPR, precum și de Banca Națională a României (“BNR”) și furnizează Soluțiile de Creditare Oney transfrontalier, fără prezență fizică pe teritoriul României (având în vedere natura exclusiv online a activității de creditare), desfășurând activități de creditare a consumatorilor în România în condițiile libertății de a furniza servicii în conformitate cu prevederile Ordonanței Guvernului 99/2006 privind instituțiile de credit și adecvarea capitalului, cu modificările ulterioare, fiind înregistrată în registrul public al BNR cu privire la instituțiile de credit UE care au notificat prestarea de servicii în mod direct în România, conform notificării din 31/10/2019 (a se vedea lista BNR <a href="https://www.bnr.ro/Registre-si-Liste-717.aspx#IC">https://www.bnr.ro/Registre-si-Liste-717.aspx#IC</a>)”.</p>
+    <?php endif; ?>
+</div>

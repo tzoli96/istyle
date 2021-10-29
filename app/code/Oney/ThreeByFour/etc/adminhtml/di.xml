@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Config\Model\Config\Structure\Data">
+        <plugin sortOrder="0" name="Facilypay_Config_Plugin" type="Oney\ThreeByFour\Plugin\Config\Model\Config\Structure\DataPlugin"/>
+    </type>
+    <type name="Magento\Sales\Model\Order">
+        <plugin sortOrder="10" name="Facilypay_CreditMemo_PluginFacilypay_Order_Plugin" type="Oney\ThreeByFour\Plugin\Sales\Model\OrderPlugin"/>
+    </type>
+</config>

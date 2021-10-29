@@ -1,0 +1,22 @@
+<?php
+/** @var Oney\ThreeByFour\Block\Checkout\Cart $block */
+$simulations = $block->getSimulations();
+$cc = $this->addCountryCodeTranslation();
+if(!empty($simulations)) {
+?>
+<div class="oney-cart">
+    <?php if(!$this->isCreditIntermediary() && $this->isLegalEnabled()): ?>
+    <img class="logo-non-credit-intermediary" src="<?= $this->getViewFileUrl('Oney_ThreeByFour::images/34oneytime.png')?>">
+    <?php else: ?>
+        <div class="oney-payment-logo-34">
+        <span>
+            <div><?= __('Or pay in %1'.$cc, $block->renderInstalments())?></div>
+            <div class="bold"><?= __('by credit card'.$cc)?></div>
+        </span>
+            <span class="interog open-simulation">
+            <img src="<?= $this->getViewFileUrl('Oney_ThreeByFour::images/interog.png')?>"/>
+        </span>
+        </div>
+    <?php endif; ?>
+</div>
+<?php } ?>

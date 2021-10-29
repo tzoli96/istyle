@@ -1,0 +1,26 @@
+<?php
+
+/** @var Oney\ThreeByFour\Block\Pedagogique\Mentions $this */
+$business_transactions = $this->getBusinessTransactions();
+$text = '';
+$website = $this->getBaseUrl();
+$minimum = 0;
+$maximum = 0;
+$cc = $this->addCountryCodeTranslation();
+foreach ($business_transactions as $key => $business) {
+    if($business['min_amount'] < $minimum || $minimum == 0) {
+        $minimum = $business['min_amount'];
+    }
+    if($business['max_amount'] > $maximum || $maximum == 0) {
+        $maximum = $business['max_amount'];
+    }
+}
+?>
+
+<div class="footer_pedagogique">
+    <div class="legal-text">
+        <?= __('banner_legal_text_pedago %1 %2'.$cc,
+            $minimum, $maximum
+        )?>
+    </div>
+</div>
