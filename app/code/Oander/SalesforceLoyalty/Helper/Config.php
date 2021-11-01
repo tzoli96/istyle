@@ -110,6 +110,6 @@ class Config extends AbstractHelper
      */
     public function getLoyaltyServiceEnabled() : bool
     {
-        return (bool) $this->loyaltyService[self::SETTINGS_SERVICE_ENABLED];
+        return (bool)$value = $this->registration[self::SETTINGS_SERVICE_ENABLED] ?? false;
     }
 }
