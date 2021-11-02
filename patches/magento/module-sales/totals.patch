@@ -1,0 +1,29 @@
+Index: Block/Order/Totals.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Block/Order/Totals.php b/Block/Order/Totals.php
+--- a/Block/Order/Totals.php
++++ b/Block/Order/Totals.php	(date 1635887625523)
+@@ -147,6 +147,20 @@
+             );
+         }
+
++        /**
++         * Add Loyalty
++         */
++        if ((double)$this->getSource()->getLoyaltyDiscount() != 0) {
++            $this->_totals['loyalty_discount'] = new \Magento\Framework\DataObject(
++                [
++                    'code' => 'loyalty_discount',
++                    'field' => 'loyalty_discount_amount',
++                    'value' => $source->getLoyaltyDiscount(),
++                    'label' => __('Loyalty Discount'),
++                ]
++            );
++        }
++
+         $this->_totals['grand_total'] = new \Magento\Framework\DataObject(
+             [
+                 'code' => 'grand_total',
