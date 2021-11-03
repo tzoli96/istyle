@@ -56,7 +56,7 @@
         <div
           class="card card--shipping-address-item"
           data-bind="css: ((selectedBillingAddress().status == 'new') && hasSelectedAddress) ? 'selected-item' : 'not-selected-item'">
-          <div data-bind="html: $parent.sortCardAddress(newAddress())"></div>
+          <div data-bind="html: sortCardAddress(newAddress())"></div>
 
           <div class="card__actions">
             <button
