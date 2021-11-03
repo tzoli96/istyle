@@ -33,15 +33,17 @@ class LoyaltyLayoutProcessor
      */
     public function afterProcess(LayoutProcessor $subject, array $jsLayout)
     {
-        if ($this->customerSession->isLoggedIn() && $this->checkoutSession->getQuote()->getLoyaltyPoint()) {
-            $jsLayout['components']['checkout']['children']['sidebar']['children']['summary']['children']['totals']['children']['loyalty_discount']
-                = [
-                'component' => "Oander_SalesforceLoyalty/js/view/checkout/cart/totals/loyaltydiscount",
-                'config' => [
-                    'template' => "Oander_SalesforceLoyalty/checkout/cart/totals/loyaltydiscount",
-                    'title' => 'Loyalty Discount'
-                ]
-            ];
+        if ($this->customerSession->isLoggedIn() && ($this->checkoutSession->getQuote()->getLoyaltyPoint() != null)) {
+            if($this->checkoutSession->getQuote()->getLoyaltyPoint() != 0) {
+                $jsLayout['components']['checkout']['children']['sidebar']['children']['summary']['children']['totals']['children']['loyalty_discount']
+                    = [
+                    'component' => "Oander_SalesforceLoyalty/js/view/checkout/cart/totals/loyaltydiscount",
+                    'config' => [
+                        'template' => "Oander_SalesforceLoyalty/checkout/cart/totals/loyaltydiscount",
+                        'title' => 'Loyalty Discount'
+                    ]
+                ];
+            }
         }
 
         return $jsLayout;
