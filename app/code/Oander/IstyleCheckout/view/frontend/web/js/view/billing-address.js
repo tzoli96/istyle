@@ -284,7 +284,6 @@ define([
             ? store.getLocalStorage().billingAddress.selectedBillingAddress.isCompany
             : store.billingAddress.selectedBillingAddress().isCompany) {
             $(formElements.tabs).find('.tab__switch[data-tab="billing-company"]').trigger('click');
-            $(formElements.companyField).find('.form-control').focus();
           }
           else {
             $(formElements.tabs).find('.tab__switch[data-tab="billing-person"]').trigger('click');
@@ -410,11 +409,7 @@ define([
 
       if ($(formElements.pfpjField).length) {
         $(formElements.pfpjField).hide();
-
-        if ($(formElements.pfpjField).hasClass('_required')) {
-          $(formElements.pfpjField).removeClass('_required');
-          $(formElements.pfpjField).addClass('was_required');
-        }
+        $(formElements.pfpjField).removeClass('_required');
       }
 
       $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text($t('First Name'));
@@ -435,17 +430,11 @@ define([
 
       if ($(formElements.pfpjField).length) {
         $(formElements.pfpjField).show();
-
-        if ($(formElements.pfpjField).hasClass('was_required')) {
-          $(formElements.pfpjField).removeClass('was_required');
-          $(formElements.pfpjField).addClass('_required');
-        }
+        $(formElements.pfpjField).addClass('_required');
       }
 
       $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text($t('Contact person firstname'));
       $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text($t('Contact person lastname'));
-
-      $(formElements.companyField).find('.form-control').focus();
 
       this.fieldErrorHandling($(formElements.companyField));
       if ($(formElements.vatIdField).hasClass('vat-required')) this.fieldErrorHandling($(formElements.vatIdField));

@@ -79,8 +79,12 @@ define([
      * @returns {Boolean}
      */
     isVisibleInDom: function (elem) {
-      if (elem.attr('style') != 'display: none;') return true;
-      return false;
+      var style = elem.attr('style');
+      if (style) {
+        if (style.indexOf('display: none') > -1) return false;
+        return true;
+      }
+      return true;
     }
   };
 
