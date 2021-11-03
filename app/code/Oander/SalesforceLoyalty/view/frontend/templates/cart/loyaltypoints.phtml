@@ -42,7 +42,7 @@
                                             <?php endif; ?>
                                         </div>
                                         <div class="info-block__amount">
-                                            <span><?= __('%1 loyalty points', min($block->getMaxRedeemablePoints(), $block->getAvailablePoints()))?></span>
+                                            <span><?= __('%1 loyalty points', $block->getFormatedPoint(min($block->getMaxRedeemablePoints(), $block->getAvailablePoints())))?></span>
                                         </div>
                                     </div>
                                     <div class="block__input-group">
