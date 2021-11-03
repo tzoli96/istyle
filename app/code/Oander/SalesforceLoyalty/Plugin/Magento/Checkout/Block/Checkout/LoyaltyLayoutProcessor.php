@@ -33,7 +33,7 @@ class LoyaltyLayoutProcessor
      */
     public function afterProcess(LayoutProcessor $subject, array $jsLayout)
     {
-        if ($this->customerSession->isLoggedIn() && $this->checkoutSession->getQuote()->getLoyaltyPoint()) {
+        if ($this->customerSession->isLoggedIn() && $this->checkoutSession->getQuote()->getLoyaltyPoint() !== null) {
             $jsLayout['components']['checkout']['children']['sidebar']['children']['summary']['children']['totals']['children']['loyalty_discount']
                 = [
                 'component' => "Oander_SalesforceLoyalty/js/view/checkout/cart/totals/loyaltydiscount",
