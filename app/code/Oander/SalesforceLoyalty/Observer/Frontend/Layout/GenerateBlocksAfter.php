@@ -70,7 +70,7 @@ class GenerateBlocksAfter implements \Magento\Framework\Event\ObserverInterface
             $layout = $observer->getData('layout');
             if(!($this->checkoutSession->getQuote()->getData(\Oander\SalesforceLoyalty\Enum\Attribute::LOYALTY_DISCOUNT)>0))
             {
-                $earnablePoints = $this->loyaltyHelper->getEarnableLoyaltyPoints();
+                $earnablePoints = $this->loyaltyHelper->formatPoint($this->loyaltyHelper->getEarnableLoyaltyPoints());
                 if($earnablePoints>0 && $this->helperConfig->getLoyaltyServiceEnabled()) {
                     $earnableBlock = $layout->addBlock(\Magento\Framework\View\Element\Template::class, "salesforceloyalty.cart.methods.earnable", "checkout.cart.methods");
                     $earnableBlock->setTemplate("Oander_SalesforceLoyalty::cart/earnable.phtml");

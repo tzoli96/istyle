@@ -191,4 +191,13 @@ class Data extends AbstractHelper
     {
         return self::MAREKINTG_STATIC_BLOCK.$this->storeManager->getStore()->getCode();
     }
+
+    /**
+     * @param int $amount
+     * @return string
+     */
+    public function formatPoint(int $amount) : string
+    {
+        return number_format($amount,0," "," ");
+    }
 }
