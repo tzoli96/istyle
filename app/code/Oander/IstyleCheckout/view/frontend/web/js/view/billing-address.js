@@ -579,10 +579,19 @@ define([
         store.billingAddress.userSelectBillingAddress(true);
       }
 
+      var vatIdFieldCondition = true;
+
+      if ($(formElements.vatIdField).hasClass('vat-required')) {
+        vatIdFieldCondition = this.watchField($(formElements.vatIdField));
+      }
+      else {
+        vatIdFieldCondition = true;
+      }
+
       if (store.billingAddress.continueBtn()) {
         if (activeTab == 'billing-company') {
           if (this.watchField($(formElements.companyField)) && this.watchField($(formElements.pfpjField))
-            && ($(formElements.vatIdField).hasClass('vat-required') ? this.watchField($(formElements.vatIdField)) : '')) {
+            && vatIdFieldCondition) {
             this.updateAddress();
             store.billingAddress.formIsVisible(false);
           }
