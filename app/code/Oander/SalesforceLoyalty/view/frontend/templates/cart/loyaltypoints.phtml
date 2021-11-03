@@ -11,8 +11,8 @@
                     <div class="block block--new-loyalty">
                         <?php if($block->getLoyaltyDiscount() > 0): ?>
                             <div class="loyalty-used info-block d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center">
-                                    <span><?= __('Available points'); ?></span>
+                                <div class="info-block__text">
+                                    <span class="info-block__points"><?= __('Available points'); ?></span>
                                     <?php if($block->getCartInfoText()): ?>
                                         <span class="info-block__icon">
                                             <span class="tooltip"><?= $block->getCartInfoText() ?></span>
@@ -33,15 +33,17 @@
                             <div class="block__content d-flex align-items-center">
                                 <div class="block__content__holder">
                                     <div class="info-block d-flex align-items-center justify-content-between">
-                                        <div class="d-flex align-items-center">
-                                            <span><?= __('Available points'); ?></span>
+                                        <div class="info-block__text">
+                                            <span class="info-block__points"><?= __('Available points'); ?></span>
                                             <?php if($block->getCartInfoText()): ?>
                                                 <span class="info-block__icon">
                                                     <span class="tooltip"><?= $block->getCartInfoText() ?></span>
                                                 </span>
                                             <?php endif; ?>
                                         </div>
-                                        <span class="info-block__amount"><?= __('%1 loyalty points', min($block->getMaxRedeemablePoints(), $block->getAvailablePoints()))?></span>
+                                        <div class="info-block__amount">
+                                            <span><?= __('%1 loyalty points', min($block->getMaxRedeemablePoints(), $block->getAvailablePoints()))?></span>
+                                        </div>
                                     </div>
                                     <div class="block__input-group">
                                         <input
