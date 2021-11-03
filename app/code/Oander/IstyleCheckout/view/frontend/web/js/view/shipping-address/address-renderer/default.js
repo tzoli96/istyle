@@ -12,8 +12,9 @@ define([
   'Oander_IstyleCheckout/js/model/shipping-address/form-state',
   'Magento_Checkout/js/checkout-data',
   'Magento_Customer/js/customer-data',
-  'Oander_IstyleCheckout/js/helpers'
-], function ($, ko, Component, selectShippingAddressAction, quote, formState, checkoutData, customerData, helpers) {
+  'Oander_IstyleCheckout/js/helpers',
+  'Oander_IstyleCheckout/js/view/billing-address/sort',
+], function ($, ko, Component, selectShippingAddressAction, quote, formState, checkoutData, customerData, helpers, sort) {
   'use strict';
 
   var countryData = customerData.get('directory-data');
@@ -66,6 +67,10 @@ define([
 
     validateShippingFields: function () {
       helpers.validateShippingFields($('.form-shipping-address'));
+    },
+
+    sortCardAddress: function (address) {
+      return sort.sortCardAddress(address, 'individual');
     },
 
     scrollToForm: function () {

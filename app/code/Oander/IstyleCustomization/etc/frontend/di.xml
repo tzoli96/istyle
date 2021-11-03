@@ -6,5 +6,11 @@
     <type name="Magento\Catalog\Helper\Output">
         <plugin name="oander_catalog_helper_output" type="Oander\IstyleCustomization\Plugin\Catalog\Helper\Output"/>
     </type>
-
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="address_attributes_config_provider" xsi:type="object">Oander\IstyleCustomization\Model\ConfigProvider</item>
+            </argument>
+        </arguments>
+    </type>
 </config>

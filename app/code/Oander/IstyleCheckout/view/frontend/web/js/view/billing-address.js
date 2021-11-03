@@ -13,7 +13,23 @@ define([
   'Oander_IstyleCheckout/js/view/billing-address/store',
   'Oander_IstyleCheckout/js/view/billing-address/validate',
   'Oander_IstyleCheckout/js/view/billing-address/base',
-], function ($, ko, $t, customer, addressList, quote, selectBillingAddress, helpers, checkoutData, getPaymentInformationAction, store, billingAddressStore, billingAddressValidate, billingAddressBase) {
+  'Oander_IstyleCheckout/js/view/billing-address/sort',
+], function (
+  $,
+  ko,
+  $t,
+  customer,
+  addressList,
+  quote,
+  selectBillingAddress,
+  helpers,
+  checkoutData,
+  getPaymentInformationAction,
+  store,
+  billingAddressStore,
+  billingAddressValidate,
+  billingAddressBase,
+  billingAddressSort) {
   'use strict';
 
   var mixin = {
@@ -41,16 +57,18 @@ define([
       var address = '';
 
       if (billingAddress) {
-        if (billingAddress.postcode !== '*'
-          && (billingAddress.postcode !== undefined && billingAddress.postcode !== '')
-          && (billingAddress.city !== undefined && billingAddress.city !== '')
-          && (billingAddress.street !== undefined && billingAddress.street !== '')
-          && (billingAddress.firstname !== undefined && billingAddress.firstname !== '')
-          && (billingAddress.lastname !== undefined && billingAddress.lastname !== '')) {
-          address = billingAddress.firstname + ' ' + billingAddress.lastname + ', ' + billingAddress.street[0] + ', ' + billingAddress.city + ', ' + billingAddress.postcode;
+        if (helpers.hasValue(billingAddress.postcode)
+          && helpers.hasValue(billingAddress.city)
+          && helpers.hasValue(billingAddress.street)
+          && helpers.hasValue(billingAddress.firstname)
+          && helpers.hasValue(billingAddress.lastname)) {
+          address = billingAddress.firstname + ' ' + billingAddress.lastname + ', ' +
+            billingAddress.street[0] + ', ' + billingAddress.city + ', ' + billingAddress.postcode;
 
-          if ((billingAddress.company !== undefined && billingAddress.company !== '') && (billingAddress.vatId !== undefined && billingAddress.vatId !== '')) {
-            address = billingAddress.company + ', ' + billingAddress.street[0] + ', ' + billingAddress.city + ', ' + billingAddress.postcode;
+          if (helpers.hasValue(billingAddress.company)
+            || helpers.hasValue(billingAddress.vatId)) {
+            address = billingAddress.company + ', ' + billingAddress.street[0] + ', ' +
+              billingAddress.city + ', ' + billingAddress.postcode;
           }
         }
         else {
@@ -200,7 +218,6 @@ define([
 
         if (address) {
           if (address.postcode
-            && address.postcode !== '*'
             && this.checkUserBilling()) {
             if (address.region) {
               store.billingAddress.region(address.region);
@@ -375,6 +392,8 @@ define([
           this.formCompany();
           break;
       }
+
+      billingAddressSort.sortFields(formId);
     },
 
     /**
@@ -482,33 +501,36 @@ define([
      */
     setBillingAddress: function (address) {
       var formElements = this.formElements();
+      var currentLS = store.getLocalStorage();
 
-      if (store.billingAddress.hasSelectedAddress()) {
-        var formInterval = setInterval(function () {
-          if ($('[name="billingAddressshared.telephone"] .form-control').length && address.postcode !== '*') {
-            for (var item in address) {
-              var elem = formElements.form.querySelector('[name="' + item + '"]');
-              var value = address[item];
+      if (currentLS.billingAddress) {
+        if (store.billingAddress.hasSelectedAddress() || currentLS.billingAddress.hasSelectedAddress) {
+          var formInterval = setInterval(function () {
+            if ($('[name="billingAddressshared.telephone"] .form-control').length) {
+              for (var item in address) {
+                var elem = formElements.form.querySelector('[name="' + item + '"]');
+                var value = address[item];
 
-              if (item == 'street') {
-                elem = formElements.form.querySelector('[name="' + item + '[0]"]');
-              }
+                if (item == 'street') {
+                  elem = formElements.form.querySelector('[name="' + item + '[0]"]');
+                }
 
-              if (item == 'vatId') {
-                elem = formElements.form.querySelector('[name="vat_id"]');
-              }
+                if (item == 'vatId') {
+                  elem = formElements.form.querySelector('[name="vat_id"]');
+                }
 
-              if (value !== undefined && value !== null) {
-                if (elem) {
-                  elem.value = value;
-                  elem.dispatchEvent(new Event('change'));
+                if (value !== undefined && value !== null) {
+                  if (elem) {
+                    elem.value = value;
+                    elem.dispatchEvent(new Event('change'));
+                  }
                 }
               }
-            }
 
-            clearInterval(formInterval);
-          }
-        }, helpers.interval);
+              clearInterval(formInterval);
+            }
+          }, helpers.interval);
+        }
       }
     },
 
@@ -519,6 +541,10 @@ define([
     isSelectedByAddressId: function (addressId) {
       if ((this.selectedBillingAddress().id == addressId) && this.hasSelectedAddress()) return true;
       return false;
+    },
+
+    sortCardAddress: function (address) {
+      return billingAddressSort.sortCardAddress(address);
     },
 
     /**
