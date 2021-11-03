@@ -8,22 +8,7 @@
 -->
 <div class="col-sm-6 col-md-4 col-shipping-address-item">
     <div class="card card--shipping-address-item" data-bind="css: (isSelected() && hasSelectedAddress()) ? 'selected-item' : 'not-selected-item'">
-        <div class="card__head">
-            <!-- ko if: (window.onderNameSwitcher == 1) -->
-            <span><!-- ko text: address().prefix --><!-- /ko --> <!-- ko text: address().lastname --><!-- /ko -->
-            <!-- ko text: address().firstname --><!-- /ko --> <!-- ko text: address().suffix --><!-- /ko --></span>
-            <!-- /ko -->
-            <!-- ko if: (window.onderNameSwitcher != 1) -->
-            <span><!-- ko text: address().prefix --><!-- /ko --> <!-- ko text: address().firstname --><!-- /ko -->
-            <!-- ko text: address().lastname --><!-- /ko --> <!-- ko text: address().suffix --><!-- /ko --></span>
-            <!-- /ko -->
-            <span><!-- ko text: address().telephone --><!-- /ko --></span>
-        </div>
-        <div class="card__content">
-            <span><!-- ko text: address().street --><!-- /ko --></span>
-            <span><!-- ko text: address().city --><!-- /ko -->, <!-- ko text: address().postcode --><!-- /ko --></span>
-            <span><!-- ko text: getCountryName(address().countryId) --><!-- /ko --></span>
-        </div>
+        <div data-bind="html: sortCardAddress(address())"></div>
 
         <div class="card__actions">
             <!-- ko if: (address().isEditable()) -->

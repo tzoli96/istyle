@@ -171,9 +171,9 @@ define([
      * @returns {Boolean}
      */
     shippingMethodVisibleHandling: function (method) {
-			if (method.indexOf('warehouse') > -1) return true;
-			return false;
-		},
+      if (method.indexOf('warehouse') > -1) return true;
+      return false;
+    },
 
     /**
      * Are addresses equal
@@ -191,7 +191,9 @@ define([
             if (shipping[requiredFields[field]] === billing[requiredFields[field]]) equalFieldsCount++;
           }
           else {
-            if (shipping[requiredFields[field]][0] === billing[requiredFields[field]][0]) equalFieldsCount++;
+            if (Array.isArray(shipping[requiredFields[field]]) && Array.isArray(billing[requiredFields[field]])) {
+              if (shipping[requiredFields[field]][0] === billing[requiredFields[field]][0]) equalFieldsCount++;
+            }
           }
         }
 
@@ -218,6 +220,16 @@ define([
       else {
         return true;
       }
-    }
+    },
+
+    /**
+     * Has value
+     * @param {String} field
+     * @returns {Boolean}
+     */
+    hasValue: function (field) {
+      if (field !== undefined && field !== '') return true;
+      return false;
+    },
   }
 });

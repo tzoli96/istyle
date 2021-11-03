@@ -118,7 +118,14 @@ class Data extends AbstractHelper
                 {
                     foreach ($item->getChildren() as $childItem)
                     {
-                        $earnablePoints += $this->_getAvailablePointsOfItem($childItem);
+                        if($item->getProductType()=="configurable")
+                        {
+                            $earnablePoints += $this->_getAvailablePointsOfItemConfigurable($childItem);
+                        }
+                        else
+                        {
+                            $earnablePoints += $this->_getAvailablePointsOfItem($childItem);
+                        }
                     }
                 }
                 else
@@ -140,10 +147,29 @@ class Data extends AbstractHelper
         //Check has any value in loyalty points percent
         if ($loyaltyPointsPercent > 0) {
             $regularPrice = $item->getProduct()->getPriceInfo()->getPrice('regular_price')->getValue();
-            $itemPrice = floatval($item->getPriceInclTax());
+            $itemPrice = floatval($item->getPrice());
             //Check is it not on sale
             if ($itemPrice >= $regularPrice) {
-                return ($itemPrice * ($loyaltyPointsPercent/100));
+                return ($item->getRowTotalInclTax() * ($loyaltyPointsPercent/100));
+            }
+        }
+        return 0.0;
+    }
+
+    /**
+     * @param $item \Magento\Quote\Model\Quote\Item
+     * @return float
+     */
+    private function _getAvailablePointsOfItemConfigurable($item)
+    {
+        $loyaltyPointsPercent = floatval($item->getProduct()->getData(\Oander\SalesforceLoyalty\Enum\ProductAttribute::LOYALTY_POINTS_PERCENT));
+        //Check has any value in loyalty points percent
+        if ($loyaltyPointsPercent > 0) {
+            $regularPrice = $item->getProduct()->getPriceInfo()->getPrice('regular_price')->getValue();
+            $itemPrice = floatval($item->getParentItem()->getPrice());
+            //Check is it not on sale
+            if ($itemPrice >= $regularPrice) {
+                return ($item->getParentItem()->getRowTotalInclTax() * ($loyaltyPointsPercent/100));
             }
         }
         return 0.0;

@@ -14,26 +14,7 @@
         <div
           class="card card--shipping-address-item"
           data-bind="css: ($parent.isSelectedByAddressId(address.customerAddressId)) ? 'selected-item' : 'not-selected-item'">
-          <div class="card__head">
-            <!-- ko if: (window.onderNameSwitcher == 1) -->
-            <span>
-              <!-- ko text: address.lastname --><!-- /ko -->
-              <!-- ko text: address.firstname --><!-- /ko -->
-            </span>
-            <!-- /ko -->
-            <!-- ko if: (window.onderNameSwitcher != 1) -->
-            <span>
-              <!-- ko text: address.firstname --><!-- /ko -->
-              <!-- ko text: address.lastname --><!-- /ko -->
-            </span>
-            <!-- /ko -->
-            <span><!-- ko text: address.telephone --><!-- /ko --></span>
-          </div>
-          <div class="card__content">
-            <span><!-- ko text: address.street --><!-- /ko --></span>
-            <span><!-- ko text: address.city --><!-- /ko -->, <!-- ko text: address.postcode --><!-- /ko --></span>
-            <span><!-- ko text: $parent.getCountryName(address.countryId) --><!-- /ko --></span>
-          </div>
+          <div data-bind="html: $parent.sortCardAddress(address)"></div>
 
           <div class="card__actions">
             <!-- ko if: ($parent.isSelectedByAddressId(address.customerAddressId)) -->
@@ -75,32 +56,7 @@
         <div
           class="card card--shipping-address-item"
           data-bind="css: ((selectedBillingAddress().status == 'new') && hasSelectedAddress) ? 'selected-item' : 'not-selected-item'">
-          <div class="card__head">
-            <!-- ko ifnot: newAddress().company -->
-              <!-- ko if: (window.onderNameSwitcher == 1) -->
-              <span>
-                <!-- ko text: newAddress().lastname --><!-- /ko -->
-                <!-- ko text: newAddress().firstname --><!-- /ko -->
-              </span>
-              <!-- /ko -->
-              <!-- ko if: (window.onderNameSwitcher != 1) -->
-              <span>
-                <!-- ko text: newAddress().firstname --><!-- /ko -->
-                <!-- ko text: newAddress().lastname --><!-- /ko -->
-              </span>
-              <!-- /ko -->
-              <span><!-- ko text: newAddress().telephone --><!-- /ko --></span>
-            <!-- /ko -->
-            <!-- ko if: newAddress().company -->
-              <span><!-- ko text: newAddress().company --><!-- /ko --></span>
-              <span><!-- ko i18n: 'VAT' --><!-- /ko -->: <!-- ko text: newAddress().vatId --><!-- /ko --></span>
-            <!-- /ko -->
-          </div>
-          <div class="card__content">
-            <span><!-- ko text: newAddress().street --><!-- /ko --></span>
-            <span><!-- ko text: newAddress().city --><!-- /ko -->, <!-- ko text: newAddress().postcode --><!-- /ko --></span>
-            <span><!-- ko text: getCountryName(newAddress().countryId) --><!-- /ko --></span>
-          </div>
+          <div data-bind="html: $parent.sortCardAddress(newAddress())"></div>
 
           <div class="card__actions">
             <button
