@@ -148,4 +148,13 @@ class Loyaltypoints extends \Magento\Framework\View\Element\Template
             return $e->getMessage();
         }
     }
+
+    /**
+     * @param int $point
+     * @return string
+     */
+    public function getFormatedPoint(int $point) : string
+    {
+        return $this->loyaltyHelper->formatPoint($point);
+    }
 }
