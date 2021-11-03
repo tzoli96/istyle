@@ -98,8 +98,13 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
                 array_merge($output->getData('js'),
                     [AjaxCaptainHookEvent::OUTPUT_NAME =>
                         'if(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\'] !== undefined)
-                        {            
-                             jQuery(\'[data-role=swatch-options]\').data(\'mageOanderSwatchRenderer\').setConfig(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\']);
+                        {
+                            var setConfigInterval = setInterval(function () {
+                                if (typeof jQuery(\'[data-role=swatch-options]\').data(\'mageOanderSwatchRenderer\') == \'object\') {
+                                    jQuery(\'[data-role=swatch-options]\').data(\'mageOanderSwatchRenderer\').setConfig(response[\'' . AjaxCaptainHookEvent::OUTPUT_NAME . '\']);
+                                    clearInterval(setConfigInterval);
+                                }
+                            }, 500);
                         }'
                     ]
                 )

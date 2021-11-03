@@ -39,10 +39,13 @@ class AjaxCaptainHookJsEventProductDefault implements ObserverInterface
         $output->setData('js',
             array_merge($output->getData('js'),
                 [AjaxCaptainHookEventProductDefault::OUTPUT_NAME =>
-                    'if(response[\'' . AjaxCaptainHookEventProductDefault::OUTPUT_NAME . '\'] !== undefined)
-                        {            
-                             jQuery(\'[data-role=swatch-options]\').data(\'mageOanderSwatchRenderer\').setDefaultOption(response[\'' . AjaxCaptainHookEventProductDefault::OUTPUT_NAME . '\'].' . AjaxCaptainHookEventProductDefault::OUTPUT_NAME2 . ', response[\'' . AjaxCaptainHookEventProductDefault::OUTPUT_NAME . '\'].' . AjaxCaptainHookEventProductDefault::OUTPUT_NAME1 . ');
-                        }'
+                    'var defaultInterval = setInterval(function () {
+                        if(response[\'' . AjaxCaptainHookEventProductDefault::OUTPUT_NAME . '\'] !== undefined)
+                        {
+                            jQuery(\'[data-role=swatch-options]\').data(\'mageOanderSwatchRenderer\').setDefaultOption(response[\'' . AjaxCaptainHookEventProductDefault::OUTPUT_NAME . '\'].' . AjaxCaptainHookEventProductDefault::OUTPUT_NAME2 . ', response[\'' . AjaxCaptainHookEventProductDefault::OUTPUT_NAME . '\'].' . AjaxCaptainHookEventProductDefault::OUTPUT_NAME1 . ');
+                            clearInterval(defaultInterval);
+                        }
+                    }, 500);'
                 ]
             )
         );
