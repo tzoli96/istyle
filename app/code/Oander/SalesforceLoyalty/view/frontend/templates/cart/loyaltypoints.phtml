@@ -51,7 +51,7 @@
                                             class="block__input input-text form-control input-loyalty"
                                             id="amount"
                                             name="amount"
-                                            placeholder="<?= __('Maximum %1 loyalty points', min($block->getMaxRedeemablePoints(), $block->getAvailablePoints()))?>"
+                                            placeholder="<?= __('Maximum %1 loyalty points', $block->getFormatedPoint(min($block->getMaxRedeemablePoints(), $block->getAvailablePoints())))?>"
                                         >
                                         <span class="input-group-btn">
                                             <button
