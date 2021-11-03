@@ -5253,6 +5253,7 @@
                 "magento/module-sales-sample-data": "Sample Data version:100.1.*"
             },
             "type": "magento2-module",
+            "extra": [],
             "autoload": {
                 "files": [
                     "registration.php"
