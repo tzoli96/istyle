@@ -42,6 +42,7 @@ abstract class PaymentMethods extends \Magento\Payment\Model\Method\AbstractMeth
     protected $_canUseInternal = false;
     protected $_canFetchTransactionInfo = true;
     protected $_canUseForMultishipping  = false;
+    protected $_canInvoiceFromAdmin = false;
 
     /**
      * @var \Magento\Store\Model\StoreManagerInterface
@@ -72,6 +73,8 @@ abstract class PaymentMethods extends \Magento\Payment\Model\Method\AbstractMeth
      * @var Helper\Api
      */
     protected $api;
+
+    protected $localeHelper;
 
     /**
      * @var \StripeIntegration\Payments\Model\StripeCustomer
@@ -125,6 +128,7 @@ abstract class PaymentMethods extends \Magento\Payment\Model\Method\AbstractMeth
         \StripeIntegration\Payments\Helper\Generic $helper,
         \StripeIntegration\Payments\Helper\Address $addressHelper,
         \StripeIntegration\Payments\Helper\Api $api,
+        \StripeIntegration\Payments\Helper\Locale $localeHelper,
         \Magento\Payment\Model\Method\Logger $logger,
         \Magento\Checkout\Helper\Data $checkoutHelper,
         \Magento\Framework\Model\ResourceModel\AbstractResource $resource = null,
@@ -155,6 +159,7 @@ abstract class PaymentMethods extends \Magento\Payment\Model\Method\AbstractMeth
         $this->logger = $logger;
         $this->request = $request;
         $this->checkoutHelper = $checkoutHelper;
+        $this->localeHelper = $localeHelper;
 
         $this->scopeConfig = $scopeConfig;
     }
@@ -183,11 +188,11 @@ abstract class PaymentMethods extends \Magento\Payment\Model\Method\AbstractMeth
         }
 
         // Check currency is allowed
-        $allowCurrencies = $this->getConfigData('allow_currencies');
+        $allowCurrencies = $this->config->getConfigData('allow_currencies', $this->type);
         if (!$allowCurrencies && in_array($this->type, ['alipay', 'wechat']))
             return true;
 
-        $allowedCurrencies = $this->getConfigData('allowed_currencies');
+        $allowedCurrencies = $this->config->getConfigData('allowed_currencies', $this->type);
 
         // This is the "All currencies" setting
         if (!$allowedCurrencies)
@@ -229,6 +234,10 @@ abstract class PaymentMethods extends \Magento\Payment\Model\Method\AbstractMeth
             'payment_method_types' => [ $this->type ],
             'metadata' => $this->getMetadata()
         ];
+
+        $paymentMethodOptions = $this->getPaymentMethodOptions();
+        if (!empty($paymentMethodOptions))
+            $params["payment_method_options"] = [$this->type => $paymentMethodOptions];
 
         if ($order)
             $customerEmail = $order->getCustomerEmail();
@@ -274,6 +283,12 @@ abstract class PaymentMethods extends \Magento\Payment\Model\Method\AbstractMeth
     protected function onPaymentIntentConfirmed($paymentIntent, $order)
     {
         // Overwrite
+    }
+
+    protected function getPaymentMethodOptions()
+    {
+        // Overwrite
+        return [];
     }
 
     /**
@@ -327,11 +342,21 @@ abstract class PaymentMethods extends \Magento\Payment\Model\Method\AbstractMeth
             $session->setStripePaymentsRedirectUrl($paymentIntent->next_action->redirect_to_url->url);
             $session->setStripePaymentsClientSecret($paymentIntent->client_secret);
 
-            $comment = __("The customer was redirected to their bank for payment processing.");
+            $comment = __("The customer was redirected externally for payment processing.");
             $this->order->addStatusToHistory($status = false, $comment, $isCustomerNotified = false);
         }
 
         return $this;
+    }
+
+    public function capture(\Magento\Payment\Model\InfoInterface $payment, $amount)
+    {
+        if ($this->helper->isAdmin() && !$this->_canInvoiceFromAdmin)
+        {
+            throw new LocalizedException(__("Sorry, this order cannot be invoiced or captured from the Magento admin. An paid invoice will automatically be created when the payment is collected."));
+        }
+
+        return parent::capture($payment, $amount);
     }
 
     /**

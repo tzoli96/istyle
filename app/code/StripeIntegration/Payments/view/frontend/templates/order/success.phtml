@@ -88,13 +88,13 @@
           <?php echo $block->getFormattedGrandTotal(); ?>
       </div>
       <div class="oxxo-expires">
-          <span>Expires</span> <?php echo $info["Valid Until"]; ?>
+          <span><?php echo __("Expires"); ?></span> <?php echo $info["Valid Until"]; ?>
       </div>
       <div class="oxxo-number">
           <?php echo $info["Voucher Number"]; ?>
       </div>
       <div class="print-button">
-        <button class="action primary" onclick="window.print()">Print</button>
+        <button class="action primary" onclick="window.print()"><?php echo __("Print"); ?></button>
       </div>
     </div>
 

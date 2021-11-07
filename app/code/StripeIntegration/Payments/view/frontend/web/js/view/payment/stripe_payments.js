@@ -66,6 +66,10 @@ define(
                 component: 'StripeIntegration_Payments/js/view/payment/method-renderer/klarna'
             },
             {
+                type: 'stripe_payments_paypal',
+                component: 'StripeIntegration_Payments/js/view/payment/method-renderer/paypal'
+            },
+            {
                 type: 'stripe_payments_ach',
                 component: 'StripeIntegration_Payments/js/view/payment/method-renderer/ach'
             },

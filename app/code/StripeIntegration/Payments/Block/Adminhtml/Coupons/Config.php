@@ -84,6 +84,7 @@ class Config extends \Magento\Backend\Block\Widget\Form\Generic implements
             'options' => $this->getDurations(),
             'required' => false,
             'value' => $this->coupon->duration(),
+            'note' => __('DEPRECATION WARNING - Expiring discount coupons only apply with the embedded payment flow (Stripe Elements).'),
             'data-form-part' => 'sales_rule_form'
         ]);
 

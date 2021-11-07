@@ -14,6 +14,7 @@ class WebhooksSetup
         "charge.refunded",
         "charge.failed",
         "charge.succeeded",
+        "checkout.session.expired",
         "customer.source.updated",
         "customer.subscription.created",
         "payment_intent.succeeded",

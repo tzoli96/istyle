@@ -81,6 +81,7 @@ class Index extends \Magento\Framework\App\Action\Action
                 $this->returnFromCheckoutAPI();
                 break;
             case 'fpx':
+            case 'paypal':
                 $this->returnFromPaymentMethodsAPI();
                 break;
             default:
@@ -239,6 +240,7 @@ class Index extends \Magento\Framework\App\Action\Action
         switch ($paymentIntent->status) {
             case 'succeeded':
             case 'processing':
+            case 'requires_capture':
                 // Redirect to Success page
                 $this->checkoutHelper->getCheckout()->getQuote()->setIsActive(false)->save();
                 $this->_redirect('checkout/onepage/success');

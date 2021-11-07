@@ -66,6 +66,14 @@
                 <sort_order>2</sort_order>
                 <payment_action>authorize</payment_action>
             </stripe_payments_checkout_card>
+            <stripe_payments_paypal>
+                <active>0</active>
+                <model>StripeIntegration\Payments\Model\Method\PayPal</model>
+                <title>PayPal</title>
+                <payment_action>authorize_capture</payment_action>
+                <specificcountry>AT,BE,BG,CY,CZ,DK,EE,FI,FR,DE,GR,HR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,GB</specificcountry>
+                <sort_order>10</sort_order>
+            </stripe_payments_paypal>
             <stripe_payments_subscriptions>
                 <model>StripeSubscriptionsFacade</model>
                 <active>1</active>
@@ -76,7 +84,7 @@
                 <model>StripeExpressFacade</model>
                 <title>Digital Wallet Payment via Stripe</title>
                 <apple_pay_checkout>1</apple_pay_checkout>
-                <apple_pay_location>1</apple_pay_location>
+                <apple_pay_location>2</apple_pay_location>
                 <cart_button>1</cart_button>
                 <product_button>1</product_button>
                 <minicart>1</minicart>

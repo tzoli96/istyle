@@ -14,6 +14,8 @@ class Subscriptions
     public $subscriptions = [];
     public $invoices = [];
     public $paymentIntents = [];
+    public $trialingSubscriptionsAmounts = null;
+    public $shippingTaxPercent = null;
 
     public function __construct(
         \StripeIntegration\Payments\Helper\Rollback $rollback,
@@ -27,7 +29,8 @@ class Subscriptions
         \Magento\Quote\Api\CartRepositoryInterface $quoteRepository,
         \StripeIntegration\Payments\Model\SubscriptionFactory $subscriptionFactory,
         \Magento\SalesRule\Model\CouponFactory $couponFactory,
-        \StripeIntegration\Payments\Model\CouponFactory $stripeCouponFactory
+        \StripeIntegration\Payments\Model\CouponFactory $stripeCouponFactory,
+        \StripeIntegration\Payments\Helper\TaxHelper $taxHelper
     ) {
         $this->rollback = $rollback;
         $this->paymentsHelper = $paymentsHelper;
@@ -42,6 +45,7 @@ class Subscriptions
         $this->subscriptionFactory = $subscriptionFactory;
         $this->couponFactory = $couponFactory;
         $this->stripeCouponFactory = $stripeCouponFactory;
+        $this->taxHelper = $taxHelper;
     }
 
     public function createSubscriptions($order, $isDryRun = false, $trialEnd = null)
@@ -114,7 +118,7 @@ class Subscriptions
     public function getSubscriptionsFromOrder($order)
     {
         if (!$this->paymentsHelper->isSubscriptionsEnabled())
-            return false;
+            return [];
 
         $items = $order->getAllItems();
         $subscriptions = [];
@@ -128,7 +132,7 @@ class Subscriptions
             $subscriptions[$item->getQuoteItemId()] = [
                 'product' => $product,
                 'order_item' => $item,
-                'profile' => $this->getSubscriptionDetails($product, $order, $item, false, null)
+                'profile' => $this->getSubscriptionDetails($product, $order, $item, false, null, $this->config->useStoreCurrency())
             ];
         }
 
@@ -147,9 +151,14 @@ class Subscriptions
         return $quote;
     }
 
-    public function getShippingTax($paramName = "percent")
+    public function getShippingTax($paramName = "percent", $quote = null)
     {
-        $quote = $this->getQuote();
+        if (!empty($this->shippingTaxPercent))
+            return $this->shippingTaxPercent;
+
+        if (empty($quote))
+            $quote = $this->getQuote();
+
         if ($quote->getIsVirtual())
             return 0;
 
@@ -189,7 +198,7 @@ class Subscriptions
         return false;
     }
 
-    public function getSubscriptionDetails($product, $order, $item, $isDryRun, $trialEnd)
+    public function getSubscriptionDetails($product, $order, $item, $isDryRun, $trialEnd, $useStoreCurrency)
     {
         // Get billing interval and billing period
         $interval = $product->getStripeSubInterval();
@@ -201,12 +210,10 @@ class Subscriptions
         if (!$intervalCount)
             $intervalCount = 1;
 
-        // If it is a configurable product, switch to the parent item
-        if ($item->getParentItem() &&
-            $item->getParentItem()->getProductType() == \Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE)
-        {
-            $item = $item->getParentItem();
-        }
+        $name = $item->getName();
+        $qty = max(/* quote */ $item->getQty(), /* order */ $item->getQtyOrdered());
+        $originalItem = $item;
+        $item = $this->paymentsHelper->getSubscriptionQuoteItemWithTotalsFrom($item, $order);
 
         // Get the subscription currency and amount
         $initialFee = $product->getStripeSubInitialFee();
@@ -214,9 +221,13 @@ class Subscriptions
         if (!is_numeric($initialFee))
             $initialFee = 0;
 
-        if ($this->config->useStoreCurrency())
+        if ($useStoreCurrency)
         {
-            $amount = $item->getPrice();
+            if ($this->config->priceIncludesTax())
+                $amount = $item->getPriceInclTax();
+            else
+                $amount = $item->getPrice();
+
             $discount = $item->getDiscountAmount();
             $tax = $item->getTaxAmount();
 
@@ -240,30 +251,109 @@ class Subscriptions
         }
         else
         {
-            $amount = $item->getBasePrice();
+            if ($this->config->priceIncludesTax())
+                $amount = $item->getBasePriceInclTax();
+            else
+                $amount = $item->getBasePrice();
+
             $discount = $item->getBaseDiscountAmount();
             $tax = $item->getBaseTaxAmount();
             $currency = $order->getBaseCurrencyCode();
         }
 
-        // The returned shipping amount will take into accoun this->config->useStoreCurrency()
-        $shipping = $this->calculateShippingCostFor($order, $item, $isDryRun);
-        $shippingTaxPercent = $this->getShippingTax("percent");
-        if ($shippingTaxPercent && is_numeric($shippingTaxPercent) && $shippingTaxPercent > 0)
-            $shippingTaxAmount = round($shipping * ($shippingTaxPercent / 100), 2);
+        if ($this->isOrder($order))
+        {
+            $quote = $this->paymentsHelper->getQuoteFromOrder($order);
+            $quoteItem = null;
+            foreach ($quote->getAllItems() as $qItem)
+            {
+                if ($qItem->getSku() == $item->getSku())
+                    $quoteItem = $qItem;
+            }
+
+            if ($useStoreCurrency)
+            {
+                if ($item->getShippingAmount())
+                    $shipping = $item->getShippingAmount();
+                else if ($item->getBaseShippingAmount())
+                    $shipping = $this->paymentsHelper->convertBaseAmountToStoreAmount($item->getBaseShippingAmount());
+                else
+                {
+                    $baseShipping = $this->taxHelper->getBaseShippingAmountForQuoteItem($quoteItem, $quote);
+                    $shipping = $this->paymentsHelper->convertBaseAmountToStoreAmount($baseShipping);
+                }
+
+                $orderShippingAmount = $order->getShippingAmount();
+                $orderShippingTaxAmount = $order->getShippingTaxAmount();
+            }
+            else
+            {
+                if ($item->getBaseShippingAmount())
+                    $shipping = $item->getBaseShippingAmount();
+                else
+                    $shipping = $this->taxHelper->getBaseShippingAmountForQuoteItem($quoteItem, $quote);
+
+                $orderShippingAmount = $order->getBaseShippingAmount();
+                $orderShippingTaxAmount = $order->getBaseShippingTaxAmount();
+            }
+
+            $shippingTaxPercent = $this->getShippingTax("percent");
+            if ($orderShippingAmount == $shipping)
+            {
+                $shippingTaxAmount = $orderShippingTaxAmount;
+            }
+            else
+            {
+                $shippingTaxAmount = 0;
+
+                if ($shippingTaxPercent && is_numeric($shippingTaxPercent) && $shippingTaxPercent > 0)
+                {
+                    if ($this->config->shippingIncludesTax())
+                        $shippingTaxAmount = $this->taxHelper->taxInclusiveTaxCalculator($shipping, $shippingTaxPercent);
+                    else
+                        $shippingTaxAmount = $this->taxHelper->taxExclusiveTaxCalculator($shipping, $shippingTaxPercent);
+                }
+            }
+        }
         else
+        {
+            $quote = $order;
+            $quoteItem = $item;
+
+            $baseShipping = $this->taxHelper->getBaseShippingAmountForQuoteItem($quoteItem, $quote);
+            $shippingTaxRate = $this->taxHelper->getShippingTaxRateFromQuote($quote);
+
+            if ($useStoreCurrency)
+                $shipping = $this->paymentsHelper->convertBaseAmountToStoreAmount($baseShipping);
+            else
+                $shipping = $baseShipping;
+
             $shippingTaxAmount = 0;
+            $shippingTaxPercent = 0;
+
+            if ($shipping > 0 && $shippingTaxRate)
+            {
+                $shippingTaxPercent = $shippingTaxRate["percent"];
+                if ($useStoreCurrency)
+                    $shippingTaxAmount = $shippingTaxRate["amount"];
+                else
+                    $shippingTaxAmount = $shippingTaxRate["base_amount"];
+            }
+        }
 
         if (!is_numeric($amount))
             $amount = 0;
 
-        $qty = max(/* quote */ $item->getQty(), /* order */ $item->getQtyOrdered());
-
         if ($order->getPayment()->getAdditionalInformation("remove_initial_fee"))
             $initialFee = 0;
 
+        if ($this->config->priceIncludesTax())
+            $initialFeeTaxAmount = $this->taxHelper->taxInclusiveTaxCalculator($initialFee * $qty, $item->getTaxPercent());
+        else
+            $initialFeeTaxAmount = $this->taxHelper->taxExclusiveTaxCalculator($initialFee * $qty, $item->getTaxPercent());
+
         $params = [
-            'name' => $item->getName(),
+            'name' => $name,
             'qty' => $qty,
             'interval' => $interval,
             'interval_count' => $intervalCount,
@@ -277,9 +367,10 @@ class Subscriptions
             'shipping_stripe' => $this->paymentsHelper->convertMagentoAmountToStripeAmount($shipping, $currency),
             'currency' => strtolower($currency),
             'tax_percent' => $item->getTaxPercent(),
+            'tax_percent_shipping' => $shippingTaxPercent,
             'tax_amount_item' => $tax, // already takes $qty into account
             'tax_amount_shipping' => $shippingTaxAmount,
-            'tax_amount_initial_fee' => round($initialFee * $qty * ($item->getTaxPercent() / 100), 2),
+            'tax_amount_initial_fee' => $initialFeeTaxAmount,
             'trial_end' => $trialEnd,
             'trial_days' => 0,
             'coupon_code' => $this->getCouponId($discount, $currency, $order->getCouponCode(), $isDryRun, $item)
@@ -300,12 +391,12 @@ class Subscriptions
         return 0;
     }
 
-    public function calculateShippingCostFor($order, $item, $isDryRun)
+    // The returned shipping amount will take into account this->config->useStoreCurrency()
+    public function calculateShippingCostFor($order, $item)
     {
         if ($item->getProductType() == "virtual" || $order->getIsVirtual())
             return 0;
 
-        $shippingMethod = $order->getShippingMethod();
         if ($order->getIncrementId())
         {
             $orderItem = $item;
@@ -416,20 +507,31 @@ class Subscriptions
         return $coupon->id;;
     }
 
-    public function createSubscriptionForProduct($product, $order, $item, $isDryRun, $trialEnd = null)
+    public function getSubscriptionTotalFromProfile($profile)
     {
-        $profile = $this->getSubscriptionDetails($product, $order, $item, $isDryRun, $trialEnd);
-
         $subscriptionTotal =
             ($profile['qty'] * $profile['initial_fee_magento']) +
             ($profile['qty'] * $profile['amount_magento']) +
-            $profile['shipping_magento'] +
-            $profile['tax_amount_shipping'] +
-            $profile['tax_amount_item'] +
-            $profile['tax_amount_initial_fee'] -
+            $profile['shipping_magento'] -
             $profile['discount_amount_magento'];
 
-        $this->_subscriptionsTotal += round($subscriptionTotal, 2);
+        if (!$this->config->shippingIncludesTax())
+            $subscriptionTotal += $profile['tax_amount_shipping']; // Includes qty calculation
+
+        if (!$this->config->priceIncludesTax())
+        {
+            $subscriptionTotal += $profile['tax_amount_item']; // Includes qty calculation
+            $subscriptionTotal += $profile['tax_amount_initial_fee']; // Includes qty calculation
+        }
+
+        return round($subscriptionTotal, 2);
+    }
+
+    public function createSubscriptionForProduct($product, $order, $item, $isDryRun, $trialEnd = null)
+    {
+        $profile = $this->getSubscriptionDetails($product, $order, $item, $isDryRun, $trialEnd, $this->config->useStoreCurrency());
+
+        $this->_subscriptionsTotal += $this->getSubscriptionTotalFromProfile($profile);
 
         if ($this->_isDryRun)
             return;
@@ -472,7 +574,8 @@ class Subscriptions
         $planId = $this->generatePlanId($profile, $product);
         $plan = $this->createPlan($profile, $planId, $product);
         $customer = $this->createCustomer($profile, $order);
-        $this->attachCustomerToPaymentMethod($customer, $order->getPayment()->getAdditionalInformation('token'));
+        $paymentMethod = $this->attachCustomerToPaymentMethod($customer, $order->getPayment()->getAdditionalInformation('token'));
+        $order->getPayment()->setAdditionalInformation('token', $paymentMethod->id);
 
         $this->collectInitialFee($customer, $profile, $orderId);
         $this->collectShipping($product, $customer, $profile);
@@ -481,7 +584,7 @@ class Subscriptions
             $product,
             $customer,
             $plan,
-            $order->getPayment()->getAdditionalInformation('token'),
+            $paymentMethod->id,
             $profile,
             $metadata,
             $order->getPayment()->getAdditionalInformation("off_session")
@@ -760,10 +863,15 @@ class Subscriptions
             if (!empty($paymentMethod->customer))
             {
                 if ($paymentMethod->customer != $customer->id)
-                    $this->paymentsHelper->dieWithError("Error: This card belongs to a different customer.");
+                {
+                    $e = new \Exception("Error: This card belongs to a different customer.");
+                    $this->paymentsHelper->dieWithError($e->getMessage(), $e);
+                }
             }
             else
                 $paymentMethod->attach([ 'customer' => $customer->id ]);
+
+            return $paymentMethod;
         }
         catch (\Stripe\Exception\CardException $e)
         {
@@ -780,7 +888,7 @@ class Subscriptions
         {
             try
             {
-                $taxRate = $this->retrieveTaxRate($profile['tax_percent']);
+                $taxRate = $this->retrieveTaxRate($profile['tax_percent'], $this->config->priceIncludesTax());
 
                 $params = array(
                     'customer' => $customer->id,
@@ -838,9 +946,9 @@ class Subscriptions
                 if ($subscriptionId)
                     $params['subscription'] = $subscriptionId;
 
-                $taxPercent = $this->getShippingTax("percent");
+                $taxPercent = $profile['tax_percent_shipping'];
                 if ($taxPercent && is_numeric($taxPercent))
-                    $params['tax_rates'] = [$this->retrieveTaxRate($taxPercent)];
+                    $params['tax_rates'] = [$this->retrieveTaxRate($taxPercent, $this->config->shippingIncludesTax())];
                 else
                     $params['tax_rates'] = [$this->retrieveTaxRate(0)];
 
@@ -871,7 +979,7 @@ class Subscriptions
         ];
 
         if (is_numeric($taxPercent) && $taxPercent > 0)
-            $params['default_tax_rates'] = [$this->retrieveTaxRate($taxPercent)];
+            $params['default_tax_rates'] = [$this->retrieveTaxRate($taxPercent, $this->config->priceIncludesTax())];
 
         if ($couponCode)
             $params['coupon'] = $couponCode;
@@ -955,18 +1063,26 @@ class Subscriptions
         }
     }
 
-    public function retrieveTaxRate($percent)
+    public function retrieveTaxRate($percent, $inclusive = false)
     {
-        if (isset($this->taxRates[(string)$percent]))
-            return $this->taxRates[(string)$percent];
+        $key = (string)$percent;
+        if ($inclusive)
+            $key .= "-inclusive";
 
-        $rates = \Stripe\TaxRate::all(["limit" => 100]);
+        if (isset($this->taxRates[$key]))
+            return $this->taxRates[$key];
+
+        $rates = $this->config->getStripeClient()->taxRates->all(['limit' => 100, 'inclusive' => $inclusive]);
 
         foreach ($rates as $rate)
         {
-            $this->taxRates[(string)$rate->percentage] = $rate;
+            $key2 = (string)$rate->percentage;
+            if ($rate->inclusive)
+                $key2 .= "-inclusive";
 
-            if ($rate->percentage == $percent)
+            $this->taxRates[$key2] = $rate;
+
+            if ($key == $key2)
             {
                 return $rate;
             }
@@ -976,9 +1092,9 @@ class Subscriptions
             "display_name" => 'VAT',
             "description" => "$percent% VAT",
             "percentage" => $percent,
-            "inclusive" => false
+            "inclusive" => $inclusive
         ]);
-        $this->taxRates[(string)$percent] = $rate;
+        $this->taxRates[$key] = $rate;
         return $rate;
     }
 
@@ -1061,5 +1177,77 @@ class Subscriptions
 
         if ($profile['shipping_stripe'] > 0 && $this->chargeShippingOnlyOnce())
             return true;
+    }
+
+    public function getTrialingSubscriptionsAmounts($quote = null)
+    {
+        if ($this->trialingSubscriptionsAmounts)
+            return $this->trialingSubscriptionsAmounts;
+
+        if (!$quote)
+            $quote = $this->paymentsHelper->getQuote();
+
+        $trialingSubscriptionsAmounts = [
+            "subscriptions_total" => 0,
+            "base_subscriptions_total" => 0,
+            "shipping_total" => 0,
+            "base_shipping_total" => 0,
+            "discount_total" => 0,
+            "base_discount_total" => 0,
+            "tax_total" => 0,
+            "base_tax_total" => 0
+        ];
+
+        if (!$quote)
+            return $trialingSubscriptionsAmounts;
+
+        $this->trialingSubscriptionsAmounts = $trialingSubscriptionsAmounts;
+
+        $items = $quote->getAllItems();
+        foreach ($items as $item)
+        {
+            $product = $this->paymentsHelper->getSubscriptionProductFromOrderItem($item);
+            if (!$product)
+                continue;
+
+            if (!$product->getStripeSubEnabled())
+                continue;
+
+            $trial = $product->getStripeSubTrial();
+            if (is_numeric($trial) && $trial > 0)
+            {
+                $item = $this->paymentsHelper->getSubscriptionQuoteItemWithTotalsFrom($item, $quote);
+
+                $profile = $this->getSubscriptionDetails($product, $quote, $item, true, $trialEnd = null, true);
+                $baseProfile = $this->getSubscriptionDetails($product, $quote, $item, true, $trialEnd = null, false);
+
+                $shipping = $profile["shipping_magento"];
+                $baseShipping = $baseProfile["shipping_magento"];
+                if ($this->config->shippingIncludesTax())
+                {
+                    // $shipping -= $profile["tax_amount_shipping"];
+                    // $baseShipping -= $baseProfile["tax_amount_shipping"];
+                }
+
+                $subtotal = $item->getRowTotal();
+                $baseSubtotal = $item->getBaseRowTotal();
+                if ($this->config->priceIncludesTax())
+                {
+                    $subtotal = $item->getRowTotalInclTax();
+                    $baseSubtotal = $item->getBaseRowTotalInclTax();
+                }
+
+                $this->trialingSubscriptionsAmounts["subscriptions_total"] += $subtotal;
+                $this->trialingSubscriptionsAmounts["base_subscriptions_total"] += $baseSubtotal;
+                $this->trialingSubscriptionsAmounts["shipping_total"] += $shipping;
+                $this->trialingSubscriptionsAmounts["base_shipping_total"] += $baseShipping;
+                $this->trialingSubscriptionsAmounts["discount_total"] += $profile["discount_amount_magento"];
+                $this->trialingSubscriptionsAmounts["base_discount_total"] += $baseProfile["discount_amount_magento"];
+                $this->trialingSubscriptionsAmounts["tax_total"] += $profile["tax_amount_item"] + $profile["tax_amount_shipping"];
+                $this->trialingSubscriptionsAmounts["base_tax_total"] += $baseProfile["tax_amount_item"] + $baseProfile["tax_amount_shipping"];
+            }
+        }
+
+        return $this->trialingSubscriptionsAmounts;
     }
 }

@@ -26,7 +26,7 @@ class Express extends \StripeIntegration\Payments\Model\PaymentMethod
         if (!$this->config->initStripe())
             return false;
 
-        if ($quote->getPayment()->getAdditionalInformation('is_prapi'))
+        if (!empty($quote) && $quote->getPayment() && $quote->getPayment()->getAdditionalInformation('is_prapi'))
             return true;
 
         return false;

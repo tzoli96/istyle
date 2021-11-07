@@ -12,6 +12,7 @@ class Klarna extends \StripeIntegration\Payments\Model\Method\Api\Sources
     protected $_isInitializeNeeded = false;
     protected $_canAuthorize = true;
     protected $_canCapture = true;
+    protected $_canInvoiceFromAdmin = true;
 
     public function assignData(\Magento\Framework\DataObject $data)
     {

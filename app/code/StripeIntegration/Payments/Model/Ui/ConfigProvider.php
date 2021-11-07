@@ -28,7 +28,8 @@ class ConfigProvider implements ConfigProviderInterface
         \StripeIntegration\Payments\Helper\Generic $helper,
         \StripeIntegration\Payments\Model\PaymentIntent $paymentIntent,
         \StripeIntegration\Payments\Model\Adminhtml\Source\CardIconsSpecific $cardIcons,
-        \StripeIntegration\Payments\Helper\SetupIntent $setupIntent
+        \StripeIntegration\Payments\Helper\SetupIntent $setupIntent,
+        \StripeIntegration\Payments\Helper\Subscriptions $subscriptionsHelper
     )
     {
         $this->localeResolver = $localeResolver;
@@ -43,6 +44,7 @@ class ConfigProvider implements ConfigProviderInterface
         $this->paymentIntent = $paymentIntent;
         $this->cardIcons = $cardIcons;
         $this->setupIntent = $setupIntent;
+        $this->subscriptionsHelper = $subscriptionsHelper;
     }
 
     /**
@@ -87,7 +89,7 @@ class ConfigProvider implements ConfigProviderInterface
         {
             // These are a bit more resource intensive, so we only want to run them if the module is enabled
             $data['payment'][self::CODE]['hasTrialSubscriptions'] = $this->helper->hasTrialSubscriptions();
-            $data['payment'][self::CODE]['trialingSubscriptions'] = ($this->config->isSubscriptionsEnabled() ? $this->helper->getTrialingSubscriptionsAmounts() : null);
+            $data['payment'][self::CODE]['trialingSubscriptions'] = ($this->config->isSubscriptionsEnabled() ? $this->subscriptionsHelper->getTrialingSubscriptionsAmounts() : null);
             $data['payment'][self::CODE]['prapi_description'] = $this->config->getPRAPIDescription();
         }
 
@@ -215,6 +217,7 @@ class ConfigProvider implements ConfigProviderInterface
             'giropay' => $this->getViewFileUrl("StripeIntegration_Payments::img/methods/giropay.svg"),
             'ideal' => $this->getViewFileUrl("StripeIntegration_Payments::img/methods/ideal.svg"),
             'klarna' => $this->getViewFileUrl("StripeIntegration_Payments::img/methods/klarna.svg"),
+            'paypal' => $this->getViewFileUrl("StripeIntegration_Payments::img/methods/paypal.svg"),
             'multibanco' => $this->getViewFileUrl("StripeIntegration_Payments::img/methods/multibanco.svg"),
             'p24' => $this->getViewFileUrl("StripeIntegration_Payments::img/methods/p24.svg"),
             'sepa' => $this->getViewFileUrl("StripeIntegration_Payments::img/methods/sepa.svg"),

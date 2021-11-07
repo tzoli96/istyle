@@ -112,20 +112,8 @@ class Invoice extends \Magento\Payment\Model\Method\Adapter
         if (empty($items))
             throw new \Exception("Could not create Stripe invoice because the order contains no items.");
 
-        foreach ($items as $item)
-        {
-            if (!in_array($item->getProductType(), ["simple", "virtual", "downloadable"]))
-                continue;
-
-            $this->productFactory->create()->fromOrderItem($item);
-            $this->invoiceItemFactory->create()->fromOrderItem($item, $order, $customerId);
-        }
-
-        $coupon = $this->couponFactory->create()->fromOrder($order);
-        $this->invoiceItemFactory->create()->fromShipping($order, $customerId);
-        $this->invoiceItemFactory->create()->fromTax($order, $customerId);
-
-        $invoice = $this->invoiceFactory->create()->fromOrderItem($item, $order, $customerId, $coupon->getStripeObject());
+        $this->invoiceItemFactory->create()->fromOrderGrandTotal($order, $customerId);
+        $invoice = $this->invoiceFactory->create()->fromOrder($order, $customerId);
         if ($invoice->getId())
         {
             $this->orderInvoiceFactory->create()
@@ -181,7 +169,6 @@ class Invoice extends \Magento\Payment\Model\Method\Adapter
             {
                 $this->cache->save($value = "1", $key = "admin_refunded_" . $charge->id, ["stripe_payments"], $lifetime = 60 * 60);
                 $refund = $this->config->getStripeClient()->refunds->create(['charge' => $charge->id]);
-                $payment->setAdditionalInformation('last_refund_id', $refund->id);
             }
             else
             {

@@ -45,11 +45,6 @@ class Button extends Template
     protected $taxHelper;
 
     /**
-     * @var \Magento\Framework\Locale\Resolver
-     */
-    protected $localeResolver;
-
-    /**
      * Button constructor.
      *
      * @param Template\Context                       $context
@@ -59,7 +54,6 @@ class Button extends Template
      * @param \StripeIntegration\Payments\Helper\ExpressHelper $expressHelper
      * @param \Magento\Checkout\Helper\Data          $checkoutHelper
      * @param \Magento\Tax\Helper\Data               $taxHelper
-     * @param \Magento\Framework\Locale\Resolver     $localeResolver
      * @param array                                  $data
      */
     public function __construct(
@@ -71,7 +65,6 @@ class Button extends Template
         \StripeIntegration\Payments\Helper\ExpressHelper $expressHelper,
         \Magento\Checkout\Helper\Data $checkoutHelper,
         \Magento\Tax\Helper\Data $taxHelper,
-        \Magento\Framework\Locale\Resolver $localeResolver,
         array $data = []
     ) {
         parent::__construct($context, $data);
@@ -83,7 +76,6 @@ class Button extends Template
         $this->urlBuilder = $context->getUrlBuilder();
         $this->checkoutHelper = $checkoutHelper;
         $this->taxHelper = $taxHelper;
-        $this->localeResolver = $localeResolver;
         $this->paymentsHelper = $paymentsHelper;
     }
 

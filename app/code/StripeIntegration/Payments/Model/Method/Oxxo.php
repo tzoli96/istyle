@@ -9,6 +9,7 @@ class Oxxo extends \StripeIntegration\Payments\Model\Method\Api\PaymentMethods
     const METHOD_CODE = 'stripe_payments_oxxo';
 
     protected $_code = self::METHOD_CODE;
+    protected $_infoBlockType = 'StripeIntegration\Payments\Block\PaymentInfo\Oxxo';
 
     protected $type = 'oxxo';
 
@@ -50,13 +51,14 @@ class Oxxo extends \StripeIntegration\Payments\Model\Method\Api\PaymentMethods
     {
         $payment = $order->getPayment();
 
-        if (empty($paymentIntent->next_action->display_oxxo_details->number))
+        if (empty($paymentIntent->next_action->oxxo_display_details->number))
             throw new LocalizedException(__('Sorry, the OXXO voucher could not be created, please contact us for more help.'));
 
         $data = [
-            "Voucher Number" => $paymentIntent->next_action->display_oxxo_details->number,
-            "Valid Until" => date('m/d/Y', $paymentIntent->next_action->display_oxxo_details->expires_after)
+            "Voucher Number" => $paymentIntent->next_action->oxxo_display_details->number,
+            "Valid Until" => date('m/d/Y', $paymentIntent->next_action->oxxo_display_details->expires_after)
         ];
         $payment->setAdditionalInformation('source_info', json_encode($data));
+        $payment->setAdditionalInformation('voucher_link', $paymentIntent->next_action->oxxo_display_details->hosted_voucher_url);
     }
 }

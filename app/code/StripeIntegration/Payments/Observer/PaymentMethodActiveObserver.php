@@ -25,12 +25,13 @@ class PaymentMethodActiveObserver extends AbstractDataAssignObserver
      */
     public function execute(Observer $observer)
     {
+        $quote = $observer->getEvent()->getQuote();
+
         if (!$this->config->isSubscriptionsEnabled())
             return;
 
         $result = $observer->getEvent()->getResult();
         $methodInstance = $observer->getEvent()->getMethodInstance();
-        $quote = $observer->getEvent()->getQuote();
         $code = $methodInstance->getCode();
         $isAvailable = $result->getData('is_available');
 

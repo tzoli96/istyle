@@ -46,6 +46,7 @@ abstract class Sources extends \Magento\Payment\Model\Method\AbstractMethod
     protected $_canCancelInvoice = true;
     protected $_canUseCheckout = true;
     protected $_canSaveCc = false;
+    protected $_canInvoiceFromAdmin = false;
 
     /**
      * @var \Magento\Store\Model\StoreManagerInterface
@@ -364,6 +365,16 @@ abstract class Sources extends \Magento\Payment\Model\Method\AbstractMethod
         return $this;
     }
 
+    public function capture(\Magento\Payment\Model\InfoInterface $payment, $amount)
+    {
+        if ($this->helper->isAdmin() && !$this->_canInvoiceFromAdmin)
+        {
+            throw new LocalizedException(__("Sorry, this order cannot be invoiced or captured from the Magento admin. An paid invoice will automatically be created when the payment is collected."));
+        }
+
+        return parent::capture($payment, $amount);
+    }
+
     /**
      * Cancel payment
      * @param \Magento\Payment\Model\InfoInterface $payment
@@ -374,15 +385,62 @@ abstract class Sources extends \Magento\Payment\Model\Method\AbstractMethod
      */
     public function cancel(InfoInterface $payment, $amount = null)
     {
-        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        // Captured
+        $creditmemo = $payment->getCreditmemo();
+        if (!empty($creditmemo))
+        {
+            $rate = $creditmemo->getBaseToOrderRate();
+            if (!empty($rate) && is_numeric($rate) && $rate > 0)
+                $amount *= $rate;
+        }
+        // Authorized
+        $amount = (empty($amount)) ? $payment->getOrder()->getTotalDue() : $amount;
 
-        /** @var \Magento\Payment\Helper\Data $helper */
-        $helper = $objectManager->get('Magento\Payment\Helper\Data');
+        $currency = $payment->getOrder()->getOrderCurrencyCode();
 
-        /** @var \StripeIntegration\Payments\Model\PaymentMethod $method */
-        $method = $helper->getMethodInstance('stripe_payments');
+        $transactionId = $payment->getLastTransId();
 
-        $method->cancel($payment, $amount);
+        // Case where an invoice is in Pending status, with no transaction ID, receiving a source.failed event which cancels the invoice.
+        if (empty($transactionId))
+        {
+            $humanReadable = $this->helper->addCurrencySymbol($amount, $currency);
+            $msg = __("Cannot refund %1 online because the order has no transaction ID. Creating an offline Credit Memo instead.", $humanReadable);
+            $this->helper->addWarning($msg);
+            $this->helper->addOrderComment($msg, $payment->getOrder());
+            return $this;
+        }
+
+        if ($amount <= 0)
+        {
+            $humanReadable = $this->helper->addCurrencySymbol($amount, $currency);
+            $msg = __("Cannot refund %1 online. Creating an offline Credit Memo instead.", $humanReadable);
+            $this->helper->addWarning($msg);
+            $this->helper->addOrderComment($msg, $payment->getOrder());
+            return $this;
+        }
+
+        $transactionId = preg_replace('/-.*$/', '', $transactionId);
+
+        try {
+            $cents = 100;
+            if ($this->helper->isZeroDecimal($currency))
+                $cents = 1;
+
+            $params = [
+                "charge" => $transactionId,
+                "amount" => round($amount * $cents)
+            ];
+
+            $this->config->getStripeClient()->refunds->create($params);
+
+            $this->cache->save($value = "1", $key = "admin_refunded_" . $transactionId, ["stripe_payments"], $lifetime = 60 * 60);
+        }
+        catch (\Exception $e)
+        {
+            $msg = __("Could not refund payment: %1", $e->getMessage());
+            $this->helper->addError($msg);
+            throw new \Exception(__($e->getMessage()));
+        }
 
         return $this;
     }

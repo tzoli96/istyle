@@ -3,12 +3,16 @@
 define(
     [
         'jquery',
+        'Magento_Checkout/js/model/quote',
+        'StripeIntegration_Payments/js/view/checkout/trialing_subscriptions',
         'StripeIntegration_Payments/js/view/payment/method-renderer/method',
         'stripejs',
         'domReady!'
     ],
     function (
         $,
+        quote,
+        trialingSubscriptions,
         Component
     ) {
         'use strict';
@@ -29,6 +33,21 @@ define(
                 var params = window.checkoutConfig.payment["stripe_payments"].initParams;
 
                 initStripe(params);
+
+                var currentTotals = quote.totals();
+
+                trialingSubscriptions().refresh(quote);
+
+                quote.totals.subscribe(function (totals)
+                {
+                    if (JSON.stringify(totals.total_segments) == JSON.stringify(currentTotals.total_segments))
+                        return;
+
+                    currentTotals = totals;
+
+                    trialingSubscriptions().refresh(quote);
+                }
+                , this);
 
                 return this;
             },

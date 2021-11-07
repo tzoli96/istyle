@@ -47,7 +47,7 @@ if (empty($cards)): ?>
 <?php if (!$block->config->getSaveCards()) { return; } ?>
 <br>
 
-<form class="form new-saved-card" action="save/" method="post" id="payment_form_stripe_payments_payment">
+<form class="form new-saved-card" action="<?php echo $block->getUrl("*/*/*", ["save" => "card"]); ?>" method="post" id="payment_form_stripe_payments_payment">
   <input type="hidden" name="form_key" value="<?php echo $block->getFormKey() ?>" />
   <fieldset class="fieldset payment-method stripe-new stripe-payments">
     <legend class="legend"><span><?php echo $block->escapeHtml(__('Add a new saved card')); ?></span></legend>

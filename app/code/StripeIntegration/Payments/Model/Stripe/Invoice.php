@@ -6,9 +6,15 @@ class Invoice extends StripeObject
 {
     protected $objectSpace = 'invoices';
 
-    public function fromOrderItem($item, $order, $customerId, $stripeCoupon = null)
+    public function fromOrder($order, $customerId)
     {
         $daysDue = $order->getPayment()->getAdditionalInformation('days_due');
+
+        if (!is_numeric($daysDue))
+            $this->helper->dieWithError("You have specified an invalid value for the invoice due days field.");
+
+        if ($daysDue < 1)
+            $this->helper->dieWithError("The invoice due days must be greater or equal to 1.");
 
         $data = [
             'customer' => $customerId,
@@ -20,15 +26,10 @@ class Invoice extends StripeObject
             ]
         ];
 
-        if (!empty($stripeCoupon->id))
-        {
-            $data['discounts'] = [[ 'coupon' => $stripeCoupon->id ]];
-        }
-
         $this->createObject($data);
 
         if (!$this->object)
-            throw new \Magento\Framework\Exception\LocalizedException(__("The invoice for order #%1 could not be created in Stripe", $order->getIncrementId()));
+            throw new \Magento\Framework\Exception\LocalizedException(__("The invoice for order #%1 could not be created in Stripe: %2", $order->getIncrementId(), $this->lastError));
 
         return $this;
     }

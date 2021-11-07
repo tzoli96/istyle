@@ -22,7 +22,9 @@ class Generic
     protected $cards = [];
     public $orderComments = [];
     public $currentCustomer = null;
-    public $trialingSubscriptionsAmounts = null;
+    public $productRepository = null;
+    public $bundleProductOptions = [];
+    public $orderPaymentIntents = [];
 
     public function __construct(
         ScopeConfigInterface $scopeConfig,
@@ -62,6 +64,7 @@ class Generic
         \Magento\Sales\Model\Order\Email\Sender\OrderCommentSender $orderCommentSender,
         \Magento\Sales\Model\Order\CreditmemoFactory $creditmemoFactory,
         \Magento\Sales\Model\Service\CreditmemoService $creditmemoService,
+        \Magento\Sales\Api\InvoiceManagementInterface $invoiceManagement,
         \StripeIntegration\Payments\Model\ResourceModel\StripeCustomer\Collection $customerCollection,
         \StripeIntegration\Payments\Helper\TaxHelper $taxHelper,
         \Magento\Catalog\Api\ProductRepositoryInterface $productRepository,
@@ -73,7 +76,17 @@ class Generic
         \Magento\Sales\Model\ResourceModel\Order\CollectionFactory $orderCollectionFactory,
         \Magento\SalesRule\Model\CouponFactory $couponFactory,
         \StripeIntegration\Payments\Model\CouponFactory $stripeCouponFactory,
-        \Magento\SalesRule\Api\RuleRepositoryInterface $ruleRepository
+        \Magento\Checkout\Helper\Data $checkoutHelper,
+        \Magento\SalesRule\Api\RuleRepositoryInterface $ruleRepository,
+        \Magento\Sales\Api\Data\TransactionSearchResultInterfaceFactory $transactionSearchResultFactory,
+        \Magento\Sales\Model\Order\Email\Sender\InvoiceSender $invoiceSender,
+        \StripeIntegration\Payments\Helper\Quote $quoteHelper,
+        \Magento\Tax\Model\Config $taxConfig,
+        \StripeIntegration\Payments\Helper\SubscriptionQuote $subscriptionQuote,
+        \Magento\Bundle\Model\OptionFactory $bundleOptionFactory,
+        \Magento\Bundle\Model\Product\TypeFactory $bundleProductTypeFactory,
+        \Magento\Directory\Model\CurrencyFactory $currencyFactory,
+        \Magento\Sales\Api\OrderRepositoryInterface $orderRepository
     ) {
         $this->scopeConfig = $scopeConfig;
         $this->backendSessionQuote = $backendSessionQuote;
@@ -112,6 +125,7 @@ class Generic
         $this->orderCommentSender = $orderCommentSender;
         $this->creditmemoFactory = $creditmemoFactory;
         $this->creditmemoService = $creditmemoService;
+        $this->invoiceManagement = $invoiceManagement;
         $this->customerCollection = $customerCollection;
         $this->taxHelper = $taxHelper;
         $this->productRepository = $productRepository;
@@ -123,7 +137,17 @@ class Generic
         $this->orderCollectionFactory = $orderCollectionFactory;
         $this->couponFactory = $couponFactory;
         $this->stripeCouponFactory = $stripeCouponFactory;
+        $this->checkoutHelper = $checkoutHelper;
         $this->ruleRepository = $ruleRepository;
+        $this->invoiceSender = $invoiceSender;
+        $this->quoteHelper = $quoteHelper;
+        $this->taxConfig = $taxConfig;
+        $this->transactionSearchResultFactory = $transactionSearchResultFactory;
+        $this->subscriptionQuote = $subscriptionQuote;
+        $this->bundleOptionFactory = $bundleOptionFactory;
+        $this->bundleProductTypeFactory = $bundleProductTypeFactory;
+        $this->currencyFactory = $currencyFactory;
+        $this->orderRepository = $orderRepository;
     }
 
     public function getProductImage($product, $type = 'product_thumbnail_image')
@@ -160,8 +184,13 @@ class Generic
         $quote = $this->getSessionQuote();
 
         // API Request
-        if ((empty($quote) || !is_numeric($quote->getGrandTotal())) && $quoteId)
-            $quote = $this->quoteRepository->get($quoteId);
+        if (empty($quote) || !is_numeric($quote->getGrandTotal()))
+        {
+            if ($quoteId)
+                $quote = $this->quoteRepository->get($quoteId);
+            else if ($this->quoteHelper->quoteId)
+                $quote = $this->quoteRepository->get($this->quoteHelper->quoteId);
+        }
 
         return $quote;
     }
@@ -203,7 +232,14 @@ class Generic
 
     public function loadProductBySku($sku)
     {
-        return $this->productRepository->get($sku);
+        try
+        {
+            return $this->productRepository->get($sku);
+        }
+        catch (\Exception $e)
+        {
+            return null;
+        }
     }
 
     public function loadProductById($productId)
@@ -240,7 +276,13 @@ class Generic
         if (!empty($this->orders[$incrementId]))
             return $this->orders[$incrementId];
         else
-            $this->orders[$incrementId] = $this->orderFactory->create()->loadByIncrementId($incrementId);
+        {
+            $order = $this->orderFactory->create()->loadByIncrementId($incrementId);
+            if ($order && $order->getId())
+                $this->orders[$incrementId] = $order;
+            else
+                return $order;
+        }
 
         return $this->orders[$incrementId];
     }
@@ -441,14 +483,156 @@ class Generic
         return (bool)$data;
     }
 
-    public function getSubscriptionQuoteItemWithTotalsFrom($item)
+    private function getProductOptionFor($item)
     {
+        if (!$item->getParentItem())
+            return null;
+
+        $name = $item->getName();
+
+        if ($productOptions = $item->getParentItem()->getProductOptions())
+        {
+            if (!empty($productOptions["bundle_options"]))
+            {
+                foreach ($productOptions["bundle_options"] as $bundleOption)
+                {
+                    if (!empty($bundleOption["value"]))
+                    {
+                        foreach ($bundleOption["value"] as $value)
+                        {
+                            if ($value["title"] == $name)
+                            {
+                                return $value;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return null;
+    }
+
+    private function getSubscriptionQuoteItemFromBundle($item, $qty, $order)
+    {
+        $name = $item->getName();
+        $productId = $item->getProductId();
+
+        $parentQty = (($item->getParentItem() && $item->getParentItem()->getQty()) ? $item->getParentItem()->getQty() : 1);
+        if ($item->getQty())
+            $qty = $item->getQty() * $parentQty;
+
+        if ($productOption = $this->getProductOptionFor($item)) // Order
+        {
+            if (!empty($productOption["price"]))
+                $customPrice = $productOption["price"] / $parentQty;
+            else
+                $customPrice = $item->getPrice();
+
+            // @todo: Report Magento bug between quote and order prices
+            if ($order->getIncrementId())
+                $newQuote = $this->subscriptionQuote->createNewQuoteFrom($order, $productId, $qty, null, $customPrice);
+            else
+                $newQuote = $this->subscriptionQuote->createNewQuoteFrom($order, $productId, $qty, $customPrice);
+
+            foreach ($newQuote->getAllItems() as $newQuoteItem)
+                return $newQuoteItem;
+        }
+        else if ($qtyOptions = $item->getParentItem()->getQtyOptions()) // Quote
+        {
+            $selections = $this->getBundleSelections($this->getStoreId(), $productId, $item->getParentItem()->getProduct());
+            foreach ($qtyOptions as $qtyOption)
+            {
+                if ($qtyOption->getProductId() == $productId)
+                {
+                    $customPrice = $item->getProduct()->getPrice();
+                    foreach ($selections as $selection)
+                    {
+                        if ($selection->getProductId() == $productId)
+                        {
+                            if ($selection->getSelectionPriceType() == 0) // 0 - fixed, 1 - percent
+                            {
+                                if ($selection->getSelectionPriceValue() && $selection->getSelectionPriceValue() > 0)
+                                {
+                                    $customPrice = $selection->getSelectionPriceValue();
+                                }
+                                else if ($selection->getPrice() && $selection->getPrice() > 0)
+                                {
+                                    $customPrice = $selection->getPrice();
+                                }
+                            }
+                            else if ($selection->getSelectionPriceType() == 1)
+                            {
+                                $percent = $selection->getSelectionPriceValue();
+                                // @todo - percent prices is not implemented
+                                $this->dieWithError(__("Unsupported bundle subscription."));
+                            }
+
+                            break;
+                        }
+                    }
+
+                    if ($order->getIncrementId())
+                        $newQuote = $this->subscriptionQuote->createNewQuoteFrom($order, $productId, $qty, null, $customPrice);
+                    else
+                        $newQuote = $this->subscriptionQuote->createNewQuoteFrom($order, $productId, $qty, $customPrice);
+
+                    foreach ($newQuote->getAllItems() as $newQuoteItem)
+                        return $newQuoteItem;
+                }
+            }
+        }
+
+        $this->dieWithError(__("Unsupported bundle subscription."));
+    }
+
+    public function getBundleSelections($storeId, $productId, $product)
+    {
+        $options = $this->bundleOptionFactory->create()
+            ->getResourceCollection()
+            ->setProductIdFilter($productId)
+            ->setPositionOrder();
+        $options->joinValues($storeId);
+        $typeInstance = $this->bundleProductTypeFactory->create();
+        $selections = $typeInstance->getSelectionsCollection($typeInstance->getOptionsIds($product), $product);
+        return $selections;
+    }
+
+    public function getItemQty($item)
+    {
+        $qty = max(/* quote */ $item->getQty(), /* order */ $item->getQtyOrdered());
+
+        if ($item->getParentItem() && $item->getParentItem()->getProductType() == "configurable")
+        {
+            if (is_numeric($item->getParentItem()->getQty()))
+                $qty *= $item->getParentItem()->getQty();
+        }
+        else if ($item->getParentItem() && $item->getParentItem()->getProductType() == "bundle")
+        {
+            if ($productOption = $this->getProductOptionFor($item))
+            {
+                if (!empty($productOption["qty"]))
+                    $qty *= $productOption["qty"];
+            }
+        }
+
+        return $qty;
+    }
+
+    public function getSubscriptionQuoteItemWithTotalsFrom($item, $order)
+    {
+        $qty = max(/* quote */ $item->getQty(), /* order */ $item->getQtyOrdered());
+
         if ($item->getParentItem() && $item->getParentItem()->getProductType() == "configurable")
         {
             return $item->getParentItem();
         }
-
-        return $item;
+        else if ($item->getParentItem() && $item->getParentItem()->getProductType() == "bundle")
+        {
+            return $this->getSubscriptionQuoteItemFromBundle($item, $qty, $order);
+        }
+        else
+            return $item;
     }
 
     /**
@@ -475,6 +659,118 @@ class Generic
             return $product;
 
         return null;
+    }
+
+    public function isOrIncludesSubscription($orderItem)
+    {
+        $ids = $this->getSubscriptionIdsFromOrderItem($orderItem);
+        return !empty($ids);
+    }
+
+    public function getSubscriptionIdsFromOrderItem($orderItem)
+    {
+        $ids = [];
+
+        $type = $orderItem->getProductType();
+
+        if ($type == "downloadable")
+            return $ids;
+
+        if (in_array($type, ["simple", "virtual"]))
+        {
+            $product = $this->loadProductById($orderItem->getProductId());
+            if ($product->getStripeSubEnabled())
+                return [ $orderItem->getProductId() ];
+        }
+
+        if ($type == "configurable")
+        {
+            foreach($orderItem->getChildrenItems() as $item)
+            {
+                $product = $this->loadProductById($item->getProductId());
+                if ($product->getStripeSubEnabled())
+                    $ids[] = $item->getProductId();
+            }
+
+            return $ids;
+        }
+
+        if ($type == "bundle")
+        {
+            $productIds = $this->getSelectedProductIdsFromBundleOrderItem($orderItem);
+
+            foreach($productIds as $productId)
+            {
+                $product = $this->loadProductById($productId);
+                if ($product->getStripeSubEnabled())
+                    $ids[] = $productId;
+            }
+
+            return $ids;
+        }
+
+        return $ids;
+    }
+
+    public function getBundleProductOptionsData($productId)
+    {
+        if (!empty($this->bundleProductOptions[$productId]))
+            return $this->bundleProductOptions[$productId];
+
+        $product = $this->loadProductById($productId);
+
+        $selectionCollection = $product->getTypeInstance(true)
+            ->getSelectionsCollection(
+                $product->getTypeInstance(true)->getOptionsIds($product),
+                $product
+            );
+
+        foreach ($selectionCollection as $selection)
+        {
+            $selectionArray = [];
+            $selectionArray['name'] = $selection->getName();
+            $selectionArray['quantity'] = $selection->getSelectionQty();
+            $selectionArray['price'] = $selection->getPrice();
+            $selectionArray['product_id'] = $selection->getProductId();
+            $productsArray[$selection->getOptionId()][$selection->getSelectionId()] = $selectionArray;
+        }
+
+        return $this->bundleProductOptions[$productId] = $productsArray;
+    }
+
+    public function getSelectedProductIdsFromBundleOrderItem($orderItem)
+    {
+        if ($orderItem->getProductType() != "bundle")
+            return [];
+
+        $productOptions = $orderItem->getProductOptions();
+        if (empty($productOptions))
+            return [];
+
+        if (empty($productOptions["info_buyRequest"]["bundle_option"]))
+            return [];
+
+        $bundleOption = $productOptions["info_buyRequest"]["bundle_option"];
+
+        $bundleData = $this->getBundleProductOptionsData($orderItem->getProductId());
+        if (empty($bundleData))
+            return [];
+
+        $productIds = [];
+
+        foreach ($bundleOption as $optionId => $option)
+        {
+            foreach ($option as $selectionId => $selection)
+            {
+                if (!empty($bundleData[$optionId][$selectionId]["product_id"]))
+                {
+                    $productId = $bundleData[$optionId][$selectionId]["product_id"];
+                    $productIds[$productId] = $productId;
+                }
+            }
+        }
+
+        return $productIds;
     }
 
     /**
@@ -539,6 +835,24 @@ class Generic
         return false;
     }
 
+    public function hasOnlySubscriptionsIn($items)
+    {
+        if (!$this->isSubscriptionsEnabled())
+            return false;
+
+        foreach ($items as $item)
+        {
+            $product = $this->getSubscriptionProductFromOrderItem($item);
+            if (!$product)
+                continue;
+
+            if ($product->getStripeSubEnabled())
+                return true;
+        }
+
+        return false;
+    }
+
     public function hasOnlyTrialSubscriptionsIn($items)
     {
         if (!$this->isSubscriptionsEnabled())
@@ -570,7 +884,8 @@ class Generic
         if ($quote)
             $items = $quote->getAllItems();
         else
-            $items = $this->cart->getQuote()->getAllItems();
+            $items = $this->getQuote()->getAllItems();
+
 
         return $this->_hasSubscriptions = $this->hasSubscriptionsIn($items);
     }
@@ -583,7 +898,7 @@ class Generic
         if ($quote)
             $items = $quote->getAllItems();
         else
-            $items = $this->cart->getQuote()->getAllItems();
+            $items = $this->getQuote()->getAllItems();
 
         return $this->_hasOnlyTrialSubscriptions = $this->hasOnlyTrialSubscriptionsIn($items);
     }
@@ -622,12 +937,7 @@ class Generic
     public function logError($msg)
     {
         if (!$this->isAuthenticationRequiredMessage($msg))
-            $this->logger->addError(Config::module() . ": " . $msg);
-    }
-
-    public function isAjaxRequest()
-    {
-        return $this->requestInterface->isXmlHttpRequest();
+            \StripeIntegration\Payments\Helper\Logger::log(Config::module() . ": " . $msg);
     }
 
     public function isStripeAPIKeyError($msg)
@@ -671,12 +981,18 @@ class Generic
 
         if ($this->isAdmin())
             throw new CouldNotSaveException(__($msg));
-        else if ($this->isAjaxRequest())
+        else if ($this->isAPIRequest())
             throw new CouldNotSaveException(__($this->cleanError($msg)), $e);
         else if ($this->isMultiShipping())
             throw new \Magento\Framework\Exception\LocalizedException(__($msg), $e);
         else
-            $this->addError($this->cleanError($msg));
+        {
+            // We return in direct controller requests which already have their own error handlers
+            // and during integration testing.
+            $error = $this->cleanError($msg);
+            $this->addError($error);
+            return $error;
+        }
     }
 
     public function maskException($e)
@@ -686,7 +1002,7 @@ class Generic
         else
             $message = $e->getMessage();
 
-        $this->dieWithError($message, $e);
+        return $this->dieWithError($message, $e);
     }
 
     public function isValidToken($token)
@@ -766,10 +1082,18 @@ class Generic
 
         if ($invoice->getGrandTotal() != $amount)
         {
-            $invoice->setShippingAmount($amounts['shipping']);
-            $invoice->setBaseShippingAmount($amounts['base_shipping']);
-            $invoice->setTaxAmount($amounts['tax']);
-            $invoice->setBaseTaxAmount($amounts['base_tax']);
+            if (!empty($amounts['shipping']))
+                $invoice->setShippingAmount($amounts['shipping']);
+
+            if (!empty($amounts['base_shipping']))
+                $invoice->setBaseShippingAmount($amounts['base_shipping']);
+
+            if (!empty($amounts['tax']))
+                $invoice->setTaxAmount($amounts['tax']);
+
+            if (!empty($amounts['base_tax']))
+                $invoice->setBaseTaxAmount($amounts['base_tax']);
+
             $invoice->setGrandTotal($amount);
             $invoice->setBaseGrandTotal($baseAmount);
 
@@ -812,6 +1136,16 @@ class Generic
             $dbTransaction->addObject($invoice)
                     ->addObject($order)
                     ->save();
+
+        try
+        {
+            $this->invoiceSender->send($invoice);
+        }
+        catch (\Exception $e)
+        {
+            \StripeIntegration\Payments\Helper\Logger::log($e->getMessage());
+            \StripeIntegration\Payments\Helper\Logger::log($e->getTraceAsString());
+        }
 
         return $invoice;
     }
@@ -905,6 +1239,163 @@ class Generic
             ->save();
 
         return $invoice;
+    }
+
+    public function invoiceNonSubscriptionItems($order, $save = false)
+    {
+        $payment = $order->getPayment();
+        $paymentIntentId = $payment->getLastTransId();
+        if (empty($paymentIntentId))
+            return;
+
+        $paymentIntent = \StripeIntegration\Payments\Model\Config::$stripeClient->paymentIntents->retrieve($paymentIntentId, []);
+        if (empty($paymentIntent))
+            return;
+
+        $charge = $paymentIntent->charges->data[0];
+        $items = $order->getAllItems();
+        $orderItemQtys = [];
+        foreach ($items as $item)
+        {
+            if (empty($item->getRowTotal()))
+                continue; // This is a child of a configurable or bundle product which we should not attempt to invoice
+
+            $orderItemId = null;
+            if ($item->getParentItemId())
+                $orderItemId = $item->getParentItemId(); // Configurable and bundled products
+            else if ($item->getId())
+                $orderItemId = $item->getId();
+
+            if (is_numeric($orderItemId) && $orderItemId > 0)
+            {
+                if ($this->isOrIncludesSubscription($item))
+                    $orderItemQtys[$orderItemId] = 0;
+                else
+                    $orderItemQtys[$orderItemId] = $item->getQtyOrdered();
+            }
+
+            if ($save)
+            {
+                $item->save();
+            }
+        }
+
+        $invoice = $this->invoiceOrderItems($order, $orderItemQtys, $save);
+        if ($invoice)
+        {
+            if (!$charge->captured)
+                $invoice->setState(\Magento\Sales\Model\Order\Invoice::STATE_OPEN);
+
+            $order->addRelatedObject($invoice);
+        }
+
+        if ($save)
+        {
+            $order->save();
+            $invoice->save();
+        }
+    }
+
+    public function invoiceTrialSubscriptionItems($order, $invoice, $save = true)
+    {
+        try
+        {
+            if (empty($invoice->lines->data))
+                throw new LocalizedException(__("Error: The subscription invoice received from Stripe did not include any products."), 1);
+
+            $productIds = [];
+            $orderItemQtys = [];
+            foreach ($invoice->lines->data as $invoiceItem)
+            {
+                if (!empty($invoiceItem->metadata->{"Product ID"}))
+                    $productIds[] = $invoiceItem->metadata->{"Product ID"};
+            }
+
+            $orderItems = $order->getAllItems();
+            $names = [];
+            foreach ($orderItems as $orderItem)
+            {
+                $subscriptionIds = $this->getSubscriptionIdsFromOrderItem($orderItem);
+                $id = $orderItem->getId();
+                if (!empty(array_intersect($subscriptionIds, $productIds)))
+                {
+                    $orderItemQtys[$id] = $orderItem->getQtyOrdered();
+                    $names[$id] = $orderItem->getName();
+                }
+                else
+                {
+                    $orderItemQtys[$id] = 0;
+                }
+            }
+
+            if (!empty($orderItemQtys))
+            {
+                $order->setState("pending")->setStatus("pending");
+
+                if ($save)
+                    $order->save();
+
+                $magentoInvoice = $this->invoiceOrderItems($order, $orderItemQtys, $save);
+                if ($magentoInvoice)
+                {
+                    $comment = __("Trial subscription payments for this order are pending. Pending invoice(s) created for %1.", implode(", ", $names));
+                    $order->addStatusToHistory($status = false, $comment, $isCustomerNotified = false);
+                    $magentoInvoice->setTransactionId($invoice->subscription->id);
+
+                    if ($save)
+                        $magentoInvoice->save();
+                }
+            }
+
+            $payment = $order->getPayment();
+            $payment->setIsTransactionClosed(0);
+            $payment->setIsFraudDetected(false);
+        }
+        catch (LocalizedException $e)
+        {
+            $order->addStatusToHistory($status = false, $e->getMessage(), $isCustomerNotified = false);
+        }
+    }
+
+    public function getUnpaidTrialSubscriptionInvoiceFrom($order, $stripeInvoice)
+    {
+        if ($order->getBaseTotalDue() == 0)
+            return null;
+
+        if (empty($stripeInvoice->subscription->id))
+            return null;
+
+
+        foreach($order->getInvoiceCollection() as $invoice)
+        {
+            if (!$invoice->getTransactionId())
+                continue;
+
+            if ($invoice->getTransactionId() == $stripeInvoice->subscription->id)
+            {
+                return $invoice;
+            }
+        }
+
+        return null;
+    }
+
+    public function payTrialSubscriptionInvoice($order, $invoice, $transactionId)
+    {
+        $invoice->setTransactionId($transactionId);
+        $invoice->setRequestedCaptureCase(\Magento\Sales\Model\Order\Invoice::CAPTURE_OFFLINE);
+        $invoice->pay();
+        $invoice->save();
+
+        $order->setCanSendNewEmailFlag(true);
+        $this->notifyCustomer($order, __("Trial subscription period ended for order #%1. The subscription is now active.", $order->getIncrementId()));
+
+        if ($order->getTotalDue() == 0)
+            $order->setState("processing")->setStatus("processing");
+        else
+            $order->setState("pending")->setStatus("pending");
+
+        $order->save();
     }
 
     public function cancelOrCloseOrder($order, $refundInvoices = false, $refundOffline = true)
@@ -1102,7 +1593,7 @@ class Generic
         else if (strpos($newcard, 'src_') === 0)
         {
             $source = $this->retrieveSource($newcard);
-            // Card sources have been depreciated, we can only add Payment Method tokens pm_
+            // Card sources have been deprecated, we can only add Payment Method tokens pm_
             // if ($source->type == 'card')
             // {
             //     $card = $this->convertSourceToCard($source);
@@ -1154,24 +1645,6 @@ class Generic
         return $this->priceCurrency->format($price, false, null, null, strtoupper($currency));
     }
 
-    public function getRefundIdFrom($charge)
-    {
-        $lastRefundDate = 0;
-        $refundId = null;
-
-        foreach ($charge->refunds->data as $refund)
-        {
-            // There might be multiple refunds, and we are looking for the most recent one
-            if ($refund->created > $lastRefundDate)
-            {
-                $lastRefundDate = $refund->created;
-                $refundId = $refund->id;
-            }
-        }
-
-        return $refundId;
-    }
-
     public function convertBaseAmountToStoreAmount($baseAmount)
     {
         $store = $this->storeManager->getStore();
@@ -1220,6 +1693,11 @@ class Generic
 
     public function sendNewOrderEmailFor($order)
     {
+        if (!$order->getEmailSent())
+        {
+            $order->setCanSendNewEmailFlag(true);
+        }
+
         // Send the order email
         if ($order->getCanSendNewEmailFlag())
         {
@@ -1253,6 +1731,20 @@ class Generic
             $cents = 1;
 
         return round($amount * $cents);
+    }
+
+    public function convertOrderAmountToBaseAmount($amount, $currency, $order)
+    {
+        if (strtolower($currency) == strtolower($order->getOrderCurrencyCode()))
+            $rate = $order->getBaseToOrderRate();
+        else
+            throw new \Exception("Currency code $currency was not used to place order #" . $order->getIncrementId());
+
+        // $rate = $this->currencyFactory->create()->load($order->getBaseCurrencyCode())->getAnyRate($currency);
+        if (empty($rate))
+            return $amount; // The base currency and the order currency are the same
+
+        return round($amount / $rate, 2);
     }
 
     public function convertStripeAmountToBaseOrderAmount($amount, $currency, $order)
@@ -1342,21 +1834,21 @@ class Generic
         return $this->priceCurrency->format($amount, false, null, null, strtoupper($currencyCode));
     }
 
-    public function getSubscriptionProductIdFrom($item)
+    public function getSubscriptionProductIdFrom($quoteItem)
     {
-        $type = $item->getProductType();
+        $type = $quoteItem->getProductType();
         switch ($type) {
             case 'configurable':
-                foreach ($item->getQtyOptions() as $key => $child)
+                foreach ($quoteItem->getQtyOptions() as $key => $child)
                     return $key;
             default:
-                return $item->getProductId();
+                return $quoteItem->getProductId();
         }
     }
 
-    public function getSubscriptionProductFrom($item)
+    public function getSubscriptionProductFrom($quoteItem)
     {
-        $productId = $this->getSubscriptionProductIdFrom($item);
+        $productId = $this->getSubscriptionProductIdFrom($quoteItem);
         return $this->loadProductById($productId);
     }
 
@@ -1402,10 +1894,7 @@ class Generic
 
     public function isAuthenticationRequiredMessage($message)
     {
-        if (strpos($message, "Authentication Required: ") === 0)
-            return true;
-
-        return false;
+        return (strpos($message, "Authentication Required: ") !== false);
     }
 
     public function getOrderDescription($order)
@@ -1447,7 +1936,7 @@ class Generic
         if ($useStoreCurrency)
             $currency = $order->getOrderCurrencyCode();
         else
-            $currency = $order->getBaseOrderCurrencyCode();
+            $currency = $order->getBaseCurrencyCode();
 
         $cents = $this->isZeroDecimal($currency) ? 1 : 100;
 
@@ -1545,63 +2034,17 @@ class Generic
         return $this->currentCustomer;
     }
 
+    public function getCustomerModelByStripeId($stripeId)
+    {
+        return $this->customerCollection->getByStripeCustomerId($stripeId);
+    }
+
     public function getPublishableKey()
     {
         $storeId = $this->getStoreId();
         $mode = $this->scopeConfig->getValue("payment/stripe_payments_basic/stripe_mode", \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeId);
         $pk = $this->scopeConfig->getValue("payment/stripe_payments_basic/stripe_{$mode}_pk", \Magento\Store\Model\ScopeInterface::SCOPE_STORE, $storeId);
         return trim($pk);
-    }
-
-    public function getTrialingSubscriptionsAmounts($quote = null)
-    {
-        if ($this->trialingSubscriptionsAmounts)
-            return $this->trialingSubscriptionsAmounts;
-
-        $this->trialingSubscriptionsAmounts = [
-            "subscriptions_total" => 0,
-            "base_subscriptions_total" => 0,
-            "shipping_total" => 0,
-            "base_shipping_total" => 0,
-            "discount_total" => 0,
-            "base_discount_total" => 0,
-            "tax_total" => 0,
-            "base_tax_total" => 0
-        ];
-
-        if (!$quote)
-            $quote = $this->getQuote();
-
-        $items = $quote->getAllItems();
-        foreach ($items as $item)
-        {
-            $product = $this->getSubscriptionProductFromOrderItem($item);
-            if (!$product)
-                continue;
-
-            $item = $this->getSubscriptionQuoteItemWithTotalsFrom($item);
-
-            $trial = $product->getStripeSubTrial();
-            if (is_numeric($trial) && $trial > 0)
-            {
-                $this->trialingSubscriptionsAmounts["subscriptions_total"] += $item->getRowTotal();
-                $this->trialingSubscriptionsAmounts["base_subscriptions_total"] += $item->getBaseRowTotal();
-
-                $baseShippingTax = $this->taxHelper->getBaseShippingTaxFor($item, $quote);
-                $shippingTax = $this->convertBaseAmountToStoreAmount($baseShippingTax);
-                $baseShipping = $this->taxHelper->getBaseShippingAmountForQuoteItem($item, $quote);
-                $shipping = $this->convertBaseAmountToStoreAmount($baseShipping);
-
-                $this->trialingSubscriptionsAmounts["shipping_total"] += $shipping;
-                $this->trialingSubscriptionsAmounts["base_shipping_total"] += $baseShipping;
-                $this->trialingSubscriptionsAmounts["discount_total"] += $item->getDiscountAmount();
-                $this->trialingSubscriptionsAmounts["base_discount_total"] += $item->getBaseDiscountAmount();
-                $this->trialingSubscriptionsAmounts["tax_total"] += $item->getTaxAmount() + $shippingTax;
-                $this->trialingSubscriptionsAmounts["base_tax_total"] += $item->getBaseTaxAmount() + $baseShippingTax;
-            }
-        }
-
-        return $this->trialingSubscriptionsAmounts;
     }
 
     public function getStripeUrl($liveMode, $objectType, $id)
@@ -1635,9 +2078,31 @@ class Generic
         return $order;
     }
 
+    public function addWarning($msg)
+    {
+        if ($this->isAdmin())
+            $this->messageManager->addWarning($msg);
+    }
+
+    public function addOrderComment($msg, $order, $isCustomerNotified = false)
+    {
+        if ($order)
+            $order->addCommentToStatusHistory($msg);
+    }
+
     public function capture($token, $payment, $amount, $useSavedCard = false)
     {
         $token = $this->cleanToken($token);
+        $order = $payment->getOrder();
+
+        if ($token == "cannot_capture_subscriptions")
+        {
+            $msg = __("Subscription items cannot be captured online. Will capture offline instead.");
+            $this->addWarning($msg);
+            $this->addOrderComment($msg, $order);
+            return;
+        }
+
         try
         {
             if (strpos($token, 'pi_') === 0)
@@ -1656,9 +2121,9 @@ class Generic
 
             $currency = $ch->currency;
 
-            if ($currency == strtolower($payment->getOrder()->getOrderCurrencyCode()))
+            if ($currency == strtolower($order->getOrderCurrencyCode()))
                 $finalAmount = $this->getMultiCurrencyAmount($payment, $amount);
-            else if ($currency == strtolower($payment->getOrder()->getBaseCurrencyCode()))
+            else if ($currency == strtolower($order->getBaseCurrencyCode()))
                 $finalAmount = $amount;
             else
                 $this->dieWithError("Cannot capture payment because it was created using a different currency ({$ch->currency}).");
@@ -1667,6 +2132,8 @@ class Generic
             if ($this->isZeroDecimal($currency))
                 $cents = 1;
 
+            $stripeAmount = round($finalAmount * $cents);
+
             if ($this->isAuthorizationExpired($ch))
             {
                 if ($useSavedCard)
@@ -1674,16 +2141,50 @@ class Generic
                 else
                     throw new \Exception("The payment authorization with the customer's bank has expired. If you wish to create a new payment using a saved card, please enable Expired Authorizations from Configuration &rarr; Sales &rarr; Payment Methods &rarr; Stripe &rarr; Card Payments &rarr; Expired Authorizations.");
             }
+            else if ($ch->refunded)
+            {
+                $this->dieWithError("This amount for this invoice has been refunded in Stripe.");
+            }
             else if ($ch->captured)
             {
+                if ($order->getInvoiceCollection()->getSize() > 0)
+                {
+                    foreach ($order->getInvoiceCollection() as $invoice)
+                    {
+                        if ($invoice->getState() == \Magento\Sales\Model\Order\Invoice::STATE_PAID)
+                            throw new \Exception("Multiple partial payment captures are not supported by Stripe. Please create an offline Credit Memo instead.");
+                    }
+                }
                 $capturedAmount = $ch->amount - $ch->amount_refunded;
                 $humanReadableAmount = $this->formatStripePrice($capturedAmount, $ch->currency);
-                $this->dieWithError("This invoice has already been captured in Stripe for an amount of $humanReadableAmount. To complete the order, please capture the remaining amount from a saved card through the Stripe dashboard, and then invoice the order in Magento using the Offline capture method.");
+                if ($this->hasTrialSubscriptionsIn($order->getAllItems()))
+                    $msg = __("%1 could not be captured online because this cart includes subscriptions which are trialing. Capturing %1 offline instead.", $humanReadableAmount);
+                else
+                    $msg = __("%1 could not be captured online because it was already captured via Stripe. Capturing %1 offline instead.", $humanReadableAmount);
+
+                $this->addWarning($msg);
+                $this->addOrderComment($msg, $order);
             }
             else // status == pending
             {
+                $availableAmount = $ch->amount;
+                if ($availableAmount < $stripeAmount)
+                {
+                    $available = $this->formatStripePrice($availableAmount, $ch->currency);
+                    $requested = $this->formatStripePrice($stripeAmount, $ch->currency);
+
+                    if ($this->hasSubscriptionsIn($order->getAllItems()))
+                        $msg = __("Capturing %1 instead of %2 because subscription items cannot be captured.", $available, $requested);
+                    else
+                        $msg = __("The maximum available amount to capture is %1, but a capture of %2 was requested. Will capture %1 instead.", $available, $requested);
+
+                    $this->addWarning($msg);
+                    $this->addOrderComment($msg, $order);
+                    $stripeAmount = $availableAmount;
+                }
+
                 $this->cache->save($value = "1", $key = "admin_captured_" . $paymentObject->id, ["stripe_payments"], $lifetime = 60 * 60);
-                $paymentObject->capture(array($amountToCapture => round($finalAmount * $cents)));
+                $paymentObject->capture(array($amountToCapture => $stripeAmount));
             }
         }
         catch (\Exception $e)
@@ -1883,9 +2384,6 @@ class Generic
         {
             $this->cache->save($value = "1", $key = "admin_refunded_" . $charge->id, ["stripe_payments"], $lifetime = 60 * 60);
             \Stripe\Refund::create($params);
-
-            $refundId = $this->getRefundIdFrom($charge);
-            $payment->setAdditionalInformation('last_refund_id', $refundId);
         }
         else
         {
@@ -1907,17 +2405,16 @@ class Generic
         $quote->setBaseGrandTotal($quote->getBaseGrandTotal() + $baseTaxDiff);
     }
 
-    public function setOrderTaxFrom($stripeTaxAmount, $stripeCurrency, $order)
+    public function sendPaymentFailedEmail($msg)
     {
-        // Stripe uses a different tax rounding algorithm than Magento, so check for tax rounding errors and fix them
-        $tax = $this->convertStripeAmountToOrderAmount($stripeTaxAmount, $stripeCurrency, $order);
-        $baseTax = $this->convertStripeAmountToBaseOrderAmount($stripeTaxAmount, $stripeCurrency, $order);
-        $taxDiff = $tax - $order->getTaxAmount();
-        $baseTaxDiff = $baseTax - $order->getBaseTaxAmount();
-        $order->setTaxAmount($tax);
-        $order->setBaseTaxAmount($baseTax);
-        $order->setGrandTotal($order->getGrandTotal() + $taxDiff);
-        $order->setBaseGrandTotal($order->getBaseGrandTotal() + $baseTaxDiff);
+        try
+        {
+            $this->checkoutHelper->sendPaymentFailedEmail($this->getQuote(), $msg);
+        }
+        catch (\Exception $e)
+        {
+            \StripeIntegration\Payments\Helper\Logger::log($e->getMessage());
+        }
     }
 
     public function isRecurringOrder($method)
@@ -1937,5 +2434,264 @@ class Generic
         }
 
         return false;
+    }
+
+    public function resetPaymentData($payment)
+    {
+        // Reset a previously initialized 3D Secure session
+        $payment->setAdditionalInformation('stripejs_token', null)
+            ->setAdditionalInformation('save_card', null)
+            ->setAdditionalInformation('token', null)
+            ->setAdditionalInformation("is_recurring_subscription", null)
+            ->setAdditionalInformation("is_migrated_subscription", null)
+            ->setAdditionalInformation("subscription_customer", null)
+            ->setAdditionalInformation("subscription_start", null)
+            ->setAdditionalInformation("remove_initial_fee", null)
+            ->setAdditionalInformation("off_session", null)
+            ->setAdditionalInformation("use_store_currency", null)
+            ->setAdditionalInformation("selected_plan", null);
+    }
+
+    public function setPaymentData($payment, $token, $saveCard, $useStoreCurrency, $selectedPlan)
+    {
+        if (!$this->isValidToken($token))
+            $this->dieWithError("Sorry, we could not perform a card security check. Please contact us to complete your purchase.");
+
+        $this->resetPaymentData($payment);
+
+        $payment->setAdditionalInformation('use_store_currency', $useStoreCurrency);
+        $payment->setAdditionalInformation('token', $token);
+        $payment->setAdditionalInformation('save_card', $saveCard);
+
+        if (is_numeric($selectedPlan))
+            $payment->setAdditionalInformation('selected_plan', $selectedPlan);
+    }
+
+    public function assignPaymentData($payment, $data, $useStoreCurrency)
+    {
+        // If using a saved card
+        if (!empty($data['cc_saved']) && $data['cc_saved'] != 'new_card')
+        {
+            $card = explode(':', $data['cc_saved']);
+
+            $this->setPaymentData($payment, $card[0], $data["cc_save"], $useStoreCurrency, $data["selected_plan"]);
+
+            $this->updateBillingAddress($card[0]);
+
+            return;
+        }
+
+        // Scenarios by OSC modules trying to prematurely save payment details
+        if (empty($data['cc_stripejs_token']))
+            return;
+
+        $card = explode(':', $data['cc_stripejs_token']);
+        $data['cc_stripejs_token'] = $card[0]; // To be used by Stripe Subscriptions
+
+        $this->setPaymentData($payment, $card[0], $data["cc_save"], $useStoreCurrency, $data["selected_plan"]);
+    }
+
+    public function shippingIncludesTax($store = null)
+    {
+        return $this->taxConfig->shippingPriceIncludesTax($store);
+    }
+
+    public function priceIncludesTax($store = null)
+    {
+        return $this->taxConfig->priceIncludesTax($store);
+    }
+
+    /**
+     * Transaction interface types
+     * const TYPE_PAYMENT = 'payment';
+     * const TYPE_ORDER = 'order';
+     * const TYPE_AUTH = 'authorization';
+     * const TYPE_CAPTURE = 'capture';
+     * const TYPE_VOID = 'void';
+     * const TYPE_REFUND = 'refund';
+     **/
+    public function addTransaction($order, $transactionId, $transactionType = "capture")
+    {
+        try
+        {
+            $payment = $order->getPayment();
+            $payment->setTransactionId($transactionId);
+            $payment->setParentTransactionId(null);
+            $transaction = $payment->addTransaction($transactionType, null, true);
+            return  $transaction;
+        }
+        catch (Exception $e)
+        {
+            \StripeIntegration\Payments\Helper\Logger::log($e->getMessage());
+            \StripeIntegration\Payments\Helper\Logger::log($e->getTraceAsString());
+        }
+    }
+
+    public function getOrderTransactions($order)
+    {
+        $transactions = $this->transactionSearchResultFactory->create()->addOrderIdFilter($order->getId());
+        return $transactions->getItems();
+    }
+
+    // $orderItemQtys = [$orderItem->getId() => int $qty, ...]
+    public function invoiceOrderItems($order, $orderItemQtys, $save = true)
+    {
+        if (empty($orderItemQtys))
+            return null;
+
+        $invoice = $this->invoiceService->prepareInvoice($order, $orderItemQtys);
+        $invoice->register();
+        $order->setIsInProcess(true);
+
+        if ($save)
+        {
+            $dbTransaction = $this->transactionFactory->create();
+            $dbTransaction->addObject($invoice)->addObject($order)->save();
+        }
+
+        return $invoice;
+    }
+
+    public function getQuoteFromOrder($order)
+    {
+        if (!$order->getQuoteId())
+            $this->dieWithError("The order has no associated quote ID.");
+
+        return $this->loadQuoteById($order->getQuoteId());
+    }
+
+    public function getAmountCaptured($order, $refundSessionId)
+    {
+        $paymentIntents = $this->getOrderPaymentIntents($order, $refundSessionId);
+
+        $amount = 0;
+
+        foreach ($paymentIntents as $pi)
+        {
+            foreach ($pi->charges->data as $charge)
+            {
+                $amount += $charge->amount_captured;
+            }
+        }
+
+        return $amount;
+    }
+
+    public function getAmountAuthorized($order, $refundSessionId)
+    {
+        $paymentIntents = $this->getOrderPaymentIntents($order, $refundSessionId);
+
+        $amount = 0;
+
+        foreach ($paymentIntents as $pi)
+        {
+            foreach ($pi->charges->data as $charge)
+            {
+                if (!$charge->captured && !$charge->refunded)
+                    $amount += $charge->amount;
+            }
+        }
+
+        return $amount;
+    }
+
+    public function getAmountRefunded($order, $refundSessionId)
+    {
+        $paymentIntents = $this->getOrderPaymentIntents($order, $refundSessionId);
+
+        $amount = 0;
+
+        foreach ($paymentIntents as $pi)
+        {
+            foreach ($pi->charges->data as $charge)
+            {
+                $amount += $charge->amount_refunded;
+            }
+        }
+
+        return $amount;
+    }
+
+    // If this is called multiple times and would like to invalidate the cache, pass a different $refundSessionId
+    public function getOrderPaymentIntents($order, $refundSessionId)
+    {
+        $cacheKey = $order->getIncrementId() . "_" . $refundSessionId;
+
+        if (!empty($this->orderPaymentIntents[$cacheKey]))
+            return $this->orderPaymentIntents[$cacheKey];
+        else
+            $this->orderPaymentIntents[$cacheKey] = [];
+
+        $paymentIntentIds = [];
+        $transactions = $this->getOrderTransactions($order);
+        foreach ($transactions as $transaction)
+        {
+            $id = $this->cleanToken($transaction->getTxnId());
+            if ($id)
+                $paymentIntentIds[$id] = $id;
+        }
+
+        $lastTransId = $this->cleanToken($order->getPayment()->getLastTransId());
+        if ($lastTransId)
+            $paymentIntentIds[$id] = $id;
+
+        foreach ($paymentIntentIds as $id)
+        {
+            $pi = \StripeIntegration\Payments\Model\Config::$stripeClient->paymentIntents->retrieve($id, []);
+            $this->orderPaymentIntents[$cacheKey][$id] = $pi;
+        }
+
+        return $this->orderPaymentIntents[$cacheKey];
+    }
+
+    public function setTotalPaid(&$order, $amount, $currency)
+    {
+        $currency = strtolower($currency);
+
+        if ($currency == strtolower($order->getBaseCurrencyCode()))
+        {
+            $order->setBaseTotalPaid($amount);
+            $rate = $order->getBaseToOrderRate();
+            if (empty($rate))
+                $rate = 1;
+            $order->setTotalPaid($amount * $rate);
+        }
+        else if ($currency == strtolower($order->getOrderCurrencyCode()))
+        {
+            $order->setTotalPaid($amount);
+
+            // We should not try to set the base total paid because it may result in a tax rounding error
+            // It is best to leave Magento manage the base amount
+            /*
+            $baseTransactionsTotal = $this->convertOrderAmountToBaseAmount($amount, $currency, $order);
+            $order->setBaseTotalPaid($baseTransactionsTotal);
+            */
+        }
+        else
+            throw new \Exception("Currency code $currency was not used to place order #" . $order->getIncrementId());
+
+        $order->save();
+        $this->orderRepository->save($order);
+    }
+
+    public function isPendingCheckoutOrder($order)
+    {
+        if ($order->getPayment()->getMethod() != "stripe_payments_checkout_card")
+            return false;
+
+        if ($order->getState() != "new")
+            return false;
+
+        if ($order->getPayment()->getLastTransId())
+            return false;
+
+        return true;
+    }
+
+    public function clearCache()
+    {
+        $this->products = [];
+        $this->orders = [];
+        return $this;
     }
 }

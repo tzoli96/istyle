@@ -9,6 +9,8 @@ use StripeIntegration\Payments\Helper\Logger;
 
 class Info extends ConfigurableInfo
 {
+    public $charges = null;
+    public $totalCharges = 0;
     public $charge = null;
     public $cards = array();
     public $subscription = null;
@@ -27,11 +29,11 @@ class Info extends ConfigurableInfo
         parent::__construct($context, $config, $data);
 
         $this->helper = $helper;
+        $this->paymentsConfig = $paymentsConfig;
         $this->api = $api;
         $this->country = $country;
         $this->info = $info;
         $this->registry = $registry;
-        $this->paymentsConfig = $paymentsConfig;
     }
 
     public function shouldDisplayStripeSection()
@@ -212,6 +214,30 @@ class Info extends ConfigurableInfo
         return true;
     }
 
+    public function nextCharge()
+    {
+        if (!$this->isStripeMethod())
+            return null;
+
+        if ($this->charges === null)
+        {
+            $this->charges = $this->getCharges();
+            $this->totalCharges = count($this->charges);
+        }
+
+        $this->charge = array_pop($this->charges);
+        return $this->charge;
+    }
+
+    public function getCharges()
+    {
+        $order = $this->registry->registry('current_order');
+
+        $this->charges = [$this->getCharge()];
+
+        return $this->charges;
+    }
+
     public function getCharge()
     {
         if (!$this->isStripeMethod())
@@ -223,18 +249,21 @@ class Info extends ConfigurableInfo
         if ($this->charge === false)
             return false;
 
+        return $this->charge = $this->retrieveCharge($this->getMethod()->getLastTransId());
+    }
+
+    public function retrieveCharge($chargeId)
+    {
         try
         {
-            $token = $this->helper->cleanToken($this->getMethod()->getLastTransId());
+            $token = $this->helper->cleanToken($chargeId);
 
-            $this->charge = $this->api->retrieveCharge($token);
+            return $this->api->retrieveCharge($token);
         }
         catch (\Exception $e)
         {
-            $this->charge = false;
+            return false;
         }
-
-        return $this->charge;
     }
 
     public function getCaptured()

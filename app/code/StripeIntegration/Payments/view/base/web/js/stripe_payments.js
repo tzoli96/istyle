@@ -1,7 +1,7 @@
 // Copyright © Stripe, Inc
 //
 // @package    StripeIntegration_Payments
-// @version    2.5.3
+// @version    2.7.6
 
 var stripeTokens = {};
 
@@ -24,7 +24,7 @@ var initStripe = function(params, callback)
 var stripe =
 {
     // Properties
-    version: "2.5.3",
+    version: "2.7.6",
     quote: null, // Comes from the checkout js
     customer: null, // Comes from the checkout js
     multiShippingFormInitialized: false,
@@ -367,6 +367,16 @@ var stripe =
         return selected.value;
     },
 
+    getSelectedPaymentMethod: function()
+    {
+        var selectedMethod = $$("input:checked[name=payment[method]]");
+
+        if (selectedMethod.length === 0)
+            return null;
+
+        return selectedMethod[0].value;
+    },
+
     initPaymentFormValidation: function()
     {
         // Adjust validation if necessary
@@ -403,29 +413,30 @@ var stripe =
 
     placeAdminOrder: function()
     {
-        var radioButton = document.getElementById('p_method_stripe_payments');
-        if (radioButton && !radioButton.checked)
-            return order.submit();
+        if (stripe.getSelectedPaymentMethod() != "stripe_payments")
+            return order._submit();
 
         createStripeToken(function(err)
         {
             if (err)
                 alert(err);
             else
-                order.submit();
+                order._submit();
         });
     },
 
     initAdminStripeJs: function()
     {
-        // Stripe.js intercept when placing a new order
-        var btn = document.getElementById('order-totals');
-        if (btn) btn = btn.getElementsByTagName('button');
-        if (btn && btn[0]) btn = btn[0];
-        if (btn) btn.onclick = stripe.placeAdminOrder;
-
-        var topBtn = document.getElementById('submit_order_top_button');
-        if (topBtn) topBtn.onclick = stripe.placeAdminOrder;
+        if (typeof order != "undefined" && typeof order._submit != "undefined")
+        {
+            // Is already initialized
+            return;
+        }
+        else if (typeof order != "undefined" && typeof order._submit == "undefined")
+        {
+            order._submit = order.submit;
+            order.submit = stripe.placeAdminOrder;
+        }
     },
 
     getSourceOwner: function()
@@ -563,7 +574,7 @@ var stripe =
 
         if (box)
         {
-            box.innerHTML = '';
+            box.innerText = '';
             box.classList.remove('populated');
         }
     },
@@ -589,7 +600,7 @@ var stripe =
 
         if (box)
         {
-            box.innerHTML = message;
+            box.innerText = message;
             box.classList.add('populated');
         }
         else
@@ -758,7 +769,7 @@ var stripe =
             return false;
 
         // Case of subscriptions
-        if (msg.indexOf("Authentication Required: ") === 0)
+        if (msg.indexOf("Authentication Required: ") >= 0)
         {
             stripe.paymentIntents = msg.substring("Authentication Required: ".length).split(",");
             return true;

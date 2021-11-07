@@ -7,12 +7,17 @@ use StripeIntegration\Payments\Helper\Logger;
 
 class AddInitialFeeTaxObserver implements ObserverInterface
 {
+    public $helper = null;
+    public $taxHelper = null;
+
     public function __construct(
         \StripeIntegration\Payments\Helper\GenericFactory $paymentsHelper,
+        \StripeIntegration\Payments\Helper\TaxHelperFactory $taxHelperFactory,
         \StripeIntegration\Payments\Model\Config $config
     )
     {
         $this->paymentsHelperFactory = $paymentsHelper;
+        $this->taxHelperFactory = $taxHelperFactory;
         $this->config = $config;
     }
 
@@ -32,9 +37,17 @@ class AddInitialFeeTaxObserver implements ObserverInterface
 
     public function applyInitialFeeTax($quote, $total)
     {
+        if ($this->config->priceIncludesTax())
+            return;
+
         $baseExtraTax = 0;
         $extraTax = 0;
-        $helper = $this->paymentsHelperFactory->create();
+
+        if (!$this->helper)
+            $this->helper = $this->paymentsHelperFactory->create();
+
+        if (!$this->taxHelper)
+            $this->taxHelper = $this->taxHelperFactory->create();
 
         foreach ($quote->getAllItems() as $item)
         {
@@ -42,18 +55,28 @@ class AddInitialFeeTaxObserver implements ObserverInterface
             if (empty($appliedTaxes))
                 continue;
 
-            $product = $helper->getSubscriptionProductFrom($item);
+            $product = $this->helper->getSubscriptionProductFrom($item);
             $baseInitialFee = $product->getStripeSubInitialFee();
 
             if (empty($baseInitialFee) || !is_numeric($baseInitialFee) || $baseInitialFee <= 0)
                 continue;
 
-            $baseExtraTaxableAmount = $item->getQty() * $baseInitialFee;
+            $qty = $item->getQty();
+            $baseExtraTaxableAmount = $qty * $baseInitialFee;
             $taxPercent = $item->getTaxPercent();
-            $baseExtraTax += $baseExtraTaxableAmount * ($taxPercent / 100);
+
+            if ($this->config->priceIncludesTax())
+                $taxAmount = $this->taxHelper->taxInclusiveTaxCalculator($baseExtraTaxableAmount, $taxPercent);
+            else
+                $taxAmount = $this->taxHelper->taxExclusiveTaxCalculator($baseExtraTaxableAmount, $taxPercent);
+
+            $baseExtraTax += $taxAmount;
         }
 
         $rate = $quote->getBaseToQuoteRate();
+        if (empty($rate))
+            $rate = 1;
+
         $baseExtraTax = round($baseExtraTax, 4);
         $extraTax = round($baseExtraTax * $rate, 4);
         $total->addTotalAmount('tax', $extraTax);

@@ -23,7 +23,8 @@ class RecurringOrder
         \Magento\Quote\Api\CartManagementInterface $cartManagementInterface,
         \Magento\Customer\Api\Data\CustomerInterfaceFactory $customerFactory,
         \Magento\Sales\Model\AdminOrder\Create $adminOrderCreateModel,
-        \StripeIntegration\Payments\Helper\Webhooks $webhooksHelper
+        \StripeIntegration\Payments\Helper\Webhooks $webhooksHelper,
+        \StripeIntegration\Payments\Helper\Subscriptions $subscriptions
     ) {
         $this->paymentsHelper = $paymentsHelper;
         $this->config = $config;
@@ -35,6 +36,7 @@ class RecurringOrder
         $this->customerFactory = $customerFactory;
         $this->adminOrderCreateModel = $adminOrderCreateModel;
         $this->webhooksHelper = $webhooksHelper;
+        $this->subscriptions = $subscriptions;
     }
 
     public function createFromSubscriptionItems($invoiceId)
@@ -119,7 +121,8 @@ class RecurringOrder
             "discount_coupon" => $order->getCouponCode(),
             "products" => [],
             "shipping_address" => [],
-            "charge_id" => $invoice->charge
+            "charge_id" => $invoice->charge,
+            "are_subscriptions_billed_together" => false
         ];
 
         foreach ($invoice->lines->data as $invoiceLineItem)
@@ -214,9 +217,34 @@ class RecurringOrder
                 if (isset($invoiceLineItem->tax_amounts[0]->amount))
                     $details["initial_fee_tax_amount"] = $this->convertToMagentoAmount($invoiceLineItem->tax_amounts[0]->amount, $invoiceLineItem->currency);
             }
+            else if ($type == "SubscriptionsTotal")
+            {
+                $subscriptionProductIDs = explode(",", $invoiceLineItem->price->product->metadata->{"SubscriptionProductIDs"});
+                $details["are_subscriptions_billed_together"] = true;
+
+                $orderItems = $order->getAllItems();
+                foreach ($orderItems as $orderItem)
+                {
+                    if (in_array($orderItem->getProductId(), $subscriptionProductIDs))
+                    {
+                        $product = $this->paymentsHelper->loadProductById($orderItem->getProductId());
+                        $profile = $this->subscriptions->getSubscriptionDetails($product, $order, $orderItem, false, null, $this->config->useStoreCurrency());
+                        $details["products"][$orderItem->getProductId()] = [
+                            "id" => $orderItem->getProductId(),
+                            "amount" => $profile['amount_magento'],
+                            "base_amount" => $this->paymentsHelper->convertOrderAmountToBaseAmount($profile['amount_magento'], $profile['currency'], $order),
+                            "qty" => $profile['qty'],
+                            "currency" => $profile['currency'],
+                            "tax_percent" => $profile['tax_percent'],
+                            "tax_amount" => $profile['tax_amount_item'] + $profile['tax_amount_shipping']
+                        ];
+                    }
+                }
+            }
             else
             {
-                $this->webhooksHelper->log("Invoice {$invoice->id} includes an item which cannot be recognized as a subscription: " . $invoiceLineItem->description);
+                // As of v2.7.1, it is possible for an invoice to include an "Amount due" line item when a trial subscription activates
+                // $this->webhooksHelper->log("Invoice {$invoice->id} includes an item which cannot be recognized as a subscription: " . $invoiceLineItem->description);
             }
         }
 
@@ -341,7 +369,7 @@ class RecurringOrder
         $quote->setPaymentMethod($originalOrder->getPayment()->getMethod());
         $quote->setInventoryProcessed(false);
         $quote->save(); // Needed before setting payment data
-        $data = array_merge($data, ['method' => $originalOrder->getPayment()->getMethod()]);
+        $data = array_merge($data, ['method' => 'stripe_payments']); // We can only migrate subscriptions using the stripe_payments method
         $quote->getPayment()
             ->setAdditionalInformation("is_recurring_subscription", true)
             ->importData($data);
@@ -364,15 +392,16 @@ class RecurringOrder
             $productModel = $this->paymentsHelper->loadProductById($productId);
             $quoteItem = $quote->addProduct($productModel, $product['qty']);
 
-            if ($invoiceDetails['base_subscription_amount'] != $productModel->getPrice())
+            if (!empty($product['amount']) && $product['amount'] != $productModel->getPrice())
             {
-                $quoteItem->setCustomPrice($invoiceDetails['subscription_amount']);
-                $quoteItem->setOriginalCustomPrice($invoiceDetails['subscription_amount']);
+                $quoteItem->setCustomPrice($product['amount']);
+                $quoteItem->setOriginalCustomPrice($product['amount']);
 
-                // @todo - Magento bug where the base price is not calculated when a custom price is set, causing a wrong tax calculation
-                // https://github.com/magento/magento2/issues/28462
-                // $quoteItem->setBaseCustomPrice($invoiceDetails['base_subscription_amount']);
-                // $quoteItem->setBaseOriginalCustomPrice($invoiceDetails['base_subscription_amount']);
+                if (!empty($product['base_amount']))
+                {
+                    $quoteItem->setBaseCustomPrice($product['base_amount']);
+                    $quoteItem->setBaseOriginalCustomPrice($product['base_amount']);
+                }
             }
         }
     }
@@ -391,7 +420,7 @@ class RecurringOrder
             $quote->getBillingAddress()->addData($data);
 
             $data = $this->filterAddressData($originalOrder->getShippingAddress()->getData());
-            $quote->getShippingAddress()->addData($originalOrder->getShippingAddress()->getData());
+            $quote->getShippingAddress()->addData($data);
         }
     }
 

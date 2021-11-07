@@ -125,6 +125,9 @@
                                     <item name="stripe_payments_klarna" xsi:type="array">
                                       <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
                                     </item>
+                                    <item name="stripe_payments_paypal" xsi:type="array">
+                                      <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                    </item>
                                     <item name="stripe_payments_ach" xsi:type="array">
                                       <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
                                     </item>

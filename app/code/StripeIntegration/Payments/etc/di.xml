@@ -275,6 +275,11 @@
         <plugin name="setInitialFeeExtensionAfterLoad" type="StripeIntegration\Payments\Plugin\Order\LoadInitialFeeOnCollection" sortOrder="30"/>
     </type>
 
+    <!-- Disable manual invoice capturing -->
+    <type name="Magento\Sales\Model\Order\Invoice">
+        <plugin name="invoicePlugin" type="StripeIntegration\Payments\Plugin\Sales\Model\Invoice" sortOrder="30"/>
+    </type>
+
     <!-- Around order placement -->
     <type name="Magento\Sales\Model\Service\OrderService">
         <plugin name="stripePaymentsOrderService"
@@ -296,5 +301,18 @@
     <!-- Subscriptions tax calculation -->
     <type name="Magento\Tax\Model\Config">
         <plugin name="stripeSubscriptionsTaxCalculation" type="StripeIntegration\Payments\Plugin\Tax\Config" sortOrder="30" />
+    </type>
+
+    <type name="Magento\Config\Model\Config\TypePool">
+        <arguments>
+            <argument name="sensitive" xsi:type="array">
+                <item name="payment/stripe_payments_basic/stripe_test_sk" xsi:type="string">1</item>
+                <item name="payment/stripe_payments_basic/stripe_live_sk" xsi:type="string">1</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\QuoteGraphQl\Model\Cart\SetPaymentMethodOnCart">
+        <plugin name="stripe_payments_set_payment_method_on_cart" type="StripeIntegration\Payments\Plugin\Cart\SetPaymentMethodOnCart"/>
     </type>
 </config>

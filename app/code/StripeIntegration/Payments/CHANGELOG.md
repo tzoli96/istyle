@@ -1,5 +1,121 @@
 # Changelog
 
+
+## 2.7.6 - 2021-10-19
+
+- Stripe Checkout sessions expire after 2 hours, after which the order will be canceled.
+- The Oxxo payment method will display a link to a hosted voucher page in customer emails and in the admin order page.
+- The admin area "Send invoice to customer" payment method better supports bundled and configurable products.
+- Improved handling of partial refunds issued from the Stripe Dashboard. Multiple credit memos are created, multi-currency totals are set, the final memo closes the order.
+- Fixed a webhooks timeout issue with Klarna and SOFORT.
+- Canceling fraudulent authorizations from Stripe would not cancel orders which had invoices in Pending status.
+- Other minor fixes and improvements.
+
+## 2.7.5 - 2021-10-05
+
+- Added CLI support for migrating subscriptions ordered via Apple Pay or Stripe Checkout.
+- Added new cron configuration section with suitable defaults for the Stripe tasks only.
+- Cancelations of uncaptured payments will set the Magento order total canceled amount instead of the total refunded amount.
+- Partial captures from Stripe Dashboard will update the order's total paid amount.
+- Fixed a webhooks crash causing charges not to be logged against orders.
+- Fixed incorrect invoice status in Authorize Only mode when automatic invoicing is enabled.
+
+## 2.7.4 - 2021-09-20
+
+- The default location of the Payment Request API (Apple Pay, Google Pay etc) is now above all payment methods.
+- The PRAPI works better with OneStepCheckout modules by requesting a shipping address if one is not set.
+- Subscription price migrations work with tax inclusive price settings and configurable subscriptions.
+- Updates to alternative/redirect based payment method refunds.
+
+## 2.7.3 - 2021-09-10
+
+- Updated CLI subscription price migration script to work with configurable subscriptions.
+- Fixed partial refunds
+
+## 2.7.2 - 2021-09-06
+
+- Fixed a Magento admin area javascript issue when the order grand total is zero.
+- Fixed Payment Intents not getting updated with new order details after they've been cached.
+
+## 2.7.1 - 2021-08-27
+
+- Implemented new refund strategy when refunding an order with subscriptions and multiple separate payments.
+- Subscription orders can be captured or canceled in Authorize Only mode, same as regular product orders.
+- Removed last 4 digits and expiry date from new order emails and the Magento admin order page.
+- Less API calls, better response times for the Payment Request API modal.
+- Fixed orders placed via the Payment Request API (Apple Pay, Google Pay, etc), not passing order data to Stripe (description, metadata, shipping address, affects 2.5.9 - 2.7.0).
+- Various fixes and improvements for tax inclusive catalog prices.
+- Fixed an installment plan selection issue with Mexico cards.
+
+## 2.7.0 - 2021-08-10
+
+- `MAJOR`: New flow with Stripe Checkout; adds support for complex and multiple cart discount rules.
+- Trial subscription orders will no longer be canceled. Both the initial trial order as well as the new order created upon payment can be used to ship the products.
+- Deprecated automatic invoicing of subscription items in Authorize Only mode. Invoices can be manually created upon product shipment.
+- Performance improvements.
+- Fixed a tax inclusive price calculation for subscriptions.
+- Fixed a shipping address error for Apple Pay in countries with optional region.
+
+## 2.6.1 - 2021-07-23
+
+- Adobe Commerce gift cards are created in Stripe as Coupons when using the Stripe Checkout payment flow.
+- Partial captures from Stripe will invoice the Magento order for the captured amount.
+- Partial refunds from Stripe will no longer change the order status, unless the full amount is refunded.
+- Multiple partial refunds from Stripe will create multiple Credit Memos in Magento.
+- Manually approved payments in Stripe will remove Magento orders from On Hold status.
+- Fixed a checkout crash happening after multiple failed payment attempts.
+- Some fixes in the admin area when creating a new order.
+
+## 2.6.0 - 2021-07-20
+
+- `MAJOR`: Added support for PayPal
+
+## 2.5.9 - 2021-06-10
+
+- Added support for GraphQL PWA apps.
+- Added support for Tax Inclusive catalog and cart prices.
+- Added new input field validations in the admin area.
+- Added Belgium, Spain and Italy to the supported Klarna countries.
+- Made Region optional for Klarna.
+- Improved form validation when manual Terms and Conditions are enabled.
+- Improvements with display and validation of PRAPI requests.
+- Admin errors are more descriptive.
+- Fixed a 3DS issue when database rollback transactions run after an order placement error.
+- Fixed a webhooks deliverability issue causing the event to be processed twice.
+- Various fixes with bundled and configurable subscriptions.
+- Ignore incoming webhooks with no order number.
+- Fixed an issue where subscription orders from the admin area or the API would create 2 order invoices.
+- Trial virtual subscriptions are deleted and recreated when 3DS is required.
+- Fixed a trial virtual subscriptions error at the multishipping checkout page.
+- Fixed FPX payment method not sending out a new order email.
+- Fixed invoicing orders with expired authorizations from guest customers.
+- Fixed some layout warnings in the log files.
+
+## 2.5.7 - 2021-03-03
+
+- Added support for tax inclusive Catalog Prices for subscriptions.
+- Added support for tax inclusive Shipping prices for subscriptions.
+- Improved deliverability for webhooks that were timing out.
+- Better handling of refunds with an amount of 0.
+- Fixed an initial fee issue affecting 2.5.6.
+
+## 2.5.6 - 2021-02-12
+
+- Compatibility fixes for Magento 2.4.2.
+- Better handling of shipping tax for subscriptions.
+- When a subscription order is invoiced, an invoice email is automatically sent out to the customer.
+- When the rollback system is triggered, a Payment Failed Email is sent to the configured Magento contact.
+- Improved handling of webhook events that arrive too early.
+- Now using the Magento rate limiter when placing orders.
+- Fixed incorrect Credit Memo totals for partial refunds from the Stripe Dashboard.
+- Fixed partial refunds from Stripe marking the order as closed.
+- Fixed an infinite loop in the AddInitialFeeToTotalsBlock afterGetOrder plugin.
+
+## 2.5.4 - 2021-02-03
+
+- Fixed an issue that triggered a duplicate order email and a duplicate invoice for that order.
+- Fixed a tax rounding issue in the admin when the tax settings are to use the unit-based calculation method.
+
 ## 2.5.3 - 2021-01-19
 
 - Fixed 3 issues in v2.5.0 - v2.5.2 affecting MOTO admin orders, automatic invoicing of authorized orders and multi-shipping checkout.
@@ -293,7 +409,7 @@
 - Improved support for various OneStepCheckout modules, adjustments for better display of payment form in 3-column layouts.
 - Payments which have only been authorized can now also be captured through cron jobs, not just from the admin area.
 - Fixed a bug where changes in the billing address would not be passed to the Stripe API.
-- India exports has been depreciated, performance optimizations after depreciation.
+- India exports has been deprecated, performance optimizations after depreciation.
 
 ## 1.4.0 - 2019-11-01
 
@@ -316,7 +432,7 @@
 - Added SCA MOTO Exemptions support in the Magento admin
 - Guest customers are now associated with their Stripe customer ID if they register immediately after placing an order
 - The Stripe.js locale is now overwritten based on the Magento store view locale configuration
-- Depreciated Email Receipt configuration option, this should now be disabled from the Stripe dashboard
+- Deprecated Email Receipt configuration option, this should now be disabled from the Stripe dashboard
 - Added a partner ID in the module's app info
 - Fixed placing subscription orders from the admin area
 - Fixed refunds through the Stripe dashboard (no credit memo was being created)
@@ -362,8 +478,8 @@
 ## 1.1.0 - 2019-05-28
 
 - `MAJOR`: Switched from automatic Payment Intents confirmation at the front-end to manual Payment Intents confirmation on the server side. Resolves reported issue with charges not being associated with a Magento order.
-- `MAJOR`: Replaced the Sources API with the new Payment Methods API. Depreciated all fallback scenarios to the Charges API.
-- Stripe.js v2 has been depreciated, Stripe Elements is now used everywhere.
+- `MAJOR`: Replaced the Sources API with the new Payment Methods API. Deprecated all fallback scenarios to the Charges API.
+- Stripe.js v2 has been deprecated, Stripe Elements is now used everywhere.
 - When Apple Pay is used on the checkout page, the order is now submitted automatically as soon as the paysheet closes.
 - Fixed: In the admin configuration, when the card saving option was set to "Always save cards", it wouldn't have the correct effect.
 - Fixed: In the admin configuration, when disabling Apple Pay on the product page or the cart, it wouldn't have the correct effect.

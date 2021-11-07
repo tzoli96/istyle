@@ -76,7 +76,7 @@ class Api
 
                 // We get here if an existing authorization has expired, in which case
                 // we want to discard old Payment Intents and create a new one
-                $this->paymentIntent->refreshCache($quoteId);
+                $this->paymentIntent->refreshCache($quoteId, $order);
                 $this->paymentIntent->destroy($quoteId, true);
 
                 $quote = $this->quoteFactory->create()->load($quoteId);
@@ -90,7 +90,9 @@ class Api
 
                 $payment->setAdditionalInformation("token", $token);
                 $pi = $this->paymentIntent->confirmAndAssociateWithOrder($payment->getOrder(), $payment);
-                if (!$pi)
+                if (is_string($pi))
+                    throw new \Exception($pi);
+                else if (!$pi)
                     throw new \Exception("Could not create a Payment Intent for this order");
 
                 $charge = $this->retrieveCharge($pi->id);
@@ -132,7 +134,7 @@ class Api
             if ($this->helper->isAdmin())
                 throw new CouldNotSaveException(__($e->getMessage()));
             else
-                throw new CouldNotSaveException(__("Sorry, an payment error has occurred, please contact us for support."));
+                throw new CouldNotSaveException(__("Sorry, a payment error has occurred, please contact us for support."));
         }
     }
 }

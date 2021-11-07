@@ -12,13 +12,19 @@ define(
     [
         'jquery',
         'mage/url',
-        'Magento_Catalog/product/view/validation',
         'mage/storage',
         'Magento_Ui/js/modal/alert',
         'mage/translate',
         'Magento_Customer/js/customer-data'
     ],
-    function (jQuery, urlBuilder, validation, storage, alert, $t, customerData) {
+    function (
+        jQuery,
+        urlBuilder,
+        storage,
+        alert,
+        $t,
+        customerData
+    ) {
         'use strict';
 
         return {
@@ -326,9 +332,6 @@ define(
                     if (typeof response === 'string') {
                         response = JSON.parse(response);
                     }
-
-                    if (response.paymentIntent)
-                        stripe.paymentIntent = response.paymentIntent;
 
                     callback(null, response.results);
                 }

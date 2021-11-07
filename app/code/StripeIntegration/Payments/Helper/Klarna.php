@@ -9,11 +9,14 @@ class Klarna
 {
     public static $supported = [
         "AT" => ["country" => "Austria", "locales" => ["de-AT", "en-AT"], "currencies" => ["EUR"]],
+        "BE" => ["country" => "Belgium", "locales" => ["fr-BE", "en-BE", "de-BE", "nl-BE"], "currencies" => ["EUR"]],
         "DK" => ["country" => "Denmark", "locales" => ["da-DK", "en-DK"], "currencies" => ["DKK"]],
         "FI" => ["country" => "Finland", "locales" => ["fi-FI", "sv-FI", "en-FI"], "currencies" => ["EUR"]],
         "DE" => ["country" => "Germany", "locales" => ["de-DE", "en-DE"], "currencies" => ["EUR"]],
+        "IT" => ["country" => "Italy", "locales" => ["ca-IT", "de-IT", "fur-IT", "it-IT"], "currencies" => ["EUR"]],
         "NL" => ["country" => "Netherlands", "locales" => ["nl-NL", "en-NL"], "currencies" => ["EUR"]],
         "NO" => ["country" => "Norway", "locales" => ["nb-NO", "en-NO"], "currencies" => ["NOK"]],
+        "ES" => ["country" => "Spain", "locales" => ["es-ES", "eu-ES", "gl-ES", "ast-ES", "ca-ES"], "currencies" => ["EUR"]],
         "SE" => ["country" => "Sweden", "locales" => ["sv-SE", "en-SE"], "currencies" => ["SEK"]],
         "CH" => ["country" => "Switzerland", "locales" => ["de-CH", "fr-CH", "it-CH", "en-CH"], "currencies" => ["CHF"]],
         "GB" => ["country" => "United Kingdom", "locales" => ["en-GB"], "currencies" => ["GBP"]],
@@ -25,13 +28,13 @@ class Klarna
         \Magento\Framework\Session\Generic $session,
         \StripeIntegration\Payments\Model\Config $config,
         \Magento\Checkout\Model\Cart $cart,
-        \Magento\Framework\Locale\Resolver $localeResolver
+        \StripeIntegration\Payments\Helper\Locale $localeHelper
     ) {
         $this->helper = $helper;
         $this->session = $session;
         $this->config = $config;
         $this->cart = $cart;
-        $this->localeResolver = $localeResolver;
+        $this->localeHelper = $localeHelper;
     }
 
     public static function getSupportedCurrencies()
@@ -52,6 +55,22 @@ class Klarna
             $countries[$countryCode] = $countryCode;
         }
         return $countries;
+    }
+
+    public function getStripeAddressFrom($address)
+    {
+        $result = [
+            "city" => $address["city"],
+            "country" => $address["countryId"],
+            "postal_code" => $address["postcode"],
+            "line1" => $address["street"][0],
+            "line2" => (empty($address["street"][1]) ? "" : $address["street"][1])
+        ];
+
+        if (!empty($address["region"]))
+            $result["state"] = $address["region"];
+
+        return $result;
     }
 
     public function getSourceParams($billingAddress, $shippingAddress = null, $shippingMethod = null, $guestEmail = null)
@@ -92,7 +111,7 @@ class Klarna
                 "purchase_country" => $country,
                 "first_name" => $billingAddress["firstname"],
                 "last_name" => $billingAddress["lastname"],
-                "locale" => strtolower(str_replace("_", "-", $this->localeResolver->getLocale()))
+                "locale" => $this->localeHelper->getKlarnaLocale()
             ],
             "source_order" => [
                 "items" => $this->getOrderItems($quote)
@@ -101,14 +120,7 @@ class Klarna
                 "name" => $billingAddress["firstname"] . " " . $billingAddress["lastname"],
                 "email" => $email,
                 "phone" => (empty($billingAddress["telephone"]) ? null : $billingAddress["telephone"]),
-                "address" => [
-                    "city" => $billingAddress["city"],
-                    "country" => $billingAddress["countryId"],
-                    "postal_code" => $billingAddress["postcode"],
-                    "state" => $billingAddress["region"],
-                    "line1" => $street[0],
-                    "line2" => (empty($street[1]) ? "" : $street[1])
-                ]
+                "address" => $this->getStripeAddressFrom($billingAddress)
             ],
             "redirect" => [
                 "return_url" => $this->helper->getUrl('stripe/payment/index')
@@ -143,14 +155,7 @@ class Klarna
                 throw new \Exception((string)__("You must first set a shipping address before you can use this payment method"));
 
             $params["source_order"]["shipping"] = [
-                "address" => [
-                    "city" => $shippingAddress["city"],
-                    "country" => $shippingAddress["countryId"],
-                    "postal_code" => $shippingAddress["postcode"],
-                    "state" => $shippingAddress["region"],
-                    "line1" => $street[0],
-                    "line2" => (empty($street[1]) ? "" : $street[1])
-                ],
+                "address" => $this->getStripeAddressFrom($shippingAddress),
                 "carrier" => $shippingMethod
             ];
             if (!empty($shippingAddress["telephone"]))

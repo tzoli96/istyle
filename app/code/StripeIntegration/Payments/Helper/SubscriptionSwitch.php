@@ -150,8 +150,11 @@ class SubscriptionSwitch
             $this->setTransactionDetailsFor($order, $newSubscription->id);
 
         // Notify the customer about the billing changes
-        $comment = __("Your subscription details have changed for order #%1. A new order #%2 has been created with the new billing details. This message does not mean that your subscription has been billed. The next subscription payment will be on %3.", $originalOrder->getIncrementId(), $order->getIncrementId(), date("jS F Y"));
-        $this->paymentsHelper->sendNewOrderEmailWithComment($order, $comment);
+        if (false) // @todo: This should be a setting
+        {
+            $comment = __("Your subscription details have changed for order #%1. A new order #%2 has been created with the new billing details. This message does not mean that your subscription has been billed. The next subscription payment will be on %3.", $originalOrder->getIncrementId(), $order->getIncrementId(), date("jS F Y"));
+            $this->paymentsHelper->sendNewOrderEmailWithComment($order, $comment);
+        }
 
         // Cancel the newly created order
         $this->cancel($order);

@@ -23,7 +23,7 @@ class Price extends StripeObject
         }
 
         if (!$this->object)
-            throw new \Magento\Framework\Exception\LocalizedException(__("The price for product \"%1\" could not be created in Stripe", $item->getName()));
+            throw new \Magento\Framework\Exception\LocalizedException(__("The price for product \"%1\" could not be created in Stripe: %2", $item->getName(), $this->lastError));
 
         return $this;
     }

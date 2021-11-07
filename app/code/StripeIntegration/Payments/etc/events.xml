@@ -68,6 +68,10 @@
         <observer name="stripe_payments_webhook_charge_captured_observer"
             instance="StripeIntegration\Payments\Observer\WebhooksObserver" />
     </event>
+    <event name="stripe_payments_webhook_charge_captured_card">
+        <observer name="stripe_payments_webhook_charge_captured_card_observer"
+            instance="StripeIntegration\Payments\Observer\WebhooksObserver" />
+    </event>
     <event name="stripe_payments_webhook_customer_subscription_created">
         <observer name="stripe_payments_webhook_customer_subscription_created_observer"
             instance="StripeIntegration\Payments\Observer\WebhooksObserver" />
@@ -76,6 +80,28 @@
     <!-- Stripe Checkout -->
     <event name="stripe_payments_webhook_payment_intent_payment_failed_card">
         <observer name="stripe_payments_webhook_payment_intent_payment_failed_card_observer"
+            instance="StripeIntegration\Payments\Observer\WebhooksObserver" />
+    </event>
+    <event name="stripe_payments_webhook_checkout_session_expired_card">
+        <observer name="stripe_payments_webhook_checkout_session_expired_card_observer"
+            instance="StripeIntegration\Payments\Observer\WebhooksObserver" />
+    </event>
+
+    <!-- PayPal -->
+    <event name="stripe_payments_webhook_payment_intent_succeeded_paypal">
+        <observer name="stripe_payments_webhook_payment_intent_succeeded_paypal_observer"
+            instance="StripeIntegration\Payments\Observer\WebhooksObserver" />
+    </event>
+    <event name="stripe_payments_webhook_payment_intent_payment_failed_paypal">
+        <observer name="stripe_payments_webhook_payment_intent_payment_failed_paypal_observer"
+            instance="StripeIntegration\Payments\Observer\WebhooksObserver" />
+    </event>
+    <event name="stripe_payments_webhook_charge_succeeded_paypal">
+        <observer name="stripe_payments_webhook_charge_succeeded_paypal_observer"
+            instance="StripeIntegration\Payments\Observer\WebhooksObserver" />
+    </event>
+    <event name="stripe_payments_webhook_charge_failed_paypal">
+        <observer name="stripe_payments_webhook_charge_failed_paypal_observer"
             instance="StripeIntegration\Payments\Observer\WebhooksObserver" />
     </event>
 
@@ -99,21 +125,21 @@
 
     <!-- FPX -->
     <event name="stripe_payments_webhook_payment_intent_succeeded_fpx">
-        <observer name="stripe_payments_webhook_payment_intent_succeeded_observer"
+        <observer name="stripe_payments_webhook_payment_intent_succeeded_fpx_observer"
             instance="StripeIntegration\Payments\Observer\WebhooksObserver" />
     </event>
     <event name="stripe_payments_webhook_payment_intent_payment_failed_fpx">
-        <observer name="stripe_payments_webhook_payment_intent_payment_failed_observer"
+        <observer name="stripe_payments_webhook_payment_intent_payment_failed_fpx_observer"
             instance="StripeIntegration\Payments\Observer\WebhooksObserver" />
     </event>
 
     <!-- OXXO -->
     <event name="stripe_payments_webhook_payment_intent_succeeded_oxxo">
-        <observer name="stripe_payments_webhook_payment_intent_succeeded_observer"
+        <observer name="stripe_payments_webhook_payment_intent_succeeded_oxxo_observer"
             instance="StripeIntegration\Payments\Observer\WebhooksObserver" />
     </event>
     <event name="stripe_payments_webhook_payment_intent_payment_failed_oxxo">
-        <observer name="stripe_payments_webhook_payment_intent_payment_failed_observer"
+        <observer name="stripe_payments_webhook_payment_intent_payment_failed_oxxo_observer"
             instance="StripeIntegration\Payments\Observer\WebhooksObserver" />
     </event>
 
