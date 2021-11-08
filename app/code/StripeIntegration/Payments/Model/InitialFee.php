@@ -35,15 +35,29 @@ class InitialFee extends AbstractTotal
         if (!count($items))
             return $this;
 
+
+        $quoteItems = [];
+        foreach ($items as $item)
+        {
+            if ($item->getQuoteItem())
+            {
+                $addressQty = $item->getQty();
+                $item = $item->getQuoteItem();
+                $item->setQty($addressQty);
+            }
+
+            $quoteItems[] = $item;
+        }
+
         $rate = $quote->getBaseToQuoteRate();
         if (is_numeric($rate))
         {
-            $amount = $this->helper->getTotalInitialFeeFor($items, $quote, $rate);
+            $amount = $this->helper->getTotalInitialFeeFor($quoteItems, $quote, $rate);
             $baseAmount = round($amount / $rate, 2);
         }
         else
         {
-            $amount = $this->helper->getTotalInitialFeeFor($items, $quote, 1);
+            $amount = $this->helper->getTotalInitialFeeFor($quoteItems, $quote, 1);
             $baseAmount = $amount;
         }
 

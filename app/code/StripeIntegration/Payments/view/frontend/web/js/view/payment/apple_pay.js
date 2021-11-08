@@ -165,7 +165,11 @@ define(
                 if (agreementValidator.validate() && additionalValidators.validate())
                     return true;
 
-                this.showError($t("Please complete all required fields before placing the order."));
+                if (!agreementValidator.validate())
+                    this.showError($t("Please agree to the terms and conditions before placing the order."));
+                else
+                    this.showError($t("Please complete all required fields before placing the order."));
+
                 return false;
             },
 

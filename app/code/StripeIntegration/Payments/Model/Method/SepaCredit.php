@@ -95,17 +95,6 @@ class SepaCredit extends \StripeIntegration\Payments\Model\Method\Api\Sources
         return $this;
     }
 
-
-    public function capture(\Magento\Payment\Model\InfoInterface $payment, $amount)
-    {
-        if ($this->helper->isAdmin())
-        {
-            throw new LocalizedException(__('Sorry, it is not possible to invoice this order from the admin area. An invoice will automatically be created when a payment transaction occurs.'));
-        }
-
-        return parent::capture($payment, $amount);
-    }
-
     public function adjustParamsForMethod(&$params, $payment, $order, $quote)
     {
         if (empty($params[$this->type]))

@@ -8,6 +8,7 @@ abstract class StripeObject
 {
     protected $objectSpace = null;
     protected $object = null;
+    public $lastError = null;
 
     public function __construct(
         \StripeIntegration\Payments\Model\Config $config,
@@ -99,12 +100,14 @@ abstract class StripeObject
     {
         try
         {
+            $this->lastError = null;
             $this->object = $this->config->getStripeClient()->{$this->objectSpace}->create($data);
             $this->rollback->addStripeObject($this);
             return $this->object;
         }
         catch (\Exception $e)
         {
+            $this->lastError = $e->getMessage();
             Logger::log($e->getMessage());
             Logger::log($e->getTraceAsString());
             return $this->object = null;

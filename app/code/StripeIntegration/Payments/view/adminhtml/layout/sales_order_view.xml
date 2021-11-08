@@ -6,7 +6,7 @@
     <body>
         <referenceContainer name="left">
             <referenceBlock name="payment_additional_info">
-                <block class="StripeIntegration\Payments\Block\Adminhtml\Payment\Info" name="stripe_payments_admin_payment_info" template="payment/info.phtml" />
+                <block class="StripeIntegration\Payments\Block\Adminhtml\Payment\Info" name="stripe_payments_admin_payment_info" template="paymentInfo/cards.phtml" />
             </referenceBlock>
         </referenceContainer>
     </body>

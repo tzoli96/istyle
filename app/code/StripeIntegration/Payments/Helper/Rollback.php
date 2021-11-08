@@ -9,15 +9,16 @@ use Magento\Framework\Validator\Exception;
 class Rollback
 {
     protected $data;
+    protected $helper;
 
     public function __construct(
         \Magento\Framework\Session\Generic $session,
-        \Psr\Log\LoggerInterface $logger,
-        \StripeIntegration\Payments\Model\SubscriptionFactory $subscriptionFactory
+        \StripeIntegration\Payments\Model\SubscriptionFactory $subscriptionFactory,
+        \StripeIntegration\Payments\Helper\GenericFactory $helperFactory
     ) {
         $this->session = $session;
-        $this->logger = $logger;
         $this->subscriptionFactory = $subscriptionFactory;
+        $this->helperFactory = $helperFactory;
 
         $this->data = $this->session->getRollbackData();
 
@@ -94,16 +95,24 @@ class Rollback
 
         if ($log)
         {
-            $this->logger->addInfo("ROLLBACK: An error has occurred while placing an order and a rollback will be initiated.");
-            $this->logger->addInfo("ROLLBACK: ERROR: " . $e->getMessage());
-            $this->logger->addInfo("ROLLBACK: STACK TRACE:");
-            $this->logger->addInfo($e->getTraceAsString());
+            \StripeIntegration\Payments\Helper\Logger::log("ROLLBACK: An error has occurred while placing an order and a rollback will be initiated.");
+            \StripeIntegration\Payments\Helper\Logger::log("ROLLBACK: ERROR: " . $e->getMessage());
+            \StripeIntegration\Payments\Helper\Logger::log("ROLLBACK: STACK TRACE:");
+            \StripeIntegration\Payments\Helper\Logger::log($e->getTraceAsString());
+
+            $msg = __("A refund has been automatically issued back to the customer because of an error at the checkout page: %1. More details logged under var/log/system.log.", $e->getMessage());
+
+            if (!isset($this->helper))
+                $this->helper = $this->helperFactory->create();
+
+            $this->helper->sendPaymentFailedEmail($msg);
         }
     }
 
-    public function run($e)
+    public function run($e = null)
     {
-        $this->logException($e);
+        if ($e)
+            $this->logException($e);
 
         foreach ($this->data['authorizations'] as $id)
         {
@@ -113,7 +122,7 @@ class Rollback
             }
             catch (\Exception $e)
             {
-                $this->logger->addInfo("Error while canceling authorization $id: " . $e->getMessage());
+                \StripeIntegration\Payments\Helper\Logger::log("Error while canceling authorization $id: " . $e->getMessage());
             }
         }
 
@@ -125,7 +134,7 @@ class Rollback
             }
             catch (\Exception $e)
             {
-                $this->logger->addInfo("Error while refunding charge $id: " . $e->getMessage());
+                \StripeIntegration\Payments\Helper\Logger::log("Error while refunding charge $id: " . $e->getMessage());
             }
         }
 
@@ -137,7 +146,7 @@ class Rollback
             }
             catch (\Exception $e)
             {
-                $this->logger->addInfo("Error while canceling subscription $id: " . $e->getMessage());
+                \StripeIntegration\Payments\Helper\Logger::log("Error while canceling subscription $id: " . $e->getMessage());
             }
         }
 
@@ -149,7 +158,7 @@ class Rollback
             }
             catch (\Exception $e)
             {
-                $this->logger->addInfo("Error while deleting saved card $id: " . $e->getMessage());
+                \StripeIntegration\Payments\Helper\Logger::log("Error while deleting saved card $id: " . $e->getMessage());
             }
         }
 
@@ -161,7 +170,7 @@ class Rollback
             }
             catch (\Exception $e)
             {
-                $this->logger->addInfo("Error while deleting source $id: " . $e->getMessage());
+                \StripeIntegration\Payments\Helper\Logger::log("Error while deleting source $id: " . $e->getMessage());
             }
         }
 
@@ -173,7 +182,7 @@ class Rollback
             }
             catch (\Exception $e)
             {
-                $this->logger->addInfo("Error while deleting invoice $id: " . $e->getMessage());
+                \StripeIntegration\Payments\Helper\Logger::log("Error while deleting invoice $id: " . $e->getMessage());
             }
         }
 
@@ -185,7 +194,7 @@ class Rollback
             }
             catch (\Exception $e)
             {
-                $this->logger->addInfo("Error while deleting invoice item $id: " . $e->getMessage());
+                \StripeIntegration\Payments\Helper\Logger::log("Error while deleting invoice item $id: " . $e->getMessage());
             }
         }
 

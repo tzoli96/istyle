@@ -25,7 +25,7 @@ class AddInitialFeeToTotalsBlock
 
     public function afterGetOrder(Totals $subject, Order $order)
     {
-        if (empty($subject->getTotals()))
+        if (empty($subject->getTotal("grand_total")))
             return $order;
 
         if ($subject->getTotal('initial_fee') !== false)
@@ -44,6 +44,8 @@ class AddInitialFeeToTotalsBlock
 
         if ($subject->getInvoice())
             $items = $subject->getInvoice()->getAllItems();
+        else if ($subject->getCreditmemo())
+            $items = $subject->getCreditmemo()->getAllItems();
         else
             $items = $order->getAllItems();
 

@@ -15,11 +15,13 @@ class SubscriptionPriceCommand extends Command
     protected $helper = null;
 
     public function __construct(
-        \Magento\Store\Model\StoreManagerInterface $storeManager
+        \Magento\Store\Model\StoreManagerInterface $storeManager,
+        \Magento\Framework\App\ResourceConnection $resource
     )
     {
         $this->storeManager = $storeManager;
         $this->objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $this->resource = $resource;
 
         parent::__construct();
     }
@@ -79,7 +81,6 @@ class SubscriptionPriceCommand extends Command
 
     protected function migrateOrder($order, $output)
     {
-
         $this->initStripeFrom($order);
 
         if (!$this->config->isInitialized)
@@ -87,13 +88,15 @@ class SubscriptionPriceCommand extends Command
             $output->writeln("Could not migrate order #" . $order->getIncrementId() . " because Stripe could not be initialized for store " . $order->getStore()->getName());
             return;
         }
-
         $orderItems = $order->getAllItems();
 
         foreach ($orderItems as $orderItem)
         {
-            $subscriptionProductId = $this->helper->getSubscriptionProductIdFrom($orderItem);
-            if ($subscriptionProductId != $this->fromProductId)
+            if (!in_array($orderItem->getProductType(), ["simple", "virtual"]))
+                continue;
+
+            $subscriptionProductIds = $this->helper->getSubscriptionIdsFromOrderItem($orderItem);
+            if (!in_array($this->fromProductId, $subscriptionProductIds))
                 continue;
             else
             {
@@ -120,7 +123,6 @@ class SubscriptionPriceCommand extends Command
     protected function getOrders($input)
     {
         $orderCollection = $this->objectManager->create('\Magento\Sales\Model\ResourceModel\Order\Collection');
-        $connection  = $orderCollection->getConnection();
 
         $fromOrderId = $input->getArgument('starting_order_id');
         $toOrderId = $input->getArgument('ending_order_id');
@@ -140,11 +142,11 @@ class SubscriptionPriceCommand extends Command
         $orderCollection->addAttributeToSelect('*')
             ->getSelect()
             ->join(
-                ['payment' => $connection->getTableName('sales_order_payment')],
+                ['payment' => $this->resource->getTableName('sales_order_payment')],
                 "payment.parent_id = main_table.entity_id",
                 []
             )
-            ->where("payment.method = 'stripe_payments'");
+            ->where("payment.method IN ('stripe_payments', 'stripe_payments_express', 'stripe_payments_checkout_card')");
 
         $orders = $orderCollection;
 

@@ -14,6 +14,14 @@
         <td class="source-type"><?php echo $this->getSourceType(); ?></td>
     </tr>
     <?php endif; ?>
+
+    <?php $paymentIndex = 1; while ($charge = $block->nextCharge()): ?>
+
+    <?php if ($paymentIndex <= $block->totalCharges): ?>
+    <tr>
+      <th colspan="2" style="text-align: center;"><b><?php echo __("Payment #%1", $paymentIndex++); ?></b></th>
+    </tr>
+    <?php endif; ?>
     <?php if ($this->getBrand() && $this->getLast4()): ?>
     <tr>
       <th><?php echo __('%1 ending ', $this->getBrand()); ?></th>
@@ -84,6 +92,9 @@
         </td>
     </tr>
     <?php endif; ?>
+
+    <?php endwhile; ?>
+
     </tbody>
 </table>
 <?php elseif ($this->getPaymentId()): ?>
@@ -130,7 +141,7 @@
 </table>
 <?php elseif ($this->isStripeMethod()): ?>
     <br>
-    <p><?php echo __("The payment details for this order could not be retrieved from Stripe"); ?>.</p>
+    <center><p><?php echo __("The payment is pending."); ?></p></center>
 <?php endif; ?>
 
 <?php

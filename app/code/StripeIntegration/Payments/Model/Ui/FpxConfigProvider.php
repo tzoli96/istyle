@@ -97,7 +97,7 @@ class FpxConfigProvider implements ConfigProviderInterface
             [ "value" => "hong_leong_bank", "label" => "Hong Leong Bank"],
             [ "value" => "hsbc", "label" => "HSBC BANK"],
             [ "value" => "kfh", "label" => "KFH"],
-            [ "value" => "maybank2u", "label" => "Maybank2U"],
+            [ "value" => "maybank2e", "label" => "Maybank2E"],
             [ "value" => "ocbc", "label" => "OCBC Bank"],
             [ "value" => "public_bank", "label" => "Public Bank"],
             [ "value" => "rhb", "label" => "RHB Bank"],

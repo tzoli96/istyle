@@ -91,7 +91,8 @@ class Webhooks
 
             $this->log("Received $eventType");
 
-            $this->cache($event);
+            if ($this->cache->load($event['id']) && empty($this->request->getParam('dev')))
+                throw new WebhookException(__("Event with ID %1 has already been processed.", $event['id']), 202);
 
             $this->eventManager->dispatch($eventType, array(
                     'arrEvent' => $event,
@@ -99,17 +100,24 @@ class Webhooks
                     'object' => $event['data']['object']
                 ));
 
+            $this->cache($event);
             $this->log("200 OK");
         }
         catch (WebhookException $e)
         {
             $this->error($e->getMessage(), $e->statusCode, true);
+
+            if (!empty($e->statusCode) && !empty($event) && ($e->statusCode < 400 || $e->statusCode > 499))
+                $this->cache($event);
         }
         catch (\Exception $e)
         {
             $this->log($e->getMessage());
             $this->log($e->getTraceAsString());
             $this->error($e->getMessage());
+
+            if (!empty($e->statusCode) && !empty($event) && ($e->statusCode < 400 || $e->statusCode > 499))
+                $this->cache($event);
         }
     }
 
@@ -150,7 +158,12 @@ class Webhooks
 
     public function log($msg)
     {
-        $this->webhooksLogger->addInfo($msg);
+        // Magento 2.0.0 - 2.4.3
+        if (method_exists($this->webhooksLogger, 'addInfo'))
+            $this->webhooksLogger->addInfo($msg);
+        // Magento 2.4.4+
+        else
+            $this->webhooksLogger->info($msg);
     }
 
     public function verifyWebhookSignature($storeId)
@@ -179,15 +192,8 @@ class Webhooks
 
     public function cache($event)
     {
-        // Don't cache or check requests in development
-        if (!empty($this->request->getQuery()->dev))
-            return;
-
         if (empty($event['id']))
             throw new WebhookException("No event ID specified");
-
-        if ($this->cache->load($event['id']))
-            throw new WebhookException("Event with ID {$event['id']} has already been processed.", 202);
 
         $this->cache->save("processed", $event['id'], array('stripe_payments_webhooks_events_processed'), 24 * 60 * 60);
     }
@@ -246,7 +252,7 @@ class Webhooks
                 return $invoice->subscription->metadata->{"Order #"};
         }
 
-        throw new WebhookException("Could not find the Order # associated with this webhook event");
+        throw new WebhookException("Could not find the Order # associated with this webhook event", 202);
     }
 
     public function loadOrderFromInvoiceId($invoiceId, $event)
@@ -319,15 +325,19 @@ class Webhooks
         while (empty($orderId) && $wait > 0);
 
         if (empty($orderId))
-            throw new WebhookException("Received {$event['type']} webhook but there was no Order # in the source's metadata", 202);
+            throw new WebhookException(__("Received %1 webhook but there was no Order # in the source's metadata", $event['type']), 202);
 
         return $orderId;
     }
 
-    public function loadOrderByIncrementId($orderId, $event, $count = 7)
+    public function loadOrderByIncrementId($orderId, $event, $count = 5)
     {
+        if (empty($orderId))
+            throw new WebhookException(__("Ignoring %1 webhook event with no associated order ID.", $event['type']), 202);
+
         $order = $this->helper->loadOrderByIncrementId($orderId);
-        if (empty($order) || empty($order->getId()) && $count >= 0)
+
+        if ((empty($order) || empty($order->getId())) && $count >= 0)
         {
             // Webhooks Race Condition: Sometimes we may receive the webhook before Magento commits the order to the database,
             // so we give it a few seconds and try again. Can happen when multiple subscriptions are purchased together.
@@ -336,7 +346,7 @@ class Webhooks
         }
 
         if (empty($order) || empty($order->getId()))
-            throw new WebhookException("Received {$event['type']} webhook with Order #$orderId but could not find the order in Magento; ignoring", 202);
+            throw new WebhookException(__("Received %1 webhook with Order #%2 but could not find the order in Magento.", $event['type'], $orderId), 202);
 
         return $order;
     }
@@ -422,10 +432,7 @@ class Webhooks
                     $invoice = $this->helper->invoiceOrder($order, $charge->id);
 
                 if ($sendNewOrderEmail)
-                {
-                    $order->setCanSendNewEmailFlag(true);
-                    $this->sendNewOrderEmailFor($order);
-                }
+                    $this->helper->sendNewOrderEmailFor($order);
             }
             // SEPA, SOFORT and other asynchronous methods will be pending
             else if ($charge->status == 'pending')
@@ -433,10 +440,7 @@ class Webhooks
                 $invoice = $this->helper->invoicePendingOrder($order, $charge->id);
 
                 if ($sendNewOrderEmail)
-                {
-                    $order->setCanSendNewEmailFlag(true);
-                    $this->sendNewOrderEmailFor($order);
-                }
+                    $this->helper->sendNewOrderEmailFor($order);
             }
             else
             {
@@ -532,20 +536,8 @@ class Webhooks
 
     public function refund($order, $object)
     {
-        if (!$order->canHold())
+        if ($order->getState() == "holded" && $order->canUnhold())
             $order->unhold();
-
-        if (!$order->canCreditmemo())
-        {
-            if ($order->canCancel())
-            {
-                $order->cancel();
-                $order->save();
-                return;
-            }
-
-            throw new WebhookException("Order #{$order->getIncrementId()} cannot be (or has already been) refunded.");
-        }
 
         $dbTransaction = $this->transactionFactory->create();
 
@@ -553,94 +545,143 @@ class Webhooks
         $chargeId = $object['id'];
         $chargeAmount = $object['amount'];
         $currentRefund = $this->getCurrentRefundFrom($object);
-        $refundId = $currentRefund['id'];
-        $refundAmount = $currentRefund['amount'];
-        $currency = $object['currency'];
-        $invoice = null;
+        $currency = $currentRefund['currency'];
         $baseToOrderRate = $order->getBaseToOrderRate();
         $payment = $order->getPayment();
-        $lastRefundId = $payment->getAdditionalInformation('last_refund_id');
         if (isset($object["payment_intent"]))
             $pi = $object["payment_intent"];
         else
             $pi = "not_exists";
 
-        if (!empty($lastRefundId) && $lastRefundId == $refundId)
-        {
-            // This is the scenario where we issue a refund from the admin area, and a webhook comes back about the issued refund.
-            // Magento would have already created a credit memo, so we don't want to duplicate that. We just ignore the webhook.
-            return;
-        }
-
         // Calculate the real refund amount
-        if (!$this->helper->isZeroDecimal($currency))
+        $isMultiCurrencyRefund = ($currentRefund['currency'] != $order->getOrderCurrencyCode());
+        $refundAmount = $this->helper->convertStripeAmountToOrderAmount($currentRefund['amount'], $currentRefund['currency'], $order);
+        $baseRefundAmount = $this->helper->convertStripeAmountToBaseOrderAmount($currentRefund['amount'], $currentRefund['currency'], $order);
+
+        $baseTotalNotRefunded = $order->getBaseGrandTotal() - $order->getBaseTotalRefunded();
+        $totalNotRefunded = $order->getGrandTotal() - $order->getTotalRefunded();
+
+        $baseOrderCurrency = strtolower($order->getBaseCurrencyCode());
+        $orderCurrency = strtolower($order->getCurrencyCode());
+
+        if ($isMultiCurrencyRefund)
+            $isPartialRefund = ($totalNotRefunded > $refundAmount);
+        else
+            $isPartialRefund = ($baseTotalNotRefunded > $baseRefundAmount);
+
+        if (!$order->canCreditmemo())
         {
-            $refundAmount /= 100;
+            if ($order->canCancel())
+            {
+                if (!$isPartialRefund)
+                {
+                    $order->cancel();
+                    $order->save();
+                    return true;
+                }
+                else if ($isPartialRefund)
+                {
+                    // Don't do anything on a partial refund, we expect a paynemt_intent.succeeded to arrive for the partial capture.
+                    return false;
+                }
+            }
+            else if (!$isPartialRefund)
+            {
+                $invoices = $order->getInvoiceCollection();
+                $canceled = 0;
+                foreach ($invoices as $invoice)
+                {
+                    if ($invoice->canCancel())
+                    {
+                        $dbTransaction->addObject($invoice);
+                        $invoice->cancel();
+                        $canceled++;
+                    }
+                }
+                if ($canceled > 0)
+                {
+                    if ($order->canCancel())
+                        $order->cancel();
+
+                    $dbTransaction->addObject($order)->save();
+                    return true;
+                }
+            }
+
+            $msg = __('A refund was issued via Stripe, but a Credit Memo could not be created.');
+            $this->helper->addOrderComment($msg, $order);
+            $dbTransaction->addObject($order)->save();
+            return false;
         }
 
-        foreach($order->getInvoiceCollection() as $item)
+        if ($baseTotalNotRefunded < $baseRefundAmount)
         {
-            $transactionId = $this->helper->cleanToken($item->getTransactionId());
-            if ($transactionId == $chargeId || $transactionId == $pi)
-                $invoice = $item;
+            $humanReadable1 = $this->helper->addCurrencySymbol($refundAmount, $currency);
+            $humanReadable2 = $this->helper->addCurrencySymbol($totalNotRefunded, $currency);
+            $msg = __('A refund of %1 was issued via Stripe, but the amount is bigger than the available of %2.', $humanReadable1, $humanReadable2);
+            $this->helper->addOrderComment($msg, $order);
+            $dbTransaction->addObject($order)->save();
+            return false;
+        }
+        else
+        {
+            $creditmemo = $this->creditmemoFactory->createByOrder($order);
+            $baseDiff = $baseTotalNotRefunded - $baseRefundAmount;
+
+            if ($isPartialRefund)
+            {
+                // We don't have any information from Stripe on what products we are refunding
+                $creditmemo->setItems([]);
+                $creditmemo->setShippingAmount(0);
+                $creditmemo->setAdjustmentPositive($baseDiff);
+                $creditmemo->setAdjustmentNegative(0);
+            }
+            else
+            {
+                $creditmemo->setItems($order->getAllItems());
+                $creditmemo->setShippingAmount($order->getShippingAmount());
+                $creditmemo->setAdjustmentPositive(0);
+                $creditmemo->setAdjustmentNegative(0);
+            }
         }
 
-        if (empty($invoice))
-            throw new WebhookException("Could not find an invoice with transaction ID $chargeId.");
+        $invoice = $this->getInvoiceWithTransactionId($chargeId, $order);
 
-        if (!$invoice->canRefund())
-            throw new WebhookException("Invoice #{$invoice->getIncrementId()} cannot be (or has already been) refunded.");
+        if (!$invoice)
+            $invoice = $this->getInvoiceWithTransactionId($pi, $order);
 
-        $baseTotalNotRefunded = $invoice->getBaseGrandTotal() - $invoice->getBaseTotalRefunded();
-        $baseOrderCurrency = strtolower($invoice->getBaseCurrencyCode());
-        $orderCurrency = strtolower($invoice->getOrderCurrencyCode());
+        if ($invoice)
+            $creditmemo->setInvoice($invoice);
 
-        if ($baseOrderCurrency != $currency)
-            $refundAmount = round($refundAmount / $order->getBaseToOrderRate(), 2);
-
-        if ($baseTotalNotRefunded < $refundAmount)
-            throw new WebhookException("Error: Trying to refund an amount that is larger than the invoice amount");
-
-        $creditmemo = $this->creditmemoFactory->createByOrder($order);
-        $creditmemo->setInvoice($invoice);
-
-        if ($baseTotalNotRefunded > $refundAmount)
-        {
-            $baseDiff = $baseTotalNotRefunded - $refundAmount;
-            $creditmemo->setAdjustmentNegative($baseDiff);
-        }
-
-        $creditmemo->setBaseSubtotal($baseTotalNotRefunded);
-        $creditmemo->setSubtotal($baseTotalNotRefunded * $baseToOrderRate);
-        $creditmemo->setBaseGrandTotal($refundAmount);
-        $creditmemo->setGrandTotal($refundAmount * $baseToOrderRate);
+        $creditmemo->setBaseSubtotal(0);
+        $creditmemo->setSubtotal(0);
+        $creditmemo->setBaseGrandTotal($baseRefundAmount);
+        $creditmemo->setGrandTotal($refundAmount);
 
         $this->creditmemoService->refund($creditmemo, true);
 
-        $order->addStatusToHistory($status = false, "Order refunded through Stripe");
+        $comment = __("We refunded %1 through Stripe.", $this->helper->addCurrencySymbol($refundAmount, $currency));
+        $order->addStatusToHistory($status = false, $comment);
 
-        $payment->setAdditionalInformation('last_refund_id', $refundId);
-
-        $dbTransaction->addObject($invoice)
+        $dbTransaction
             ->addObject($order)
             ->addObject($creditmemo)
             ->addObject($payment)
             ->save();
+
+        return true;
     }
 
-    public function sendNewOrderEmailFor($order)
+    public function getInvoiceWithTransactionId($transactionId, $order)
     {
-        // Send the order email
-        $this->orderSender->send($order);
+        foreach($order->getInvoiceCollection() as $item)
+        {
+            $invoiceTransactionId = $this->helper->cleanToken($item->getTransactionId());
+            if ($transactionId == $invoiceTransactionId)
+                return $item;
+        }
 
-        // if ($order->getCanSendNewEmailFlag())
-        // {
-        //     try {
-        //         $order->sendNewOrderEmail();
-        //     } catch (\Exception $e) {
-        //         $this->log($e->getMessage());
-        //     }
-        // }
+        return null;
     }
 
     public function removeEndpoint()

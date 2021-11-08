@@ -30,7 +30,10 @@ class QuoteObserver extends AbstractDataAssignObserver
         $quote = $observer->getEvent()->getQuote();
         $eventName = $observer->getEvent()->getName();
 
-        if (empty($quote))
+        if (empty($quote) || !$this->config->isEnabled())
+            return;
+
+        if ($this->config->priceIncludesTax())
             return;
 
         $this->taxCalculation->method = null;
@@ -39,6 +42,15 @@ class QuoteObserver extends AbstractDataAssignObserver
             $this->hasSubscriptions = $this->helper->hasSubscriptionsIn($quote->getAllItems());
 
         if ($this->hasSubscriptions)
+        {
             $this->taxCalculation->method = \Magento\Tax\Model\Calculation::CALC_ROW_BASE;
+            return;
+        }
+
+        if ($quote->getPayment() && $quote->getPayment()->getMethod() == "stripe_payments_invoice")
+        {
+            $this->taxCalculation->method = \Magento\Tax\Model\Calculation::CALC_ROW_BASE;
+            return;
+        }
     }
 }

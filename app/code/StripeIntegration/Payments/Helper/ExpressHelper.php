@@ -66,6 +66,7 @@ class ExpressHelper
         \Magento\Tax\Helper\Data $taxHelper,
         \Magento\Tax\Api\TaxCalculationInterface $taxCalculation,
         \StripeIntegration\Payments\Helper\Generic $stripeHelper,
+        \StripeIntegration\Payments\Helper\Address $addressHelper,
         \StripeIntegration\Payments\Model\Config $config,
         \Magento\Directory\Model\CountryFactory $countryFactory,
         \Magento\Framework\Registry $registry
@@ -77,6 +78,7 @@ class ExpressHelper
         $this->taxHelper = $taxHelper;
         $this->taxCalculation = $taxCalculation;
         $this->stripeHelper = $stripeHelper;
+        $this->addressHelper = $addressHelper;
         $this->paymentsConfig = $config;
         $this->countryFactory = $countryFactory;
         $this->registry = $registry;
@@ -124,46 +126,6 @@ class ExpressHelper
         return $this->directoryHelper->getDefaultCountry($store);
     }
 
-    public function clean($str)
-    {
-        return strtolower(trim($str));
-    }
-
-    public function getRegionsForCountry($countryCode)
-    {
-        $values = array();
-
-        $country = $this->countryFactory->create()->loadByCode($countryCode);
-
-        if (empty($country))
-            return $values;
-
-        $regions = $country->getRegions();
-
-        foreach ($regions as $region)
-        {
-            $values['byCode'][$this->clean($region->getCode())] = $region->getId();
-            $values['byName'][$this->clean($region->getName())] = $region->getId();
-        }
-
-        return $values;
-    }
-
-    public function getRegionIdBy($regionName, $regionCountry)
-    {
-        $regions = $this->getRegionsForCountry($regionCountry);
-
-        $regionName = $this->clean($regionName);
-
-        if (isset($regions['byName'][$regionName]))
-            return $regions['byName'][$regionName];
-        else if (isset($regions['byCode'][$regionName]))
-            return $regions['byCode'][$regionName];
-
-        return null;
-    }
-
-
     /**
      * Get Default Shipping Address
      * @return array
@@ -188,37 +150,6 @@ class ExpressHelper
         }
 
         return $address;
-    }
-
-    /**
-     * Parse FullName
-     * @param $name
-     *
-     * @return \Magento\Framework\DataObject
-     */
-    public function parseFullName($name)
-    {
-        try
-        {
-            $nameParts = explode(' ', $name);
-            if (empty($nameParts))
-                throw new \Exception("No recipient name specified");
-
-            $firstName = array_shift($nameParts);
-            $lastName = implode(" ", $nameParts);
-
-            // @codingStandardsIgnoreStart
-            $return = new \Magento\Framework\DataObject();
-            // @codingStandardsIgnoreEnd
-            return $return->setFirstname($firstName)
-                          ->setLastname($lastName);
-        }
-        catch (\Exception $e)
-        {
-            return false;
-        }
-
-        return false;
     }
 
     public function isSubscriptionProduct()
@@ -266,68 +197,7 @@ class ExpressHelper
      */
     public function getBillingAddress($data)
     {
-        $nameObject = $this->parseFullName($data['name']);
-        $firstName = $nameObject->getFirstname();
-        $lastName = $nameObject->getLastname();
-        $street = [
-            0 => (!empty($data['address']['line1']) ? $data['address']['line1'] : 'Unspecified Street'),
-            1 => (!empty($data['address']['line2']) ? $data['address']['line2'] : '')
-        ];
-        $city = (!empty($data['address']['city']) ? $data['address']['city'] : 'Unspecified City');
-        $region = (!empty($data['address']['state']) ? $data['address']['state'] : 'Unspecified Region');
-        $postcode = (!empty($data['address']['postal_code']) ? $data['address']['postal_code'] : 'Unspecified Postcode');
-        $country = (!empty($data['address']['country']) ? $data['address']['country'] : 'Unspecified Country');
-
-        // Get Region Id
-        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        $regionId = $this->getRegionIdBy($regionName = $region, $regionCountry = $country);
-
-        return [
-            'firstname' => $firstName,
-            'lastname' => $lastName,
-            'company' => '',
-            'email' => $data['email'],
-            'street' => $street,
-            'city' => $city,
-            'region_id' => $regionId,
-            'region' => $region,
-            'postcode' => $postcode,
-            'country_id' => $country,
-            'telephone' => $data['phone'],
-            'fax' => '',
-        ];
-    }
-
-    /**
-     * Get Shipping Address
-     * @param $address
-     *
-     * @return array
-     */
-    public function getShippingAddress($address)
-    {
-        $nameObject = $this->parseFullName($address['recipient']);
-        $firstName = $nameObject->getFirstname();
-        $lastName = $nameObject->getLastname();
-
-        // Get Region Id
-        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-        $regionId = $this->getRegionIdBy($regionName = $address['region'], $regionCountry = $address['country']);
-
-        return [
-            'firstname' => $firstName,
-            'lastname' => $lastName,
-            'company' => $address['organization'],
-            'email' => '',
-            'street' => (empty($address['addressLine']) ? array("Unspecified Street") : $address['addressLine']),
-            'city' => $address['city'],
-            'region_id' => $regionId,
-            'region' => $address['region'],
-            'postcode' => $address['postalCode'],
-            'country_id' => $address['country'],
-            'telephone' => $address['phone'],
-            'fax' => ''
-        ];
+        return $this->addressHelper->getMagentoAddressFromPRAPIPaymentMethodData($data);
     }
 
     /**
@@ -338,7 +208,7 @@ class ExpressHelper
      */
     public function getShippingAddressFromResult($result)
     {
-        $address = $this->getShippingAddress($result['shippingAddress']);
+        $address = $this->addressHelper->getMagentoAddressFromPRAPIResult($result['shippingAddress'], __("shipping"));
         $address['email'] = $result['payerEmail'];
         return $address;
     }

@@ -60,54 +60,28 @@ class InitialFee
         if ($quote->getIsRecurringOrder() || $quote->getRemoveInitialFee())
             return 0;
 
-        if ($quote->getIsMultiShipping())
-            $skipConfigurables = false;
-        else
-            $skipConfigurables = true;
-
-        return $this->getInitialFeeForItems($items, $quoteRate, $skipConfigurables);
+        return $this->getInitialFeeForItems($items, $quoteRate);
     }
 
-    public function getInitialFeeForItems($items, $rate, $skipConfigurables = true)
+    public function getInitialFeeForItems($items, $rate)
     {
         $total = 0;
 
         foreach ($items as $item)
         {
-            // We skip the children of configurable products which are duplicates
-            if ($skipConfigurables && $item->getParentItem())
-                continue;
-
-            $qty = $this->getItemQty($item);
-
-            // We include the configurable products children
-            if ($item->getQtyOptions())
-            {
-                foreach ($item->getQtyOptions() as $id => $option)
-                {
-                    $total += $this->getInitialFeeForProductId($id, $rate, $qty);
-                }
-            }
-            else
-                $total += $this->getInitialFeeForProductId($item->getProductId(), $rate, $qty);
+            $qty = $this->paymentsHelper->getItemQty($item);
+            $productId = $item->getProductId();
+            $total += $this->getInitialFeeForProductId($productId, $rate, $qty);
         }
-
         return $total;
-    }
-
-    private function getItemQty($item)
-    {
-        $qty = $item->getQtyOrdered(); // Viewing orders in admin
-
-        if (empty($qty))
-            $qty = $item->getQty(); // Checkout
-
-        return $qty;
     }
 
     public function getInitialFeeForProductId($productId, $rate, $qty)
     {
         $product = $this->paymentsHelper->loadProductById($productId);
+
+        if (!in_array($product->getTypeId(), ["simple", "virtual"]))
+            return 0;
 
         if (!is_numeric($product->getStripeSubInitialFee()))
             return 0;

@@ -392,7 +392,7 @@ table.subscription-details .stripe-payments span.type {
 #stripe-fpx-dropdown li.hsbc { background-image: url(../svg/fpx/hsbc.svg); }
 #stripe-fpx-dropdown li.kfh { background-image: url(../svg/fpx/kfh.svg); }
 #stripe-fpx-dropdown li.maybank2u { background-image: url(../svg/fpx/maybank2u.svg); }
-#stripe-fpx-dropdown li.maybank2e { background-image: url(../svg/fpx/maybank2e.svg); }
+#stripe-fpx-dropdown li.maybank2e { background-image: url(../svg/fpx/maybank2u.svg); }
 #stripe-fpx-dropdown li.ocbc { background-image: url(../svg/fpx/ocbc.svg); }
 #stripe-fpx-dropdown li.public_bank { background-image: url(../svg/fpx/public_bank.svg); }
 #stripe-fpx-dropdown li.rhb { background-image: url(../svg/fpx/rhb.svg); }

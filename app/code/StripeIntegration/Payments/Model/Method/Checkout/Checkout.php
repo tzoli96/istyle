@@ -51,6 +51,7 @@ abstract class Checkout extends \Magento\Payment\Model\Method\AbstractMethod
         \StripeIntegration\Payments\Model\PaymentIntent $paymentIntent,
         \StripeIntegration\Payments\Model\Stripe\CouponFactory $couponFactory,
         \StripeIntegration\Payments\Helper\Subscriptions $subscriptions,
+        \StripeIntegration\Payments\Helper\Locale $localeHelper,
         \Magento\Payment\Model\Method\Logger $logger,
         \Magento\Checkout\Helper\Data $checkoutHelper,
         \Magento\Framework\Model\ResourceModel\AbstractResource $resource = null,
@@ -86,6 +87,7 @@ abstract class Checkout extends \Magento\Payment\Model\Method\AbstractMethod
         $this->scopeConfig = $scopeConfig;
         $this->couponFactory = $couponFactory;
         $this->subscriptions = $subscriptions;
+        $this->localeHelper = $localeHelper;
     }
 
     public function isAvailable(\Magento\Quote\Api\Data\CartInterface $quote = null)
@@ -130,33 +132,6 @@ abstract class Checkout extends \Magento\Payment\Model\Method\AbstractMethod
         return $params;
     }
 
-    public function getSubscriptionShipping($order, $orderItem, $subscriptionProfile)
-    {
-        if (!is_numeric($subscriptionProfile['shipping_stripe']) || $subscriptionProfile['shipping_stripe'] <= 0)
-            return null;
-
-        $lineItem = [
-            'price_data' => [
-                'currency' => $order->getOrderCurrencyCode(),
-                'product_data' => [
-                    'name' => __("Shipping for %1", $orderItem->getName()),
-                    'metadata' => [
-                        'Type' => 'Shipping'
-                    ]
-                ],
-                'unit_amount' => $subscriptionProfile['shipping_stripe']
-            ],
-            'quantity' => 1
-        ];
-
-        $recurringData = $this->getRecurringData($subscriptionProfile['interval'], $subscriptionProfile['interval_count']);
-        $lineItem = array_merge_recursive($lineItem, $recurringData);
-        $shippingTaxData = $this->getShippingTaxData();
-        $lineItem = array_merge_recursive($lineItem, $shippingTaxData);
-
-        return $lineItem;
-    }
-
     public function getLineItemsForOrder($order, $subscriptions)
     {
         $currency = $order->getOrderCurrencyCode();
@@ -171,235 +146,96 @@ abstract class Checkout extends \Magento\Payment\Model\Method\AbstractMethod
         $this->hasRegularProducts = false;
         $this->hasTax = false;
 
-        if (!empty($subscriptions))
+        if (!empty($subscriptions) || $this->config->priceIncludesTax() || $this->config->shippingIncludesTax())
             $addTaxRateToLineItems = true;
         else
             $addTaxRateToLineItems = false;
 
-        foreach ($orderItems as $orderItem)
+        $allSubscriptionsTotal = 0;
+        $subscriptionsProductIDs = [];
+        $interval = "month";
+        $intervalCount = 1;
+        foreach ($subscriptions as $subscription)
         {
-            if ($orderItem->getParentItem()) // Skip configurable products
-                continue;
+            $subscriptionTotal = 0;
+            $profile = $subscription['profile'];
+            $subscriptionsProductIDs[] = $subscription['product']->getId();
+            $interval = $profile['interval'];
+            $intervalCount = $profile['interval_count'];
 
-            $product = $this->helper->loadProductById($orderItem->getProductId());
+            $subscriptionTotal += ($profile['qty'] * $profile['amount_magento']);
 
-            if (!$product->getId()) // The product has been deleted
-                continue;
-
-            $profile = null;
-            if (isset($subscriptions[$orderItem->getQuoteItemId()]['profile']))
+            if ($this->subscriptions->chargeShippingRecurringly())
             {
-                $this->hasSubscriptions = true;
-                $profile = $subscriptions[$orderItem->getQuoteItemId()]['profile'];
-            }
-            else
-                $this->hasRegularProducts = true;
+                $subscriptionTotal += $profile['shipping_magento'];
 
+                if (!$this->config->shippingIncludesTax())
+                    $subscriptionTotal += $profile['tax_amount_shipping']; // Includes qty calculation
+
+                if (!$this->config->priceIncludesTax())
+                    $subscriptionTotal += $profile['tax_amount_item']; // Includes qty calculation
+            }
+
+            $subscriptionTotal -= $profile['discount_amount_magento'];
+
+            $allSubscriptionsTotal += round($subscriptionTotal, 2);
+        }
+
+        $remainingAmount = $order->getGrandTotal() - $allSubscriptionsTotal;
+
+        if ($remainingAmount > 0)
+        {
+            $this->hasRegularProducts = true;
             $lineItem = [
                 'price_data' => [
                     'currency' => $currency,
                     'product_data' => [
-                        'name' => $orderItem->getName(),
-                        'images' => [$this->helper->getProductImage($product)],
+                        'name' => __("Amount due"),
                         'metadata' => [
-                            'Type' => 'Product',
-                            'Product ID' => $orderItem->getProductId()
+                            'Type' => 'RegularProductsTotal',
                         ]
                     ],
-                    'unit_amount' => $this->helper->convertMagentoAmountToStripeAmount($orderItem->getPrice(), $currency)
+                    'unit_amount' => $this->helper->convertMagentoAmountToStripeAmount($remainingAmount, $currency),
                 ],
-                'quantity' => $orderItem->getQtyOrdered()
+                'quantity' => 1,
+
             ];
 
-            if ($profile) // Add the 'recurring' parameter
-            {
-                $recurringData = $this->getRecurringData($profile['interval'], $profile['interval_count']);
-                $lineItem = array_merge_recursive($lineItem, $recurringData);
-            }
-
-            $taxRate = $this->subscriptions->retrieveTaxRate($orderItem->getTaxPercent());
-            if ($addTaxRateToLineItems)
-            {
-                $lineItem['tax_rates'] = [ $taxRate ];
-                $lineItemsTax += $orderItem->getTaxAmount();
-                $this->hasTax = true;
-            }
-
             $lines[] = $lineItem;
-
-            if ($profile && $this->subscriptions->chargeShippingRecurringly())
-            {
-                if (is_numeric($profile['shipping_stripe']) && $profile['shipping_stripe'] > 0)
-                {
-                    $lineItemsTax += $subscriptions[$orderItem->getQuoteItemId()]['profile']['tax_amount_shipping'];
-                    $subscriptionsShipping += $subscriptions[$orderItem->getQuoteItemId()]['profile']['shipping_magento'];
-                }
-            }
-
-            if (!empty($profile['initial_fee_stripe']) && $profile['initial_fee_stripe'] > 0)
-            {
-                $initialFee = $profile['initial_fee_stripe'];
-                // $currency = $profile['currency'];
-                $currency = $order->getOrderCurrencyCode();
-
-                $lineItem = [
-                    'price_data' => [
-                        'currency' => $currency,
-                        'product_data' => [
-                            'name' => __("Initial fee for %1", $orderItem->getName()),
-                            'metadata' => [
-                                'Type' => 'Initial fee'
-                            ]
-                        ],
-                        'unit_amount' => $initialFee
-                    ],
-                    'quantity' => $profile['qty']
-                ];
-
-                if ($addTaxRateToLineItems)
-                {
-                    $lineItem['tax_rates'] = [ $taxRate ];
-                    $lineItemsTax += $profile['tax_amount_initial_fee'];
-                    $this->hasTax = true;
-                }
-
-                $lines[] = $lineItem;
-                $this->hasInitialFees = true;
-            }
         }
 
-        if ($subscriptionsShipping > 0)
+        if ($allSubscriptionsTotal > 0)
         {
-            if (!$this->hasRegularProducts)
-                $subscriptionsShipping = $order->getShippingAmount(); // Solves a rounding issue
-
+            $this->hasSubscriptions = true;
             $lineItem = [
                 'price_data' => [
                     'currency' => $currency,
                     'product_data' => [
-                        'name' => __("Shipping for subscription items"),
+                        'name' => __("Subscriptions"),
                         'metadata' => [
-                            'Type' => 'Shipping'
+                            'Type' => 'SubscriptionsTotal',
+                            'SubscriptionProductIDs' => implode(",", $subscriptionsProductIDs)
                         ]
                     ],
-                    'unit_amount' => $this->helper->convertMagentoAmountToStripeAmount($subscriptionsShipping, $currency)
+                    'unit_amount' => $this->helper->convertMagentoAmountToStripeAmount($allSubscriptionsTotal, $currency),
+                    'recurring' => [
+                        'interval' => $interval,
+                        'interval_count' => $intervalCount
+                    ]
                 ],
-                'quantity' => 1
+                'quantity' => 1,
+
             ];
-
-            $shippingTaxData = $this->getShippingTaxData();
-            $lineItem = array_merge_recursive($lineItem, $shippingTaxData);
-            $lineItem = array_merge_recursive($lineItem, $recurringData);
-            $lines[] = $lineItem;
-            $this->hasShipping = true;
-        }
-
-        $remainingShipping = round($order->getShippingAmount() - $subscriptionsShipping, 2);
-        if ($remainingShipping > 0)
-        {
-            $lineItem = [
-                'price_data' => [
-                    'currency' => $currency,
-                    'product_data' => [
-                        'name' => __("Shipping"),
-                        'metadata' => [
-                            'Type' => 'Shipping'
-                        ]
-                    ],
-                    'unit_amount' => $this->helper->convertMagentoAmountToStripeAmount($remainingShipping, $currency)
-                ],
-                'quantity' => 1
-            ];
-
-            if ($addTaxRateToLineItems)
-            {
-                $shippingTaxData = $this->getShippingTaxData();
-                $lineItem = array_merge_recursive($lineItem, $shippingTaxData);
-                $lineItemsTax += $order->getShippingTaxAmount();
-                $this->hasTax = true;
-            }
 
             $lines[] = $lineItem;
-            $this->hasShipping = true;
         }
 
-        $remainingTax = round($order->getTaxAmount() - $lineItemsTax, 2);
-        if ($remainingTax > 0)
+        if ($remainingAmount < 0 && $this->hasSubscriptions)
         {
-            $lines[] = [
-                'price_data' => [
-                    'currency' => $currency,
-                    'product_data' => [
-                        'name' => __("Tax"),
-                        'metadata' => [
-                            'Type' => 'Tax'
-                        ]
-                    ],
-                    'unit_amount' => $this->helper->convertMagentoAmountToStripeAmount($remainingTax, $currency)
-                ],
-                'quantity' => 1
-            ];
-            $this->hasTax = true;
+            // A discount that should have been applied on subscriptions, has not been applied on subscriptions
         }
 
         return $lines;
-    }
-
-    public function getRecurringData($interval, $intervalCount)
-    {
-        return [
-            'price_data' => [
-                'recurring' => [
-                    'interval' => $interval,
-                    'interval_count' => $intervalCount
-                ]
-            ]
-        ];
-    }
-
-    public function getShippingTaxData()
-    {
-        $data = [];
-
-        $shippingTaxPercent = $this->subscriptions->getShippingTax("percent");
-        if (is_numeric($shippingTaxPercent) && $shippingTaxPercent > 0)
-        {
-            $taxRate = $this->subscriptions->retrieveTaxRate($shippingTaxPercent);
-            $data['tax_rates'] = [ $taxRate ];
-        }
-
-        return $data;
-    }
-
-    public function checkIfDiscountIsSupported($stripeCoupon)
-    {
-        $hasSubscriptions = $this->hasSubscriptions;
-        $hasRegularProducts = $this->hasRegularProducts;
-        $hasInitialFees = $this->hasInitialFees;
-        $hasShipping = $this->hasShipping;
-        $hasTax = $this->hasTax;
-        $discountAppliesOnShipping = $stripeCoupon->rule->getApplyToShipping();
-        $isPercentDiscount = !empty($stripeCoupon->getStripeObject()->percent_off);
-        $isAmountDiscount = !empty($stripeCoupon->getStripeObject()->amount_off);
-        $hasDiscount = ($isPercentDiscount || $isAmountDiscount);
-        $isDiscountSupported = true;
-        $applyTaxAfterDiscount = $this->taxHelper->applyTaxAfterDiscount();
-
-        // Initial fees are currently not discounted in the implementation, we may add this as a feature in a future version
-        if ($hasSubscriptions && $hasInitialFees && $isPercentDiscount)
-            throw new LocalizedException(__("This discount coupon cannot be applied on this order. Please remove the coupon and try again (err: 1)"));
-
-        // Not supported by Stripe; December 2020
-        if ($hasSubscriptions && $hasShipping && $isPercentDiscount && !$discountAppliesOnShipping)
-            throw new LocalizedException(__("This discount coupon cannot be applied on this order. Please remove the coupon and try again (err: 2)"));
-
-        // We do not know how much of the amount was meant for subscriptions and how much was meant for regular products
-        if ($hasSubscriptions && $hasRegularProducts && $isAmountDiscount)
-            throw new LocalizedException(__("This discount coupon cannot be applied on this order. Please remove the coupon and try again (err: 3)"));
-
-        // Not supported by Stripe; December 2020
-        if ($hasDiscount && $hasTax && !$applyTaxAfterDiscount)
-            throw new LocalizedException(__("This discount coupon cannot be applied on this order. Please remove the coupon and try again (err: 4)"));
     }
 
     public function areInvoicedTogether($subscriptions)
@@ -434,21 +270,7 @@ abstract class Checkout extends \Magento\Payment\Model\Method\AbstractMethod
     public function checkIfCartIsSupported($subscriptions)
     {
         if (!$this->areInvoicedTogether($subscriptions))
-            throw new LocalizedException(__("Sorry, it is not possible to buy subscriptions that are billed on different dates. All subscription items must be billed on the same date. Please buy the subscriptions separately."));
-    }
-
-    protected function hasTrialSubscriptions($subscriptions)
-    {
-        foreach ($subscriptions as $subscription)
-        {
-            if (!empty($subscription['profile']['trial_end']))
-                return true;
-
-            if (!empty($subscription['profile']['trial_days']))
-                return true;
-        }
-
-        return false;
+            throw new LocalizedException(__("Subscriptions that do not renew together must be bought separately."));
     }
 
     protected function getSessionParams($order)
@@ -464,6 +286,7 @@ abstract class Checkout extends \Magento\Payment\Model\Method\AbstractMethod
         $lineItems = $this->getLineItemsForOrder($order, $subscriptions);
 
         $params = [
+            'expires_at' => time() + 2 * 60 * 60, // Expires in 2 hours
             'cancel_url' => $returnUrl,
             'payment_method_types' => ['card'],
             'success_url' => $returnUrl,
@@ -472,7 +295,7 @@ abstract class Checkout extends \Magento\Payment\Model\Method\AbstractMethod
                 'Order #' => $order->getIncrementId(),
                 'Payment Method' => 'Stripe Checkout'
             ],
-            'locale' => $this->config->getCheckoutLocale(),
+            'locale' => $this->localeHelper->getStripeJsLocale(),
             'line_items' => $lineItems
         ];
 
@@ -501,16 +324,6 @@ abstract class Checkout extends \Magento\Payment\Model\Method\AbstractMethod
             $params["mode"] = "payment";
             $params["payment_intent_data"] = $this->cleanPaymentIntentData($this->paymentIntent->getParamsFrom($order->getQuote(), $order));
             $params["submit_type"] = "pay";
-        }
-
-        if ($order->getDiscountAmount() < 0)
-        {
-            $stripeCoupon = $this->couponFactory->create()->fromOrder($order);
-            if ($stripeCoupon->getId())
-            {
-                $this->checkIfDiscountIsSupported($stripeCoupon);
-                $params['discounts'] = [['coupon' => $stripeCoupon->getId()]];
-            }
         }
 
         if ($this->config->getSaveCards())
@@ -556,6 +369,7 @@ abstract class Checkout extends \Magento\Payment\Model\Method\AbstractMethod
         try {
             $checkoutSession = $this->config->getStripeClient()->checkout->sessions->create($params);
             $info->setAdditionalInformation("checkout_session_id", $checkoutSession->id);
+            $info->setAdditionalInformation("is_new_order", 1);
             $session->setStripePaymentsCheckoutSessionId($checkoutSession->id);
             $order->addStatusHistoryComment(__("The customer was redirected for payment processing. The payment is pending."));
             $order->getPayment()

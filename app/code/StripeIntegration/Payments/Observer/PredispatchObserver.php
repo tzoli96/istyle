@@ -20,7 +20,7 @@ class PredispatchObserver implements ObserverInterface
      */
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
-        if (stripos($_SERVER['REQUEST_URI'],"directory/currency/switch") !== false)
+        if (!empty($_SERVER['REQUEST_URI']) && stripos($_SERVER['REQUEST_URI'],"directory/currency/switch") !== false)
             $this->_eventManager->dispatch('stripe_payments_currency_switch');
     }
 }

@@ -10,4 +10,15 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
     {
         $this->_init('StripeIntegration\Payments\Model\Subscription', 'StripeIntegration\Payments\Model\ResourceModel\Subscription');
     }
+
+    public function getByOrderIncrementId($incrementId)
+    {
+        $this->clear()->getSelect()->reset(\Zend_Db_Select::WHERE);
+
+        $collection = $this->addFieldToSelect('*')
+                    ->addFieldToFilter('order_increment_id', ['eq' => $incrementId])
+                    ->setOrder('created_at','ASC');
+
+        return $collection;
+    }
 }

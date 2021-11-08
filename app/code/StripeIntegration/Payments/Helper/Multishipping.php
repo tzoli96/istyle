@@ -34,6 +34,9 @@ class Multishipping
         {
             $order = $this->helper->loadOrderByIncrementId($orderId);
 
+            if ($this->helper->hasTrialSubscriptionsIn($order->getAllItems()))
+                continue;
+
             try
             {
                 $paymentIntent = $this->confirmPaymentFor($order);

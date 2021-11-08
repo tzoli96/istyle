@@ -11,7 +11,7 @@ use Magento\Framework\Exception\LocalizedException;
 class Config
 {
     public static $moduleName           = "Magento2";
-    public static $moduleVersion        = "2.5.3";
+    public static $moduleVersion        = "2.7.6";
     public static $minStripePHPVersion  = "7.61.0";
     public static $moduleUrl            = "https://stripe.com/docs/plugins/magento";
     public static $partnerId            = "pp_partner_Fs67gT2M6v3mH7";
@@ -24,22 +24,24 @@ class Config
         ScopeConfigInterface $scopeConfig,
         Helper\Generic $helper,
         \Magento\Framework\Encryption\EncryptorInterface $encryptor,
-        \Magento\Framework\Locale\Resolver $localeResolver,
+        \StripeIntegration\Payments\Helper\Locale $localeHelper,
         \Magento\Config\Model\ResourceModel\Config $resourceConfig,
         \Psr\Log\LoggerInterface $logger,
         \Magento\Store\Model\StoreManagerInterface $storeManager,
         \StripeIntegration\Payments\Model\ResourceModel\StripeCustomer\Collection $stripeCustomerCollection,
-        \StripeIntegration\Payments\Helper\SetupIntentFactory $setupIntentFactory
+        \StripeIntegration\Payments\Helper\SetupIntentFactory $setupIntentFactory,
+        \Magento\Tax\Model\Config $taxConfig
     ) {
         $this->scopeConfig = $scopeConfig;
         $this->helper = $helper;
         $this->encryptor = $encryptor;
-        $this->localeResolver = $localeResolver;
+        $this->localeHelper = $localeHelper;
         $this->resourceConfig = $resourceConfig;
         $this->logger = $logger;
         $this->storeManager = $storeManager;
         $this->stripeCustomerCollection = $stripeCustomerCollection;
         $this->setupIntentFactory = $setupIntentFactory;
+        $this->taxConfig = $taxConfig;
 
         $this->isInitialized = $this->initStripe();
     }
@@ -99,9 +101,6 @@ class Config
         \Stripe\Stripe::setAppInfo($this::$moduleName, $this::$moduleVersion, $this::$moduleUrl, $this::$partnerId);
 
         $api = \StripeIntegration\Payments\Model\Config::STRIPE_API;
-        $oxxoEnabled = $this->getConfigData("active", "oxxo");
-        if ($oxxoEnabled)
-            $api .= "; oxxo_beta=v1";
 
         \Stripe\Stripe::setApiVersion($api);
         $this::$stripeClient = new \Stripe\StripeClient([
@@ -278,7 +277,7 @@ class Config
     {
         return \Zend_Json::encode([
             "apiKey" => $this->getPublishableKey(),
-            "locale" => $this->getCheckoutLocale(),
+            "locale" => $this->localeHelper->getStripeJsLocale(),
             "useSetupIntents" => $this->setupIntentFactory->create()->shouldUseSetupIntents()
         ]);
     }
@@ -312,9 +311,9 @@ class Config
     }
 
     // If the module is unconfigured, payment_action will be null, defaulting to authorize & capture, so this would still return the correct value
-    public function isAuthorizeOnly()
+    public function isAuthorizeOnly($method = null)
     {
-        return ($this->getConfigData('payment_action') == \Magento\Payment\Model\Method\AbstractMethod::ACTION_AUTHORIZE);
+        return ($this->getConfigData('payment_action', $method) == \Magento\Payment\Model\Method\AbstractMethod::ACTION_AUTHORIZE);
     }
 
     public function isStripeRadarEnabled()
@@ -408,40 +407,6 @@ class Config
             return 1; // Inside payment method
         else
             return (int)$location;
-    }
-
-    public function getCheckoutLocale()
-    {
-        $supportedValues = ["bg", "cs", "da", "de", "el", "en", "en-GB", "es", "es-419", "et", "fi", "fr", "fr-CA", "hu", "id", "it", "ja", "lt", "lv", "ms", "mt", "nb", "nl", "pl", "pt", "pt-BR", "ro", "ru", "sk", "sl", "sv", "tr", "zh", "zh-HK", "zh-TW"];
-
-        $locale = $this->localeResolver->getLocale();
-        if (empty($locale))
-            return "auto";
-
-        $lang = strstr($locale, '_', true);
-        if (in_array($lang, $supportedValues))
-            return $lang;
-
-        return "auto";
-    }
-
-    public function getStripeJsLocale()
-    {
-        $supportedValues = ["ar", "bg", "cs", "da", "de", "el", "en", "en-GB", "es", "es-419", "et", "fi", "fr", "fr-CA", "he", "hu", "id", "it", "ja", "lt", "lv", "ms", "mt", "nb", "nl", "pl", "pt-BR", "pt", "ro", "ru", "sk", "sl", "sv", "tr", "zh", "zh-HK", "zh-TW"];
-
-        $locale = $this->localeResolver->getLocale();
-        if (empty($locale))
-            return "auto";
-
-        $hyphenLocale = str_replace($locale, "_", "-");
-        if (in_array($hyphenLocale, $supportedValues))
-            return $hyphenLocale;
-
-        $lang = strstr($locale, '_', true);
-        if (in_array($lang, $supportedValues))
-            return $lang;
-
-        return "auto";
     }
 
     public function getAmountCurrencyFromQuote($quote, $useCents = true)
@@ -581,4 +546,13 @@ class Config
         return $this::$stripeClient;
     }
 
+    public function shippingIncludesTax($store = null)
+    {
+        return $this->taxConfig->shippingPriceIncludesTax($store);
+    }
+
+    public function priceIncludesTax($store = null)
+    {
+        return $this->taxConfig->priceIncludesTax($store);
+    }
 }

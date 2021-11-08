@@ -55,9 +55,7 @@ $cards = $block->getCustomerCards();
 </fieldset>
 
 <script type="text/javascript">
-  require(['jquery', 'prototype', 'mage/mage'], function(jQuery, $) {
-    jQuery(document).ready(function()
-    {
+  require(['domReady!', 'prototype', 'mage/mage'], function(domReady, $) {
       var params = <?php echo $block->config->getStripeParams(); ?>;
       initStripe(params, function(err)
       {
@@ -76,7 +74,7 @@ $cards = $block->getCustomerCards();
               area = area.splice(area.indexOf('card_validation'), 0);
 
             if (area.length > 0)
-              this._loadArea(area, indicator, params);
+              return this._loadArea(area, indicator, params);
           };
         }
 
@@ -85,7 +83,6 @@ $cards = $block->getCustomerCards();
         stripe.initAdminEvents();
         stripe.initStripeElements(params.locale);
       });
-    });
   });
 </script>
 

@@ -23,7 +23,39 @@ class Coupon extends StripeObject
             $this->createObject($data);
 
         if (!$this->object)
-            throw new \Magento\Framework\Exception\LocalizedException(__("The discount for order #%1 could not be created in Stripe", $order->getIncrementId()));
+            throw new \Magento\Framework\Exception\LocalizedException(__("The discount for order #%1 could not be created in Stripe: %2", $order->getIncrementId(), $this->lastError));
+
+        return $this;
+    }
+
+    public function fromGiftCards($order)
+    {
+        $currency = $order->getOrderCurrencyCode();
+        $amount = $order->getGiftCardsAmount();
+
+        $discountType = "amount_off";
+        $stripeAmount = $this->helper->convertMagentoAmountToStripeAmount($amount, $currency);
+
+        $giftCards = json_decode($order->getGiftCards());
+        if (count($giftCards) > 1)
+        {
+            $name = __("%1 Gift Cards", $this->helper->addCurrencySymbol($amount, $currency));
+        }
+        else
+        {
+            $name = __("%1 Gift Card", $this->helper->addCurrencySymbol($amount, $currency));
+        }
+
+        $params = [
+            $discountType => $stripeAmount,
+            'currency' => $currency,
+            'name' => $name
+        ];
+
+        $this->createObject($params);
+
+        if (!$this->object)
+            throw new \Magento\Framework\Exception\LocalizedException(__("The gift cards for order #%1 could not be created in Stripe: %2", $order->getIncrementId(), $this->lastError));
 
         return $this;
     }
@@ -43,7 +75,7 @@ class Coupon extends StripeObject
             $this->createObject($data);
 
         if (!$this->object)
-            throw new \Magento\Framework\Exception\LocalizedException(__("The discount for %1 could not be created in Stripe", $orderItem->getName()));
+            throw new \Magento\Framework\Exception\LocalizedException(__("The discount for %1 could not be created in Stripe: %2", $orderItem->getName(), $this->lastError));
 
         return $this;
     }
@@ -126,5 +158,15 @@ class Coupon extends StripeObject
         $params = array_merge($params, $expirationParams);
 
         return $params;
+    }
+
+    public function getApplyToShipping()
+    {
+        if (!empty($this->rule))
+        {
+            return $this->rule->getApplyToShipping();
+        }
+
+        return false;
     }
 }

@@ -17,7 +17,7 @@ define(
         'Magento_Checkout/js/action/redirect-on-success',
         'mage/storage',
         'mage/url',
-        'Magento_CheckoutAgreements/js/model/agreement-validator',
+        'Magento_CheckoutAgreements/js/model/agreement-validator'
     ],
     function (
         ko,
@@ -131,16 +131,6 @@ define(
                         return;
 
                     setTimeout(stripe.refreshSetupIntent, 0, false);
-
-                    trialingSubscriptions().refresh(quote);
-                });
-
-                quote.shippingAddress.subscribe(function(address)
-                {
-                    if (!address)
-                        return;
-
-                    trialingSubscriptions().refresh(quote);
                 });
 
                 quote.totals.subscribe(function (totals)
@@ -218,13 +208,14 @@ define(
 
             validatePRAPI: function(ev)
             {
-                // @todo - The validator does not display individual error messages aside the input field.
-                // We display a global error for now by passing true to validate(), but its a better UX to display them next to the field.
-                if (!additionalValidators.validate(true))
+                if (!additionalValidators.validate() || !agreementValidator.validate())
                 {
                     ev.preventDefault();
 
-                    var message = $t("Please complete all required fields before placing the order.");
+                    if (!agreementValidator.validate())
+                        var message = $t("Please agree to the terms and conditions before placing the order.");
+                    else
+                        var message = $t("Please complete all required fields before placing the order.");
 
                     if (this.config().applePayLocation == 2)
                         this.showGlobalError(message)
@@ -300,6 +291,9 @@ define(
 
             placeOrder: function()
             {
+                if (!additionalValidators.validate())
+                    return;
+
                 stripe.applePaySuccess = false;
 
                 var self = this;
@@ -473,6 +467,7 @@ define(
 
             showError: function(message)
             {
+                document.getElementById('actions-toolbar').scrollIntoView(true);
                 this.messageContainer.addErrorMessage({ "message": message });
             },
 
@@ -487,10 +482,7 @@ define(
                 if (!this.isNewCard() && !this.stripePaymentsSelectedCard())
                     return this.showError('Please select a card!');
 
-                if (!agreementValidator.validate())
-                    return this.showError('Please agree to the Terms and Conditions.');
-
-                return true;
+                return additionalValidators.validate();
             },
 
             getCode: function()

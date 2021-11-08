@@ -54,7 +54,7 @@ class StripeCustomer extends \Magento\Framework\Model\AbstractModel
             $this->_idFieldName = $this->_getResource()->getIdFieldName();
         }
 
-        parent::__construct($context, $registry, $resource, $resourceCollection, $data);
+        parent::__construct($context, $registry, $resource, $resourceCollection, $data); // This will also call _construct after DI logic
     }
 
     // Called by parent::__construct() after DI logic
@@ -198,8 +198,17 @@ class StripeCustomer extends \Magento\Framework\Model\AbstractModel
             $params["name"] = "$customerFirstname $customerLastname";
             $params["email"] = $customerEmail;
 
-            $this->_stripeCustomer = \Stripe\Customer::create($params);
-            $this->_stripeCustomer->save();
+            if (!empty($params["id"]))
+            {
+                $customerId = $params["id"];
+                unset($params["id"]);
+                $this->_stripeCustomer = $this->config->getStripeClient()->customers->update($customerId, $params);
+            }
+            else
+            {
+                $this->_stripeCustomer = \Stripe\Customer::create($params);
+                $this->_stripeCustomer->save();
+            }
 
             $this->setStripeId($this->_stripeCustomer->id);
             $this->setCustomerId($customerId);
@@ -398,7 +407,7 @@ class StripeCustomer extends \Magento\Framework\Model\AbstractModel
     public function getSubscriptions($params = null)
     {
         if (!$this->getStripeId())
-            return null;
+            return [];
 
         $params['customer'] = $this->getStripeId();
         $params['limit'] = 100;

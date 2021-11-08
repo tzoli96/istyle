@@ -56,10 +56,9 @@ class GuestPaymentInformationManagement
         \Magento\Quote\Api\Data\PaymentInterface $paymentMethod,
         \Magento\Quote\Api\Data\AddressInterface $billingAddress = null
     ) {
-        $subject->savePaymentInformation($cartId, $email, $paymentMethod, $billingAddress);
         try
         {
-            $orderId = $this->cartManagement->placeOrder($cartId);
+            return $proceed($cartId, $email, $paymentMethod, $billingAddress);
         }
         catch (\Exception $e)
         {
@@ -76,7 +75,5 @@ class GuestPaymentInformationManagement
                 $e
             );
         }
-
-        return $orderId;
     }
 }
