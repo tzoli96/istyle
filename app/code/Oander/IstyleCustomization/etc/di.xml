@@ -130,4 +130,9 @@
         <plugin name="IstyleCustomization::EventBasedExporterCustomerAddressSaveAfterObserver" type="Oander\IstyleCustomization\Plugin\Oander\EventBasedExporter\Observer\CustomerAddressSaveAfterObserver" sortOrder="10" disabled="false"/>
     </type>
     <!-- #53854 END -->
+    <!-- #55190 START -->
+    <type name="Magento\Payment\Model\MethodList">
+        <plugin name="Amasty_Payrestriction::MethodList" type="Oander\IstyleCustomization\Rewrite\Amasty\Payrestriction\Plugin\MethodList"/>
+    </type>
+    <!-- #55190 END -->
 </config>

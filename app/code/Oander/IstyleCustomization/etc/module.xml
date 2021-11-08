@@ -4,6 +4,7 @@
 		<sequence>
 			<module name="Avalon_Costompayment" />
 			<module name="Magento_Checkout" />
+			<module name="Amasty_Payrestriction" />
 		</sequence>
 	</module>
 </config>
