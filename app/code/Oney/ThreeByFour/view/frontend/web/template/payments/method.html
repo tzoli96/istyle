@@ -1,0 +1,71 @@
+<div class="payment-method" data-bind="css: {'_active': (getCode() == isChecked())}">
+    <div style="display: flex;"
+        class="payment-method-title field choice">
+        <input type="radio"
+               name="payment[method]"
+               class="radio"
+               data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()"/>
+        <label data-bind="attr: {'for': getCode()}"
+               style="display: flex"
+               class="label-oney-method">
+            <span class="bulle smallest-bulle">
+                <span data-bind="text: getNumber()"></span>
+                <span>x</span>
+            </span>
+            <img class="logo-smallest-bulle" data-bind="attr: { src: require.toUrl('Oney_ThreeByFour/images/oney.png') }" />
+            <span data-bind="text: getTitle()"
+            class="customer-label"></span>
+        </label>
+    </div>
+    <div class="payment-method-content">
+        <div class="nr-custom-infobox oney error" data-bind="
+            visible: !verified(),
+            text: error"
+        ></div>
+        <div class="payment-method-billing-address" data-bind="
+        visible: !verifiedBilling() && isChecked">
+            <!-- ko foreach: $parent.getRegion(getBillingAddressFormName()) -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+        </div>
+        <div class="oney-payment-method-content" data-bind="
+            visible: verified()">
+            <div class="content-inner">
+                <div class="simulation-block">
+                    <div class="oney-brand">
+                        <div class="bulle big-bulle">
+                            <span data-bind="attr:{id :getBulleId()}"></span>
+                            <span>x</span>
+                        </div>
+                        <img class="logo-big-bulle" data-bind="attr: { src: require.toUrl('Oney_ThreeByFour/images/oney.png') }" />
+                        <div class="simulation_block" data-bind="attr: {id: getContentId()}"
+                        ></div>
+                    </div>
+                </div>
+                <!-- ko if: getLegalText() -->
+                <div class="legal-block" data-bind="html: getLegalText(), click: modalPedagogic()"></div>
+                <!-- /ko -->
+                <div class="checkout-agreements-block">
+                    <!-- ko foreach: $parent.getRegion('before-place-order') -->
+                    <!-- ko template: getTemplate() --><!-- /ko -->
+                    <!--/ko-->
+                </div>
+                <div class="actions-toolbar">
+                    <div class="primary">
+                        <button class="action primary checkout oney"
+                                type="submit"
+                                data-bind="
+                        click: placeOrder,
+                        attr: {title: $t('Place Order')},
+                        css: {disabled: !verified()},
+                        enable: (getCode() == isChecked())
+                        "
+                                disabled>
+                            <span data-bind="i18n: 'Place Order'"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

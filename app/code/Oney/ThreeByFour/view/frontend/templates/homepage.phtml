@@ -1,0 +1,66 @@
+<?php
+/** @var Oney\ThreeByFour\Block\Homepage $this */
+$cc = $this->addCountryCodeTranslation();
+if ($this->isShown() && count($this->getInstalments())) {
+    ?>
+    <?php if (!$this->isCreditIntermediary() && $this->isLegalEnabled()): ?>
+        <a class="centered banner-oney homepage-pedago non-credit-intermediary" target="_blank"
+           href="<?= $this->escapeUrl($this->getOneyInfoUrl()) ?>">
+            <div class="oney_text oney_text_left">
+                <img class="centered oney-34-logo"
+                     src="<?= $this->escapeUrl($this->getViewFileUrl('Oney_ThreeByFour::images/34oneytime.png')) ?>"/>
+            </div>
+            <div class="oney_text oney_text_right">
+                <div>
+                    <p><strong><?= __('Learn more on </br>Oney'.$cc) ?> <u><?= __('oney_here'.$cc) ?></u></strong></p>
+                </div>
+            </div>
+        </a>
+    <?php else: ?>
+        <div class="centered banner-oney homepage-pedago <?php echo $this->getCssClassCountry(); ?>">
+            <div class="oney_text oney_text_left">
+                <img src="<?php echo $this->getViewFileUrl('Oney_ThreeByFour::images/oney.png'); ?>">
+            </div>
+            <div class="oney_text oney_text_right">
+                <div class="oney-first-line">
+                    <p><?php echo __('Pay in'.$cc); ?></p>
+                </div>
+                <div class="oney-second-line">
+                    <div class="bubble-container">
+                        <?php foreach ($this->getInstalments() as $key => $businessTransaction) { ?>
+                            <span class="bulle">
+                            <span><?= $key ?></span>
+                            <span>x</span>
+                        </span>
+                        <?php } ?>
+                        <div class="nexttologo">
+                            <p><?php echo __('oney_with'.$cc) ?> <strong><?= __('oney_credit_card'.$cc) ?></strong></p>
+                        </div>
+                    </div>
+                    <?php if ($this->isFree()) { ?>
+                        <div class="oney-without-commission"><?= __('Without fee'.$cc) ?></div>
+                    <?php } ?>
+                </div>
+                <div class="oney_logo_top">
+                    <img src="<?php echo $this->getViewFileUrl('Oney_ThreeByFour::images/oney.png'); ?>">
+                </div>
+                <div class="oney_text oney_text_interog open-pedagogique_modal">
+                        <img class="oney-34-logo"
+                             src="<?php echo $this->getViewFileUrl('Oney_ThreeByFour::images/34oneytime.png'); ?>">
+                    <img src="<?php echo $this->getViewFileUrl('Oney_ThreeByFour::images/interog.png'); ?>">
+                </div>
+            </div>
+            <?php if ($this->isLegalTextShown()): ?>
+                <div class="legal-text">
+                    <?= __('banner_legal_text %1 %2'.$cc,
+                        $this->getCompanyName(),
+                        $this->getExclusiveText()
+                    ) ?>
+                    <?php if($this->getOneyPdfUrl()): ?>
+                        <a target="_blank" href="<?= $this->escapeUrl($this->getOneyPdfUrl()) ?>"><?= __("oney_here".$cc) ?></a>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    <?php endif; ?>
+<?php } ?>

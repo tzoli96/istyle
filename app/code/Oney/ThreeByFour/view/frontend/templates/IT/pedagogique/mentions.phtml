@@ -1,0 +1,105 @@
+<?php
+
+/** @var Oney\ThreeByFour\Block\Pedagogique\Mentions $this */
+
+$business_transactions = $this->getBusinessTransactions();
+$text = '';
+$cc = $this->addCountryCodeTranslation();
+$minimum = 0;
+$maximum = 0;
+foreach ($business_transactions as $key => $business) {
+    $text .= $key . 'x';
+    if (end($business_transactions) !== $business_transactions[$key]) {
+        $text .= ' ';
+    }
+    if($business['min_amount'] < $minimum || $minimum == 0) {
+        $minimum = $business['min_amount'];
+    }
+    if($business['max_amount'] > $maximum || $maximum == 0) {
+        $maximum = $business['max_amount'];
+    }
+}
+?>
+
+<div class="footer_pedagogique">
+    <p class="title_footer"><strong>Condizioni necessarie per richiedere 3x4x Oney:</strong>
+    <ul>
+        <li>Soluzione di finanziamento riservata a persone fisiche maggiorenni e residenti in Italia</li>
+        <li>utilizzare una carta di credito o debito, Visa o MasterCard, emessa da un intermediario bancario /
+            finanziario italiano, ad eccezione di tutte le carte e di credito virtuali, prepagate e ricaricabili
+        </li>
+        <li>La carta di credito deve avere una validità residua superiore ad almeno due mesi rispetto alla durata
+            massima del finanziamento 3x4x Oney prescelto.
+        </li>
+        <li>
+            <?= __(
+                'For %1 Oney the funded amount of %2 to %3.'.$cc,
+                $key . 'x',
+                $this->currency($minimum),
+                $this->currency($maximum)
+            ) ?>
+        </li>
+    </ul>
+    </p>
+
+    <?php foreach ($business_transactions as $key => $business): ?>
+        <div style="display: flex; margin:1rem 0 0.5rem 0">
+            <span class="bulle big-bulle">
+                <span><?= $key ?></span>
+                <span>x</span>
+            </span>
+            <img src="<?= $this->getViewFileUrl('Oney_ThreeByFour::images/oney.png') ?>">
+        </div>
+        <p><?= __('pedago_text_' . $key.$cc) ?></p>
+    <?php endforeach; ?>
+    <br/>
+    <p>IL cliente è tenuto a corrispondere a Oney esclusivamente una commissione di gestione, il cui importo varia a
+        seconda dell’importo dell’acquisto effettuato dallo stesso cliente e della durata. Le commissioni applicate da
+        Oney in caso di 3x sono suddivise nei seguenti scaglioni:</p>
+    <p>Sulla base degli accordi commerciali conclusi tra il sito di vendita e Oney, 3x4x Oney potrà essere offerto alla
+        clientela senza l’applicazione delle commissioni sottoindicate.</p><br/>
+    <p>IL cliente è tenuto a corrispondere a Oney esclusivamente una commissione di gestione, il cui importo varia a
+        seconda dell’importo dell’acquisto effettuato dallo stesso cliente e della durata. Le commissioni applicate da
+        Oney in caso di 3x sono suddivise nei seguenti scaglioni:</p>
+    <p>Sulla base degli accordi commerciali conclusi tra il sito di vendita e Oney, 3x4x Oney potrà essere offerto alla
+        clientela senza l’applicazione delle commissioni sottoindicate.</p>
+
+    <p class="title_footer"><strong>Commissioni applicate al cliente:</strong></p>
+    <p><strong>In caso di utilizzo di 3x Oney :</strong></p>
+    <p><strong>€1,10</strong> per importo compreso tra <strong>€ 100 e €149,99</strong>; TAEG max 14,46%</p>
+    <p><strong>€1,80</strong> per importo compreso tra <strong>€ 150 e € 249,99</strong>; TAEG max 15,89%</p>
+    <p><strong>€3,10</strong> per importo compreso tra <strong>€ 250 e € 299,99</strong>; TAEG max 16,47%</p>
+    <p><strong>€3,70</strong> per importo compreso tra <strong>€ 300 e €449,99</strong>; TAEG max 16,37%</p>
+    <p><strong>€5,60</strong> per un importo compreso tra <strong>€ 450 e € 649,99</strong>; TAEG max 16,53%</p>
+    <p><strong>€8,20</strong> per un importo compreso tra <strong>€ 650 e € 799,99</strong>; TAEG max 16,78%</p>
+    <p><strong>€10,10</strong> per un importo compreso tra <strong>€ 800 e €1.199,99</strong>; TAEG max 16,79%</p>
+    <p><strong>€15</strong> per un importo compreso tra <strong>€ 1.200 e € 1499,99</strong>; TAEG max 16,61%</p>
+    <p><strong>€15 </strong> per un importo compreso tra <strong>€ 1.500 e € 3.000</strong>; TAEG max 13,05%</p>
+    <br/>
+    <p><strong>In caso di 4x Oney :</strong></p>
+    <p><strong>€1,60</strong> per un importo compreso tra <strong>€100 e € 149,99</strong>; TAEG max 14,04%</p>
+    <p><strong>€2,80</strong> per importo compreso tra <strong>€ 150 e €249,99</strong>; TAEG max 16,61%</p>
+    <p><strong>€4,70</strong> per importo compreso tra <strong>€ 250 e € 299,99</strong>; TAEG max 16,74%</p>
+    <p><strong>€5,60</strong> per importo compreso tra <strong>€ 300 e €449,99</strong>; TAEG max 16,61%</p>
+    <p><strong>€8,40</strong> per un importo compreso tra <strong>€ 450 e €649,99</strong>; TAEG max 16,61%</p>
+    <p><strong>€12,20</strong> per un importo compreso tra <strong>€ 650 e € 799,99</strong>; TAEG max 16,71%</p>
+    <p><strong>€15,00</strong> per un importo compreso tra <strong>€ 800 e €1.199,99</strong>; TAEG max 16,69%</p>
+    <p><strong>€20,00</strong> per un importo compreso tra <strong>€ 1.200 e €1.499,99</strong>; TAEG max 14,68%</p>
+    <p><strong>€20,00</strong> per un importo compreso tra <strong>€ 1.500 e € 3.000</strong>; TAEG max 11,55%</p>
+
+    <p class="title_footer"><strong><?= __('Costs applied in case of default'.$cc) ?>:</strong></p>
+    <p>Il cliente dovrà corrispondere a Oney un importo di €6, ogniqualvolta una delle rate di 3x4x Oney rimanga impagata per più di 7 giorni dalla data di addebito del pagamento della stessa, fatto salvo il caso in cui tale costo sia già stato applicato da Oney per una precedente rata 3x4x Oney che risulti attualmente impagata.</p>
+    <br/>
+    <p>Qualora il mancato pagamento di una rata 3x4x Oney si protragga per più di 30 giorni dalla data di addebito del pagamento del relativo importo, il cliente sarà, inoltre, tenuto a corrispondere a Oney una somma pari al 15,5% degli importi complessivamente scaduti e impagati, a cui si aggiungeranno quelli relativi alle rate successive nel caso in cui anche queste ultime risultino scadute e impagate.</p>
+    <br/>
+    <p>3x4x Oney è una dilazione di pagamento che non ricade nell’ambito di applicazione del credito ai consumatori di cui al Titolo VI, Capo II TUB, offerta da Oney Bank SA., capitale € 51.286.585 - 34 Avenue de Flandre 59170 Croix - RCS Lille, Metropole - 546 380 197 - n° Orias 07 023 261, che opera in Italia in regime di libera prestazione di servizi. L’utilizzo di 3x4x Oney è riservato alle persone fisiche maggiorenni, per importi finanziabili compresi tra un minimo di €100 e un massimo di €3.000 con rimborsi rateali fino ad un massimo di 90 giorni ed è soggetto alla preventiva approvazione di Oney Bank SA. Oney Bank SA. prevede l’applicazione di una commissione fissa per l’utilizzo di 3x4x Oney. Il cliente ha 14 giorni di tempo dalla data di conclusione di ciascun finanziamento per rinunciarvi e esercitare il diritto di recesso, senza spese e costi.</p>
+    <br/>
+    <p>Documenti informativi disponibili su <a href='https://www.oney.it' target='_blank'>www.oney.it</a></p>
+    <br/>
+    <br/>
+</div>
+
+
+
+
+

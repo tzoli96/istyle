@@ -1,0 +1,142 @@
+<?php
+
+use Oney\ThreeByFour\Block\Checkout\Simulation;
+
+/** @var  Simulation $block */
+$simulations = $block->getSimulations();
+$cc = $this->addCountryCodeTranslation();
+if (!empty($simulations)) {
+    $isRight = false;
+    ?>
+    <div id="simulateur-oney" class="<?php echo $this->getCssClassCountry(); ?>">
+        <div id="container_oney_simulation" class='oneyPopup' hidden="true">
+            <span class='arrow'></span>
+            <img class="logo-oney" width="80"
+                 src="<?= $this->getViewFileUrl('Oney_ThreeByFour::images/34oneytime.png') ?>"/>
+            <div class="legend_oney">
+                <?php if ($block->printFirstLineInLegend()) : ?>
+                    <span><?php echo $block->isFree() ? __("Pay in %1 free".$cc, $block->getInstalmentText()) : __("Simulation Pay in %1".$cc, $block->getInstalmentText()); ?></span></br>
+                <?php endif; ?>
+                <span class="bold-style"><?php echo __('with your credit card'.$cc); ?></span>
+            </div>
+            <div class="close close-simulation">×</div>
+
+            <?php foreach ($simulations as $key => $simulation): ?>
+                <?php
+                    if (isset($simulation['business_transaction_details'][0])) {
+                        $code = $simulation['business_transaction_details'][0]['business_transaction_code'];
+                    } else {
+                        $code = $simulation['business_transaction_details']['business_transaction_code'];
+                    }
+                ?>
+                <div class="oney-simulation">
+                    <div class="simulation-head">
+                    <span class="bulle x-time medium-bulle">
+                        <span><?= count($simulation['instalments']) + 1 ?></span>
+                        <span>x</span>
+                    </span>
+                        <div class="simulation-content">
+                            <div class="simulation-description">
+                                <?php
+                                $commission = $block->format($simulation['total_cost']);
+                                $taeg = $simulation['effective_annual_percentage_rate'];
+                                $mtic = $simulation['total_cost'] + $simulation['payment_amount'];
+                                $tin = $simulation['nominal_annual_percentage_rate']; ?>
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <td><?= __('First payment :'.$cc) ?></td>
+                                        <td class="right">
+                                            <strong id="<?= $code ?>"><?php echo $block->format($simulation['down_payment_amount']); ?></strong>
+                                        </td>
+                                    </tr>
+                                    <tr class="next-instalments">
+                                        <td>
+                                            <p><?= __('Following %1 mensualities :'.$cc, count($simulation['instalments'])) ?></p>
+                                        </td>
+                                        <td class="right">
+                                            <p id="<?= $code ?>_instalment"><?php echo $block->format($simulation['instalments'][0]['instalment_amount']); ?></p>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <table>
+                                    <tbody>
+                                    <tr class="total">
+                                        <td><?= __('Total :'.$cc) ?></td>
+                                        <td class="right">
+                                            <strong id="<?= $code ?>_total"><?= $block->format($mtic) ?></strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <?= __('Credit cost included :'.$cc) ?>
+                                        </td>
+                                        <td class="right">
+                                            <strong id="<?= $code ?>_comm"><?= $commission ?></strong>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <ul>
+                                    <?php if ($block->useTaeg()) { ?>
+                                        <li>
+                                            <p class="taeg-oney <?= $block->getCssClassCountry() ?>"><?php echo __('TAEG:'.$cc); ?>
+                                                <span id="<?= $code ?>_taeg"><?= number_format($taeg, 1, ',', ''); ?> %</span>
+                                            </p>
+                                        </li>
+                                    <?php } ?>
+                                    <?php if ($block->useTin()) { ?>
+                                        <li class="right">
+                                            <p class="tin-oney"><?php echo __('TIN:'.$cc); ?>
+                                                <span id="<?= $code ?>_tin"><?= number_format($tin, 2, ',', ''); ?> %</span>
+                                            </p>
+                                        </li>
+                                    <?php } ?>
+                                    </li>
+                                </ul>
+                                <?php if ($block->isLegalEnabled()) { ?>
+                                    <ul>
+                                        <li>
+                                            <p class="mtic-oney"><?php echo __('MTIC:'.$cc); ?>
+                                                <span id="<?= $code ?>_mtic"><?= $block->format($mtic) ?></span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <?php if (end($simulations) !== $simulations[$key]): ?>
+                    <div class="or-line">
+                        <span class="liner"></span> <?= __('Or'.$cc) ?> <span
+                            class="liner"></span>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <?php if ($block->getAddLegalOnSimulation()): ?>
+                <?php
+                    $blockMentions = $this->getLayout()
+                        ->createBlock(Oney\ThreeByFour\Block\Pedagogique\Mentions::class);
+                    echo $blockMentions->toHtml()
+                ?>
+            <?php endif; ?>
+            <div class="close-simulation">
+                <p class="open-pedagogique_modal title bold-style"><?= __('Learn more'.$cc) ?></p>
+            </div>
+            <div class="centered">
+                <img class="logo-oney small" width="80"
+                     src="<?= $this->getViewFileUrl('Oney_ThreeByFour::images/oney.png') ?>"/>
+            </div>
+        </div>
+    </div>
+    <script type="text/x-magento-init">
+    {
+        "*": {
+            "Oney_ThreeByFour/js/action/checkout/manage-simulation": {}
+        }
+    }
+    </script>
+<?php } ?>

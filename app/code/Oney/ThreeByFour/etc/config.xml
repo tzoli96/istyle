@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store: etc/config.xsd">
+    <default>
+        <payment>
+            <oney_facilypay>
+                <can_order>1</can_order>
+                <is_gateway>1</is_gateway>
+                <model>Oney\ThreeByFour\Model\Method\Facilypay</model>
+            </oney_facilypay>
+        </payment>
+        <facilypay>
+            <general>
+                <automatic_ship>0</automatic_ship>
+                <url_api_preprod>https://oney-staging.azure-api.net/staging/</url_api_preprod>
+                <url_api_prod>https://api.oney.io/</url_api_prod>
+
+                <environnement>1</environnement>
+
+                <routes>
+                    <purchase>payments/v1/purchase/facilypay_url</purchase>
+                    <cancel>payments/v1/purchase/psp_guid/%s/merchant_guid/%s/reference/%s/action/cancel</cancel>
+                    <confirm>payments/v1/purchase/psp_guid/%s/merchant_guid/%s/reference/%s/action/confirm</confirm>
+                    <legal_notice>product_catalog/v1/legal_notice</legal_notice>
+                    <simulation>sale_support_tools/v1/simulation</simulation>
+                    <business_transactions>product_catalog/v1/business_transaction</business_transactions>
+                </routes>
+            </general>
+            <legal>
+                <credit_intermediary>0</credit_intermediary>
+                <exclusive>0</exclusive>
+            </legal>
+            <country_specifications>
+                <ES>
+                    <country>SP</country>
+                    <phone>^((\+|00)34|0|)6(\/?-? ?\.?[0-9]){8}$</phone>
+                    <postal>^[0-9]{5}$</postal>
+                    <simulation_legend>1</simulation_legend>
+                    <use_tin>1</use_tin>
+                    <use_taeg>1</use_taeg>
+                    <has_secure>1</has_secure>
+                </ES>
+                <IT>
+                    <country>IT</country>
+                    <phone>^((\+|00)39|0|)3(\/?-? ?\.?[0-9]){9}$</phone>
+                    <postal>^[0-9]{5}$</postal>
+                    <simulation_legend>1</simulation_legend>
+                    <has_secure>1</has_secure>
+                    <use_taeg>1</use_taeg>
+                </IT>
+                <RO>
+                    <country>RO</country>
+                    <phone>^((\+|00)40|0)7(\/?-? ?\.?[0-9]){8}$</phone>
+                    <postal>^[0-9]{6}$</postal>
+                    <simulation_legend>1</simulation_legend>
+                    <has_secure>1</has_secure>
+                    <use_taeg>1</use_taeg>
+                </RO>
+                <PT>
+                    <country>PT</country>
+                    <phone>^((\+|00)351|)9(1|2|3|6)(\/?-? ?\.?[0-9]){7}$</phone>
+                    <postal>^[0-9]{4}-[0-9]{3}$</postal>
+                    <simulation_legend>1</simulation_legend>
+                    <legal_banner>1</legal_banner>
+                    <legal_enabled>1</legal_enabled>
+                    <use_tin>1</use_tin>
+                    <full_logo_shown>1</full_logo_shown>
+                    <has_secure>0</has_secure>
+                    <use_taeg>1</use_taeg>
+                </PT>
+                <BE>
+                    <country>BE</country>
+                    <phone>^((\+|00)32|)4(\/?-? ?\.?[0-9]){8}$</phone>
+                    <postal>^[0-9]{4}$</postal>
+                    <simulation_legend>1</simulation_legend>
+                    <has_secure>0</has_secure>
+                    <add_country_code_translation>1</add_country_code_translation>
+                    <use_taeg>0</use_taeg>
+                </BE>
+                <FR>
+                    <country>FR</country>
+                    <phone>^((\+|00)33|0|)(6|7)(\/?-? ?\.?[0-9]){8}$</phone>
+                    <postal>^[0-9]{5}$</postal>
+                    <simulation_legend>1</simulation_legend>
+                    <has_secure>0</has_secure>
+                    <use_taeg>1</use_taeg>
+                    <add_an_instalment>1</add_an_instalment>
+                    <add_legal_on_simulation>1</add_legal_on_simulation>
+                </FR>
+            </country_specifications>
+        </facilypay>
+    </default>
+</config>

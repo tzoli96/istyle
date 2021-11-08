@@ -1,0 +1,48 @@
+<?php
+
+/** @var Oney\ThreeByFour\Block\Pedagogique\Mentions $this */
+$business_transactions = $this->getBusinessTransactions();
+$text = '';
+$website = $this->getBaseUrl();
+$minimum = 0;
+$maximum = 0;
+$cc = $this->addCountryCodeTranslation();
+$minMaxValues = [];
+foreach ($business_transactions as $key => $business) {
+    if (!isset($minMaxValues[$key])) {
+        $minMaxValues[$key] = [
+            'minimum' => 0,
+            'maximum' => 0
+        ];
+    }
+    if($business['min_amount'] < $minMaxValues[$key]['minimum'] || $minMaxValues[$key]['minimum'] == 0) {
+        $minMaxValues[$key]['minimum'] = $business['min_amount'];
+    }
+    if($business['max_amount'] > $minMaxValues[$key]['maximum'] || $minMaxValues[$key]['maximum'] == 0) {
+        $minMaxValues[$key]['maximum'] = $business['max_amount'];
+    }
+}
+?>
+
+<div class="footer_pedagogique">
+    <div class="legal-text">
+        Oﬀre de ﬁnancement sans assurance avec apport obligatoire, réservée aux particuliers et valable
+        pour tout achat<?php if (isset($minMaxValues[3])): ?> de <?php echo $minMaxValues[3]['minimum'] ?>€ à <?php echo $minMaxValues[3]['maximum'] ?>€ pour le 3 fois<?php endif; ?><?php if (isset($minMaxValues[3]) && isset($minMaxValues[4])): ?> et<?php endif;?><?php if (isset($minMaxValues[4])): ?> de <?php echo $minMaxValues[4]['minimum'] ?>€ à <?php echo $minMaxValues[4]['maximum'] ?>€ pour le 4 fois<?php endif; ?>. Sous réserve
+        d’acceptation par Oney Bank. Vous disposez d’un délai de 14 jours pour renoncer à votre crédit.
+        <br/>
+        <?php if (isset($minMaxValues[3])): ?>
+            Exemple en 3 fois pour un achat de 500€, apport de 173,92€ suivi d’1 mensualité de 166,67€ et d’1
+            mensualité de 166,66€. Crédit d’une durée de 2 mois au TAEG fixe de 19,26%. Coût du financement :
+            7,25€ dans la limite de 15€ maximum.
+            <br/>
+        <?php endif;?>
+        <?php if (isset($minMaxValues[4])): ?>
+            Exemple en 4 fois pour un achat de 1 000€, apport de 272€ puis 3 mensualités de 250€. Crédit d’une
+            durée de 3 mois au TAEG fixe de 19,61%. Coût du financement : 22€ dans la limite de 30€ maximum.
+            <br/>
+        <?php endif; ?>
+        Oney Bank - SA au capital de 51 286 585€ - 34 Avenue de Flandre 59 170 Croix - 546 380 197 RCS Lille
+        Métropole - n° Orias 07 023 261 www.orias.fr - Correspondance : CS 60 006 - 59895 Lille Cedex
+        - <a href="https://www.oney.fr/">www.oney.fr</a>
+    </div>
+</div>

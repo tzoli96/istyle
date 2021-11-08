@@ -1,0 +1,16 @@
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <dataSource name="facilypay_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">business_transaction_code</param>
+            </storageConfig>
+            <updateUrl path="*/*/render"/>
+        </settings>
+        <dataProvider class="Oney\ThreeByFour\Model\Api\Marketing\Collection\BusinessTransactions" name="facilypay_data_source">
+            <settings>
+                <requestFieldName>business_transaction_code</requestFieldName>
+                <primaryFieldName>business_transaction_code</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+</listing>

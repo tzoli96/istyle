@@ -1,0 +1,15 @@
+<?php
+
+/** @var Oney\ThreeByFour\Block\Pedagogique\Mentions $this */
+$cc = $this->addCountryCodeTranslation();
+
+?>
+<div class="footer_pedagogique">
+        <div class="legal-text"><?= __('banner_legal_text_pedago %1 %2'.$cc,
+            $this->getCompanyName(), $this->getExclusiveText()
+            )?>
+            <?php if($this->getOneyPdfUrl()): ?>
+                <a target="_blank" href="<?= $this->escapeUrl($this->getOneyPdfUrl()) ?>"><?= __("oney_here".$cc) ?></a>
+            <?php endif; ?>
+        </div>
+</div>

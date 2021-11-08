@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="oney_section" translate="label" sortOrder="6" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>
+                    <![CDATA[<div class='oney-payment-logo'></div><div class='oney-facilypay-text'>3x 4x ONEY: The buyer journey has never been that easy before! A payment solution in 3 or 4 instalments by credit card, simple, fast, convenient and secure, available on more than 450 online stores.</div>]]></label>
+                <fieldset_css>complex oney-section</fieldset_css>
+                <frontend_model>Magento\Paypal\Block\Adminhtml\System\Config\Fieldset\Payment</frontend_model>
+                <field id="oney_info" type="text" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <frontend_model>Oney\ThreeByFour\Block\Adminhtml\Info\Facilypay</frontend_model>
+                </field>
+                <group id="oney_api" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>API 3x 4x</label>
+                    <group id="general" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="1"
+                           showInStore="1">
+                        <label>General Configuration</label>
+                        <field id="environnement" translate="label" type="select" sortOrder="1" showInDefault="1"
+                               showInWebsite="1"
+                               showInStore="1">
+                            <label>Environment</label>
+                            <source_model>Oney\ThreeByFour\Model\Config\Source\Environment</source_model>
+                            <config_path>facilypay/general/environnement</config_path>
+                        </field>
+                        <field id="merchant_guid" translate="label" type="text" sortOrder="2" showInDefault="1"
+                               showInWebsite="1"
+                               showInStore="1">
+                            <label>Merchant GUID</label>
+                            <config_path>facilypay/general/merchant_guid</config_path>
+                        </field>
+                        <field id="secret_key" translate="label" type="text" sortOrder="3" showInDefault="1"
+                               showInWebsite="1"
+                               showInStore="1">
+                            <label>Secret Key</label>
+                            <config_path>facilypay/general/secret_key</config_path>
+                        </field>
+                        <field id="psp_guid" translate="label" type="text" sortOrder="4" showInDefault="1"
+                               showInWebsite="1"
+                               showInStore="1">
+                            <label>PSP GUID</label>
+                            <config_path>facilypay/general/psp_guid</config_path>
+                        </field>
+                        <field id="log_active" translate="label" type="select" sortOrder="5" showInDefault="1"
+                               showInWebsite="1"
+                               showInStore="1">
+                            <label>Active Logs</label>
+                            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                            <config_path>facilypay/general/log_active</config_path>
+                            <comment>Enable logs in 'var/log/oney.log'</comment>
+                        </field>
+                        <field id="automatic_ship" translate="label" type="select" sortOrder="6" showInDefault="1"
+                               showInWebsite="1"
+                               showInStore="1">
+                            <label>Automatic Confirmation</label>
+                            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                            <config_path>facilypay/general/automatic_ship</config_path>
+                        </field>
+                        <field id="categories" translate="label" type="select" sortOrder="7" showInDefault="1"
+                               showInWebsite="1"
+                               showInStore="1">
+                            <label>Website Type</label>
+                            <config_path>facilypay/general/category</config_path>
+                            <source_model>Oney\ThreeByFour\Model\Config\Source\CategoryOney</source_model>
+                            <validate>required-entry validate-select</validate>
+                        </field>
+                    </group>
+                    <group id="api" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                           showInStore="1">
+                        <label>Api Keys</label>
+                        <field id="api_marketing" translate="label" type="text" sortOrder="1" showInDefault="1"
+                               showInWebsite="1" showInStore="1">
+                            <label>Marketing Api Key</label>
+                            <config_path>facilypay/api/api_marketing</config_path>
+                        </field>
+                        <field id="api_payment" translate="label" type="text" sortOrder="1" showInDefault="1"
+                               showInWebsite="1"
+                               showInStore="1">
+                            <label>Payment Api Key</label>
+                            <config_path>facilypay/api/api_payment</config_path>
+                        </field>
+                    </group>
+                </group>
+                <group id="oney_payments" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Oney Payments</label>
+                </group>
+                <group id="oney_front" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Template Options</label>
+                    <field id="horizontal" translate="label comment" type="select" sortOrder="21" showInDefault="1"
+                           showInWebsite="1"
+                           showInStore="1">
+                        <label>Horizontal Banner</label>
+                        <source_model>Oney\ThreeByFour\Model\Config\Source\ShowHide</source_model>
+                        <comment>This option show or hide the horizontal banner present on your store home page.
+                        </comment>
+                        <config_path>facilypay/front/horizontal_enabled</config_path>
+                    </field>
+                    <field id="vertical" translate="label comment" type="select" sortOrder="22" showInDefault="1"
+                           showInWebsite="1"
+                           showInStore="1">
+                        <label>Vertical Banner</label>
+                        <source_model>Oney\ThreeByFour\Model\Config\Source\ShowHide</source_model>
+                        <config_path>facilypay/front/vertical_enabled</config_path>
+                        <comment>This option show or hide the vertical banner present on your store catalogue page.
+                        </comment>
+                    </field>
+                </group>
+                <group id="oney_legal" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Legal Notice</label>
+                    <depends>
+                        <field id="general/country/default">PT</field>
+                    </depends>
+                    <field id="credit_intermediary" translate="label" sortOrder="0" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Credit Intermediary</label>
+                        <config_path>facilypay/legal/credit_intermediary</config_path>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="exclusive" translate="label" sortOrder="0" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Exclusivity Regime</label>
+                        <depends>
+                            <field id="credit_intermediary">1</field>
+                        </depends>
+                        <config_path>facilypay/legal/exclusive</config_path>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="company_name" translate="label" sortOrder="1" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Legal designation of the company</label>
+                        <depends>
+                            <field id="credit_intermediary">1</field>
+                        </depends>
+                        <config_path>facilypay/legal/company_name</config_path>
+                    </field>
+                    <field id="document" translate="label" type="Magento\Config\Block\System\Config\Form\Field\File" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Legal document</label>
+                        <depends>
+                            <field id="credit_intermediary">1</field>
+                        </depends>
+                        <backend_model>Oney\ThreeByFour\Model\Config\Backend\File</backend_model>
+                        <upload_dir config="system" scope_info="1">oney</upload_dir>
+                        <comment>This document will be placed under /pub/media/oney/{store}/</comment>
+                        <config_path>facilypay/legal/document</config_path>
+                    </field>
+                </group>
+            </group>
+        </section>
+    </system>
+</config>

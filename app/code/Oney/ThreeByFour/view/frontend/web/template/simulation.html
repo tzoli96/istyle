@@ -1,0 +1,11 @@
+<span class="bulle x-time big-bulle">
+    <span data-bind="text: getInstalmentsCount()"></span>
+    <span>x</span>
+</span>
+<div class="description-popin">
+    <p class="price-popin-oney bold" data-bind="text: renderAmount()"></p>
+    <p data-bind="text: renderCommission()"></p>
+    <p data-bind="i18n: without fee"></p>
+    <p class="taeg-oney" data-bind="text: renderTaeg()"></p>
+    <p class="tin-oney" data-bind="hidden: use_tin, text: renderTin()"></p>
+</div>

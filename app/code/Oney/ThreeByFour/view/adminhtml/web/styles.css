@@ -1,0 +1,43 @@
+.oney-section .button-container {
+    float: right;
+}
+
+.oney-section .oney-facilypay-text {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    font-weight: normal;
+}
+
+.oney-payment-logo {
+    background: url('images/oney.png') no-repeat 0 50% / 16rem auto;
+    height: 70px;
+    width: auto;
+    padding-left: 20rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+.oney-section.section-config.active > .admin__collapsible-block + input + fieldset {
+    margin-left: 40px;
+}
+
+.nr-custom-infobox.oney {
+    padding-left: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.nr-custom-infobox.oney.success {
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    background: #d4edda;
+}
+.nr-custom-infobox.oney.warning {
+    border: 1px solid #ffeeba;
+    background: #fff3cd;
+    color: #856404;
+}
+.nr-custom-infobox.oney.error {
+    border: 1px solid #f5c6cb;
+    background: #f8d7da;
+    color: #721c24;
+}

@@ -1,0 +1,33 @@
+<?php
+/** @var Oney\ThreeByFour\Block\Catalog\Product $this */
+$i = 0;
+$simulations = $this->getInstalments();
+$cc = $this->addCountryCodeTranslation();
+if (!empty($simulations)) {
+    ?>
+    <?php if (!$this->isCreditIntermediary() && $this->isLegalEnabled()): ?>
+        <div class="payin-oney">
+            <img class="centered oney-34-logo"
+                 src="<?= $this->escapeUrl($this->getViewFileUrl('Oney_ThreeByFour::images/34oneytime.png')) ?>"/>
+        </div>
+    <?php else : ?>
+        <div class="payin-oney" <?php if ($this->getIsConfigurable()): ?>style="display: none"<?php endif; ?>>
+            <p><?= __('Or pay in'.$cc) ?></p>
+            <?php foreach ($simulations as $key => $simulation) {
+                if (++$i === count($simulations)
+                    && count($simulations) > 1) {
+                    ?>
+                    <p><?= __("Or".$cc) ?></p>
+                <?php } ?>
+                <span class="bulle small-bulle">
+                        <span><?= (count($simulation['instalments']) + 1) ?></span>
+                        <span>x</span>
+                    </span>
+            <?php } ?>
+            <p><?= __('with your credit card'.$cc) ?></p>
+            <span class="title open-simulation"><img
+                    src="<?= $this->getViewFileUrl('Oney_ThreeByFour::images/interog.png') ?>"/>
+            </span>
+        </div>
+    <?php endif; ?>
+<?php } ?>

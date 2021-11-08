@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Oney_ThreeByFour::css/oney.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Oney\ThreeByFour\Block\Homepage"
+                   name="oney.homepage.banner"
+                   after="-"/>
+            <block class="Oney\ThreeByFour\Block\Pedagogique\Modal"
+                   name="oney.cart.modal"/>
+        </referenceContainer>
+    </body>
+</page>
