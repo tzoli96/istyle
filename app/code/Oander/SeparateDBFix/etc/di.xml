@@ -14,4 +14,9 @@
         <plugin name="SeparateDBFix::ResourceModelQuote" type="Oander\SeparateDBFix\Plugin\Magento\Quote\Model\ResourceModel\Quote" sortOrder="1"/>
     </type>
     <!-- #49441 END -->
+    <!-- #55172 START -->
+    <type name="Magento\Quote\Model\Quote">
+        <plugin name="Oander_SeparateDBFix_Plugin_Frontend_Magento_Quote_Model_Quote" type="Oander\SeparateDBFix\Plugin\Frontend\Magento\Quote\Model\Quote" sortOrder="10" disabled="false"/>
+    </type>
+    <!-- #55172 END -->
 </config>
