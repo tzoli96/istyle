@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- #44918 START -->
+    <preference for="Magento\Checkout\Api\ShippingInformationManagementInterface" type="Oander\SeparateDBFix\Preference\Magento\Checkout\Model\ShippingInformationManagement" />
+    <type name="Magento\Quote\Model\PaymentMethodManagement">
+        <plugin name="SeparateDBFix::PaymentMethodObserver" type="Oander\SeparateDBFix\Plugin\Magento\Quote\Model\PaymentMethodManagement" sortOrder="100"/>
+    </type>
+    <!-- #44918 END -->
+    <!-- #49441 START -->
+    <type name="Magento\Quote\Model\QuoteRepository">
+        <plugin name="SeparateDBFix::QuoteRepository" type="Oander\SeparateDBFix\Plugin\Magento\Quote\Model\QuoteRepository" sortOrder="1"/>
+    </type>
+    <type name="Magento\Quote\Model\ResourceModel\Quote">
+        <plugin name="SeparateDBFix::ResourceModelQuote" type="Oander\SeparateDBFix\Plugin\Magento\Quote\Model\ResourceModel\Quote" sortOrder="1"/>
+    </type>
+    <!-- #49441 END -->
+</config>

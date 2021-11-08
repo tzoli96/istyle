@@ -1,12 +1,12 @@
 <?php
 
-namespace Oander\IstyleCustomization\Plugin\Magento\Quote\Model\ResourceModel;
+namespace Oander\SeparateDBFix\Plugin\Magento\Quote\Model\ResourceModel;
 
-use Oander\IstyleCustomization\Plugin\Magento\Quote\Model\QuoteRepository;
+use Oander\SeparateDBFix\Plugin\Magento\Quote\Model\QuoteRepository;
 
 /**
  * Class Quote
- * @package Oander\IstyleCustomization\Plugin\Magento\Quote\Model\ResourceModel
+ * @package Oander\SeparateDBFix\Plugin\Magento\Quote\Model\ResourceModel
  */
 class Quote
 {

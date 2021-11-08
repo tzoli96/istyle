@@ -1,6 +1,6 @@
 <?php
 
-namespace Oander\IstyleCustomization\Plugin\Magento\Quote\Model;
+namespace Oander\SeparateDBFix\Plugin\Magento\Quote\Model;
 
 
 class PaymentMethodManagement

@@ -1,6 +1,6 @@
 <?php
 
-namespace Oander\IstyleCustomization\Preference\Magento\Checkout\Model;
+namespace Oander\SeparateDBFix\Preference\Magento\Checkout\Model;
 
 
 use Magento\Framework\App\ObjectManager;

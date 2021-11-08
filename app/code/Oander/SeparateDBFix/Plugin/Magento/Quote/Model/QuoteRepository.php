@@ -1,13 +1,13 @@
 <?php
 
-namespace Oander\IstyleCustomization\Plugin\Magento\Quote\Model;
+namespace Oander\SeparateDBFix\Plugin\Magento\Quote\Model;
 
 use Magento\Eav\Api\AttributeRepositoryInterface;
 use Magento\Framework\Api\SearchCriteriaBuilder;
 
 /**
  * Class QuoteRepository
- * @package Oander\IstyleCustomization\Plugin\Magento\Quote\Model
+ * @package Oander\SeparateDBFix\Plugin\Magento\Quote\Model
  */
 class QuoteRepository
 {
