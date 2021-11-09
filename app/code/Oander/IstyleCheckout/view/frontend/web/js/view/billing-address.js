@@ -511,6 +511,8 @@ define([
                     }
                     else {
                       elem = formElements.form.querySelector('[name="' + item + '[0]"]');
+                      elem.value = value;
+                      elem.dispatchEvent(new Event('change'));
                     }
                   }
                 }
