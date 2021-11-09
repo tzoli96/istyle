@@ -3,7 +3,6 @@
 namespace Oney\ThreeByFour\Block\Catalog;
 
 use Magento\Catalog\Api\ProductRepositoryInterface;
-use Magento\Catalog\Helper\Data as TaxHelper;
 use Magento\Catalog\Model\ProductTypes\ConfigInterface;
 use Magento\Customer\Model\Session;
 use Magento\Framework\Json\EncoderInterface;
@@ -29,7 +28,7 @@ class Product extends \Magento\Catalog\Block\Product\View
      */
     protected $configHelper;
 
-    protected $taxHelper;
+    protected $taxHelper = null;
 
     protected $isConfigurable = false;
 
@@ -52,13 +51,12 @@ class Product extends \Magento\Catalog\Block\Product\View
         Session $customerSession,
         ProductRepositoryInterface $productRepository,
         PriceCurrencyInterface $priceCurrency,
-        TaxHelper $taxHelper,
         \Magento\Framework\Pricing\Helper\Data $pricingHelper,
         array $data = [])
     {
         parent::__construct($context, $urlEncoder, $jsonEncoder, $string, $productHelper, $productTypeConfig, $localeFormat, $customerSession, $productRepository, $priceCurrency, $data);
         $this->configHelper = $configHelper;
-        $this->taxHelper = $taxHelper;
+        $this->taxHelper = $context->getCatalogHelper();
         $this->pricingHelper = $pricingHelper;
         if($configHelper->getCountrySpecificationsConfigValue('country')) {
             $this->checkAndSetTemplate('catalog/product.phtml');

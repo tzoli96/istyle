@@ -5,7 +5,6 @@ namespace Oney\ThreeByFour\Block\Catalog;
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Catalog\Block\Product\Context;
 use Magento\Catalog\Block\Product\View;
-use Magento\Catalog\Helper\Data as TaxHelper;
 use Magento\Catalog\Model\ProductTypes\ConfigInterface;
 use Magento\Checkout\Model\Session;
 use Magento\Framework\Locale\FormatInterface;
@@ -39,7 +38,7 @@ class Simulation extends View
 
     protected $simulation_content_classes;
 
-    protected $taxHelper;
+    protected $taxHelper = null;
 
 
     public function __construct(
@@ -56,7 +55,6 @@ class Simulation extends View
         \Magento\Framework\Pricing\Helper\Data $pricingHelper,
         SimulationInterface $simulation,
         Config $helperConfig,
-        TaxHelper $taxHelper,
         array $data = [])
     {
         $this->_simulationOney = $simulation;
@@ -64,7 +62,7 @@ class Simulation extends View
         parent::__construct($context, $urlEncoder, $jsonEncoder, $string, $productHelper, $productTypeConfig, $localeFormat, $customerSession, $productRepository, $priceCurrency, $data);
         $this->checkAndSetTemplate('catalog/simulation.phtml');
         $this->pricingHelper = $pricingHelper;
-        $this->taxHelper = $taxHelper;
+        $this->taxHelper = $context->getCatalogHelper();
     }
 
     public function getSimulations()

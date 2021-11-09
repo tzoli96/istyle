@@ -5,7 +5,6 @@ namespace Oney\ThreeByFour\Controller\Place;
 use Magento\Checkout\Model\Session;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
-use Magento\Framework\UrlInterface;
 use Magento\Sales\Api\OrderRepositoryInterface;
 use Magento\Sales\Model\Order;
 
@@ -16,10 +15,6 @@ class Payment extends Action
      */
     protected $_checkoutSession;
     /**
-     * @var UrlInterface
-     */
-    protected $urlBuilder;
-    /**
      * @var OrderRepositoryInterface
      */
     protected $orderRepository;
@@ -29,17 +24,15 @@ class Payment extends Action
      *
      * @param Context                  $context
      * @param Session                  $checkoutSession
-     * @param UrlInterface             $url
      * @param OrderRepositoryInterface $orderRepository
      */
     public function __construct(
         Context $context,
         Session $checkoutSession,
-        UrlInterface $url,
         OrderRepositoryInterface $orderRepository
     )
     {
-        $this->urlBuilder = $url;
+        $this->urlBuilder = $this->_url;
         $this->_checkoutSession = $checkoutSession;
         parent::__construct($context);
         $this->orderRepository = $orderRepository;
