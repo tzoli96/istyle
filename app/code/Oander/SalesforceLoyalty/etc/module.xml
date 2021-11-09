@@ -4,6 +4,7 @@
 		<sequence>
 			<module name="Oander_Salesforce"/>
 			<module name="Oander_IstyleCheckout"/>
+			<module name="Magento_Sales"/>
 		</sequence>
 	</module>
 </config>

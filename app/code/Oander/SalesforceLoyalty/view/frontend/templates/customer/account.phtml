@@ -71,6 +71,7 @@
 <?php } else { ?>
     <div class="row">
         <div class="col-12 col-lg-8">
+            <?=   $block->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId($block->getPromoBlockId())->toHtml();?>
             <form
                 id="registration"
                 action="/salesforceloyalty/customer/loyaltyregistrationprocess"
@@ -87,7 +88,7 @@
                     id="loyalty-registration"
                     type="submit"
                     class="action primary"
-                    value="<?php /* @escapeNotVerified */ echo __('Create an Account') ?>"
+                    value="<?php /* @escapeNotVerified */ echo __(' Loyalty subscription') ?>"
                     disabled
                 >
                 <script type="text/javascript">

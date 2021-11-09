@@ -16,6 +16,7 @@ use Magento\Store\Model\StoreManagerInterface;
 class Data extends AbstractHelper
 {
     const MAREKINTG_STATIC_BLOCK = "temporary_period_loyalty_registration_block_";
+    const PROMO_STATIC_BLOCK = "loyalty_promo_block_";
 
     CONST REGISTRY_MAX_REDEEMBLE_POINTS = "maxredeemablepoints";
     /**
@@ -190,6 +191,14 @@ class Data extends AbstractHelper
     public function getBlockId()
     {
         return self::MAREKINTG_STATIC_BLOCK.$this->storeManager->getStore()->getCode();
+    }
+
+    /**
+     * @return string
+     */
+    public function getPromoBlockId()
+    {
+        return self::PROMO_STATIC_BLOCK.$this->storeManager->getStore()->getCode();
     }
 
     /**
