@@ -22,6 +22,11 @@ class AddressAttributesOrder extends \Magento\Config\Block\System\Config\Form\Fi
     protected $addressAttributes = null;
 
     /**
+     * @var null | Oander\IstyleCustomization\Block\System\Form\Field\Width
+     */
+    protected $width = null;
+
+    /**
      * Returns true if the addAfter directive is set
      *
      * @return bool
@@ -46,6 +51,23 @@ class AddressAttributesOrder extends \Magento\Config\Block\System\Config\Form\Fi
         }
 
         return $this->addressAttributes;
+    }
+
+    /**
+     * @return \Magento\Framework\View\Element\BlockInterface|\Oander\IstyleCustomization\Block\System\Form\Field\Width
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
+    protected function getWidthRenderer()
+    {
+        if (!$this->width) {
+            $this->width = $this->getLayout()->createBlock(
+                \Oander\IstyleCustomization\Block\System\Form\Field\Width::class,
+                '',
+                ['data' => ['is_render_to_js_template' => true]]
+            );
+        }
+
+        return $this->width;
     }
 
     /**
@@ -83,6 +105,13 @@ class AddressAttributesOrder extends \Magento\Config\Block\System\Config\Form\Fi
                 'type' => 'number',
             ]
         );
+        $this->addColumn(
+            AddressAttributeEnum::COLUMN_WIDTH,
+            [
+                'label' => __('Width'),
+                'renderer' => $this->getWidthRenderer(),
+            ]
+        );
     }
 
     /**
@@ -93,10 +122,14 @@ class AddressAttributesOrder extends \Magento\Config\Block\System\Config\Form\Fi
         \Magento\Framework\DataObject $row
     ) {
 
-        $attribute = $row->getData('attribute');
+        $attribute = $row->getData(AddressAttributeEnum::COLUMN_ATTRIBUTE);
+        $width = $row->getData(AddressAttributeEnum::COLUMN_WIDTH);
         $options = [];
         if (is_string($attribute)) {
             $options['option_' . $this->getAddressAttributesRenderer()->calcOptionHash($attribute)] = 'selected="selected"';
+        }
+        if (is_string($attribute)) {
+            $options['option_' . $this->getWidthRenderer()->calcOptionHash($width)] = 'selected="selected"';
         }
 
         $row->setData('option_extra_attrs', $options);

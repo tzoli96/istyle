@@ -288,6 +288,7 @@ class Config extends AbstractHelper
                             AddressAttributeEnum::COLUMN_INDIVIDUAL_POSITION => empty($attribute[AddressAttributeEnum::COLUMN_INDIVIDUAL_POSITION])? null: (int)$attribute[AddressAttributeEnum::COLUMN_INDIVIDUAL_POSITION],
                             AddressAttributeEnum::COLUMN_COMPANY_POSITION => empty($attribute[AddressAttributeEnum::COLUMN_COMPANY_POSITION])? null: (int)$attribute[AddressAttributeEnum::COLUMN_COMPANY_POSITION],
                             AddressAttributeEnum::COLUMN_DEFAULT_POSITION => empty($attribute[AddressAttributeEnum::COLUMN_DEFAULT_POSITION])? null: (int)$attribute[AddressAttributeEnum::COLUMN_DEFAULT_POSITION],
+                            AddressAttributeEnum::COLUMN_WIDTH => empty($attribute[AddressAttributeEnum::COLUMN_WIDTH])? null: (int)$attribute[AddressAttributeEnum::COLUMN_WIDTH],
                         ];
                     }
                 }

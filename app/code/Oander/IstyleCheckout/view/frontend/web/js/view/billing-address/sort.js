@@ -5,7 +5,7 @@ define([
   var sort = {
     /**
      * Get address attributes positions
-     * @returns {[key: string]: any>}
+     * @returns {[key: string]: any}
      */
     getAddressAttributesPositions: function () {
       return window.checkoutConfig.addressAttributesPositions;
@@ -41,10 +41,10 @@ define([
 
           switch (formId) {
             case 'billing-person':
-              self.setOrder(elem, orders.individual_position);
+              self.setOrder(elem, orders.individual_position, orders.width);
               break;
             case 'billing-company':
-              self.setOrder(elem, orders.company_position);
+              self.setOrder(elem, orders.company_position, orders.width);
               break;
           }
         }
@@ -57,7 +57,7 @@ define([
      * @param {number} order
      * @returns {void}
      */
-    setOrder: function (elem, order) {
+    setOrder: function (elem, order, width) {
       var billingAddressBlock = document.querySelector('.block.block--billing-address');
 
       if (elem) {
@@ -71,6 +71,8 @@ define([
           elem.style.order = order;
           if (field) field.setAttribute('tabindex', order);
         }
+
+        if (width === 100) elem.classList.add('w-100');
 
         billingAddressBlock.classList.remove('is-loading');
       }
@@ -98,6 +100,12 @@ define([
       var hasCompany = false;
 
       positions['vatId'] = positions['vat_id'];
+
+      if (address.customAttributes) {
+        if (address.customAttributes.pfpj_reg_no) {
+          address['pfpj_reg_no'] = address.customAttributes.pfpj_reg_no;
+        }
+      }
 
       for (var data in address) {
         for (var p in positions) {
@@ -163,7 +171,7 @@ define([
 
       card = '<div class="card__head">' + cardHead + '</div><div class="card__content">' + cardContent + '</div>';
       return card;
-    }
+    },
   };
 
   return sort;

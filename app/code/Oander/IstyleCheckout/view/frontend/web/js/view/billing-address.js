@@ -501,14 +501,25 @@ define([
                 var value = address[item];
 
                 if (item == 'street') {
-                  elem = formElements.form.querySelector('[name="' + item + '[0]"]');
+                  if (Array.isArray(value)) {
+                    if (value.length > 1) {
+                      for (var streetItem in value) {
+                        elem = formElements.form.querySelector('[name="' + item + '['+ streetItem +']"]');
+                        elem.value = value[streetItem];
+                        elem.dispatchEvent(new Event('change'));
+                      }
+                    }
+                    else {
+                      elem = formElements.form.querySelector('[name="' + item + '[0]"]');
+                    }
+                  }
                 }
 
                 if (item == 'vatId') {
                   elem = formElements.form.querySelector('[name="vat_id"]');
                 }
 
-                if (value !== undefined && value !== null) {
+                if (value !== undefined && value !== null && !Array.isArray(value)) {
                   if (elem) {
                     elem.value = value;
                     elem.dispatchEvent(new Event('change'));

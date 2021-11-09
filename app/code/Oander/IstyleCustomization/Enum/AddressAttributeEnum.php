@@ -14,4 +14,5 @@ class AddressAttributeEnum
     const COLUMN_INDIVIDUAL_POSITION = 'individual_position';
     const COLUMN_COMPANY_POSITION = 'company_position';
     const COLUMN_DEFAULT_POSITION = 'default_position';
+    const COLUMN_WIDTH = 'width';
 }

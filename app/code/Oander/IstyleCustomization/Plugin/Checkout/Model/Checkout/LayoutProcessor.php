@@ -480,6 +480,18 @@ class LayoutProcessor
                     $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
                     [$shippingAddressAttributeCode]['sortOrder'] = $addressAttributesPositions[$shippingAddressAttributeCode][AddressAttributeEnum::COLUMN_INDIVIDUAL_POSITION];
                 }
+
+                if (isset($addressAttributesPositions[$shippingAddressAttributeCode][AddressAttributeEnum::COLUMN_WIDTH]))
+                {
+                    if ($addressAttributesPositions[$shippingAddressAttributeCode][AddressAttributeEnum::COLUMN_WIDTH] == 100)
+                    {
+                        $additionalClasses = $shippingAddressAttributeValue['additionalClasses'] ?? '';
+                        $additionalClasses .= "w-100";
+
+                        $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
+                        [$shippingAddressAttributeCode]['additionalClasses'] = $additionalClasses;
+                    }
+                }
             }
         }
 
