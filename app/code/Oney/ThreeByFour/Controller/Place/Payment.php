@@ -32,7 +32,6 @@ class Payment extends Action
         OrderRepositoryInterface $orderRepository
     )
     {
-        $this->urlBuilder = $this->_url;
         $this->_checkoutSession = $checkoutSession;
         parent::__construct($context);
         $this->orderRepository = $orderRepository;
@@ -51,7 +50,7 @@ class Payment extends Action
             $this->_checkoutSession->setOneyResponse('oney_reponse', null);
             $this->_redirect($returned_url['returned_url']);
         } catch (\Exception $e) {
-            $this->_redirect($this->urlBuilder->getUrl('checkout/onepage/failure'));
+            $this->_redirect($this->_url->getUrl('checkout/onepage/failure'));
         }
     }
 }
