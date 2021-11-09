@@ -105,4 +105,12 @@ class Account extends \Magento\Framework\View\Element\Template
     {
         return $this->helperData->getBlockId();
     }
+
+    /**
+     * @return string
+     */
+    public function getPromoBlockId()
+    {
+        return $this->helperData->getPromoBlockId();
+    }
 }

@@ -120,6 +120,25 @@ class UpgradeData implements UpgradeDataInterface
         if (version_compare($context->getVersion(), "1.0.9", "<")) {
             $this->addTemporaryPeriodBlock();
         }
+        if (version_compare($context->getVersion(), "1.1.0", "<")) {
+            $this->loyaltyPromoBlock();
+        }
+    }
+
+    private function loyaltyPromoBlock()
+    {
+        $stores = $this->storeRepository->getList();
+        $storeIds = [];
+
+        foreach($stores as $store)
+        {
+            $this->blockFactory->create()->setData([
+                'title' => 'Loyalty Promo Block '.$store->getCode(),
+                'identifier' => 'loyalty_promo_block_'.$store->getCode(),
+                'stores' => $storeIds,
+                'is_active' => 1,
+            ])->save();
+        }
     }
 
     /**
