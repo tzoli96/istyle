@@ -485,8 +485,11 @@ class LayoutProcessor
                 {
                     if ($addressAttributesPositions[$shippingAddressAttributeCode][AddressAttributeEnum::COLUMN_WIDTH] == 100)
                     {
+                        $additionalClasses = $shippingAddressAttributeValue['additionalClasses'] ?? '';
+                        $additionalClasses .= "w-100";
+
                         $jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]
-                        [$shippingAddressAttributeCode]['additionalClasses'] = "w-100";
+                        [$shippingAddressAttributeCode]['additionalClasses'] = $additionalClasses;
                     }
                 }
             }
