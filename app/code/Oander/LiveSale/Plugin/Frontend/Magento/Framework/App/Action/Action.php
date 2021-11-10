@@ -34,6 +34,7 @@ class Action
         if($this->scopeConfig->isSetFlag("livesale/general/enabled",\Magento\Store\Model\ScopeInterface::SCOPE_STORE)) {
             if($this->scopeConfig->getValue("livesale/general/policy_url",\Magento\Store\Model\ScopeInterface::SCOPE_STORE)) {
                 $result->setHeader("Content-Security-Policy", "frame-ancestors " . $this->scopeConfig->getValue("livesale/general/policy_url", \Magento\Store\Model\ScopeInterface::SCOPE_STORE));
+                $result->setHeader("Access-Control-Allow-Origin", $this->scopeConfig->getValue("livesale/general/policy_url", \Magento\Store\Model\ScopeInterface::SCOPE_STORE));
             }
         }
         return $result;
