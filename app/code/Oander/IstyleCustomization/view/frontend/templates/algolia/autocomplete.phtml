@@ -19,9 +19,10 @@ if ($config->isDefaultSelector()): ?>
                 <i class="icon icon-close"></i>
             </a>
         </div>
-
-        <div class="block block-content header-search-content" style="display: none"
-             data-mage-init='{"dropdownDialog":{
+        <div
+            class="block block-content header-search-content"
+            style="display: none"
+            data-mage-init='{"dropdownDialog":{
                 "triggerTarget":"#algolia-showsearch",
                 "appendTo":"#algolia-header-search",
                 "timeout": "0",
@@ -29,8 +30,13 @@ if ($config->isDefaultSelector()): ?>
                 "closeOnEscape": true,
                 "triggerClass":"active",
                 "parentClass":"active",
-                "buttons":[]}}'>
-            <form id="search_mini_form" action="<?php echo $catalogSearchHelper->getResultUrl() ?>" method="get">
+                "buttons":[]}}'
+            >
+            <form
+                id="search_mini_form"
+                action="<?php echo $catalogSearchHelper->getResultUrl() ?>"
+                method="get"
+            >
                 <div id="algolia-searchbox">
                     <label for="search"><?php echo __('Search:') ?></label>
                     <input id="search" type="text" name="<?php echo $catalogSearchHelper->getQueryParamName() ?>" class="input-text form-control algolia-search-input" autocomplete="off" spellcheck="false" autocorrect="off" autocapitalize="off" placeholder="<?php echo $placeholder; ?>" />
@@ -41,4 +47,53 @@ if ($config->isDefaultSelector()): ?>
             </form>
         </div>
     </div>
+    <script>
+        const navigation = document.querySelector('.navigation-cms');
+        const navigationItems = navigation.querySelectorAll('.nav-item');
+        const algoliaSearch = document.getElementById('algolia-header-search');
+        const searcButtton = document.getElementById('algolia-showsearch');
+        const navigationCms = document.querySelector('nav.navigation-cms');
+        const searchContent = document.querySelector('.header-search-content');
+        const searchInput = document.querySelector('#algolia-header-search #search');
+        let backDropClearSearchBoolean = false;
+
+        window.algoliaJsLoaded = false;
+
+        searcButtton.addEventListener('click', (e) => {
+			if (!window.algoliaJsLoaded) {
+				e.preventDefault();
+
+                if (searchContent.classList.value.includes('ui-dialog-content')) {
+                    if (!algoliaSearch.classList.value.includes('active')) {
+                        algoliaSearch.classList.add('active');
+                        searcButtton.classList.add('active');
+                        navigationCms.classList.add('hidden');
+                        document.querySelector('.page-header-backdrop').classList.add('show');
+                        setTimeout(function () {
+                            searchInput.focus();
+                        }, 600);
+                    } else {
+                        algoliaSearch.classList.remove('active');
+                        searcButtton.classList.remove('active');
+                        navigationCms.classList.remove('hidden');
+                        document.querySelector('.page-header-backdrop').classList.remove('show');
+                    }
+                }
+
+                document.addEventListener('click', backDropClearSearch, false);
+				backDropClearSearchBoolean = true;
+			} else {
+				if (backDropClearSearchBoolean) {
+					document.removeEventListener('click', backDropClearSearch, false);
+					backDropClearSearchBoolean = false;
+				}
+			}
+        });
+
+        function backDropClearSearch(e) {
+            if (algoliaSearch.classList.value.includes('active') && !algoliaSearch.contains(e.target)) {
+                document.querySelector('.page-header-backdrop').classList.remove('show');
+            }
+        }
+    </script>
 <?php endif; ?>
