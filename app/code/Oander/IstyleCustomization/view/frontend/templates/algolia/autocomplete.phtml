@@ -51,7 +51,7 @@ if ($config->isDefaultSelector()): ?>
         const navigation = document.querySelector('.navigation-cms');
         const navigationItems = navigation.querySelectorAll('.nav-item');
         const algoliaSearch = document.getElementById('algolia-header-search');
-        const searcButtton = document.getElementById('algolia-showsearch');
+        const searchButtton = document.getElementById('algolia-showsearch');
         const navigationCms = document.querySelector('nav.navigation-cms');
         const searchContent = document.querySelector('.header-search-content');
         const searchInput = document.querySelector('#algolia-header-search #search');
@@ -59,14 +59,14 @@ if ($config->isDefaultSelector()): ?>
 
         window.algoliaJsLoaded = false;
 
-        searcButtton.addEventListener('click', (e) => {
+        searchButtton.addEventListener('click', (e) => {
 			if (!window.algoliaJsLoaded) {
 				e.preventDefault();
 
                 if (searchContent.classList.value.includes('ui-dialog-content')) {
                     if (!algoliaSearch.classList.value.includes('active')) {
                         algoliaSearch.classList.add('active');
-                        searcButtton.classList.add('active');
+                        searchButtton.classList.add('active');
                         navigationCms.classList.add('hidden');
                         document.querySelector('.page-header-backdrop').classList.add('show');
                         setTimeout(function () {
@@ -74,7 +74,7 @@ if ($config->isDefaultSelector()): ?>
                         }, 600);
                     } else {
                         algoliaSearch.classList.remove('active');
-                        searcButtton.classList.remove('active');
+                        searchButtton.classList.remove('active');
                         navigationCms.classList.remove('hidden');
                         document.querySelector('.page-header-backdrop').classList.remove('show');
                     }
