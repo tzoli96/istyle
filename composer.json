@@ -220,7 +220,8 @@
                 "Totals changes": "patches/magento/module-sales/totals.patch"
             },
             "magento/module-quote": {
-                "requested option doesnt exits": "patches/magento/module-quote/requested_option.patch"
+                "requested option doesnt exits": "patches/magento/module-quote/requested_option.patch",
+                "SeparateDB #55172": "patches/magento/module-quote/SeparateDB.patch"
             },
             "magento/module-eav": {
                 "MAGETWO-71136 attribute-cache-fix #46266": "patches/magento/module-eav/46266_attribute_cache_fix_MAGETWO-71136.patch"

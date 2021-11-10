@@ -1,0 +1,27 @@
+diff --git a/Model/Quote.php b/Model/Quote.php
+index a7fd735f..85a56dee 100644
+--- a/Model/Quote.php
++++ b/Model/Quote.php
+@@ -1093,14 +1093,20 @@ class Quote extends AbstractExtensibleModel implements \Magento\Quote\Api\Data\C
+     public function getAddressesCollection()
+     {
+         if (null === $this->_addresses) {
+-            $this->_addresses = $this->_quoteAddressFactory->create()->getCollection()->setQuoteFilter($this->getId());
+-
++            if($this->_registry->registry("oander_qa_" . $this->getEntityId())) {
++                $this->_addresses = $this->_registry->registry("oander_qa_" . $this->getEntityId());
++            }
++            else {
++                $this->_addresses = $this->_quoteAddressFactory->create()->getCollection()->setQuoteFilter($this->getId());
++            }
+             if ($this->getId()) {
+                 foreach ($this->_addresses as $address) {
+                     $address->setQuote($this);
+                 }
+             }
+         }
++        $this->_registry->unregister("oander_qa_" . $this->getEntityId());
++        $this->_registry->register("oander_qa_" . $this->getEntityId(), $this->_addresses);
+         return $this->_addresses;
+     }
+ 
