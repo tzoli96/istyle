@@ -121,4 +121,7 @@
         <plugin name="Amasty_Payrestriction::MethodList" type="Oander\IstyleCustomization\Rewrite\Amasty\Payrestriction\Plugin\MethodList"/>
     </type>
     <!-- #55190 END -->
+    <!-- #55179 START -->
+    <preference for="Magento\Customer\Controller\Account\CreatePost" type="Oander\IstyleCustomization\Rewrite\Magento\Customer\Controller\Account\CreatePost"/>
+    <!-- #52805 END -->
 </config>
