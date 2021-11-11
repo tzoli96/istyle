@@ -12,9 +12,9 @@
 <?php echo $block->getChildHtml('info'); ?>
 <?php if ($_orders && count($_orders)): ?>
 
-    <section class="block block-orders profile-orders" aria-labelledby="profile-orders-title">
+    <section class="block block-orders profile-orders" aria-labelledby="profile-order-title">
         <div class="profile-orders__head">
-            <h2 id="profile-orders-title" class="h2 profile-orders__title">
+            <h2 id="profile-order-title" class="h2 profile-orders__title">
                 <strong><?php /* @escapeNotVerified */
                     echo __('Orders') ?></strong>
             </h2>
@@ -52,14 +52,14 @@
                         </div>
                         <div class="profile-order-card__body">
                             <?php foreach ($block->getOrdersItems($_order->getItems()) as $item): ?>
-                                <ul class="block-dashboard-orders-card__products">
+                                <ul class="profile-order-card__products">
                                     <li>
                                         <img src="<?= $block->getProductImageUrl($item->getProduct()) ?>" alt="">
-                                        <p class="block-dashboard-orders-card__details">
+                                        <p class="profile-order-card__details">
                                             <a href="<?= $item->getProduct()->getProductUrl() ?>"><?= $item->getName() ?></a>
-                                            <span class="block-dashboard-orders-card__sku"><span
+                                            <span class="profile-order-card__sku"><span
                                                         class="sr-only">SKU </span><?= $item->getSku() ?></span></p>
-                                        <p class="block-dashboard-orders-card__price">
+                                        <p class="profile-order-card__price">
                                             <?php
                                             if ($item->getData("qty_ordered") != 1) {
                                                 echo (int)$item->getData("qty_ordered") . " x";
@@ -68,7 +68,7 @@
                                             <?= $_order->formatPrice($item->getPriceInclTax()) ?></p>
                                     </li>
                                     <?php if ($item->getData("childs")) : ?>
-                                        <ul class="profile-order-card__products">
+                                        <ul class="profile-order-card__sub-products">
                                             <?php foreach ($item->getData("childs") as $childItem) : ?>
                                                 <li>
                                                     <img src="<?= $block->getProductImageUrl($childItem->getProduct()) ?>"
