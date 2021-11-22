@@ -15,6 +15,14 @@ define([
       billingAddress: ko.observable(false),
       paymentMethod: ko.observable(false),
       active: ko.observable(''),
+      order: [
+        'auth',
+        'shippingMethod',
+        'shippingAddress',
+        'billingAddress',
+        'paymentMethod'
+      ],
+      visible: ko.observableArray(['auth']),
     },
     auth: {
       hasValidEmailAddress: ko.observable(false),
@@ -57,6 +65,9 @@ define([
         billingAddress: false,
         paymentMethod: false,
         active: 'auth',
+        visible: [
+          'auth'
+        ],
       },
       auth: {
         hasValidEmailAddress: false,
@@ -132,6 +143,11 @@ define([
       this.steps.active.subscribe(function (value) {
         this.localStorageObject.steps.active = value;
         this.updateLocalStorage('steps', 'active');
+      }, this);
+
+      this.steps.visible.subscribe(function (value) {
+        this.localStorageObject.steps.visible = value;
+        this.updateLocalStorage('steps', 'visible');
       }, this);
 
       // Auth

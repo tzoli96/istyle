@@ -8,10 +8,10 @@
     class="block block--checkout-step block--payment-method"
     data-step="paymentMethod"
     data-step-count="4"
-    data-bind="visible: isPaymentMethodVisible, css: { 'is-active': isActive('paymentMethod') }">
+    data-bind="visible: isPaymentMethodVisible, css: { 'is-active': isActive('paymentMethod'), 'is-visible': isPaymentMethodVisible() }">
     <div class="card card--checkout-step-header">
         <span class="card__title" data-bind="i18n: 'Payment method'"></span>
-        <span class="card__action" data-bind="i18n: 'Edit'"></span>
+        <span class="card__action" data-bind="i18n: 'Edit', visible: isCardEditVisible('paymentMethod')"></span>
         <div class="card__content"><span data-bind="i18n: getPaymentMethod()"></span></div>
     </div>
     <div class="block__content">
