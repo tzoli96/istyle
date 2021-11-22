@@ -293,16 +293,35 @@ define([
       }, this);
 
       // Billing address
-      if (store.steps.billingAddress() === true
-        || currentLS.steps.billingAddress) this.isBillingAddressVisible(true);
+      if (store.steps.billingAddress() === true || currentLS.steps.billingAddress) {
+        this.isBillingAddressVisible(true);
+        if (store.steps.visible.indexOf('billingAddress') < 0) {
+					store.steps.visible.push('billingAddress');
+				}
+      }
+
       store.steps.billingAddress.subscribe(function (value) {
-        if (value === true) this.isBillingAddressVisible(true);
+        if (value === true) {
+          this.isBillingAddressVisible(true);
+          if (store.steps.visible.indexOf('billingAddress') < 0) {
+            store.steps.visible.push('billingAddress');
+          }
+        }
       }, this);
 
-      if (store.steps.active() === 'billingAddress'
-        || currentLS.steps.active === 'billingAddress') this.isBillingAddressVisible(true);
+      if (store.steps.active() === 'billingAddress' || currentLS.steps.active === 'billingAddress') {
+        this.isBillingAddressVisible(true);
+        if (store.steps.visible.indexOf('billingAddress') < 0) {
+          store.steps.visible.push('billingAddress');
+        }
+      }
       store.steps.active.subscribe(function (value) {
-        if (value === 'billingAddress') this.isBillingAddressVisible(true);
+        if (value === 'billingAddress') {
+          this.isBillingAddressVisible(true);
+          if (store.steps.visible.indexOf('billingAddress') < 0) {
+            store.steps.visible.push('billingAddress');
+          }
+        }
       }, this);
     },
 
@@ -645,6 +664,26 @@ define([
       store.steps.active('paymentMethod');
       $('.block--payment-method').find('.card__action').trigger('click');
     },
+
+    /**
+		 * Check if card edit should be visible
+		 * @returns {Boolean}
+		 */
+		isCardEditVisible: function(param) {
+			return ko.computed(function() {
+				var currentLS = store.getLocalStorage();
+				var activeStep = store.steps.active() || currentLS.steps.active,
+						visible = ko.observable(true);
+
+				if (currentLS.steps.visible.indexOf(param) > -1) {
+					if (store.steps.order.indexOf(activeStep) < store.steps.order.indexOf(param)) {
+						visible(false);
+					}
+				}
+
+				return visible();
+			});
+		},
   };
 
   return function (target) {

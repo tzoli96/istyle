@@ -57,11 +57,17 @@ define([
 
       if (store.steps.paymentMethod() === true) {
         this.isPaymentMethodVisible(true);
+        if (store.steps.visible.indexOf('paymentMethod') < 0) {
+          store.steps.visible.push('paymentMethod');
+        }
       }
 
       if (currentLS.steps) {
         if (currentLS.steps.paymentMethod) {
           this.isPaymentMethodVisible(true);
+          if (store.steps.visible.indexOf('paymentMethod') < 0) {
+            store.steps.visible.push('paymentMethod');
+          }
         }
       }
 
@@ -71,16 +77,27 @@ define([
 
       if (store.steps.active() === 'paymentMethod') {
           this.isPaymentMethodVisible(true);
+          if (store.steps.visible.indexOf('paymentMethod') < 0) {
+            store.steps.visible.push('paymentMethod');
+          }
       }
 
       if (currentLS.steps) {
         if (currentLS.steps.active === 'paymentMethod') {
           this.isPaymentMethodVisible(true);
+          if (store.steps.visible.indexOf('paymentMethod') < 0) {
+            store.steps.visible.push('paymentMethod');
+          }
         }
       }
 
       store.steps.active.subscribe(function (value) {
-        if (value === 'paymentMethod') this.isPaymentMethodVisible(true);
+        if (value === 'paymentMethod') {
+          this.isPaymentMethodVisible(true);
+          if (store.steps.visible.indexOf('paymentMethod') < 0) {
+            store.steps.visible.push('paymentMethod');
+          }
+        }
       }, this);
 
       this.storePaymentData();
@@ -105,6 +122,26 @@ define([
         return false;
       }
     },
+
+    /**
+		 * Check if card edit should be visible
+		 * @returns {Boolean}
+		 */
+		isCardEditVisible: function(param) {
+			return ko.computed(function() {
+				var currentLS = store.getLocalStorage();
+				var activeStep = store.steps.active() || currentLS.steps.active,
+						visible = ko.observable(true);
+
+				if (currentLS.steps.visible.indexOf(param) > -1) {
+					if (store.steps.order.indexOf(activeStep) < store.steps.order.indexOf(param)) {
+						visible(false);
+					}
+				}
+
+				return visible();
+			});
+		},
   };
 
   return function (target) {
