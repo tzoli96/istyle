@@ -3,7 +3,8 @@
   class="block block--checkout-step block--billing-address is-loading"
   data-step="billingAddress"
   data-step-count="3"
-  data-bind="visible: isBillingAddressVisible, css: { 'is-active': isActive('billingAddress'), 'is-visible': isBillingAddressVisible() }">
+  data-bind="visible: isBillingAddressVisible, css: { 'is-active': isActive('billingAddress') }"
+>
   <div class="card card--checkout-step-header">
     <span class="card__title" data-bind="i18n: 'Billing address'"></span>
     <span class="card__action" data-bind="i18n: 'Edit', visible: isCardEditVisible('billingAddress')"></span>
