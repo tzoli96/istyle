@@ -132,7 +132,7 @@ define([
 		 * Check if card edit should be visible
 		 * @returns {Boolean}
 		 */
-    isCardEditVisible: function(param) {
+		isCardEditVisible: function(param) {
 			return ko.computed(function() {
         var currentLS = store.getLocalStorage(),
             activeStep,
@@ -142,31 +142,15 @@ define([
         if (store.steps.active() !== '') {
           activeStep = store.steps.active()
         } else {
-          if (currentLS !== false) {
-            if (currentLS.hasOwnProperty('steps')) {
-              if (currentLS.steps.hasOwnProperty('active')) {
-                activeStep = currentLS.steps.active;
-              } else {
-                activeStep = 'auth';
-              }
-            } else {
-              activeStep = 'auth';
-            }
+          if (currentLS && currentLS.hasOwnProperty('steps') && currentLS.steps.hasOwnProperty('active')) {
+            activeStep = currentLS.steps.active;
           } else {
             activeStep = 'auth';
           }
         }
 
-        if (currentLS !== false) {
-          if (currentLS.hasOwnProperty('steps')) {
-            if (currentLS.steps.hasOwnProperty('visible')) {
-              visibleSteps = currentLS.steps.visible;
-            } else {
-              visibleSteps = ['auth'];
-            }
-          } else {
-            visibleSteps = ['auth'];
-          }
+        if (currentLS && currentLS.hasOwnProperty('steps') && currentLS.steps.hasOwnProperty('visible')) {
+          visibleSteps = currentLS.steps.visible;
         } else {
           visibleSteps = ['auth'];
         }
