@@ -78,7 +78,7 @@
                     </fieldset>
 
                     <!--Hidden fields -->
-                    <fieldset class="fieldset hidden-fields" data-bind="visible: isPasswordVisible">
+                    <fieldset class="fieldset hidden-fields" data-bind="visible: isPasswordVisible, afterRender: showHidePassword()">
                         <div class="field field-full form-group">
                             <label class="label" for="customer-password">
                                 <span data-bind="i18n: 'Password'"></span>
@@ -95,19 +95,6 @@
                                         autocomplete="off"
                                     />
                                     <span class="password-eye-icon"></span>
-                                    <script type="text/javascript">
-                                        var icon = document.querySelector('.password-eye-icon'),
-                                            input = document.getElementById('customer-password');
-
-                                        icon.addEventListener('click', function (event) {
-                                            icon.classList.toggle('show');
-                                            if (input.type === 'password') {
-                                                input.type = 'text';
-                                            } else {
-                                                input.type = 'password';
-                                            }
-                                        });
-                                    </script>
                                 </div>
                             </div>
 

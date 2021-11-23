@@ -380,6 +380,19 @@ define([
           };
 
       param ? passwordTrigger() : emailTrigger();
+    },
+    showHidePassword: function() {
+      var icon = document.querySelector('.password-eye-icon'),
+          input = document.getElementById('customer-password');
+
+      icon.addEventListener('click', function (event) {
+        icon.classList.toggle('show');
+        if (input.type === 'password') {
+          input.type = 'text';
+        } else {
+          input.type = 'password';
+        }
+      });
     }
   });
 });
