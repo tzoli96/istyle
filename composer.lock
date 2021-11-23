@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea0dfdfeb417c963e347e3f52d0448e6",
+    "content-hash": "73b62328ae4d80c2b6b8866609aea73d",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8644,11 +8644,11 @@
         },
         {
             "name": "oander/module-event-based-exporter",
-            "version": "1.0.6.3",
+            "version": "1.1.0.4",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-event-based-exporter.git",
-                "reference": "816cce91a106c3adf35cdf7c5125d55d13e5c077"
+                "reference": "fc6691c820fb7162633678bd47c693c20817d96c"
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.3",
@@ -8667,7 +8667,7 @@
                 "proprietary"
             ],
             "description": "Oander Event Based eXporter",
-            "time": "2021-08-23T13:42:53+00:00"
+            "time": "2021-11-18T16:36:53+00:00"
         },
         {
             "name": "oander/module-extracheckoutsummary",
