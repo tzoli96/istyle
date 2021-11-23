@@ -84,15 +84,31 @@
                                 <span data-bind="i18n: 'Password'"></span>
                             </label>
                             <div class="control">
-                                <input
-                                    class="input-text form-control"
-                                    type="password"
-                                    data-bind="attr:{placeholder: $t('password_placeholder')}"
-                                    name="password"
-                                    id="customer-password"
-                                    data-validate="{required:true}"
-                                    autocomplete="off"
-                                />
+                                <div class="password-eye-holder">
+                                    <input
+                                        class="input-text form-control"
+                                        type="password"
+                                        data-bind="attr:{placeholder: $t('password_placeholder')}"
+                                        name="password"
+                                        id="customer-password"
+                                        data-validate="{required:true}"
+                                        autocomplete="off"
+                                    />
+                                    <span class="password-eye-icon"></span>
+                                    <script type="text/javascript">
+                                        var icon = document.querySelector('.password-eye-icon'),
+                                            input = document.getElementById('customer-password');
+
+                                        icon.addEventListener('click', function (event) {
+                                            icon.classList.toggle('show');
+                                            if (input.type === 'password') {
+                                                input.type = 'text';
+                                            } else {
+                                                input.type = 'password';
+                                            }
+                                        });
+                                    </script>
+                                </div>
                             </div>
 
                         </div>
