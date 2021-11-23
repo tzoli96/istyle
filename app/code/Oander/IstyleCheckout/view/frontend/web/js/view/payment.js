@@ -72,7 +72,12 @@ define([
       }
 
       store.steps.paymentMethod.subscribe(function (value) {
-        if (value === true) this.isPaymentMethodVisible(true);
+        if (value === true) {
+          this.isPaymentMethodVisible(true);
+          if (store.steps.visible.indexOf('paymentMethod') < 0) {
+            store.steps.visible.push('paymentMethod');
+          }
+        }
       }, this);
 
       if (store.steps.active() === 'paymentMethod') {
@@ -129,11 +134,28 @@ define([
 		 */
 		isCardEditVisible: function(param) {
 			return ko.computed(function() {
-				var currentLS = store.getLocalStorage();
-				var activeStep = store.steps.active() || currentLS.steps.active,
-						visible = ko.observable(true);
+        var currentLS = store.getLocalStorage(),
+            activeStep,
+            visibleSteps,
+            visible = ko.observable(true);
 
-				if (currentLS.steps.visible.indexOf(param) > -1) {
+        if (store.steps.active() !== '') {
+          activeStep = store.steps.active()
+        } else {
+          if (currentLS && currentLS.hasOwnProperty('steps') && currentLS.steps.hasOwnProperty('active')) {
+            activeStep = currentLS.steps.active;
+          } else {
+            activeStep = 'auth';
+          }
+        }
+
+        if (currentLS && currentLS.hasOwnProperty('steps') && currentLS.steps.hasOwnProperty('visible')) {
+          visibleSteps = currentLS.steps.visible;
+        } else {
+          visibleSteps = ['auth'];
+        }
+
+				if (visibleSteps.indexOf(param) > -1) {
 					if (store.steps.order.indexOf(activeStep) < store.steps.order.indexOf(param)) {
 						visible(false);
 					}

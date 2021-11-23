@@ -472,11 +472,28 @@ define([
 		 */
 		isCardEditVisible: function(param) {
 			return ko.computed(function() {
-				var currentLS = store.getLocalStorage();
-				var activeStep = store.steps.active() || currentLS.steps.active,
-						visible = ko.observable(true);
+        var currentLS = store.getLocalStorage(),
+            activeStep,
+            visibleSteps,
+            visible = ko.observable(true);
 
-				if (currentLS.steps.visible.indexOf(param) > -1) {
+        if (store.steps.active() !== '') {
+          activeStep = store.steps.active()
+        } else {
+          if (currentLS && currentLS.hasOwnProperty('steps') && currentLS.steps.hasOwnProperty('active')) {
+            activeStep = currentLS.steps.active;
+          } else {
+            activeStep = 'auth';
+          }
+        }
+
+        if (currentLS && currentLS.hasOwnProperty('steps') && currentLS.steps.hasOwnProperty('visible')) {
+          visibleSteps = currentLS.steps.visible;
+        } else {
+          visibleSteps = ['auth'];
+        }
+
+				if (visibleSteps.indexOf(param) > -1) {
 					if (store.steps.order.indexOf(activeStep) < store.steps.order.indexOf(param)) {
 						visible(false);
 					}

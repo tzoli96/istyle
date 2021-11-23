@@ -12,7 +12,8 @@
     class="block block--checkout-step block--shipping-method"
     data-step="shippingMethod"
     data-step-count="1"
-    data-bind="visible: isShippingMethodVisible, css: { 'is-active': isActive('shippingMethod'), 'is-visible': isShippingMethodVisible() }">
+    data-bind="visible: isShippingMethodVisible, css: { 'is-active': isActive('shippingMethod') }"
+>
     <div class="card card--checkout-step-header">
         <span class="card__title" data-bind="i18n: 'Shipping method'"></span>
         <span class="card__action" data-bind="i18n: 'Edit', visible: isCardEditVisible('shippingMethod')"></span>
@@ -420,7 +421,8 @@
     class="block block--checkout-step block--shipping-address"
     data-step="shippingAddress"
     data-step-count="2"
-    data-bind="visible: isShippingAddressVisible, css: { 'is-active': isActive('shippingAddress'), 'is-visible': isShippingAddressVisible() }">
+    data-bind="visible: isShippingAddressVisible, css: { 'is-active': isActive('shippingAddress') }"
+>
     <div class="card card--checkout-step-header">
         <span class="card__title" data-bind="i18n: 'Shipping address'"></span>
         <span class="card__action" data-bind="i18n: 'Edit', visible: isCardEditVisible('shippingAddress')"></span>
