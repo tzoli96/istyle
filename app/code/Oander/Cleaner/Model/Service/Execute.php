@@ -125,7 +125,9 @@ class Execute
                         $this->response['delete'][] = $file;
                     }
                 }
+                $this->logger->info("OANDER_CLEANER: Successfully " . $dir . " Dir Clean");
             } catch (FileSystemException $e) {
+                $this->logger->error("OANDER_CLEANER: Dir " . $e->getMessage());
                 $this->logger->error($e->getMessage());
             }
         }
