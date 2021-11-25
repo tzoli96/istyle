@@ -183,6 +183,7 @@ return array (
     'Oander_CategoryBadge' => 1,
     'Oander_CategoryUrlModifier' => 1,
     'Oander_EmailAdditionalData' => 1,
+    'Oander_Cleaner' => 1,
     'Oander_CofidisPayment' => 1,
     'Oander_ConfigurableProduct' => 1,
     'Oander_ConfigurableProductAttribute' => 1,

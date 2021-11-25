@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="cleaner" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Cleaner</label>
+            <resource>Oander_Cleaner::config</resource>
+            <tab>oander</tab>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Configuration</label>
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="files" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Files</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="db" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>DB</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="older_than" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Delete files/db older than (x) day(s)</label>
+                </field>
+                <field id="execute_time" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Execute Time</label>
+                    <source_model>Oander\Cleaner\Model\Config\Source\ExecuteTime</source_model>
+                    <backend_model>Oander\Cleaner\Model\Config\Backend\ExecuteTimeFrequency</backend_model>
+                </field>
+                <field id="testfor_demo" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Execute</label>
+                    <frontend_model>Oander\Cleaner\Block\Adminhtml\System\Config\DemoTest</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
