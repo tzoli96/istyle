@@ -1,0 +1,61 @@
+<script>
+    require([
+        'jquery',
+        'prototype'
+    ], function (jQuery) {
+        const resultBlock = jQuery('#result');
+        const responseToggle = jQuery('#toogle');
+        const responseTextBlock = jQuery('#response');
+
+        responseToggle.click(function () {
+            responseTextBlock.toggle();
+        });
+
+        jQuery('#demotest').click(function () {
+            const params = {};
+            new Ajax.Request('<?= $block->getAjaxUrl() ?>', {
+                parameters: params,
+                loaderArea: false,
+                asynchronous: true,
+                onCreate: function () {
+                    resultBlock.find('.finished').hide();
+                    resultBlock.find('.processing').show();
+                    jQuery('#text').text('');
+                    responseToggle.hide();
+                    responseTextBlock.hide();
+                },
+                onSuccess: function (response) {
+                    resultBlock.find('.processing').hide();
+
+                    let resultText = '';
+                    let resultResponse = '';
+                    console.log(response.responseJSON.success);
+                    if (response.responseJSON.success) {
+                        resultResponse = ' (' + response.responseText + ')';
+                        resultText = 'Finished';
+                        resultBlock.find('.finished').show();
+                    } else {
+                        resultResponse = ' (' + response.responseText + ')';
+                        resultText = 'Request failed';
+                        resultBlock.find('.wrong').show();
+                    }
+                    jQuery('#text').text(resultText);
+                    jQuery('#response').text(resultResponse);
+                    const json = response.responseJSON;
+                    responseToggle.show();
+                }
+            });
+        });
+
+    });
+</script>
+
+<?= $block->getButtonHtml() ?>
+<span id="result">
+    <img class="processing" hidden="hidden" alt="Processing" style="margin:0 5px" src="<?= $block->getViewFileUrl('images/process_spinner.gif') ?>"/>
+    <img class="finished" hidden="hidden" alt="Finished" style="margin:-3px 5px"  src="<?= $block->getViewFileUrl('images/rule_component_apply.gif') ?>"/>
+    <img class="wrong" hidden="hidden" alt="Wrong" style="margin:-3px 5px"  src="<?= $block->getViewFileUrl('images/rule_component_remove.gif') ?>"/>
+    <span id="text"></span>
+    <span id="toogle" style="display: none; cursor: pointer; color: #888a85; text-decoration: underline;">(response)</span>
+    <span id="response" style="display: none; color: #888a85; font-size: 13px;"></span>
+</span>

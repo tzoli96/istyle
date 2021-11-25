@@ -27,6 +27,10 @@
                     <source_model>Oander\Cleaner\Model\Config\Source\ExecuteTime</source_model>
                     <backend_model>Oander\Cleaner\Model\Config\Backend\ExecuteTimeFrequency</backend_model>
                 </field>
+                <field id="testfor_demo" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Execute</label>
+                    <frontend_model>Oander\Cleaner\Block\Adminhtml\System\Config\DemoTest</frontend_model>
+                </field>
             </group>
         </section>
     </system>
