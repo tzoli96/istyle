@@ -32,7 +32,7 @@ class MerchantDataBuilder implements BuilderInterface
     {
         return [
             "navigation" => [
-                "success_url" => $this->_urlBuilder->getUrl("checkout/onepage/success"),
+                "success_url" => $this->_urlBuilder->getUrl("facilypay/payment/success"),
                 "fail_url" => $this->_urlBuilder->getUrl("checkout/onepage/failure"),
                 "server_response_url" => $this->_urlBuilder->getUrl("facilypay/payment/callback")
             ],

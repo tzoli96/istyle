@@ -6,4 +6,7 @@
     <event name="sales_order_shipment_save_after">
         <observer name="Save_Shipment" instance="Oney\ThreeByFour\Observer\OnSaveShipment" />
     </event>
+    <event name="sales_model_service_quote_submit_before">
+        <observer name="oney_email_disable" instance="Oney\ThreeByFour\Observer\OrderEmail" />
+    </event>
 </config>
