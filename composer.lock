@@ -5254,7 +5254,6 @@
                 "magento/module-sales-sample-data": "Sample Data version:100.1.*"
             },
             "type": "magento2-module",
-            "extra": [],
             "autoload": {
                 "files": [
                     "registration.php"
@@ -10134,7 +10133,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "19a1c9ccb9aff907dfeaa257875e0e713f8cee0a"
+                "reference": "e8d425374e40e7bfab29e3c5f36197496c10d493"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10150,7 +10149,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-11-24T13:29:57+00:00"
+            "time": "2021-11-26T13:24:12+00:00"
         },
         {
             "name": "oyejorge/less.php",
