@@ -30,11 +30,17 @@
             </arguments>
         </referenceBlock>
         <referenceContainer name="wrapper.cart.header.buttons.container">
-            <block
-                class="StripeIntegration\Payments\Block\Button"
-                name="stripe.cart.button"
-                template="StripeIntegration_Payments::express/cart_button.phtml"
-                before="-" />
+        <container
+            name="stripe.cart.buttons.wrapper"
+            htmlTag="div"
+            htmlClass="stripe-cart-buttons-wrapper"
+            before="-">
+                <block
+                    class="StripeIntegration\Payments\Block\Button"
+                    name="stripe.cart.buttons"
+                    template="StripeIntegration_Payments::express/cart_button.phtml"
+                    before="-" />
+            </container>
         </referenceContainer>
     </body>
 </page>

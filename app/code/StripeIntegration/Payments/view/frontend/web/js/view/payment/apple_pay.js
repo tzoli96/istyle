@@ -56,7 +56,7 @@ define(
 
                 this.displayAtThisLocation = ko.computed(function()
                 {
-                    return paymentMethod.prototype.config().applePayLocation == 2;
+                    return false;
                 }, this);
 
                 var currentTotals = quote.totals();
@@ -84,7 +84,7 @@ define(
                 {
                     if (method != null)
                     {
-                        $(".payment-method.stripe-payments.mobile").removeClass("_active");
+                        $(".stripe-payments.mobile").removeClass("_active");
                     }
                 }
                 , null, 'change');
@@ -157,7 +157,7 @@ define(
                 catch (e) {}
 
                 // We do want terms & conditions validation for Apple Pay, so activate that temporarily
-                $(".payment-method.stripe-payments.mobile").addClass("_active");
+                $(".stripe-payments.mobile").addClass("_active");
             },
 
             validate: function(region)
