@@ -882,6 +882,20 @@
                 "ssl",
                 "tls"
             ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2021-10-28T20:44:15+00:00"
         },
         {
@@ -1079,6 +1093,20 @@
                 "spdx",
                 "validator"
             ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2021-11-18T10:14:14+00:00"
         },
         {
@@ -1141,7 +1169,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2021-07-28T20:10:43+00:00"
+            "time": "2021-07-28T20:14:21+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -1374,6 +1402,20 @@
             "keywords": [
                 "promise"
             ],
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/promises",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2021-10-22T20:56:57+00:00"
         },
         {
@@ -1465,6 +1507,20 @@
                 "stream",
                 "uri",
                 "url"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/psr7",
+                    "type": "tidelift"
+                }
             ],
             "time": "2021-10-05T13:56:00+00:00"
         },
@@ -5254,6 +5310,7 @@
                 "magento/module-sales-sample-data": "Sample Data version:100.1.*"
             },
             "type": "magento2-module",
+            "extra": [],
             "autoload": {
                 "files": [
                     "registration.php"
@@ -10133,7 +10190,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "e8d425374e40e7bfab29e3c5f36197496c10d493"
+                "reference": "ae1f587e6f880943451ce11ff016f5a1c3cf315a"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10149,7 +10206,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-11-26T13:24:12+00:00"
+            "time": "2021-11-29T13:38:01+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10317,16 +10374,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.34",
+            "version": "2.0.35",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "98a6fe587f3481aea319eef7e656d02cfe1675ec"
+                "reference": "4e16cf3f5f927a7d3f5317820af795c0366c0420"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/98a6fe587f3481aea319eef7e656d02cfe1675ec",
-                "reference": "98a6fe587f3481aea319eef7e656d02cfe1675ec",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/4e16cf3f5f927a7d3f5317820af795c0366c0420",
+                "reference": "4e16cf3f5f927a7d3f5317820af795c0366c0420",
                 "shasum": ""
             },
             "require": {
@@ -10404,7 +10461,21 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2021-10-27T02:46:30+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/terrafrost",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpseclib",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2021-11-28T23:30:39+00:00"
         },
         {
             "name": "plugincompany/customergroupswitching",
@@ -14917,5 +14988,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
