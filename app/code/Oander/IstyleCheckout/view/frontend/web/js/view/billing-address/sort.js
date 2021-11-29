@@ -101,12 +101,6 @@ define([
 
       positions['vatId'] = positions['vat_id'];
 
-      if (address.customAttributes) {
-        if (address.customAttributes.pfpj_reg_no && typeof address.customAttributes.pfpj_reg_no != 'object') {
-          address['pfpj_reg_no'] = address.customAttributes.pfpj_reg_no;
-        }
-      }
-
       for (var data in address) {
         for (var p in positions) {
           if (p == data && address[data]) {
