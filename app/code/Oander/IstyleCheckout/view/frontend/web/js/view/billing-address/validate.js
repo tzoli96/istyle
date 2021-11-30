@@ -17,7 +17,7 @@ define([
       var self = this;
 
       if (form) {
-        var fields = form.find('.form-group._required, .form-group.true');
+        var fields = form.find('.form-group._required, .form-group.true, .oandervalidate-length');
 
         fields.each(function (index, field) {
           if (self.isVisibleInDom($(field))) {
@@ -45,7 +45,7 @@ define([
       if ($(element).length) {
         if (self.isVisibleInDom($(element).closest('.form-group'))) {
           delete self.mainFields[key];
-          if ($(element).val().length > 0) self.mainFields[key] = true;
+          if ($(element).val().length > 0 && !$(element).closest('.form-group').hasClass('_error')) self.mainFields[key] = true;
           else self.mainFields[key] = false;
         }
       }

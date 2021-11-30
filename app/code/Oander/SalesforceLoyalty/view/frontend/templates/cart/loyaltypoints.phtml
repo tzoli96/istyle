@@ -81,14 +81,14 @@
     require([
         'jquery',
     ], function($) {
-        var userObject = {
-                userPoints: <?= $block->getAvailablePoints() ?>,
-                pointsAvailableForUse: <?= $block->getMaxRedeemablePoints() ?>,
+        var userPoints = '<?= $block->getAvailablePoints() ?>',
+            userObject = {
+                userPoints: !isNaN(userPoints * 1) ? userPoints : 0,
+                pointsAvailableForUse: <?php echo $block->getMaxRedeemablePoints() ?>,
                 discountAmount: <?php echo $block->getLoyaltyDiscount() > 0 ? $block->getLoyaltyDiscount() : 0 ?>,
                 formattedDiscountAmount: '<?= $block->getLoyaltyDiscountFormated() ?>'
             },
             referenceNumber = Math.min(userObject.userPoints, userObject.pointsAvailableForUse);
-
 
         $('.block--new-loyalty .block__title').on('click', function() {
             $('.block--new-loyalty').addClass('is-active');
