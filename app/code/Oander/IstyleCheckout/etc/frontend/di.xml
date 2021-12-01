@@ -9,9 +9,6 @@
             </argument>
         </arguments>
     </type>
-    <type name="Magento\Customer\Helper\Address">
-        <plugin name="Oander_IstyleCheckout_Plugin_Frontend_Magento_Customer_Helper_Address" type="Oander\IstyleCheckout\Plugin\Frontend\Magento\Customer\Helper\Address" sortOrder="10" disabled="false"/>
-    </type>
     <type name="Magento\Customer\Model\Address">
         <plugin name="Oander_IstyleCheckout_Plugin_Frontend_Magento_Customer_Model_Address" type="Oander\IstyleCheckout\Plugin\Frontend\Magento\Customer\Model\Address" sortOrder="10" disabled="false"/>
     </type>

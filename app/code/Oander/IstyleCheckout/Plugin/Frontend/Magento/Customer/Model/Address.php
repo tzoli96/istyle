@@ -48,9 +48,12 @@ class Address
     ) {
         if($this->scopeConfig->isSetFlag("customer/create_account/vat_frontend_visibility", \Magento\Store\Model\ScopeInterface::SCOPE_STORE) && $this->scopeConfig->isSetFlag("customer/address/taxvat_profile_checkout_required", \Magento\Store\Model\ScopeInterface::SCOPE_STORE))
         {
-            if (!\Zend_Validate::is($result->getVatId(), 'NotEmpty')) {
+            if (\Zend_Validate::is($result->getCompany(), 'NotEmpty') xor \Zend_Validate::is($result->getVatId(), 'NotEmpty')) {
                 $exception = new InputException();
-                $exception->addError(__('%fieldName is a required field.', ['fieldName' => 'vatid']));
+                if(!\Zend_Validate::is($result->getCompany(), 'NotEmpty'))
+                    $exception->addError(__('%fieldName is a required field.', ['fieldName' => __('Company')]));
+                if(!\Zend_Validate::is($result->getVatId(), 'NotEmpty'))
+                    $exception->addError(__('%fieldName is a required field.', ['fieldName' => __('VAT Number')]));
                 throw $exception;
             }
         }
