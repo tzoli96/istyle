@@ -33,14 +33,9 @@ define(
                 if (!phone_validated) {
                     this.error(config.getError('phone'));
                 }
-                const country_validated = config.getCountry().test(address.countryId)
-                if (!country_validated) {
-                    this.error(config.getError('country'));
-                }
-                return postal_validated && phone_validated && country_validated;
+                return postal_validated && phone_validated;
             },
             verified: function () {
-                return true;
                 return this.verifiedBilling() && this.verifiedShipping();
             },
             initialize: function () {

@@ -1141,7 +1141,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2021-07-28T20:10:43+00:00"
+            "time": "2021-07-28T20:14:21+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -9583,7 +9583,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/simple-vatnumber-validation.git",
-                "reference": "1dc451cf946c668a7186d7fb19b2848bce52cca5"
+                "reference": "b5fbdb071b394f2b82f7bcf2f621a35ee27ff401"
             },
             "type": "magento2-module",
             "autoload": {
@@ -9604,7 +9604,7 @@
                 }
             ],
             "description": "Simple VAT Number Validation",
-            "time": "2021-11-30T08:22:42+00:00"
+            "time": "2021-12-01T13:06:03+00:00"
         },
         {
             "name": "oander/module-structured-data",
