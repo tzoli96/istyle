@@ -1,0 +1,18 @@
+diff --git a/Model/Entity/Type.php b/Model/Entity/Type.php
+index c71f0f6d..8c4f04b5 100644
+--- a/Model/Entity/Type.php
++++ b/Model/Entity/Type.php
+@@ -167,11 +167,8 @@ class Type extends \Magento\Framework\Model\AbstractModel
+      */
+     protected function _getAttributeCollection()
+     {
+-        $collection = $this->_attributeFactory->create()->getCollection();
+-        $objectsModel = $this->getAttributeModel();
+-        if ($objectsModel) {
+-            $collection->setModel($objectsModel);
+-        }
++        $collection = $this->_universalFactory->create($this->getEntityAttributeCollection());
++        $collection->setItemObjectClass($this->getAttributeModel());
+
+         return $collection;
+     }

@@ -225,7 +225,8 @@
                 "SeparateDB #55172": "patches/magento/module-quote/SeparateDB.patch"
             },
             "magento/module-eav": {
-                "MAGETWO-71136 attribute-cache-fix #46266": "patches/magento/module-eav/46266_attribute_cache_fix_MAGETWO-71136.patch"
+                "MAGETWO-71136 attribute-cache-fix #46266": "patches/magento/module-eav/46266_attribute_cache_fix_MAGETWO-71136.patch",
+                "MAGETWO-73432 change eav model #55463": "patches/magento/module-eav/55463_number_of_lines_fix_MAGETWO-73432.patch"
             }
         }
     },

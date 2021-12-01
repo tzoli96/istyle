@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b9fbb2293453486885740969c9d1af06",
+    "content-hash": "1d47ef4087aca636ec7e5ec84d53fb2e",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1141,7 +1141,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2021-07-28T20:14:21+00:00"
+            "time": "2021-07-28T20:10:43+00:00"
         },
         {
             "name": "geoip2/geoip2",
