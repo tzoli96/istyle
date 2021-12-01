@@ -214,6 +214,9 @@
     "extra": {
         "magento-force": "override",
         "patches": {
+            "magento/module-customer":{
+                "Region ID fix #54932": "patches/magento/module-customer/regionId.patch"
+            },
             "magento/module-catalog": {
                 "Image role fix #48758": "patches/magento/image_role_allstore_fix.patch"
             },

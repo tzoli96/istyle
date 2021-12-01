@@ -3,14 +3,14 @@
         <label class="label" for="region"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
         <div class="control">
             <input type="hidden" id="region_id" name="region_id" />
-            <input type="text" id="region" name="region" value="<?php echo $block->escapeHtml($block->getRegion()) ?>" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control input-text required-entry" />
+            <input type="text" id="region" name="region" value="<?php echo $block->escapeHtml($block->getParentBlock()->getRegion()) ?>" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control input-text required-entry" />
         </div>
     </div>
 <?php elseif ($block->isValidateRegion()) : ?>
     <div class="form-group field region required validate">
         <label class="label" for="region"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
         <div class="control">
-            <?php if ($block->escapeHtml($block->getRegion() == "")) : ?>
+            <?php if ($block->escapeHtml($block->getParentBlock()->getRegion() == "")) : ?>
                 <span class="region-exist" data-exist="false"></span>
             <?php endif; ?>
             <input type="text" class="region hide" name="region" id="region" data-validate='{"required":true}' />
@@ -18,7 +18,7 @@
             <select id="region-list" name="region-list" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control validate-select">
                 <?php $states = $block->getStates() ?>
                 <?php foreach ($states as $state) : ?>
-                    <option value="<?php echo $state['value'] ?>" <?= ($state['value'] == $block->escapeHtml($block->getRegion()) ? 'selected' : '') ?>><?php echo $state['label'] ?></option>
+                    <option value="<?php echo $state['value'] ?>" <?= ($state['value'] == $block->escapeHtml($block->getParentBlock()->getRegion()) ? 'selected' : '') ?>><?php echo $state['label'] ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -27,7 +27,7 @@
     <div class="form-group field region required">
         <label class="label" for="region"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
         <div class="control">
-            <input type="text" id="region" name="region" value="<?php echo $block->escapeHtml($block->getRegion()) ?>" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control input-text required-entry" />
+            <input type="text" id="region" name="region" value="<?php echo $block->escapeHtml($block->getParentBlock()->getRegion()) ?>" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control input-text required-entry" />
         </div>
     </div>
     <script>

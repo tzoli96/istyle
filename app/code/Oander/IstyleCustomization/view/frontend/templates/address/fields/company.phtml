@@ -1,6 +1,6 @@
 <div class="form-group field company">
     <label class="label" for="company"><span><?php /* @escapeNotVerified */ echo __('Company') ?></span></label>
     <div class="control">
-        <input type="text" name="company" id="company" title="<?php /* @escapeNotVerified */ echo __('Company') ?>" value="<?php echo $block->escapeHtml($block->getAddress()->getCompany()) ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('company') ?>">
+        <input type="text" name="company" id="company" title="<?php /* @escapeNotVerified */ echo __('Company') ?>" value="<?php echo $block->escapeHtml($block->getParentBlock()->getAddress()->getCompany()) ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('company') ?>">
     </div>
 </div>
