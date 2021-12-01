@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1d47ef4087aca636ec7e5ec84d53fb2e",
+    "content-hash": "570ed5ef7c6fed8eb7e752d52bc4f52d",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -3815,6 +3815,7 @@
                 "magento/module-customer-sample-data": "Sample Data version:100.1.*"
             },
             "type": "magento2-module",
+            "extra": [],
             "autoload": {
                 "files": [
                     "registration.php"
@@ -9583,7 +9584,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/simple-vatnumber-validation.git",
-                "reference": "b5fbdb071b394f2b82f7bcf2f621a35ee27ff401"
+                "reference": "b18bd3fba7f2dd7b38bbf18893f672a8d4fc417b"
             },
             "type": "magento2-module",
             "autoload": {
@@ -9604,7 +9605,7 @@
                 }
             ],
             "description": "Simple VAT Number Validation",
-            "time": "2021-12-01T13:06:03+00:00"
+            "time": "2021-12-01T20:09:01+00:00"
         },
         {
             "name": "oander/module-structured-data",
