@@ -456,7 +456,6 @@ define([
       $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text($t('Contact person lastname'));
 
       this.fieldErrorHandling($(formElements.companyField));
-      if ($(formElements.vatIdField).hasClass('vat-required')) this.fieldErrorHandling($(formElements.vatIdField));
       this.fieldErrorHandling($(formElements.pfpjField));
     },
 

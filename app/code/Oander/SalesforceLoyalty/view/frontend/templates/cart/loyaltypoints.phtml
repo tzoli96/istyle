@@ -72,77 +72,72 @@
             </form>
         </div>
     </div>
-<?php else: ?>
-    <div class="d-none block block--loyalty active" id="block-loyalty">
-        <div class="block__content" data-role="content"></div>
-    </div>
+    <script>
+        require([
+            'jquery',
+            ], function($) {
+                var userObject = {
+                        userPoints: <?= $block->getAvailablePoints() ?>,
+                        pointsAvailableForUse: <?php echo $block->getMaxRedeemablePoints() ?>,
+                        discountAmount: <?php echo $block->getLoyaltyDiscount() > 0 ? $block->getLoyaltyDiscount() : 0 ?>,
+                        formattedDiscountAmount: '<?= $block->getLoyaltyDiscountFormated() ?>'
+                    },
+                    referenceNumber = Math.min(userObject.userPoints, userObject.pointsAvailableForUse);
+
+                $('.block--new-loyalty .block__title').on('click', function() {
+                    $('.block--new-loyalty').addClass('is-active');
+                    setTimeout(function() {
+                        $('.block--new-loyalty .block__input').focus();
+                    }, 600);
+                });
+
+                $('.input-loyalty').on('input', function() {
+                    var inputGroup = $(this).closest('.block__input-group'),
+                        input = inputGroup.find('.input-loyalty'),
+                        inputError = $(this).closest('.block__content__holder').find('.block__input-error');
+                    
+                    if (input.val() > 0 && referenceNumber > 0 && input.val() <= referenceNumber) {
+                        inputGroup.removeClass('error');
+                        inputError.fadeOut();
+                    } else {
+                        inputGroup.addClass('error');
+                        inputError.fadeIn();
+                    }
+                });
+
+                $('.button-loyalty').on('click', function(e) {
+                    e.preventDefault();
+
+                    var inputGroup = $(this).closest('.block__input-group'),
+                        input = inputGroup.find('.input-loyalty'),
+                        inputError = $(this).closest('.block__content__holder').find('.block__input-error');
+                    
+                    if (input.val() > 0 && referenceNumber > 0 && input.val() <= referenceNumber) {
+                        inputGroup.removeClass('error');
+                        inputError.fadeOut();
+                        $('#loyalty-form').submit();
+                    } else {
+                        inputGroup.addClass('error');
+                        inputError.fadeIn();
+                    }
+                });
+
+                $('.loyalty-used__delete').on('click', function(e) {
+                    e.preventDefault();
+                    $('#loyalty-form').submit();
+                });
+
+                $('.info-block__icon').on('click', function () {
+                    var myTooltip = $(this).closest('.info-block').find('.tooltip');
+
+                    $('.tooltip.is-active').removeClass('is-active');
+                    myTooltip.addClass('is-active');
+                });
+
+                $(document).mouseup(function (e) {
+                    var tooltip = $('.tooltip');
+                    if (!tooltip.is(e.target) && tooltip.has(e.target).length === 0) tooltip.removeClass('is-active');
+                });
+            });
+    </script>
 <?php endif; ?>
-<script>
-    require([
-        'jquery',
-    ], function($) {
-        var userPoints = '<?= $block->getAvailablePoints() ?>',
-            userObject = {
-                userPoints: !isNaN(userPoints * 1) ? userPoints : 0,
-                pointsAvailableForUse: <?php echo $block->getMaxRedeemablePoints() ?>,
-                discountAmount: <?php echo $block->getLoyaltyDiscount() > 0 ? $block->getLoyaltyDiscount() : 0 ?>,
-                formattedDiscountAmount: '<?= $block->getLoyaltyDiscountFormated() ?>'
-            },
-            referenceNumber = Math.min(userObject.userPoints, userObject.pointsAvailableForUse);
-
-        $('.block--new-loyalty .block__title').on('click', function() {
-            $('.block--new-loyalty').addClass('is-active');
-            setTimeout(function() {
-                $('.block--new-loyalty .block__input').focus();
-            }, 600);
-        });
-
-        $('.input-loyalty').on('input', function() {
-            var inputGroup = $(this).closest('.block__input-group'),
-                input = inputGroup.find('.input-loyalty'),
-                inputError = $(this).closest('.block__content__holder').find('.block__input-error');
-            
-            if (input.val() > 0 && referenceNumber > 0 && input.val() <= referenceNumber) {
-                inputGroup.removeClass('error');
-                inputError.fadeOut();
-            } else {
-                inputGroup.addClass('error');
-                inputError.fadeIn();
-            }
-        });
-
-        $('.button-loyalty').on('click', function(e) {
-            e.preventDefault();
-
-            var inputGroup = $(this).closest('.block__input-group'),
-                input = inputGroup.find('.input-loyalty'),
-                inputError = $(this).closest('.block__content__holder').find('.block__input-error');
-            
-            if (input.val() > 0 && referenceNumber > 0 && input.val() <= referenceNumber) {
-                inputGroup.removeClass('error');
-                inputError.fadeOut();
-                $('#loyalty-form').submit();
-            } else {
-                inputGroup.addClass('error');
-                inputError.fadeIn();
-            }
-        });
-
-        $('.loyalty-used__delete').on('click', function(e) {
-            e.preventDefault();
-            $('#loyalty-form').submit();
-        });
-
-        $('.info-block__icon').on('click', function () {
-            var myTooltip = $(this).closest('.info-block').find('.tooltip');
-
-            $('.tooltip.is-active').removeClass('is-active');
-            myTooltip.addClass('is-active');
-        });
-
-        $(document).mouseup(function (e) {
-            var tooltip = $('.tooltip');
-            if (!tooltip.is(e.target) && tooltip.has(e.target).length === 0) tooltip.removeClass('is-active');
-        });
-    });
-</script>
