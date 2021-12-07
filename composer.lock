@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "570ed5ef7c6fed8eb7e752d52bc4f52d",
+    "content-hash": "ebdc7b5f7659014d8b0fa3ff58261c8a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1141,7 +1141,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2021-07-28T20:14:21+00:00"
+            "time": "2021-07-28T20:10:43+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -7951,7 +7951,7 @@
                 "proprietary"
             ],
             "description": "Api Gateway Order Attachment",
-            "time": "2020-09-08T10:52:36+00:00"
+            "time": "2018-06-19T14:33:44+00:00"
         },
         {
             "name": "oander/module-api-product",
@@ -8592,11 +8592,11 @@
         },
         {
             "name": "oander/module-dropdown-products",
-            "version": "1.1.6.12",
+            "version": "1.1.6.15",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-dropdown-products.git",
-                "reference": "390365567233f6f0eb32502bcd623d27531c4cac"
+                "reference": "fb8962e7adad68d5caa1d0a1d7d4a44648ec00de"
             },
             "require": {
                 "php": "7.*"
@@ -8614,7 +8614,7 @@
                 "proprietary"
             ],
             "description": "Oander Dropdown Products module",
-            "time": "2021-09-14T21:09:06+00:00"
+            "time": "2021-12-07T11:06:51+00:00"
         },
         {
             "name": "oander/module-email-additional-data",
@@ -9584,7 +9584,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/simple-vatnumber-validation.git",
-                "reference": "b18bd3fba7f2dd7b38bbf18893f672a8d4fc417b"
+                "reference": "fc37f34c9480345c66beac1faaa14298c3d99f92"
             },
             "type": "magento2-module",
             "autoload": {
@@ -9605,7 +9605,7 @@
                 }
             ],
             "description": "Simple VAT Number Validation",
-            "time": "2021-12-01T20:09:01+00:00"
+            "time": "2021-12-02T13:37:52+00:00"
         },
         {
             "name": "oander/module-structured-data",
@@ -10164,7 +10164,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "ae1f587e6f880943451ce11ff016f5a1c3cf315a"
+                "reference": "069d14042e85cc8fe3a517f9fc4965c773861c84"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10180,7 +10180,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-11-29T13:38:01+00:00"
+            "time": "2021-12-07T20:50:21+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10874,16 +10874,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.103.0",
+            "version": "v7.105.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "3a029598395bb4c7cfafa64707a553f4b01a9a12"
+                "reference": "3a926610ca772aa7519fb132c88a6e7472788d90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/3a029598395bb4c7cfafa64707a553f4b01a9a12",
-                "reference": "3a029598395bb4c7cfafa64707a553f4b01a9a12",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/3a926610ca772aa7519fb132c88a6e7472788d90",
+                "reference": "3a926610ca772aa7519fb132c88a6e7472788d90",
                 "shasum": ""
             },
             "require": {
@@ -10893,11 +10893,10 @@
                 "php": ">=5.6.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "2.17.1",
-                "php-coveralls/php-coveralls": "^2.1",
-                "phpunit/phpunit": "^5.7",
-                "squizlabs/php_codesniffer": "^3.3",
-                "symfony/process": "~3.4"
+                "friendsofphp/php-cs-fixer": "3.2.1",
+                "phpstan/phpstan": "^1.2",
+                "phpunit/phpunit": "^5.7 || ^9.0",
+                "squizlabs/php_codesniffer": "^3.3"
             },
             "type": "library",
             "extra": {
@@ -10927,7 +10926,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2021-11-20T00:36:07+00:00"
+            "time": "2021-12-06T22:51:55+00:00"
         },
         {
             "name": "symfony/console",
@@ -14949,5 +14948,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
