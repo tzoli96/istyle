@@ -9,7 +9,7 @@
             </argument>
         </arguments>
     </type>
-    <type name="Magento\Customer\Model\Address">
-        <plugin name="Oander_IstyleCheckout_Plugin_Frontend_Magento_Customer_Model_Address" type="Oander\IstyleCheckout\Plugin\Frontend\Magento\Customer\Model\Address" sortOrder="10" disabled="false"/>
+    <type name="Magento\Customer\Controller\Address\FormPost">
+        <plugin name="Oander_IstyleCheckout_Plugin_Frontend_Magento_Customer_Controller_Address_FormPost" type="Oander\IstyleCheckout\Plugin\Frontend\Magento\Customer\Controller\Address\FormPost" sortOrder="10" disabled="false"/>
     </type>
 </config>
