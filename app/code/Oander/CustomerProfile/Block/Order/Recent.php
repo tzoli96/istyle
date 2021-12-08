@@ -1,15 +1,17 @@
 <?php
 
-namespace Oander\IstyleCustomization\Helper;
+namespace Oander\CustomerProfile\Block\Order;
 
-use Magento\Framework\App\Helper\AbstractHelper;
-use Magento\Framework\App\Helper\Context;
+use Magento\Customer\Model\Session;
+use Magento\Framework\View\Element\Template\Context;
+use Magento\Sales\Model\Order\Config;
+use Magento\Sales\Model\ResourceModel\Order\CollectionFactory;
 use Magento\Catalog\Block\Product\ImageBuilder;
 use Magento\Sales\Model\Order;
 use Magento\Quote\Model\Quote\ItemFactory;
 use Magento\Quote\Model\ResourceModel\Quote\Item;
 
-class OrderRecent extends AbstractHelper
+class Recent extends \Magento\Sales\Block\Order\Recent
 {
     /** @var ImageBuilder */
     private $imageBuilder;
@@ -22,17 +24,31 @@ class OrderRecent extends AbstractHelper
      */
     private $itemResourceModel;
 
+    /**
+     * @param Context $context
+     * @param CollectionFactory $orderCollectionFactory
+     * @param Session $customerSession
+     * @param Config $orderConfig
+     * @param ImageBuilder $imageBuilder
+     * @param Item $itemResourceModel
+     * @param ItemFactory $quoteItemFactory
+     * @param array $data
+     */
     public function __construct(
-        Context      $context,
-        ImageBuilder $imageBuilder,
-        Item         $itemResourceModel,
-        ItemFactory  $quoteItemFactory
+        Context           $context,
+        CollectionFactory $orderCollectionFactory,
+        Session           $customerSession,
+        Config            $orderConfig,
+        ImageBuilder      $imageBuilder,
+        Item              $itemResourceModel,
+        ItemFactory       $quoteItemFactory,
+        array             $data = []
     )
     {
         $this->imageBuilder = $imageBuilder;
         $this->itemResourceModel = $itemResourceModel;
         $this->quoteItemFactory = $quoteItemFactory;
-        parent::__construct($context);
+        parent::__construct($context, $orderCollectionFactory, $customerSession, $orderConfig, $data);
     }
 
     public function getProductImageUrl($product)
@@ -44,11 +60,6 @@ class OrderRecent extends AbstractHelper
             ->create();
 
         return $image->getImageUrl();
-    }
-
-    public function getOrderStatus($order)
-    {
-        return ($order->getStatus() === ORDER::STATE_COMPLETE) ? __("Completed at %1", $order->getUpdateDate()) : $order->getStatusLabel();
     }
 
     /**
@@ -95,4 +106,5 @@ class OrderRecent extends AbstractHelper
 
         return $parents;
     }
+
 }
