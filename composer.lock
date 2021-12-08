@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bbb093cbded791f93d43a3af47d7e41f",
+    "content-hash": "8a4377f0e1aaeef1de47347e4040df84",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -5254,6 +5254,7 @@
                 "magento/module-sales-sample-data": "Sample Data version:100.1.*"
             },
             "type": "magento2-module",
+            "extra": [],
             "autoload": {
                 "files": [
                     "registration.php"
@@ -8669,6 +8670,33 @@
             "time": "2021-11-18T16:36:53+00:00"
         },
         {
+            "name": "oander/module-express-shipping",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/module-express-shipping.git",
+                "reference": "0cd5c3120a8104e3b313bea77a6226ce9d96701b"
+            },
+            "require": {
+                "oander/module-shipping": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\ExpressShipping\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Express shipping shipping method",
+            "time": "2021-12-06T08:37:28+00:00"
+        },
+        {
             "name": "oander/module-extracheckoutsummary",
             "version": "1.0.0.0",
             "source": {
@@ -10128,30 +10156,6 @@
             "time": "2018-06-25T12:40:24+00:00"
         },
         {
-            "name": "oander/theme-istyle",
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "e8d425374e40e7bfab29e3c5f36197496c10d493"
-            },
-            "require": {
-                "oander/module-base": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-theme",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ]
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "iStyle M2 Theme",
-            "time": "2021-11-26T13:24:12+00:00"
-        },
-        {
             "name": "oyejorge/less.php",
             "version": "v1.7.0.14",
             "source": {
@@ -10317,16 +10321,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.34",
+            "version": "2.0.35",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "98a6fe587f3481aea319eef7e656d02cfe1675ec"
+                "reference": "4e16cf3f5f927a7d3f5317820af795c0366c0420"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/98a6fe587f3481aea319eef7e656d02cfe1675ec",
-                "reference": "98a6fe587f3481aea319eef7e656d02cfe1675ec",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/4e16cf3f5f927a7d3f5317820af795c0366c0420",
+                "reference": "4e16cf3f5f927a7d3f5317820af795c0366c0420",
                 "shasum": ""
             },
             "require": {
@@ -10404,7 +10408,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2021-10-27T02:46:30+00:00"
+            "time": "2021-11-28T23:30:39+00:00"
         },
         {
             "name": "plugincompany/customergroupswitching",
@@ -10843,16 +10847,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.103.0",
+            "version": "v7.104.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "3a029598395bb4c7cfafa64707a553f4b01a9a12"
+                "reference": "6bfd895eaa3f6ebb49c10f9ab9ccc9e5baadded5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/3a029598395bb4c7cfafa64707a553f4b01a9a12",
-                "reference": "3a029598395bb4c7cfafa64707a553f4b01a9a12",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/6bfd895eaa3f6ebb49c10f9ab9ccc9e5baadded5",
+                "reference": "6bfd895eaa3f6ebb49c10f9ab9ccc9e5baadded5",
                 "shasum": ""
             },
             "require": {
@@ -10862,11 +10866,10 @@
                 "php": ">=5.6.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "2.17.1",
-                "php-coveralls/php-coveralls": "^2.1",
-                "phpunit/phpunit": "^5.7",
-                "squizlabs/php_codesniffer": "^3.3",
-                "symfony/process": "~3.4"
+                "friendsofphp/php-cs-fixer": "3.2.1",
+                "phpstan/phpstan": "^1.2",
+                "phpunit/phpunit": "^5.7 || ^9.0",
+                "squizlabs/php_codesniffer": "^3.3"
             },
             "type": "library",
             "extra": {
@@ -10896,7 +10899,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2021-11-20T00:36:07+00:00"
+            "time": "2021-12-01T22:24:54+00:00"
         },
         {
             "name": "symfony/console",
@@ -14909,9 +14912,9 @@
         "oander/module-api-index": 20,
         "oander/module-configurable-product-attribute": 20,
         "oander/module-core-bug-fix": 20,
+        "oander/module-express-shipping": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
         "oander/theme-hodor": 20,
-        "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,

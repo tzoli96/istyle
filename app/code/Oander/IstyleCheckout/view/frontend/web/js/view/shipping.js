@@ -502,6 +502,13 @@ define([
 				return visible();
 			});
 		},
+
+		expressMessageHandler: ko.computed(function () {
+			if (quote.shippingAddress()) {
+				return helpers.checkPostcodeExpressShipping(quote.shippingAddress().postcode);
+			}
+		}),
+
 	};
 
 	return function (target) {

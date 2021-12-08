@@ -429,6 +429,10 @@
         <div class="card__content"><span data-bind="i18n: getShippingAddress()"></span></div>
     </div>
     <div class="block__content">
+        <!--// TODO BE: Adminról jöjjön : Fallback Shipping Method Message -->
+        <div class="messages" data-bind="visible: expressMessageHandler()">
+            <div class="message error"><p>The postal code you entered for the shipping address does not match with the ona at the shipping method. The shipping method has been changed to regular shipping.</p></div>
+        </div>
         <h3 class="block__title" data-bind="i18n: 'Where can we send your order?'"></h3>
         <div class="field addresses">
             <div class="control">
@@ -451,6 +455,10 @@
                         <span class="card__icon"></span>
                         <span class="card__title" data-bind="i18n: 'Add new address'"></span>
                     </div>
+                </div>
+                <!--// TODO BE: Adminról jöjjön : Fallback Shipping Method Message -->
+                <div class="messages d-none">
+                      <div class="message error"><p>The postal code you entered for the shipping address does not match with the ona at the shipping method. The shipping method has been changed to regular shipping.</p></div>
                 </div>
                 <div class="block block--new-shipping-address col-sm-12" id="new-shipping-address" data-bind="visible: isFormVisible()">
                     <h3 class="block__title" data-bind="i18n: 'New shipping address'"></h3>
