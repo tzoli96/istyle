@@ -231,5 +231,24 @@ define([
       if (field !== undefined && field !== '') return true;
       return false;
     },
+
+    checkPostcodeExpressShipping: function (inputVal) {
+      // Express shipping postcode check
+      console.log('lefut', inputVal);
+      var postalCodes = [
+        '1111',
+        '2177',
+        '2222',
+        '3333',
+        '4444',
+        '5555'
+      ];
+
+      if (postalCodes.indexOf(inputVal) === -1) {
+        return true;
+      } else {
+        return false;
+      }
+    },
   }
 });
