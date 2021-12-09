@@ -27,7 +27,7 @@ class Service
         $result,
         $location
     ) {
-        if($location=="checkout")
+        if($location=="checkout" && !empty($result["shippingOption"]))
             return [$result, self::LOCATION_CHECKOUT];
         return [$result, $location];
     }
