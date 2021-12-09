@@ -26,8 +26,10 @@ class Address
     ) {
         foreach ($result as $key => $value)
         {
-            if(strpos("Unspecified", $value)!==false)
-                $result[$key] = "";
+            if(is_string($value)) {
+                if (strpos($value, "Unspecified") !== false)
+                    $result[$key] = "";
+            }
         }
         return $result;
     }
