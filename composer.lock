@@ -7951,7 +7951,7 @@
                 "proprietary"
             ],
             "description": "Api Gateway Order Attachment",
-            "time": "2018-06-19T14:33:44+00:00"
+            "time": "2020-09-08T10:52:36+00:00"
         },
         {
             "name": "oander/module-api-product",
@@ -10164,7 +10164,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "6770a8332892acf95e835e1122f06fa83d2c315e"
+                "reference": "0bae5742b7bde377b86d99a63db334d8f2d6bf99"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10180,7 +10180,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-12-08T10:44:27+00:00"
+            "time": "2021-12-09T08:03:30+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -14948,6 +14948,5 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }
