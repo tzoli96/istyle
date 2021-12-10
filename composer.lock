@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8a4377f0e1aaeef1de47347e4040df84",
+    "content-hash": "10dba091aa52ba61e8602c3d929dd4bd",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8675,7 +8675,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-express-shipping.git",
-                "reference": "0cd5c3120a8104e3b313bea77a6226ce9d96701b"
+                "reference": "a4c477d4c8f3b783e125631b3bdd482172ddcf02"
             },
             "require": {
                 "oander/module-shipping": "*",
@@ -8694,7 +8694,7 @@
                 "proprietary"
             ],
             "description": "Express shipping shipping method",
-            "time": "2021-12-06T08:37:28+00:00"
+            "time": "2021-12-09T16:31:03+00:00"
         },
         {
             "name": "oander/module-extracheckoutsummary",
@@ -10847,16 +10847,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.104.0",
+            "version": "v7.106.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "6bfd895eaa3f6ebb49c10f9ab9ccc9e5baadded5"
+                "reference": "87013b8b3b75daad59d0aa39cbbf0b5979f1a091"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/6bfd895eaa3f6ebb49c10f9ab9ccc9e5baadded5",
-                "reference": "6bfd895eaa3f6ebb49c10f9ab9ccc9e5baadded5",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/87013b8b3b75daad59d0aa39cbbf0b5979f1a091",
+                "reference": "87013b8b3b75daad59d0aa39cbbf0b5979f1a091",
                 "shasum": ""
             },
             "require": {
@@ -10899,7 +10899,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2021-12-01T22:24:54+00:00"
+            "time": "2021-12-09T15:48:56+00:00"
         },
         {
             "name": "symfony/console",
