@@ -9,4 +9,7 @@
 	<type name="StripeIntegration\Payments\Helper\Address">
 		<plugin name="Oander_StripeIntegrationPaymentsExtend_Plugin_StripeIntegration_Payments_Helper_Address" type="Oander\StripeIntegrationPaymentsExtend\Plugin\StripeIntegration\Payments\Helper\Address" sortOrder="10" disabled="false"/>
 	</type>
+	<type name="StripeIntegration\Payments\Helper\ExpressHelper">
+		<plugin name="Oander_StripeIntegrationPaymentsExtend_Plugin_StripeIntegration_Payments_Helper_ExpressHelper" type="Oander\StripeIntegrationPaymentsExtend\Plugin\StripeIntegration\Payments\Helper\ExpressHelper" sortOrder="10" disabled="false"/>
+	</type>
 </config>
