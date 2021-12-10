@@ -96,7 +96,7 @@
         "oander/module-email-additional-data": "1.0.5.1",
         "oander/module-event-based-exporter": "1.1.0.4",
         "oander/module-extracheckoutsummary": "1.0.0.0",
-        "oander/module-express-shipping": "dev-master",
+        "oander/module-express-shipping": "dev-main",
         "oander/module-free-shipping-display": "1.0.6.1",
         "oander/module-heureka-tracking": "1.1.0.1",
         "oander/module-hungarian-newsletter": "1.1.1",

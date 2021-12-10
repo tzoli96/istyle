@@ -20,16 +20,6 @@ define([
 
   var countryData = customerData.get('directory-data');
 
-  //TODO majd be-ről jön
-  var postalCodes = [
-    '1111',
-    '2177',
-    '2222',
-    '3333',
-    '4444',
-    '5555'
-  ];
-
   return Component.extend({
     defaults: {
       template: 'Magento_Checkout/shipping-address/address-renderer/default'
@@ -59,7 +49,8 @@ define([
 
           if (currentLS.hasOwnProperty('shippingMethod') &&
               shippingMethod.hasOwnProperty('expressShippingPostalCode') &&
-              shippingMethod.expressShippingPostalCode !== '') {
+              shippingMethod.expressShippingPostalCode !== '' &&
+              $('input[name=postcode]').val() === '') {
                 $('input[name=postcode]').val(shippingMethod.expressShippingPostalCode);
           }
 
