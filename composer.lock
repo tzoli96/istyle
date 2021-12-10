@@ -10164,7 +10164,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "6f253a0330aee0c4798a035e1e3df292058914df"
+                "reference": "3520b31594b790ceb5bf835188d450c1dd6ccbea"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10180,7 +10180,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-12-09T12:54:12+00:00"
+            "time": "2021-12-10T10:43:34+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10874,16 +10874,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.105.0",
+            "version": "v7.107.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "3a926610ca772aa7519fb132c88a6e7472788d90"
+                "reference": "a90f74037261ed376c0d37066f396c48809c8e99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/3a926610ca772aa7519fb132c88a6e7472788d90",
-                "reference": "3a926610ca772aa7519fb132c88a6e7472788d90",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/a90f74037261ed376c0d37066f396c48809c8e99",
+                "reference": "a90f74037261ed376c0d37066f396c48809c8e99",
                 "shasum": ""
             },
             "require": {
@@ -10926,7 +10926,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2021-12-06T22:51:55+00:00"
+            "time": "2021-12-09T20:40:29+00:00"
         },
         {
             "name": "symfony/console",
