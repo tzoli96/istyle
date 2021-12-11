@@ -96,28 +96,34 @@ define([
      */
     sortCardAddress: function (address, fixPosition) {
       var positions = this.getAddressAttributesPositions();
+      var addressObject = JSON.parse(JSON.stringify(address));
       var value = {};
       var hasCompany = false;
 
       positions['vatId'] = positions['vat_id'];
 
-      if (address.customAttributes) {
-        if (address.customAttributes.pfpj_reg_no && typeof address.customAttributes.pfpj_reg_no != 'object') {
-          address['pfpj_reg_no'] = address.customAttributes.pfpj_reg_no;
+      if (addressObject.customAttributes) {
+        if (addressObject.customAttributes.pfpj_reg_no) {
+          if (typeof addressObject.customAttributes.pfpj_reg_no != 'object') {
+            addressObject['pfpj_reg_no'] = addressObject.customAttributes.pfpj_reg_no;
+          }
+          else {
+            addressObject['pfpj_reg_no'] = addressObject.customAttributes.pfpj_reg_no.value;
+          }
         }
       }
 
-      for (var data in address) {
+      for (var data in addressObject) {
         for (var p in positions) {
-          if (p == data && address[data]) {
-            var position = (address.company)
+          if (p == data && addressObject[data]) {
+            var position = (addressObject.company)
                             ? positions[p].company_position
                             : positions[p].individual_position;
 
             if (fixPosition == 'individual') position = positions[p].individual_position;
-            value[position] = address[data];
+            value[position] = addressObject[data];
 
-            (address.company)
+            (addressObject.company)
               ? hasCompany = true
               : '';
 

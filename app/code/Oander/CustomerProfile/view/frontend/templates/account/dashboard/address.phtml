@@ -1,0 +1,56 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Customer\Block\Account\Dashboard\Address $block */
+?>
+<section class="block block-dashboard-addresses" aria-labelledby="block-title-addresses">
+    <div class="block-dashboard-addresses__head">
+        <h2 class="block-dashboard-addresses__title" id="block-title-addresses" class="h2">
+            <strong><?php /* @escapeNotVerified */ echo __('Address Book') ?></strong>
+        </h2>
+        <a class="block-dashboard-addresses__link text-primary action" href="<?php /* @escapeNotVerified */ echo $block->getAddressBookUrl() ?>">
+            <span><?php /* @escapeNotVerified */ echo __('Manage Addresses') ?></span>
+            <i class="icon icon-chevron-right"></i>
+        </a>
+    </div>
+    <ul class="block-dashboard-addresses__list row">
+        <li class="block-dashboard-addresses__listitem col-sm-12 col-lg-4">
+            <div class="block-dashboard-addresses__inner">
+                <h3 class="block-dashboard-addresses__list-title">
+                    <span><?php /* @escapeNotVerified */ echo __('Default Billing Address') ?></span>
+                </h3>
+                <address>
+                    <?php echo $block->getPrimaryBillingAddressHtml() ?>
+                </address>
+                <a class="action outline-primary" href="<?php /* @escapeNotVerified */ echo $block->getPrimaryBillingAddressEditUrl() ?>" data-ui-id="default-billing-edit-link"><span><?php /* @escapeNotVerified */ echo __('Edit Address') ?></span></a>
+            </div>
+        </li>
+        <li class="block-dashboard-addresses__listitem col-sm-12 col-lg-4">
+            <div class="block-dashboard-addresses__inner">
+                <h3 class="block-dashboard-addresses__list-title">
+                    <span><?php /* @escapeNotVerified */ echo __('Default Shipping Address') ?></span>
+                </h3>
+                <address>
+                    <?php echo $block->getPrimaryShippingAddressHtml() ?>
+                </address>
+                <a class="action outline-primary" href="<?php /* @escapeNotVerified */ echo $block->getPrimaryShippingAddressEditUrl() ?>" data-ui-id="default-shipping-edit-link"><span><?php /* @escapeNotVerified */ echo __('Edit Address') ?></span></a>
+            </div>
+        </li>
+        <li class="block-dashboard-addresses__listitem block-dashboard-addresses__listitem--dotted col-sm-12 col-lg-4">
+            <div class="block-dashboard-addresses__inner">
+                <h3>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 42" aria-hidden="true">
+                        <title>plus-glyph</title>
+                        <path d="M 21 0 C 9.42 0 0 9.42 0 21 C 0 32.58 9.42 42 21 42 C 32.58 42 42 32.58 42 21 C 42 9.42 32.58 0 21 0 Z M 28 22.75 L 22.75 22.75 L 22.75 28 C 22.75 29.347 21.291 30.189 20.125 29.515 C 19.583 29.203 19.249 28.625 19.249 28 L 19.249 22.75 L 14 22.75 C 12.652 22.75 11.81 21.291 12.484 20.125 C 12.796 19.583 13.374 19.249 14 19.249 L 19.249 19.249 L 19.249 14 C 19.249 12.652 20.708 11.81 21.875 12.484 C 22.416 12.797 22.75 13.374 22.75 14 L 22.75 19.249 L 28 19.249 C 29.347 19.249 30.189 20.708 29.515 21.875 C 29.203 22.416 28.625 22.75 28 22.75 Z" style="fill: rgb(0, 122, 255); paint-order: fill;" xmlns:bx="https://boxy-svg.com" bx:origin="0.501286 0.49831"/>
+                    </svg>
+                    <a class="text-primary action" href="<?php /* @escapeNotVerified */ echo $block->getUrl('customer/address/') ?>"><span data-bind="i18n: 'Add new address'"/></a>
+                </h3>
+            </div>
+        </li>
+    </ul>
+</section>

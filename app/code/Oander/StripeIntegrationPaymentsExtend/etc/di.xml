@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<type name="StripeIntegration\Payments\Api\Service">
+		<plugin name="Oander_StripeIntegrationPaymentsExtend_Plugin_StripeIntegration_Payments_Api_Service" type="Oander\StripeIntegrationPaymentsExtend\Plugin\StripeIntegration\Payments\Api\Service" sortOrder="10" disabled="false"/>
+	</type>
+	<type name="Magento\Payment\Model\Info">
+		<plugin name="Oander_StripeIntegrationPaymentsExtend_Plugin_Magento_Payment_Model_Info" type="Oander\StripeIntegrationPaymentsExtend\Plugin\Magento\Payment\Model\Info" sortOrder="10" disabled="false"/>
+	</type>
+	<type name="StripeIntegration\Payments\Helper\Address">
+		<plugin name="Oander_StripeIntegrationPaymentsExtend_Plugin_StripeIntegration_Payments_Helper_Address" type="Oander\StripeIntegrationPaymentsExtend\Plugin\StripeIntegration\Payments\Helper\Address" sortOrder="10" disabled="false"/>
+	</type>
+	<type name="StripeIntegration\Payments\Helper\ExpressHelper">
+		<plugin name="Oander_StripeIntegrationPaymentsExtend_Plugin_StripeIntegration_Payments_Helper_ExpressHelper" type="Oander\StripeIntegrationPaymentsExtend\Plugin\StripeIntegration\Payments\Helper\ExpressHelper" sortOrder="10" disabled="false"/>
+	</type>
+</config>

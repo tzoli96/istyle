@@ -10156,6 +10156,30 @@
             "time": "2018-06-25T12:40:24+00:00"
         },
         {
+            "name": "oander/theme-istyle",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/theme-istyle.git",
+                "reference": "e8d425374e40e7bfab29e3c5f36197496c10d493"
+            },
+            "require": {
+                "oander/module-base": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-theme",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "iStyle M2 Theme",
+            "time": "2021-11-26T13:24:12+00:00"
+        },
+        {
             "name": "oyejorge/less.php",
             "version": "v1.7.0.14",
             "source": {
@@ -10847,16 +10871,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.106.0",
+            "version": "v7.103.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "87013b8b3b75daad59d0aa39cbbf0b5979f1a091"
+                "reference": "3a029598395bb4c7cfafa64707a553f4b01a9a12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/87013b8b3b75daad59d0aa39cbbf0b5979f1a091",
-                "reference": "87013b8b3b75daad59d0aa39cbbf0b5979f1a091",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/3a029598395bb4c7cfafa64707a553f4b01a9a12",
+                "reference": "3a029598395bb4c7cfafa64707a553f4b01a9a12",
                 "shasum": ""
             },
             "require": {
@@ -10899,7 +10923,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2021-12-09T15:48:56+00:00"
+            "time": "2021-11-20T00:36:07+00:00"
         },
         {
             "name": "symfony/console",

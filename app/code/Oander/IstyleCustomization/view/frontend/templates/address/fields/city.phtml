@@ -12,10 +12,10 @@
             </div>
             <div class="dropdown dropdown--fc">
                 <div class="dropdown__input">
-                    <input type="text" value="<?php echo $block->escapeHtml($block->getAddress()->getCity()) ?>" name="fc-search" class="dropdown__search form-control" autocomplete="off" <?= ($block->escapeHtml($block->getRegion() == "") ? 'disabled' : '') ?>>
+                    <input type="text" value="<?php echo $block->escapeHtml($block->getParentBlock()->getAddress()->getCity()) ?>" name="fc-search" class="dropdown__search form-control" autocomplete="off" <?= ($block->escapeHtml($block->getRegion() == "") ? 'disabled' : '') ?>>
                 </div>
                 <div class="dropdown__selected hidden">
-                    <input type="text" name="city" class="city hide" id="city" value="<?php echo $block->escapeHtml($block->getAddress()->getCity()) ?>" data-validate='{"required":true}' />
+                    <input type="text" name="city" class="city hide" id="city" value="<?php echo $block->escapeHtml($block->getParentBlock()->getAddress()->getCity()) ?>" data-validate='{"required":true}' />
                 </div>
                 <div class="dropdown__selected"></div>
                 <div class="dropdown__list">
@@ -32,7 +32,7 @@
     <div class="form-group field city required">
         <label class="label" for="city"><span><?php /* @escapeNotVerified */ echo __('City') ?></span></label>
         <div class="control">
-            <input type="text" name="city" value="<?php echo $block->escapeHtml($block->getAddress()->getCity()) ?>" title="<?php /* @escapeNotVerified */ echo __('City') ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('city') ?>" id="city">
+            <input type="text" name="city" value="<?php echo $block->escapeHtml($block->getParentBlock()->getAddress()->getCity()) ?>" title="<?php /* @escapeNotVerified */ echo __('City') ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('city') ?>" id="city">
         </div>
     </div>
 <?php endif; ?>

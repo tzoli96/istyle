@@ -72,7 +72,7 @@ define([
       var formGroup = $(element).closest('.form-group');
 
       if ($(element).length) {
-        if ($(element).val().length > 0) {
+        if ($(element).val().length > 0 && !$(element).closest('.form-group').hasClass('_error')) {
           if (formGroup.find('.field-tooltip').length) formGroup.addClass('has-field-tooltip');
           formGroup.addClass('filled');
         }

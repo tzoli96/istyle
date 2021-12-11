@@ -1,6 +1,6 @@
 <div class="form-group field fax">
     <label class="label" for="fax"><span><?php /* @escapeNotVerified */ echo __('Fax') ?></span></label>
     <div class="control">
-        <input type="text" name="fax" id="fax" title="<?php /* @escapeNotVerified */ echo __('Fax') ?>" value="<?php echo $block->escapeHtml($block->getAddress()->getFax()) ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('fax') ?>">
+        <input type="text" name="fax" id="fax" title="<?php /* @escapeNotVerified */ echo __('Fax') ?>" value="<?php echo $block->escapeHtml($block->getParentBlock()->getAddress()->getFax()) ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('fax') ?>">
     </div>
 </div>

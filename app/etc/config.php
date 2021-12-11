@@ -194,6 +194,7 @@ return array (
     'Oander_CustomerAddressValidation' => 1,
     'Oander_CustomerFileUpload' => 1,
     'Oander_CustomerFileUploadLimit' => 1,
+    'Oander_CustomerProfile' => 1,
     'Oander_DiscountBadge' => 1,
     'Oander_DropdownProducts' => 1,
     'Oander_ApiCheckout' => 1,

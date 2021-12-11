@@ -456,7 +456,7 @@ define([
       $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text($t('Contact person lastname'));
 
       this.fieldErrorHandling($(formElements.companyField));
-      if ($(formElements.vatIdField).hasClass('vat-required')) this.fieldErrorHandling($(formElements.vatIdField));
+      if ($(formElements.vatIdField).hasClass('vat-required') && !$(formElements.vatIdField).hasClass('oandervalidate-length')) this.fieldErrorHandling($(formElements.vatIdField));
       this.fieldErrorHandling($(formElements.pfpjField));
     },
 
@@ -486,7 +486,7 @@ define([
      * @returns {Void}
      */
     watchField: function (field) {
-      if (field.length) {
+      if (field.length && !field.hasClass('oandervalidate-length')) {
         if (!field.find('.form-control').val().length) {
           field.addClass('_error');
           field.find('.mage-error').removeClass('d-none');
