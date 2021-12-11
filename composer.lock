@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ebdc7b5f7659014d8b0fa3ff58261c8a",
+    "content-hash": "0536156022e92ce35041c9be9454cafc",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1141,7 +1141,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2021-07-28T20:10:43+00:00"
+            "time": "2021-07-28T20:14:21+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -8671,6 +8671,33 @@
             "time": "2021-11-18T16:36:53+00:00"
         },
         {
+            "name": "oander/module-express-shipping",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/module-express-shipping.git",
+                "reference": "86cc484ce9c709cdaac6b67973a51314aa7e6bec"
+            },
+            "require": {
+                "oander/module-shipping": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\ExpressShipping\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Express shipping shipping method",
+            "time": "2021-12-11T02:25:18+00:00"
+        },
+        {
             "name": "oander/module-extracheckoutsummary",
             "version": "1.0.0.0",
             "source": {
@@ -9941,11 +9968,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.29.5",
+            "version": "1.4.29.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "d9a390ee0120369f322ca4a8c2ffcacd50d19ba7"
+                "reference": "1de0156db7ad60ec8f81b0afd48b9433e524a129"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9966,7 +9993,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2021-11-25T03:29:49+00:00"
+            "time": "2021-12-11T09:43:12+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
@@ -10164,7 +10191,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "3520b31594b790ceb5bf835188d450c1dd6ccbea"
+                "reference": "2c0925b6a709b6e4009f4a9318f477ff2c692108"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10180,7 +10207,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-12-10T10:43:34+00:00"
+            "time": "2021-12-11T10:39:04+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10776,16 +10803,16 @@
         },
         {
             "name": "seld/phar-utils",
-            "version": "1.1.2",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/phar-utils.git",
-                "reference": "749042a2315705d2dfbbc59234dd9ceb22bf3ff0"
+                "reference": "9f3452c93ff423469c0d56450431562ca423dcee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/phar-utils/zipball/749042a2315705d2dfbbc59234dd9ceb22bf3ff0",
-                "reference": "749042a2315705d2dfbbc59234dd9ceb22bf3ff0",
+                "url": "https://api.github.com/repos/Seldaek/phar-utils/zipball/9f3452c93ff423469c0d56450431562ca423dcee",
+                "reference": "9f3452c93ff423469c0d56450431562ca423dcee",
                 "shasum": ""
             },
             "require": {
@@ -10816,7 +10843,7 @@
             "keywords": [
                 "phar"
             ],
-            "time": "2021-08-19T21:01:38+00:00"
+            "time": "2021-12-10T11:20:11+00:00"
         },
         {
             "name": "sjparkinson/static-review",
