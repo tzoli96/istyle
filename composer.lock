@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ebdc7b5f7659014d8b0fa3ff58261c8a",
+    "content-hash": "a0167e5ee56e94ebf44ede84c6dc5019",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -3815,7 +3815,6 @@
                 "magento/module-customer-sample-data": "Sample Data version:100.1.*"
             },
             "type": "magento2-module",
-            "extra": [],
             "autoload": {
                 "files": [
                     "registration.php"
@@ -8671,6 +8670,33 @@
             "time": "2021-11-18T16:36:53+00:00"
         },
         {
+            "name": "oander/module-express-shipping",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:oandermedia/module-express-shipping.git",
+                "reference": "86cc484ce9c709cdaac6b67973a51314aa7e6bec"
+            },
+            "require": {
+                "oander/module-shipping": "*",
+                "php": "7.*"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "psr-4": {
+                    "Oander\\ExpressShipping\\": ""
+                },
+                "files": [
+                    "registration.php"
+                ]
+            },
+            "license": [
+                "proprietary"
+            ],
+            "description": "Express shipping shipping method",
+            "time": "2021-12-11T02:25:18+00:00"
+        },
+        {
             "name": "oander/module-extracheckoutsummary",
             "version": "1.0.0.0",
             "source": {
@@ -10159,30 +10185,6 @@
             "time": "2018-06-25T12:40:24+00:00"
         },
         {
-            "name": "oander/theme-istyle",
-            "version": "dev-develop",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "3520b31594b790ceb5bf835188d450c1dd6ccbea"
-            },
-            "require": {
-                "oander/module-base": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-theme",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ]
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "iStyle M2 Theme",
-            "time": "2021-12-10T10:43:34+00:00"
-        },
-        {
             "name": "oyejorge/less.php",
             "version": "v1.7.0.14",
             "source": {
@@ -10776,16 +10778,16 @@
         },
         {
             "name": "seld/phar-utils",
-            "version": "1.1.2",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/phar-utils.git",
-                "reference": "749042a2315705d2dfbbc59234dd9ceb22bf3ff0"
+                "reference": "9f3452c93ff423469c0d56450431562ca423dcee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/phar-utils/zipball/749042a2315705d2dfbbc59234dd9ceb22bf3ff0",
-                "reference": "749042a2315705d2dfbbc59234dd9ceb22bf3ff0",
+                "url": "https://api.github.com/repos/Seldaek/phar-utils/zipball/9f3452c93ff423469c0d56450431562ca423dcee",
+                "reference": "9f3452c93ff423469c0d56450431562ca423dcee",
                 "shasum": ""
             },
             "require": {
@@ -10816,7 +10818,7 @@
             "keywords": [
                 "phar"
             ],
-            "time": "2021-08-19T21:01:38+00:00"
+            "time": "2021-12-10T11:20:11+00:00"
         },
         {
             "name": "sjparkinson/static-review",
@@ -14939,10 +14941,10 @@
         "oander/module-api-index": 20,
         "oander/module-configurable-product-attribute": 20,
         "oander/module-core-bug-fix": 20,
+        "oander/module-express-shipping": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
         "oander/module-simple-vatnumber-validation": 20,
         "oander/theme-hodor": 20,
-        "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
     },
     "prefer-stable": true,

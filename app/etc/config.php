@@ -199,6 +199,7 @@ return array (
     'Oander_DropdownProducts' => 1,
     'Oander_ApiCheckout' => 1,
     'Oander_EventBasedExporter' => 1,
+    'Oander_ExpressShipping' => 1,
     'Oander_ExtraCheckoutSummary' => 1,
     'Oander_FanCourierValidator' => 1,
     'Oander_FreeShippingDisplay' => 1,
