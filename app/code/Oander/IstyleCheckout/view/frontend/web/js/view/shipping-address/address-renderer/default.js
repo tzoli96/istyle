@@ -14,7 +14,8 @@ define([
   'Magento_Customer/js/customer-data',
   'Oander_IstyleCheckout/js/helpers',
   'Oander_IstyleCheckout/js/view/billing-address/sort',
-], function ($, ko, Component, selectShippingAddressAction, quote, formState, checkoutData, customerData, helpers, sort) {
+  'Oander_IstyleCheckout/js/model/store'
+], function ($, ko, Component, selectShippingAddressAction, quote, formState, checkoutData, customerData, helpers, sort, store) {
   'use strict';
 
   var countryData = customerData.get('directory-data');
@@ -42,10 +43,20 @@ define([
           this.validateShippingFields();
           var self = this;
 
+          // Express shipping postcode fill to new address
+          var currentLS = store.getLocalStorage();
+          var shippingMethod = currentLS.shippingMethod;
+
+          if (currentLS.hasOwnProperty('shippingMethod') &&
+              shippingMethod.hasOwnProperty('expressShippingPostalCode') &&
+              shippingMethod.expressShippingPostalCode !== '' &&
+              $('input[name=postcode]').val() === '') {
+                $('input[name=postcode]').val(shippingMethod.expressShippingPostalCode);
+          }
+
           setTimeout(self.scrollToForm, 500);
         }
       }, this);
-
       return this;
     },
 
@@ -56,8 +67,8 @@ define([
     selectAddress: function () {
       selectShippingAddressAction(this.address());
       checkoutData.setSelectedShippingAddress(this.address().getKey());
-
       formState.isVisible(false);
+
       formState.hasSelectedAddress(true);
     },
 
@@ -81,6 +92,6 @@ define([
 
         $('#shipping-new-address-form').find('.form-group').first().find('.form-control').focus();
       }
-    }
+    },
   });
 });

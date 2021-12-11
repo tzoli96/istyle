@@ -4,8 +4,9 @@ define([
   'Magento_Checkout/js/checkout-data',
   'jquery',
   'Oander_IstyleCheckout/js/model/store',
-  'mage/translate'
-], function (ko, quote, checkoutData, $, store, $t) {
+  'mage/translate',
+  'Magento_Ui/js/lib/view/utils/dom-observer'
+], function (ko, quote, checkoutData, $, store, $t, domObserver) {
   'use strict';
 
   return {
@@ -230,6 +231,23 @@ define([
     hasValue: function (field) {
       if (field !== undefined && field !== '') return true;
       return false;
+    },
+
+    checkPostcodeExpressShipping: function (inputVal) {
+      var valueTrimmed = inputVal.replace(/[^A-Z0-9]/ig, "");
+      var postalCodes = window.checkoutConfig.expressShippingConfig.available_postcodes;
+
+      if (postalCodes.indexOf(valueTrimmed) === -1) {
+        domObserver.get('.shipping-control-row[data-code="'+ window.checkoutConfig.expressShippingConfig.fallback_shipping_method.method_code +'"]', function () {
+          $('.shipping-control-row[data-code="'+ window.checkoutConfig.expressShippingConfig.fallback_shipping_method.method_code +'"]').trigger('click');
+        });
+        return true;
+      } else {
+        domObserver.get('.shipping-control-row[data-code="express_shipping"]', function () {
+          $('.shipping-control-row[data-code="express_shipping"]').trigger('click');
+        });
+        return false;
+      }
     },
   }
 });

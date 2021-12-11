@@ -50,6 +50,7 @@ define([
 		isShippingMethodVisible: ko.observable(false),
 		isShippingAddressVisible: ko.observable(false),
 		shippingMethodContinueBtn: store.shippingMethod.continueBtn,
+		expressMessageWarning : window.checkoutConfig.expressShippingConfig.fallback_msg,
 
 		/**
 		 * Is logged in
@@ -502,6 +503,12 @@ define([
 				return visible();
 			});
 		},
+
+		expressMessageHandler: ko.computed(function () {
+			if (quote.shippingAddress()) {
+				return helpers.checkPostcodeExpressShipping(quote.shippingAddress().postcode);
+			}
+		}),
 	};
 
 	return function (target) {
