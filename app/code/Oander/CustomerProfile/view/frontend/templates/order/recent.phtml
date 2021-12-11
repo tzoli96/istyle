@@ -35,7 +35,9 @@
                                     <?php echo $block->escapeHtml(__('Date')) ?>: <?php /* @escapeNotVerified */ echo $block->formatDate($_order->getCreatedAt()) ?>
                                     <span aria-hidden="true" class="d-md-inline d-none">&nbsp; | &nbsp;</span>
                                 </p>
-                                <p><span class="sr-only"><?php echo $block->escapeHtml(__('Status')) ?></span> <strong><?php /* @escapeNotVerified */ echo $_order->getStatusLabel() ?></strong></p>
+                                <p class="block-dashboard-orders-card__status">
+                                    <span class="sr-only"><?php echo $block->escapeHtml(__('Status')) ?></span> <strong><?php /* @escapeNotVerified */ echo $_order->getStatusLabel() ?></strong>
+                                </p>
                             </div>
                         </div>
                         <div class="block-dashboard-orders-card__header-right">
@@ -48,7 +50,6 @@
                          <?php foreach($block->getOrdersItems($_order->getItems()) as $item): ?>
                         <ul class="block-dashboard-orders-card__products">
                             <li>
-                                <!-- TODO BE: product details -->
                                 <img src="<?= $block->getProductImageUrl($item->getProduct()) ?>" alt="">
                                 <p class="block-dashboard-orders-card__details">
                                     <?= $item->getName() ?>
@@ -59,7 +60,6 @@
                             <ul class="block-dashboard-orders-card__sub-products">
                                 <?php foreach ($item->getData("childs") as $childItem) :?>
                                 <li>
-                                    <!-- TODO BE: sub-product details -->
                                     <img src="<?= $block->getProductImageUrl($childItem->getProduct()) ?>" alt="">
                                     <p class="block-dashboard-orders-card__details">
                                         <?= $childItem->getName() ?>
@@ -80,8 +80,6 @@
                             </a>
                         </div>
                     </div>
-                    <!--                Műveletek felirat: <div --><?php //echo $block->escapeHtml(__('Actions')) ?>
-
                 </div>
             <?php endforeach; ?>
         </div>
