@@ -234,7 +234,13 @@ define([
     },
 
     checkPostcodeExpressShipping: function (inputVal) {
-      var valueTrimmed = parseInt(inputVal.replace(/[^A-Z0-9]/ig, ""));
+      var valueTrimmed = (function () {
+        if (window.checkoutConfig.expressShippingConfig) {
+          return parseInt(inputVal.replace(/[^A-Z0-9]/ig, ""))
+        } else {
+          return '';
+        }
+      })();
       var postalCodes = (function () {
           if (window.checkoutConfig.expressShippingConfig && window.checkoutConfig.expressShippingConfig.available_postcodes) {
               return window.checkoutConfig.expressShippingConfig.available_postcodes;
