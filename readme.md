@@ -21,4 +21,3 @@ A projekthez be lett állítva **sass-lint**. Ezzel egységesen (konfigurációs
 
 
 
-
