@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b4ec215ab67fcddf8d7461602b1257ec",
+    "content-hash": "f87fb891e1963a66e9f3cf4bd4f47945",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8676,7 +8676,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-express-shipping.git",
-                "reference": "4d7caaf8676da72e05c9f05ad04fab44cefd13c3"
+                "reference": "30717088bddf826f08cd4e9546eb77a2f51d64ca"
             },
             "require": {
                 "oander/module-shipping": "*",
@@ -8695,7 +8695,7 @@
                 "proprietary"
             ],
             "description": "Express shipping shipping method",
-            "time": "2021-12-13T10:15:35+00:00"
+            "time": "2021-12-13T16:46:51+00:00"
         },
         {
             "name": "oander/module-extracheckoutsummary",
@@ -9968,11 +9968,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.29.7",
+            "version": "1.4.29.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "1de0156db7ad60ec8f81b0afd48b9433e524a129"
+                "reference": "655f614e7002d1470e95af0e8cc9b16a9442ab8d"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9993,7 +9993,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2021-12-11T09:43:12+00:00"
+            "time": "2021-12-13T15:37:43+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
