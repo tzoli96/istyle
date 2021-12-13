@@ -6,7 +6,7 @@
 var config = {
     config: {
         mixins: {
-            'stripe_payments_express': {
+            'StripeIntegration_Payments/js/stripe_payments_express': {
                 'Oander_StripeIntegrationPaymentsExtend/js/stripe_payments_express_mixin': true
             }
         }
