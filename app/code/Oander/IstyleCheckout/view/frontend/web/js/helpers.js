@@ -234,10 +234,22 @@ define([
     },
 
     checkPostcodeExpressShipping: function (inputVal) {
-      var valueTrimmed = inputVal.replace(/[^A-Z0-9]/ig, "");
-      var postalCodes = window.checkoutConfig.expressShippingConfig.available_postcodes;
+      var valueTrimmed = (function () {
+        if(window.checkoutConfig.hasOwnProperty('expressShippingConfig')) {
+          return parseInt(inputVal.replace(/[^A-Z0-9]/ig, ""))
+        } else {
+          return '';
+        }
+      })();
+      var postalCodes = (function () {
+          if (window.checkoutConfig.hasOwnProperty('expressShippingConfig') && window.checkoutConfig.expressShippingConfig.hasOwnProperty('available_postcodes')) {
+              return window.checkoutConfig.expressShippingConfig.available_postcodes;
+          } else {
+            return '';
+          }
+        })();
 
-      if (postalCodes.indexOf(valueTrimmed) === -1) {
+      if (postalCodes && postalCodes.indexOf(valueTrimmed) === -1) {
         domObserver.get('.shipping-control-row[data-code="'+ window.checkoutConfig.expressShippingConfig.fallback_shipping_method.method_code +'"]', function () {
           $('.shipping-control-row[data-code="'+ window.checkoutConfig.expressShippingConfig.fallback_shipping_method.method_code +'"]').trigger('click');
         });

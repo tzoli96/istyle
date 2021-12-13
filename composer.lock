@@ -1141,7 +1141,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2021-07-28T20:14:21+00:00"
+            "time": "2021-07-28T20:10:43+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -10191,7 +10191,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "2c0925b6a709b6e4009f4a9318f477ff2c692108"
+                "reference": "2d84a762aeb40dbbc98436ff0cdfe18bba7c0cbd"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10207,7 +10207,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-12-11T10:39:04+00:00"
+            "time": "2021-12-13T07:52:28+00:00"
         },
         {
             "name": "oyejorge/less.php",

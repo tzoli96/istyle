@@ -20,3 +20,5 @@ A projekthez be lett állítva **sass-lint**. Ezzel egységesen (konfigurációs
  Angol nyelvű dev dokumentáció: https://github.com/idok/sass-lint-plugin
 
 
+
+
