@@ -122,7 +122,7 @@ return array (
     'Magento_SwatchesLayeredNavigation' => 1,
     'Magento_Tax' => 1,
     'Magento_TaxImportExport' => 1,
-    'Innobyte_Cetelem' => 1,
+    'Innobyte_Cetelem' => 0,
     'Magento_Translation' => 1,
     'Amasty_Paction' => 1,
     'Magento_Ups' => 1,
