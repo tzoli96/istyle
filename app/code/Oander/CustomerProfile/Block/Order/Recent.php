@@ -49,6 +49,22 @@ class Recent extends \Magento\Sales\Block\Order\Recent
         $this->itemResourceModel = $itemResourceModel;
         $this->quoteItemFactory = $quoteItemFactory;
         parent::__construct($context, $orderCollectionFactory, $customerSession, $orderConfig, $data);
+
+        $orders = $this->_orderCollectionFactory->create()->addAttributeToSelect(
+            '*'
+        )->addAttributeToFilter(
+            'customer_id',
+            $this->_customerSession->getCustomerId()
+        )->addAttributeToFilter(
+            'status',
+            ['in' => $this->_orderConfig->getVisibleOnFrontStatuses()]
+        )->addAttributeToSort(
+            'created_at',
+            'desc'
+        )->setPageSize(
+            '2'
+        )->load();
+        $this->setOrders($orders);
     }
 
     public function getProductImageUrl($product)
@@ -94,10 +110,13 @@ class Recent extends \Magento\Sales\Block\Order\Recent
 
             if ($item->getData("dropdown_main_id")) {
                 $childs[$item->getData("dropdown_main_id")][] = $item;
-            } else {
+            } elseif ($item->getData("parent_item_id")) {
+                continue;
+            }else {
                 $parents[$item->getData("quote_item_id")] = $item;
             }
         }
+
         if ($childs) {
             foreach ($childs as $quoteItemId => $child) {
                 $parents[$quoteItemId]->setData("childs", $child);
@@ -105,6 +124,14 @@ class Recent extends \Magento\Sales\Block\Order\Recent
         }
 
         return $parents;
+    }
+
+    /**
+     * @return string
+     */
+    protected function _toHtml()
+    {
+        return $this->fetchView($this->getTemplateFile());
     }
 
 }
