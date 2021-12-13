@@ -31,4 +31,12 @@ class Service
             return [$result, self::LOCATION_CHECKOUT];
         return [$result, $location];
     }
+
+    public function afterGetApplePayParams(
+        \StripeIntegration\Payments\Api\Service $subject,
+        $result
+    ) {
+        $result["requestShipping"] = true;
+        return $result;
+    }
 }
