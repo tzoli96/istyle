@@ -511,7 +511,7 @@ define([
 		})(),
 
 		expressMessageHandler: ko.computed(function () {
-			if (quote.shippingAddress()) {
+			if (quote.shippingAddress() && quote.shippingAddress().postcode && quote.shippingAddress().postcode !== null) {
 				return helpers.checkPostcodeExpressShipping(quote.shippingAddress().postcode);
 			}
 		}),
