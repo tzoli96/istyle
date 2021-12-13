@@ -235,7 +235,7 @@ define([
 
     checkPostcodeExpressShipping: function (inputVal) {
       var valueTrimmed = (function () {
-        if(window.checkoutConfig.hasOwnProperty('expressShippingConfig')) {
+        if(window.checkoutConfig.hasOwnProperty('expressShippingConfig') && inputVal !== null ) {
           return parseInt(inputVal.replace(/[^A-Z0-9]/ig, ""))
         } else {
           return '';
