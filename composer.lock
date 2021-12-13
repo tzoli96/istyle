@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0536156022e92ce35041c9be9454cafc",
+    "content-hash": "b4ec215ab67fcddf8d7461602b1257ec",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8672,11 +8672,11 @@
         },
         {
             "name": "oander/module-express-shipping",
-            "version": "1.0.0",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-express-shipping.git",
-                "reference": "86cc484ce9c709cdaac6b67973a51314aa7e6bec"
+                "reference": "4d7caaf8676da72e05c9f05ad04fab44cefd13c3"
             },
             "require": {
                 "oander/module-shipping": "*",
@@ -8695,7 +8695,7 @@
                 "proprietary"
             ],
             "description": "Express shipping shipping method",
-            "time": "2021-12-11T02:25:18+00:00"
+            "time": "2021-12-13T10:15:35+00:00"
         },
         {
             "name": "oander/module-extracheckoutsummary",
@@ -10191,7 +10191,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "2d84a762aeb40dbbc98436ff0cdfe18bba7c0cbd"
+                "reference": "4845d56bfcb70f6f03112acbaa93918584976ec3"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10207,7 +10207,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-12-13T07:52:28+00:00"
+            "time": "2021-12-13T12:48:39+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -14966,6 +14966,7 @@
         "oander/module-api-index": 20,
         "oander/module-configurable-product-attribute": 20,
         "oander/module-core-bug-fix": 20,
+        "oander/module-express-shipping": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
         "oander/module-simple-vatnumber-validation": 20,
         "oander/theme-hodor": 20,
