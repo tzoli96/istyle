@@ -50,7 +50,6 @@ define([
 		isShippingMethodVisible: ko.observable(false),
 		isShippingAddressVisible: ko.observable(false),
 		shippingMethodContinueBtn: store.shippingMethod.continueBtn,
-		expressMessageWarning : window.checkoutConfig.expressShippingConfig.fallback_msg,
 
 		/**
 		 * Is logged in
@@ -503,6 +502,13 @@ define([
 				return visible();
 			});
 		},
+		expressMessageWarning: (function () {
+			if (window.checkoutConfig.expressShippingConfig && window.checkoutConfig.expressShippingConfig.fallback_msg) {
+				return window.checkoutConfig.expressShippingConfig.fallback_msg;
+			} else {
+				return '';
+			}
+		})(),
 
 		expressMessageHandler: ko.computed(function () {
 			if (quote.shippingAddress()) {
