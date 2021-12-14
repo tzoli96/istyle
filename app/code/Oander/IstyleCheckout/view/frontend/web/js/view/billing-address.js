@@ -701,6 +701,61 @@ define([
 				return visible();
 			});
 		},
+
+    expressMessageWarning: ko.computed(function () {
+      var currentLS = store.getLocalStorage();
+
+			if (window.checkoutConfig.expressShippingConfig
+				&& window.checkoutConfig.expressShippingConfig.fallback_msg) {
+				if (store.shippingMethod) {
+					if (store.shippingMethod.expressShippingIsValid()) {
+						return window.checkoutConfig.expressShippingConfig.fallback_msg;
+					}
+          else {
+            return '';
+          }
+				}
+
+        if (currentLS.hasOwnProperty('shippingMethod')) {
+          if (currentLS.shippingMethod.hasOwnProperty('expressShippingIsValid')) {
+            if (currentLS.shippingMethod.expressShippingIsValid) {
+              return window.checkoutConfig.expressShippingConfig.fallback_msg;
+            }
+            else {
+              return '';
+            }
+          }
+        }
+			}
+		}),
+
+		expressMessageHandler: ko.computed(function () {
+      var currentLS = store.getLocalStorage();
+
+      if (quote.shippingAddress()
+				&& quote.shippingAddress().postcode
+				&& quote.shippingAddress().postcode !== null) {
+				if (store.shippingMethod) {
+					if (store.shippingMethod.expressShippingIsValid()) {
+						return helpers.checkPostcodeExpressShipping(quote.shippingAddress().postcode);
+					}
+					else {
+						return false;
+					}
+				}
+
+				if (currentLS.hasOwnProperty('shippingMethod')) {
+					if (currentLS.shippingMethod.hasOwnProperty('expressShippingIsValid')) {
+						if (currentLS.shippingMethod.expressShippingIsValid) {
+							return helpers.checkPostcodeExpressShipping(quote.shippingAddress().postcode);
+						}
+						else {
+							return false;
+						}
+					}
+				}
+      }
+		})
   };
 
   return function (target) {
