@@ -8676,7 +8676,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-express-shipping.git",
-                "reference": "30717088bddf826f08cd4e9546eb77a2f51d64ca"
+                "reference": "ca6da6da52e00a65594005d5fe0a6f5265c648d8"
             },
             "require": {
                 "oander/module-shipping": "*",
@@ -8695,7 +8695,7 @@
                 "proprietary"
             ],
             "description": "Express shipping shipping method",
-            "time": "2021-12-13T16:46:51+00:00"
+            "time": "2021-12-14T11:09:32+00:00"
         },
         {
             "name": "oander/module-extracheckoutsummary",
