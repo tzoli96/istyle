@@ -5,7 +5,6 @@
  */
 
 // @codingStandardsIgnoreFile
-
 ?>
 <section class="block block-dashboard-orders" aria-labelledby="block-title-order">
     <div class="block-dashboard-orders__head">
@@ -13,16 +12,16 @@
         <h2 id="block-title-order" class="h2 block-dashboard-orders__title">
             <strong><?php /* @escapeNotVerified */ echo __('Recent Orders') ?></strong>
         </h2>
-        <?php if (sizeof($_orders->getItems()) > 0): ?>
+        <?php if (sizeof($_orders->getItems()) > 0){ ?>
             <a class="block-dashboard-orders__link text-primary action" href="<?php /* @escapeNotVerified */ echo $block->getUrl('sales/order/history') ?>">
                 <span><?php /* @escapeNotVerified */ echo __('View All') ?></span>
                 <i class="icon icon-chevron-right"></i>
             </a>
-        <?php endif; ?>
+        <?php } ?>
     </div>
     <div class="block-content">
         <?php echo $block->getChildHtml()?>
-        <?php if (sizeof($_orders->getItems()) > 0): ?>
+        <?php if (sizeof($_orders->getItems()) > 0){ ?>
         <div class="block-dashboard-orders-orderlist">
             <!--             <h3>--><?php ///* @escapeNotVerified */ echo __('Recent Orders') ?><!--</h3>-->
             <?php foreach ($_orders as $_order): ?>
@@ -32,10 +31,12 @@
                             <h3 class="h2"><strong><?php echo $block->escapeHtml(__('Order')) ?> : #<?php /* @escapeNotVerified */ echo $_order->getRealOrderId() ?></strong></h3>
                             <div class="block-dashboard-orders-card__subtitle">
                                 <p class="block-dashboard-orders-card__date">
-                                    <?php echo $block->escapeHtml(__('Date')) ?>: <?php /* @escapeNotVerified */ echo $block->formatDate($_order->getCreatedAt()) ?>
+                                    <?php echo $block->escapeHtml(__('Date')) ?>: <?php /* @escapeNotVerified */ echo $block->formatDate($_order->getCreatedAt(), \IntlDateFormatter::MEDIUM) ?>
                                     <span aria-hidden="true" class="d-md-inline d-none">&nbsp; | &nbsp;</span>
                                 </p>
-                                <p><span class="sr-only"><?php echo $block->escapeHtml(__('Status')) ?></span> <strong><?php /* @escapeNotVerified */ echo $_order->getStatusLabel() ?></strong></p>
+                                <p class="block-dashboard-orders-card__status">
+                                    <span class="sr-only"><?php echo $block->escapeHtml(__('Status')) ?></span> <strong><?php /* @escapeNotVerified */ echo $_order->getStatusLabel() ?></strong>
+                                </p>
                             </div>
                         </div>
                         <div class="block-dashboard-orders-card__header-right">
@@ -48,23 +49,35 @@
                          <?php foreach($block->getOrdersItems($_order->getItems()) as $item): ?>
                         <ul class="block-dashboard-orders-card__products">
                             <li>
-                                <!-- TODO BE: product details -->
                                 <img src="<?= $block->getProductImageUrl($item->getProduct()) ?>" alt="">
                                 <p class="block-dashboard-orders-card__details">
-                                    <?= $item->getName() ?>
+                                    <a href="<?= $item->getProduct()->getProductUrl()?>"><?= $item->getName() ?></a>
                                     <span class="block-dashboard-orders-card__sku"><span class="sr-only">SKU </span><?= $item->getSku() ?></span></p>
-                                <p class="block-dashboard-orders-card__price"><?= $_order->formatPrice($item->getPriceInclTax()) ?></p>
+                                <p class="block-dashboard-orders-card__price">
+                                    <?php
+                                    if($item->getData("qty_ordered") != 1)
+                                    {
+                                        echo (int)$item->getData("qty_ordered")." x";
+                                    }
+                                    ?>
+                                    <?= $_order->formatPrice($item->getPriceInclTax()) ?></p>
                             </li>
                             <?php if($item->getData("childs")) :?>
                             <ul class="block-dashboard-orders-card__sub-products">
                                 <?php foreach ($item->getData("childs") as $childItem) :?>
                                 <li>
-                                    <!-- TODO BE: sub-product details -->
                                     <img src="<?= $block->getProductImageUrl($childItem->getProduct()) ?>" alt="">
                                     <p class="block-dashboard-orders-card__details">
-                                        <?= $childItem->getName() ?>
+                                        <a href="<?= $childItem->getProduct()->getProductUrl()?>"><?= $childItem->getName() ?></a>
                                         <span class="block-dashboard-orders-card__sku"><span class="sr-only">SKU </span><?= $childItem->getSku() ?></span></p>
-                                    <p class="block-dashboard-orders-card__price"><?= $_order->formatPrice($childItem->getPriceInclTax()) ?></p>
+                                    <p class="block-dashboard-orders-card__price">
+                                        <?php
+                                        if($childItem->getData("qty_ordered") != 1)
+                                        {
+                                            echo (int)$childItem->getData("qty_ordered")." x";
+                                        }
+                                        ?>
+                                        <?= $_order->formatPrice($childItem->getPriceInclTax()) ?></p>
                                 </li>
                                 <?php endforeach; ?>
                             </ul>
@@ -80,13 +93,11 @@
                             </a>
                         </div>
                     </div>
-                    <!--                Műveletek felirat: <div --><?php //echo $block->escapeHtml(__('Actions')) ?>
-
                 </div>
             <?php endforeach; ?>
         </div>
     </div>
-    <?php else: ?>
+    <?php } else{ ?>
         <div class="block-dashboard-orders-no-order">
             <p><?php /* @escapeNotVerified */ echo __('You have placed no orders.'); ?>
                 <a class="text-primary action" href="<?php /* @escapeNotVerified */ echo $block->getBaseUrl();?>">
@@ -95,5 +106,5 @@
                 </a>
             </p>
         </div>
-    <?php endif; ?>
+    <?php } ?>
 </section>

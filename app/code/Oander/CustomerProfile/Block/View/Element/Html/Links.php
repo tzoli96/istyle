@@ -13,6 +13,11 @@ class Links extends \Magento\Framework\View\Element\Html\Links
      */
     private $customerSession;
 
+    /**
+     * @param Proxy $customerSession
+     * @param Template\Context $context
+     * @param array $data
+     */
     public function __construct(
         Proxy            $customerSession,
         Template\Context $context,
