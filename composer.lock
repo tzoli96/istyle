@@ -9611,7 +9611,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/simple-vatnumber-validation.git",
-                "reference": "fc37f34c9480345c66beac1faaa14298c3d99f92"
+                "reference": "4c75ce0515d7674916f52a35800d5954ace5bcf5"
             },
             "type": "magento2-module",
             "autoload": {
@@ -9632,7 +9632,7 @@
                 }
             ],
             "description": "Simple VAT Number Validation",
-            "time": "2021-12-02T13:37:52+00:00"
+            "time": "2021-12-15T17:12:50+00:00"
         },
         {
             "name": "oander/module-structured-data",
@@ -10191,7 +10191,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "3f3a250caace6dd44a4f3b46ab62e46b063747e8"
+                "reference": "23f8641ced64a2c39bbb5549a3ba28a057bd7343"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10207,7 +10207,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-12-15T12:29:08+00:00"
+            "time": "2021-12-15T17:18:37+00:00"
         },
         {
             "name": "oyejorge/less.php",
