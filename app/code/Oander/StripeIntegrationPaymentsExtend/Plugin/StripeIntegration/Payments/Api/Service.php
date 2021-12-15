@@ -21,6 +21,21 @@ class Service
 {
 
     CONST LOCATION_CHECKOUT = "checkout_ext";
+    /**
+     * @var \Magento\Checkout\Model\Cart
+     */
+    private $cart;
+
+    /**
+     * Service constructor.
+     * @param \Magento\Checkout\Model\Cart $cart
+     */
+    public function __construct(
+        \Magento\Checkout\Model\Cart $cart
+    )
+    {
+        $this->cart = $cart;
+    }
 
     public function beforePlace_order(
         \StripeIntegration\Payments\Api\Service $subject,
@@ -29,6 +44,12 @@ class Service
     ) {
         if($location=="checkout" && !empty($result["shippingOption"]))
             return [$result, self::LOCATION_CHECKOUT];
+        //Add billing name from cardholder (by default no billing name prodived with googlePay)
+        if($result["walletName"] == "googlePay")
+        {
+            if(empty($result["paymentMethod"]["billing_details"]["name"]))
+                $result["paymentMethod"]["billing_details"]["name"] = $result["payerName"];
+        }
         return [$result, $location];
     }
 
@@ -45,6 +66,10 @@ class Service
         \Closure $proceed,
         $address
     ) {
+        //Add for Shipping restriction payment_method filter
+        $this->cart->getQuote()->getShippingAddress()->setPaymentMethod("stripe_payments_express");
+
+
         $result = $proceed($address);
         if(isset($address["shippingMethod"])) {
             if (isset($address["shippingMethod"]["carrier_code"]) && isset($address["shippingMethod"]["method_code"])) {
