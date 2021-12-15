@@ -246,6 +246,7 @@ define([
           return '';
         }
       })();
+      
       var postalCodes = (function () {
         if (window.checkoutConfig.hasOwnProperty('expressShippingConfig') && window.checkoutConfig.expressShippingConfig.hasOwnProperty('available_postcodes')) {
           return window.checkoutConfig.expressShippingConfig.available_postcodes;

@@ -133,6 +133,8 @@ define([
 				}
 			}
 
+
+
 			// Shipping method
 			if (store.steps.shippingMethod() || currentLS.steps.shippingMethod) {
 				this.isShippingMethodVisible(true);
@@ -508,30 +510,27 @@ define([
 		 * @return {String}
 		 */
 		expressMessageWarning: ko.computed(function () {
-			var currentLS = store.getLocalStorage();
+			var currentLS = store.getLocalStorage(),
+					message = false;
 
 			if (window.checkoutConfig.expressShippingConfig
 				&& window.checkoutConfig.expressShippingConfig.postcode_warning_msg) {
 				if (store.shippingMethod) {
 					if (store.shippingMethod.expressShippingIsValid()) {
-						return window.checkoutConfig.expressShippingConfig.postcode_warning_msg;
-					}
-					else {
-						return '';
+						message = window.checkoutConfig.expressShippingConfig.postcode_warning_msg;
 					}
 				}
 
 				if (currentLS.hasOwnProperty('shippingMethod')) {
 					if (currentLS.shippingMethod.hasOwnProperty('expressShippingIsValid')) {
 						if (currentLS.shippingMethod.expressShippingIsValid) {
-							return window.checkoutConfig.expressShippingConfig.postcode_warning_msg;
-						}
-						else {
-							return '';
+							message = window.checkoutConfig.expressShippingConfig.postcode_warning_msg;
 						}
 					}
 				}
 			}
+
+			return message ? message : '';
 		}),
 
 		/**
@@ -539,32 +538,29 @@ define([
 		 * @return {Boolean}
 		 */
 		expressMessageHandler: ko.computed(function () {
-			var currentLS = store.getLocalStorage();
+			var currentLS = store.getLocalStorage(),
+					temp = false;
 
 			if (quote.shippingAddress()
 				&& quote.shippingAddress().postcode
 				&& quote.shippingAddress().postcode !== null) {
 				if (store.shippingMethod) {
 					if (store.shippingMethod.expressShippingIsValid()) {
-						return helpers.checkPostcodeExpressShipping(quote.shippingAddress().postcode);
-					}
-					else {
-						return false;
+						temp = quote.shippingAddress().postcode;
 					}
 				}
 
 				if (currentLS.hasOwnProperty('shippingMethod')) {
 					if (currentLS.shippingMethod.hasOwnProperty('expressShippingIsValid')) {
 						if (currentLS.shippingMethod.expressShippingIsValid) {
-							return helpers.checkPostcodeExpressShipping(quote.shippingAddress().postcode);
-						}
-						else {
-							return false;
+							temp = quote.shippingAddress().postcode;
 						}
 					}
 				}
 			}
-		})
+
+			return temp ? helpers.checkPostcodeExpressShipping(temp) : false;
+		}),
 	};
 
 	return function (target) {
