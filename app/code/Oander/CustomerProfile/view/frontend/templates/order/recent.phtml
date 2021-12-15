@@ -23,7 +23,6 @@
         <?php echo $block->getChildHtml()?>
         <?php if (sizeof($_orders->getItems()) > 0){ ?>
         <div class="block-dashboard-orders-orderlist">
-            <!--             <h3>--><?php ///* @escapeNotVerified */ echo __('Recent Orders') ?><!--</h3>-->
             <?php foreach ($_orders as $_order): ?>
                 <div class="block-dashboard-orders-card ui-card">
                     <div class="block-dashboard-orders-card__header">
@@ -101,7 +100,7 @@
         <div class="block-dashboard-orders-no-order">
             <p><?php /* @escapeNotVerified */ echo __('You have placed no orders.'); ?>
                 <a class="text-primary action" href="<?php /* @escapeNotVerified */ echo $block->getBaseUrl();?>">
-                    <span><?php /* @escapeNotVerified */ echo __('TODO Vásárlás'); ?></span>
+                    <span><?php /* @escapeNotVerified */ echo __('Go to Home Page'); ?></span>
                     <i class="icon icon-chevron-right"></i>
                 </a>
             </p>
