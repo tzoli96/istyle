@@ -730,9 +730,9 @@ define([
 		}),
 
 		expressMessageHandler: ko.computed(function () {
-      var currentLS = store.getLocalStorage();
+            var currentLS = store.getLocalStorage();
 
-      if (quote.shippingAddress()
+            if (quote.shippingAddress()
 				&& quote.shippingAddress().postcode
 				&& quote.shippingAddress().postcode !== null) {
 				if (store.shippingMethod) {

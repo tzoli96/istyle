@@ -503,6 +503,10 @@ define([
 			});
 		},
 
+		/**
+		 * Retrieve the Express Message text.
+		 * @return {String}
+		 */
 		expressMessageWarning: ko.computed(function () {
 			var currentLS = store.getLocalStorage();
 
@@ -530,6 +534,10 @@ define([
 			}
 		}),
 
+		/**
+		 * Check if Express Message should be visible
+		 * @return {Boolean}
+		 */
 		expressMessageHandler: ko.computed(function () {
 			var currentLS = store.getLocalStorage();
 

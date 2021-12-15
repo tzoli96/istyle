@@ -233,6 +233,11 @@ define([
       return false;
     },
 
+    /**
+     * Checks if postcode is valid for express shipping
+     * @param {Object} inputVal - Object of postcodes
+     * @return {Boolean}
+     */
     checkPostcodeExpressShipping: function (inputVal) {
       var valueTrimmed = (function () {
         if (window.checkoutConfig.hasOwnProperty('expressShippingConfig') && inputVal) {
