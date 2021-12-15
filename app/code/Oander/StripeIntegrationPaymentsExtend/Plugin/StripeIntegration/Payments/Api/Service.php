@@ -45,27 +45,29 @@ class Service
         \Closure $proceed,
         $address
     ) {
-        $result = $proceed();
-        if(isset($address["shippingMethod"]))
-        {
-            if(isset($address["shippingMethod"]["carrier_code"]) && isset($address["shippingMethod"]["method_code"]))
-            {
-                $firstMethodId = null;
+        $result = $proceed($address);
+        if(isset($address["shippingMethod"])) {
+            if (isset($address["shippingMethod"]["carrier_code"]) && isset($address["shippingMethod"]["method_code"])) {
+
                 $result = \Zend_Json::decode($result);
-                foreach ($result["results"] as $id => $method)
-                {
-                    if($method["id"] == $address["shippingMethod"]["carrier_code"] . "_" . isset($address["shippingMethod"]["method_code"]))
-                    {
-                        $firstMethodId = $id;
+
+                if (isset($result["results"])) {
+                    if (is_array($result["results"])) {
+                        $firstMethodId = null;
+                        foreach ($result["results"] as $id => $method) {
+                            if ($method["id"] == ($address["shippingMethod"]["carrier_code"] . "_" . $address["shippingMethod"]["method_code"])) {
+                                $firstMethodId = $id;
+                                break;
+                            }
+                        }
+                        if ($firstMethodId) {
+                            $firstMethod = $result["results"][$firstMethodId];
+                            array_splice($result["results"], $firstMethodId, 1);
+                            array_unshift($result["results"], $firstMethod);
+                        }
+                        $result = \Zend_Json::encode($result);
                     }
                 }
-                if($firstMethodId)
-                {
-                    $firstMethod = $result[$firstMethodId];
-                    array_splice($result,$firstMethod,1);
-                    array_unshift($result, $firstMethod);
-                }
-                $result = \Zend_Json::encode($result);
             }
         }
         return $result;

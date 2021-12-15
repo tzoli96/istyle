@@ -470,28 +470,28 @@ define([
 		 * Check if card edit should be visible
 		 * @returns {Boolean}
 		 */
-		isCardEditVisible: function(param) {
-			return ko.computed(function() {
-        var currentLS = store.getLocalStorage(),
-            activeStep,
-            visibleSteps,
-            visible = ko.observable(true);
+		isCardEditVisible: function (param) {
+			return ko.computed(function () {
+				var currentLS = store.getLocalStorage(),
+					activeStep,
+					visibleSteps,
+					visible = ko.observable(true);
 
-        if (store.steps.active() !== '') {
-          activeStep = store.steps.active()
-        } else {
-          if (currentLS && currentLS.hasOwnProperty('steps') && currentLS.steps.hasOwnProperty('active')) {
-            activeStep = currentLS.steps.active;
-          } else {
-            activeStep = 'auth';
-          }
-        }
+				if (store.steps.active() !== '') {
+					activeStep = store.steps.active()
+				} else {
+					if (currentLS && currentLS.hasOwnProperty('steps') && currentLS.steps.hasOwnProperty('active')) {
+						activeStep = currentLS.steps.active;
+					} else {
+						activeStep = 'auth';
+					}
+				}
 
-        if (currentLS && currentLS.hasOwnProperty('steps') && currentLS.steps.hasOwnProperty('visible')) {
-          visibleSteps = currentLS.steps.visible;
-        } else {
-          visibleSteps = ['auth'];
-        }
+				if (currentLS && currentLS.hasOwnProperty('steps') && currentLS.steps.hasOwnProperty('visible')) {
+					visibleSteps = currentLS.steps.visible;
+				} else {
+					visibleSteps = ['auth'];
+				}
 
 				if (visibleSteps.indexOf(param) > -1) {
 					if (store.steps.order.indexOf(activeStep) < store.steps.order.indexOf(param)) {
@@ -502,19 +502,61 @@ define([
 				return visible();
 			});
 		},
-		expressMessageWarning: (function () {
-			if (window.checkoutConfig.expressShippingConfig && window.checkoutConfig.expressShippingConfig.fallback_msg) {
-				return window.checkoutConfig.expressShippingConfig.fallback_msg;
-			} else {
-				return '';
-			}
-		})(),
 
-		expressMessageHandler: ko.computed(function () {
-			if (quote.shippingAddress() && quote.shippingAddress().postcode && quote.shippingAddress().postcode !== null) {
-				return helpers.checkPostcodeExpressShipping(quote.shippingAddress().postcode);
+		expressMessageWarning: ko.computed(function () {
+			var currentLS = store.getLocalStorage();
+
+			if (window.checkoutConfig.expressShippingConfig
+				&& window.checkoutConfig.expressShippingConfig.postcode_warning_msg) {
+				if (store.shippingMethod) {
+					if (store.shippingMethod.expressShippingIsValid()) {
+						return window.checkoutConfig.expressShippingConfig.postcode_warning_msg;
+					}
+					else {
+						return '';
+					}
+				}
+
+				if (currentLS.hasOwnProperty('shippingMethod')) {
+					if (currentLS.shippingMethod.hasOwnProperty('expressShippingIsValid')) {
+						if (currentLS.shippingMethod.expressShippingIsValid) {
+							return window.checkoutConfig.expressShippingConfig.postcode_warning_msg;
+						}
+						else {
+							return '';
+						}
+					}
+				}
 			}
 		}),
+
+		expressMessageHandler: ko.computed(function () {
+			var currentLS = store.getLocalStorage();
+
+			if (quote.shippingAddress()
+				&& quote.shippingAddress().postcode
+				&& quote.shippingAddress().postcode !== null) {
+				if (store.shippingMethod) {
+					if (store.shippingMethod.expressShippingIsValid()) {
+						return helpers.checkPostcodeExpressShipping(quote.shippingAddress().postcode);
+					}
+					else {
+						return false;
+					}
+				}
+
+				if (currentLS.hasOwnProperty('shippingMethod')) {
+					if (currentLS.shippingMethod.hasOwnProperty('expressShippingIsValid')) {
+						if (currentLS.shippingMethod.expressShippingIsValid) {
+							return helpers.checkPostcodeExpressShipping(quote.shippingAddress().postcode);
+						}
+						else {
+							return false;
+						}
+					}
+				}
+			}
+		})
 	};
 
 	return function (target) {
