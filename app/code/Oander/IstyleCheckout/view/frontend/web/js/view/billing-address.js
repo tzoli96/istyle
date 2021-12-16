@@ -50,7 +50,7 @@ define([
 
     /**
      * Get billing address
-     * @returns {String}
+     * @return {String}
      */
     getBillingAddress: ko.computed(function () {
       var billingAddress = quote.billingAddress();
@@ -85,7 +85,7 @@ define([
     /**
      * Is active
      * @param {String} step
-     * @returns {Boolean}
+     * @return {Boolean}
      */
     isActive: function (step) {
       var currentLS = store.getLocalStorage();
@@ -104,7 +104,7 @@ define([
 
     /**
      * Load default address
-     * @returns {Void}
+     * @return {Void}
      */
     loadDefaultAddress: function () {
       var self = this;
@@ -163,7 +163,7 @@ define([
 
     /**
      * Form changes
-     * @returns {Void}
+     * @return {Void}
      */
     formChanges: function () {
       var self = this;
@@ -327,7 +327,7 @@ define([
 
     /**
      * Form elements
-     * @returns {Object}
+     * @return {Object}
      */
     formElements: function () {
       var form = document.querySelector('.form.form--billing-address');
@@ -349,7 +349,7 @@ define([
 
     /**
      * Tabs
-     * @returns {Void}
+     * @return {Void}
      */
     tabs: function () {
       var self = this;
@@ -377,7 +377,7 @@ define([
 
     /**
      * Watch specific fields
-     * @returns {Void}
+     * @return {Void}
      */
     watchSpecificFields: function (formId) {
       var self = this;
@@ -396,7 +396,7 @@ define([
     /**
      * Form transform
      * @param {String} formId
-     * @returns {Void}
+     * @return {Void}
      */
     formTransform: function (formId) {
       billingAddressStore.fieldsContent({});
@@ -416,7 +416,7 @@ define([
 
     /**
      * Form person
-     * @returns {Void}
+     * @return {Void}
      */
     formPerson: function () {
       var formElements = this.formElements();
@@ -437,7 +437,7 @@ define([
 
     /**
      * Form company
-     * @returns {Void}
+     * @return {Void}
      */
     formCompany: function () {
       var formElements = this.formElements();
@@ -462,7 +462,7 @@ define([
 
     /**
      * Field error handling
-     * @returns {Void}
+     * @return {Void}
      */
     fieldErrorHandling: function (field) {
       if (!field.find('.mage-error').length) {
@@ -483,7 +483,7 @@ define([
 
     /**
      * Watch field
-     * @returns {Void}
+     * @return {Void}
      */
     watchField: function (field) {
       if (field.length && !field.hasClass('oandervalidate-length')) {
@@ -505,7 +505,7 @@ define([
 
     /**
      * Set billing address
-     * @returns {Void}
+     * @return {Void}
      */
     setBillingAddress: function (address) {
       var formElements = this.formElements();
@@ -557,7 +557,7 @@ define([
 
     /**
      * Is selected by address id
-     * @returns {Boolean}
+     * @return {Boolean}
      */
     isSelectedByAddressId: function (addressId) {
       if ((this.selectedBillingAddress().id == addressId) && this.hasSelectedAddress()) return true;
@@ -570,7 +570,7 @@ define([
 
     /**
      * New address
-     * @returns {Void}
+     * @return {Void}
      */
     addNewAddress: function () {
       store.billingAddress.hasSelectedAddress(false);
@@ -596,7 +596,7 @@ define([
 
     /**
      * Billing continue
-     * @returns {Void}
+     * @return {Void}
      */
     billingContinue: function () {
       var formElements = this.formElements();
@@ -667,7 +667,7 @@ define([
 
     /**
 		 * Check if card edit should be visible
-		 * @returns {Boolean}
+		 * @return {Boolean}
 		 */
 		isCardEditVisible: function(param) {
 			return ko.computed(function() {
@@ -702,60 +702,62 @@ define([
 			});
 		},
 
-    expressMessageWarning: ko.computed(function () {
-      var currentLS = store.getLocalStorage();
+    /**
+		 * Retrieve the Express Message text.
+		 * @return {String}
+		 */
+		expressMessageWarning: ko.computed(function () {
+			var currentLS = store.getLocalStorage(),
+					message = false;
 
 			if (window.checkoutConfig.expressShippingConfig
 				&& window.checkoutConfig.expressShippingConfig.fallback_msg) {
 				if (store.shippingMethod) {
 					if (store.shippingMethod.expressShippingIsValid()) {
-						return window.checkoutConfig.expressShippingConfig.fallback_msg;
-					}
-          else {
-            return '';
-          }
-				}
-
-        if (currentLS.hasOwnProperty('shippingMethod')) {
-          if (currentLS.shippingMethod.hasOwnProperty('expressShippingIsValid')) {
-            if (currentLS.shippingMethod.expressShippingIsValid) {
-              return window.checkoutConfig.expressShippingConfig.fallback_msg;
-            }
-            else {
-              return '';
-            }
-          }
-        }
-			}
-		}),
-
-		expressMessageHandler: ko.computed(function () {
-      var currentLS = store.getLocalStorage();
-
-      if (quote.shippingAddress()
-				&& quote.shippingAddress().postcode
-				&& quote.shippingAddress().postcode !== null) {
-				if (store.shippingMethod) {
-					if (store.shippingMethod.expressShippingIsValid()) {
-						return helpers.checkPostcodeExpressShipping(quote.shippingAddress().postcode);
-					}
-					else {
-						return false;
+						message = window.checkoutConfig.expressShippingConfig.fallback_msg;
 					}
 				}
 
 				if (currentLS.hasOwnProperty('shippingMethod')) {
 					if (currentLS.shippingMethod.hasOwnProperty('expressShippingIsValid')) {
 						if (currentLS.shippingMethod.expressShippingIsValid) {
-							return helpers.checkPostcodeExpressShipping(quote.shippingAddress().postcode);
-						}
-						else {
-							return false;
+							message = window.checkoutConfig.expressShippingConfig.fallback_msg;
 						}
 					}
 				}
-      }
-		})
+			}
+
+			return message ? message : '';
+		}),
+
+		/**
+		 * Check if Express Message should be visible
+		 * @return {Boolean}
+		 */
+		expressMessageHandler: ko.computed(function () {
+			var currentLS = store.getLocalStorage(),
+					temp = false;
+
+			if (quote.shippingAddress()
+				&& quote.shippingAddress().postcode
+				&& quote.shippingAddress().postcode !== null) {
+				if (store.shippingMethod) {
+					if (store.shippingMethod.expressShippingIsValid()) {
+						temp = quote.shippingAddress().postcode;
+					}
+				}
+
+				if (currentLS.hasOwnProperty('shippingMethod') && !temp) {
+					if (currentLS.shippingMethod.hasOwnProperty('expressShippingIsValid')) {
+						if (currentLS.shippingMethod.expressShippingIsValid) {
+							temp = quote.shippingAddress().postcode;
+						}
+					}
+				}
+			}
+
+			return temp ? helpers.checkPostcodeExpressShipping(temp) : false;
+		}),
   };
 
   return function (target) {

@@ -48,10 +48,10 @@ define([
           var shippingMethod = currentLS.shippingMethod;
 
           if (currentLS.hasOwnProperty('shippingMethod') &&
-              shippingMethod.hasOwnProperty('expressShippingPostalCode') &&
-              shippingMethod.expressShippingPostalCode !== '' &&
-              $('input[name=postcode]').val() === '') {
-                $('input[name=postcode]').val(shippingMethod.expressShippingPostalCode);
+            shippingMethod.hasOwnProperty('expressShippingPostalCode') &&
+            shippingMethod.expressShippingPostalCode !== '' &&
+            $('.form-shipping-address input[name=postcode]').val() === '') {
+              $('.form-shipping-address input[name=postcode]').val(shippingMethod.expressShippingPostalCode);
           }
 
           setTimeout(self.scrollToForm, 500);

@@ -21,12 +21,6 @@
                         <argument name="path" xsi:type="string">customer/account/edit</argument>
                     </arguments>
                 </block>
-                <block class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-navigation-account-edit-link2">
-                    <arguments>
-                        <argument name="path" xsi:type="string">sales/order/history</argument>
-                        <argument name="label" xsi:type="string" translate="true">Order History</argument>
-                    </arguments>
-                </block>
                 <block class="Magento\Framework\View\Element\Html\Link\Current" name="customer-account-navigation-address-link">
                     <arguments>
                         <argument name="label" xsi:type="string" translate="true">Address Book</argument>
