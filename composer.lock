@@ -8676,7 +8676,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-express-shipping.git",
-                "reference": "0e6b7e9c48b8d56d49896e6c302a00b411d5920c"
+                "reference": "7a42986b2c591761bb7f4667ccf9d9e524f0eec3"
             },
             "require": {
                 "oander/module-shipping": "*",
@@ -8695,7 +8695,7 @@
                 "proprietary"
             ],
             "description": "Express shipping shipping method",
-            "time": "2021-12-15T19:30:54+00:00"
+            "time": "2021-12-16T10:39:12+00:00"
         },
         {
             "name": "oander/module-extracheckoutsummary",
@@ -10191,7 +10191,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "a827876ca1fbc87766b6dd9a1c5b744df38039a9"
+                "reference": "16f750573234f2307c9ff8311598f7fbd0e67473"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10207,7 +10207,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-12-15T19:23:10+00:00"
+            "time": "2021-12-21T14:30:31+00:00"
         },
         {
             "name": "oyejorge/less.php",
