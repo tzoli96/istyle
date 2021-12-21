@@ -7,8 +7,10 @@ if (!empty($simulations)) {
     ?>
     <?php if (!$this->isCreditIntermediary() && $this->isLegalEnabled()): ?>
         <div class="payin-oney">
-            <img class="centered oney-34-logo"
-                 src="<?= $this->escapeUrl($this->getViewFileUrl('Oney_ThreeByFour::images/34oneytime.png')) ?>"/>
+            <img
+                class="centered oney-34-logo"
+                src="<?= $this->escapeUrl($this->getViewFileUrl('Oney_ThreeByFour::images/34oneytime.png')) ?>"
+            />
         </div>
     <?php else : ?>
         <div class="payin-oney" <?php if ($this->getIsConfigurable()): ?>style="display: none"<?php endif; ?>>
