@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e3f2eda4ed3492b2fc9581a2ba386fe5",
+    "content-hash": "b4e32081bf1cf529ff0f540a5913be8d",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9543,11 +9543,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.18",
+            "version": "1.1.19",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "03c4279eca5a6ef1b4a32449528af889d1c0d679"
+                "reference": "6375472c33d59fc4c73998cad130cb7ff3637004"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9576,7 +9576,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2021-09-29T12:08:09+00:00"
+            "time": "2021-12-22T16:54:47+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -10191,7 +10191,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "888ae0e72d89545ceb051a19269d617e38127bd6"
+                "reference": "7ad5919ac77f6bd0c653cf5aa1a7b77e5c53ca09"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10207,7 +10207,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-12-22T08:10:42+00:00"
+            "time": "2021-12-22T17:02:21+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10901,16 +10901,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.107.0",
+            "version": "v7.108.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "a90f74037261ed376c0d37066f396c48809c8e99"
+                "reference": "81524a3087612f1b41846b9cd6deb80150af985b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/a90f74037261ed376c0d37066f396c48809c8e99",
-                "reference": "a90f74037261ed376c0d37066f396c48809c8e99",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/81524a3087612f1b41846b9cd6deb80150af985b",
+                "reference": "81524a3087612f1b41846b9cd6deb80150af985b",
                 "shasum": ""
             },
             "require": {
@@ -10920,7 +10920,7 @@
                 "php": ">=5.6.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "3.2.1",
+                "friendsofphp/php-cs-fixer": "3.4.0",
                 "phpstan/phpstan": "^1.2",
                 "phpunit/phpunit": "^5.7 || ^9.0",
                 "squizlabs/php_codesniffer": "^3.3"
@@ -10953,7 +10953,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2021-12-09T20:40:29+00:00"
+            "time": "2021-12-22T16:40:02+00:00"
         },
         {
             "name": "symfony/console",
