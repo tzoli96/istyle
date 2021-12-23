@@ -5,14 +5,16 @@ namespace Oney\ThreeByFour\Api\Marketing;
 interface BusinessTransactionsInterface
 {
     /**
+     * @param int|null $store
      * @return array
      */
-    public function getBusinessTransactions();
+    public function getBusinessTransactions($store = null);
 
     /**
+     * @param int|null $store
      * @return array
      */
-    public function getActiveBusinessTransactions();
+    public function getActiveBusinessTransactions($store = null);
     /**
      * @return mixed
      */
