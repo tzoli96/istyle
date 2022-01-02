@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Oander\AddressFieldsProperties\Api\AddressFieldsAttributeRepositoryInterface" type="Oander\AddressFieldsProperties\Model\AddressFieldsAttributeRepository"/>
+	<preference for="Oander\AddressFieldsProperties\Api\Data\AddressFieldsAttributeInterface" type="Oander\AddressFieldsProperties\Model\Data\AddressFieldsAttribute"/>
+	<preference for="Oander\AddressFieldsProperties\Api\Data\AddressFieldsAttributeSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<type name="Oander\AddressFieldsProperties\Model\ResourceModel\AddressFieldsAttribute\Grid\Collection">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">eav_attribute</argument>
+			<argument name="resourceModel" xsi:type="string">Magento\Eav\Model\ResourceModel\Entity\Attribute</argument>
+		</arguments>
+	</type>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="oander_addressfieldsproperties_addressfieldsattribute_listing_data_source" xsi:type="string">Oander\AddressFieldsProperties\Model\ResourceModel\AddressFieldsAttribute\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+</config>

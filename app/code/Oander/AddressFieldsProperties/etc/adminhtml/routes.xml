@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route frontName="oander_addressfieldsproperties" id="oander_addressfieldsproperties">
+            <module before="Magento_Backend" name="Oander_AddressFieldsProperties"/>
+        </route>
+    </router>
+</config>

@@ -1,0 +1,27 @@
+{
+    "name": "oander/module-addressfieldsproperties",
+    "description": "Address Fields Properties",
+    "type": "magento2-module",
+    "license": "GPL-3.0",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Pinczés János",
+            "email": "janos.pinczes@oander.hu"
+        },
+        {
+            "name": "Krammer László",
+            "email": "laszlo.krammer@oander.hu"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Oander\\AddressFieldsProperties\\": ""
+        }
+    }
+}
