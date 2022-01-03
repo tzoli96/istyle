@@ -6,7 +6,7 @@
 /** @var $block \Oander\CustomerProfile\Block\View\Element\Html\Links */
 ?>
 <div class="block profile-user-profile d-none d-md-flex">
-    <p class="profile-user-profile__monogram" aria-hidden="true"><span><?= $block->getMonogram()?><span</p>
+    <p id="profile-user-profile-monogram" class="profile-user-profile__monogram" aria-hidden="true"></p>
     <div>
         <h2 class="h3 profile-user-profile__name"><b><?=$block->getCustomerFullName()?></b></h2>
         <p class="profile-user-profile__mail"><?=$block->getCustomerEmail()?></p>
