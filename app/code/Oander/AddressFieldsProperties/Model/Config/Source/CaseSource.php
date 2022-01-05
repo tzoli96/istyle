@@ -1,11 +1,7 @@
 <?php
-/**
- * Copyright © 2013-2017 Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
 
 /**
- * Used in creating options for Yes|No config value selection
+ * Used in creating options for Case config value selection
  *
  */
 namespace Oander\AddressFieldsProperties\Model\Config\Source;

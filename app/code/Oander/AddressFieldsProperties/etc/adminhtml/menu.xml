@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Oander_AddressFieldsProperties::oander_addressfieldsproperties_addressfieldsattribute" title="Address Fields Properties" module="Oander_AddressFieldsProperties" sortOrder="10" resource="Magento_Backend::content" parent="Oander_Base::base"/>
-        <add id="Oander_AddressFieldsProperties::oander_addressfieldsproperties_addressfields" title="Address Fields" module="Oander_AddressFieldsProperties" sortOrder="10" resource="Magento_Backend::content" parent="Oander_AddressFieldsProperties::oander_addressfieldsproperties_addressfieldsattribute" action="oander_addressfieldsproperties/addressfieldsattribute/index"/>
+        <add id="Oander_AddressFieldsProperties::oander_addressfieldsproperties_addressfieldsattribute" title="Address Fields Properties" module="Oander_AddressFieldsProperties" sortOrder="10" resource="Oander_AddressFieldsProperties::addressFieldsAttribute" parent="Oander_Base::base"/>
+        <add id="Oander_AddressFieldsProperties::oander_addressfieldsproperties_addressfields" title="Address Fields" module="Oander_AddressFieldsProperties" sortOrder="10" resource="Oander_AddressFieldsProperties::addressFieldsAttribute_update" parent="Oander_AddressFieldsProperties::oander_addressfieldsproperties_addressfieldsattribute" action="oander_addressfieldsproperties/addressfieldsattribute/index"/>
     </menu>
 </config>

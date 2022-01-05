@@ -1,8 +1,5 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-	<preference for="Oander\AddressFieldsProperties\Api\AddressFieldsAttributeRepositoryInterface" type="Oander\AddressFieldsProperties\Model\AddressFieldsAttributeRepository"/>
-	<preference for="Oander\AddressFieldsProperties\Api\Data\AddressFieldsAttributeInterface" type="Oander\AddressFieldsProperties\Model\Data\AddressFieldsAttribute"/>
-	<preference for="Oander\AddressFieldsProperties\Api\Data\AddressFieldsAttributeSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
 	<type name="Oander\AddressFieldsProperties\Model\ResourceModel\AddressFieldsAttribute\Grid\Collection">
 		<arguments>
 			<argument name="mainTable" xsi:type="string">eav_attribute</argument>

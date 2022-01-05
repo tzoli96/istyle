@@ -1,20 +1,4 @@
 <?php
-/**
- *   /$$$$$$   /$$$$$$  /$$   /$$ /$$$$$$$  /$$$$$$$$ /$$$$$$$
- *  /$$__  $$ /$$__  $$| $$$ | $$| $$__  $$| $$_____/| $$__  $$
- * | $$  \ $$| $$  \ $$| $$$$| $$| $$  \ $$| $$      | $$  \ $$
- * | $$  | $$| $$$$$$$$| $$ $$ $$| $$  | $$| $$$$$   | $$$$$$$/
- * | $$  | $$| $$__  $$| $$  $$$$| $$  | $$| $$__/   | $$__  $$
- * | $$  | $$| $$  | $$| $$\  $$$| $$  | $$| $$      | $$  \ $$
- * |  $$$$$$/| $$  | $$| $$ \  $$| $$$$$$$/| $$$$$$$$| $$  | $$
- *  \______/ |__/  |__/|__/  \__/|_______/ |________/|__/  |__/
- *
- * Oander Simple VAT Number Validation
- *
- * @author  János Pinczés <janos.pinczes@oander.hu>
- * @author  László Krammer <laszlo.krammer@oander.hu>
- * @license Oander Media Kft. (http://www.oander.hu)
- */
 
 namespace Oander\AddressFieldsProperties\Plugin\Frontend\Magento\Customer\Helper;
 
