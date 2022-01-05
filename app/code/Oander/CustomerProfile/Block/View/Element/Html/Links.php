@@ -12,19 +12,26 @@ class Links extends \Magento\Framework\View\Element\Html\Links
      * @var Proxy
      */
     private $customerSession;
+    /**
+     * @var \Oander\NameSwitcher\Helper\Switching
+     */
+    private $switchingHelper;
 
     /**
      * @param Proxy $customerSession
      * @param Template\Context $context
+     * @param \Oander\NameSwitcher\Helper\Switching $switchingHelper
      * @param array $data
      */
     public function __construct(
         Proxy            $customerSession,
         Template\Context $context,
+        \Oander\NameSwitcher\Helper\Switching $switchingHelper,
         array            $data = []
     )
     {
         $this->customerSession = $customerSession;
+        $this->switchingHelper = $switchingHelper;
         parent::__construct($context, $data);
     }
 
@@ -51,6 +58,10 @@ class Links extends \Magento\Framework\View\Element\Html\Links
      */
     public function getCustomerFullName()
     {
+        if($this->switchingHelper->isInverted())
+        {
+            return $this->getCustomer()->getLastname() . " " . $this->getCustomer()->getFirstname();
+        }
         return $this->getCustomer()->getName();
     }
 
