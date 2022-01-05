@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b4e32081bf1cf529ff0f540a5913be8d",
+    "content-hash": "b12474bcfc290a1ebd22b798aea2ca1b",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8672,11 +8672,11 @@
         },
         {
             "name": "oander/module-express-shipping",
-            "version": "dev-main",
+            "version": "dev-55911_nextday_shipping",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-express-shipping.git",
-                "reference": "7a42986b2c591761bb7f4667ccf9d9e524f0eec3"
+                "reference": "7ca2463550412d081cca5b653bc052ce368c52cb"
             },
             "require": {
                 "oander/module-shipping": "*",
@@ -8695,7 +8695,7 @@
                 "proprietary"
             ],
             "description": "Express shipping shipping method",
-            "time": "2021-12-16T10:39:12+00:00"
+            "time": "2022-01-04T11:54:09+00:00"
         },
         {
             "name": "oander/module-extracheckoutsummary",
@@ -10191,7 +10191,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "6e177fe1120212e751d4fcf7ef2d23741346249d"
+                "reference": "10eb2770ea5efb4c75d21bf8fe9d22b5c19028c5"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10207,7 +10207,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2022-01-03T10:39:15+00:00"
+            "time": "2022-01-03T15:23:14+00:00"
         },
         {
             "name": "oyejorge/less.php",
