@@ -104,6 +104,12 @@ define([
 			var firstShippingMethod = ko.observable('');
 			var firstShippingMethodLoaded = false;
 
+			store.steps.active.subscribe(function (value) {
+				if (value === 'shippingAddress' || value === 'billingAddress') {
+					helpers.checkPostcodeExpressShipping(quote.shippingAddress().postcode);
+				}
+			});
+
 			quote.shippingMethod.subscribe(function (value) {
 				if (value) {
 					if (!firstShippingMethodLoaded) {
@@ -132,8 +138,6 @@ define([
 					store.shippingMethod.continueBtn(false);
 				}
 			}
-
-
 
 			// Shipping method
 			if (store.steps.shippingMethod() || currentLS.steps.shippingMethod) {
@@ -225,6 +229,10 @@ define([
 			}, this);
 
 			this.validateFields();
+
+			quote.shippingAddress.subscribe(function (address) {
+				helpers.checkPostcodeExpressShipping(address.postcode);
+			});
 		},
 
 		resetForm: function () {
@@ -510,57 +518,16 @@ define([
 		 * @return {String}
 		 */
 		expressMessageWarning: ko.computed(function () {
-			var currentLS = store.getLocalStorage(),
-					message = false;
-
-			if (window.checkoutConfig.expressShippingConfig
-				&& window.checkoutConfig.expressShippingConfig.postcode_warning_msg) {
-				if (store.shippingMethod) {
-					if (store.shippingMethod.expressShippingIsValid()) {
-						message = window.checkoutConfig.expressShippingConfig.postcode_warning_msg;
-					}
-				}
-
-				if (currentLS.hasOwnProperty('shippingMethod')) {
-					if (currentLS.shippingMethod.hasOwnProperty('expressShippingIsValid')) {
-						if (currentLS.shippingMethod.expressShippingIsValid) {
-							message = window.checkoutConfig.expressShippingConfig.postcode_warning_msg;
-						}
-					}
-				}
-			}
-
-			return message ? message : '';
+			return window.checkoutConfig.expressShippingConfig.postcode_warning_msg;
 		}),
 
 		/**
 		 * Check if Express Message should be visible
 		 * @return {Boolean}
 		 */
-		expressMessageHandler: ko.computed(function () {
-			var currentLS = store.getLocalStorage(),
-					temp = false;
-
-			if (quote.shippingAddress()
-				&& quote.shippingAddress().postcode
-				&& quote.shippingAddress().postcode !== null) {
-				if (store.shippingMethod) {
-					if (store.shippingMethod.expressShippingIsValid()) {
-						temp = quote.shippingAddress().postcode;
-					}
-				}
-
-				if (currentLS.hasOwnProperty('shippingMethod')) {
-					if (currentLS.shippingMethod.hasOwnProperty('expressShippingIsValid')) {
-						if (currentLS.shippingMethod.expressShippingIsValid) {
-							temp = quote.shippingAddress().postcode;
-						}
-					}
-				}
-			}
-
-			return temp ? helpers.checkPostcodeExpressShipping(temp) : false;
-		}),
+		expressMessageHandler: function() {
+			return helpers.expressMessageValue();
+		},
 	};
 
 	return function (target) {

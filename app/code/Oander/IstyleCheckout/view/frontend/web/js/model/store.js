@@ -41,6 +41,7 @@ define([
       unityPickupPoint: ko.observable(''),
       expressShippingIsValid: ko.observable(false),
       expressShippingPostalCode: ko.observable(''),
+      expressShippingMessage: ko.observable(false),
     },
     shippingAddress: {
       selectedShippingAddress: ko.observable(false),
@@ -86,7 +87,8 @@ define([
         unityPickupTypes: [],
         unityPickupPoint: '',
         expressShippingIsValid: false,
-        expressShippingPostalCode: ''
+        expressShippingPostalCode: '',
+        expressShippingMessage: '',
       },
       shippingAddress: {
         selectedShippingAddress: false,
@@ -219,6 +221,11 @@ define([
       this.shippingMethod.expressShippingPostalCode.subscribe(function (value) {
         this.localStorageObject.shippingMethod.expressShippingPostalCode = value;
         this.updateLocalStorage('shippingMethod', 'expressShippingPostalCode');
+      }, this);
+
+      this.shippingMethod.expressShippingMessage.subscribe(function (value) {
+        this.localStorageObject.shippingMethod.expressShippingMessage = value;
+        this.updateLocalStorage('shippingMethod', 'expressShippingMessage');
       }, this);
 
       // Billing address
