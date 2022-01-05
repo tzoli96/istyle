@@ -40,6 +40,7 @@ class ConfigReader extends ConfigAbstract {
             $scopeCode = (int)$scopeCode;
 
         $configArray = $this->scopeConfig->getValue(self::CONFIG_BASE_PATH, $scope, $scopeCode);
+        $configArray = $configArray ?? [];
         foreach ($configArray as $attributeId => &$item)
         {
             if(isset($item[self::CONFIG_REGEX_PATTERN]))
