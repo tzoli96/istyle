@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b12474bcfc290a1ebd22b798aea2ca1b",
+    "content-hash": "b4e32081bf1cf529ff0f540a5913be8d",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -882,6 +882,20 @@
                 "ssl",
                 "tls"
             ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2021-10-28T20:44:15+00:00"
         },
         {
@@ -1079,6 +1093,20 @@
                 "spdx",
                 "validator"
             ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2021-11-18T10:14:14+00:00"
         },
         {
@@ -1141,7 +1169,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2021-07-28T20:10:43+00:00"
+            "time": "2021-07-28T20:14:21+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -1374,6 +1402,20 @@
             "keywords": [
                 "promise"
             ],
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/promises",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2021-10-22T20:56:57+00:00"
         },
         {
@@ -1465,6 +1507,20 @@
                 "stream",
                 "uri",
                 "url"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/psr7",
+                    "type": "tidelift"
+                }
             ],
             "time": "2021-10-05T13:56:00+00:00"
         },
@@ -3815,7 +3871,6 @@
                 "magento/module-customer-sample-data": "Sample Data version:100.1.*"
             },
             "type": "magento2-module",
-            "extra": [],
             "autoload": {
                 "files": [
                     "registration.php"
@@ -8672,11 +8727,11 @@
         },
         {
             "name": "oander/module-express-shipping",
-            "version": "dev-55911_nextday_shipping",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-express-shipping.git",
-                "reference": "7ca2463550412d081cca5b653bc052ce368c52cb"
+                "reference": "d089c2dac96c1094d43e7c9996e9685a10f6dd1a"
             },
             "require": {
                 "oander/module-shipping": "*",
@@ -8695,7 +8750,7 @@
                 "proprietary"
             ],
             "description": "Express shipping shipping method",
-            "time": "2022-01-04T11:54:09+00:00"
+            "time": "2022-01-06T08:58:55+00:00"
         },
         {
             "name": "oander/module-extracheckoutsummary",
@@ -10191,7 +10246,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "10eb2770ea5efb4c75d21bf8fe9d22b5c19028c5"
+                "reference": "088d9704c31e7f89a031fc7bcf0a3d3102906f80"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10207,7 +10262,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2022-01-03T15:23:14+00:00"
+            "time": "2022-01-06T08:43:22+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10461,6 +10516,20 @@
                 "twofish",
                 "x.509",
                 "x509"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/terrafrost",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpseclib",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
+                    "type": "tidelift"
+                }
             ],
             "time": "2021-11-28T23:30:39+00:00"
         },
@@ -14976,5 +15045,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

@@ -95,7 +95,7 @@
         "oander/module-dropdown-products": "1.1.6.15",
         "oander/module-email-additional-data": "1.0.5.1",
         "oander/module-event-based-exporter": "1.1.0.4",
-        "oander/module-express-shipping": "dev-55911_nextday_shipping",
+        "oander/module-express-shipping": "dev-main",
         "oander/module-extracheckoutsummary": "1.0.0.0",
         "oander/module-free-shipping-display": "1.0.6.1",
         "oander/module-heureka-tracking": "1.1.0.1",
