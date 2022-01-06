@@ -8,8 +8,9 @@ require([
             const options = {
                 url: '/istylecustomization/customer/header',
                 headerId: '#header-account-toggle',
+                sidebarId: '#profile-user-profile-monogram',
                 iconClass: ".icon-user",
-                monogramClass: ".monogram-user"
+                monogramClass: "monogram-user"
             };
 
             var customer = customerData.get('customer');
@@ -21,6 +22,7 @@ require([
                             $(options.headerId + " " + options.monogramClass).show();
                         } else {
                             $(options.headerId).html("<span class='" + options.monogramClass + "'>" + updatedCustomer.monogram + "</span>");
+                            $(options.sidebarId).html("<span class='" + options.monogramClass + "'>" + updatedCustomer.monogram + "</span>");
                         }
                     } else {
                         $(options.headerId + " " + options.monogramClass).hide();
