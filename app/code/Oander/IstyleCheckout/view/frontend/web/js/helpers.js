@@ -235,20 +235,21 @@ define([
 
     /**
      * Checks if postcode is valid for express shipping
-     * @param {Object} inputVal - Object of postcodes
-     * @return {Boolean}
+     * @param {String} value
+     * @returns {Boolean}
      */
-    checkPostcodeExpressShipping: function (inputVal) {
+    checkPostcodeExpressShipping: function (value) {
       var valueTrimmed = (function () {
-        if (window.checkoutConfig.hasOwnProperty('expressShippingConfig') && inputVal) {
-          return parseInt(inputVal.replace(/[^A-Z0-9]/ig, ""))
+        if (window.checkoutConfig.hasOwnProperty('expressShippingConfig') && value) {
+          return parseInt(value.replace(/[^A-Z0-9]/ig, ''))
         } else {
           return '';
         }
       })();
-      
+
       var postalCodes = (function () {
-        if (window.checkoutConfig.hasOwnProperty('expressShippingConfig') && window.checkoutConfig.expressShippingConfig.hasOwnProperty('available_postcodes')) {
+        if (window.checkoutConfig.hasOwnProperty('expressShippingConfig')
+          && window.checkoutConfig.expressShippingConfig.hasOwnProperty('available_postcodes')) {
           return window.checkoutConfig.expressShippingConfig.available_postcodes;
         } else {
           return '';
@@ -257,12 +258,57 @@ define([
 
       if (postalCodes && valueTrimmed) {
         if (postalCodes.indexOf(valueTrimmed) === -1) {
+          if (this.expressMessageCondition()) store.shippingMethod.expressShippingMessage(true);
+          else store.shippingMethod.expressShippingMessage(false);
+
+          store.shippingMethod.expressShippingIsValid.subscribe(function (val) {
+            if (val) store.shippingMethod.expressShippingMessage(true);
+            else store.shippingMethod.expressShippingMessage(false);
+          });
+
+          return true;
+        }
+        else {
+          store.shippingMethod.expressShippingMessage(false);
+
+          return false;
+        }
+      }
+    },
+
+    /**
+     * Express message condition
+     * @returns {Boolean}
+     */
+    expressMessageCondition: ko.computed(function () {
+      var currentLS = store.getLocalStorage();
+
+			if ((store.shippingMethod && store.shippingMethod.expressShippingIsValid())
+				|| (currentLS.shippingMethod && currentLS.shippingMethod.expressShippingIsValid)) {
+				return true;
+			}
+			else {
+				return false;
+			}
+    }),
+
+    /**
+     * Express message value
+     * @returns {Boolean}
+     */
+    expressMessageValue: function () {
+      var currentLS = store.getLocalStorage();
+
+      if ((store.shippingMethod && store.shippingMethod.expressShippingMessage() && store.shippingMethod.expressShippingIsValid())
+				|| (currentLS.shippingMethod && currentLS.shippingMethod.expressShippingMessage && currentLS.shippingMethod.expressShippingIsValid)) {
+        if ((store.shippingMethod.expressShippingMessage() || currentLS.shippingMethod.expressShippingMessage)
+         && (store.shippingMethod.expressShippingIsValid() || currentLS.shippingMethod.expressShippingIsValid)) {
           return true;
         }
         else {
           return false;
         }
       }
-    },
+    }
   }
 });

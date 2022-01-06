@@ -11,13 +11,13 @@
     <div class="card__content"><span data-bind="i18n: getBillingAddress()"></span></div>
   </div>
   <div class="block__content">
-    <div data-bind="visible: expressMessageHandler()">
-      <div class="messages">
-          <div class="message warning">
-              <p data-bind="text: expressMessageWarning"></p>
-          </div>
+    <!-- ko if: expressMessageHandler() -->
+    <div class="messages">
+      <div class="message warning">
+        <p data-bind="text: expressMessageWarning"></p>
       </div>
     </div>
+    <!-- /ko -->
 
     <h3 class="block__title" data-bind="i18n: 'Billing address'"></h3>
 

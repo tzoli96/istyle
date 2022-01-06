@@ -707,57 +707,16 @@ define([
 		 * @return {String}
 		 */
 		expressMessageWarning: ko.computed(function () {
-			var currentLS = store.getLocalStorage(),
-					message = false;
-
-			if (window.checkoutConfig.expressShippingConfig
-				&& window.checkoutConfig.expressShippingConfig.fallback_msg) {
-				if (store.shippingMethod) {
-					if (store.shippingMethod.expressShippingIsValid()) {
-						message = window.checkoutConfig.expressShippingConfig.fallback_msg;
-					}
-				}
-
-				if (currentLS.hasOwnProperty('shippingMethod')) {
-					if (currentLS.shippingMethod.hasOwnProperty('expressShippingIsValid')) {
-						if (currentLS.shippingMethod.expressShippingIsValid) {
-							message = window.checkoutConfig.expressShippingConfig.fallback_msg;
-						}
-					}
-				}
-			}
-
-			return message ? message : '';
+			return window.checkoutConfig.expressShippingConfig.fallback_msg;
 		}),
 
 		/**
 		 * Check if Express Message should be visible
 		 * @return {Boolean}
 		 */
-		expressMessageHandler: ko.computed(function () {
-			var currentLS = store.getLocalStorage(),
-					temp = false;
-
-			if (quote.shippingAddress()
-				&& quote.shippingAddress().postcode
-				&& quote.shippingAddress().postcode !== null) {
-				if (store.shippingMethod) {
-					if (store.shippingMethod.expressShippingIsValid()) {
-						temp = quote.shippingAddress().postcode;
-					}
-				}
-
-				if (currentLS.hasOwnProperty('shippingMethod') && !temp) {
-					if (currentLS.shippingMethod.hasOwnProperty('expressShippingIsValid')) {
-						if (currentLS.shippingMethod.expressShippingIsValid) {
-							temp = quote.shippingAddress().postcode;
-						}
-					}
-				}
-			}
-
-			return temp ? helpers.checkPostcodeExpressShipping(temp) : false;
-		}),
+    expressMessageHandler: function() {
+			return helpers.expressMessageValue();
+		},
   };
 
   return function (target) {
