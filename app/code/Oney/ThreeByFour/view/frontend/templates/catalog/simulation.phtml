@@ -13,8 +13,10 @@ if (!empty($simulationsbyprices)) {
     <div id="simulateur-oney" class="<?php echo $this->getCssClassCountry(); ?>">
         <div id="container_oney_simulation" class='oneyPopup' hidden="true">
             <span class='arrow'></span>
-            <img class="logo-oney" width="80"
-                 src="<?= $this->getViewFileUrl('Oney_ThreeByFour::images/34oneytime.png') ?>"/>
+            <img
+                class="logo-oney" width="80"
+                src="<?= $this->getViewFileUrl('Oney_ThreeByFour::images/34oneytime.png') ?>"
+            />
             <div class="legend_oney">
                 <?php if ($block->printFirstLineInLegend()) : ?>
                     <span><?php echo $block->isFree() ? __("Pay in %1 free".$cc, $block->getInstalmentText()) : __("Simulation Pay in %1".$cc, $block->getInstalmentText()); ?></span></br>
@@ -139,8 +141,10 @@ if (!empty($simulationsbyprices)) {
                 <p class="title bold-style"><?= __('Learn more'.$cc) ?></p>
             </div>
             <div class="centered">
-                <img class="logo-oney small" width="80"
-                     src="<?= $this->getViewFileUrl('Oney_ThreeByFour::images/oney.png') ?>"/>
+                <img
+                    class="logo-oney small" width="80"
+                    src="<?= $this->getViewFileUrl('Oney_ThreeByFour::images/oney.png') ?>"
+                />
             </div>
         </div>
     </div>

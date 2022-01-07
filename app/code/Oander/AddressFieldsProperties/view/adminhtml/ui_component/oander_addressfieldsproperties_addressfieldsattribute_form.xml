@@ -1,0 +1,809 @@
+<?xml version="1.0" ?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">oander_addressfieldsproperties_addressfieldsattribute_form.addressfieldsattribute_form_data_source</item>
+			<item name="deps" xsi:type="string">oander_addressfieldsproperties_addressfieldsattribute_form.addressfieldsattribute_form_data_source</item>
+		</item>
+		<item name="label" xsi:type="string" translate="true">General Information</item>
+		<item name="template" xsi:type="string">templates/form/collapsible</item>
+		<item name="buttons" xsi:type="array">
+			<item name="back" xsi:type="string">Oander\AddressFieldsProperties\Block\Adminhtml\AddressFieldsAttribute\Edit\BackButton</item>
+			<item name="save" xsi:type="string">Oander\AddressFieldsProperties\Block\Adminhtml\AddressFieldsAttribute\Edit\SaveButton</item>
+		</item>
+		<item name="config" xsi:type="array">
+			<item name="dataScope" xsi:type="string">data</item>
+			<item name="namespace" xsi:type="string">oander_addressfieldsproperties_addressfieldsattribute_form</item>
+		</item>
+	</argument>
+	<dataSource name="addressfieldsattribute_form_data_source">
+		<argument name="dataProvider" xsi:type="configurableObject">
+			<argument name="class" xsi:type="string">Oander\AddressFieldsProperties\Model\AddressFieldsAttribute\DataProvider</argument>
+			<argument name="name" xsi:type="string">addressfieldsattribute_form_data_source</argument>
+			<argument name="primaryFieldName" xsi:type="string">attribute_id</argument>
+			<argument name="requestFieldName" xsi:type="string">attribute_id</argument>
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="submit_url" xsi:type="url" path="*/*/save"/>
+				</item>
+			</argument>
+		</argument>
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+			</item>
+		</argument>
+	</dataSource>
+	<fieldset name="design">
+		<argument name="data" xsi:type="array">
+			<item name="config" xsi:type="array">
+				<item name="label" xsi:type="string" translate="true">Field Format</item>
+				<item name="collapsible" xsi:type="boolean">false</item>
+				<item name="sortOrder" xsi:type="number">10</item>
+			</item>
+		</argument>
+		<field name="attribute_id">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="dataType" xsi:type="string">number</item>
+					<item name="formElement" xsi:type="string">hidden</item>
+					<item name="source" xsi:type="string">addressFieldsAttribute</item>
+				</item>
+			</argument>
+		</field>
+		<field name="store_id">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="dataType" xsi:type="string">number</item>
+					<item name="formElement" xsi:type="string">hidden</item>
+					<item name="source" xsi:type="string">addressFieldsAttribute</item>
+				</item>
+			</argument>
+		</field>
+		<field name="website_id">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="dataType" xsi:type="string">number</item>
+					<item name="formElement" xsi:type="string">hidden</item>
+					<item name="source" xsi:type="string">addressFieldsAttribute</item>
+				</item>
+			</argument>
+		</field>
+		<container name="placeholder_group">
+			<argument name="data" xsi:type="array">
+				<item name="type" xsi:type="string">group</item>
+				<item name="config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+					<item name="label" xsi:type="string" translate="true">Placeholder</item>
+					<item name="required" xsi:type="boolean">false</item>
+					<item name="sortOrder" xsi:type="number">10</item>
+				</item>
+			</argument>
+			<field name="placeholder">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="sortOrder" xsi:type="number">10</item>
+						<item name="dataType" xsi:type="string">string</item>
+						<item name="formElement" xsi:type="string">input</item>
+						<item name="label" xsi:type="string" translate="true">Placeholder</item>
+						<item name="source" xsi:type="string">addressFieldsAttribute</item>
+						<item name="required" xsi:type="boolean">false</item>
+						<item name="validation" xsi:type="array">
+							<item name="required-entry" xsi:type="boolean">false</item>
+						</item>
+					</item>
+				</argument>
+			</field>
+			<field name="use_default.placeholder">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="description" xsi:type="string" translate="true">Use Default</item>
+						<item name="dataType" xsi:type="string">boolean</item>
+						<item name="formElement" xsi:type="string">checkbox</item>
+						<item name="sortOrder" xsi:type="number">20</item>
+						<item name="valueMap" xsi:type="array">
+							<item name="true" xsi:type="boolean">true</item>
+							<item name="false" xsi:type="boolean">false</item>
+						</item>
+						<item name="exports" xsi:type="array">
+							<item name="checked" xsi:type="string">ns = ${ $.ns }, index = placeholder :disabled</item>
+						</item>
+					</item>
+				</argument>
+			</field>
+		</container>
+		<container name="enable_formatting_group">
+			<argument name="data" xsi:type="array">
+				<item name="type" xsi:type="string">group</item>
+				<item name="config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+					<item name="label" xsi:type="string" translate="true">Enable Field Formatting</item>
+					<item name="required" xsi:type="boolean">false</item>
+					<item name="sortOrder" xsi:type="number">20</item>
+				</item>
+			</argument>
+			<field name="enable_formatting">
+				<argument name="data" xsi:type="array">
+					<item name="options" xsi:type="object">Magento\Config\Model\Config\Source\Yesno</item>
+					<item name="config" xsi:type="array">
+						<item name="sortOrder" xsi:type="number">10</item>
+						<item name="dataType" xsi:type="string">string</item>
+						<item name="formElement" xsi:type="string">select</item>
+						<item name="source" xsi:type="string">addressFieldsAttribute</item>
+						<item name="label" xsi:type="string" translate="true">Enable Field Formatting</item>
+						<item name="required" xsi:type="boolean">true</item>
+						<item name="default" xsi:type="number">0</item>
+						<item name="validation" xsi:type="array">
+							<item name="required-entry" xsi:type="boolean">true</item>
+						</item>
+						<item name="switcherConfig" xsi:type="array">
+							<item name="enabled" xsi:type="boolean">true</item>
+							<item name="rules" xsi:type="array">
+								<item name="0" xsi:type="array">
+									<item name="value" xsi:type="string">0</item>
+									<item name="actions" xsi:type="array">
+										<item name="0" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.design.blocks_group</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">0</item>
+											</item>
+										</item>
+										<item name="1" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.design.delimiters_group</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">0</item>
+											</item>
+										</item>
+										<item name="2" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.design.prefix_group</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">0</item>
+											</item>
+										</item>
+										<item name="3" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.design.numbers_only_group</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">0</item>
+											</item>
+										</item>
+										<item name="4" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.design.case_group</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">0</item>
+											</item>
+										</item>
+									</item>
+								</item>
+								<item name="1" xsi:type="array">
+									<item name="value" xsi:type="string">1</item>
+									<item name="actions" xsi:type="array">
+										<item name="0" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.design.blocks_group</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">1</item>
+											</item>
+										</item>
+										<item name="1" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.design.delimiters_group</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">1</item>
+											</item>
+										</item>
+										<item name="2" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.design.prefix_group</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">1</item>
+											</item>
+										</item>
+										<item name="3" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.design.numbers_only_group</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">1</item>
+											</item>
+										</item>
+										<item name="4" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.design.case_group</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">1</item>
+											</item>
+										</item>
+									</item>
+								</item>
+							</item>
+						</item>
+					</item>
+				</argument>
+			</field>
+			<field name="use_default.enable_formatting">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="description" xsi:type="string" translate="true">Use Default</item>
+						<item name="dataType" xsi:type="string">boolean</item>
+						<item name="formElement" xsi:type="string">checkbox</item>
+						<item name="sortOrder" xsi:type="number">20</item>
+						<item name="valueMap" xsi:type="array">
+							<item name="true" xsi:type="boolean">true</item>
+							<item name="false" xsi:type="boolean">false</item>
+						</item>
+						<item name="exports" xsi:type="array">
+							<item name="checked" xsi:type="string">ns = ${ $.ns }, index = enable_formatting :disabled</item>
+						</item>
+						<item name="switcherConfig" xsi:type="array">
+							<item name="enabled" xsi:type="boolean">true</item>
+							<item name="rules" xsi:type="array">
+								<item name="0" xsi:type="array">
+									<item name="value" xsi:type="string">1</item>
+									<item name="actions" xsi:type="array">
+										<item name="0" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.design.enable_formatting_group.enable_formatting</item>
+											<item name="callback" xsi:type="string">reset</item>
+										</item>
+									</item>
+								</item>
+							</item>
+						</item>
+					</item>
+				</argument>
+			</field>
+		</container>
+		<container name="blocks_group">
+			<argument name="data" xsi:type="array">
+				<item name="type" xsi:type="string">group</item>
+				<item name="config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+					<item name="label" xsi:type="string" translate="true">Placeholder</item>
+					<item name="required" xsi:type="boolean">false</item>
+					<item name="sortOrder" xsi:type="number">30</item>
+				</item>
+			</argument>
+			<field name="blocks">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="sortOrder" xsi:type="number">10</item>
+						<item name="dataType" xsi:type="string">string</item>
+						<item name="formElement" xsi:type="string">input</item>
+						<item name="label" xsi:type="string" translate="true">Blocks</item>
+						<item name="source" xsi:type="string">addressFieldsAttribute</item>
+						<item name="required" xsi:type="boolean">false</item>
+						<item name="validation" xsi:type="array">
+							<item name="required-entry" xsi:type="boolean">false</item>
+						</item>
+						<item name="disabled" xsi:type="boolean">true</item>
+						<item name="notice" xsi:type="string" translate="true"><![CDATA[The number and size of blocks. Also sets the maximum length of the string.]]></item>
+					</item>
+				</argument>
+			</field>
+			<field name="use_default.blocks">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="description" xsi:type="string" translate="true">Use Default</item>
+						<item name="dataType" xsi:type="string">boolean</item>
+						<item name="formElement" xsi:type="string">checkbox</item>
+						<item name="sortOrder" xsi:type="number">20</item>
+						<item name="valueMap" xsi:type="array">
+							<item name="true" xsi:type="boolean">true</item>
+							<item name="false" xsi:type="boolean">false</item>
+						</item>
+						<item name="exports" xsi:type="array">
+							<item name="checked" xsi:type="string">ns = ${ $.ns }, index = blocks :disabled</item>
+						</item>
+					</item>
+				</argument>
+			</field>
+		</container>
+		<container name="delimiters_group">
+			<argument name="data" xsi:type="array">
+				<item name="type" xsi:type="string">group</item>
+				<item name="config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+					<item name="label" xsi:type="string" translate="true">Delimiters</item>
+					<item name="required" xsi:type="boolean">false</item>
+					<item name="sortOrder" xsi:type="number">40</item>
+				</item>
+			</argument>
+			<field name="delimiters">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="sortOrder" xsi:type="number">10</item>
+						<item name="dataType" xsi:type="string">string</item>
+						<item name="formElement" xsi:type="string">input</item>
+						<item name="label" xsi:type="string" translate="true">Delimiters</item>
+						<item name="source" xsi:type="string">addressFieldsAttribute</item>
+						<item name="required" xsi:type="boolean">false</item>
+						<item name="validation" xsi:type="array">
+							<item name="required-entry" xsi:type="boolean">false</item>
+						</item>
+						<item name="notice" xsi:type="string" translate="true"><![CDATA[These character(s) will separate the blocks. Format: '-','.']]></item>
+					</item>
+				</argument>
+			</field>
+			<field name="use_default.delimiters">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="description" xsi:type="string" translate="true">Use Default</item>
+						<item name="dataType" xsi:type="string">boolean</item>
+						<item name="formElement" xsi:type="string">checkbox</item>
+						<item name="sortOrder" xsi:type="number">20</item>
+						<item name="valueMap" xsi:type="array">
+							<item name="true" xsi:type="boolean">true</item>
+							<item name="false" xsi:type="boolean">false</item>
+						</item>
+						<item name="exports" xsi:type="array">
+							<item name="checked" xsi:type="string">ns = ${ $.ns }, index = delimiters :disabled</item>
+						</item>
+					</item>
+				</argument>
+			</field>
+		</container>
+		<container name="prefix_group">
+			<argument name="data" xsi:type="array">
+				<item name="type" xsi:type="string">group</item>
+				<item name="config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+					<item name="label" xsi:type="string" translate="true">Prefix</item>
+					<item name="required" xsi:type="boolean">false</item>
+					<item name="sortOrder" xsi:type="number">50</item>
+				</item>
+			</argument>
+			<field name="prefix">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="sortOrder" xsi:type="number">10</item>
+						<item name="dataType" xsi:type="string">string</item>
+						<item name="formElement" xsi:type="string">input</item>
+						<item name="label" xsi:type="string" translate="true">Prefix</item>
+						<item name="source" xsi:type="string">addressFieldsAttribute</item>
+						<item name="required" xsi:type="boolean">false</item>
+						<item name="validation" xsi:type="array">
+							<item name="required-entry" xsi:type="boolean">false</item>
+						</item>
+						<item name="notice" xsi:type="string" translate="true"><![CDATA[Note that the prefix counts towards the limit in the blocks setting.]]></item>
+					</item>
+				</argument>
+			</field>
+			<field name="use_default.prefix">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="description" xsi:type="string" translate="true">Use Default</item>
+						<item name="dataType" xsi:type="string">boolean</item>
+						<item name="formElement" xsi:type="string">checkbox</item>
+						<item name="sortOrder" xsi:type="number">20</item>
+						<item name="valueMap" xsi:type="array">
+							<item name="true" xsi:type="boolean">true</item>
+							<item name="false" xsi:type="boolean">false</item>
+						</item>
+						<item name="exports" xsi:type="array">
+							<item name="checked" xsi:type="string">ns = ${ $.ns }, index = prefix :disabled</item>
+						</item>
+					</item>
+				</argument>
+			</field>
+		</container>
+		<container name="numbers_only_group">
+			<argument name="data" xsi:type="array">
+				<item name="type" xsi:type="string">group</item>
+				<item name="config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+					<item name="label" xsi:type="string" translate="true">Numbers Only</item>
+					<item name="required" xsi:type="boolean">false</item>
+					<item name="sortOrder" xsi:type="number">60</item>
+				</item>
+			</argument>
+			<field name="numbers_only">
+				<argument name="data" xsi:type="array">
+					<item name="options" xsi:type="object">Magento\Config\Model\Config\Source\Yesno</item>
+					<item name="config" xsi:type="array">
+						<item name="sortOrder" xsi:type="number">10</item>
+						<item name="dataType" xsi:type="string">string</item>
+						<item name="formElement" xsi:type="string">select</item>
+						<item name="source" xsi:type="string">addressFieldsAttribute</item>
+						<item name="label" xsi:type="string" translate="true">Numbers Only</item>
+						<item name="required" xsi:type="boolean">true</item>
+						<item name="default" xsi:type="number">0</item>
+						<item name="validation" xsi:type="array">
+							<item name="required-entry" xsi:type="boolean">true</item>
+						</item>
+					</item>
+				</argument>
+			</field>
+			<field name="use_default.numbers_only">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="description" xsi:type="string" translate="true">Use Default</item>
+						<item name="dataType" xsi:type="string">boolean</item>
+						<item name="formElement" xsi:type="string">checkbox</item>
+						<item name="sortOrder" xsi:type="number">20</item>
+						<item name="valueMap" xsi:type="array">
+							<item name="true" xsi:type="boolean">true</item>
+							<item name="false" xsi:type="boolean">false</item>
+						</item>
+						<item name="exports" xsi:type="array">
+							<item name="checked" xsi:type="string">ns = ${ $.ns }, index = numbers_only :disabled</item>
+						</item>
+					</item>
+				</argument>
+			</field>
+		</container>
+		<container name="case_group">
+			<argument name="data" xsi:type="array">
+				<item name="type" xsi:type="string">group</item>
+				<item name="config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+					<item name="label" xsi:type="string" translate="true">Case</item>
+					<item name="required" xsi:type="boolean">false</item>
+					<item name="sortOrder" xsi:type="number">70</item>
+				</item>
+			</argument>
+			<field name="case">
+				<argument name="data" xsi:type="array">
+					<item name="options" xsi:type="object">Oander\AddressFieldsProperties\Model\Config\Source\CaseSource</item>
+					<item name="config" xsi:type="array">
+						<item name="sortOrder" xsi:type="number">10</item>
+						<item name="dataType" xsi:type="string">string</item>
+						<item name="formElement" xsi:type="string">select</item>
+						<item name="source" xsi:type="string">addressFieldsAttribute</item>
+						<item name="label" xsi:type="string" translate="true">Case</item>
+						<item name="required" xsi:type="boolean">true</item>
+						<item name="default" xsi:type="number">0</item>
+						<item name="validation" xsi:type="array">
+							<item name="required-entry" xsi:type="boolean">true</item>
+						</item>
+						<item name="notice" xsi:type="string" translate="true"><![CDATA[Case of letters will be changed automatically according to this.]]></item>
+					</item>
+				</argument>
+			</field>
+			<field name="use_default.case">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="description" xsi:type="string" translate="true">Use Default</item>
+						<item name="dataType" xsi:type="string">boolean</item>
+						<item name="formElement" xsi:type="string">checkbox</item>
+						<item name="sortOrder" xsi:type="number">20</item>
+						<item name="valueMap" xsi:type="array">
+							<item name="true" xsi:type="boolean">true</item>
+							<item name="false" xsi:type="boolean">false</item>
+						</item>
+						<item name="exports" xsi:type="array">
+							<item name="checked" xsi:type="string">ns = ${ $.ns }, index = case :disabled</item>
+						</item>
+					</item>
+				</argument>
+			</field>
+		</container>
+	</fieldset>
+	<fieldset name="validation">
+		<argument name="data" xsi:type="array">
+			<item name="config" xsi:type="array">
+				<item name="label" xsi:type="string" translate="true">Field Validation</item>
+				<item name="collapsible" xsi:type="boolean">false</item>
+				<item name="sortOrder" xsi:type="number">20</item>
+			</item>
+		</argument>
+		<container name="validation_type_group">
+			<argument name="data" xsi:type="array">
+				<item name="type" xsi:type="string">group</item>
+				<item name="config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+					<item name="label" xsi:type="string" translate="true">Validation Type</item>
+					<item name="required" xsi:type="boolean">false</item>
+					<item name="sortOrder" xsi:type="number">10</item>
+				</item>
+			</argument>
+			<field name="validation_type">
+				<argument name="data" xsi:type="array">
+					<item name="options" xsi:type="object">Oander\AddressFieldsProperties\Model\Config\Source\ValidationType</item>
+					<item name="config" xsi:type="array">
+						<item name="sortOrder" xsi:type="number">10</item>
+						<item name="dataType" xsi:type="string">string</item>
+						<item name="formElement" xsi:type="string">select</item>
+						<item name="source" xsi:type="string">addressFieldsAttribute</item>
+						<item name="label" xsi:type="string" translate="true">Validation Type</item>
+						<item name="required" xsi:type="boolean">true</item>
+						<item name="default" xsi:type="number">0</item>
+						<item name="validation" xsi:type="array">
+							<item name="required-entry" xsi:type="boolean">true</item>
+						</item>
+						<item name="notice" xsi:type="string" translate="true"><![CDATA[Enable validation for the field.]]></item>
+						<item name="switcherConfig" xsi:type="array">
+							<item name="enabled" xsi:type="boolean">true</item>
+							<item name="rules" xsi:type="array">
+								<item name="0" xsi:type="array">
+									<item name="value" xsi:type="string">0</item>
+									<item name="actions" xsi:type="array">
+										<item name="0" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.validation.string_length_group</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">0</item>
+											</item>
+										</item>
+										<item name="1" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.validation.regex_pattern</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">0</item>
+											</item>
+										</item>
+										<item name="2" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.validation.regex_pattern_group</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">0</item>
+											</item>
+										</item>
+										<item name="3" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.validation.error_message_group</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">0</item>
+											</item>
+										</item>
+									</item>
+								</item>
+								<item name="1" xsi:type="array">
+									<item name="value" xsi:type="string">1</item>
+									<item name="actions" xsi:type="array">
+										<item name="0" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.validation.string_length_group</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">1</item>
+											</item>
+										</item>
+										<item name="1" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.validation.regex_pattern</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">0</item>
+											</item>
+										</item>
+										<item name="2" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.validation.regex_pattern_group</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">0</item>
+											</item>
+										</item>
+										<item name="3" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.validation.error_message_group</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">1</item>
+											</item>
+										</item>
+									</item>
+								</item>
+								<item name="2" xsi:type="array">
+									<item name="value" xsi:type="string">2</item>
+									<item name="actions" xsi:type="array">
+										<item name="0" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.validation.string_length_group</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">0</item>
+											</item>
+										</item>
+										<item name="1" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.validation.regex_pattern</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">1</item>
+											</item>
+										</item>
+										<item name="2" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.validation.regex_pattern_group</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">1</item>
+											</item>
+										</item>
+										<item name="3" xsi:type="array">
+											<item name="target" xsi:type="string">${ $.ns }.${ $.ns }.validation.error_message_group</item>
+											<item name="callback" xsi:type="string">visible</item>
+											<item name="params" xsi:type="array">
+												<item name="0" xsi:type="boolean">1</item>
+											</item>
+										</item>
+									</item>
+								</item>
+							</item>
+						</item>
+					</item>
+				</argument>
+			</field>
+			<field name="use_default.validation_type">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="description" xsi:type="string" translate="true">Use Default</item>
+						<item name="dataType" xsi:type="string">boolean</item>
+						<item name="formElement" xsi:type="string">checkbox</item>
+						<item name="sortOrder" xsi:type="number">20</item>
+						<item name="valueMap" xsi:type="array">
+							<item name="true" xsi:type="boolean">true</item>
+							<item name="false" xsi:type="boolean">false</item>
+						</item>
+						<item name="exports" xsi:type="array">
+							<item name="checked" xsi:type="string">ns = ${ $.ns }, index = validation_type :disabled</item>
+						</item>
+					</item>
+				</argument>
+			</field>
+		</container>
+		<container name="string_length_group">
+			<argument name="data" xsi:type="array">
+				<item name="type" xsi:type="string">group</item>
+				<item name="config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+					<item name="label" xsi:type="string" translate="true">String Length</item>
+					<item name="required" xsi:type="boolean">false</item>
+					<item name="sortOrder" xsi:type="number">20</item>
+				</item>
+			</argument>
+			<field name="string_length">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="sortOrder" xsi:type="number">10</item>
+						<item name="dataType" xsi:type="string">number</item>
+						<item name="formElement" xsi:type="string">input</item>
+						<item name="label" xsi:type="string" translate="true">String Length</item>
+						<item name="source" xsi:type="string">addressFieldsAttribute</item>
+						<item name="required" xsi:type="boolean">false</item>
+						<item name="validation" xsi:type="array">
+							<item name="required-entry" xsi:type="boolean">false</item>
+						</item>
+						<item name="notice" xsi:type="string" translate="true"><![CDATA[Total number of characters in the field, including delimiters and prefixes. This is used for validation.]]></item>
+					</item>
+				</argument>
+			</field>
+			<field name="use_default.string_length">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="description" xsi:type="string" translate="true">Use Default</item>
+						<item name="dataType" xsi:type="string">boolean</item>
+						<item name="formElement" xsi:type="string">checkbox</item>
+						<item name="sortOrder" xsi:type="number">20</item>
+						<item name="valueMap" xsi:type="array">
+							<item name="true" xsi:type="boolean">true</item>
+							<item name="false" xsi:type="boolean">false</item>
+						</item>
+						<item name="exports" xsi:type="array">
+							<item name="checked" xsi:type="string">ns = ${ $.ns }, index = string_length :disabled</item>
+						</item>
+					</item>
+				</argument>
+			</field>
+		</container>
+		<dynamicRows name="regex_pattern">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="sortOrder" xsi:type="number">30</item>
+					<item name="label" xsi:type="string">Regex Pattern</item>
+					<item name="source" xsi:type="string">addressFieldsAttribute</item>
+					<item name="componentType" xsi:type="string">dynamicRows</item>
+					<item name="addButtonLabel" xsi:type="string" translate="true">Add Value</item>
+					<item name="additionalClasses" xsi:type="array">
+						<item name="admin__field-wide" xsi:type="boolean">false</item>
+					</item>
+				</item>
+			</argument>
+			<container name="record">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="isTemplate" xsi:type="boolean">true</item>
+						<item name="is_collection" xsi:type="boolean">true</item>
+						<item name="component" xsi:type="string">Magento_Ui/js/dynamic-rows/record</item>
+						<item name="componentType" xsi:type="string">container</item>
+					</item>
+				</argument>
+				<field name="value">
+					<argument name="data" xsi:type="array">
+						<item name="config" xsi:type="array">
+							<item name="dataType" xsi:type="string">text</item>
+							<item name="formElement" xsi:type="string">input</item>
+							<item name="source" xsi:type="string">addressFieldsAttribute</item>
+							<item name="sortOrder" xsi:type="number">10</item>
+							<item name="label" xsi:type="string" translate="true">Regex</item>
+							<item name="additionalClasses" xsi:type="string">value_field</item>
+							<item name="imports" xsi:type="array">
+								<item name="disabled" xsi:type="string">ns = ${ $.ns }, index = regex_pattern :disabled</item>
+							</item>
+						</item>
+					</argument>
+				</field>
+				<actionDelete>
+					<argument name="data" xsi:type="array">
+						<item name="config" xsi:type="array">
+							<item name="sortOrder" xsi:type="number">20</item>
+							<item name="dataType" xsi:type="string">text</item>
+							<item name="label" xsi:type="string" translate="true">Action</item>
+							<item name="disableForDefaultRecord" xsi:type="boolean">true</item>
+							<item name="additionalClasses" xsi:type="string">action_delete_button</item>
+						</item>
+					</argument>
+				</actionDelete>
+			</container>
+		</dynamicRows>
+		<container name="regex_pattern_group">
+			<argument name="data" xsi:type="array">
+				<item name="type" xsi:type="string">group</item>
+				<item name="config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+					<item name="label" xsi:type="string" translate="true">Regex Pattern</item>
+					<item name="required" xsi:type="boolean">false</item>
+					<item name="sortOrder" xsi:type="number">31</item>
+				</item>
+			</argument>
+			<field name="use_default.regex_pattern">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="description" xsi:type="string" translate="true">Use Default</item>
+						<item name="dataType" xsi:type="string">boolean</item>
+						<item name="formElement" xsi:type="string">checkbox</item>
+						<item name="sortOrder" xsi:type="number">10</item>
+						<item name="valueMap" xsi:type="array">
+							<item name="true" xsi:type="boolean">true</item>
+							<item name="false" xsi:type="boolean">false</item>
+						</item>
+						<item name="exports" xsi:type="array">
+							<item name="checked" xsi:type="string">ns = ${ $.ns }, index = regex_pattern :disabled</item>
+						</item>
+					</item>
+				</argument>
+			</field>
+		</container>
+		<container name="error_message_group">
+			<argument name="data" xsi:type="array">
+				<item name="type" xsi:type="string">group</item>
+				<item name="config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/form/components/group</item>
+					<item name="label" xsi:type="string" translate="true">Error Message</item>
+					<item name="required" xsi:type="boolean">false</item>
+					<item name="sortOrder" xsi:type="number">40</item>
+				</item>
+			</argument>
+			<field name="error_message">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="sortOrder" xsi:type="number">10</item>
+						<item name="dataType" xsi:type="string">string</item>
+						<item name="formElement" xsi:type="string">input</item>
+						<item name="label" xsi:type="string" translate="true">Error Message</item>
+						<item name="source" xsi:type="string">addressFieldsAttribute</item>
+						<item name="required" xsi:type="boolean">false</item>
+						<item name="validation" xsi:type="array">
+							<item name="required-entry" xsi:type="boolean">false</item>
+						</item>
+						<item name="notice" xsi:type="string" translate="true"><![CDATA[This error message will be displayed under the field if the validation fails.]]></item>
+					</item>
+				</argument>
+			</field>
+			<field name="use_default.error_message">
+				<argument name="data" xsi:type="array">
+					<item name="config" xsi:type="array">
+						<item name="description" xsi:type="string" translate="true">Use Default</item>
+						<item name="dataType" xsi:type="string">boolean</item>
+						<item name="formElement" xsi:type="string">checkbox</item>
+						<item name="sortOrder" xsi:type="number">20</item>
+						<item name="valueMap" xsi:type="array">
+							<item name="true" xsi:type="boolean">true</item>
+							<item name="false" xsi:type="boolean">false</item>
+						</item>
+						<item name="exports" xsi:type="array">
+							<item name="checked" xsi:type="string">ns = ${ $.ns }, index = error_message :disabled</item>
+						</item>
+					</item>
+				</argument>
+			</field>
+		</container>
+	</fieldset>
+</form>

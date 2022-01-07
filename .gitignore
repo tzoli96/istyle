@@ -82,3 +82,8 @@ gulpfile.js
 package.json
 package-lock.json
 .sass-lint.yml
+
+/nginx.conf
+.DS_Store
+._.DS_Store
+/app/.DS_Store

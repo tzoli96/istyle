@@ -429,13 +429,13 @@
         <div class="card__content"><span data-bind="i18n: getShippingAddress()"></span></div>
     </div>
     <div class="block__content">
-        <div data-bind="visible: expressMessageHandler()">
-            <div class="messages d-none d-md-block">
-                <div class="message warning">
-                    <p data-bind="text: expressMessageWarning"></p>
-                </div>
+        <!-- ko if: expressMessageHandler() -->
+        <div class="messages d-none d-md-block">
+            <div class="message warning">
+                <p data-bind="text: expressMessageWarning"></p>
             </div>
         </div>
+        <!-- /ko -->
         <h3 class="block__title" data-bind="i18n: 'Where can we send your order?'"></h3>
         <div class="field addresses">
             <div class="control">
@@ -480,13 +480,13 @@
         <!-- /ko -->
         <!-- /ko -->
 
-        <div data-bind="visible: expressMessageHandler()">
-            <div class="messages d-md-none">
-                <div class="message warning">
-                    <p data-bind="text: expressMessageWarning"></p>
-                </div>
+        <!-- ko if: expressMessageHandler() -->
+        <div class="messages d-md-none">
+            <div class="message warning">
+                <p data-bind="text: expressMessageWarning"></p>
             </div>
         </div>
+        <!-- /ko -->
 
         <!-- ko if: (isFormInline) -->
         <div class="actions-toolbar" id="shipping-method-buttons-container">

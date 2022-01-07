@@ -5,7 +5,6 @@ define(
         'uiComponent',
         'StripeIntegration_Payments/js/view/payment/method-renderer/stripe_payments',
         'stripe_payments_express',
-        'Magento_Checkout/js/model/payment/additional-validators',
         'Magento_CheckoutAgreements/js/model/agreement-validator',
         'Magento_Checkout/js/action/select-payment-method',
         'Magento_Checkout/js/checkout-data',
@@ -19,7 +18,6 @@ define(
         Component,
         paymentMethod,
         stripeExpress,
-        additionalValidators,
         agreementValidator,
         selectPaymentMethod,
         checkoutData,
@@ -162,7 +160,7 @@ define(
 
             validate: function(region)
             {
-                if (agreementValidator.validate() && additionalValidators.validate())
+                if (agreementValidator.validate())
                     return true;
 
                 if (!agreementValidator.validate())

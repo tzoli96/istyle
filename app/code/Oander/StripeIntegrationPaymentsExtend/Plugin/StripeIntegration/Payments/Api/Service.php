@@ -42,14 +42,14 @@ class Service
         $result,
         $location
     ) {
-        if($location=="checkout" && !empty($result["shippingOption"]))
-            return [$result, self::LOCATION_CHECKOUT];
         //Add billing name from cardholder (by default no billing name prodived with googlePay)
         if($result["walletName"] == "googlePay")
         {
             if(empty($result["paymentMethod"]["billing_details"]["name"]))
                 $result["paymentMethod"]["billing_details"]["name"] = $result["payerName"];
         }
+        if($location=="checkout" && !empty($result["shippingOption"]))
+            return [$result, self::LOCATION_CHECKOUT];
         return [$result, $location];
     }
 

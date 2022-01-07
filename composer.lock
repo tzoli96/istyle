@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c151c77f110e59ea7e1c7940da158fb",
+    "content-hash": "b4e32081bf1cf529ff0f540a5913be8d",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -882,6 +882,20 @@
                 "ssl",
                 "tls"
             ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2021-10-28T20:44:15+00:00"
         },
         {
@@ -1079,6 +1093,20 @@
                 "spdx",
                 "validator"
             ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2021-11-18T10:14:14+00:00"
         },
         {
@@ -1141,7 +1169,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2021-07-28T20:10:43+00:00"
+            "time": "2021-07-28T20:14:21+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -1374,6 +1402,20 @@
             "keywords": [
                 "promise"
             ],
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/promises",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2021-10-22T20:56:57+00:00"
         },
         {
@@ -1465,6 +1507,20 @@
                 "stream",
                 "uri",
                 "url"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/psr7",
+                    "type": "tidelift"
+                }
             ],
             "time": "2021-10-05T13:56:00+00:00"
         },
@@ -3815,7 +3871,6 @@
                 "magento/module-customer-sample-data": "Sample Data version:100.1.*"
             },
             "type": "magento2-module",
-            "extra": [],
             "autoload": {
                 "files": [
                     "registration.php"
@@ -8676,7 +8731,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-express-shipping.git",
-                "reference": "0e6b7e9c48b8d56d49896e6c302a00b411d5920c"
+                "reference": "d089c2dac96c1094d43e7c9996e9685a10f6dd1a"
             },
             "require": {
                 "oander/module-shipping": "*",
@@ -8695,7 +8750,7 @@
                 "proprietary"
             ],
             "description": "Express shipping shipping method",
-            "time": "2021-12-15T19:30:54+00:00"
+            "time": "2022-01-06T08:58:55+00:00"
         },
         {
             "name": "oander/module-extracheckoutsummary",
@@ -9543,11 +9598,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.18",
+            "version": "1.1.19",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "03c4279eca5a6ef1b4a32449528af889d1c0d679"
+                "reference": "6375472c33d59fc4c73998cad130cb7ff3637004"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9576,7 +9631,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2021-09-29T12:08:09+00:00"
+            "time": "2021-12-22T16:54:47+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -9968,11 +10023,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.29.13",
+            "version": "1.4.29.14",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "f65b885fd5859ba7d1414a5e8112b57fd714c495"
+                "reference": "834bfb43e5472ed08398155c4e338548f3ecda05"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9993,7 +10048,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2021-12-15T13:43:27+00:00"
+            "time": "2021-12-22T08:26:31+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
@@ -10191,7 +10246,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "a827876ca1fbc87766b6dd9a1c5b744df38039a9"
+                "reference": "088d9704c31e7f89a031fc7bcf0a3d3102906f80"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10207,7 +10262,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2021-12-15T19:23:10+00:00"
+            "time": "2022-01-06T08:43:22+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10461,6 +10516,20 @@
                 "twofish",
                 "x.509",
                 "x509"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/terrafrost",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpseclib",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
+                    "type": "tidelift"
+                }
             ],
             "time": "2021-11-28T23:30:39+00:00"
         },
@@ -10901,16 +10970,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.107.0",
+            "version": "v7.108.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "a90f74037261ed376c0d37066f396c48809c8e99"
+                "reference": "81524a3087612f1b41846b9cd6deb80150af985b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/a90f74037261ed376c0d37066f396c48809c8e99",
-                "reference": "a90f74037261ed376c0d37066f396c48809c8e99",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/81524a3087612f1b41846b9cd6deb80150af985b",
+                "reference": "81524a3087612f1b41846b9cd6deb80150af985b",
                 "shasum": ""
             },
             "require": {
@@ -10920,7 +10989,7 @@
                 "php": ">=5.6.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "3.2.1",
+                "friendsofphp/php-cs-fixer": "3.4.0",
                 "phpstan/phpstan": "^1.2",
                 "phpunit/phpunit": "^5.7 || ^9.0",
                 "squizlabs/php_codesniffer": "^3.3"
@@ -10953,7 +11022,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2021-12-09T20:40:29+00:00"
+            "time": "2021-12-22T16:40:02+00:00"
         },
         {
             "name": "symfony/console",
@@ -14976,5 +15045,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
