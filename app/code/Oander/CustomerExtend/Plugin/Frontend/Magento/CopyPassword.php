@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace Oander\CustomerProfile\Plugin\Frontend\Magento;
+namespace Oander\CustomerExtend\Plugin\Frontend\Magento;
 
 class CopyPassword
 {
