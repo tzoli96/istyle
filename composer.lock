@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f600879b74baa5b3b08609ad8bb748d5",
+    "content-hash": "b4b212aca9ceec84fb610a65110ce8a5",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1141,7 +1141,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2021-07-28T20:10:43+00:00"
+            "time": "2021-07-28T20:14:21+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -8428,11 +8428,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "dev-50159-js-render",
+            "version": "dev-master_50159_56096",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "16d0a07cdc64d78baa3ff2f20fd984070c327da2"
+                "reference": "462201f2dfea4ec875e1354a615fe29c43e0cc66"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8451,7 +8451,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2021-05-04T21:39:23+00:00"
+            "time": "2022-01-07T13:35:22+00:00"
         },
         {
             "name": "oander/module-cookie-law",
