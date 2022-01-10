@@ -63,6 +63,7 @@ class Product extends \Magento\Catalog\Block\Product\View
      * @param ProductRepositoryInterface $productRepository
      * @param PriceCurrencyInterface $priceCurrency
      * @param \Oander\OneyThreeByFourExtender\Helper\Data $helper
+     * @param \Magento\Framework\Pricing\Helper\Data $pricingHelper
      * @param array $data
      */
     public function __construct(
@@ -79,6 +80,7 @@ class Product extends \Magento\Catalog\Block\Product\View
         ProductRepositoryInterface $productRepository,
         PriceCurrencyInterface $priceCurrency,
         \Oander\OneyThreeByFourExtender\Helper\Data $helper,
+        \Magento\Framework\Pricing\Helper\Data $pricingHelper,
         array $data = [])
     {
         parent::__construct($context, $urlEncoder, $jsonEncoder, $string, $productHelper, $productTypeConfig, $localeFormat, $customerSession, $productRepository, $priceCurrency, $data);
@@ -86,6 +88,7 @@ class Product extends \Magento\Catalog\Block\Product\View
         $this->taxHelper = $context->getCatalogHelper();
         $this->simulation = $simulation;
         $this->helper = $helper;
+        $this->pricingHelper = $pricingHelper;
     }
 
     /**
