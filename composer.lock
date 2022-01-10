@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b4b212aca9ceec84fb610a65110ce8a5",
+    "content-hash": "817563171c439a68905ecd0d0e99d412",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1141,7 +1141,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2021-07-28T20:14:21+00:00"
+            "time": "2021-07-28T20:10:43+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -9968,11 +9968,11 @@
         },
         {
             "name": "oander/module-warehouse-manager",
-            "version": "1.4.29.15",
+            "version": "1.4.29.16",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-warehouse-manager.git",
-                "reference": "b95336e90012de4c43f05ef81378637a12ad810e"
+                "reference": "9136c27b98008d7a2a825ff5d348247b3d80d31d"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9993,7 +9993,7 @@
                 "proprietary"
             ],
             "description": "Warehouse Manager",
-            "time": "2022-01-07T11:48:57+00:00"
+            "time": "2022-01-10T08:22:04+00:00"
         },
         {
             "name": "oander/module-warehouse-manager-api-index",
