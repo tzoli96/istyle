@@ -40,25 +40,29 @@ class AjaxCaptainHookEvent implements ObserverInterface
     {
         $input = $observer->getData('input');
         $output = $observer->getData('output');
-        $stockBlock = '';
 
-        if($input->getData('product')) {
-            $product = $input->getData('product');
-            $product->unsetData('_cache_instance_options_collection');
-            $price = $this->helper->getProductFinalPrice($product, $input->getData('params'));
+        try {
+            if($input->getData('product')) {
+                $product = $input->getData('product');
+                $product->unsetData('_cache_instance_options_collection');
+                $price = $this->helper->getProductFinalPrice($product, $input->getData('params'));
 
-            $stockBlock = $this->blockFactory
-                ->createBlock(\Oander\OneyThreeByFourExtender\Block\Catalog\Product::class)
-                ->setData(
-                    [
-                        'area' => Area::AREA_FRONTEND,
-                        'productFinalPrice' => $price
-                    ]
-                );
-            $stockBlock->setTemplate('Oander_OneyThreeByFourExtender::catalog/product.phtml');
+                $block = $this->blockFactory
+                    ->createBlock(\Oander\OneyThreeByFourExtender\Block\Catalog\Product::class)
+                    ->setData(
+                        [
+                            'area' => Area::AREA_FRONTEND,
+                            'productFinalPrice' => $price
+                        ]
+                    );
+                $block->setTemplate('Oander_OneyThreeByFourExtender::catalog/product.phtml');
+
+                if ($block->toHtml() != "") {
+                    $output->setData(self::OUTPUT_NAME, $block->toHtml());
+                }
+            }
+        } catch (\Exception $exception) {
 
         }
-
-        $output->setData(self::OUTPUT_NAME, $stockBlock->toHtml());
     }
 }
