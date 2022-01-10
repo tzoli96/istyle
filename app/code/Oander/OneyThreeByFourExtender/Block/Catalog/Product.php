@@ -101,14 +101,16 @@ class Product extends \Magento\Catalog\Block\Product\View
             if (empty($this->simulationArray)) {
                 $this->generateSimulations();
             }
-            foreach ($this->simulationArray as $price => $simu) {
-                if (!empty($simu)) {
-                    foreach ($simu as $bu) {
-                        if (isset ($bu['instalments']) && !isset($this->instalments[count($bu['instalments']) + 1 ])) {
-                            $this->instalments[count($bu['instalments'])+ 1] = $bu;
+            if (!empty($this->simulationArray)) {
+                foreach ($this->simulationArray as $price => $simu) {
+                    if (!empty($simu)) {
+                        foreach ($simu as $bu) {
+                            if (isset ($bu['instalments']) && !isset($this->instalments[count($bu['instalments']) + 1])) {
+                                $this->instalments[count($bu['instalments']) + 1] = $bu;
+                            }
                         }
+                        break;
                     }
-                    break;
                 }
             }
         }
