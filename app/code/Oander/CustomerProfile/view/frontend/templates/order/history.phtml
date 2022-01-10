@@ -1,0 +1,127 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+
+<?php $_orders = $block->getOrders(); ?>
+<?php echo $block->getChildHtml('info'); ?>
+<?php if ($_orders && count($_orders)): ?>
+
+    <section class="block block-orders profile-orders" aria-labelledby="profile-orders-title">
+        <div class="profile-orders__head">
+            <h2 id="profile-orders-title" class="h2 profile-orders__title">
+                <strong><?php /* @escapeNotVerified */
+                    echo __('Orders') ?></strong>
+            </h2>
+            <p class="profile-orders__subtitle">
+                <?php /* @escapeNotVerified */
+                echo __('View your active and closed orders') ?>
+            </p>
+        </div>
+        <div class="block-content">
+            <div class="block-orders-orderlist">
+                <?php foreach ($_orders as $_order): ?>
+                    <div class="profile-order-card ui-card">
+                        <div class="profile-order-card__header">
+                            <div class="profile-order-card__header-left">
+                                <h3 class="h2"><strong><?php echo $block->escapeHtml(__('Order')) ?> :
+                                        #<?= $_order->getRealOrderId() ?></strong></h3>
+                                <div class="profile-order-card__subtitle">
+                                    <p class="profile-order-card__date">
+                                        <?php echo $block->escapeHtml(__('Date')) ?>
+                                        : <?= $block->formatDate($_order->getCreatedAt(), \IntlDateFormatter::MEDIUM) ?>
+                                        <span aria-hidden="true" class="d-md-inline d-none">&nbsp; | &nbsp;</span>
+                                    </p>
+                                    <p class="profile-order-card__status">
+                                        <span class="sr-only"><?php echo $block->escapeHtml(__('Status')) ?></span>
+                                        <strong><?= $_order->getStatusLabel() ?></strong>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="profile-order-card__header-right">
+                                <a href="<?= $block->getViewUrl($_order) ?>"
+                                   class="action outline-primary d-none d-lg-block">
+                                    <span><?= __('View Order') ?></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="profile-order-card__body">
+                            <?php foreach ($block->getOrdersItems($_order->getItems()) as $item): ?>
+                                <ul class="block-dashboard-orders-card__products">
+                                    <li>
+                                        <img src="<?= $block->getProductImageUrl($item->getProduct()) ?>" alt="">
+                                        <p class="block-dashboard-orders-card__details">
+                                            <a href="<?= $item->getProduct()->getProductUrl() ?>"><?= $item->getName() ?></a>
+                                            <span class="block-dashboard-orders-card__sku"><span
+                                                        class="sr-only">SKU </span><?= $item->getSku() ?></span></p>
+                                        <p class="block-dashboard-orders-card__price">
+                                            <?php
+                                            if ($item->getData("qty_ordered") != 1) {
+                                                echo (int)$item->getData("qty_ordered") . " x";
+                                            }
+                                            ?>
+                                            <?= $_order->formatPrice($item->getPriceInclTax()) ?></p>
+                                    </li>
+                                    <?php if ($item->getData("childs")) : ?>
+                                        <ul class="profile-order-card__products">
+                                            <?php foreach ($item->getData("childs") as $childItem) : ?>
+                                                <li>
+                                                    <img src="<?= $block->getProductImageUrl($childItem->getProduct()) ?>"
+                                                         alt="">
+                                                    <p class="profile-order-card__details">
+                                                        <a href="<?= $childItem->getProduct()->getProductUrl() ?>"><?= $childItem->getName() ?></a>
+                                                        <span class="profile-order-card__sku"><span
+                                                                    class="sr-only">SKU </span><?= $childItem->getSku() ?></span>
+                                                    </p>
+                                                    <p class="profile-order-card__price">
+                                                        <span class="price">
+                                                        <?php
+                                                        if ($childItem->getData("qty_ordered") != 1) {
+                                                            echo (int)$childItem->getData("qty_ordered") . " x";
+                                                        }
+                                                        ?>
+                                                        <?= $_order->formatPrice($childItem->getPriceInclTax()) ?></span>
+                                                    </p>
+                                                </li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    <?php endif; ?>
+                                </ul>
+                            <?php endforeach; ?>
+                        </div>
+                        <div class="profile-order-card__footer">
+                            <p><strong><span class="total"><?php echo $block->escapeHtml(__('Order Total')) ?>:</span>
+                                    <span class="price"><?= $_order->formatPrice($_order->getGrandTotal()) ?></span></strong>
+                            </p>
+                            <div class="profile-order-card__footer-mobile-link d-xs-block d-lg-none">
+                                <a href="<?= $block->getViewUrl($_order) ?>" class="action outline-primary">
+                                    <span><?= __('View Order') ?></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <?php if ($block->getPagerHtml()): ?>
+            <div class="order-products-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+        <?php endif ?>
+    </section>
+<?php else: ?>
+    <div class="profile-order-card-no-order">
+        <p><?php /* @escapeNotVerified */
+            echo __('You have placed no orders.'); ?>
+            <a class="text-primary action" href="<?php /* @escapeNotVerified */
+            echo $block->getBaseUrl(); ?>">
+                <span><?php /* @escapeNotVerified */
+                    echo __('Go to Home Page'); ?></span>
+                <i class="icon icon-chevron-right"></i>
+            </a>
+        </p>
+    </div>
+<?php endif ?>
