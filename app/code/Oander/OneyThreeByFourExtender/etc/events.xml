@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="ajax_captain_hook_event">
+        <observer name="oney_ajax_captain_hook_event" instance="Oander\OneyThreeByFourExtender\Observer\AjaxCaptainHookEvent" />
+    </event>
+    <event name="ajax_captain_hook_js_call">
+        <observer name="oney_ajax_captain_hook_event" instance="Oander\OneyThreeByFourExtender\Observer\AjaxCaptainHookJsEvent" />
+    </event>
+</config>
