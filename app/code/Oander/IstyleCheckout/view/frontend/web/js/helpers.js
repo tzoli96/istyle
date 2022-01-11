@@ -239,6 +239,8 @@ define([
      * @returns {Boolean}
      */
     checkPostcodeExpressShipping: function (value) {
+      var self = this;
+
       var valueTrimmed = (function () {
         if (window.checkoutConfig.hasOwnProperty('expressShippingConfig') && value) {
           return parseInt(value.replace(/[^A-Z0-9]/ig, ''))
@@ -258,12 +260,21 @@ define([
 
       if (postalCodes && valueTrimmed) {
         if (postalCodes.indexOf(valueTrimmed) === -1) {
-          if (this.expressMessageCondition()) {
+          if (self.expressMessageCondition()) {
             store.shippingMethod.expressShippingMessage(true);
           }
           else {
             store.shippingMethod.expressShippingMessage(false);
           }
+
+          store.shippingMethod.expressShippingIsValid.subscribe(function (val) {
+            if (self.expressMessageCondition()) {
+              store.shippingMethod.expressShippingMessage(true);
+            }
+            else {
+              store.shippingMethod.expressShippingMessage(false);
+            }
+          });
 
           return true;
         }
@@ -279,7 +290,7 @@ define([
      * Express message condition
      * @returns {Boolean}
      */
-    expressMessageCondition: ko.computed(function () {
+    expressMessageCondition: function () {
       var currentLS = store.getLocalStorage();
 
       if (store.shippingMethod) {
@@ -293,10 +304,9 @@ define([
 				  return true;
         }
 			}
-			else {
-				return false;
-			}
-    }),
+
+      return false;
+    },
 
     /**
      * Express message value
