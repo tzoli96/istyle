@@ -11,8 +11,9 @@ define([
 	'Magento_Checkout/js/model/shipping-save-processor/default',
 	'mage/translate',
 	'Oander_IstyleCheckout/js/view/billing-address/sort',
+	'Magento_Ui/js/lib/view/utils/dom-observer',
 	'domReady!'
-], function ($, ko, customer, quote, checkoutData, helpers, L, getPaymentInformationAction, store, saveShipping, $t, sort) {
+], function ($, ko, customer, quote, checkoutData, helpers, L, getPaymentInformationAction, store, saveShipping, $t, sort, domObserver) {
 	'use strict';
 
 	// Shipping methods tabs
@@ -233,6 +234,18 @@ define([
 			quote.shippingAddress.subscribe(function (address) {
 				helpers.checkPostcodeExpressShipping(address.postcode);
 			});
+
+			domObserver.get('.form-shipping-address [name="postcode"]', function () {
+				self.postcodeKeyup();
+			});
+		},
+
+		postcodeKeyup: function () {
+			var postCode = $('.form-shipping-address [name="postcode"]');
+
+			postCode.on('keyup', function () {
+				helpers.checkPostcodeExpressShipping(postCode.val());
+			});
 		},
 
 		resetForm: function () {
@@ -364,6 +377,8 @@ define([
 				areNeeded = false,
 				firstArray = [],
 				secondArray = [],
+				firstHasWh = false,
+				secondHasWh = false,
 				days = [
 					$t('Monday'),
 					$t('Tuesday'),
@@ -383,15 +398,19 @@ define([
 						if (ratesArray[i].carrier_code !== 'warehouse_pickup') {
 							areNeeded = true;
 							secondArray.push(ratesArray[i]);
+							secondHasWh = false;
 						} else {
 							firstArray.push(ratesArray[i]);
+							firstHasWh = true;
 						}
 					} else {
 						if (ratesArray[i].carrier_code === 'warehouse_pickup') {
 							areNeeded = true;
 							secondArray.push(ratesArray[i]);
+							secondHasWh = true;
 						} else {
 							firstArray.push(ratesArray[i]);
+							firstHasWh = false;
 						}
 					}
 				}
@@ -400,7 +419,9 @@ define([
 			return {
 				needed: areNeeded,
 				firstArray: firstArray,
-				secondArray: secondArray
+				secondArray: secondArray,
+				firstHasWh: firstHasWh,
+				secondHasWh: secondHasWh
 			};
 		},
 

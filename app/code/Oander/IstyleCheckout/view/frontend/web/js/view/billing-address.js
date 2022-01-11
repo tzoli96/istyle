@@ -141,10 +141,17 @@ define([
       var currentLS = store.getLocalStorage();
 
       if (customer.isLoggedIn()) {
-        if (store.billingAddress.userSelectBillingAddress() || currentLS.billingAddress.userSelectBillingAddress) {
+        if (store.billingAddress.userSelectBillingAddress()) {
           return true;
         }
-        else if (store.billingAddress.formIsVisible()) {
+
+        if (currentLS.billingAddress) {
+          if (currentLS.billingAddress.userSelectBillingAddress) {
+            return true;
+          }
+        }
+
+        if (store.billingAddress.formIsVisible()) {
           return true;
         }
         else {
@@ -217,8 +224,7 @@ define([
         if (store.billingAddress.formIsVisible()) store.billingAddress.userSelectBillingAddress(true);
 
         if (address) {
-          if (address.postcode
-            && this.checkUserBilling()) {
+          if (this.checkUserBilling()) {
             if (address.region) {
               store.billingAddress.region(address.region);
               quote.billingAddress().region = address.region;
