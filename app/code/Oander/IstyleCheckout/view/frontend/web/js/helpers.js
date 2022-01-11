@@ -258,13 +258,12 @@ define([
 
       if (postalCodes && valueTrimmed) {
         if (postalCodes.indexOf(valueTrimmed) === -1) {
-          if (this.expressMessageCondition()) store.shippingMethod.expressShippingMessage(true);
-          else store.shippingMethod.expressShippingMessage(false);
-
-          store.shippingMethod.expressShippingIsValid.subscribe(function (val) {
-            if (val) store.shippingMethod.expressShippingMessage(true);
-            else store.shippingMethod.expressShippingMessage(false);
-          });
+          if (this.expressMessageCondition()) {
+            store.shippingMethod.expressShippingMessage(true);
+          }
+          else {
+            store.shippingMethod.expressShippingMessage(false);
+          }
 
           return true;
         }
@@ -283,9 +282,16 @@ define([
     expressMessageCondition: ko.computed(function () {
       var currentLS = store.getLocalStorage();
 
-			if ((store.shippingMethod && store.shippingMethod.expressShippingIsValid())
-				|| (currentLS.shippingMethod && currentLS.shippingMethod.expressShippingIsValid)) {
-				return true;
+      if (store.shippingMethod) {
+        if (store.shippingMethod.expressShippingIsValid()) {
+          return true;
+        }
+      }
+
+			if (currentLS.shippingMethod) {
+        if (currentLS.shippingMethod.expressShippingIsValid) {
+				  return true;
+        }
 			}
 			else {
 				return false;
