@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Framework\App\Cache\Type\AccessProxy"
+                type="Ewave\CacheManagement\Preferences\Magento\Framework\App\Cache\Type\AccessProxy"/>
+    <preference for="Magento\Framework\Config\CacheInterface"
+                type="Ewave\CacheManagement\Preferences\Magento\Framework\App\Cache\Type\Config"/>
+    <preference for="Magento\Framework\App\CacheInterface"
+                type="Ewave\CacheManagement\Preferences\Magento\Framework\App\Cache\Proxy" />
+
+    <type name="Magento\Framework\DataObject\IdentityInterface">
+        <plugin name="Ewave_CacheManagement::addStoreCacheTag" type="Ewave\CacheManagement\Plugin\Magento\Framework\DataObject\IdentityInterfacePlugin"/>
+    </type>
+
+    <type name="Magento\Framework\App\Route\Config">
+        <arguments>
+            <argument name="cache" xsi:type="object">Ewave\CacheManagement\Preferences\Magento\Framework\App\Cache\Type\Config\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Config\App\Config\Type\System">
+        <arguments>
+            <argument name="cache" xsi:type="object">Ewave\CacheManagement\Preferences\Magento\Framework\App\Cache\Type\Config\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Cache\Config\Data">
+        <arguments>
+            <argument name="cache" xsi:type="object">Ewave\CacheManagement\Preferences\Magento\Framework\App\Cache\Type\Config\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Store\Model\StoresData">
+        <arguments>
+            <argument name="cache" xsi:type="object">Ewave\CacheManagement\Preferences\Magento\Framework\App\Cache\Type\Config\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Store\Model\StoreManager">
+        <arguments>
+            <argument name="cache" xsi:type="object">Ewave\CacheManagement\Preferences\Magento\Framework\App\Cache\Type\Config\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Config\App\Config\Type\System">
+        <arguments>
+            <argument name="cache" xsi:type="object">Ewave\CacheManagement\Preferences\Magento\Framework\App\Cache\Type\Config\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Store\Model\ResourceModel\Store">
+        <arguments>
+            <argument name="configCacheType" xsi:type="object">Ewave\CacheManagement\Preferences\Magento\Framework\App\Cache\Type\Config\Proxy</argument>
+        </arguments>
+    </type>
+</config>

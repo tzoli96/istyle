@@ -94,7 +94,7 @@ return array (
     'Magento_Newsletter' => 1,
     'Magento_OfflinePayments' => 1,
     'Magento_OfflineShipping' => 1,
-    'Magento_PageCache' => 1,
+    'Ewave_CacheManagement' => 1,
     'Bigfishpaymentgateway_Pmgw' => 1,
     'Magento_Paypal' => 1,
     'Magento_Persistent' => 1,
