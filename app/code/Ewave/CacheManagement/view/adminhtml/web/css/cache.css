@@ -1,0 +1,9 @@
+.store-status {
+    max-width: 310px;
+    margin-bottom: -10px;
+}
+
+.store-status .status {
+    display: inline-block;
+    margin: 0 10px 10px 0;
+}

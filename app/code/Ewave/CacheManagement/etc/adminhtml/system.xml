@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="ewave" translate="label" sortOrder="100">
+            <label>Ewave Extensions</label>
+        </tab>
+        <section id="ewave_cachemanagement" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Cache Management</label>
+            <tab>ewave</tab>
+            <resource>Ewave_CacheManagement::config</resource>
+            <group id="flush_cache_by_cron" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Flush Cache by Cron</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Flush Cache by Cron</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Select 'Yes' to enable Flush Cache by Cron.</comment>
+                </field>
+                <field id="cron_expr" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cron Expression</label>
+                    <comment>Enter cron expression for triggering the cache flash procedure.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="cache_types" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Cache Types</label>
+                    <source_model>Ewave\CacheManagement\Model\Config\Source\CacheType</source_model>
+                    <can_be_empty>1</can_be_empty>
+                    <comment>Select cache types which will be affected with the cache flash procedure.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

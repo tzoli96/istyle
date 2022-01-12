@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="adminhtml_cache_flush_system_store">
+        <observer name="Ewave_CacheManagement::flush_varnish_store_pagecache" instance="Ewave\CacheManagement\Observer\FlushVarnishStoreCacheObserver" />
+    </event>
+    <event name="adminhtml_cache_flush_system">
+        <observer name="Ewave_CacheManagement::flush_all_stores_cache" instance="Ewave\CacheManagement\Observer\FlushAllStoresCacheObserver" />
+    </event>
+</config>

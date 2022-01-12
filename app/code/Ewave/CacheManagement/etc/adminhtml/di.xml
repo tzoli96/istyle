@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Backend\Block\Cache">
+        <plugin name="Ewave_CacheManagement::addStoreIdToUrl" type="Ewave\CacheManagement\Plugin\AddStoreIdToUrl"/>
+    </type>
+    <type name="Magento\Backend\Block\Widget\Grid\Massaction">
+        <plugin name="Ewave_CacheManagement::addStoreIdToUrl" type="Ewave\CacheManagement\Plugin\AddStoreIdToUrl"/>
+    </type>
+    <type name="Ewave\CacheManagement\Plugin\AddStoreIdToUrl">
+        <arguments>
+            <argument name="fullActionNames" xsi:type="array">
+                <item name="adminhtml_cache_index" xsi:type="string">adminhtml_cache_index</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Ewave\CacheManagement\Controller\Adminhtml\Cache\MassEnable">
+        <arguments>
+            <argument name="cacheState" xsi:type="object">Ewave\CacheManagement\Model\Store\CacheState</argument>
+        </arguments>
+    </type>
+    <type name="Ewave\CacheManagement\Controller\Adminhtml\Cache\MassDisable">
+        <arguments>
+            <argument name="cacheState" xsi:type="object">Ewave\CacheManagement\Model\Store\CacheState</argument>
+            <argument name="cacheTypeList" xsi:type="object">Ewave\CacheManagement\Model\Store\CacheTypeList</argument>
+        </arguments>
+    </type>
+    <type name="Ewave\CacheManagement\Controller\Adminhtml\Cache\MassRefresh">
+        <arguments>
+            <argument name="cacheTypeList" xsi:type="object">Ewave\CacheManagement\Model\Store\CacheTypeList</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\App\Cache\TypeList">
+        <plugin name="Ewave_CacheManagement::invalidateSpecificStoreView" type="Ewave\CacheManagement\Plugin\Magento\Framework\App\Cache\TypeListPlugin"/>
+    </type>
+    <type name="Ewave\CacheManagement\Plugin\Magento\Framework\App\Cache\TypeListPlugin">
+        <arguments>
+            <argument name="postStoreIdKeys" xsi:type="array">
+                <item name="store" xsi:type="string">store</item>
+                <item name="store_id" xsi:type="string">store_id</item>
+                <item name="store_ids" xsi:type="string">store_ids</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

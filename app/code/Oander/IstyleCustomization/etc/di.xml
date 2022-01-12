@@ -124,4 +124,9 @@
     <!-- #55179 START -->
     <preference for="Magento\Customer\Controller\Account\CreatePost" type="Oander\IstyleCustomization\Rewrite\Magento\Customer\Controller\Account\CreatePost"/>
     <!-- #52805 END -->
+    <!-- #55870 START -->
+    <type name="Ewave\CacheManagement\Model\Store\CacheTypeList">
+        <plugin name="IstyleCustomization::CacheTypeList" type="Oander\IstyleCustomization\Rewrite\Ewave\CacheManagement\Model\Store\CacheTypeList"/>
+    </type>
+    <!-- #55870 END -->
 </config>
