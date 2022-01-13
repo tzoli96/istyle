@@ -172,7 +172,7 @@ class Simulation extends ApiAbstract implements SimulationInterface
      */
     protected function saveDataInCache($cache, $data)
     {
-        $this->cache->setCache("simulations_".$cache);
+        $this->cache->setCache("simulation_".$cache);
         $this->cache->setOneyCountry($this->_helperConfig->getCountrySpecificationsConfigValue("country"));
         return $this->cache->save($data);
     }

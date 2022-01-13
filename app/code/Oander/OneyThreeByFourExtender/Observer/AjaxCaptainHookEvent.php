@@ -59,6 +59,8 @@ class AjaxCaptainHookEvent implements ObserverInterface
 
                 if ($block->toHtml() != "") {
                     $output->setData(self::OUTPUT_NAME, $block->toHtml());
+                } else {
+                    $output->setData(self::OUTPUT_NAME, '<div class="oney-widget"></div>');
                 }
             }
         } catch (\Exception $exception) {
