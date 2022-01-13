@@ -19,8 +19,11 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
 
         $output->setData('js',
             array_merge($output->getData('js'),
-                [\Oander\OneyThreeByFourExtender\Observer\AjaxCaptainHookEvent::OUTPUT_NAME  =>
-                    "$(\".oney-widget\").replaceWith(response['" . \Oander\OneyThreeByFourExtender\Observer\AjaxCaptainHookEvent::OUTPUT_NAME  . "']);"
+                [
+                    \Oander\OneyThreeByFourExtender\Observer\AjaxCaptainHookEvent::OUTPUT_NAME_PRODUCT  =>
+                        "$(\".oney-widget\").replaceWith(response['" . \Oander\OneyThreeByFourExtender\Observer\AjaxCaptainHookEvent::OUTPUT_NAME_PRODUCT  . "']);",
+                    \Oander\OneyThreeByFourExtender\Observer\AjaxCaptainHookEvent::OUTPUT_NAME_SIMULATION  =>
+                        "$(\".oney-popup\").replaceWith(response['" . \Oander\OneyThreeByFourExtender\Observer\AjaxCaptainHookEvent::OUTPUT_NAME_SIMULATION  . "']);"
                 ]
             )
         );
@@ -30,5 +33,8 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
                 ['bundle_selections' => "if(typeof window.bundle_selections !== 'undefined'){otherdata.push({bundle_selections: window.bundle_selections});}"]
             )
         );
+
+
+
     }
 }

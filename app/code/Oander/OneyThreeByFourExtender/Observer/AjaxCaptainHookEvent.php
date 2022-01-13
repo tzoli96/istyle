@@ -9,7 +9,8 @@ use Oander\OneyThreeByFourExtender\Helper\Data;
 
 class AjaxCaptainHookEvent implements ObserverInterface
 {
-    const OUTPUT_NAME = 'oney';
+    const OUTPUT_NAME_PRODUCT = 'oney_product';
+    const OUTPUT_NAME_SIMULATION = 'oney_simulation';
 
     /**
      * @var BlockFactory
@@ -47,7 +48,7 @@ class AjaxCaptainHookEvent implements ObserverInterface
                 $product->unsetData('_cache_instance_options_collection');
                 $price = $this->helper->getProductFinalPrice($product, $input->getData('params'));
 
-                $block = $this->blockFactory
+                $productBlock = $this->blockFactory
                     ->createBlock(\Oander\OneyThreeByFourExtender\Block\Catalog\Product::class)
                     ->setData(
                         [
@@ -55,12 +56,28 @@ class AjaxCaptainHookEvent implements ObserverInterface
                             'productFinalPrice' => $price
                         ]
                     );
-                $block->setTemplate('Oander_OneyThreeByFourExtender::catalog/product.phtml');
+                $productBlock->setTemplate('Oander_OneyThreeByFourExtender::catalog/product.phtml');
 
-                if ($block->toHtml() != "") {
-                    $output->setData(self::OUTPUT_NAME, $block->toHtml());
+                $simulationBlock = $this->blockFactory
+                    ->createBlock(\Oander\OneyThreeByFourExtender\Block\Catalog\Simulation::class)
+                    ->setData(
+                        [
+                            'area' => Area::AREA_FRONTEND,
+                            'productFinalPrice' => $price
+                        ]
+                    );
+                $simulationBlock->setTemplate('Oander_OneyThreeByFourExtender::catalog/simulation.phtml');
+
+                if ($productBlock->toHtml() != "") {
+                    $output->setData(self::OUTPUT_NAME_PRODUCT, $productBlock->toHtml());
                 } else {
-                    $output->setData(self::OUTPUT_NAME, '<div class="oney-widget"></div>');
+                    $output->setData(self::OUTPUT_NAME_PRODUCT, '<div class="oney-widget"></div>');
+                }
+
+                if ($simulationBlock->toHtml() != "") {
+                    $output->setData(self::OUTPUT_NAME_SIMULATION, $simulationBlock->toHtml());
+                } else {
+                    $output->setData(self::OUTPUT_NAME_SIMULATION, '<div class="oney-popup"></div>');
                 }
             }
         } catch (\Exception $exception) {

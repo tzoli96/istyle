@@ -3,6 +3,7 @@
     <body>
         <referenceContainer name="product.info.main">
             <referenceBlock name="oney.product" class="Oander\OneyThreeByFourExtender\Block\Catalog\Product" />
+            <referenceBlock name="oney.product.simulation" class="Oander\OneyThreeByFourExtender\Block\Catalog\Simulation" />
         </referenceContainer>
     </body>
 </page>
