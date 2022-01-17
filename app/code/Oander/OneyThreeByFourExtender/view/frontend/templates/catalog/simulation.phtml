@@ -30,7 +30,7 @@ $simulation_content_classes = $this->getSimulationsContentClasses();
                 <?php if (empty($simulations)) {
                     continue;
                 } ?>
-                <div class="simulations-content <?php echo $simulation_content_classes[$price]; ?>">
+                <div class="simulations-content <?php echo $simulation_content_classes[$price] ?? "";?>">
                     <?php foreach ($simulations as $key => $simulation): ?>
                         <?php
                         if (!isset($simulation['instalments'])) {
