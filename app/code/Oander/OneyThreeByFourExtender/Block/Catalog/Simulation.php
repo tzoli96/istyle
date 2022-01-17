@@ -101,11 +101,11 @@ class Simulation extends \Magento\Catalog\Block\Product\View
                             ->build($price, true)
                             ->getSimulations();
                         $this->simulation_content_classes[(string)$price] = 'simulation-'.implode('-', $attributes_value);
-                        break;
                     } else {
                         $this->simulation_content_classes[$price] =
                             $this->simulation_content_classes[$price].' simulation-'.implode(' ', $attributes_value);
                     }
+                    break;
                 }
 
             } elseif ($this->getProduct()->getTypeId() == 'bundle') {
