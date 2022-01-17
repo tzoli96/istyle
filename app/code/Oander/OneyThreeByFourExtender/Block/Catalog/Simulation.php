@@ -102,10 +102,9 @@ class Simulation extends \Magento\Catalog\Block\Product\View
                             ->getSimulations();
                         $this->simulation_content_classes[(string)$price] = 'simulation-'.implode('-', $attributes_value);
                     } else {
-                        $this->simulation_content_classes[$price] =
+                        $this->simulation_content_classes[(string)$price] =
                             $this->simulation_content_classes[$price].' simulation-'.implode(' ', $attributes_value);
                     }
-                    break;
                 }
 
             } elseif ($this->getProduct()->getTypeId() == 'bundle') {
@@ -118,7 +117,7 @@ class Simulation extends \Magento\Catalog\Block\Product\View
 
             } else {
                 $price = $this->taxHelper->getTaxPrice($this->getProduct(), $this->currency($this->getProduct()->getFinalPrice(), false, false), true);
-                $this->simulations[$price] = $this->_simulationOney
+                $this->simulations[(string)$price] = $this->_simulationOney
                     ->build($price)
                     ->getSimulations();
             }
