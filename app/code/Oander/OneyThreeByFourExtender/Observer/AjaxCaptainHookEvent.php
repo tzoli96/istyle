@@ -81,7 +81,7 @@ class AjaxCaptainHookEvent implements ObserverInterface
                 }
             }
         } catch (\Exception $exception) {
-
+            $output->setData(self::OUTPUT_NAME_SIMULATION, '<div class="oney-popup">'.$exception->getMessage().'</div>');
         }
     }
 }
