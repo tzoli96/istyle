@@ -80,6 +80,8 @@ class Simulation extends \Magento\Catalog\Block\Product\View
                 $this->simulations[(string)$price] = $this->_simulationOney
                     ->build($price)
                     ->getSimulations();
+
+                return $this->simulations;
             }
 
             if ($this->getProduct()->getTypeId() == 'configurable') {
