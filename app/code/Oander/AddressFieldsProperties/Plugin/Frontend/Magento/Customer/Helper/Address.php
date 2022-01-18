@@ -8,6 +8,7 @@ namespace Oander\AddressFieldsProperties\Plugin\Frontend\Magento\Customer\Helper
  */
 class Address
 {
+    const ADDRESSATTRIBUTE_CLASS = "oanderaddressattribute";
     /**
      * @var \Oander\AddressFieldsProperties\Helper\Config
      */
@@ -37,11 +38,8 @@ class Address
     ) {
         $result = $proceed($attributeCode);
         $formatsAndValidations = $this->configHelper->getFormattingClasses($attributeCode, true);
-        if($this->configHelper->getPlaceholder($attributeCode))
-        {
-            $formatsAndValidations[] = "oanderplaceholder";
-            $formatsAndValidations[] = "oanderplaceholder-" . $attributeCode;
-        }
+        $formatsAndValidations[] = self::ADDRESSATTRIBUTE_CLASS;
+        $formatsAndValidations[] = self::ADDRESSATTRIBUTE_CLASS . "-" . $attributeCode;
         if(!empty($formatsAndValidations))
         {
             if ($result == "")

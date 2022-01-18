@@ -51,6 +51,16 @@ class Config
         return false;
     }
 
+    public function getErrorMessage($attributeCode)
+    {
+        $config = (new \Magento\Framework\DataObject())->setData($this->getAttributeProperties($attributeCode));
+        if(!empty($config->getData(ConfigAbstract::CONFIG_ERROR_MESSAGE)))
+        {
+            return $config->getData(ConfigAbstract::CONFIG_ERROR_MESSAGE);
+        }
+        return false;
+    }
+
     public function getValidations($attributeCode)
     {
         $config = (new \Magento\Framework\DataObject())->setData($this->getAttributeProperties($attributeCode));
@@ -64,7 +74,10 @@ class Config
             {
                 if($config->getData(ConfigAbstract::CONFIG_STRING_LENGTH))
                 {
-                    $result["oandervalidate-length"] = $config->getData(ConfigAbstract::CONFIG_STRING_LENGTH);
+                    $result["oandervalidate-length"] = [
+                        $config->getData(ConfigAbstract::CONFIG_ERROR_MESSAGE),
+                        $config->getData(ConfigAbstract::CONFIG_STRING_LENGTH)
+                    ];
                 }
                 break;
             }
@@ -75,7 +88,7 @@ class Config
                     is_array($config->getData(ConfigAbstract::CONFIG_REGEX_PATTERN))
                 )
                 {
-                    $result["oandervalidate-regex"] = [];
+                    $result["oandervalidate-regex"] = [$config->getData(ConfigAbstract::CONFIG_ERROR_MESSAGE)];
                     foreach ($config->getData(ConfigAbstract::CONFIG_REGEX_PATTERN) as $regex) {
                         if(isset($regex["value"]))
                             $result["oandervalidate-regex"][] = $regex["value"];
