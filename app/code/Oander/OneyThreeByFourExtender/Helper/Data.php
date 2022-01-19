@@ -31,7 +31,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function getProductFinalPrice($product, $params = [])
     {
-        $finalPrice = $product->getFinalPrice();
+        $finalPrice = $product->getPriceInfo()->getPrice('final_price')->getValue();
 
         if ($product->getTypeId() == 'bundle') {
             if (!empty($params)) {
