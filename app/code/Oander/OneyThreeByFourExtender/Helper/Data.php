@@ -2,29 +2,26 @@
 
 namespace Oander\OneyThreeByFourExtender\Helper;
 
-use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
+use Oander\BundlePriceSwitcher\Helper\Selection;
 
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
     /**
-     * @var \Magento\Framework\DataObject\Factory
+     * @var Selection
      */
-    protected $objectFactory;
+    protected $selection;
 
     /**
-     * @var \Magento\Quote\Model\Quote\Item\Processor
+     * @param Selection $selection
+     * @param Context $context
      */
-    protected $itemProcessor;
-
     public function __construct(
-        \Magento\Framework\DataObject\Factory $objectFactory,
-        \Magento\Quote\Model\Quote\Item\Processor $itemProcessor,
+        Selection $selection,
         Context $context
     ) {
         parent::__construct($context);
-        $this->objectFactory = $objectFactory;
-        $this->itemProcessor = $itemProcessor;
+        $this->selection = $selection;
     }
 
     /**
@@ -38,10 +35,19 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 
         if ($product->getTypeId() == 'bundle') {
             if (!empty($params)) {
-                $request = $this->generateRequest($params);
-                $product->getTypeInstance()->prepareForCartAdvanced($request, $product);
-                $this->itemProcessor->init($product, $request);
-                $finalPrice = $product->getFinalPrice();
+                $optionInfo = $this->getOptionInfo($params);
+                $finalPrice = 0;
+
+                $product->addCustomOption('bundle_option_ids',serialize(array_keys($optionInfo)),$product);
+                $product->addCustomOption('bundle_selection_ids',serialize($optionInfo),$product);
+                foreach ($optionInfo as $optionId => $selectionId) {
+                    $selection = $this->selection->getSelection($product->getId(), $optionId, $selectionId);
+                    $optionPriceAmount = $product->getPriceInfo()
+                        ->getPrice('bundle_option')
+                        ->getOptionSelectionAmount($selection);
+
+                    $finalPrice += $optionPriceAmount->getValue();
+                }
             } else {
                 $finalPrice = $product->getPriceInfo()->getPrice('final_price')->getMinimalPrice()->getValue();
             }
@@ -52,26 +58,21 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
 
     /**
      * @param $params
-     * @return \Magento\Framework\DataObject
+     * @return array
      */
-    protected function generateRequest($params)
+    protected function getOptionInfo($params)
     {
-        $request = $this->objectFactory->create();
-        $request->addData(['qty' => 1]);
-        $request->addData(['related_product' => '']);
-        $request->addData(['selected_configurable_option' => '']);
+        $optionInfo = [];
         if (isset($params['data'])) {
             foreach ($params['data'] as $data) {
                 if (isset($data['bundle_selections'])) {
-                    $request->addData(['bundle_option' => $data['bundle_selections']]);
-                    break;
+                    foreach ($data['bundle_selections'] as $optionId => $selectionId) {
+                        $optionInfo[$optionId] = $selectionId;
+                    }
                 }
             }
         }
-        if (isset($params['product_id'])) {
-            $request->addData(['product' => $params['product_id']]);
-        }
 
-        return $request;
+        return $optionInfo;
     }
 }
