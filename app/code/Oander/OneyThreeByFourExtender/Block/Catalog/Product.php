@@ -159,6 +159,8 @@ class Product extends \Magento\Catalog\Block\Product\View
                 $this->simulationArray[(string)$price] = $this->simulation
                     ->build($price)
                     ->getSimulations();
+
+                return;
             }
 
             if ($this->getProduct()) {
