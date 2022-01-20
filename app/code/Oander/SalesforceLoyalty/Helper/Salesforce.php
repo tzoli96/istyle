@@ -30,6 +30,10 @@ class Salesforce extends AbstractHelper
      * @var \Magento\Framework\Registry
      */
     private $registry;
+    /**
+     * @var \Oander\Salesforce\Model\Endpoint\Loyalty
+     */
+    private $loyaltyEndpoint;
 
     /**
      * @param \Magento\Framework\App\Helper\Context $context
@@ -37,19 +41,22 @@ class Salesforce extends AbstractHelper
      * @param \Magento\Customer\Model\Session $customerSession
      * @param Config $configHelper
      * @param \Oander\Salesforce\Helper\SoapClient $soapClient
+     * @param \Oander\Salesforce\Model\Endpoint\Loyalty $loyaltyEndpoint
      */
     public function __construct(
         \Magento\Framework\App\Helper\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Customer\Model\Session $customerSession,
         \Oander\SalesforceLoyalty\Helper\Config $configHelper,
-        \Oander\Salesforce\Helper\SoapClient $soapClient
+        \Oander\Salesforce\Helper\SoapClient $soapClient,
+        \Oander\Salesforce\Model\Endpoint\Loyalty $loyaltyEndpoint
     ) {
         parent::__construct($context);
         $this->soapClient = $soapClient;
         $this->customerSession = $customerSession;
         $this->configHelper = $configHelper;
         $this->registry = $registry;
+        $this->loyaltyEndpoint = $loyaltyEndpoint;
     }
 
     /**
@@ -64,6 +71,43 @@ class Salesforce extends AbstractHelper
             $this->registry->register(self::REGISTRY_AVAILABLE_POINTS, (int)$this->soapClient->getCustomerAffiliatePoints($customer));
         return $this->registry->registry(self::REGISTRY_AVAILABLE_POINTS);
     }
+
+
+    /**
+     * @param int $blockPoints
+     * @param $customer
+     * @return false|string TransactionID
+     * @throws LocalizedException
+     */
+    public function blockCustomerAffiliatePoints($blockPoints, $customer = null)
+    {
+        $customer = $this->_getCustomer($customer);
+        $transactionId = false;
+        $this->registry->unregister(self::REGISTRY_AVAILABLE_POINTS);
+        //$istyle_id = $customer->getData('istyle_id');
+        $customer_number = $customer->getData('sforce_maconomy_id');
+        if($customer_number) {
+            $response = $this->loyaltyEndpoint->BlockAffiliateMembershipPoints($customer_number, $customer->getStore()->getCode(), $blockPoints);
+            if(isset($response["TransactionId"]))
+                $transactionId = $response["TransactionId"];
+        }
+        return $transactionId;
+    }
+
+    /**
+     * @param string $transactionId
+     * @param $customer
+     * @return bool
+     * @throws LocalizedException
+     */
+    /*public function freeCustomerAffiliatePoints($transactionId, $customer = null)
+    {
+        $customer = $this->_getCustomer($customer);
+        $this->registry->unregister(self::REGISTRY_AVAILABLE_POINTS);
+        $customer_number = $customer->getData('sforce_maconomy_id');
+        if($customer_number)
+            return $this->loyaltyEndpoint->UpdateAffiliateTransaction($transactionId, $customer_number, $customer->getStore()->getCode());
+    }*/
 
     /**
      * @param \Magento\Customer\Model\Customer|null $customer
