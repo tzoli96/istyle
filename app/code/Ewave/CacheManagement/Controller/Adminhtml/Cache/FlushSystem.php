@@ -1,4 +1,5 @@
 <?php
+
 namespace Ewave\CacheManagement\Controller\Adminhtml\Cache;
 
 use Ewave\CacheManagement\Helper\Data as Helper;
@@ -8,9 +9,14 @@ use Magento\Framework\App\Cache\TypeListInterface;
 use Magento\Framework\App\Cache\StateInterface;
 use Magento\Framework\App\Cache\Frontend\Pool;
 use Magento\Framework\View\Result\PageFactory;
+use Oander\AdminRestriction\Helper\Data;
 
 class FlushSystem extends \Magento\Backend\Controller\Adminhtml\Cache\FlushSystem
 {
+    /**
+     * @var Data
+     */
+    protected $adminRestrictionHelper;
     /**
      * @var Helper
      */
@@ -22,7 +28,6 @@ class FlushSystem extends \Magento\Backend\Controller\Adminhtml\Cache\FlushSyste
     protected $storeCacheTypeList;
 
     /**
-     * FlushSystem constructor.
      * @param Action\Context $context
      * @param TypeListInterface $cacheTypeList
      * @param StateInterface $cacheState
@@ -30,16 +35,19 @@ class FlushSystem extends \Magento\Backend\Controller\Adminhtml\Cache\FlushSyste
      * @param PageFactory $resultPageFactory
      * @param Helper $helper
      * @param StoreCacheTypeList $storeCacheTypeList
+     * @param Data $adminRestrictionHelper
      */
     public function __construct(
-        Action\Context $context,
-        TypeListInterface $cacheTypeList,
-        StateInterface $cacheState,
-        Pool $cacheFrontendPool,
-        PageFactory $resultPageFactory,
-        Helper $helper,
-        StoreCacheTypeList $storeCacheTypeList
-    ) {
+        Action\Context     $context,
+        TypeListInterface  $cacheTypeList,
+        StateInterface     $cacheState,
+        Pool               $cacheFrontendPool,
+        PageFactory        $resultPageFactory,
+        Helper             $helper,
+        StoreCacheTypeList $storeCacheTypeList,
+        Data               $adminRestrictionHelper
+    )
+    {
         parent::__construct(
             $context,
             $cacheTypeList,
@@ -49,6 +57,7 @@ class FlushSystem extends \Magento\Backend\Controller\Adminhtml\Cache\FlushSyste
         );
         $this->helper = $helper;
         $this->storeCacheTypeList = $storeCacheTypeList;
+        $this->adminRestrictionHelper = $adminRestrictionHelper;
     }
 
     /**
@@ -59,23 +68,28 @@ class FlushSystem extends \Magento\Backend\Controller\Adminhtml\Cache\FlushSyste
     public function execute()
     {
         if ($store = $this->getRequest()->getParam('store')) {
-            /** @var $cacheFrontend \Magento\Framework\Cache\FrontendInterface */
-            foreach ($this->_cacheFrontendPool as $cacheFrontend) {
-                $cacheFrontend->clean(\Zend_Cache::CLEANING_MODE_MATCHING_TAG, [$this->helper->getStoreTag($store)]);
-            }
-
-           foreach (array_keys($this->storeCacheTypeList->getTypes()) as $type) {
-                   $this->storeCacheTypeList->cleanType($type, $store);
-            }
-
             $storeCode = $this->helper->getStoreCode($store);
-            //Varnish OK
-            $this->_eventManager->dispatch('adminhtml_cache_flush_system_store', ['store' => $storeCode]);
+            if ($this->adminRestrictionHelper->hasAdminRightToStore($store)) {
+                /** @var $cacheFrontend \Magento\Framework\Cache\FrontendInterface */
+                foreach ($this->_cacheFrontendPool as $cacheFrontend) {
+                    $cacheFrontend->clean(\Zend_Cache::CLEANING_MODE_MATCHING_TAG, [$this->helper->getStoreTag($store)]);
+                }
 
-            $this->messageManager->addSuccessMessage(__(
-                'The Magento cache storage has been flushed for the "%1" store.',
-                $storeCode
-            ));
+                foreach (array_keys($this->storeCacheTypeList->getTypes()) as $type) {
+                    $this->storeCacheTypeList->cleanType($type, $store);
+                }
+                $this->_eventManager->dispatch('adminhtml_cache_flush_system_store', ['store' => $storeCode]);
+                $this->messageManager->addSuccessMessage(__(
+                    'The Magento cache storage has been flushed for the "%1" store.',
+                    $storeCode
+                ));
+            } else {
+                $this->messageManager->addErrorMessage(
+                    __("You don't have permission for the '%1' store.",
+                        $storeCode
+                    )
+                );
+            }
 
             /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
             $resultRedirect = $this->resultRedirectFactory->create();
