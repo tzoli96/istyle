@@ -43,7 +43,7 @@ define([], function () {
           var cleave = new Cleave('#' + e.id,  cleaveParams);
           if (cleaveParams.hasOwnProperty('prefix') && cleaveParams.prefix !== '') {
             document.querySelector('#' + e.id).addEventListener('focusout', function(e) {
-              
+
               function clearInput() {
                 e.target.value = '';
                 e.target.dispatchEvent(new Event('change'));

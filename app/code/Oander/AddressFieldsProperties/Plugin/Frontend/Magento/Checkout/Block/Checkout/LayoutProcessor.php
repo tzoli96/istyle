@@ -76,6 +76,12 @@ class LayoutProcessor
         $field['placeholder'] = $this->addPlaceHolder($attributeCode, $field['placeholder']??"");
         $field['additionalClasses'] = $this->addFormattingClasses($attributeCode, $field['additionalClasses']??"");
         $field['validation'] = $this->addValidations($attributeCode, $field['validation']??[]);
+        
+        //Do not fill additionalclasses if empty
+        if(empty($field['additionalClasses']))
+        {
+            unset($field['additionalClasses']);
+        }
     }
 
     private function addFormattingClasses($attributeCode, $origClasses = "")
