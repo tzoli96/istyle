@@ -21,9 +21,12 @@ class AjaxCaptainHookJsEvent implements ObserverInterface
             array_merge($output->getData('js'),
                 [
                     \Oander\OneyThreeByFourExtender\Observer\AjaxCaptainHookEvent::OUTPUT_NAME_PRODUCT  =>
-                        "$(\".oney-widget\").replaceWith(response['" . \Oander\OneyThreeByFourExtender\Observer\AjaxCaptainHookEvent::OUTPUT_NAME_PRODUCT  . "']);",
+                        "$('.oney-widget').replaceWith(response['" . \Oander\OneyThreeByFourExtender\Observer\AjaxCaptainHookEvent::OUTPUT_NAME_PRODUCT  . "']);",
                     \Oander\OneyThreeByFourExtender\Observer\AjaxCaptainHookEvent::OUTPUT_NAME_SIMULATION  =>
-                        "$(\".oney-popup\").replaceWith(response['" . \Oander\OneyThreeByFourExtender\Observer\AjaxCaptainHookEvent::OUTPUT_NAME_SIMULATION  . "']);"
+                        "
+                            $('.oney-popup').replaceWith(response['" . \Oander\OneyThreeByFourExtender\Observer\AjaxCaptainHookEvent::OUTPUT_NAME_SIMULATION  . "']);
+                            $('.open-simulation').show();
+                        "
                 ]
             )
         );
