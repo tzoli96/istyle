@@ -39,9 +39,8 @@ define([
                 
                 return result;
             },
-            function () {
-                return $.mage.__("The length of this field must be equal to %1 symbols.")
-                    .replace('%1', this.attrLength);
+            function (v, elm) {
+                return $(elm).attr('data-errormessage');
             }
         );
 
