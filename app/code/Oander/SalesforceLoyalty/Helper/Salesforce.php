@@ -9,6 +9,7 @@ namespace Oander\SalesforceLoyalty\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\Exception\LocalizedException;
+use Oander\Salesforce\Model\Endpoint\Loyalty;
 
 class Salesforce extends AbstractHelper
 {
@@ -23,7 +24,7 @@ class Salesforce extends AbstractHelper
      */
     private $customerSession;
     /**
-     * @var Config
+     * @var \Oander\SalesforceLoyalty\Helper\Config
      */
     private $configHelper;
     /**
@@ -39,7 +40,7 @@ class Salesforce extends AbstractHelper
      * @param \Magento\Framework\App\Helper\Context $context
      * @param \Magento\Framework\Registry $registry
      * @param \Magento\Customer\Model\Session $customerSession
-     * @param Config $configHelper
+     * @param \Oander\SalesforceLoyalty\Helper\Config $configHelper
      * @param \Oander\Salesforce\Helper\SoapClient $soapClient
      * @param \Oander\Salesforce\Model\Endpoint\Loyalty $loyaltyEndpoint
      */
@@ -75,11 +76,11 @@ class Salesforce extends AbstractHelper
 
     /**
      * @param int $blockPoints
-     * @param $customer
+     * @param string $customer
      * @return false|string TransactionID
      * @throws LocalizedException
      */
-    public function blockCustomerAffiliatePoints($blockPoints, $customer = null)
+    public function blockCustomerAffiliatePoints(int $blockPoints, string $customer = null)
     {
         $customer = $this->_getCustomer($customer);
         $transactionId = false;

@@ -3,9 +3,9 @@
 
 namespace Oander\Queue\Model;
 
+use Magento\Framework\Api\SortOrder;
 use Oander\Queue\Model\ResourceModel\Log\CollectionFactory as LogCollectionFactory;
 use Oander\Queue\Api\Data\LogInterfaceFactory;
-use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Oander\Queue\Api\LogRepositoryInterface;
 use Magento\Framework\Reflection\DataObjectProcessor;
@@ -28,7 +28,6 @@ class LogRepository implements LogRepositoryInterface
     protected $dataObjectHelper;
 
     protected $extensibleDataObjectConverter;
-    private $collectionProcessor;
 
     private $storeManager;
 
@@ -52,7 +51,6 @@ class LogRepository implements LogRepositoryInterface
      * @param DataObjectHelper $dataObjectHelper
      * @param DataObjectProcessor $dataObjectProcessor
      * @param StoreManagerInterface $storeManager
-     * @param CollectionProcessorInterface $collectionProcessor
      * @param JoinProcessorInterface $extensionAttributesJoinProcessor
      * @param ExtensibleDataObjectConverter $extensibleDataObjectConverter
      */
@@ -65,7 +63,6 @@ class LogRepository implements LogRepositoryInterface
         DataObjectHelper $dataObjectHelper,
         DataObjectProcessor $dataObjectProcessor,
         StoreManagerInterface $storeManager,
-        CollectionProcessorInterface $collectionProcessor,
         JoinProcessorInterface $extensionAttributesJoinProcessor,
         ExtensibleDataObjectConverter $extensibleDataObjectConverter
     ) {
@@ -77,7 +74,6 @@ class LogRepository implements LogRepositoryInterface
         $this->dataLogFactory = $dataLogFactory;
         $this->dataObjectProcessor = $dataObjectProcessor;
         $this->storeManager = $storeManager;
-        $this->collectionProcessor = $collectionProcessor;
         $this->extensionAttributesJoinProcessor = $extensionAttributesJoinProcessor;
         $this->extensibleDataObjectConverter = $extensibleDataObjectConverter;
     }
@@ -132,24 +128,32 @@ class LogRepository implements LogRepositoryInterface
         \Magento\Framework\Api\SearchCriteriaInterface $criteria
     ) {
         $collection = $this->logCollectionFactory->create();
-        
-        $this->extensionAttributesJoinProcessor->process(
-            $collection,
-            \Oander\Queue\Api\Data\LogInterface::class
-        );
-        
-        $this->collectionProcessor->process($criteria, $collection);
-        
+        foreach ($criteria->getFilterGroups() as $filterGroup) {
+            foreach ($filterGroup->getFilters() as $filter) {
+                if ($filter->getField() === 'store_id') {
+                    $collection->addStoreFilter($filter->getValue(), false);
+                    continue;
+                }
+                $condition = $filter->getConditionType() ?: 'eq';
+                $collection->addFieldToFilter($filter->getField(), [$condition => $filter->getValue()]);
+            }
+        }
+
+        $sortOrders = $criteria->getSortOrders();
+        if ($sortOrders) {
+            /** @var SortOrder $sortOrder */
+            foreach ($sortOrders as $sortOrder) {
+                $collection->addOrder(
+                    $sortOrder->getField(),
+                    ($sortOrder->getDirection() == SortOrder::SORT_ASC) ? 'ASC' : 'DESC'
+                );
+            }
+        }
+
         $searchResults = $this->searchResultsFactory->create();
         $searchResults->setSearchCriteria($criteria);
-        
-        $items = [];
-        foreach ($collection as $model) {
-            $items[] = $model->getDataModel();
-        }
-        
-        $searchResults->setItems($items);
         $searchResults->setTotalCount($collection->getSize());
+        $searchResults->setItems($collection->getItems());
         return $searchResults;
     }
 

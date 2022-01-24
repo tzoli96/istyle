@@ -30,7 +30,7 @@ class InstallSchema implements InstallSchemaInterface
         );
 
         $table_oander_queue_job->addColumn(
-            JobInterface::CLASS,
+            JobInterface::JOBCLASS,
             \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
             512,
             ['nullable' => false],
@@ -38,7 +38,7 @@ class InstallSchema implements InstallSchemaInterface
         );
 
         $table_oander_queue_job->addColumn(
-            JobInterface::DATA,
+            JobInterface::ALLDATA,
             \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
             null,
             [],
@@ -48,16 +48,16 @@ class InstallSchema implements InstallSchemaInterface
         $table_oander_queue_job->addColumn(
             JobInterface::NAME,
             \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-            512,
+            255,
             ['nullable' => false],
             'Name of job'
         );
 
         $table_oander_queue_job->addColumn(
             JobInterface::RETRIES,
-            \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+            \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
             null,
-            [],
+            ['default' => '0','nullable' => false,'unsigned' => true],
             'retries'
         );
 

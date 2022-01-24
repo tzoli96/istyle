@@ -10,9 +10,9 @@ interface JobInterface extends \Magento\Framework\Api\ExtensibleDataInterface
     const RETRIES = 'retries';
     const JOB_ID = 'job_id';
     const STATUS = 'status';
-    const DATA = 'data';
+    const ALLDATA = 'all_data';
     const NAME = 'name';
-    const CLASS = 'class';
+    const JOBCLASS = 'job_class';
     const CREATED_AT = 'created_at';
 
     /**
@@ -29,17 +29,17 @@ interface JobInterface extends \Magento\Framework\Api\ExtensibleDataInterface
     public function setJobId($jobId);
 
     /**
-     * Get class
+     * Get jobclass
      * @return string|null
      */
-    public function getClass();
+    public function getJobClass();
 
     /**
-     * Set class
-     * @param string $class
+     * Set jobclass
+     * @param string $jobclass
      * @return \Oander\Queue\Api\Data\JobInterface
      */
-    public function setClass($class);
+    public function setJobClass($jobclass);
 
     /**
      * Retrieve existing extension attributes object or create a new one.
@@ -57,17 +57,17 @@ interface JobInterface extends \Magento\Framework\Api\ExtensibleDataInterface
     );
 
     /**
-     * Get data
+     * Get alldata
      * @return string|null
      */
-    public function getData();
+    public function getAllData();
 
     /**
-     * Set data
-     * @param string $data
+     * Set alldata
+     * @param string $alldata
      * @return \Oander\Queue\Api\Data\JobInterface
      */
-    public function setData($data);
+    public function setAllData($alldata);
 
     /**
      * Get name

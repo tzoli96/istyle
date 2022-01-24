@@ -3,7 +3,7 @@
 	<type name="Magento\Framework\Console\CommandList">
 		<arguments>
 			<argument name="commands" xsi:type="array">
-				<item name="run" xsi:type="object">Oander\Queue\Console\Command\Run</item>
+				<item name="Run" xsi:type="object">Oander\Queue\Console\Command\Run</item>
 			</argument>
 		</arguments>
 	</type>

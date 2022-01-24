@@ -31,19 +31,19 @@ class Job extends \Magento\Framework\Api\AbstractExtensibleObject implements Job
      * Get class
      * @return string|null
      */
-    public function getClass()
+    public function getJobClass()
     {
-        return $this->_get(self::CLASS);
+        return $this->_get(self::JOBCLASS);
     }
 
     /**
      * Set class
-     * @param string $class
+     * @param string $jobclass
      * @return \Oander\Queue\Api\Data\JobInterface
      */
-    public function setClass($class)
+    public function setJobClass($jobclass)
     {
-        return $this->setData(self::CLASS, $class);
+        return $this->setData(self::JOBCLASS, $jobclass);
     }
 
     /**
@@ -70,9 +70,9 @@ class Job extends \Magento\Framework\Api\AbstractExtensibleObject implements Job
      * Get data
      * @return string|null
      */
-    public function getData()
+    public function getAllData()
     {
-        return $this->_get(self::DATA);
+        return $this->_get(self::ALLDATA);
     }
 
     /**
@@ -80,9 +80,9 @@ class Job extends \Magento\Framework\Api\AbstractExtensibleObject implements Job
      * @param string $data
      * @return \Oander\Queue\Api\Data\JobInterface
      */
-    public function setData($data)
+    public function setAllData($data)
     {
-        return $this->setData(self::DATA, $data);
+        return $this->setData(self::ALLDATA, $data);
     }
 
     /**
@@ -164,6 +164,6 @@ class Job extends \Magento\Framework\Api\AbstractExtensibleObject implements Job
     public function init()
     {
         $this->setRetries(0);
-        $this->setStatus(StatusEnum::STATUS_INIT);
+        $this->setStatus(\Oander\Queue\Enum\Status::STATUS_INIT);
     }
 }

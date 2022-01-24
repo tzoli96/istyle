@@ -57,7 +57,10 @@ abstract class JobClass extends \Magento\Framework\DataObject
      */
     public function getInput()
     {
-        return $this->input;
+        if($this->input)
+            return $this->input;
+        else
+            return \Zend_Json::encode($this->_data);
     }
 
     /**

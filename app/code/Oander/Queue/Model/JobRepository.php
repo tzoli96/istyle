@@ -3,10 +3,10 @@
 
 namespace Oander\Queue\Model;
 
+use Magento\Framework\Api\SortOrder;
 use Oander\Queue\Model\ResourceModel\Job as ResourceJob;
 use Oander\Queue\Model\ResourceModel\Job\CollectionFactory as JobCollectionFactory;
 use Oander\Queue\Api\Data\JobInterfaceFactory;
-use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Oander\Queue\Api\JobRepositoryInterface;
 use Oander\Queue\Api\Data\JobSearchResultsInterfaceFactory;
@@ -26,7 +26,6 @@ class JobRepository implements JobRepositoryInterface
     protected $dataObjectHelper;
 
     protected $extensibleDataObjectConverter;
-    private $collectionProcessor;
 
     private $storeManager;
 
@@ -52,7 +51,6 @@ class JobRepository implements JobRepositoryInterface
      * @param DataObjectHelper $dataObjectHelper
      * @param DataObjectProcessor $dataObjectProcessor
      * @param StoreManagerInterface $storeManager
-     * @param CollectionProcessorInterface $collectionProcessor
      * @param JoinProcessorInterface $extensionAttributesJoinProcessor
      * @param ExtensibleDataObjectConverter $extensibleDataObjectConverter
      */
@@ -65,7 +63,6 @@ class JobRepository implements JobRepositoryInterface
         DataObjectHelper $dataObjectHelper,
         DataObjectProcessor $dataObjectProcessor,
         StoreManagerInterface $storeManager,
-        CollectionProcessorInterface $collectionProcessor,
         JoinProcessorInterface $extensionAttributesJoinProcessor,
         ExtensibleDataObjectConverter $extensibleDataObjectConverter
     ) {
@@ -77,7 +74,6 @@ class JobRepository implements JobRepositoryInterface
         $this->dataJobFactory = $dataJobFactory;
         $this->dataObjectProcessor = $dataObjectProcessor;
         $this->storeManager = $storeManager;
-        $this->collectionProcessor = $collectionProcessor;
         $this->extensionAttributesJoinProcessor = $extensionAttributesJoinProcessor;
         $this->extensibleDataObjectConverter = $extensibleDataObjectConverter;
     }
@@ -145,24 +141,32 @@ class JobRepository implements JobRepositoryInterface
         \Magento\Framework\Api\SearchCriteriaInterface $criteria
     ) {
         $collection = $this->jobCollectionFactory->create();
-        
-        $this->extensionAttributesJoinProcessor->process(
-            $collection,
-            \Oander\Queue\Api\Data\JobInterface::class
-        );
-        
-        $this->collectionProcessor->process($criteria, $collection);
-        
+        foreach ($criteria->getFilterGroups() as $filterGroup) {
+            foreach ($filterGroup->getFilters() as $filter) {
+                if ($filter->getField() === 'store_id') {
+                    $collection->addStoreFilter($filter->getValue(), false);
+                    continue;
+                }
+                $condition = $filter->getConditionType() ?: 'eq';
+                $collection->addFieldToFilter($filter->getField(), [$condition => $filter->getValue()]);
+            }
+        }
+
+        $sortOrders = $criteria->getSortOrders();
+        if ($sortOrders) {
+            /** @var SortOrder $sortOrder */
+            foreach ($sortOrders as $sortOrder) {
+                $collection->addOrder(
+                    $sortOrder->getField(),
+                    ($sortOrder->getDirection() == SortOrder::SORT_ASC) ? 'ASC' : 'DESC'
+                );
+            }
+        }
+
         $searchResults = $this->searchResultsFactory->create();
         $searchResults->setSearchCriteria($criteria);
-        
-        $items = [];
-        foreach ($collection as $model) {
-            $items[] = $model->getDataModel();
-        }
-        
-        $searchResults->setItems($items);
         $searchResults->setTotalCount($collection->getSize());
+        $searchResults->setItems($collection->getItems());
         return $searchResults;
     }
 

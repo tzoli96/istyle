@@ -12,7 +12,7 @@ class Queue
      */
     private $jobCollectionFactory;
     /**
-     * @var \Oander\Queue\Api\Data\LogFactory
+     * @var \Oander\Queue\Api\Data\LogInterfaceFactory
      */
     private $logFactory;
     /**
@@ -28,13 +28,13 @@ class Queue
      * @param \Oander\Queue\Model\ResourceModel\Job\CollectionFactory $jobCollectionFactory
      * @param \Oander\Queue\Model\JobRepository $jobRepository
      * @param \Oander\Queue\Model\LogRepository $logRepository
-     * @param \Oander\Queue\Api\Data\LogFactory $logFactory
+     * @param \Oander\Queue\Api\Data\LogInterfaceFactory $logFactory
      */
     public function __construct(
         \Oander\Queue\Model\ResourceModel\Job\CollectionFactory $jobCollectionFactory,
         \Oander\Queue\Model\JobRepository $jobRepository,
         \Oander\Queue\Model\LogRepository $logRepository,
-        \Oander\Queue\Api\Data\LogFactory $logFactory
+        \Oander\Queue\Api\Data\LogInterfaceFactory $logFactory
     )
     {
         $this->jobCollectionFactory = $jobCollectionFactory;
@@ -50,15 +50,11 @@ class Queue
     {
         /** @var \Oander\Queue\Model\ResourceModel\Job\Collection $jobCollection */
         $jobCollection = $this->jobCollectionFactory->create();
-        $jobCollection->addFieldToFilter([
-            \Oander\Queue\Api\Data\JobInterface::STATUS => [
-                "in" => \Oander\Queue\Enum\Status::getActiveStatuses()
-            ]
-        ]);
-        /** @var \Oander\Queue\Api\Data\JobInterface $job */
+        $jobCollection->addFieldToFilter(\Oander\Queue\Api\Data\JobInterface::STATUS, ["in" => \Oander\Queue\Enum\Status::getActiveStatuses()]);
+        /** @var \Oander\Queue\Model\Job $job */
         foreach ($jobCollection as $job)
         {
-            $this->runJob($job);
+            $this->runJob($job->getDataModel());
         }
         return $jobCollection->getSize();
     }
@@ -69,7 +65,7 @@ class Queue
      */
     public function runJob($job)
     {
-        if(JobManager::validateJobClass($job->getClass()))
+        if(JobManager::validateJobClass($job->getJobClass()))
         {
             $this->_runJob($job);
         }
@@ -81,9 +77,9 @@ class Queue
      */
     private function _runJob($job)
     {
-        $class = $this->_getClass($job->getClass());
+        $class = $this->_getClass($job->getJobClass());
         $class->clear();
-        $class->setData(\Zend_Json::decode($job->getData()));
+        $class->setData(\Zend_Json::decode($job->getAllData()));
         /** @var \Oander\Queue\Api\Data\LogInterface $log */
         $log = $this->logFactory->create();
         try{
@@ -91,19 +87,21 @@ class Queue
             $log->setJobId($job->getJobId());
             if($class->getInput())
                 $log->setInput($class->getInput());
-            $this->logRepository->save($log);
+            $log = $this->logRepository->save($log);
 
             //PROCESS
             $result = $class->execute();
 
             //POSTPROCESS
+            if($class->getInput())
+                $log->setInput($class->getInput());
             if($class->getOutput())
                 $log->setOutput($class->getOutput());
-            $this->logRepository->save($log);
+            $log = $this->logRepository->save($log);
 
             //HANDLE OUTPUT
             $job->setStatus(StatusEnum::STATUS_INPROGRESS);
-            $job->setData($class->toJson());
+            $job->setAllData($class->toJson());
             $job->setRetries($job->getRetries() + 1);
             if($class->hasError()) //HAS ERROR
             {

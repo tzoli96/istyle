@@ -9,7 +9,7 @@ use Oander\Queue\Model\JobRepository;
 class JobManager
 {
     /**
-     * @var \Oander\Queue\Api\Data\JobFactory
+     * @var \Oander\Queue\Api\Data\JobInterfaceFactory
      */
     private $jobFactory;
     /**
@@ -22,12 +22,12 @@ class JobManager
     private $queueHelper;
 
     /**
-     * @param \Oander\Queue\Api\Data\JobFactory $jobFactory
+     * @param \Oander\Queue\Api\Data\JobInterfaceFactory $jobFactory
      * @param JobRepository $jobRepository
      * @param \Oander\Queue\Helper\Queue $queueHelper
      */
     public function __construct(
-        \Oander\Queue\Api\Data\JobFactory $jobFactory,
+        \Oander\Queue\Api\Data\JobInterfaceFactory $jobFactory,
         \Oander\Queue\Model\JobRepository $jobRepository,
         \Oander\Queue\Helper\Queue $queueHelper
     )
@@ -64,8 +64,8 @@ class JobManager
             /** @var \Oander\Queue\Api\Data\JobInterface $job */
             $job = $this->jobFactory->create();
             $job->init();
-            $job->setClass(get_class($jobClass));
-            $job->setData($jobClass->toJson());
+            $job->setJobClass(get_class($jobClass));
+            $job->setAllData($jobClass->toJson());
             $job->setName($jobClass->getName());
             $this->jobRepository->save($job);
             if ($executeImmediately) {
