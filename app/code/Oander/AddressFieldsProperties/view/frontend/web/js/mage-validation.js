@@ -55,9 +55,8 @@ define([
 
                 for (var i = 0; i < classes.length; i++) {
                     if (classes[i].indexOf('oandervalidate-regex-') > -1) {
-                        var params = classes[i].split('oandervalidate-regex-' + counter + '-'),
-                            paramValue = params[1].replace(String.fromCharCode(160), ' '),
-                            regex = new RegExp('(' + paramValue  + ')', 'gm');
+                        var rowRegex = classes[i].split('oandervalidate-regex-' + counter + '-')[1].replace(String.fromCharCode(160), ' '),
+                            regex = new RegExp('(' + rowRegex  + ')', 'gm');
 
                         regexes.push(regex);
                         counter++;
