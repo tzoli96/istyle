@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "817563171c439a68905ecd0d0e99d412",
+    "content-hash": "b2eadc4e52408ebb6fb82df31f83d663",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9606,35 +9606,6 @@
             "time": "2018-02-20T13:54:50+00:00"
         },
         {
-            "name": "oander/module-simple-vatnumber-validation",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/simple-vatnumber-validation.git",
-                "reference": "4c75ce0515d7674916f52a35800d5954ace5bcf5"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\SimpleVATNumberValidation\\": ""
-                }
-            },
-            "license": [
-                "GPL-3.0"
-            ],
-            "authors": [
-                {
-                    "name": "Mage2Gen",
-                    "email": "info@mage2gen.com"
-                }
-            ],
-            "description": "Simple VAT Number Validation",
-            "time": "2021-12-15T17:12:50+00:00"
-        },
-        {
             "name": "oander/module-structured-data",
             "version": "1.2.0.4",
             "source": {
@@ -14968,7 +14939,6 @@
         "oander/module-core-bug-fix": 20,
         "oander/module-express-shipping": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
-        "oander/module-simple-vatnumber-validation": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
