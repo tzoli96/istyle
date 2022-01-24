@@ -178,13 +178,16 @@ class Config
                         $result[] = "oandervalidate-regex";
                         $i = 0;
                         foreach ($config->getData(ConfigAbstract::CONFIG_REGEX_PATTERN) as $regex) {
-                            if(isset($regex["value"]))
+                            if(isset($regex["value"])) {
                                 $result[] = "oandervalidate-regex-" . $i . "-" . str_replace(" ", "&nbsp;", htmlspecialchars($regex["value"]));
+                                $i++;
+                            }
                         }
                     }
                 }
             }
         }
+
         return $result;
     }
 }
