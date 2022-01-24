@@ -39,7 +39,9 @@ abstract class ConfigAbstract {
      */
     public function getBaseConfig()
     {
-        return self::BASE_VALUES;
+        $return = self::BASE_VALUES;
+        $return[self::CONFIG_ERROR_MESSAGE] = __("Wrong value in field");
+        return $return;
     }
 
     /**
