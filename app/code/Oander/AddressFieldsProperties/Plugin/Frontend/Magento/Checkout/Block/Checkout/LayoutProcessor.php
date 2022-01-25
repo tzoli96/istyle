@@ -73,14 +73,21 @@ class LayoutProcessor
 
     private function addProperties($attributeCode, &$field)
     {
-        $field['placeholder'] = $this->addPlaceHolder($attributeCode, $field['placeholder']??"");
-        $field['additionalClasses'] = $this->addFormattingClasses($attributeCode, $field['additionalClasses']??"");
-        $field['validation'] = $this->addValidations($attributeCode, $field['validation']??[]);
-        
-        //Do not fill additionalclasses if empty
-        if(empty($field['additionalClasses']))
+        if(isset($field["children"]) && is_array($field["children"]))
         {
-            unset($field['additionalClasses']);
+            foreach ($field["children"] as &$childfield)
+            {
+                $this->addProperties($attributeCode, $childfield);
+            }
+        } else {
+            $field['placeholder'] = $this->addPlaceHolder($attributeCode, $field['placeholder'] ?? "");
+            $field['additionalClasses'] = $this->addFormattingClasses($attributeCode, $field['additionalClasses'] ?? "");
+            $field['validation'] = $this->addValidations($attributeCode, $field['validation'] ?? []);
+
+            //Do not fill additionalclasses if empty
+            if (empty($field['additionalClasses'])) {
+                unset($field['additionalClasses']);
+            }
         }
     }
 

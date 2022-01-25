@@ -124,17 +124,19 @@ class Config
                 $result[] = "cleave-pattern--prefix-{" . $config->getPrefix() . "}";
                 $result[] = "cleave-pattern--noImmediatePrefix-{1}";
             }
-            if ($config->getData(ConfigAbstract::CONFIG_CASE) === \Oander\AddressFieldsProperties\Enum\CaseEnum::CASE_UPPERCASE) {
-                if (empty($config->getBlocks())) {
-                    $result[] = "cleave-pattern--blocks-{1024}";
+            if(!empty($config->getData(ConfigAbstract::CONFIG_CASE))) {
+                if ($config->getData(ConfigAbstract::CONFIG_CASE) == \Oander\AddressFieldsProperties\Enum\CaseEnum::CASE_UPPERCASE) {
+                    if (empty($config->getBlocks())) {
+                        $result[] = "cleave-pattern--blocks-{1024}";
+                    }
+                    $result[] = "cleave-pattern--uppercase-{1}";
                 }
-                $result[] = "cleave-pattern--uppercase-{1}";
-            }
-            if ($config->getData(ConfigAbstract::CONFIG_CASE) === \Oander\AddressFieldsProperties\Enum\CaseEnum::CASE_LOWERCASE) {
-                if (empty($config->getData(ConfigAbstract::CONFIG_BLOCKS))) {
-                    $result[] = "cleave-pattern--blocks-{1024}";
+                if ($config->getData(ConfigAbstract::CONFIG_CASE) == \Oander\AddressFieldsProperties\Enum\CaseEnum::CASE_LOWERCASE) {
+                    if (empty($config->getData(ConfigAbstract::CONFIG_BLOCKS))) {
+                        $result[] = "cleave-pattern--blocks-{1024}";
+                    }
+                    $result[] = "cleave-pattern--lowercase-{1}";
                 }
-                $result[] = "cleave-pattern--lowercase-{1}";
             }
 
             if (is_string($config->getData(ConfigAbstract::CONFIG_DELIMITERS))) {
