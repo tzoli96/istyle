@@ -12,9 +12,12 @@
 			<argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
 			<argument name="name" xsi:type="string">oander_addressfieldsproperties_addressfieldsattribute_listing_data_source</argument>
 			<argument name="primaryFieldName" xsi:type="string">attribute_id</argument>
-			<argument name="requestFieldName" xsi:type="string">attribute_id</argument>
+			<argument name="requestFieldName" xsi:type="string">id</argument>
 			<argument name="data" xsi:type="array">
 				<item name="config" xsi:type="array">
+					<item name="storageConfig" xsi:type="array">
+						<item name="indexField" xsi:type="string">attribute_id</item>
+					</item>
 					<item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
 					<item name="update_url" xsi:type="url" path="mui/index/render"/>
 				</item>
