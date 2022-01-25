@@ -4,6 +4,8 @@ namespace Oander\SalesforceLoyalty\Observer;
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
+use Magento\Framework\Exception\LocalizedException;
+use Oander\Checkout\Error\VisibleProblemError;
 use Oander\SalesforceLoyalty\Enum\Attribute;
 
 class PointBlock implements ObserverInterface
@@ -41,19 +43,25 @@ class PointBlock implements ObserverInterface
                 if($transactionId)
                     $order->setData(Attribute::LOYALTY_BLOCK_TRANSACTION_ID,$transactionId);
                 else
-                    $this->messageManager->addErrorMessage(__("Affiliate Points can not be blocked"));
+                {
+                    throw new VisibleProblemError(__("Affiliate Points can not be blocked"));
+                    //$this->messageManager->addErrorMessage(__("Affiliate Points can not be blocked"));
+                }
             }
             catch (\Oander\Salesforce\Exception\RESTResponseException $exception)
             {
-                $this->messageManager->addErrorMessage($exception->getMessage());
+                throw new VisibleProblemError($exception->getMessage());
+                //$this->messageManager->addErrorMessage($exception->getMessage());
             }
             catch (\Oander\Salesforce\Exception\RESTException $exception)
             {
-                $this->messageManager->addErrorMessage(__("Affiliate Points can not be blocked"));
+                throw new VisibleProblemError(__("Affiliate Points can not be blocked"));
+                //$this->messageManager->addErrorMessage(__("Affiliate Points can not be blocked"));
             }
             catch (\Exception $exception)
             {
-                $this->messageManager->addErrorMessage(__("Server Error in Loyalty"));
+                throw $exception;
+                //$this->messageManager->addErrorMessage(__("Server Error in Loyalty"));
             }
         }
     }

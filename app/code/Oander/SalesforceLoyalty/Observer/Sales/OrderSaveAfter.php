@@ -48,7 +48,7 @@ class OrderSaveAfter implements \Magento\Framework\Event\ObserverInterface
         $order = $observer->getEvent()->getOrder();
         if ($order instanceof \Magento\Framework\Model\AbstractModel) {
             try {
-                if ($order->getState() == 'canceled' || $order->getOrigData("state") != 'canceled') {
+                if ($order->getState() == 'canceled' && $order->getOrigData("state") != 'canceled') {
                     if (is_string($order->getData(Attribute::LOYALTY_BLOCK_TRANSACTION_ID))) {
                         $this->pointFreeQueueClass->setData([
                             \Oander\SalesforceLoyalty\Model\PointFreeQueueClass::DATA_TRANSACTIONID => $order->getData(Attribute::LOYALTY_BLOCK_TRANSACTION_ID),
