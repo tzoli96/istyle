@@ -10,6 +10,7 @@
     <body>
         <referenceContainer name="content">
             <referenceBlock class="Oander\CustomerProfile\Block\Order\History" name="sales.order.history" cacheable="false"/>
+            <referenceBlock name="customer.account.link.back" remove="true" />
         </referenceContainer>
     </body>
 </page>
