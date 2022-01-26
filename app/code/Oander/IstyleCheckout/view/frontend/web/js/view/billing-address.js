@@ -462,8 +462,10 @@ define([
       $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text($t('Contact person lastname'));
 
       this.fieldErrorHandling($(formElements.companyField));
-      if ($(formElements.vatIdField).hasClass('vat-required') && !$(formElements.vatIdField).hasClass('oandervalidate-length')) this.fieldErrorHandling($(formElements.vatIdField));
-      this.fieldErrorHandling($(formElements.pfpjField));
+      if ($(formElements.vatIdField).hasClass('vat-required')) {
+        this.fieldErrorHandling($(formElements.vatIdField));
+        this.fieldErrorHandling($(formElements.pfpjField));
+      }
     },
 
     /**
@@ -476,23 +478,15 @@ define([
       }
 
       field.find('.form-control').on('keyup', function () {
-        if (!field.hasClass('oandervalidate-length') && !field.hasClass('oandervalidate-regex')) {
-          if (!$(this).val().length) {
+        if (!$(this).val().length) {
+          if (!field.find('.mage-error:not(.error_on_field)').length) {
             field.addClass('_error');
             field.find('.error_on_field').removeClass('d-none');
-          } else {
-            field.removeClass('_error');
-            field.find('.error_on_field').addClass('d-none');
           }
         } else {
-          if (!$(this).val().length) {
-            field.addClass('_error');
-            field.find('.error_on_field').removeClass('d-none');
-          } else {
-            field.find('.error_on_field').addClass('d-none');
-            if (!field.find('.mage-error:not(.error_on_field)')) {
-              field.removeClass('_error');
-            }
+          field.find('.error_on_field').addClass('d-none');
+          if (!field.find('.mage-error:not(.error_on_field)').length) {
+            field.removeClass('_error');
           }
         }
       });
@@ -503,25 +497,24 @@ define([
      * @return {Void}
      */
     watchField: function (field) {
-      if ((!field.hasClass('oandervalidate-length') && !field.hasClass('oandervalidate-regex')) ) {
-        if (field.length) {
-          if (!field.find('.form-control').val().length) {
+      if (field.length) {
+        if (!field.find('.form-control').val().length) {
+          if (!field.find('.mage-error:not(.error_on_field)').length) {
             field.addClass('_error');
             field.find('.error_on_field').removeClass('d-none');
-            return false;
           }
-          else {
+          return false;
+        } else {
+          field.find('.error_on_field').addClass('d-none');
+          if (!field.find('.mage-error:not(.error_on_field)').length) {
             field.removeClass('_error');
-            field.find('.error_on_field').addClass('d-none');
-            return true;
           }
-        }
-        else {
           return true;
         }
       } else {
-        return false;
+        return true;
       }
+      
     },
 
     /**
