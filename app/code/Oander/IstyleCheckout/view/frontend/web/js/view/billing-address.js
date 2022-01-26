@@ -472,17 +472,28 @@ define([
      */
     fieldErrorHandling: function (field) {
       if (!field.find('.mage-error').length) {
-        field.append('<div class="mage-error d-none">' + $t('Required fields') + '</div>');
+        field.append('<div class="mage-error error_on_field d-none">' + $t('Required fields') + '</div>');
       }
 
       field.find('.form-control').on('keyup', function () {
-        if (!$(this).val().length) {
-          field.addClass('_error');
-          field.find('.mage-error').removeClass('d-none');
-        }
-        else {
-          field.removeClass('_error');
-          field.find('.mage-error').addClass('d-none');
+        if (!field.hasClass('oandervalidate-length') && !field.hasClass('oandervalidate-regex')) {
+          if (!$(this).val().length) {
+            field.addClass('_error');
+            field.find('.error_on_field').removeClass('d-none');
+          } else {
+            field.removeClass('_error');
+            field.find('.error_on_field').addClass('d-none');
+          }
+        } else {
+          if (!$(this).val().length) {
+            field.addClass('_error');
+            field.find('.error_on_field').removeClass('d-none');
+          } else {
+            field.find('.error_on_field').addClass('d-none');
+            if (!field.find('.mage-error:not(.error_on_field)')) {
+              field.removeClass('_error');
+            }
+          }
         }
       });
     },
@@ -492,20 +503,24 @@ define([
      * @return {Void}
      */
     watchField: function (field) {
-      if (field.length && !field.hasClass('oandervalidate-length')) {
-        if (!field.find('.form-control').val().length) {
-          field.addClass('_error');
-          field.find('.mage-error').removeClass('d-none');
-          return false;
+      if ((!field.hasClass('oandervalidate-length') && !field.hasClass('oandervalidate-regex')) ) {
+        if (field.length) {
+          if (!field.find('.form-control').val().length) {
+            field.addClass('_error');
+            field.find('.error_on_field').removeClass('d-none');
+            return false;
+          }
+          else {
+            field.removeClass('_error');
+            field.find('.error_on_field').addClass('d-none');
+            return true;
+          }
         }
         else {
-          field.removeClass('_error');
-          field.find('.mage-error').addClass('d-none');
           return true;
         }
-      }
-      else {
-        return true;
+      } else {
+        return false;
       }
     },
 

@@ -32,8 +32,7 @@ class LayoutProcessor
             is_array($result['components']['checkout']['children']['steps']['children']['billing-step']['children']
             ['payment']['children']['payments-list']['children'])
         ) {
-            foreach ($result['components']['checkout']['children']['steps']['children']['billing-step']['children']
-                     ['payment']['children']['payments-list']['children'] as $key => &$payment) {
+            foreach ($result['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['payments-list']['children'] as $key => &$payment) {
                 if (isset($payment['children']['form-fields']['children']) && is_array($payment['children']['form-fields']['children'])) {
                     foreach ($payment['children']['form-fields']['children'] as $attributeCode => &$field) {
                         $this->addProperties($attributeCode, $field);
@@ -93,7 +92,7 @@ class LayoutProcessor
 
     private function addFormattingClasses($attributeCode, $origClasses = "")
     {
-        $classes = $this->configHelper->getFormattingClasses($attributeCode);
+        $classes = $this->configHelper->getFormattingClasses($attributeCode, true);
         $classes[] = $origClasses;
         return implode(" ", $classes);
     }
