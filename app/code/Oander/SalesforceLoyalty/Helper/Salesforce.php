@@ -88,7 +88,7 @@ class Salesforce extends AbstractHelper
         //$istyle_id = $customer->getData('istyle_id');
         $customer_number = $customer->getData('sforce_maconomy_id');
         if($customer_number) {
-            $response = $this->loyaltyEndpoint->BlockAffiliateMembershipPoints($customer_number, $customer->getStore()->getCode(), $blockPoints);
+            $response = $this->loyaltyEndpoint->BlockAffiliateMembershipPoints($customer_number, substr($customer->getStore()->getCode(), 0, 2), $blockPoints);
             if(isset($response["TransactionId"]))
                 $transactionId = $response["TransactionId"];
         }
