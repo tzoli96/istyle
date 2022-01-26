@@ -32,7 +32,7 @@ class PointFreeQueueClass extends \Oander\Queue\Model\JobClass
     {
         $this->_validateData();
         try {
-            $return = $this->loyaltyEndpoint->UpdateAffiliateTransaction($this->getData(self::DATA_TRANSACTIONID), \Oander\Salesforce\Model\Endpoint\Loyalty::LOYALTY_UPDATETRANSACTION_TYPE_BLOCKEDCANCELLED, $this->getData(self::DATA_COUNTRYCODE));
+            $return = $this->loyaltyEndpoint->UpdateAffiliateTransaction($this->getData(self::DATA_TRANSACTIONID), \Oander\Salesforce\Model\Endpoint\Loyalty::LOYALTY_UPDATETRANSACTION_TYPE_BLOCKEDCANCELLED, substr($this->getData(self::DATA_COUNTRYCODE), 0, 2));
             $this->output = \Zend_Json::encode($return);
             $this->hasError = false;
             return true;
@@ -78,6 +78,8 @@ class PointFreeQueueClass extends \Oander\Queue\Model\JobClass
             is_string($this->getData(self::DATA_TRANSACTIONID)) &&
             is_string($this->getData(self::DATA_COUNTRYCODE))
         ))
+            throw new \InvalidArgumentException(__("PointFreeQueueClass missing parameter"));
+        if(strlen($this->getData(self::DATA_COUNTRYCODE)) < 2)
             throw new \InvalidArgumentException(__("PointFreeQueueClass missing parameter"));
     }
 }
