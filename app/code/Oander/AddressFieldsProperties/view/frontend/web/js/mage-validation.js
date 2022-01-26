@@ -52,6 +52,8 @@ define([
                     regexes = [],
                     regexesAreValid = false;
 
+                if ($.mage.isEmpty(value)) return true;
+
                 for (var i = 0; i < classes.length; i++) {
                     if (classes[i].indexOf('oandervalidate-regex-') > -1) {
                         var rawRegex = classes[i].split('oandervalidate-regex-' + counter + '-')[1].replace(String.fromCharCode(160), ' '),

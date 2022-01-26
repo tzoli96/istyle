@@ -17,7 +17,7 @@ define([
       var self = this;
 
       if (form) {
-        var fields = form.find('.form-group._required, .form-group.true, .oandervalidate-length');
+        var fields = form.find('.form-group._required, .form-group.true, .oandervalidate-length, .oandervalidate-regex');
 
         fields.each(function (index, field) {
           if (self.isVisibleInDom($(field))) {
@@ -45,13 +45,18 @@ define([
       if ($(element).length) {
         if (self.isVisibleInDom($(element).closest('.form-group'))) {
           delete self.mainFields[key];
-          if ($(element).val().length > 0 && !$(element).closest('.form-group').hasClass('_error')) self.mainFields[key] = true;
-          else self.mainFields[key] = false;
+          
+          if ($(element).closest('.form-group').hasClass('_error')) {
+            self.mainFields[key] = false;
+          } else if (($(element).closest('.form-group').hasClass('_required') || $(element).closest('.form-group').hasClass('vat_required')) && !$(element).val().length) {
+            self.mainFields[key] = false;
+          } else {
+            self.mainFields[key] = true;
+          }
         }
       }
 
       billingAddressStore.fieldsContent(this.mainFields);
-
       this.checkRequiredFields();
     },
 

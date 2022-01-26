@@ -35,6 +35,8 @@ define([
         var regexes = [],
             regexesAreValid = false;
 
+        if ($.mage.isEmpty(value)) return true;
+
         for (var i = 1; i < params.length; i++) {
           var regex = new RegExp('(' + params[i]  + ')', 'gm');
           regexes.push(regex);
