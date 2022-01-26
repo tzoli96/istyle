@@ -51,12 +51,14 @@ class Queue
         /** @var \Oander\Queue\Model\ResourceModel\Job\Collection $jobCollection */
         $jobCollection = $this->jobCollectionFactory->create();
         $jobCollection->addFieldToFilter(\Oander\Queue\Api\Data\JobInterface::STATUS, ["in" => \Oander\Queue\Enum\Status::getActiveStatuses()]);
+        $count = 0;
         /** @var \Oander\Queue\Model\Job $job */
         foreach ($jobCollection as $job)
         {
             $this->runJob($job->getDataModel());
+            $count++;
         }
-        return $jobCollection->getSize();
+        return $count;
     }
 
     /**

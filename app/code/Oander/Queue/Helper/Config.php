@@ -20,7 +20,7 @@ use Magento\Store\Model\ScopeInterface;
  */
 class Config extends AbstractHelper
 {
-    const SETTINGS_PATH             = 'oander_base/queue';
+    const SETTINGS_PATH             = 'oander_queue/general';
     const SETTINGS_ENABLED          = 'enabled';
     const SETTINGS_METHOD           = 'run_method';
 
@@ -49,7 +49,7 @@ class Config extends AbstractHelper
      */
     public function isEnabled(): bool
     {
-        return (bool)$value = $this->spending[self::SETTINGS_ENABLED] ?? false;
+        return (bool)$value = $this->queue[self::SETTINGS_ENABLED] ?? false;
     }
 
     /**
@@ -57,6 +57,6 @@ class Config extends AbstractHelper
      */
     public function getMethod(): int
     {
-        return (int)$value = $this->spending[self::SETTINGS_METHOD] ?? 0;
+        return (int)$value = $this->queue[self::SETTINGS_METHOD] ?? 0;
     }
 }

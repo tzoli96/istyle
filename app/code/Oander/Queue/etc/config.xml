@@ -2,9 +2,10 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
 	<default>
 		<oander_queue>
-			<queue>
+			<general>
+				<enabled>0</enabled>
 				<run_method>0</run_method>
-			</queue>
+			</general>
 		</oander_queue>
 	</default>
 </config>
