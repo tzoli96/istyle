@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<type name="Magento\Framework\Console\CommandList">
+		<arguments>
+			<argument name="commands" xsi:type="array">
+				<item name="Run" xsi:type="object">Oander\Queue\Console\Command\Run</item>
+			</argument>
+		</arguments>
+	</type>
+	<preference for="Oander\Queue\Api\JobRepositoryInterface" type="Oander\Queue\Model\JobRepository"/>
+	<preference for="Oander\Queue\Api\Data\JobInterface" type="Oander\Queue\Model\Data\Job"/>
+	<preference for="Oander\Queue\Api\Data\JobSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<preference for="Oander\Queue\Api\LogRepositoryInterface" type="Oander\Queue\Model\LogRepository"/>
+	<preference for="Oander\Queue\Api\Data\LogInterface" type="Oander\Queue\Model\Data\Log"/>
+	<preference for="Oander\Queue\Api\Data\LogSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+</config>
