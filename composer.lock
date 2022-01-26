@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f23f021f6b107ddce69985571f2c7a8d",
+    "content-hash": "fa4f3bd91d8f73ed16b7afe1bc8a7aba",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1141,7 +1141,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2021-07-28T20:10:43+00:00"
+            "time": "2021-07-28T20:14:21+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -9460,11 +9460,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.2.0.5",
+            "version": "dev-master_56118",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "779be6f1dc9199fcf81d50f3aa34af056a1fe0c5"
+                "reference": "a7a12e369fdb0a26bfe35aa51db557b34875b073"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9483,7 +9483,7 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2021-09-20T12:57:13+00:00"
+            "time": "2022-01-26T09:38:49+00:00"
         },
         {
             "name": "oander/module-salesforce-service",
@@ -10872,16 +10872,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.111.0",
+            "version": "v7.112.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "374647b1079203ed7278ad4b58afc0fae3faaab9"
+                "reference": "f5213ccb88795663f73841bc65f467a0e1e61180"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/374647b1079203ed7278ad4b58afc0fae3faaab9",
-                "reference": "374647b1079203ed7278ad4b58afc0fae3faaab9",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/f5213ccb88795663f73841bc65f467a0e1e61180",
+                "reference": "f5213ccb88795663f73841bc65f467a0e1e61180",
                 "shasum": ""
             },
             "require": {
@@ -10924,7 +10924,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2022-01-20T17:30:55+00:00"
+            "time": "2022-01-25T19:42:36+00:00"
         },
         {
             "name": "symfony/console",
@@ -14890,22 +14890,25 @@
         },
         {
             "name": "theseer/fdomdocument",
-            "version": "1.6.6",
+            "version": "1.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/theseer/fDOMDocument.git",
-                "reference": "6e8203e40a32a9c770bcb62fe37e68b948da6dca"
+                "reference": "5cddd4f9076a9a2b85c5135935bba2dcb3ed7574"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theseer/fDOMDocument/zipball/6e8203e40a32a9c770bcb62fe37e68b948da6dca",
-                "reference": "6e8203e40a32a9c770bcb62fe37e68b948da6dca",
+                "url": "https://api.github.com/repos/theseer/fDOMDocument/zipball/5cddd4f9076a9a2b85c5135935bba2dcb3ed7574",
+                "reference": "5cddd4f9076a9a2b85c5135935bba2dcb3ed7574",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "lib-libxml": "*",
                 "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "php": ">=7.3"
             },
             "type": "library",
             "autoload": {
@@ -14926,7 +14929,7 @@
             ],
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
-            "time": "2017-06-30T11:53:12+00:00"
+            "time": "2022-01-25T23:10:35+00:00"
         }
     ],
     "aliases": [],
@@ -14939,6 +14942,7 @@
         "oander/module-core-bug-fix": 20,
         "oander/module-express-shipping": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
+        "oander/module-salesforce": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
