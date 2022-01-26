@@ -479,13 +479,13 @@ define([
 
       field.find('.form-control').on('keyup', function () {
         if (!$(this).val().length) {
-          if (field.find('.mage-error:not(.error_on_field)').length < 1) {
+          if (!field.find('.mage-error:not(.error_on_field)').length) {
             field.addClass('_error');
             field.find('.error_on_field').removeClass('d-none');
           }
         } else {
           field.find('.error_on_field').addClass('d-none');
-          if (field.find('.mage-error:not(.error_on_field)').length < 1) {
+          if (!field.find('.mage-error:not(.error_on_field)').length) {
             field.removeClass('_error');
           }
         }
@@ -499,14 +499,14 @@ define([
     watchField: function (field) {
       if (field.length) {
         if (!field.find('.form-control').val().length) {
-          if (field.find('.mage-error:not(.error_on_field)').length < 1) {
+          if (!field.find('.mage-error:not(.error_on_field)').length) {
             field.addClass('_error');
             field.find('.error_on_field').removeClass('d-none');
           }
           return false;
         } else {
           field.find('.error_on_field').addClass('d-none');
-          if (field.find('.mage-error:not(.error_on_field)').length < 1) {
+          if (!field.find('.mage-error:not(.error_on_field)').length) {
             field.removeClass('_error');
           }
           return true;
