@@ -125,7 +125,11 @@ define(
                         // The minicart may be empty
                         if (document.getElementById(elementId.substr(1)))
                         {
-                            prButton.mount(elementId);
+                            var stripePaymentAvailable = Object.keys(result).every(res => !result[res]);
+
+                            if(!stripePaymentAvailable) {
+                                prButton.mount(elementId);
+                            }
 
                             for (var i = 0; i < self.onPaymentSupportedCallbacks.length; i++)
                                 self.onPaymentSupportedCallbacks[i]();
