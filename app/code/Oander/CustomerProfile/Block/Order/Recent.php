@@ -67,6 +67,10 @@ class Recent extends \Magento\Sales\Block\Order\Recent
         $this->setOrders($orders);
     }
 
+    /**
+     * @param $product
+     * @return string
+     */
     public function getProductImageUrl($product)
     {
         $image = $this->imageBuilder

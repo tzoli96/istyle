@@ -22,37 +22,37 @@
     <div class="block-content">
         <?php echo $block->getChildHtml()?>
         <?php if (sizeof($_orders->getItems()) > 0){ ?>
-        <div class="block-dashboard-orders-orderlist">
+        <div class="block-orders-orderlist">
             <?php foreach ($_orders as $_order): ?>
-                <div class="block-dashboard-orders-card ui-card">
-                    <div class="block-dashboard-orders-card__header">
-                        <div class="block-dashboard-orders-card__header-left">
+                <div class="profile-order-card ui-card">
+                    <div class="profile-order-card__header">
+                        <div class="profile-order-card__header-left">
                             <h3 class="h2"><strong><?php echo $block->escapeHtml(__('Order')) ?> : #<?php /* @escapeNotVerified */ echo $_order->getRealOrderId() ?></strong></h3>
-                            <div class="block-dashboard-orders-card__subtitle">
-                                <p class="block-dashboard-orders-card__date">
+                            <div class="profile-order-card__subtitle">
+                                <p class="profile-order-card__date">
                                     <?php echo $block->escapeHtml(__('Date')) ?>: <?php /* @escapeNotVerified */ echo $block->formatDate($_order->getCreatedAt(), \IntlDateFormatter::MEDIUM) ?>
                                     <span aria-hidden="true" class="d-md-inline d-none">&nbsp; | &nbsp;</span>
                                 </p>
-                                <p class="block-dashboard-orders-card__status">
+                                <p class="profile-order-card__status">
                                     <span class="sr-only"><?php echo $block->escapeHtml(__('Status')) ?></span> <strong><?php /* @escapeNotVerified */ echo $_order->getStatusLabel() ?></strong>
                                 </p>
                             </div>
                         </div>
-                        <div class="block-dashboard-orders-card__header-right">
+                        <div class="profile-order-card__header-right">
                             <a href="<?php /* @escapeNotVerified */ echo $block->getViewUrl($_order) ?>" class="action outline-primary d-none d-lg-block">
                                 <span><?php /* @escapeNotVerified */ echo __('View Order') ?></span>
                             </a>
                         </div>
                     </div>
-                    <div class="block-dashboard-orders-card__body">
+                    <div class="profile-order-card__body">
                          <?php foreach($block->getOrdersItems($_order->getItems()) as $item): ?>
-                        <ul class="block-dashboard-orders-card__products">
+                        <ul class="profile-order-card__products">
                             <li>
                                 <img src="<?= $block->getProductImageUrl($item->getProduct()) ?>" alt="">
-                                <p class="block-dashboard-orders-card__details">
+                                <p class="profile-order-card__details">
                                     <a href="<?= $item->getProduct()->getProductUrl()?>"><?= $item->getName() ?></a>
-                                    <span class="block-dashboard-orders-card__sku"><span class="sr-only">SKU </span><?= $item->getSku() ?></span></p>
-                                <p class="block-dashboard-orders-card__price">
+                                    <span class="profile-order-card__sku"><span class="sr-only">SKU </span><?= $item->getSku() ?></span></p>
+                                <p class="profile-order-card__price">
                                     <?php
                                     if($item->getData("qty_ordered") != 1)
                                     {
@@ -62,14 +62,14 @@
                                     <?= $_order->formatPrice($item->getPriceInclTax()) ?></p>
                             </li>
                             <?php if($item->getData("childs")) :?>
-                            <ul class="block-dashboard-orders-card__sub-products">
+                            <ul class="profile-order-card__sub-products">
                                 <?php foreach ($item->getData("childs") as $childItem) :?>
                                 <li>
                                     <img src="<?= $block->getProductImageUrl($childItem->getProduct()) ?>" alt="">
-                                    <p class="block-dashboard-orders-card__details">
+                                    <p class="profile-order-card__details">
                                         <a href="<?= $childItem->getProduct()->getProductUrl()?>"><?= $childItem->getName() ?></a>
-                                        <span class="block-dashboard-orders-card__sku"><span class="sr-only">SKU </span><?= $childItem->getSku() ?></span></p>
-                                    <p class="block-dashboard-orders-card__price">
+                                        <span class="profile-order-card__sku"><span class="sr-only">SKU </span><?= $childItem->getSku() ?></span></p>
+                                    <p class="profile-order-card__price">
                                         <?php
                                         if($childItem->getData("qty_ordered") != 1)
                                         {
@@ -84,9 +84,9 @@
                         </ul>
                         <?php endforeach; ?>
                     </div>
-                    <div class="block-dashboard-orders-card__footer">
+                    <div class="profile-order-card__footer">
                         <p><strong><span class="total"><?php echo $block->escapeHtml(__('Order Total')) ?>:</span> <?php /* @escapeNotVerified */ echo $_order->formatPrice($_order->getGrandTotal()) ?></strong></p>
-                        <div class="block-dashboard-orders-card__footer-mobile-link d-xs-block d-lg-none">
+                        <div class="profile-order-card__footer-mobile-link d-xs-block d-lg-none">
                             <a href="<?php /* @escapeNotVerified */ echo $block->getViewUrl($_order) ?>" class="action outline-primary">
                                 <span><?php /* @escapeNotVerified */ echo __('View Order') ?></span>
                             </a>
@@ -97,7 +97,7 @@
         </div>
     </div>
     <?php } else{ ?>
-        <div class="block-dashboard-orders-no-order">
+        <div class="profile-order-card-no-order">
             <p><?php /* @escapeNotVerified */ echo __('You have placed no orders.'); ?>
                 <a class="text-primary action" href="<?php /* @escapeNotVerified */ echo $block->getBaseUrl();?>">
                     <span><?php /* @escapeNotVerified */ echo __('Go to Home Page'); ?></span>
