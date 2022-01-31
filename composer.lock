@@ -563,16 +563,16 @@
         },
         {
             "name": "bigfish/paymentgateway",
-            "version": "3.9.0",
+            "version": "3.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bigfish-hu/payment-gateway-php-sdk.git",
-                "reference": "858761d11727ed002270ec4e24e204759714ac18"
+                "reference": "f4ee5420b65332a66e58572ec6a4e95458bebd9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/858761d11727ed002270ec4e24e204759714ac18",
-                "reference": "858761d11727ed002270ec4e24e204759714ac18",
+                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/f4ee5420b65332a66e58572ec6a4e95458bebd9a",
+                "reference": "f4ee5420b65332a66e58572ec6a4e95458bebd9a",
                 "shasum": ""
             },
             "require": {
@@ -601,7 +601,7 @@
                 "payment",
                 "webshop"
             ],
-            "time": "2021-07-06T04:55:23+00:00"
+            "time": "2021-12-03T10:55:03+00:00"
         },
         {
             "name": "bigfishpaymentgateway/pmgw",
@@ -1141,7 +1141,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2021-07-28T20:14:21+00:00"
+            "time": "2021-07-28T20:10:43+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -10162,7 +10162,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "d4fee0ee1c9af610da54083234081980cfa96fcc"
+                "reference": "38110a1e39da0e1eb84583e83ff2ff2851e9718f"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10178,7 +10178,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2022-01-26T08:18:12+00:00"
+            "time": "2022-01-31T07:30:08+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10346,16 +10346,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.35",
+            "version": "2.0.36",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "4e16cf3f5f927a7d3f5317820af795c0366c0420"
+                "reference": "a97547126396548c224703a267a30af1592be146"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/4e16cf3f5f927a7d3f5317820af795c0366c0420",
-                "reference": "4e16cf3f5f927a7d3f5317820af795c0366c0420",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/a97547126396548c224703a267a30af1592be146",
+                "reference": "a97547126396548c224703a267a30af1592be146",
                 "shasum": ""
             },
             "require": {
@@ -10433,7 +10433,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2021-11-28T23:30:39+00:00"
+            "time": "2022-01-30T08:48:36+00:00"
         },
         {
             "name": "plugincompany/customergroupswitching",
