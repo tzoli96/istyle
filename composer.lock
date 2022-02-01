@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa4f3bd91d8f73ed16b7afe1bc8a7aba",
+    "content-hash": "75171ed6731b91a4bd9d1341f401e44d",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8672,13 +8672,14 @@
         },
         {
             "name": "oander/module-express-shipping",
-            "version": "dev-main",
+            "version": "1.1.0.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-express-shipping.git",
-                "reference": "6ef8f9d9dfea41edf0329e97f9d5c6bfa32a660a"
+                "reference": "7f031398e273854c905b2061c4005b632a74876e"
             },
             "require": {
+                "oander/module-checkout": "*",
                 "oander/module-shipping": "*",
                 "php": "7.*"
             },
@@ -8695,7 +8696,7 @@
                 "proprietary"
             ],
             "description": "Express shipping shipping method",
-            "time": "2022-01-12T16:06:58+00:00"
+            "time": "2022-02-01T10:17:19+00:00"
         },
         {
             "name": "oander/module-extracheckoutsummary",
@@ -10162,7 +10163,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "4f36aeac98b36519132288f1649cb2667ed7b0ac"
+                "reference": "b761f69cc55b245c31b0c293b5a1dd20c82cea3b"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10178,7 +10179,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2022-01-31T16:33:21+00:00"
+            "time": "2022-02-01T10:11:34+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -14940,7 +14941,6 @@
         "oander/module-api-index": 20,
         "oander/module-configurable-product-attribute": 20,
         "oander/module-core-bug-fix": 20,
-        "oander/module-express-shipping": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
         "oander/module-salesforce": 20,
         "oander/theme-hodor": 20,
