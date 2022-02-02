@@ -1,7 +1,7 @@
 <script>
   require([
-      'Magento_Ui/js/lib/view/utils/dom-observer',
-      'Oander_AddressFieldsProperties/js/cleaveHelper',
+    'Magento_Ui/js/lib/view/utils/dom-observer',
+    'Oander_AddressFieldsProperties/js/cleaveHelper',
   ], function (domObserver, cleaveHelper) {
     domObserver.get('.form-group.field input', function (e) {
       cleaveHelper.cleaveInit(e);
