@@ -14,6 +14,12 @@ require([
             };
 
             var customer = customerData.get('customer');
+
+            if (!customer() || !customer().length) {
+                customerData.invalidate(['customer']);
+                customerData.reload(['customer'], true);
+            }
+   
             customer.subscribe(function (updatedCustomer) {
                 if (updatedCustomer.monogram !== undefined) {
                     if (updatedCustomer && $(options.headerId + " " + options.iconClass).is(":visible")) {
