@@ -5,7 +5,7 @@
             <general>
                 <enabled>0</enabled>
                 <substitute_products_title><![CDATA[Substitute products]]></substitute_products_title>
-                <out_of_stock_text/>
+                <out_of_stock_text><![CDATA[This product is out of stock. Please choose a replacement product!]]></out_of_stock_text>
                 <indexing_rule><![CDATA[INDEX,FOLLOW]]></indexing_rule>
             </general>
         </oander_disabled_product_page>
