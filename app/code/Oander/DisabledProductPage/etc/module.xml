@@ -4,6 +4,7 @@
         <sequence>
             <module name="Amasty_Xnotif" />
             <module name="Aheadworks_Autorelated" />
+            <module name="Oander_AjaxCaptainHook" />
         </sequence>
     </module>
 </config>

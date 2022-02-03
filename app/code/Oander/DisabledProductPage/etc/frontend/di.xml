@@ -15,4 +15,7 @@
     <type name="Aheadworks\Autorelated\Model\Rule">
         <plugin name="Oander_DisabledProductPage::autorelated_rule" type="Oander\DisabledProductPage\Plugin\Aheadworks\Autorelated\Model\Rule" sortOrder="10000" disabled="false"/>
     </type>
+    <type name="Oander\AjaxCaptainHook\Block\AllData">
+        <plugin name="Oander_DisabledProductPage::captian_hook_block" type="Oander\DisabledProductPage\Plugin\Oander\AjaxCaptainHook\Block\AllData" sortOrder="10000" disabled="false"/>
+    </type>
 </config>
