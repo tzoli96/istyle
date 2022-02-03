@@ -10163,7 +10163,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "df8090d4c53b68780f4ac35bc25a155ba5fe12ee"
+                "reference": "fa9f029eb715d27c39a918febb84ef984e9d901a"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10179,7 +10179,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2022-02-03T08:53:59+00:00"
+            "time": "2022-02-03T10:41:28+00:00"
         },
         {
             "name": "oyejorge/less.php",
