@@ -12,6 +12,7 @@
                 <block class="\Oander\IstyleCustomization\Block\Address\Edit" name="street" template="Oander_IstyleCustomization::address/fields/street.phtml" cacheable="false"/>
                 <block class="\Oander\IstyleCustomization\Block\Address\Edit" name="telephone" template="Oander_IstyleCustomization::address/fields/telephone.phtml" cacheable="false"/>
                 <block class="\Oander\IstyleCustomization\Block\Address\Edit" name="vat_id" template="Oander_IstyleCustomization::address/fields/vat_id.phtml" cacheable="false"/>
+                <block class="\Magento\Framework\View\Element\Template" name="is_company" template="Oander_CustomerExtend::address/fields/iscompany.phtml" cacheable="false"/>
             </referenceBlock>
         </referenceContainer>
     </body>
