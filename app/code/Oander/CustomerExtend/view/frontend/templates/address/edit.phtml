@@ -21,9 +21,13 @@
             <?php echo $block->getBlockHtml('formkey') ?>
             <input type="hidden" name="success_url" value="<?php /* @escapeNotVerified */ echo $block->getSuccessUrl() ?>">
             <input type="hidden" name="error_url" value="<?php /* @escapeNotVerified */ echo $block->getErrorUrl() ?>">
+
+            <?php echo $block->getChildHtml('is_company') ?>
+
             <?php echo $block->getNameBlockHtml() ?>
             <?php $addressAttributes =  $block->getAddressAttributesDefaultOrder() ?>
             <?php foreach ($addressAttributes as $attribute): ?>
+                <?php if($attribute[\Oander\IstyleCustomization\Enum\AddressAttributeEnum::COLUMN_ATTRIBUTE]=='is_company') continue; ?>
                 <?php echo $block->getChildHtml($attribute[\Oander\IstyleCustomization\Enum\AddressAttributeEnum::COLUMN_ATTRIBUTE]) ?>
             <?php endforeach; ?>
 

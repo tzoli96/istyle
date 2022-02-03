@@ -1,4 +1,4 @@
-<?php if ($block->isRequiredRegion()) : ?>
+<?php if ($block->getParentBlock()->isRequiredRegion()) : ?>
     <div class="form-group field region required">
         <label class="label" for="region"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
         <div class="control">
@@ -6,7 +6,7 @@
             <input type="text" id="region" name="region" value="<?php echo $block->escapeHtml($block->getParentBlock()->getRegion()) ?>" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control input-text required-entry" />
         </div>
     </div>
-<?php elseif ($block->isValidateRegion()) : ?>
+<?php elseif ($block->getParentBlock()->isValidateRegion()) : ?>
     <div class="form-group field region required validate">
         <label class="label" for="region"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
         <div class="control">
