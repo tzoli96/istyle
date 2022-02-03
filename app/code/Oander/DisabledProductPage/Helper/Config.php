@@ -60,7 +60,7 @@ class Config extends AbstractHelper
      */
     public function getSubstituteProductsTitle(): string
     {
-        return (string)$value = $this->general[ConfigEnum::GENERAL_SETTINGS_SUBSTITUTE_PRODUCTS_TITLE] ?? 'Substitute products';
+        return (string)$value = $this->general[ConfigEnum::GENERAL_SETTINGS_SUBSTITUTE_PRODUCTS_TITLE] ?? '';
     }
 
     /**
@@ -68,7 +68,7 @@ class Config extends AbstractHelper
      */
     public function getOutOfStockText(): string
     {
-        return (string)$value = $this->general[ConfigEnum::GENERAL_SETTINGS_OUT_OF_STOCK_TEXT] ?? 'This product is out of stock. Please choose a replacement product!';
+        return (string)$value = $this->general[ConfigEnum::GENERAL_SETTINGS_OUT_OF_STOCK_TEXT] ?? '';
     }
 
     /**
