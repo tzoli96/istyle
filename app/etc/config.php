@@ -195,6 +195,7 @@ return array (
     'Oander_CustomerFileUpload' => 1,
     'Oander_CustomerFileUploadLimit' => 1,
     'Oander_CustomerProfile' => 1,
+    'Oander_DisabledProductPage' => 1,
     'Oander_DiscountBadge' => 1,
     'Oander_DropdownProducts' => 1,
     'Oander_ApiCheckout' => 1,
