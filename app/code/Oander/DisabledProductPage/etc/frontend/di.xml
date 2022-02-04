@@ -7,7 +7,7 @@
         <plugin name="Oander_DisabledProductPage::helper_product" type="Oander\DisabledProductPage\Plugin\Magento\Catalog\Helper\Product" sortOrder="10000" disabled="false"/>
     </type>
     <type name="Magento\Framework\View\Page\Config">
-        <plugin name="Oander_DisabledProductPage::page_config" type="Oander\DisabledProductPage\Plugin\Magento\Magento\Framework\Config" sortOrder="10000" disabled="false"/>
+        <plugin name="Oander_DisabledProductPage::page_config" type="Oander\DisabledProductPage\Plugin\Magento\Framework\Config" sortOrder="10000" disabled="false"/>
     </type>
     <type name="Amasty\Xnotif\Helper\Data">
         <plugin name="Oander_DisabledProductPage::amasty_xnotif" type="Oander\DisabledProductPage\Plugin\Amasty\Xnotif\Helper\Data" sortOrder="10000" disabled="false"/>
@@ -17,5 +17,8 @@
     </type>
     <type name="Oander\AjaxCaptainHook\Block\AllData">
         <plugin name="Oander_DisabledProductPage::captian_hook_block" type="Oander\DisabledProductPage\Plugin\Oander\AjaxCaptainHook\Block\AllData" sortOrder="10000" disabled="false"/>
+    </type>
+    <type name="Magento\Catalog\Block\Product\View\Gallery">
+        <plugin name="Oander_DisabledProductPage::view_gallery" type="Oander\DisabledProductPage\Plugin\Magento\Catalog\Block\Product\View\Gallery" sortOrder="10000" disabled="false"/>
     </type>
 </config>

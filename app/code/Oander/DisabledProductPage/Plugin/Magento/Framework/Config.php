@@ -6,14 +6,14 @@
  * @license Oander Media Kft. (http://www.oander.hu)
  */
 
-namespace Oander\DisabledProductPage\Plugin\Magento\Magento\Framework;
+namespace Oander\DisabledProductPage\Plugin\Magento\Framework;
 
 use Oander\DisabledProductPage\Helper\Config as ConfigHelper;
 use Oander\DisabledProductPage\Helper\Product as ProductHelper;
 
 /**
  * Class Config
- * @package Oander\DisabledProductPage\Plugin\Magento\Magento\Framework
+ * @package Oander\DisabledProductPage\Plugin\Magento\Framework
  */
 class Config
 {
