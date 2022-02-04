@@ -1,38 +1,28 @@
 <?php
     $isCompany = $block->getParentBlock()->getAddress()->getCustomAttribute('is_company')?$block->getParentBlock()->getAddress()->getCustomAttribute('is_company')->getValue():"0";
 ?>
-<style>
-    input.tgl-radio-tab-child {
-        position: absolute;
-        left: -99999em;
-        top: -99999em;
-        opacity: 1;
-        z-index: 1;
-    }
-
-    input.tgl-radio-tab-child+label {
-        cursor: pointer;
-        float: left;
-        border: 1px solid #aaa;
-        margin-right: -1px;
-        padding: .5em 1em;
-        position: relative;
-    }
-
-    input.tgl-radio-tab-child+label:hover {
-        background-color: #eee;
-    }
-
-    [type=radio]:checked+label {
-        background-color: #c30;
-        z-index: 1;
-    }
-</style>
-<div class="form-check">
+<div class="tab tab--profile">
     <input type="hidden" id="is_company" name="is_company" value="<?php echo $isCompany?>" />
-    <div class="tgl-radio-tabs">
-        <input id="is_company_radio_individual" type="radio" class="form-check-input tgl-radio-tab-child" name="is_company_radio" <?php echo $isCompany?"":"checked"?> onclick="document.getElementById('is_company').value=this.value;"><label for="x" class="radio-inline">Magánszemély</label>
-        <input id="is_company_radio_company" type="radio" class="form-check-input tgl-radio-tab-child" name="is_company_radio" <?php echo $isCompany?"checked":""?> onclick="document.getElementById('is_company').value=this.value;"><label for="y" class="radio-inline">Vállakozói</label>
+    <div class="data items tab__titles">
+        <label for="is_company_radio_individual" class="data item title tab__title active">
+            <span class="data switch tab__switch">
+                <?php /* @escapeNotVerified */ echo __('billing_tab_person') ?>
+                <input id="is_company_radio_individual" type="radio" class="form-check-input tgl-radio-tab-child" name="is_company_radio_individual" <?php echo $isCompany?"":"checked"?> onclick="document.getElementById('is_company').value=0;">
+            </span>
+        </label>
+        <label for="is_company_radio_company" class="data item title tab__title">
+            <span class="data switch tab__switch">
+                <?php /* @escapeNotVerified */ echo __('billing_tab_company') ?>
+                <input id="is_company_radio_company" type="radio" class="form-check-input tgl-radio-tab-child" name="is_company_radio_company" <?php echo $isCompany?"checked":""?> onclick="document.getElementById('is_company').value=1;">
+            </span>
+        </label>
     </div>
 </div>
-<br><br>
+<script>
+    require([
+        "jquery",
+        "mage/mage"
+    ], function($){
+        var submitFormButton = '[data-action="save-address"]';
+    });
+</script>
