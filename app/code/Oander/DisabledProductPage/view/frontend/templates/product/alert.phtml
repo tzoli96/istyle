@@ -1,0 +1,13 @@
+<?php
+/* @var $block \Oander\DisabledProductPage\Block\Product\Alert */
+?>
+
+<?php $alertMessage = $block->getOutOfStockText(); ?>
+<?php if ($alertMessage != '') : ?>
+    <div class="messages">
+        <div class="message error"><?= $alertMessage ?></div>
+    </div>
+<?php endif; ?>
+<script>
+    document.body.classList.add('disabled-product');
+</script>
