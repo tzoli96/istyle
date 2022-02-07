@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceContainer name="product.info.price" remove="true"/>
+    <referenceContainer name="product.addto-container" remove="true"/>
+    <referenceContainer name="payment.tabs" remove="true"/>
+    <referenceContainer name="product.main.blocks.bottom" remove="true"/>
+    <referenceBlock name="product.info.addto" remove="true"/>
+    <referenceBlock name="product.info.addtocart.additional" remove="true"/>
+    <referenceBlock name="product.info.options.wrapper" remove="true"/>
+    <referenceBlock name="product.info.options.wrapper.bottom" remove="true"/>
+    <referenceBlock name="minicalculator.text" remove="true"/>
+    <referenceBlock name="view.warehouse" remove="true"/>
+    <referenceBlock name="view.addto.warehouse.btn" remove="true"/>
+    <referenceBlock name="view.addto.whproductstock" remove="true"/>
+    <referenceBlock name="product.info.addtocart" remove="true"/>
+    <referenceBlock name="awarp_related_inside_product" remove="true"/>
+    <referenceBlock name="catalog.product.related" remove="true"/>
+    <move element="awarp_content_top_product" destination="content" before="-"/>
+    <referenceContainer name="product.info.main">
+        <block class="Oander\DisabledProductPage\Block\Product\Alert" name="disabled_product_page_alert" template="Oander_DisabledProductPage::product/alert.phtml" />
+    </referenceContainer>
+</page>
