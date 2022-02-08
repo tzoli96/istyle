@@ -35,7 +35,7 @@ class PageHelper
      */
     public function afterprepareResultPage(Page $subject, $result)
     {
-        $pageContent = $this->page->getContent();
+        $pageContent =  $result->getLayout()->getBlock('cms_page')->getPage()->getContent();
         return $this->adinaHelper->prepareResult($pageContent, $result);
 
     }
