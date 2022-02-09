@@ -227,7 +227,7 @@
              */
             fieldErrorHandling: function (field) {
                 if (!field.find('.mage-error').length) {
-                    field.append('<div class="mage-error error_on_field d-none">' + $t('Required fields') + '</div>');
+                    field.append('<div class="mage-error error_on_field d-none">' + $t('Required fields') + '<//div>');
                 }
 
                 field.find('.form-control').on('keyup', function () {
