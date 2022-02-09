@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "75171ed6731b91a4bd9d1341f401e44d",
+    "content-hash": "f94f06764876a8c1ff8c570a4654db3d",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1141,7 +1141,7 @@
                 }
             ],
             "description": "Shipping for Magento 2",
-            "time": "2021-07-28T20:10:43+00:00"
+            "time": "2021-07-28T20:14:21+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -8068,33 +8068,6 @@
             ],
             "description": "Apple Music Widget",
             "time": "2020-06-17T07:52:08+00:00"
-        },
-        {
-            "name": "oander/module-applepay",
-            "version": "1.0.2.19",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-applepay.git",
-                "reference": "ce882ba219121b066ad3a03bd3ed86e9a8de3a79"
-            },
-            "require": {
-                "oander/module-checkout": ">=1.1.0",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "psr-4": {
-                    "Oander\\ApplePay\\": ""
-                },
-                "files": [
-                    "registration.php"
-                ]
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Apple Pay payment method",
-            "time": "2020-04-08T12:21:57+00:00"
         },
         {
             "name": "oander/module-autorelated-warehouse-manager-extender",
