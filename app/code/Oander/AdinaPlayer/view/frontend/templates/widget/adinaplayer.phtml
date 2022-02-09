@@ -1,13 +1,15 @@
 <?php
 if($block->getUid()):
 ?>
-    <iframe
-            id="motionlab-player" width="<?= $block->getData('video_width') ?>" height="<?= $block->getData('video_height') ?>"
-            src="https://api.motionlab.io/videos/<?= $block->getData('campaign_key')?>/<?= $block->getUid()?>"
-            frameborder="0" allow="autoplay; encrypted-media"
-            allowfullscreen scrolling="no"
-    >
-    </iframe>
+    <div class="ad-adina-player">
+        <iframe
+                id="motionlab-player" width="<?= $block->getData('video_width') ?>" height="<?= $block->getData('video_height') ?>"
+                src="https://api.motionlab.io/videos/<?= $block->getData('campaign_key')?>/<?= $block->getUid()?>"
+                frameborder="0" allow="autoplay; encrypted-media"
+                allowfullscreen scrolling="no"
+        >
+        </iframe>
+    </div>
 <?php else : ?>
     <?= $block->getNoUidMessage()?>
 <?php endif; ?>
