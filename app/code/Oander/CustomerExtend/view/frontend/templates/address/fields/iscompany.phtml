@@ -1,0 +1,28 @@
+<?php
+    $isCompany = $block->getParentBlock()->getAddress()->getCustomAttribute('is_company')?$block->getParentBlock()->getAddress()->getCustomAttribute('is_company')->getValue():"0";
+?>
+<div class="tab tab--profile">
+    <input type="hidden" id="is_company" name="is_company" value="<?php echo $isCompany?>" />
+    <div class="data items tab__titles">
+        <label for="is_company_radio_individual" class="data item title tab__title active">
+            <span class="data switch tab__switch" data-tab="billing-person">
+                <?php /* @escapeNotVerified */ echo __('billing_tab_person') ?>
+                <input id="is_company_radio_individual" type="radio" class="form-check-input tgl-radio-tab-child" name="is_company_radio_individual" <?php echo $isCompany?"":"checked"?>>
+            </span>
+        </label>
+        <label for="is_company_radio_company" class="data item title tab__title">
+            <span class="data switch tab__switch" data-tab="billing-company">
+                <?php /* @escapeNotVerified */ echo __('billing_tab_company') ?>
+                <input id="is_company_radio_company" type="radio" class="form-check-input tgl-radio-tab-child" name="is_company_radio_company" <?php echo $isCompany?"checked":""?>>
+            </span>
+        </label>
+    </div>
+</div>
+<script>
+    require([
+        "jquery",
+        "mage/mage"
+    ], function($){
+        var submitFormButton = '[data-action="save-address"]';
+    });
+</script>
