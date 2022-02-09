@@ -57,7 +57,7 @@ class Data extends AbstractHelper
     {
         if ($this->exam) {
             preg_match('/og_image_tag="(.*?)"/', $this->pageContent, $match);
-            return $match[1];
+            return (isset($match[1])) ? true : false;
         }
         return false;
     }

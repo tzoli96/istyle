@@ -2,7 +2,7 @@
 if($block->getUid()):
 ?>
     <iframe
-            id="motionlab-player" width="640" height="360"
+            id="motionlab-player" width="<?= $block->getData('video_width') ?>" height="<?= $block->getData('video_height') ?>"
             src="https://api.motionlab.io/videos/<?= $block->getData('campaign_key')?>/<?= $block->getUid()?>"
             frameborder="0" allow="autoplay; encrypted-media"
             allowfullscreen scrolling="no"
