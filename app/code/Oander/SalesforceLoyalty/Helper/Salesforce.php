@@ -89,8 +89,8 @@ class Salesforce extends AbstractHelper
         $customer_number = $customer->getData('sforce_maconomy_id');
         if($customer_number) {
             $response = $this->loyaltyEndpoint->BlockAffiliateMembershipPoints($customer_number, substr($customer->getStore()->getCode(), 0, 2), $blockPoints);
-            if(isset($response["TransactionId"]))
-                $transactionId = $response["TransactionId"];
+            if(isset($response["BlockedTransactionId"]))
+                $transactionId = $response["BlockedTransactionId"];
         }
         return $transactionId;
     }
