@@ -106,16 +106,19 @@ var stripe =
             base: {
                 // Add your base input styles here. For example:
                 fontSize: '16px',
+                color: '#464a4c',
+                fontFamily: '"Rubik", sans-serif',
                 // lineHeight: '24px'
                 // iconColor: '#c4f0ff',
-                // color: '#31325F'
-        //         fontWeight: 300,
-        //         fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                //         fontWeight: 300,
 
         //         '::placeholder': {
         //             color: '#CFD7E0'
         //         }
-            }
+            },
+            invalid: {
+                color: '#ff2929',
+            },
         };
     },
     getStripeElementCardNumberOptions: function()
@@ -570,12 +573,12 @@ var stripe =
 
     clearCardErrors: function()
     {
-        var box = document.getElementById('stripe-payments-card-errors');
+        var box = document.getElementById('stripe-payments-card-errors-box');
 
         if (box)
         {
             box.innerText = '';
-            box.classList.remove('populated');
+            box.classList.remove('active');
         }
     },
 
@@ -596,12 +599,12 @@ var stripe =
             return;
         }
 
-        var box = document.getElementById('stripe-payments-card-errors');
+        var box = document.getElementById('stripe-payments-card-errors-box');
 
         if (box)
         {
             box.innerText = message;
-            box.classList.add('populated');
+            box.classList.add('active');
         }
         else
             alert(message);
