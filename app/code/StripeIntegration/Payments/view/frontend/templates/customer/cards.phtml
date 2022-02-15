@@ -7,8 +7,8 @@ if (empty($cards)): ?>
   <span><?php echo $block->escapeHtml(__('You do not have any saved cards yet.')); ?></span>
 </div>
 <?php else: ?>
-  <div class="table-wrapper stripe-payments">
-    <table class="data table table-order-items history saved-cards" id="my-orders-table">
+  <div class="table-wrapper stripe-payments ui-card">
+    <table class="data table table-order-items history saved-cards stripe-payments-table" id="my-orders-table">
       <caption class="table-caption"><?php echo $block->escapeHtml(__('Saved Cards')); ?></caption>
       <thead>
         <tr>
@@ -33,7 +33,7 @@ if (empty($cards)): ?>
           <?php echo $card->exp_month; ?>/<?php echo $card->exp_year; ?>
         </td>
         <td data-th="Actions" class="col actions">
-          <a href="delete/<?php echo $card->id; ?>" class="stripe-payments delete-card">
+          <a href="delete/<?php echo $card->id; ?>" class="action outline-secondary">
             <?php echo $block->escapeHtml(__('Delete')); ?>
           </a>
         </td>
@@ -50,7 +50,7 @@ if (empty($cards)): ?>
 <form class="form new-saved-card" action="<?php echo $block->getUrl("*/*/*", ["save" => "card"]); ?>" method="post" id="payment_form_stripe_payments_payment">
   <input type="hidden" name="form_key" value="<?php echo $block->getFormKey() ?>" />
   <fieldset class="fieldset payment-method stripe-new stripe-payments">
-    <legend class="legend"><span><?php echo $block->escapeHtml(__('Add a new saved card')); ?></span></legend>
+    <legend class="legend h2"><span><?php echo $block->escapeHtml(__('Add a new saved card')); ?></span></legend>
     <br>
 
 <?php if ($this->verifyBillingAddress()): ?>
