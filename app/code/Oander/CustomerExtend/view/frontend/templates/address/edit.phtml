@@ -15,478 +15,58 @@
  * @var $block \Oander\IstyleCustomization\Block\Address\Edit
  */
 ?>
-<form class="form-address-edit profile-address-edit ui-card" action="<?php /* @escapeNotVerified */ echo $block->getSaveUrl() ?>" method="post" id="form-validate" enctype="multipart/form-data" data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>">
-    <fieldset class="fieldset">
-        <legend class="legend h2"><span><?php /* @escapeNotVerified */ echo __('Address') ?></span></legend>
-        <?php echo $block->getBlockHtml('formkey') ?>
-        <input type="hidden" name="success_url" value="<?php /* @escapeNotVerified */ echo $block->getSuccessUrl() ?>">
-        <input type="hidden" name="error_url" value="<?php /* @escapeNotVerified */ echo $block->getErrorUrl() ?>">
-
-
-        <?php echo $block->getChildHtml('is_company') ?>
-        <div class="profile-address-edit__form">
+    <form class="form-address-edit" action="<?php /* @escapeNotVerified */ echo $block->getSaveUrl() ?>" method="post" id="form-validate" enctype="multipart/form-data" data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>">
+        <fieldset class="fieldset">
+            <legend class="legend"><span><?php /* @escapeNotVerified */ echo __('Address') ?></span></legend><br>
+            <?php echo $block->getBlockHtml('formkey') ?>
+            <input type="hidden" name="success_url" value="<?php /* @escapeNotVerified */ echo $block->getSuccessUrl() ?>">
+            <input type="hidden" name="error_url" value="<?php /* @escapeNotVerified */ echo $block->getErrorUrl() ?>">
             <?php echo $block->getNameBlockHtml() ?>
             <?php $addressAttributes =  $block->getAddressAttributesDefaultOrder() ?>
             <?php foreach ($addressAttributes as $attribute): ?>
-                <?php if($attribute[\Oander\IstyleCustomization\Enum\AddressAttributeEnum::COLUMN_ATTRIBUTE]=='is_company') continue; ?>
                 <?php echo $block->getChildHtml($attribute[\Oander\IstyleCustomization\Enum\AddressAttributeEnum::COLUMN_ATTRIBUTE]) ?>
             <?php endforeach; ?>
-        </div>
 
-        <?php if ($block->isDefaultBilling()) : ?>
-            <div class="messages">
+            <?php if ($block->isDefaultBilling()) : ?>
                 <div class="message info"><?php /* @escapeNotVerified */ echo __("It's a default billing address.") ?></div>
-            </div>
-        <?php elseif ($block->canSetAsDefaultBilling()) : ?>
-            <div class="profile-address-edit__default-checks form-check field choice set billing">
-                <label class="form-check-label label" for="primary_billing">
-                    <input type="checkbox" id="primary_billing" name="default_billing" value="1" class="form-check-input checkbox">
-                    <span><strong><?php /* @escapeNotVerified */ echo __('Use as my default billing address') ?></strong></span>
-                </label>
-            </div>
-        <?php else : ?>
-            <input type="hidden" name="default_billing" value="1" />
-        <?php endif; ?>
+            <?php elseif ($block->canSetAsDefaultBilling()) : ?>
+                <div class="form-check field choice set billing">
+                    <label class="form-check-label label" for="primary_billing">
+                        <input type="checkbox" id="primary_billing" name="default_billing" value="1" class="form-check-input checkbox">
+                        <span><?php /* @escapeNotVerified */ echo __('Use as my default billing address') ?></span>
+                    </label>
+                </div>
+            <?php else : ?>
+                <input type="hidden" name="default_billing" value="1" />
+            <?php endif; ?>
 
-        <?php if ($block->isDefaultShipping()) : ?>
-            <div class="messages">
+            <?php if ($block->isDefaultShipping()) : ?>
                 <div class="message info"><?php /* @escapeNotVerified */ echo __("It's a default shipping address.") ?></div>
+            <?php elseif ($block->canSetAsDefaultShipping()) : ?>
+                <div class="form-check field choice set shipping">
+                    <label class="form-check-label" for="primary_shipping">
+                        <input type="checkbox" id="primary_shipping" name="default_shipping" value="1" class="form-check-input checkbox">
+                        <span><?php /* @escapeNotVerified */ echo __('Use as my default shipping address') ?></span>
+                    </label>
+                </div>
+            <?php else : ?>
+                <input type="hidden" name="default_shipping" value="1">
+            <?php endif; ?>
+        </fieldset>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" class="action save primary" data-action="save-address" title="<?php /* @escapeNotVerified */ echo __('Save Address') ?>">
+                    <span><?php /* @escapeNotVerified */ echo __('Save Address') ?></span>
+                </button>
             </div>
-        <?php elseif ($block->canSetAsDefaultShipping()) : ?>
-            <div class="profile-address-edit__default-checks form-check field choice set shipping">
-                <label class="form-check-label" for="primary_shipping">
-                    <input type="checkbox" id="primary_shipping" name="default_shipping" value="1" class="form-check-input checkbox">
-                    <span><strong><?php /* @escapeNotVerified */ echo __('Use as my default shipping address') ?></strong></span>
-                </label>
+            <div class="secondary">
+                <a class="action back" href="<?php echo $block->escapeUrl($block->getBackUrl()) ?>"><span><?php /* @escapeNotVerified */ echo __('Go back') ?></span></a>
             </div>
-        <?php else : ?>
-            <input type="hidden" name="default_shipping" value="1">
-        <?php endif; ?>
-    </fieldset>
-    <div class="profile-address-edit__actions actions-toolbar">
-        <div class="primary">
-            <button type="submit" class="action save primary" data-action="save-address" title="<?php /* @escapeNotVerified */ echo __('Save Address') ?>">
+            <button type="submit" class="hidden-submit" data-action="save-address" title="<?php /* @escapeNotVerified */ echo __('Save Address') ?>">
                 <span><?php /* @escapeNotVerified */ echo __('Save Address') ?></span>
             </button>
         </div>
-        <button type="submit" class="hidden-submit" data-action="save-address" title="<?php /* @escapeNotVerified */ echo __('Save Address') ?>">
-            <span><?php /* @escapeNotVerified */ echo __('Save Address') ?></span>
-        </button>
-    </div>
-</form>
-
-
-<script>
-    require([
-        "jquery",
-        "mage/mage",
-        'mage/translate',
-    ], function($, $ko, $t) {
-        var formObject = {
-            /**
-             * Form elements
-             * @return {Object}
-             */
-
-            formElements: function () {
-                var form = document.querySelector('.profile-address-edit');
-                var tabs = document.querySelector('.tab.tab--profile');
-                var titles = tabs.querySelectorAll('.tab__switch');
-                var companyField = form.querySelector('[name="company"]');
-                var vatIdField = form.querySelector('[name="vat_id"]');
-                var pfpjField = form.querySelector('[name="custom_attributes.pfpj_reg_no"]');
-                var submitFormButton = '[data-action="save-address"]';
-
-
-                return {
-                    form: form,
-                    tabs: tabs,
-                    titles: titles,
-                    companyField: companyField,
-                    vatIdField: vatIdField,
-                    pfpjField: pfpjField,
-                    submitFormButton: submitFormButton
-                }
-            },
-            /**
-             * Tabs
-             * @return {Void}
-             */
-            tabs: function () {
-                var self = this;
-                var formElements = this.formElements();
-
-                Array.prototype.forEach.call(formElements.titles, function (title) {
-                    var formId = title.getAttribute('data-tab');
-                    //var isActive = title.parentNode.classList.contains('active');
-
-                    title.addEventListener('click', function () {
-                        Array.prototype.forEach.call(formElements.titles, function (tabTitle) {
-                            tabTitle.parentNode.classList.remove('active');
-                        });
-
-                        title.parentNode.classList.add('active');
-                        formElements.form.setAttribute('data-tab', formId);
-                        self.formTransform(formId);
-
-                        if (formId === 'billing-company') {
-                            $(formElements.tabs).find('[name="is_company"]').val(1);
-                        }
-                        else {
-                            $(formElements.tabs).find('[name="is_company"]').val(0);
-                        }
-
-                        formObject.checkValidatedFields($('.profile-address-edit__form'));
-                    });
-
-                    //if (isActive) self.watchSpecificFields(formId);
-                });
-            },
-            /**
-             * Form changes
-             * @return {Void}
-             */
-            formChanges: function () {
-                var self = this;
-                var formElements = this.formElements();
-
-                this.tabs();
-            },
-
-            /**
-             * Form transform
-             * @param {String} formId
-             * @return {Void}
-             */
-            formTransform: function (formId) {
-                // billingAddressStore.fieldsContent({});
-                // billingAddressValidate.mainFields = {};
-
-                switch (formId) {
-                    case 'billing-person':
-                        this.formPerson();
-                        break;
-                    case 'billing-company':
-                        this.formCompany();
-                        break;
-                }
-
-                this.sortFields(formId);
-            },
-
-            /**
-             * Form person
-             * @return {Void}
-             */
-            formPerson: function () {
-                var formElements = this.formElements();
-
-                $(formElements.companyField).closest('.form-group').hide();
-                $(formElements.companyField).removeClass('_required');
-                $(formElements.vatIdField).closest('.form-group').hide();
-                if ($(formElements.vatIdField).hasClass('vat-required')) $(formElements.vatIdField).removeClass('_required');
-
-                if ($(formElements.pfpjField).length) {
-                    $(formElements.pfpjField).closest('.form-group').hide();
-                    $(formElements.pfpjField).removeClass('_required');
-                }
-
-                $(formElements.form).find('.field-name-firstname > .label').text($t('First Name'));
-                $(formElements.form).find('.field-name-lastname > .label').text($t('Last Name'));
-            },
-
-            /**
-             * Form company
-             * @return {Void}
-             */
-            formCompany: function () {
-                var formElements = this.formElements();
-
-                $(formElements.companyField).closest('.form-group').show();
-                $(formElements.companyField).addClass('_required');
-                $(formElements.vatIdField).closest('.form-group').show();
-                if ($(formElements.vatIdField).hasClass('vat-required')) $(formElements.vatIdField).addClass('_required');
-
-                if ($(formElements.pfpjField).length) {
-                    $(formElements.pfpjField).closest('.form-group').show();
-                    $(formElements.pfpjField).addClass('_required');
-                }
-
-                $(formElements.form).find('.field-name-firstname > .label').text($t('Contact person firstname'));
-                $(formElements.form).find('.field-name-lastname > .label').text($t('Contact person lastname'));
-
-                this.fieldErrorHandling($(formElements.companyField));
-                if ($(formElements.vatIdField).hasClass('vat-required')) {
-                    this.fieldErrorHandling($(formElements.vatIdField));
-                    this.fieldErrorHandling($(formElements.pfpjField));
-                }
-            },
-            /**
-             * Field error handling
-             * @return {Void}
-             */
-            fieldErrorHandling: function (field) {
-                if (!field.find('.mage-error').length) {
-                    field.append('<div class="mage-error error_on_field d-none">' + $t('Required fields') + '<//div>');
-                }
-
-                field.find('.form-control').on('keyup', function () {
-                    if (!$(this).val().length) {
-                        if (!field.find('.mage-error:not(.error_on_field)').length) {
-                            field.addClass('_error');
-                            field.find('.error_on_field').removeClass('d-none');
-                        }
-                    } else {
-                        field.find('.error_on_field').addClass('d-none');
-                        if (!field.find('.mage-error:not(.error_on_field)').length) {
-                            field.removeClass('_error');
-                        }
-                    }
-                });
-            },
-
-
-            // TODO SORT
-            /**
-             * Get address attributes positions
-             * @returns {[key: string]: any}
-             */
-            getAddressAttributesPositions: function () {
-                //return window.checkoutConfig.addressAttributesPositions;
-                return [
-                    {
-                        "lastname": {
-                            "individual_position": 10,
-                            "company_position": 70,
-                            "default_position": 10,
-                            "width": 50
-                        },
-                        "firstname": {
-                            "individual_position": 20,
-                            "company_position": 80,
-                            "default_position": 20,
-                            "width": 50
-                        },
-                        "postcode": {
-                            "individual_position": 30,
-                            "company_position": 30,
-                            "default_position": 100,
-                            "width": 50
-                        },
-                        "city": {
-                            "individual_position": 40,
-                            "company_position": 40,
-                            "default_position": 90,
-                            "width": 50
-                        },
-                        "street": {
-                            "individual_position": 50,
-                            "company_position": 50,
-                            "default_position": 60,
-                            "width": 50
-                        },
-                        "telephone": {
-                            "individual_position": 60,
-                            "company_position": 60,
-                            "default_position": 40,
-                            "width": 50
-                        },
-                        "company": {
-                            "individual_position": null,
-                            "company_position": 10,
-                            "default_position": 30,
-                            "width": 50
-                        },
-                        "vat_id": {
-                            "individual_position": null,
-                            "company_position": 20,
-                            "default_position": 70,
-                            "width": 50
-                        },
-                        "fax": {
-                            "individual_position": null,
-                            "company_position": null,
-                            "default_position": 50,
-                            "width": 50
-                        },
-                        "region": {
-                            "individual_position": null,
-                            "company_position": null,
-                            "default_position": 80,
-                            "width": 50
-                        },
-                        "country_id": {
-                            "individual_position": null,
-                            "company_position": null,
-                            "default_position": 110,
-                            "width": 50
-                        },
-                        "vatId": {
-                            "individual_position": null,
-                            "company_position": 20,
-                            "default_position": 70,
-                            "width": 50
-                        }
-                    }]
-            },
-            /**
-             * Sort fields
-             * @param {string} formId
-             * @returns {void}
-             */
-            sortFields: function (formId) {
-                var self = this;
-                var positions = this.getAddressAttributesPositions();
-
-                if (positions) {
-                    for (var field in positions) {
-                        var orders = positions[field];
-                        var parent = document.querySelector('.profile-address-edit__form');
-                        var elem = parent.querySelector('.form-group[name="' + field + '"]');
-
-                        if (field == 'street') {
-                            elem = parent.querySelector('.form-group.street');
-                            self.streetFieldHandler(elem);
-                        }
-
-                        if (field == 'pfpj_reg_no') {
-                            elem = parent.querySelector('.form-group[name="custom_attributes.pfpj_reg_no"]');
-                        }
-
-                        if (field == 'region') {
-                            elem = parent.querySelector('.form-group[name="billingAddress.region"]');
-                        }
-
-                        switch (formId) {
-                            case 'billing-person':
-                                self.setOrder(elem, orders.individual_position, orders.width);
-                                break;
-                            case 'billing-company':
-                                self.setOrder(elem, orders.company_position, orders.width);
-                                break;
-                        }
-                    }
-                }
-            },
-
-            /**
-             * Add order
-             * @param {HTMLDivElement} elem
-             * @param {number} order
-             * @returns {void}
-             */
-            setOrder: function (elem, order, width) {
-                var billingAddressBlock = document.querySelector('.profile-address-edit');
-
-                if (elem) {
-                    var field = elem.querySelector('.form-control');
-
-                    if (elem.classList.contains('street')) {
-                        field = elem.querySelector('[name="street.0"] .form-control');
-                    }
-
-                    if (order !== null) {
-                        elem.style.order = order;
-                        if (field) field.setAttribute('tabindex', order);
-                    }
-
-                    if (width === 100) elem.classList.add('w-100');
-
-                    billingAddressBlock.classList.remove('is-loading');
-                }
-            },
-            // TODO SORT ENDS
-
-            // TODO validate
-            /**
-             * Check validated fields
-             * @param {HTMLElement} form
-             * @returns {Void}
-             */
-            checkValidatedFields: function (form) {
-                var self = this;
-
-                if (form) {
-                    var fields = form.find('.form-group._required, .form-group.true, .oandervalidate-length, .oandervalidate-regex');
-
-                    fields.each(function (index, field) {
-                        if (self.isVisibleInDom($(field))) {
-                            var fieldElement = $(field).find('.form-control');
-
-                            fieldElement.on('keyup change', function () {
-                                self.requiredHandler($(this), fieldElement.attr('name'));
-                            });
-
-                            self.requiredHandler(fieldElement, fieldElement.attr('name'));
-                        }
-                    });
-                }
-            },
-
-            /**
-             * Required handler
-             * @param {HTMLElement} element
-             * @param {String} key
-             * @returns {Void}
-             */
-            requiredHandler: function (element, key) {
-                var mainFields = {};
-                var self = this;
-
-                if ($(element).length) {
-                    if (self.isVisibleInDom($(element).closest('.form-group'))) {
-                        delete mainFields[key];
-
-                        if ($(element).closest('.form-group').hasClass('_error')) {
-                            mainFields[key] = false;
-                        } else if (($(element).closest('.form-group').hasClass('_required') || $(element).closest('.form-group').hasClass('vat_required')) && !$(element).val().length) {
-                            mainFields[key] = false;
-                        } else {
-                            mainFields[key] = true;
-                        }
-                    }
-                }
-
-                billingAddressStore.fieldsContent(this.mainFields);
-                this.checkRequiredFields();
-            },
-
-            /**
-             * Check required fields
-             * @returns {Void}
-             */
-            checkRequiredFields: function () {
-                var fields = billingAddressStore.fieldsContent();
-                var fieldsLength = 0;
-                var validatedFieldsCount = 0;
-
-                for (var field in fields) {
-                    fieldsLength++;
-                    if (fields[field]) validatedFieldsCount++;
-                }
-
-                if (fieldsLength === validatedFieldsCount) store.billingAddress.continueBtn(true);
-                else store.billingAddress.continueBtn(false);
-            },
-
-            /**
-             * Is visible in DOM
-             * @param {HTMLElement} elem
-             * @returns {Boolean}
-             */
-            isVisibleInDom: function (elem) {
-                var style = elem.attr('style');
-                if (style) {
-                    if (style.indexOf('display: none') > -1) return false;
-                    return true;
-                }
-                return true;
-            }
-            // TODO validate ends
-        };
-        formObject.formChanges();
-    });
-</script>
+    </form>
 
 <?php if (!$block->isRequiredRegion() && !$block->isValidateRegion()) : ?>
     <script type="text/x-magento-init">
@@ -516,4 +96,71 @@
         }
     }
 </script>
+<?php endif; ?>
+<?php
+if ($block->isValidateRegion()) :
+    echo 'van validate';
+    $baseUrl = $this->getUrl();
+    ?>
+
+    <script>
+        require(["jquery"], function($) {
+            $(document).on('click', '.field.region .dropdown__item', function() {
+                var param = $(this).text();
+                $.ajax({
+                    showLoader: true,
+                    url: "<?php echo $block->getCitiesAjaxUrl() ?>",
+                    data: {
+                        state: param
+                    },
+                    type: "GET",
+                    dataType: 'json'
+                }).done(function(data) {
+                    let citiesData = data.cities;
+                    let citiesDropdown = $('.field.city').find('.dropdown--fc').find('.dropdown__list');
+
+                    $('.field.city .cities.hidden').html('');
+                    citiesDropdown.html('');
+                    $('.field.city .dropdown__search').attr('value', '');
+
+                    for (let index = 0; index < citiesData.length; index++) {
+                        const element = citiesData[index];
+
+                        citiesDropdown.append('<div class="dropdown__item">' + element + '</li>');
+                        $('.field.city .cities.hidden').append('<div class="dropdown__item">' + element + '</li>');
+                    }
+
+                    if ($('.field.city .dropdown__search').attr('disabled')) {
+                        $('.field.city .dropdown__search').removeAttr('disabled');
+                    }
+
+                    $('.field.city .dropdown__item').click(function() {
+                        $('.field.city .dropdown__selected input[name="city"]').attr('value', $(this).text());
+                        $('.field.city .dropdown__search[name="fc-search"]').attr('value', $(this).text());
+                    });
+
+                    $('.field.city .dropdown__search').on('keyup', function() {
+                        let searchVal = $(this).val();
+
+                        $(this).closest('.dropdown--fc').find('.dropdown__list').html('');
+
+                        for (let index = 0; index < citiesData.length; index++) {
+                            const element = citiesData[index];
+
+                            if (element.indexOf(searchVal) > -1 || element.toLowerCase().indexOf(searchVal) > -1) {
+                                $(this).closest('.dropdown--fc').find('.dropdown__list').append('<div class="dropdown__item">' + element + '</div>');
+                            }
+                        }
+
+                        $('.field.city .dropdown__item').click(function() {
+                            $('.field.city .dropdown__selected input[name="city"]').attr('value', $(this).text());
+                            $('.field.city .dropdown__search[name="fc-search"]').attr('value', $(this).text());
+                        });
+                    });
+                });
+            });
+
+        });
+    </script>
+
 <?php endif; ?>
