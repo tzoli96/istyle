@@ -101,20 +101,11 @@ var stripe =
     },
     getStripeElementsStyle: function()
     {
-        // Custom styling can be passed to options when creating an Element.
         return {
             base: {
-                // Add your base input styles here. For example:
                 fontSize: '16px',
                 color: '#464a4c',
                 fontFamily: '"Rubik", sans-serif',
-                // lineHeight: '24px'
-                // iconColor: '#c4f0ff',
-                //         fontWeight: 300,
-
-        //         '::placeholder': {
-        //             color: '#CFD7E0'
-        //         }
             },
             invalid: {
                 color: '#ff2929',
@@ -124,8 +115,6 @@ var stripe =
     getStripeElementCardNumberOptions: function()
     {
         return {
-            // iconStyle: 'solid',
-            // hideIcon: false,
             style: stripe.getStripeElementsStyle()
         };
     },
