@@ -3,7 +3,7 @@
 $cards = $this->getCards();
 
 if (empty($cards)): ?>
-<div class="message info empty">
+<div class="stripe-payments-no-cards">
   <span><?php echo $block->escapeHtml(__('You do not have any saved cards yet.')); ?></span>
 </div>
 <?php else: ?>
@@ -89,7 +89,7 @@ if (empty($cards)): ?>
 
 <?php else: ?>
 
-  <div class="message info empty">
+  <div class="stripe-payments-no-cards">
     <span><?php echo $block->escapeHtml(__('You must first add a full billing address before you can add saved cards.')); ?></span>
   </div>
 
