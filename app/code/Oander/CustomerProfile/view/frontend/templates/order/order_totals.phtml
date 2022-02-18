@@ -1,0 +1,27 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var $block \Magento\Sales\Block\Order\Totals
+ * @see \Magento\Sales\Block\Order\Totals
+ */
+?>
+<dl>
+    <?php foreach ($block->getTotals() as $_code => $_total): ?>
+        <?php if ($_total->getBlockName()): ?>
+            <div class="order-view-summary__row">
+                <dt class="grand_total"><?= __("Tax")?></dt><dd><span class="price"><?= $block->getOrder()->formatPrice($block->getOrder()->getTaxAmount())?></span></dd>
+            </div>
+        <?php else:?>
+            <div class="order-view-summary__row">
+                <dt class="<?php /* @escapeNotVerified */ echo $_code?>"><?php echo $block->escapeHtml($_total->getLabel());?></dt>
+                <dd><?php /* @escapeNotVerified */ echo $block->formatValue($_total) ?></dd>
+            </div>
+        <?php endif?>
+    <?php endforeach?>
+</dl>

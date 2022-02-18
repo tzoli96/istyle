@@ -108,6 +108,7 @@ class Recent extends \Magento\Sales\Block\Order\Recent
      */
     public function getOrdersItems($orderItems)
     {
+        return [];
         $childs = [];
         $parents = [];
         foreach ($orderItems as $item) {
