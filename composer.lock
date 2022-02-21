@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "36955f10546bb38bbfb58ba5d36c5ead",
+    "content-hash": "f94812ff8094789ff7ede26ebd42bbd3",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7951,7 +7951,7 @@
                 "proprietary"
             ],
             "description": "Api Gateway Order Attachment",
-            "time": "2020-09-08T10:52:36+00:00"
+            "time": "2018-06-19T14:33:44+00:00"
         },
         {
             "name": "oander/module-api-product",
@@ -9434,11 +9434,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.3.0.1",
+            "version": "1.3.0.2",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "a3b0c0e345f3f0c4976ddd286ffad0f5e8717548"
+                "reference": "c27eb3826cbce5fa89e579caf44b9867135bf0aa"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9457,7 +9457,7 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2022-02-21T11:01:10+00:00"
+            "time": "2022-02-21T13:30:47+00:00"
         },
         {
             "name": "oander/module-salesforce-service",
@@ -14922,5 +14922,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
