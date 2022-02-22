@@ -84,14 +84,18 @@ define([
         */
         _createRow: function (date, mOrderId, mmyOrderNumber, type, points) {
             var row = $('<tr></tr>'),
-                newDate = new Date(date),
-                year = new Date(newDate).getFullYear(),
-                month = new Date(newDate).getMonth() + 1,
-                day= new Date(newDate).getDate(),
-                hour = new Date(newDate).getHours(),
-                minutes = new Date(newDate).getMinutes();
+                year = new Date(date).getFullYear(),
+                month = new Date(date).getMonth() + 1,
+                day= new Date(date).getDate(),
+                hour = new Date(date).getHours(),
+                minutes = new Date(date).getMinutes();
 
-            row.append($('<td>'+year+'-'+month+'-'+day+' '+hour+':'+minutes+'</td>'));
+            if (month < 10) month = '0' + month;
+            if (day < 10) day = '0' + day;
+            if (hour < 10) hour = '0' + hour;
+            if (minutes < 10) minutes = '0' + minutes;
+
+            row.append($('<td>'+year+'-'+month+'-'+day+' | '+hour+':'+minutes+'</td>'));
 
             if (mOrderId) {
                 row.append($('<td class="morder"><a href="/sales/order/view/order_id/' + mOrderId + '/" target="_self">' + mOrderId + '</td>'));
