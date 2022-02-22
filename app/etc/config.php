@@ -148,6 +148,7 @@ return array (
     'Mirasvit_Feed' => 1,
     'Mirasvit_Mq' => 1,
     'Mirasvit_Report' => 1,
+    'Oander_AdinaPlayer' => 1,
     'Oander_AdminRestriction' => 1,
     'Oander_AjaxCaptainHook' => 1,
     'Oander_AlgoliaSearch' => 1,

@@ -1,4 +1,4 @@
-<?php if ($block->isValidateRegion()) : ?>
+<?php if ($block->getParentBlock()->isValidateRegion()) : ?>
     <div class="form-group field city required validate">
         <label class="label" for="city"><span><?php /* @escapeNotVerified */ echo __('City') ?></span></label>
         <div class="control">

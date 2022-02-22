@@ -3,4 +3,5 @@
     <preference for="Aheadworks\Autorelated\Api\Data\RuleInterface" type="Oander\Autorelated\Rewrite\Aheadworks\Autorelated\Model\Data\Rule"/>
     <preference for="Aheadworks\Autorelated\Model\Rule" type="Oander\Autorelated\Rewrite\Aheadworks\Autorelated\Model\Rule"/>
     <preference for="Aheadworks\Autorelated\Model\Data\Rule" type="Oander\Autorelated\Rewrite\Aheadworks\Autorelated\Model\Data\Rule"/>
+    <preference for="Aheadworks\Autorelated\Model\Wvtav\ResourceModel\Indexer\Wvtav" type="Oander\Autorelated\Rewrite\Aheadworks\Autorelated\Model\Wvtav\ResourceModel\Indexer\Wvtav"/>
 </config>

@@ -69,7 +69,7 @@ class Salesforce extends AbstractHelper
     {
         $customer = $this->_getCustomer($customer);
         if(is_null($this->registry->registry(self::REGISTRY_AVAILABLE_POINTS)))
-            $this->registry->register(self::REGISTRY_AVAILABLE_POINTS, (int)$this->soapClient->getCustomerAffiliatePoints($customer));
+            $this->registry->register(self::REGISTRY_AVAILABLE_POINTS, (int)$this->loyaltyEndpoint->GetAffiliateMembershipPointsBalance($customer->getData('sforce_maconomy_id'),substr($customer->getStore()->getCode(), 0, 2)));
         return $this->registry->registry(self::REGISTRY_AVAILABLE_POINTS);
     }
 
@@ -89,8 +89,8 @@ class Salesforce extends AbstractHelper
         $customer_number = $customer->getData('sforce_maconomy_id');
         if($customer_number) {
             $response = $this->loyaltyEndpoint->BlockAffiliateMembershipPoints($customer_number, substr($customer->getStore()->getCode(), 0, 2), $blockPoints);
-            if(isset($response["TransactionId"]))
-                $transactionId = $response["TransactionId"];
+            if(isset($response["BlockedTransactionId"]))
+                $transactionId = $response["BlockedTransactionId"];
         }
         return $transactionId;
     }
@@ -132,7 +132,7 @@ class Salesforce extends AbstractHelper
     {
         $customer = $this->_getCustomer($customer);
         if(is_null($this->registry->registry(self::REGISTRY_HISTORY)))
-            $this->registry->register(self::REGISTRY_HISTORY, $this->soapClient->getCustomerAffiliateTransactions($customer, $noOfRecords, $pageNo));
+            $this->registry->register(self::REGISTRY_HISTORY,$this->loyaltyEndpoint->GetAffiliateTransactions($customer->getData('sforce_maconomy_id'),substr($customer->getStore()->getCode(), 0, 2)));
         return $this->registry->registry(self::REGISTRY_HISTORY);
     }
 

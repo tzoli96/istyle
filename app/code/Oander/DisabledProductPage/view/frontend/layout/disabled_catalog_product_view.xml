@@ -17,9 +17,14 @@
     <referenceBlock name="product.info.addtocart" remove="true"/>
     <referenceBlock name="awarp_related_inside_product" remove="true"/>
     <referenceBlock name="catalog.product.related" remove="true"/>
+    <referenceBlock name="base.product.load" remove="true"/>
+    <referenceBlock name="product.view.dropdown.simple" remove="true"/>
+    <referenceBlock name="product.view.dropdown.config" remove="true"/>
+    <referenceBlock name="productalert.stock" remove="true"/>
+    <referenceBlock name="productalert.price" remove="true"/>
 
     <move element="awarp_content_top_product" destination="product.view.top" before="-"/>
-    
+
     <referenceContainer name="product.info.main">
         <block class="Oander\DisabledProductPage\Block\Product\Alert" name="disabled_product_page_alert" template="Oander_DisabledProductPage::product/alert.phtml" />
     </referenceContainer>

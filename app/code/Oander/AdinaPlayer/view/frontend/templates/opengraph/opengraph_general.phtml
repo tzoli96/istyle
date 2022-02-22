@@ -1,0 +1,32 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$storeManager = $objectManager->get('\Magento\Store\Model\StoreManagerInterface');
+$this->storeManager = $storeManager;
+$_base_media_dir    = $this->storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+$_favicon_url       = 'favicon/default/favicon-32x32.png';
+$_page_url          = $block->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]);
+$_page_config       = $objectManager->get('Magento\Framework\View\Page\Config');
+$_meta_title        = $_page_config->getTitle()->getShort();
+$_meta_description  = $_page_config->getDescription();
+$_meta_keywords     = $_page_config->getKeywords();
+$_meta_image        = ($block->getData('og_thumbnail')) ? $block->getData('og_thumbnail') : $block->getViewFileUrl('images/iSTYLE-logo-1200.png');
+?>
+
+<meta property="og:title" content="<?php echo $_meta_title; ?>" />
+<meta property="og:type" content="website" />
+<meta property="og:image:url" content="<?php echo $_meta_image; ?>" />
+<meta property="og:image:width" content="129" />
+<meta property="og:image:height" content="39" />
+<meta property="og:image:secure_url" content="<?php echo $_meta_image; ?>" />
+<meta property="og:url" content="<?php echo $_page_url; ?>" />
+<meta property="og:description" content="<?php echo $_meta_description; ?>" />
+<meta property="og:keywords" content="<?php echo $_meta_keywords; ?>" />

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "75171ed6731b91a4bd9d1341f401e44d",
+    "content-hash": "e80549c3c9a512618ad19b608b61d854",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -8070,33 +8070,6 @@
             "time": "2020-06-17T07:52:08+00:00"
         },
         {
-            "name": "oander/module-applepay",
-            "version": "1.0.2.19",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-applepay.git",
-                "reference": "ce882ba219121b066ad3a03bd3ed86e9a8de3a79"
-            },
-            "require": {
-                "oander/module-checkout": ">=1.1.0",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "psr-4": {
-                    "Oander\\ApplePay\\": ""
-                },
-                "files": [
-                    "registration.php"
-                ]
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Apple Pay payment method",
-            "time": "2020-04-08T12:21:57+00:00"
-        },
-        {
             "name": "oander/module-autorelated-warehouse-manager-extender",
             "version": "1.0.1.3",
             "source": {
@@ -9461,11 +9434,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "dev-master_56118",
+            "version": "1.3.0.3",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "a7a12e369fdb0a26bfe35aa51db557b34875b073"
+                "reference": "7198b1d429ea0b5dd86ce5331b8e96cbe56fc612"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9484,7 +9457,7 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2022-01-26T09:38:49+00:00"
+            "time": "2022-02-21T14:23:41+00:00"
         },
         {
             "name": "oander/module-salesforce-service",
@@ -9997,11 +9970,11 @@
         },
         {
             "name": "oander/module-warehouse-manager-conditions",
-            "version": "1.0.1",
+            "version": "1.0.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-warehouse-manager-conditions.git",
-                "reference": "3ae3c7708aba61cf0ab82787e7846d3d33524469"
+                "reference": "246dd5b5acfbaa95260f1300b5b44a3bd29ce8bf"
             },
             "require": {
                 "oander/module-warehouse-manager": "*",
@@ -10019,7 +9992,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-05-20T10:01:27+00:00"
+            "time": "2022-02-22T07:30:54+00:00"
         },
         {
             "name": "oander/module-wonder-widget",
@@ -10163,7 +10136,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "152357b6497d2bb05da3be16b639c536a7e5059d"
+                "reference": "59913d51cebe12c6da6a95c659b5f57829f115d8"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10179,7 +10152,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2022-02-04T15:15:47+00:00"
+            "time": "2022-02-21T21:23:49+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10873,16 +10846,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.113.0",
+            "version": "v7.114.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "1aef1ccffad48f39952073e0ed53cb8f3f1b1d8c"
+                "reference": "63be231686c6874befb5b3a47fb8effb4c30b78b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/1aef1ccffad48f39952073e0ed53cb8f3f1b1d8c",
-                "reference": "1aef1ccffad48f39952073e0ed53cb8f3f1b1d8c",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/63be231686c6874befb5b3a47fb8effb4c30b78b",
+                "reference": "63be231686c6874befb5b3a47fb8effb4c30b78b",
                 "shasum": ""
             },
             "require": {
@@ -10925,7 +10898,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2022-02-03T23:46:29+00:00"
+            "time": "2022-02-15T22:48:31+00:00"
         },
         {
             "name": "symfony/console",
@@ -14942,7 +14915,6 @@
         "oander/module-configurable-product-attribute": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
-        "oander/module-salesforce": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
