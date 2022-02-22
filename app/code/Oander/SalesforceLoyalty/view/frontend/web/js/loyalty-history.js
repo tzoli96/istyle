@@ -92,7 +92,6 @@ define([
                 minutes = new Date(newDate).getMinutes();
 
             row.append($('<td>'+year+'-'+month+'-'+day+' '+hour+':'+minutes+'</td>'));
-            // row.append($('<td>'+newDate+'</td>'));
 
             if (mOrderId) {
                 row.append($('<td class="morder"><a href="/sales/order/view/order_id/' + mOrderId + '/" target="_self">' + mOrderId + '</td>'));
