@@ -84,11 +84,12 @@ define([
         */
         _createRow: function (date, mOrderId, mmyOrderNumber, type, points) {
             var row = $('<tr></tr>'),
-                year = new Date(date).getFullYear(),
-                month = new Date(date).getMonth() + 1,
-                day= new Date(date).getDate(),
-                hour = new Date(date).getHours(),
-                minutes = new Date(date).getMinutes();
+                newDate = new Date(date),
+                year = newDate.getFullYear(),
+                month = newDate.getMonth() + 1,
+                day= newDate.getDate(),
+                hour = newDate.getHours(),
+                minutes = newDate.getMinutes();
 
             if (month < 10) month = '0' + month;
             if (day < 10) day = '0' + day;
