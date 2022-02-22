@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8704c8a6f4f76852d1f81b79d2d66d07",
+    "content-hash": "e80549c3c9a512618ad19b608b61d854",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7951,7 +7951,7 @@
                 "proprietary"
             ],
             "description": "Api Gateway Order Attachment",
-            "time": "2018-06-19T14:33:44+00:00"
+            "time": "2020-09-08T10:52:36+00:00"
         },
         {
             "name": "oander/module-api-product",
@@ -9970,11 +9970,11 @@
         },
         {
             "name": "oander/module-warehouse-manager-conditions",
-            "version": "1.0.1",
+            "version": "1.0.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-warehouse-manager-conditions.git",
-                "reference": "3ae3c7708aba61cf0ab82787e7846d3d33524469"
+                "reference": "246dd5b5acfbaa95260f1300b5b44a3bd29ce8bf"
             },
             "require": {
                 "oander/module-warehouse-manager": "*",
@@ -9992,7 +9992,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-05-20T10:01:27+00:00"
+            "time": "2022-02-22T07:30:54+00:00"
         },
         {
             "name": "oander/module-wonder-widget",
@@ -10136,7 +10136,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "afc3fc1c357ba731f3aaba421da23e914d48c095"
+                "reference": "59913d51cebe12c6da6a95c659b5f57829f115d8"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10152,7 +10152,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2022-02-18T08:57:12+00:00"
+            "time": "2022-02-21T21:23:49+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -14922,6 +14922,5 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }

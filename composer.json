@@ -141,7 +141,7 @@
         "oander/module-url-rewrite-basic": "1.0.1.6",
         "oander/module-warehouse-manager": "1.4.29.16",
         "oander/module-warehouse-manager-api-index": "1.0.0",
-        "oander/module-warehouse-manager-conditions": "1.0.1",
+        "oander/module-warehouse-manager-conditions": "1.0.1.1",
         "oander/module-wonder-widget": "1.3.0.2",
         "oander/module-xtento-order-export-extender": "1.0.8",
         "oander/module-xtento-order-unity-pickup-export": "1.0.0",
