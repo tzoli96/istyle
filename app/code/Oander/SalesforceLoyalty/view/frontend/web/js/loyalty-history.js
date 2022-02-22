@@ -4,7 +4,8 @@
 */
 define([
     'jquery',
-], function($) {
+    'mage/translate',
+], function($, $t) {
     "use strict";
 
     $.widget('mage.salesforceLoyaltyHistory', {
@@ -31,8 +32,8 @@ define([
             var self = this;
             var optionsByPage = [];
 
-            if (this.options.history.length) {
-                optionsByPage = this.options.history.reduce(function (prev, curr, i) {
+            if (this.options.history.AffiliatedTransactions.length) {
+                optionsByPage = this.options.history.AffiliatedTransactions.reduce(function (prev, curr, i) {
                     var pageSize = Math.floor(i / self.size);
                     var page = prev[pageSize] || (prev[pageSize] = []);
                     page.push(curr);
@@ -55,6 +56,12 @@ define([
             var load = $('.block--loyaltyhistory > .block__load');
             var historyTable = $('.table--loyalty > tbody');
 
+            if (history.length > 0) {
+                $('.block--loyaltyhistory').removeClass('d-none');
+            } else {
+                $('.block--loyalty-account .profile-no-item').removeClass('d-none');
+            }
+
             load.hide();
             historyTable.html('');
 
@@ -62,7 +69,7 @@ define([
                 if (values == index) {
                     for (var value in history[values]) {
                         var elem = history[values][value];
-                        historyTable.append(self._createRow(elem.TransactionDate, elem.TransactionType, elem.NoOfPoints));
+                        historyTable.append(self._createRow(elem.TransactionDate, elem.MagentoOrderNumber, elem.MMYOrderNumber, elem.TransactionType, elem.NoOfPoints));
                     }
                 }
             }
@@ -75,9 +82,25 @@ define([
          * @param {Number} points
          * @returns {HTMLElement}
         */
-        _createRow: function (date, type, points) {
-            var row = $('<tr></tr>');
-            row.append($('<td>' + date + '</td>'));
+        _createRow: function (date, mOrderId, mmyOrderNumber, type, points) {
+            var row = $('<tr></tr>'),
+                newDate = new Date(date),
+                year = new Date(newDate).getFullYear(),
+                month = new Date(newDate).getMonth() + 1,
+                day= new Date(newDate).getDate(),
+                hour = new Date(newDate).getHours(),
+                minutes = new Date(newDate).getMinutes();
+
+            row.append($('<td>'+year+'-'+month+'-'+day+' '+hour+':'+minutes+'</td>'));
+
+            if (mOrderId) {
+                row.append($('<td class="morder"><a href="/sales/order/view/order_id/' + mOrderId + '/" target="_self">' + mOrderId + '</td>'));
+                row.append($('<td><span class="tooltip globe"><span class="tooltip__content">' + $t('Online purchase') + '</span></span></td>'));
+            } else {
+                row.append($('<td class="mmyorder">' + mmyOrderNumber + '</td>'));
+                row.append($('<td><span class="tooltip store"><span class="tooltip__content">' + $t('In-store purchase') + '</span></span></td>'));
+            }
+
             row.append($('<td>' + type + '</td>'));
             row.append($('<td>' + points + '</td>'));
 
