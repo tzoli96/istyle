@@ -9,6 +9,7 @@ namespace Oander\SalesforceLoyalty\Block\Customer;
 
 use Oander\SalesforceLoyalty\Enum\CustomerAttribute;
 use Oander\SalesforceLoyalty\Helper\Data;
+use Magento\Sales\Model\OrderFactory;
 
 class Account extends \Magento\Framework\View\Element\Template
 {
@@ -26,10 +27,16 @@ class Account extends \Magento\Framework\View\Element\Template
     private $helperData;
 
     /**
+     * @var OrderFactory
+     */
+    private $orderFactory;
+
+    /**
      * @param \Magento\Framework\View\Element\Template\Context $context
      * @param \Magento\Customer\Model\Session $customerSession
      * @param \Oander\SalesforceLoyalty\Helper\Salesforce $salesforceHelper
      * @param Data $helperData
+     * @param OrderFactory $orderFactory
      * @param array $data
      */
     public function __construct(
@@ -37,12 +44,14 @@ class Account extends \Magento\Framework\View\Element\Template
         \Magento\Customer\Model\Session $customerSession,
         \Oander\SalesforceLoyalty\Helper\Salesforce $salesforceHelper,
         Data $helperData,
+        OrderFactory $orderFactory,
         array $data = []
     ) {
         parent::__construct($context, $data);
         $this->salesforceHelper = $salesforceHelper;
         $this->customerSession = $customerSession;
         $this->helperData = $helperData;
+        $this->orderFactory = $orderFactory;
     }
 
     /**
@@ -79,9 +88,18 @@ class Account extends \Magento\Framework\View\Element\Template
         return $this->salesforceHelper->getCustomerAffiliatePoints($this->customerSession->getCustomer());
     }
 
+    /**
+     * @return array
+     * @throws \Magento\Framework\Exception\LocalizedException
+     */
     public function getLoyaltyPointsHistory()
     {
-        return $this->salesforceHelper->getCustomerAffiliateTransactions($this->customerSession->getCustomer());
+        $result = $this->salesforceHelper->getCustomerAffiliateTransactions($this->customerSession->getCustomer());
+        foreach ($result['AffiliatedTransactions'] as $index => $item){
+            $order = $this->orderFactory->create()->loadByAttribute('increment_id',$item['MagentoOrderNumber']);
+            $result['AffiliatedTransactions'][$index]['OrderId'] = $order->getData('entity_id');
+        }
+        return $result;
     }
 
     /**
