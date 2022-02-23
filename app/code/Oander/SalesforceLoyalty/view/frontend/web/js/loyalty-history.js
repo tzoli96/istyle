@@ -69,7 +69,7 @@ define([
                 if (values == index) {
                     for (var value in history[values]) {
                         var elem = history[values][value];
-                        historyTable.append(self._createRow(elem.TransactionDate, elem.MagentoOrderNumber, elem.MMYOrderNumber, elem.TransactionType, elem.NoOfPoints));
+                        historyTable.append(self._createRow(elem.TransactionDate, elem.MagentoOrderNumber, elem.OrderId, elem.MMYOrderNumber, elem.TransactionType, elem.NoOfPoints));
                     }
                 }
             }
@@ -82,7 +82,7 @@ define([
          * @param {Number} points
          * @returns {HTMLElement}
         */
-        _createRow: function (date, mOrderId, mmyOrderNumber, type, points) {
+        _createRow: function (date, mOrderNumber, mOrderId, mmyOrderNumber, type, points) {
             var row = $('<tr></tr>'),
                 newDate = new Date(date),
                 year = newDate.getFullYear(),
@@ -98,8 +98,12 @@ define([
 
             row.append($('<td>'+year+'-'+month+'-'+day+' | '+hour+':'+minutes+'</td>'));
 
-            if (mOrderId) {
-                row.append($('<td class="morder"><a href="/sales/order/view/order_id/' + mOrderId + '/" target="_self">' + mOrderId + '</td>'));
+            if (mOrderNumber) {
+                if (mOrderId) {
+                    row.append($('<td class="morder"><a href="/sales/order/view/order_id/' + mOrderId + '/" target="_self">' + mOrderNumber +'</a></td>'));
+                } else {
+                    row.append($('<td class="morder">' + mOrderNumber +'</td>'));
+                }
                 row.append($('<td><span class="tooltip globe"><span class="tooltip__content">' + $t('Online purchase') + '</span></span></td>'));
             } else {
                 row.append($('<td class="mmyorder">' + mmyOrderNumber + '</td>'));
