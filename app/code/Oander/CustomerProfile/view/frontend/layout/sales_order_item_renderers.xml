@@ -8,5 +8,6 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="sales.order.items.renderers_schedule_block6" class="Oander\CustomerProfile\Block\Order\Item\Renderer\DefaultRenderer"  template="Oander_CustomerProfile::order/items/renderer/default.phtml" />
+        <referenceBlock name="sales.order.items.renderers_schedule_block7"  class="Oander\CustomerProfile\Block\Order\Item\Renderer\BundleDefaultRenderer" template="Oander_CustomerProfile::sales/order/items/renderer.phtml" />
     </body>
 </page>
