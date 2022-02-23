@@ -21,15 +21,15 @@ if (empty($cards)): ?>
       <tbody>
   <?php foreach ($cards as $card): ?>
       <tr>
-        <td data-th="Brand" class="col brand">
+        <td data-th="<?php echo $block->escapeHtml(__('Brand')); ?>" class="col brand">
           <span class="type <?php echo $card->brand; ?>">
             <?php echo $block->cardType($card->brand); ?>
           </span>
         </td>
-        <td data-th="Last 4" class="col last4">
+        <td data-th="<?php echo $block->escapeHtml(__('Last 4')); ?>" class="col last4">
           ****&nbsp;<?php echo $card->last4; ?>
         </td>
-        <td data-th="Expires" class="col exp">
+        <td data-th="<?php echo $block->escapeHtml(__('Expires')); ?>" class="col exp">
           <?php echo $card->exp_month; ?>/<?php echo $card->exp_year; ?>
         </td>
         <td data-th="Actions" class="col actions">
