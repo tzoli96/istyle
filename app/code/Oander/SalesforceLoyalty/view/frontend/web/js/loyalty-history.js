@@ -78,6 +78,9 @@ define([
         /**
          * Create row
          * @param {String} date
+         * @param {String} mOrderNumber
+         * @param {String} mOrderId
+         * @param {String} mmyOrderNumber
          * @param {String} type
          * @param {Number} points
          * @returns {HTMLElement}
