@@ -36,3 +36,16 @@
         </div>
     </div>
 <?php endif; ?>
+
+<!--TODO - BE  romanian city select-->
+<div class="form-group field ro-city required">
+    <div class="control">
+        <label class="label" for="ro-city"><span><?php /* @escapeNotVerified */ echo __('Romania City') ?></span></label>
+        <select style="width: 100%" id="ro-city" class="js-data-example-ajax js-example-responsive form-control required-entry">
+        </select>
+    </div>
+</div>
+<script>
+    require(["roRegionCity"], function($) {
+    });
+</script>
