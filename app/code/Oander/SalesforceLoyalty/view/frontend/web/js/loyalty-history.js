@@ -39,34 +39,36 @@ define([
             var self = this,
                 transatcionsArray = self.options.history.AffiliatedTransactions;
 
-            transatcionsArray.reduce(function(previousItem, currentItem) {
-                if (!previousItem[currentItem.MagentoOrderNumber] && currentItem.TransactionType === 'Points Earned') {
-                    previousItem[currentItem.MagentoOrderNumber] = {
-                        'TransactionType': currentItem.TransactionType,
-                        'TransactionId': currentItem.TransactionId,
-                        'TransactionDate': currentItem.TransactionDate,
-                        'NoOfPoints': 0,
-                        'MMYOrderNumber': currentItem.MMYOrderNumber,
-                        'MagentoOrderNumber': currentItem.MagentoOrderNumber,
-                        'InvoiceNumber': currentItem.InvoiceNumber,
-                        'OrderId': currentItem.OrderId,
-                    };
-
-                    self.modifiedTransactionsArray.push(previousItem[currentItem.MagentoOrderNumber]);
-                }
-
-                if (currentItem.TransactionType !== 'Points Earned') {
-                    self.modifiedTransactionsArray.push(currentItem);
-                }
-
-                if (typeof previousItem[currentItem.MagentoOrderNumber] !== 'undefined') {
-                    if (previousItem[currentItem.MagentoOrderNumber].TransactionType === 'Points Earned' && currentItem.TransactionType === 'Points Earned') {
-                        previousItem[currentItem.MagentoOrderNumber].NoOfPoints += currentItem.NoOfPoints;
+            if (transatcionsArray.length) {
+                transatcionsArray.reduce(function(previousItem, currentItem) {
+                    if (!previousItem[currentItem.MagentoOrderNumber] && currentItem.TransactionType === 'Points Earned') {
+                        previousItem[currentItem.MagentoOrderNumber] = {
+                            'TransactionType': currentItem.TransactionType,
+                            'TransactionId': currentItem.TransactionId,
+                            'TransactionDate': currentItem.TransactionDate,
+                            'NoOfPoints': 0,
+                            'MMYOrderNumber': currentItem.MMYOrderNumber,
+                            'MagentoOrderNumber': currentItem.MagentoOrderNumber,
+                            'InvoiceNumber': currentItem.InvoiceNumber,
+                            'OrderId': currentItem.OrderId,
+                        };
+    
+                        self.modifiedTransactionsArray.push(previousItem[currentItem.MagentoOrderNumber]);
                     }
-                }
-
-                return previousItem;
-            }, {});
+    
+                    if (currentItem.TransactionType !== 'Points Earned') {
+                        self.modifiedTransactionsArray.push(currentItem);
+                    }
+    
+                    if (typeof previousItem[currentItem.MagentoOrderNumber] !== 'undefined') {
+                        if (previousItem[currentItem.MagentoOrderNumber].TransactionType === 'Points Earned' && currentItem.TransactionType === 'Points Earned') {
+                            previousItem[currentItem.MagentoOrderNumber].NoOfPoints += currentItem.NoOfPoints;
+                        }
+                    }
+    
+                    return previousItem;
+                }, {});
+            }
 
             // if (transatcionsArray.length) {
             //     var magentoOrderNumbers = [],
