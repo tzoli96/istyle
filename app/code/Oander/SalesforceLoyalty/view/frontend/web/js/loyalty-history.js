@@ -39,49 +39,81 @@ define([
             var self = this,
                 transatcionsArray = self.options.history.AffiliatedTransactions;
 
-            if (transatcionsArray.length) {
-                var magentoOrderNumbers = [],
-                    multipleMagentoOrderNumbers = [],
-                    counter = {},
-                    checked = [],
-                    itemsOriginalIndexes = {};
+            transatcionsArray.reduce(function(previousItem, currentItem) {
+                if (!previousItem[currentItem.MagentoOrderNumber] && currentItem.TransactionType === 'Points Earned') {
+                    previousItem[currentItem.MagentoOrderNumber] = {
+                        'TransactionType': currentItem.TransactionType,
+                        'TransactionId': currentItem.TransactionId,
+                        'TransactionDate': currentItem.TransactionDate,
+                        'NoOfPoints': 0,
+                        'MMYOrderNumber': currentItem.MMYOrderNumber,
+                        'MagentoOrderNumber': currentItem.MagentoOrderNumber,
+                        'InvoiceNumber': currentItem.InvoiceNumber,
+                        'OrderId': currentItem.OrderId,
+                    };
 
-                for (var i = 0; i < transatcionsArray.length; i++) {
-                    magentoOrderNumbers.push(transatcionsArray[i].MagentoOrderNumber)
+                    self.modifiedTransactionsArray.push(previousItem[currentItem.MagentoOrderNumber]);
                 }
 
-                for (var i = 0; i < magentoOrderNumbers.length; i++) {
-                    if (counter[magentoOrderNumbers[i]]) {
-                        counter[magentoOrderNumbers[i]] += 1;
-                    } else {
-                        counter[magentoOrderNumbers[i]] = 1;
-                    }
+                if (currentItem.TransactionType !== 'Points Earned') {
+                    self.modifiedTransactionsArray.push(currentItem);
+                }
 
-                    if (counter[magentoOrderNumbers[i]] > 1 && multipleMagentoOrderNumbers.indexOf(magentoOrderNumbers[i]) < 0 && magentoOrderNumbers[i] !== null) {
-                        multipleMagentoOrderNumbers.push(magentoOrderNumbers[i]);
+                if (typeof previousItem[currentItem.MagentoOrderNumber] !== 'undefined') {
+                    if (previousItem[currentItem.MagentoOrderNumber].TransactionType === 'Points Earned' && currentItem.TransactionType === 'Points Earned') {
+                        previousItem[currentItem.MagentoOrderNumber].NoOfPoints += currentItem.NoOfPoints;
                     }
                 }
 
-                for (var i = 0; i < transatcionsArray.length; i++) {
-                    if (multipleMagentoOrderNumbers.indexOf(transatcionsArray[i].MagentoOrderNumber) > -1) {
-                        if (checked.indexOf(transatcionsArray[i].MagentoOrderNumber) > -1) {
-                            if (transatcionsArray[i].TransactionType === 'Points Earned') {
-                                transatcionsArray[itemsOriginalIndexes[transatcionsArray[i].MagentoOrderNumber]].NoOfPoints += transatcionsArray[i].NoOfPoints;
-                            } else {
-                                self.modifiedTransactionsArray.push(transatcionsArray[i]);
-                            }
-                        }
+                return previousItem;
+            }, {});
+
+            // if (transatcionsArray.length) {
+            //     var magentoOrderNumbers = [],
+            //         multipleMagentoOrderNumbers = [],
+            //         counter = {},
+            //         checked = [],
+            //         itemsOriginalIndexes = {};
+
+            //     for (var i = 0; i < transatcionsArray.length; i++) {
+            //         magentoOrderNumbers.push(transatcionsArray[i].MagentoOrderNumber)
+            //     }
+
+            //     for (var i = 0; i < magentoOrderNumbers.length; i++) {
+            //         if (counter[magentoOrderNumbers[i]]) {
+            //             counter[magentoOrderNumbers[i]] += 1;
+            //         } else {
+            //             counter[magentoOrderNumbers[i]] = 1;
+            //         }
+
+            //         if (counter[magentoOrderNumbers[i]] > 1 && multipleMagentoOrderNumbers.indexOf(magentoOrderNumbers[i]) < 0 && magentoOrderNumbers[i] !== null) {
+            //             multipleMagentoOrderNumbers.push(magentoOrderNumbers[i]);
+            //         }
+            //     }
+
+            //     for (var i = 0; i < transatcionsArray.length; i++) {
+            //         if (multipleMagentoOrderNumbers.indexOf(transatcionsArray[i].MagentoOrderNumber) > -1) {
+            //             if (checked.indexOf(transatcionsArray[i].MagentoOrderNumber) > -1) {
+            //                 if (transatcionsArray[i].TransactionType === 'Points Earned') {
+            //                     transatcionsArray[itemsOriginalIndexes[transatcionsArray[i].MagentoOrderNumber]].NoOfPoints += transatcionsArray[i].NoOfPoints;
+            //                 } else {
+            //                     self.modifiedTransactionsArray.push(transatcionsArray[i]);
+            //                 }
+            //             }
                         
-                        if (checked.indexOf(transatcionsArray[i].MagentoOrderNumber) < 0) {
-                            checked.push(transatcionsArray[i].MagentoOrderNumber);
-                            itemsOriginalIndexes[magentoOrderNumbers[i]] = i;
-                            self.modifiedTransactionsArray.push(transatcionsArray[i]);
-                        }
-                    } else {
-                        self.modifiedTransactionsArray.push(transatcionsArray[i]);
-                    }
-                }
-            }
+            //             if (checked.indexOf(transatcionsArray[i].MagentoOrderNumber) < 0) {
+            //                 if (transatcionsArray[i].TransactionType === 'Points Earned') {
+            //                     itemsOriginalIndexes[magentoOrderNumbers[i]] = i;
+            //                     checked.push(transatcionsArray[i].MagentoOrderNumber);
+            //                 }
+
+            //                 self.modifiedTransactionsArray.push(transatcionsArray[i]);
+            //             }
+            //         } else {
+            //             self.modifiedTransactionsArray.push(transatcionsArray[i]);
+            //         }
+            //     }
+            // }
         },
 
         /**
