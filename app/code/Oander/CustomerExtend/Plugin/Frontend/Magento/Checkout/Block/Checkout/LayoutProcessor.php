@@ -25,9 +25,9 @@ class LayoutProcessor
         $postCodeElement["component"] = "Magento_Ui/js/form/element/ui-select";
         $postCodeElement["config"]["filterOptions"] = true;
         $postCodeElement["config"]["template"] = 'ui/form/field';
-        $postCodeElement["config"]["elementTmpl"] = 'ui/grid/filters/elements/ui-select';
+        $postCodeElement["config"]["elementTmpl"] = 'oanderui/grid/filters/elements/ui-select';
         $postCodeElement["config"]["formElement"] = "select";
-        $postCodeElement["config"]['options'] = [["value"=>"Egy","label"=>"Egy"],["value" => "Száztizenhárom", "label" => "Száztizenhárom"],["value" => "Négymillió", "label" => "Négymillió"], ["value" => "ABC", "label" => "ABC"], ["value" => "Sanyi", "label" => "Sanyi"]];
+        $postCodeElement["config"]['options'] = [["value"=>"Egy","label"=>"Egy"],["value" => "Száztizenhárom", "label" => "Száztizenhárom"],["value" => "Négymillió", "label" => "Négymillió"],["value" => "Négymillió1", "label" => "Négymillió1"], ["value" => "ABC", "label" => "ABC"], ["value" => "Sanyi", "label" => "Sanyi"]];
         $postCodeElement["config"]["visible"] = 1;
         $postCodeElement["config"]["required"] = 1;
         $postCodeElement["config"]["multiple"] = false;
