@@ -58,8 +58,9 @@
     padding-right: @paddingX;
     padding-bottom: @paddingY;
     padding-left: @paddingX;
-    border: 1px solid @borderColor;
-    border-radius: @borderRadius;
+    border: 1px solid @borderColor !important; // magento error field override
+    border-radius: @borderRadius !important; // magento error field override
+    background-color: #fff !important; // magento error field override
     font-size: @fontSize;
     line-height: @lineHeight;
     color: @textColor;
