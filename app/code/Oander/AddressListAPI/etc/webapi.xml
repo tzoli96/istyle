@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/oander/addresslist/getAllRegion" method="GET">
+        <service class="Oander\AddressListAPI\Api\GetCityInterface" method="getAllRegion"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/oander/addresslist/getCityByRegion/:region" method="GET">
+        <service class="Oander\AddressListAPI\Api\GetCityInterface" method="getByRegion"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+    <route url="/V1/oander/addresslist/getAllCity" method="GET">
+        <service class="Oander\AddressListAPI\Api\GetCityInterface" method="getAllCity"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+</routes>
