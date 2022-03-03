@@ -10,5 +10,12 @@
     <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
         <plugin name="Oander_CustomerExtend_Plugin_Frontend_Magento_Checkout_Block_Checkout_LayoutProcessor" type="Oander\CustomerExtend\Plugin\Frontend\Magento\Checkout\Block\Checkout\LayoutProcessor" sortOrder="10" disabled="false"/>
     </type>
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="oander_customerextend" xsi:type="object">Oander\CustomerExtend\Model\CheckoutConfigVars</item>
+            </argument>
+        </arguments>
+    </type>
     <!-- ER56784 END -->
 </config>

@@ -6,6 +6,7 @@
                 <field id="replace_postcode_region" translate="label comment" type="select" sortOrder="470" showInDefault="0" showInWebsite="0" showInStore="1">
                     <label>Replace Postcode to Region</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Please upload file to 'State-City CSV Import' before activating this feature</comment>
                 </field>
             </group>
         </section>
