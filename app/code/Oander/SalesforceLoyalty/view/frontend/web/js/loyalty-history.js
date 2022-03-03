@@ -41,17 +41,17 @@ define([
 
             if (transatcionsArray.length) {
                 transatcionsArray.reduce(function(previousItem, currentItem) {
-                    var currentMagentoNumber = currentItem.MagentoOrderNumber,
-                        currentItemIdentifier = currentMagentoNumber + '_' + currentItem.TransactionType.replace(/ /g, '').toLowerCase();
+                    var currentMagentoOrderNumber = currentItem.MagentoOrderNumber,
+                        currentItemIdentifier = currentMagentoOrderNumber + '_' + currentItem.TransactionType.replace(/ /g, '').toLowerCase();
                     
-                        if (!previousItem[currentItemIdentifier] && currentMagentoNumber) {
+                        if (!previousItem[currentItemIdentifier] && currentMagentoOrderNumber) {
                         previousItem[currentItemIdentifier] = {
                             'TransactionType': currentItem.TransactionType,
                             'TransactionId': currentItem.TransactionId,
                             'TransactionDate': currentItem.TransactionDate,
                             'NoOfPoints': 0,
                             'MMYOrderNumber': currentItem.MMYOrderNumber,
-                            'MagentoOrderNumber': currentMagentoNumber,
+                            'MagentoOrderNumber': currentMagentoOrderNumber,
                             'InvoiceNumber': currentItem.InvoiceNumber,
                             'OrderId': currentItem.OrderId,
                         };
@@ -59,7 +59,7 @@ define([
                         self.modifiedTransactionsArray.push(previousItem[currentItemIdentifier]);
                     }
 
-                    if (!currentItem.hasOwnProperty('MagentoOrderNumber') || currentMagentoNumber === null) {
+                    if (!currentItem.hasOwnProperty('MagentoOrderNumber') || currentMagentoOrderNumber === null) {
                         self.modifiedTransactionsArray.push(currentItem);
                     }
     
