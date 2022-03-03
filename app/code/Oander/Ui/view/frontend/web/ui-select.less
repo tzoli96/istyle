@@ -1,0 +1,95 @@
+@topPosition: 40px; // dropdown top position
+@fontSize: 1rem; // input font size
+@textColor: #464a4c; // input text color
+@placeholderColor: #636c72; // input placeholder color
+@lineHeight: 1.25; // input line height
+@brandColor: #007aff; // primary brand color
+@borderColor: #aaa; // input border color
+@borderRadius: 4px; // input border radius
+@paddingX: 0.75rem; // input padding left, right
+@paddingY: 0.563rem; // input padding top, bottom
+
+.oander-ui-select {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  &._active {
+    overflow: visible;
+  }
+
+  .action-select {
+    &._active {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  .action-menu {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: @topPosition;
+    left: 0;
+    width: 100%;
+    max-height: 219px;
+    padding-top: @paddingY;
+    padding-bottom: @paddingY;
+    overflow-y: auto;
+    border: 1px solid @borderColor;
+    border-top: 0;
+    border-bottom-right-radius: @borderRadius;
+    border-bottom-left-radius: @borderRadius;
+    background-color: #fff;
+
+    &._active {
+      display: block;
+    }
+  }
+
+  .oander-ui-action-multiselect-search-wrap {
+    padding-right: @paddingX;
+    padding-left: @paddingX;
+  }
+
+  .oander-ui-control-text {
+    width: 100%;
+    padding-top: @paddingY;
+    padding-right: @paddingX;
+    padding-bottom: @paddingY;
+    padding-left: @paddingX;
+    border: 1px solid @borderColor !important; // magento error field override
+    border-radius: @borderRadius !important; // magento error field override
+    background-color: #fff !important; // magento error field override
+    font-size: @fontSize;
+    line-height: 1;
+    color: @textColor;
+  }
+
+  .oander-ui-action-multiselect-search-label {
+    display: none;
+  }
+
+  .oander-ui-action-multiselect-menu-inner {
+    margin: @paddingY 0 0;
+    padding: 0;
+  }
+
+  .oander-ui-action-multiselect-menu-inner-item {
+    padding-right: @paddingX;
+    padding-left: @paddingX;
+    transition: background-color .3s ease, color .3s ease;
+    list-style: none;
+
+    &:hover {
+      background-color: @brandColor;
+      color: #fff;
+    }
+  }
+
+  .oander-ui-action-multiselect-search-count {
+    padding: 5px 5px 0;
+    color: @placeholderColor;
+    font-size: 13px;
+  }
+}
