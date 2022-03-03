@@ -1,10 +1,4 @@
 <?php
-/**
- * Oander_FanCourierValidator
- *
- * @author  Tamas Vegvari <tamas.vegvari@oander.hu>
- * @license Oander Media Kft. (http://www.oander.hu)
- */
 
 namespace Oander\AddressListAPI\Model\Adminhtml\Config\Backend;
 
