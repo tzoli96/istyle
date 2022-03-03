@@ -42,7 +42,7 @@ class StateCityCsv extends File
      * @param File\RequestData\RequestDataInterface $requestData
      * @param \Magento\Framework\Message\ManagerInterface $messageManager
      * @param \Magento\Framework\File\Csv $csv
-     * @param \Magento\Framework\App\ResourceConnection $connection
+     * @param \Magento\Framework\App\ResourceConnection $resourceConnection
      * @param Filesystem $filesystem
      * @param \Magento\Framework\Model\ResourceModel\AbstractResource|null $resource
      * @param \Magento\Framework\Data\Collection\AbstractDb|null $resourceCollection
@@ -86,7 +86,8 @@ class StateCityCsv extends File
         $connection = $this->resourceConnection->getConnection();
         $countryCode = $this->_config->getValue(
             self::COUNTRY_CODE_PATH,
-            \Magento\Store\Model\ScopeInterface::SCOPE_STORE
+            $this->getScope(),
+            $this->getScopeId()
         );
         $file = $this->getFileData();
         if (!isset($file['tmp_name'])) {
@@ -94,7 +95,7 @@ class StateCityCsv extends File
             if (isset($value['delete']) && $value['delete'] == 1) {
                 $connection->delete(
                     $connection->getTableName(\Oander\AddressListAPI\Api\Data\OanderAddresslistInterface::TABLE),
-                    $connection->quoteInto(\Oander\AddressListAPI\Api\Data\OanderAddresslistInterface::REGION . ' = ?', $countryCode)
+                    $connection->quoteInto(\Oander\AddressListAPI\Api\Data\OanderAddresslistInterface::COUNTRY_CODE . ' = ?', $countryCode)
                 );
                 $this->messageManager->addSuccessMessage(__('Cities removed successfully'));
             }
@@ -127,7 +128,7 @@ class StateCityCsv extends File
         }
 
         if(count($stateCityPairs))
-            $this->resourceConnection->getConnection()->insertMultiple(\Oander\AddressListAPI\Api\Data\OanderAddresslistInterface::TABLE, $stateCityPairs);
+            $this->resourceConnection->getConnection()->insertOnDuplicate(\Oander\AddressListAPI\Api\Data\OanderAddresslistInterface::TABLE, $stateCityPairs);
 
         $this->messageManager->addSuccessMessage(__('%1 cities added successfully', count($stateCityPairs)));
 
