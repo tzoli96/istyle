@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="customer">
+            <group id="address">
+                <field id="addresslist_api_csv" translate="label comment" type="file" sortOrder="500" showInDefault="0" showInWebsite="0" showInStore="1">
+                    <label>State-City CSV Import</label>
+                    <backend_model>Oander\AddressListAPI\Model\Adminhtml\Config\Backend\StateCityCsv</backend_model>
+                    <upload_dir config="system" scope_info="1">upload/oander/addresslist</upload_dir>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
