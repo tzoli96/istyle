@@ -11,6 +11,7 @@ use Magento\Quote\Api\GuestBillingAddressManagementInterface;
 use Magento\Quote\Api\GuestCartManagementInterface;
 use Magento\Quote\Api\GuestPaymentMethodManagementInterface;
 use Magento\Quote\Model\QuoteIdMaskFactory;
+use Magento\Checkout\Model\PaymentDetailsFactory;
 
 class GuestPaymentInformationManagement extends \Magento\Checkout\Model\GuestPaymentInformationManagement
 {
