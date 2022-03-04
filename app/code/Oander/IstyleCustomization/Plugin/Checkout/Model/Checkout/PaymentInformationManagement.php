@@ -9,6 +9,7 @@ use Magento\Quote\Api\CartTotalRepositoryInterface;
 use Magento\Quote\Api\Data\AddressInterface;
 use Magento\Quote\Api\Data\PaymentInterface;
 use Magento\Quote\Api\PaymentMethodManagementInterface;
+use Magento\Checkout\Model\PaymentDetailsFactory;
 
 class PaymentInformationManagement extends \Magento\Checkout\Model\PaymentInformationManagement
 {
