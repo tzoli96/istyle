@@ -22,7 +22,7 @@
         },
         css: {
             _active: listVisible,
-            'oander-ui-action-multiselect-tree': isTree()
+            'oander-ui-action-multiselect--tree': isTree()
         },
         event: {
             focusin: onFocusIn,
@@ -31,6 +31,10 @@
         },
         outerClick: outerClick.bind($data)"
 >
+    <i
+        class="icon icon-chevron-down"
+        title="icon-chevron-down"
+    ></i>
     <!-- ko ifnot: chipsEnabled -->
     <div
         class="form-control action-select oander-ui-action-multiselect"
@@ -42,9 +46,12 @@
             }"
     >
         <div 
-            class="oander-ui-action-multiselect-text"
+            class="oander-ui-action-multiselect__text"
             data-role="selected-option"
-            data-bind="text: setCaption()"
+            data-bind="
+                text: setCaption(),
+                css: value().length === 0 ? 'empty' : 'selected'
+                "
         ></div>
     </div>
     <!-- /ko -->
@@ -59,13 +66,13 @@
             }"
     >
         <div
-            class="oander-ui-action-multiselect-text"
+            class="oander-ui-action-multiselect__text"
             data-bind="
                 visible: !hasData(),
                 i18n: selectedPlaceholders.defaultPlaceholder"
         ></div>
         <!-- ko foreach: { data: getSelected(), as: 'option'}  -->
-            <span class="oander-ui-action-multiselect-crumb">
+            <span class="oander-ui-action-multiselect__crumb">
                 <span data-bind="text: label"></span>
                 <button
                     class="action-close"
@@ -85,9 +92,13 @@
         data-bind="css: { _active: listVisible }
     ">
         <!-- ko if: filterOptions -->
-        <div class="oander-ui-action-multiselect-search-wrap">
+        <div class="oander-ui-action-multiselect__search-wrap">
+            <i
+                class="icon icon-search"
+                title="icon-search"
+            ></i>
             <input
-                class="oander-ui-control-text oander-ui-action-multiselect-search"
+                class="oander-ui-control-text oander-ui-action-multiselect__search"
                 data-role="advanced-select-text"
                 type="text"
                 data-bind="
@@ -100,19 +111,19 @@
                     hasFocus: filterOptionsFocus"
             >
             <label
-                class="oander-ui-action-multiselect-search-label"
+                class="oander-ui-action-multiselect__search-label"
                 data-action="advanced-select-search"
                 data-bind="attr: {for: uid+2}"
             ></label>
             <div
                 if="itemsQuantity"
                 data-bind="text: itemsQuantity"
-                class="oander-ui-action-multiselect-search-count"
+                class="oander-ui-action-multiselect__search-count"
             ></div>
         </div>
         <!-- /ko -->
         <ul
-            class="oander-ui-action-multiselect-menu-inner _root"
+            class="oander-ui-action-multiselect__menu-inner _root"
             data-bind="
                 event: {
                     mousemove: function(data, event){onMousemove($data, $index(), event)}
@@ -120,7 +131,7 @@
         >
             <!-- ko foreach: { data: options, as: 'option'}  -->
             <li
-                class="oander-ui-action-multiselect-menu-inner-item _root"
+                class="oander-ui-action-multiselect__menu-inner-item _root"
                 data-bind="css: { _parent: $data.optgroup }"
                 data-role="option-group"
             >
@@ -142,7 +153,7 @@
                 >
                     <!-- ko if: $data.optgroup && $parent.showOpenLevelsActionIcon-->
                     <div
-                        class="oander-ui-action-multiselect-dropdown"
+                        class="oander-ui-action-multiselect__dropdown"
                         data-bind="
                             click: function(event){
                                 $parent.openChildLevel($data, $element, event);
@@ -159,11 +170,11 @@
                             aria-label="text: option.label"
                     >
                     <!-- /ko-->
-                    <label class="oander-ui-action-multiselect-label">
+                    <label class="oander-ui-action-multiselect__label">
                         <span data-bind="text: option.label"></span>
                         <span
                             if="$parent.getPath(option)"
-                            class="oander-ui-action-multiselect-item-path"
+                            class="oander-ui-action-multiselect__item-path"
                             data-bind="text: $parent.getPath(option)"
                         ></span>
                     </label>
@@ -176,7 +187,7 @@
             <!-- /ko -->
         </ul>
         <!-- ko if: $data.closeBtn -->
-        <div class="oander-ui-action-multiselect-actions-wrap">
+        <div class="oander-ui-action-multiselect__actions-wrap">
             <button
                 class="action-default"
                 data-action="close-advanced-select"
