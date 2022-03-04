@@ -1,0 +1,140 @@
+.oander-ui-select {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  &._active {
+    overflow: visible;
+
+    > .icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  .icon {
+    position: absolute;
+    width: 14px;
+    margin: auto;
+    font-size: 14px;
+    cursor: default;
+  }
+
+  > .icon {
+    top: 0;
+    right: .75rem;
+    bottom: 0;
+    height: 12px;
+    transform: rotate(0);
+    transition: transform .3s ease;
+
+    ._filled & {
+      right: 40px;
+    }
+  }
+
+  .action-select {
+    &._active {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  .oander-ui-action-multiselect {
+    padding-right: 35px;
+
+    ._error & {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+      border-color: #ff2929;
+      background: rgba(0, 122, 255, .05);
+    }
+
+    ._filled & {
+      padding-right: 60px;
+    }
+  }
+
+  .oander-ui-action-multiselect__text {
+    &.empty {
+      color: #aaa;
+    }
+  }
+
+  .action-menu {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    max-height: 217px;
+    padding-top: .563rem;
+    overflow-y: auto;
+    border: 1px solid #aaa;
+    border-top: 0;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-color: #fff;
+
+    &._active {
+      display: block;
+    }
+  }
+
+  .oander-ui-action-multiselect__search-wrap {
+    position: relative;
+    padding-right: .75rem;
+    padding-left: .75rem;
+
+    > .icon {
+      top: 12px;
+      right: 1.5rem;
+      height: 14px;
+    }
+  }
+
+  .oander-ui-control-text {
+    width: 100%;
+    padding-top: .563rem;
+    padding-right: 30px;
+    padding-bottom: .563rem;
+    padding-left: .75rem;
+    border: 1px solid #aaa !important; // magento error field override
+    border-radius: 4px !important; // magento error field override
+    background-color: #fff !important; // magento error field override
+    font-size: 1rem;
+    line-height: 1;
+    color: #464a4c;
+  }
+
+  .oander-ui-action-multiselect__search-label {
+    display: none;
+  }
+
+  .oander-ui-action-multiselect__menu-inner {
+    margin: .563rem 0 0;
+    padding: 0;
+  }
+
+  .oander-ui-action-multiselect__menu-inner-item {
+    padding-right: .75rem;
+    padding-left: .75rem;
+    transition: background-color .3s ease, color .3s ease;
+    list-style: none;
+
+    &:hover {
+      background-color: #007aff;
+      color: #fff;
+    }
+  }
+
+  .oander-ui-action-multiselect__label {
+    cursor: pointer;
+  }
+
+  .oander-ui-action-multiselect__search-count {
+    padding: 5px 5px 0;
+    color: #aaa;
+    font-size: 13px;
+  }
+}

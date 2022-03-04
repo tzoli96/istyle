@@ -6,4 +6,16 @@
     <type name="Magento\Customer\Controller\Account\ResetPasswordPost">
         <plugin name="Oander_CustomerExtend_Plugin_Frontend_Magento_Customer_Controller_Account_ResetPasswordPost" type="Oander\CustomerExtend\Plugin\Frontend\Magento\CopyPassword" sortOrder="10" disabled="false"/>
     </type>
+    <!-- ER56784 START -->
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="Oander_CustomerExtend_Plugin_Frontend_Magento_Checkout_Block_Checkout_LayoutProcessor" type="Oander\CustomerExtend\Plugin\Frontend\Magento\Checkout\Block\Checkout\LayoutProcessor" sortOrder="10" disabled="false"/>
+    </type>
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="oander_customerextend" xsi:type="object">Oander\CustomerExtend\Model\CheckoutConfigVars</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- ER56784 END -->
 </config>

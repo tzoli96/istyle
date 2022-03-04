@@ -4,3 +4,25 @@
         <input type="text" name="postcode" value="<?php echo $block->escapeHtml($block->getParentBlock()->getAddress()->getPostcode()) ?>" title="<?php /* @escapeNotVerified */ echo __('Zip/Postal Code') ?>" id="zip" class="form-control input-text validate-zip-international <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('postcode') ?>">
     </div>
 </div>
+
+<!-- TODO romanian region select-->
+<div class="form-group field ro-region required">
+    <div class="control">
+        <label class="label" for="ro-region"><span><?php /* @escapeNotVerified */ echo __('Romania Region') ?></span></label>
+        <select style="width: 100%" id="ro-region" class="js-data-example-ajax js-example-responsive form-control <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('postcode') ?>">
+<!--            TODO options BE -->
+
+            <option value="vrancea">Vrancea County</option>
+            <option value="vaslui">Vaslui Countynia</option>
+            <option value="valcea">Valcea Countyrisana</option>
+            <option value="tulcea">Tulcea County Moldova</option>
+            <option value="timiș">Timiș County</option>
+            <option value="teleorman">Teleorman County</option>
+            <option value="suceava">Suceava County</option>
+            <option value="sibiu">Sibiu County</option>
+        </select>
+    </div>
+</div>
+<script>
+    require(["roRegionCity"], function($) {});
+</script>
