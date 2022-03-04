@@ -93,9 +93,15 @@ define([
           if (!$(field).attr('style')) {
             var fieldElement = $(field).find('.form-control');
 
-            fieldElement.on('keyup change', function () {
-              self.requiredHandler($(this), Number(index));
-            });
+            if (fieldElement.hasClass('oander-ui-action-multiselect')) {
+              $('.action-menu-item').on('click', function () {
+                self.requiredHandler(fieldElement, Number(index));
+              });
+            } else {
+              fieldElement.on('keyup change', function () {
+                self.requiredHandler($(this), Number(index));
+              });
+            }
 
             self.requiredHandler(fieldElement, Number(index));
           }
@@ -113,7 +119,7 @@ define([
       var self = this;
 
       if ($(element).length && !isNaN(index)) {
-        if ($(element).val().length > 0 && !$(element).closest('.form-group').hasClass('_error')) {
+        if ($(element).closest('.form-group').hasClass('_filled')) {
           self.fieldsContent[index] = true;
         }
         else {
