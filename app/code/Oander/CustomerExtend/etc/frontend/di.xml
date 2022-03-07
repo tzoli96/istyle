@@ -17,5 +17,8 @@
             </argument>
         </arguments>
     </type>
+    <type name="Magento\Customer\Block\Address\Edit">
+        <plugin name="Oander_CustomerExtend_Plugin_Frontend_Magento_Customer_Block_Address_Edit" type="Oander\CustomerExtend\Plugin\Frontend\Magento\Customer\Block\Address\Edit" sortOrder="10" disabled="false"/>
+    </type>
     <!-- ER56784 END -->
 </config>
