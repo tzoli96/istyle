@@ -39,13 +39,10 @@ class PaymentInformationManagement extends \Magento\Checkout\Model\PaymentInform
     ) {
         $this->savePaymentInformation($cartId, $paymentMethod, $billingAddress);
         try {
-            throw new CouldNotSaveException(
-                'bad'
-            );
             $orderId = $this->cartManagement->placeOrder($cartId);
         } catch (\Exception $e) {
             throw new CouldNotSaveException(
-                $e->getMessage(),
+                __($e->getMessage()),
                 $e
             );
         }
