@@ -48,8 +48,7 @@ class GuestPaymentInformationManagement extends \Magento\Checkout\Model\GuestPay
             $orderId = $this->cartManagement->placeOrder($cartId);
         } catch (\Exception $e) {
             throw new CouldNotSaveException(
-                $e->getMessage(),
-                $e
+                $e->getMessage()
             );
         }
         return $orderId;
