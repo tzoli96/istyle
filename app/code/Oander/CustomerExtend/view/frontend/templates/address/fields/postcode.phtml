@@ -19,12 +19,12 @@
                 <input type="text" name="postcode" value="<?php echo $block->escapeHtml($block->getParentBlock()->getAddress()->getPostcode()) ?>" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" id="zip" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('postcode') ?>">
             </div>
         </div>
-        <!-- TODO romanian region select-->
     <?php else : ?>
         <div class="form-group field ro-region required">
             <div class="control">
                 <label class="label" for="ro-region"><span><?php /* @escapeNotVerified */ echo __('Romania Region') ?></span></label>
-                <select style="width: 100%" id="ro-region" class="js-data-example-ajax js-example-responsive form-control <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('postcode') ?>">
+                <select style="width: 100%" id="ro-region" class="form-control <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('postcode') ?>">
+                    <option value="" disabled selected><?php /* @escapeNotVerified */ echo __('Please select region') ?></option>
                     <?php foreach ($block->getParentBlock()->getRegionCollection() as $regionItem) : ?>
                         <option value="<?= $regionItem ?>"><?= $regionItem ?></option>
                     <?php endforeach; ?>

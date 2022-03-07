@@ -6,12 +6,11 @@ define([
     'use strict';
 
     // init selects
-    $("#ro-region").select2({
-        language: "ro",
-        placeholder: "select region placeholder",
+    $('#ro-region').select2({
+        language: 'ro',
     });
 
-    $("#ro-city").select2({}).prop("disabled", true);
+    $('#ro-city').select2({}).prop('disabled', true);
 
     // i18n
     $.fn.select2.defaults.set('language', {
@@ -39,19 +38,14 @@ define([
     });
 
     // forcing to override i18n strings
-    $("select:not([ajax-url])").select2({});
+    $('select:not([ajax-url])').select2({});
 
-    // on region change trigger city select
-    $("#ro-region").on('change', function () {
-        $("#ro-city").trigger('regionChanged');
+    $('#ro-region').on('change', function () {
+        $('#ro-city').trigger('regionChanged');
     });
 
-    // activate city select when region selected
-    $("#ro-city").on('regionChanged', function () {
-        $("#ro-city").prop("disabled", false);
-
-        // use for req
-        const getRegionValue = $("#ro-region").val();
+    $('#ro-city').on('regionChanged', function () {
+        const getRegionValue = $('#ro-region').val();
         const getCountiesAjaxUrl = '/rest/V1/oander/addresslist/getCityByRegion/';
 
         $.ajax({
@@ -59,26 +53,27 @@ define([
             type: 'GET',
             dataType: 'json'
         }).done(function (data) {
-            const response = data.data;
-            const formatResponse = [];
+            const response = data;
+            const formatResponse = [
+                {
+                    "id": 0,
+                    "text": $t('Please select city'),
+                    "disabled": true,
+                    "selected": true
+                }
+            ];
 
             if (response) {
-                //success
                 $.each(response, function (index, value) {
-                    console.log('each', value)
                     formatResponse.push({
-                        id: value.id - 1,
-                        text: value.name
+                        id: value,
+                        text: value
                     });
                 });
 
-                $(".js-data-example-ajax").select2({
-                    placeholder: "Select a region first",
-                    //minimumInputLength: 1,
+                $('#ro-city').empty().select2({
                     data: formatResponse,
-                })
-            } else {
-                //error state, no data
+                }).prop('disabled', false);
             }
         });
     });
