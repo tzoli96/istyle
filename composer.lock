@@ -7951,7 +7951,7 @@
                 "proprietary"
             ],
             "description": "Api Gateway Order Attachment",
-            "time": "2020-09-08T10:52:36+00:00"
+            "time": "2018-06-19T14:33:44+00:00"
         },
         {
             "name": "oander/module-api-product",
@@ -10136,7 +10136,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "d6635f4637fa5b79c4a66801fdb67931122329b5"
+                "reference": "c65491e0960a5a63c1ea0db4c91b84cb9d980a78"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10152,7 +10152,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2022-03-04T14:59:34+00:00"
+            "time": "2022-03-07T16:25:48+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -14903,6 +14903,7 @@
             ],
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
+            "abandoned": true,
             "time": "2022-01-25T23:10:35+00:00"
         }
     ],
