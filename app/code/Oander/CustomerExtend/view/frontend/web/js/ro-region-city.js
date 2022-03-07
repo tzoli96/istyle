@@ -1,9 +1,8 @@
 define([
     'jquery',
     'select2',
-    'Magento_Ui/js/lib/view/utils/dom-observer',
     'mage/translate'
-], function ($, select2, domObserver, $t) {
+], function ($, select2, $t) {
     'use strict';
 
     // init selects
@@ -53,12 +52,10 @@ define([
 
         // use for req
         const getRegionValue = $("#ro-region").val();
-
-        const getCountiesAjaxUrl = 'https://reqres.in/api/unknown';
-        // const getCountiesAjaxUrl = '<?php echo $block->getParentBlock()->getCitiesAjaxUrlParam(); ?>';
+        const getCountiesAjaxUrl = '/rest/V1/oander/addresslist/getCityByRegion/';
 
         $.ajax({
-            url: getCountiesAjaxUrl,
+            url: getCountiesAjaxUrl + getRegionValue,
             type: 'GET',
             dataType: 'json'
         }).done(function (data) {
