@@ -37,15 +37,16 @@
     </div>
 <?php endif; ?>
 
-<!--TODO - BE  romanian city select-->
-<div class="form-group field ro-city required">
-    <div class="control">
-        <label class="label" for="ro-city"><span><?php /* @escapeNotVerified */ echo __('Romania City') ?></span></label>
-        <select style="width: 100%" id="ro-city" class="js-data-example-ajax js-example-responsive form-control required-entry">
-        </select>
+<?php if($block->getParentBlock()->getRegionCollection()) : ?>
+    <div class="form-group field ro-city required">
+        <div class="control">
+            <label class="label" for="ro-city"><span><?php /* @escapeNotVerified */ echo __('Romania City') ?></span></label>
+            <select style="width: 100%" id="ro-city" class="form-control required-entry <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('postcode') ?><?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('postcode') ?>">
+            </select>
+        </div>
     </div>
-</div>
-<script>
-    require(["roRegionCity"], function($) {
-    });
-</script>
+    <script>
+        require(["roRegionCity"], function($) {
+        });
+    </script>
+<?php endif; ?>
