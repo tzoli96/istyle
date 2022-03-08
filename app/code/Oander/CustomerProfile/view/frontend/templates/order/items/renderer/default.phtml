@@ -9,7 +9,8 @@
 /** @var  $block \Magento\Sales\Block\Order\Item\Renderer\DefaultRenderer */
 $_item = $block->getItem();
 ?>
-<li id="order-item-row-<?php /* @escapeNotVerified */ echo $_item->getId() ?>" class="profile-order-card__products-simple">
+<!-- todo be, add class to this li if its subproduct: class="profile-order-card__sub-products" -->
+<li id="order-item-row-<?php /* @escapeNotVerified */ echo $_item->getId() ?>">
     <img src="<?= $block->getProductImageUrl($_item->getProduct())?>" alt="">
     <p class="profile-order-card__details">
         <a href="<?= $_item->getProduct()->getProductUrl()?>">
