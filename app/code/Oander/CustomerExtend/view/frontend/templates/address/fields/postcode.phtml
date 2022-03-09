@@ -20,10 +20,10 @@
             </div>
         </div>
     <?php else : ?>
-        <div class="form-group field ro-region required">
+        <div class="form-group field ro-region select2 required">
             <div class="control">
-                <label class="label" for="ro-region"><span><?php /* @escapeNotVerified */ echo __('Romania Region') ?></span></label>
-                <select style="width: 100%" id="ro-region" class="form-control <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('postcode') ?>">
+                <label class="label" for="postcode"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
+                <select name="postcode" style="width: 100%" id="postcode" class="ro-region-select form-control <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('postcode') ?>">
                     <option value="" disabled selected><?php /* @escapeNotVerified */ echo __('Please select region') ?></option>
                     <?php foreach ($block->getParentBlock()->getRegionCollection() as $regionItem) : ?>
                         <option value="<?= $regionItem ?>"><?= $regionItem ?></option>
