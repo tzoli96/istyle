@@ -6,11 +6,11 @@ define([
     'use strict';
 
     // init selects
-    $('#ro-region').select2({
+    $('.ro-region-select').select2({
         language: 'ro',
     });
 
-    $('#ro-city').select2({}).prop('disabled', true);
+    $('.ro-city-select').select2({}).prop('disabled', true);
 
     // i18n
     $.fn.select2.defaults.set('language', {
@@ -40,12 +40,12 @@ define([
     // forcing to override i18n strings
     $('select:not([ajax-url])').select2({});
 
-    $('#ro-region').on('change', function () {
-        $('#ro-city').trigger('regionChanged');
+    $('.ro-region-select').on('change', function () {
+        $('.ro-city-select').trigger('regionChanged');
     });
 
-    $('#ro-city').on('regionChanged', function () {
-        const getRegionValue = $('#ro-region').val();
+    $('.ro-city-select').on('regionChanged', function () {
+        const getRegionValue = $('.ro-region-select').val();
         const getCountiesAjaxUrl = '/rest/V1/oander/addresslist/getCityByRegion/';
 
         $.ajax({
@@ -71,7 +71,7 @@ define([
                     });
                 });
 
-                $('#ro-city').empty().select2({
+                $('.ro-city-select').empty().select2({
                     data: formatResponse,
                 }).prop('disabled', false);
             }
