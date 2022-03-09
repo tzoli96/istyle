@@ -41,12 +41,13 @@ class Account extends \Magento\Framework\View\Element\Template
      */
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
-        \Magento\Customer\Model\Session $customerSession,
-        \Oander\SalesforceLoyalty\Helper\Salesforce $salesforceHelper,
-        Data $helperData,
-        OrderFactory $orderFactory,
-        array $data = []
-    ) {
+        \Magento\Customer\Model\Session                  $customerSession,
+        \Oander\SalesforceLoyalty\Helper\Salesforce      $salesforceHelper,
+        Data                                             $helperData,
+        OrderFactory                                     $orderFactory,
+        array                                            $data = []
+    )
+    {
         parent::__construct($context, $data);
         $this->salesforceHelper = $salesforceHelper;
         $this->customerSession = $customerSession;
@@ -60,11 +61,10 @@ class Account extends \Magento\Framework\View\Element\Template
     public function getCustomerLoyaltyStatus()
     {
         $response = 0;
-        if($this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTER_TO_LOYALTY) &&
-            $this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTRED_TO_LOYALTY)){
+        if ($this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTER_TO_LOYALTY) &&
+            $this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTRED_TO_LOYALTY)) {
             $response = 2;
-        }elseif($this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTER_TO_LOYALTY))
-        {
+        } elseif ($this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTER_TO_LOYALTY)) {
             $response = 1;
         }
         return $response;
@@ -77,7 +77,7 @@ class Account extends \Magento\Framework\View\Element\Template
     {
         return $this->customerSession->getCustomer()->getData(\Oander\SalesforceReservation\Enum\Customer::SALESFORCE_ID) ?
             $this->customerSession->getCustomer()->getData(\Oander\SalesforceReservation\Enum\Customer::SALESFORCE_ID)
-            :__("No SF ID");
+            : __("No SF ID");
     }
 
     /**
@@ -95,9 +95,14 @@ class Account extends \Magento\Framework\View\Element\Template
     public function getLoyaltyPointsHistory()
     {
         $result = $this->salesforceHelper->getCustomerAffiliateTransactions($this->customerSession->getCustomer());
-        foreach ($result['AffiliatedTransactions'] as $index => $item){
-            $order = $this->orderFactory->create()->loadByAttribute('increment_id',$item['MagentoOrderNumber']);
-            $result['AffiliatedTransactions'][$index]['OrderId'] = $order->getData('entity_id');
+        foreach ($result['AffiliatedTransactions'] as $index => $item) {
+            if ($item['MagentoOrderNumber']) {
+                $order = $this->orderFactory->create()->loadByAttribute('increment_id', $item['MagentoOrderNumber']);
+                $orderId = $order->getData('entity_id');
+            } else {
+                $orderId = false;
+            }
+            $result['AffiliatedTransactions'][$index]['OrderId'] = $orderId;
         }
         return $result;
     }
