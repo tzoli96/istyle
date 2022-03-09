@@ -1,43 +1,4 @@
-<?php if ($block->getParentBlock()->isValidateRegion()) : ?>
-    <div class="form-group field city required validate">
-        <label class="label" for="city"><span><?php /* @escapeNotVerified */ echo __('City') ?></span></label>
-        <div class="control">
-            <?php $cities = $block->getCities() ?>
-            <div class="cities hidden">
-                <?php foreach ($cities as $city) : ?>
-                    <?php if ($city["state"] == $block->escapeHtml($block->getRegion())) : ?>
-                        <div class="city" value="<?php echo $city['value'] ?>"><?php echo $city['label'] ?></div>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-            </div>
-            <div class="dropdown dropdown--fc">
-                <div class="dropdown__input">
-                    <input type="text" value="<?php echo $block->escapeHtml($block->getParentBlock()->getAddress()->getCity()) ?>" name="fc-search" class="dropdown__search form-control" autocomplete="off" <?= ($block->escapeHtml($block->getRegion() == "") ? 'disabled' : '') ?>>
-                </div>
-                <div class="dropdown__selected hidden">
-                    <input type="text" name="city" class="city hide" id="city" value="<?php echo $block->escapeHtml($block->getParentBlock()->getAddress()->getCity()) ?>" data-validate='{"required":true}' />
-                </div>
-                <div class="dropdown__selected"></div>
-                <div class="dropdown__list">
-                    <?php foreach ($cities as $city) : ?>
-                        <?php if ($city["state"] == $block->escapeHtml($block->getRegion())) : ?>
-                            <div class="dropdown__item" value="<?php echo $city['value'] ?>"><?php echo $city['label'] ?></div>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php else : ?>
-    <div class="form-group field city required">
-        <label class="label" for="city"><span><?php /* @escapeNotVerified */ echo __('City') ?></span></label>
-        <div class="control">
-            <input type="text" name="city" value="<?php echo $block->escapeHtml($block->getParentBlock()->getAddress()->getCity()) ?>" title="<?php /* @escapeNotVerified */ echo __('City') ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('city') ?>" id="city">
-        </div>
-    </div>
-<?php endif; ?>
-
-<?php if($block->getParentBlock()->getRegionCollection()) : ?>
+<?php if($block->getParentBlock()->getReplacePostcodeRegion() && $block->getParentBlock()->getRegionCollection()) : ?>
     <div class="form-group field ro-city select2 required">
         <div class="control">
             <label class="label" for="city"><span><?php /* @escapeNotVerified */ echo __('City') ?></span></label>
@@ -49,4 +10,11 @@
         require(["roRegionCity"], function($) {
         });
     </script>
+<?php else : ?>
+    <div class="form-group field city required">
+        <label class="label" for="city"><span><?php /* @escapeNotVerified */ echo __('City') ?></span></label>
+        <div class="control">
+            <input type="text" name="city" value="<?php echo $block->escapeHtml($block->getParentBlock()->getAddress()->getCity()) ?>" title="<?php /* @escapeNotVerified */ echo __('City') ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('city') ?>" id="city">
+        </div>
+    </div>
 <?php endif; ?>
