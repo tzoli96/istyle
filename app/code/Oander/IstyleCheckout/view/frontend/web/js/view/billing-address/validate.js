@@ -23,9 +23,15 @@ define([
           if (self.isVisibleInDom($(field))) {
             var fieldElement = $(field).find('.form-control');
 
-            fieldElement.on('keyup change', function () {
-              self.requiredHandler($(this), fieldElement.attr('name'));
-            });
+            if (fieldElement.hasClass('oander-ui-action-multiselect')) {
+              $('.action-menu-item').on('click', function () {
+                self.requiredHandler(fieldElement, fieldElement.attr('name'));
+              });
+            } else {
+              fieldElement.on('keyup change', function () {
+                self.requiredHandler($(this), fieldElement.attr('name'));
+              });
+            }
 
             self.requiredHandler(fieldElement, fieldElement.attr('name'));
           }
@@ -45,13 +51,12 @@ define([
       if ($(element).length) {
         if (self.isVisibleInDom($(element).closest('.form-group'))) {
           delete self.mainFields[key];
-          
-          if ($(element).closest('.form-group').hasClass('_error')) {
-            self.mainFields[key] = false;
-          } else if (($(element).closest('.form-group').hasClass('_required') || $(element).closest('.form-group').hasClass('vat_required')) && !$(element).val().length) {
-            self.mainFields[key] = false;
-          } else {
+
+          if ($(element).closest('.form-group').hasClass('_filled')) {
             self.mainFields[key] = true;
+          }
+          else {
+            self.mainFields[key] = false;
           }
         }
       }
