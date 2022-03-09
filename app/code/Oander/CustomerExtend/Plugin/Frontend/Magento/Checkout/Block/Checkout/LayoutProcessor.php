@@ -82,6 +82,7 @@ class LayoutProcessor
             $postCodeElement["config"]["disableLabel"] = true;
             $postCodeElement['validation']['required-entry'] = true;
             $postCodeElement["config"]['selectedPlaceholders']['defaultPlaceholder'] = $postCodeElement["placeholder"] ?? __("State/Province");
+            $postCodeElement["config"]["label"] = __("State/Province");
         } else {
             $postCodeElement["config"]["label"] = __("State/Province");
         }
