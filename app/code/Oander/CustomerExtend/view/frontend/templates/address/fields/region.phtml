@@ -24,7 +24,7 @@
         </div>
     </div>
 <?php else : ?>
-    <div class="form-group field region required" style="display: none;">
+    <div class="form-group field region required">
         <label class="label" for="region"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
         <div class="control">
             <input type="text" id="region" name="region" value="<?php echo $block->escapeHtml($block->getParentBlock()->getRegion()) ?>" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control input-text required-entry" />

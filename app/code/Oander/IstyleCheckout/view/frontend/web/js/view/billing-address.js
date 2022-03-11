@@ -14,7 +14,6 @@ define([
   'Oander_IstyleCheckout/js/view/billing-address/validate',
   'Oander_IstyleCheckout/js/view/billing-address/base',
   'Oander_IstyleCheckout/js/view/billing-address/sort',
-  'Magento_Ui/js/lib/view/utils/dom-observer',
 ], function (
   $,
   ko,
@@ -30,8 +29,7 @@ define([
   billingAddressStore,
   billingAddressValidate,
   billingAddressBase,
-  billingAddressSort,
-  domObserver) {
+  billingAddressSort) {
   'use strict';
 
   var mixin = {
@@ -529,55 +527,44 @@ define([
 
       if (currentLS.billingAddress) {
         if (store.billingAddress.hasSelectedAddress() || currentLS.billingAddress.hasSelectedAddress) {
-          domObserver.get('.form-group[name="billingAddressshared.telephone"] input[name="telephone"]', function () {
-            for (var item in address) {
-              var elem = formElements.form.querySelector('[name="' + item + '"]');
-              var value = address[item];
+          var formInterval = setInterval(function () {
+            if ($('[name="billingAddressshared.telephone"] .form-control').length) {
+              for (var item in address) {
+                var elem = formElements.form.querySelector('[name="' + item + '"]');
+                var value = address[item];
 
-              if (item === 'postcode' && value !== '') {
-                var options = $(formElements.form).find('.form-group[name="billingAddressshared.postcode"] .oander-ui-action-multiselect__menu-inner-item');
-
-                if (options.length) {
-                  $(formElements.form).find('.form-group[name="billingAddressshared.postcode"] .oander-ui-action-multiselect__menu-inner-item').each(function() {
-                    var thisOption = $(this).find('label > span').text();
-                    
-                    if (thisOption === value) {
-                      $(this).find('.action-menu-item').trigger('click');
-                      return false;
+                if (item == 'street') {
+                  if (Array.isArray(value)) {
+                    if (value.length > 1) {
+                      for (var streetItem in value) {
+                        elem = formElements.form.querySelector('[name="' + item + '['+ streetItem +']"]');
+                        elem.value = value[streetItem];
+                        elem.dispatchEvent(new Event('change'));
+                      }
                     }
-                  });
-                }
-              };
-
-              if (item == 'street') {
-                if (Array.isArray(value)) {
-                  if (value.length > 1) {
-                    for (var streetItem in value) {
-                      elem = formElements.form.querySelector('[name="' + item + '['+ streetItem +']"]');
-                      elem.value = value[streetItem];
+                    else {
+                      elem = formElements.form.querySelector('[name="' + item + '[0]"]');
+                      elem.value = value;
                       elem.dispatchEvent(new Event('change'));
                     }
                   }
-                  else {
-                    elem = formElements.form.querySelector('[name="' + item + '[0]"]');
+                }
+
+                if (item == 'vatId') {
+                  elem = formElements.form.querySelector('[name="vat_id"]');
+                }
+
+                if (value !== undefined && value !== null && !Array.isArray(value)) {
+                  if (elem) {
                     elem.value = value;
                     elem.dispatchEvent(new Event('change'));
                   }
                 }
               }
 
-              if (item == 'vatId') {
-                elem = formElements.form.querySelector('[name="vat_id"]');
-              }
-
-              if (value !== undefined && value !== null && !Array.isArray(value)) {
-                if (elem) {
-                  elem.value = value;
-                  elem.dispatchEvent(new Event('change'));
-                }
-              }
+              clearInterval(formInterval);
             }
-          });
+          }, helpers.interval);
         }
       }
     },

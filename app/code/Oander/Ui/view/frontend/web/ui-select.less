@@ -17,7 +17,6 @@
     margin: auto;
     font-size: 14px;
     cursor: default;
-    pointer-events: none;
   }
 
   > .icon {
@@ -100,18 +99,12 @@
     padding-right: 30px;
     padding-bottom: .563rem;
     padding-left: .75rem;
-    border: 1px solid #aaa;
-    border-radius: 4px;
-    background-color: #fff;
+    border: 1px solid #aaa !important; // magento error field override
+    border-radius: 4px !important; // magento error field override
+    background-color: #fff !important; // magento error field override
     font-size: 1rem;
     line-height: 1;
     color: #464a4c;
-
-    .field._error & {
-      border: 1px solid #aaa;
-      border-radius: 4px;
-      background-color: #fff;
-    }
   }
 
   .oander-ui-action-multiselect__search-label {
