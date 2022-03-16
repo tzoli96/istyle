@@ -103,11 +103,13 @@ class LayoutProcessor
 
     private function _changeCity(&$cityElement) {
         if(count($this->regions)) {
-            $cityElement["component"] = "Magento_Ui/js/form/element/ui-select";
+            $cityElement["component"] = "Oander_Ui/js/form/element/ui-select-ajax";
             $cityElement["config"]["filterOptions"] = true;
             $cityElement["config"]["template"] = 'ui/form/field';
             $cityElement["config"]["elementTmpl"] = 'oanderui/grid/filters/elements/ui-select';
             $cityElement["config"]["formElement"] = "select";
+            $cityElement["config"]['koSelector'] = ".oander-ui-action-multiselect";
+            $cityElement["config"]['apiUrl'] = "/rest/V1/oander/addresslist/getCityByRegion/";
             $cityElement["config"]["visible"] = 1;
             $cityElement["config"]["required"] = 1;
             $cityElement["config"]["multiple"] = false;
