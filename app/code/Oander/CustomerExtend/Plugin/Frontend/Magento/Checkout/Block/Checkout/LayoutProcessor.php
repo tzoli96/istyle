@@ -46,6 +46,9 @@ class LayoutProcessor
                     if (isset($payment['children']['form-fields']['children']["postcode"])) {
                         $this->_changeToRegion($payment['children']['form-fields']['children']["postcode"]);
                     }
+                    if (isset($payment['children']['form-fields']['children']["city"])) {
+                        $this->_changeCity($payment['children']['form-fields']['children']["city"]);
+                    }
                 }
             }
 
@@ -53,12 +56,22 @@ class LayoutProcessor
             if ($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]["postcode"]) {
                 $this->_changeToRegion($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]["postcode"]);
             }
+            //shipping
+            if ($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]["city"]) {
+                $this->_changeCity($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]["city"]);
+            }
 
             //billing
             if (isset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
                 ['children']['form-fields']['children']['postcode'])) {
                 $this->_changeToRegion($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
                 ['children']['form-fields']['children']['postcode']);
+            }
+            //billing
+            if (isset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
+                ['children']['form-fields']['children']['city'])) {
+                $this->_changeCity($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
+                ['children']['form-fields']['children']['city']);
             }
         }
         return $jsLayout;
@@ -85,6 +98,25 @@ class LayoutProcessor
             $postCodeElement["config"]["label"] = __("State/Province");
         } else {
             $postCodeElement["config"]["label"] = __("State/Province");
+        }
+    }
+
+    private function _changeCity(&$cityElement) {
+        if(count($this->regions)) {
+            $cityElement["component"] = "Magento_Ui/js/form/element/ui-select";
+            $cityElement["config"]["filterOptions"] = true;
+            $cityElement["config"]["template"] = 'ui/form/field';
+            $cityElement["config"]["elementTmpl"] = 'oanderui/grid/filters/elements/ui-select';
+            $cityElement["config"]["formElement"] = "select";
+            $cityElement["config"]["visible"] = 1;
+            $cityElement["config"]["required"] = 1;
+            $cityElement["config"]["multiple"] = false;
+            $cityElement["config"]["disableLabel"] = true;
+            $cityElement['validation']['required-entry'] = true;
+            $cityElement["config"]['selectedPlaceholders']['defaultPlaceholder'] = $cityElement["placeholder"] ?? __("State/Province");
+            $cityElement["config"]["label"] = __("State/Province");
+        } else {
+            $cityElement["config"]["label"] = __("State/Province");
         }
     }
 }
