@@ -83,7 +83,7 @@ class LayoutProcessor
             foreach ($this->regions as $region) {
                 $options[] = ["value" => $region, "label" => $region];
             }
-            $postCodeElement["component"] = "Magento_Ui/js/form/element/ui-select";
+            $postCodeElement["component"] = "Oander_Ui/js/form/element/ui-select-state-province";
             $postCodeElement["config"]["filterOptions"] = true;
             $postCodeElement["config"]["template"] = 'ui/form/field';
             $postCodeElement["config"]["elementTmpl"] = 'oanderui/grid/filters/elements/ui-select';
