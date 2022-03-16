@@ -3,8 +3,8 @@
 
 **Utoljára frissítve:** 2017.05.14.
 
-**Tartalomjegyzék:** 
-
+**Tartalomjegyzék:**  
+ 
 ## <a name="sass-lint"></a>Sass-lint
 A projekthez be lett állítva **sass-lint**. Ezzel egységesen (konfigurációs .yml fájlból) lehet scss-t írni. A leírás **PhpStorm**-hoz készült.
 
@@ -18,3 +18,4 @@ A projekthez be lett állítva **sass-lint**. Ezzel egységesen (konfigurációs
     3. Use specific config file (betallózni!): `{project-root}/.sass-lint.yml`
  
  Angol nyelvű dev dokumentáció: https://github.com/idok/sass-lint-plugin
+

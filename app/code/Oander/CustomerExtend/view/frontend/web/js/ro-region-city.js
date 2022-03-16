@@ -1,18 +1,16 @@
 define([
     'jquery',
     'select2',
-    'Magento_Ui/js/lib/view/utils/dom-observer',
     'mage/translate'
-], function ($, select2, domObserver, $t) {
+], function ($, select2, $t) {
     'use strict';
 
     // init selects
-    $("#ro-region").select2({
-        language: "ro",
-        placeholder: "select region placeholder",
+    $('.ro-region-select').select2({
+        language: 'ro',
     });
 
-    $("#ro-city").select2({}).prop("disabled", true);
+    $('.ro-city-select').select2({}).prop('disabled', true);
 
     // i18n
     $.fn.select2.defaults.set('language', {
@@ -40,48 +38,42 @@ define([
     });
 
     // forcing to override i18n strings
-    $("select:not([ajax-url])").select2({});
+    $('select:not([ajax-url])').select2({});
 
-    // on region change trigger city select
-    $("#ro-region").on('change', function () {
-        $("#ro-city").trigger('regionChanged');
+    $('.ro-region-select').on('change', function () {
+        $('.ro-city-select').trigger('regionChanged');
     });
 
-    // activate city select when region selected
-    $("#ro-city").on('regionChanged', function () {
-        $("#ro-city").prop("disabled", false);
-
-        // use for req
-        const getRegionValue = $("#ro-region").val();
-
-        const getCountiesAjaxUrl = 'https://reqres.in/api/unknown';
-        // const getCountiesAjaxUrl = '<?php echo $block->getParentBlock()->getCitiesAjaxUrlParam(); ?>';
+    $('.ro-city-select').on('regionChanged', function () {
+        const getRegionValue = $('.ro-region-select').val();
+        const getCountiesAjaxUrl = '/rest/V1/oander/addresslist/getCityByRegion/';
 
         $.ajax({
-            url: getCountiesAjaxUrl,
+            url: getCountiesAjaxUrl + getRegionValue,
             type: 'GET',
             dataType: 'json'
         }).done(function (data) {
-            const response = data.data;
-            const formatResponse = [];
+            const response = data;
+            const formatResponse = [
+                {
+                    "id": 0,
+                    "text": $t('Please select city'),
+                    "disabled": true,
+                    "selected": true
+                }
+            ];
 
             if (response) {
-                //success
                 $.each(response, function (index, value) {
-                    console.log('each', value)
                     formatResponse.push({
-                        id: value.id - 1,
-                        text: value.name
+                        id: value,
+                        text: value
                     });
                 });
 
-                $(".js-data-example-ajax").select2({
-                    placeholder: "Select a region first",
-                    //minimumInputLength: 1,
+                $('.ro-city-select').empty().select2({
                     data: formatResponse,
-                })
-            } else {
-                //error state, no data
+                }).prop('disabled', false);
             }
         });
     });

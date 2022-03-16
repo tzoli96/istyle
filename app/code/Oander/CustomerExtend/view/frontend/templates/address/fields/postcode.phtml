@@ -1,3 +1,9 @@
+<?php
+ /**
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+ ?>
+<?php if(!$block->getParentBlock()->getReplacePostcodeRegion()) : ?>
 <div class="form-group field zip required">
     <label class="label" for="zip"><span><?php /* @escapeNotVerified */ echo __('Zip/Postal Code') ?></span></label>
     <div class="control">
@@ -5,24 +11,28 @@
     </div>
 </div>
 
-<!-- TODO romanian region select-->
-<div class="form-group field ro-region required">
-    <div class="control">
-        <label class="label" for="ro-region"><span><?php /* @escapeNotVerified */ echo __('Romania Region') ?></span></label>
-        <select style="width: 100%" id="ro-region" class="js-data-example-ajax js-example-responsive form-control <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('postcode') ?>">
-<!--            TODO options BE -->
-
-            <option value="vrancea">Vrancea County</option>
-            <option value="vaslui">Vaslui Countynia</option>
-            <option value="valcea">Valcea Countyrisana</option>
-            <option value="tulcea">Tulcea County Moldova</option>
-            <option value="timiș">Timiș County</option>
-            <option value="teleorman">Teleorman County</option>
-            <option value="suceava">Suceava County</option>
-            <option value="sibiu">Sibiu County</option>
-        </select>
-    </div>
-</div>
-<script>
-    require(["roRegionCity"], function($) {});
-</script>
+<?php else : ?>
+    <?php if(empty($block->getParentBlock()->getRegionCollection())) : ?>
+        <div class="form-group field zip required">
+            <label class="label" for="zip"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
+            <div class="control">
+                <input type="text" name="postcode" value="<?php echo $block->escapeHtml($block->getParentBlock()->getAddress()->getPostcode()) ?>" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" id="zip" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('postcode') ?>">
+            </div>
+        </div>
+    <?php else : ?>
+        <div class="form-group field ro-region select2 required">
+            <div class="control">
+                <label class="label" for="postcode"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
+                <select name="postcode" style="width: 100%" id="postcode" class="ro-region-select form-control <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('postcode') ?>">
+                    <option value="" disabled selected><?php /* @escapeNotVerified */ echo __('Please select region') ?></option>
+                    <?php foreach ($block->getParentBlock()->getRegionCollection() as $regionItem) : ?>
+                        <option value="<?= $regionItem ?>"><?= $regionItem ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+        <script>
+          require(["roRegionCity"], function($) {});
+        </script>
+    <?php endif; ?>
+<?php endif; ?>
