@@ -549,6 +549,24 @@ define([
                 }
               };
 
+              // TODO ide jön a city visszatöltés, postcode mintára
+              // kivezeni function-be az if-en belüli részt postcode és city blokkok
+
+              if (item === 'city' && value !== '') {
+                var options = $(formElements.form).find('.form-group[name="billingAddressshared.city"] .oander-ui-action-multiselect__menu-inner-item');
+
+                if (options.length) {
+                  $(formElements.form).find('.form-group[name="billingAddressshared.city"] .oander-ui-action-multiselect__menu-inner-item').each(function() {
+                    var thisOption = $(this).find('label > span').text();
+
+                    if (thisOption === value) {
+                      $(this).find('.action-menu-item').trigger('click');
+                      return false;
+                    }
+                  });
+                }
+              };
+
               if (item == 'street') {
                 if (Array.isArray(value)) {
                   if (value.length > 1) {

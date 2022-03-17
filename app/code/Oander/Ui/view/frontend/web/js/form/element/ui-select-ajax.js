@@ -9,8 +9,7 @@ define([
 
     return uiSelect.extend({
         defaults: {
-            koSelector: null,
-            apiUrl: null,
+            apiUrl: null
         },
 
         /**
@@ -21,69 +20,42 @@ define([
         initialize: function () {
             this._super();
 
-            $.async(
-                this.rootListSelector,
-                this,
-                this.onRootListRender.bind(this),
-            );
-
-            uiSelectState.selectedState.subscribe(function (value) {
-                console.log('state value changed', value);
-            });
+            uiSelectState.selectedState.subscribe(function (data) {
+                // if (!data) {
+                //     console.log('no data, make it disable')
+                // } else {
+                //     console.log('data aviailable make it active')
+                // }
+                //console.log('state value changed', data);
+                this.getRegion(data.value);
+            }, this)
 
             return this;
         },
 
-        getRegion: function() {
-            const getCountiesAjaxUrl = this.apiUrl;
+        getRegion: function(city) {
+            const getCountiesAjaxUrl = this.apiUrl + city;
+            const response = [];
+            const self = this;
 
             $.ajax({
-                url: getCountiesAjaxUrl + 'Alba',
+                url: getCountiesAjaxUrl,
                 type: 'GET',
                 dataType: 'json'
             }).done(function (data) {
-                let response = data;
+                if (data) {
+                    $.each(data, function (index, value) {
+                        response.push({
+                            label: value,
+                            level: 0,
+                            path: '',
+                            value: value
+                        });
+                    });
+                }
+                self.options(response);
             })
-        },
-        /**
-         * Parses options and merges the result with instance
-         * Set defaults according to mode and levels configuration
-         *
-         * @param  {Object} config
-         * @returns {Object} Chainable.
-         */
-        initConfig: function (config) {
-            config.options = [
-                {
-                    label: 'A',
-                    level: 0,
-                    path: '',
-                    value: 'A',
-                },
-                {
-                    label: 'B',
-                    level: 0,
-                    path: '',
-                    value: 'B',
-                },
-            ];
-            var result = config.options,
-                defaults = this.constructor.defaults,
-                multiple = _.isBoolean(config.multiple) ? config.multiple : defaults.multiple,
-                type = config.selectType || defaults.selectType,
-                showOpenLevelsActionIcon = _.isBoolean(config.showOpenLevelsActionIcon) ?
-                    config.showOpenLevelsActionIcon :
-                    defaults.showOpenLevelsActionIcon,
-                openLevelsAction = _.isBoolean(config.openLevelsAction) ?
-                    config.openLevelsAction :
-                    defaults.openLevelsAction;
-
-            multiple = !multiple ? 'single' : false;
-            config.showOpenLevelsActionIcon = showOpenLevelsActionIcon && openLevelsAction;
-            _.extend(config, result, defaults.presets[multiple], defaults.presets[type]);
-            this._super();
-
             return this;
-        },
+        }
     })
 });

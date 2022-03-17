@@ -115,10 +115,10 @@ class LayoutProcessor
             $cityElement["config"]["multiple"] = false;
             $cityElement["config"]["disableLabel"] = true;
             $cityElement['validation']['required-entry'] = true;
-            $cityElement["config"]['selectedPlaceholders']['defaultPlaceholder'] = $cityElement["placeholder"] ?? __("State/Province");
-            $cityElement["config"]["label"] = __("State/Province");
+            $cityElement["config"]['selectedPlaceholders']['defaultPlaceholder'] = $cityElement["placeholder"] ?? __("City");
+            $cityElement["config"]["label"] = __("City");
         } else {
-            $cityElement["config"]["label"] = __("State/Province");
+            $cityElement["config"]["label"] = __("City");
         }
     }
 }
