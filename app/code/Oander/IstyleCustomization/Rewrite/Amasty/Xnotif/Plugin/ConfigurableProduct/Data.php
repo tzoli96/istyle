@@ -1,6 +1,6 @@
 <?php
 
-namespace Oander\IstyleCustomization\Rewrite\Amasty\Payrestriction\Xnotif\Plugin\ConfigurableProduct;
+namespace Oander\IstyleCustomization\Rewrite\Amasty\Xnotif\Plugin\ConfigurableProduct;
 
 use Amasty\Xnotif\Plugins\ConfigurableProduct\Data as OriginalData;
 use Magento\Catalog\Helper\Image;
@@ -71,6 +71,7 @@ class Data extends OriginalData
                             'caption' => $image->getLabel(),
                             'position' => $image->getPosition(),
                             'isMain' => $image->getFile() == $product->getImage(),
+                            'video' => $image->getVideoUrl(),
                         ];
                 }
             }
