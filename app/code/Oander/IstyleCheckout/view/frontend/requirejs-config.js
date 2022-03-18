@@ -55,6 +55,9 @@ var config = {
       },
       'Magento_Checkout/js/view/billing-address': {
         'Oander_IstyleCheckout/js/view/billing-address': true
+      },
+      'Oander_Ui/js/form/element/ui-select-ajax': {
+        'Oander_IstyleCheckout/js/form/element/ui-select-ajax-mixin': true
       }
     }
   }

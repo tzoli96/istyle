@@ -83,7 +83,8 @@ class LayoutProcessor
             foreach ($this->regions as $region) {
                 $options[] = ["value" => $region, "label" => $region];
             }
-            $postCodeElement["component"] = "Oander_Ui/js/form/element/ui-select-state-province";
+//            $postCodeElement["component"] = "Oander_Ui/js/form/element/ui-select-state-province";
+            $postCodeElement["component"] = "Magento_Ui/js/form/element/ui-select";
             $postCodeElement["config"]["filterOptions"] = true;
             $postCodeElement["config"]["template"] = 'ui/form/field';
             $postCodeElement["config"]["elementTmpl"] = 'oanderui/grid/filters/elements/ui-select';
@@ -108,7 +109,7 @@ class LayoutProcessor
             $cityElement["config"]["template"] = 'ui/form/field';
             $cityElement["config"]["elementTmpl"] = 'oanderui/grid/filters/elements/ui-select';
             $cityElement["config"]["formElement"] = "select";
-            $cityElement["config"]['koSelector'] = ".oander-ui-action-multiselect";
+            $cityElement["config"]['koSelector'] = "checkout.steps.shipping-step.shippingAddress.shipping-address-fieldset.postcode";
             $cityElement["config"]['apiUrl'] = "/rest/V1/oander/addresslist/getCityByRegion/";
             $cityElement["config"]["visible"] = 1;
             $cityElement["config"]["required"] = 1;

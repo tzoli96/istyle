@@ -1,14 +1,14 @@
 define([
     'jquery',
+    'ko',
+    "uiRegistry",
     'Magento_Ui/js/form/element/ui-select',
-    'Oander_Ui/js/form/ui-select-state',
-    'mage/translate',
-    'ko'
-], function ($, uiSelect, uiSelectState, $t, ko) {
+], function ($, ko, registry, uiSelect) {
     'use strict';
 
     return uiSelect.extend({
         defaults: {
+            koSelector: null,
             apiUrl: null
         },
 
@@ -18,28 +18,30 @@ define([
          * @returns {UISelect} Chainable.
          */
         initialize: function () {
+            const self = this;
             this._super();
 
-            uiSelectState.selectedState.subscribe(function (data) {
-                // if (!data) {
-                //     console.log('no data, make it disable')
-                // } else {
-                //     console.log('data aviailable make it active')
-                // }
-                //console.log('state value changed', data);
-                this.getRegion(data.value);
-            }, this)
+            registry.get(self.koSelector, function (element) {
+                element.value.subscribe(function (value) {
+                    self.ajaxRequestHandler(value)
+                }, this)
+            });
 
             return this;
         },
 
-        getRegion: function(city) {
-            const getCountiesAjaxUrl = this.apiUrl + city;
-            const response = [];
+        /**
+         * Handling ajax request input parameter
+         *
+         * @returns {Void}.
+         * @param {String}.
+         */
+        ajaxRequestHandler: function(param) {
             const self = this;
+            const response = [];
 
             $.ajax({
-                url: getCountiesAjaxUrl,
+                url: this.apiUrl + param,
                 type: 'GET',
                 dataType: 'json'
             }).done(function (data) {
@@ -53,6 +55,9 @@ define([
                         });
                     });
                 }
+
+                self.reset();
+                self.cacheOptions.plain = _.compact(null);
                 self.options(response);
             })
             return this;

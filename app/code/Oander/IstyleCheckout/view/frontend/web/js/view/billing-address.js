@@ -526,6 +526,7 @@ define([
     setBillingAddress: function (address) {
       var formElements = this.formElements();
       var currentLS = store.getLocalStorage();
+      var self = this;
 
       if (currentLS.billingAddress) {
         if (store.billingAddress.hasSelectedAddress() || currentLS.billingAddress.hasSelectedAddress) {
@@ -534,38 +535,8 @@ define([
               var elem = formElements.form.querySelector('[name="' + item + '"]');
               var value = address[item];
 
-              if (item === 'postcode' && value !== '') {
-                var options = $(formElements.form).find('.form-group[name="billingAddressshared.postcode"] .oander-ui-action-multiselect__menu-inner-item');
-
-                if (options.length) {
-                  $(formElements.form).find('.form-group[name="billingAddressshared.postcode"] .oander-ui-action-multiselect__menu-inner-item').each(function() {
-                    var thisOption = $(this).find('label > span').text();
-                    
-                    if (thisOption === value) {
-                      $(this).find('.action-menu-item').trigger('click');
-                      return false;
-                    }
-                  });
-                }
-              };
-
-              // TODO ide jön a city visszatöltés, postcode mintára
-              // kivezeni function-be az if-en belüli részt postcode és city blokkok
-
-              if (item === 'city' && value !== '') {
-                var options = $(formElements.form).find('.form-group[name="billingAddressshared.city"] .oander-ui-action-multiselect__menu-inner-item');
-
-                if (options.length) {
-                  $(formElements.form).find('.form-group[name="billingAddressshared.city"] .oander-ui-action-multiselect__menu-inner-item').each(function() {
-                    var thisOption = $(this).find('label > span').text();
-
-                    if (thisOption === value) {
-                      $(this).find('.action-menu-item').trigger('click');
-                      return false;
-                    }
-                  });
-                }
-              };
+              self.triggerInput(formElements, currentLS, item, elem, value, 'postcode');
+              self.triggerInput(formElements, currentLS, item, elem, value, 'city');
 
               if (item == 'street') {
                 if (Array.isArray(value)) {
@@ -594,6 +565,27 @@ define([
                   elem.dispatchEvent(new Event('change'));
                 }
               }
+            }
+          });
+        }
+      }
+    },
+
+    /**
+     * Trigger selected input element
+     * @return {Boolean}
+     */
+    triggerInput: function (formElements, currentLS, item, elem, value, input) {
+      if (item === input && value !== '') {
+        var options = $(formElements.form).find(".form-group[name='billingAddressshared." + input + "'] .oander-ui-action-multiselect__menu-inner-item");
+
+        if (options.length) {
+          $(formElements.form).find(".form-group[name='billingAddressshared." + input + "'] .oander-ui-action-multiselect__menu-inner-item").each(function() {
+            var thisOption = $(this).find('label > span').text();
+
+            if (thisOption === value) {
+              $(this).find('.action-menu-item').trigger('click');
+              return false;
             }
           });
         }
