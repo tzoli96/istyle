@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ff1c75c5fc956d5d8f196f86b5311b84",
+    "content-hash": "c4463906f40e52f2c7ecaa11c678bd30",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9434,11 +9434,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.3.0.5",
+            "version": "1.3.0.7",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "bd694b4168f7e9c11148c360715e68dbdf3d7dbe"
+                "reference": "f813baef60a22b2a2a691cd98f7c08f655412de0"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9457,7 +9457,7 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2022-02-23T09:59:27+00:00"
+            "time": "2022-03-20T17:51:29+00:00"
         },
         {
             "name": "oander/module-salesforce-service",
@@ -14923,5 +14923,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
