@@ -78,7 +78,6 @@ var stripe =
         if (callback)
             callback(message);
         else if (message)
-            stripe.displayCardError(message);
     },
 
     setSetupIntentClientSecret: function(clientSecret)
