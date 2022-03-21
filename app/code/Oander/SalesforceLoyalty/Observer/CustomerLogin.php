@@ -55,19 +55,11 @@ class CustomerLogin implements ObserverInterface
     {
         $customer = $observer->getEvent()->getCustomer();
 
-        if ($this->configHelper->getLoyaltyServiceEnabled() && !$this->helper->getCustomerLoyaltyStatus()) {
+        if ($this->configHelper->getLoyaltyServiceEnabled()) {
             if ($this->salesForceHelper->getCustomerIsAffiliateMember()) {
                 $customer = $this->customerRepository->getById($customer->getId());
-                switch ($this->helper->getCustomerLoyaltyStatus()) {
-                    case 2:
-                        $customer->setCustomAttribute(CustomerAttribute::REGISTER_TO_LOYALTY, true);
-                        $customer->setCustomAttribute(CustomerAttribute::REGISTRED_TO_LOYALTY, true);
-                        break;
-                    case 1:
-                        $customer->setCustomAttribute(CustomerAttribute::REGISTER_TO_LOYALTY, true);
-                        break;
-                }
- 
+                $customer->setCustomAttribute(CustomerAttribute::REGISTER_TO_LOYALTY, true);
+                $customer->setCustomAttribute(CustomerAttribute::REGISTRED_TO_LOYALTY, true);
                 $this->customerRepository->save($customer);
             }
         }

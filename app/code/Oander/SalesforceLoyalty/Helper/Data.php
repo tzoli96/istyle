@@ -224,12 +224,12 @@ class Data extends AbstractHelper
      */
     public function getCustomerLoyaltyStatus()
     {
-        $response = 0;
+        $response = CustomerAttribute::REGISTRATION_STATUS_START;
         if ($this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTER_TO_LOYALTY) &&
             $this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTRED_TO_LOYALTY)) {
-            $response = 2;
+            $response = CustomerAttribute::REGISTRATION_STATUS_DONE;
         } elseif ($this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTER_TO_LOYALTY)) {
-            $response = 1;
+            $response = CustomerAttribute::REGISTRATION_STATUS_WAITING;
         }
         return $response;
     }
