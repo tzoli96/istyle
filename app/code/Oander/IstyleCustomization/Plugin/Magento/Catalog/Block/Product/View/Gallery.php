@@ -44,9 +44,9 @@ class Gallery
 
         if (empty($imagesItems)) {
             $imagesItems[] = [
-                'thumb' => $this->_imageHelper->getDefaultPlaceholderUrl('thumbnail'),
-                'img' => $this->_imageHelper->getDefaultPlaceholderUrl('image'),
-                'full' => $this->_imageHelper->getDefaultPlaceholderUrl('image'),
+                'thumb' => $this->imageHelper->getDefaultPlaceholderUrl('thumbnail'),
+                'img' => $this->imageHelper->getDefaultPlaceholderUrl('image'),
+                'full' => $this->imageHelper->getDefaultPlaceholderUrl('image'),
                 'caption' => '',
                 'position' => '0',
                 'isMain' => true,
