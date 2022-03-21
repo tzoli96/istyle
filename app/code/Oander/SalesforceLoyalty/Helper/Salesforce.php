@@ -73,6 +73,24 @@ class Salesforce extends AbstractHelper
         return $this->registry->registry(self::REGISTRY_AVAILABLE_POINTS);
     }
 
+    /**
+     * @param $customer
+     * @return bool
+     * @throws LocalizedException
+     */
+    public function getCustomerIsAffiliateMember($customer = null)
+    {
+        $customer = $this->_getCustomer($customer);
+        $response = $this->loyaltyEndpoint->getCustomerIsAffiliateMember($customer->getData('sforce_maconomy_id'),substr($customer->getStore()->getCode(), 0, 2));
+        $result = true;
+        if(strpos($response['Message'], 'Matched customer is not an active Affiliate Membe') !== false) {
+            if(!$response['isSuccess']){
+                $result = false;
+            }
+        }
+        return $result;
+    }
+
 
     /**
      * @param int $blockPoints

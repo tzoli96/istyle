@@ -26,4 +26,10 @@
         <observer name="oander_salesforceloyalty_customer_convert_observer"
                   instance="Oander\SalesforceLoyalty\Observer\Convert\CustomerConvertObserver"/>
     </event>
+    <!-- 57017 -->
+    <event name="customer_login">
+        <observer name="oander_salesforceloyalty_customer_convert_observer"
+                  instance="Oander\SalesforceLoyalty\Observer\CustomerLogin"/>
+    </event>
+    <!-- 57017 -->
 </config>

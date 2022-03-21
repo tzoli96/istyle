@@ -122,7 +122,7 @@
         "oander/module-product-widget-warehouse-manager-extender": "45951.x-dev",
         "oander/module-producturlresolver": "1.0.2",
         "oander/module-safe-category-index": "1.0.0.1",
-        "oander/module-salesforce": "1.3.0.5",
+        "oander/module-salesforce": "1.3.0.7",
         "oander/module-salesforce-service": "0.0.3.52",
         "oander/module-salesforce-widget": "1.0.7",
         "oander/module-salesforcereservation": "1.1.19",
