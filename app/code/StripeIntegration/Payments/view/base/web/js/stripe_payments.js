@@ -75,9 +75,7 @@ var stripe =
             }
         }
 
-        if (callback)
-            callback(message);
-        else if (message)
+        if (callback) callback(message);
     },
 
     setSetupIntentClientSecret: function(clientSecret)
