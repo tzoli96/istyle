@@ -82,7 +82,13 @@ class Salesforce extends AbstractHelper
     {
         $customer = $this->_getCustomer($customer);
         $response = $this->loyaltyEndpoint->getCustomerIsAffiliateMember($customer->getData('sforce_maconomy_id'),substr($customer->getStore()->getCode(), 0, 2));
-        return (strpos($response['Message'], 'Matched customer is not an active Affiliate Membe') !== false && !$response['isSuccess']) ? false : true;
+        $result = true;
+        if(strpos($response['Message'], 'Matched customer is not an active Affiliate Membe') !== false) {
+            if(!$response['isSuccess']){
+                $result = false;
+            }
+        }
+        return $result;
     }
 
 
