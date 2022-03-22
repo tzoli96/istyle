@@ -1,6 +1,6 @@
 <?php
 
-namespace Oander\IstyleCustomization\Plugin\Magento\Swatches\Helper;
+namespace Oander\IstyleCustomization\Helper;
 
 use Magento\Catalog\Helper\Image;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
@@ -21,7 +21,7 @@ use Magento\Catalog\Model\ResourceModel\Product\Collection as ProductCollection;
  *
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
-class Data
+class SwatchesData
 {
     /**
      * When we init media gallery empty image types contain this value.

@@ -1,12 +1,11 @@
 <?php
-
-namespace Oander\IstyleCustomization\Plugin\Magento\Swatches\Controller\Ajax;
+namespace Oander\IstyleCustomization\Rewrite\Magento\Swatches\Controller\Ajax;
 
 use Magento\Catalog\Model\ProductFactory;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Swatches\Helper\Data;
-use Oander\IstyleCustomization\Plugin\Magento\Swatches\Helper\Data as SwatchHelper;
+use Oander\IstyleCustomization\Helper\SwatchesData as SwatchHelper;
 
 class Media extends \Magento\Swatches\Controller\Ajax\Media
 {
