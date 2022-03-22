@@ -10,6 +10,7 @@ namespace Oander\SalesforceLoyalty\Helper;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\Exception\LocalizedException;
 use Oander\Salesforce\Model\Endpoint\Loyalty;
+use Oander\SalesforceLoyalty\Enum\CustomerAttribute;
 
 class Salesforce extends AbstractHelper
 {
@@ -80,12 +81,18 @@ class Salesforce extends AbstractHelper
      */
     public function getCustomerIsAffiliateMember($customer = null)
     {
+        $result = false;
         $customer = $this->_getCustomer($customer);
-        $response = $this->loyaltyEndpoint->getCustomerIsAffiliateMember($customer->getData('sforce_maconomy_id'),substr($customer->getStore()->getCode(), 0, 2));
-        $result = true;
-        if(!$response['isSuccess']){
-            if(strpos($response['Message'], 'Matched customer is not an active Affiliate Membe') !== false) {
-                $result = false;
+        $sfId = $customer->getData('sforce_maconomy_id');
+        $registredLoyalty = $customer->getData(CustomerAttribute::REGISTRED_TO_LOYALTY);
+        $registerLoyalty = $customer->getData(CustomerAttribute::REGISTER_TO_LOYALTY);
+        if($sfId && !$registerLoyalty && !$registredLoyalty)
+        {
+            $response = $this->loyaltyEndpoint->getCustomerIsAffiliateMember($sfId,substr($customer->getStore()->getCode(), 0, 2));
+            if(!$response['IsSuccess']){
+                if(strpos($response['Message'], 'Matched customer is not an active Affiliate Membe') !== false) {
+                    $result = true;
+                }
             }
         }
         return $result;
