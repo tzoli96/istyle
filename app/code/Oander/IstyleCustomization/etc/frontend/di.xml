@@ -19,4 +19,7 @@
     </type>
     <preference for="Amasty\Xnotif\Plugins\ConfigurableProduct\Data" type="Oander\IstyleCustomization\Rewrite\Amasty\Xnotif\Plugin\ConfigurableProduct\Data"/>
     <!-- #57034 END -->
+    <!-- #57034 START -->
+    <preference for="Magento\Swatches\Controller\Ajax\Media" type="Oander\IstyleCustomization\Plugin\Magento\Swatches\Controller\Ajax\Media" />
+    <!-- #57034 END -->
 </config>
