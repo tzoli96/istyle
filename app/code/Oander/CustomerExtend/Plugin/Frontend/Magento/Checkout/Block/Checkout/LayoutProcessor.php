@@ -36,7 +36,7 @@ class LayoutProcessor
     ) {
         if($this->_scopeConfig->isSetFlag(ConfigEnum::PATH_CUSTOMER_REPLACE_POSTCODE_REGION, \Magento\Store\Model\ScopeInterface::SCOPE_STORE)) {
             $this->regions = $this->getCity->getAllRegion();
-            if(
+            /*if(
                 isset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                     ['payment']['children']['payments-list']['children']) &&
                 is_array($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
@@ -47,10 +47,10 @@ class LayoutProcessor
                         $this->_changeToRegion($payment['children']['form-fields']['children']["postcode"]);
                     }
                     if (isset($payment['children']['form-fields']['children']["city"])) {
-                        $this->_changeCity($payment['children']['form-fields']['children']["city"]);
+                        $this->_changeCityBilling($payment['children']['form-fields']['children']["city"]);
                     }
                 }
-            }
+            }*/
 
             //shipping
             if ($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]["postcode"]) {
@@ -58,7 +58,7 @@ class LayoutProcessor
             }
             //shipping
             if ($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]["city"]) {
-                $this->_changeCity($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]["city"]);
+                $this->_changeCityShipping($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]["city"]);
             }
 
             //billing
@@ -70,7 +70,7 @@ class LayoutProcessor
             //billing
             if (isset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
                 ['children']['form-fields']['children']['city'])) {
-                $this->_changeCity($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
+                $this->_changeCityBilling($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
                 ['children']['form-fields']['children']['city']);
             }
         }
@@ -83,7 +83,6 @@ class LayoutProcessor
             foreach ($this->regions as $region) {
                 $options[] = ["value" => $region, "label" => $region];
             }
-//            $postCodeElement["component"] = "Oander_Ui/js/form/element/ui-select-state-province";
             $postCodeElement["component"] = "Magento_Ui/js/form/element/ui-select";
             $postCodeElement["config"]["filterOptions"] = true;
             $postCodeElement["config"]["template"] = 'ui/form/field';
@@ -102,24 +101,38 @@ class LayoutProcessor
         }
     }
 
-    private function _changeCity(&$cityElement) {
+    private function _changeCityShipping(&$cityElement) {
         if(count($this->regions)) {
-            $cityElement["component"] = "Oander_Ui/js/form/element/ui-select-ajax";
-            $cityElement["config"]["filterOptions"] = true;
-            $cityElement["config"]["template"] = 'ui/form/field';
-            $cityElement["config"]["elementTmpl"] = 'oanderui/grid/filters/elements/ui-select';
-            $cityElement["config"]["formElement"] = "select";
+            $this->_changeCity($cityElement);
             $cityElement["config"]['koSelector'] = "checkout.steps.shipping-step.shippingAddress.shipping-address-fieldset.postcode";
-            $cityElement["config"]['apiUrl'] = "/rest/V1/oander/addresslist/getCityByRegion/";
-            $cityElement["config"]["visible"] = 1;
-            $cityElement["config"]["required"] = 1;
-            $cityElement["config"]["multiple"] = false;
-            $cityElement["config"]["disableLabel"] = true;
-            $cityElement['validation']['required-entry'] = true;
-            $cityElement["config"]['selectedPlaceholders']['defaultPlaceholder'] = $cityElement["placeholder"] ?? __("City");
-            $cityElement["config"]["label"] = __("City");
         } else {
             $cityElement["config"]["label"] = __("City");
         }
+    }
+
+    private function _changeCityBilling(&$cityElement){
+        if(count($this->regions)) {
+            $this->_changeCity($cityElement);
+            $cityElement["config"]['koSelector'] = "checkout.steps.billing-step.payment.afterMethods.billing-address-form.form-fields.postcode";
+        } else {
+            $cityElement["config"]["label"] = __("City");
+        }
+    }
+
+    private function _changeCity(&$cityElement) {
+        $cityElement["component"] = "Oander_Ui/js/form/element/ui-select-ajax";
+        $cityElement["config"]["filterOptions"] = true;
+        $cityElement["config"]["template"] = 'ui/form/field';
+        $cityElement["config"]["elementTmpl"] = 'oanderui/grid/filters/elements/ui-select';
+        $cityElement["config"]["formElement"] = "select";
+        $cityElement["config"]['koSelector'] = "checkout.steps.shipping-step.shippingAddress.shipping-address-fieldset.postcode";
+        $cityElement["config"]['apiUrl'] = "/rest/V1/oander/addresslist/getCityByRegion/";
+        $cityElement["config"]["visible"] = 1;
+        $cityElement["config"]["required"] = 1;
+        $cityElement["config"]["multiple"] = false;
+        $cityElement["config"]["disableLabel"] = true;
+        $cityElement['validation']['required-entry'] = true;
+        $cityElement["config"]['selectedPlaceholders']['defaultPlaceholder'] = $cityElement["placeholder"] ?? __("City");
+        $cityElement["config"]["label"] = __("City");
     }
 }
