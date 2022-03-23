@@ -5,6 +5,7 @@
 			<module name="Avalon_Costompayment" />
 			<module name="Magento_Checkout" />
 			<module name="Amasty_Payrestriction" />
+			<module name="Magento_Swatches" />
 		</sequence>
 	</module>
 </config>
