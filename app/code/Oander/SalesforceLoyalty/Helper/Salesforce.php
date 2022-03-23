@@ -91,8 +91,10 @@ class Salesforce extends AbstractHelper
             $response = $this->loyaltyEndpoint->getCustomerIsAffiliateMember($sfId,substr($customer->getStore()->getCode(), 0, 2));
             if(!$response['IsSuccess']){
                 if(strpos($response['Message'], 'Matched customer is not an active Affiliate Membe') !== false) {
-                    $result = true;
+                    $result = false;
                 }
+            }else{
+                $result = true;
             }
         }
         return $result;
