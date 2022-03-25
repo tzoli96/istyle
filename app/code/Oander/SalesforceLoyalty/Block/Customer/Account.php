@@ -56,6 +56,14 @@ class Account extends \Magento\Framework\View\Element\Template
     }
 
     /**
+     * @return bool
+     */
+    private function isItSection()
+    {
+        return (bool)$this->getRequest()->getParam("sections");
+    }
+
+    /**
      * @return int
      */
     public function getCustomerLoyaltyStatus()
@@ -74,19 +82,28 @@ class Account extends \Magento\Framework\View\Element\Template
     }
 
     /**
-     * @return int
+     * @return false|int
+     * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function getLoyaltyPoints()
     {
+        if($this->isItSection())
+        {
+            return false;
+        }
         return $this->salesforceHelper->getCustomerAffiliatePoints($this->customerSession->getCustomer());
     }
 
     /**
-     * @return array
+     * @return array|false
      * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function getLoyaltyPointsHistory()
     {
+        if($this->isItSection())
+        {
+            return false;
+        }
         $result = $this->salesforceHelper->getCustomerAffiliateTransactions($this->customerSession->getCustomer());
         foreach ($result['AffiliatedTransactions'] as $index => $item) {
             if ($item['MagentoOrderNumber']) {
