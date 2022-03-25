@@ -56,14 +56,6 @@ class Account extends \Magento\Framework\View\Element\Template
     }
 
     /**
-     * @return bool
-     */
-    private function isItSection()
-    {
-        return (bool)$this->getRequest()->getParam("sections");
-    }
-
-    /**
      * @return int
      */
     public function getCustomerLoyaltyStatus()
@@ -87,7 +79,7 @@ class Account extends \Magento\Framework\View\Element\Template
      */
     public function getLoyaltyPoints()
     {
-        if($this->isItSection())
+        if($this->helperData->isItSection())
         {
             return false;
         }
@@ -100,7 +92,7 @@ class Account extends \Magento\Framework\View\Element\Template
      */
     public function getLoyaltyPointsHistory()
     {
-        if($this->isItSection())
+        if($this->helperData->isItSection())
         {
             return false;
         }

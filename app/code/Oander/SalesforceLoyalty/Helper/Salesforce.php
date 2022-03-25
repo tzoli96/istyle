@@ -11,6 +11,7 @@ use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\Exception\LocalizedException;
 use Oander\Salesforce\Model\Endpoint\Loyalty;
 use Oander\SalesforceLoyalty\Enum\CustomerAttribute;
+use Oander\SalesforceLoyalty\Helper\Data;
 
 class Salesforce extends AbstractHelper
 {
@@ -36,14 +37,19 @@ class Salesforce extends AbstractHelper
      * @var \Oander\Salesforce\Model\Endpoint\Loyalty
      */
     private $loyaltyEndpoint;
+    /**
+     * @var Data
+     */
+    private $helperData;
 
     /**
      * @param \Magento\Framework\App\Helper\Context $context
      * @param \Magento\Framework\Registry $registry
      * @param \Magento\Customer\Model\Session $customerSession
-     * @param \Oander\SalesforceLoyalty\Helper\Config $configHelper
+     * @param Config $configHelper
      * @param \Oander\Salesforce\Helper\SoapClient $soapClient
-     * @param \Oander\Salesforce\Model\Endpoint\Loyalty $loyaltyEndpoint
+     * @param Loyalty $loyaltyEndpoint
+     * @param \Oander\SalesforceLoyalty\Helper\Data $helperData
      */
     public function __construct(
         \Magento\Framework\App\Helper\Context $context,
@@ -51,7 +57,8 @@ class Salesforce extends AbstractHelper
         \Magento\Customer\Model\Session $customerSession,
         \Oander\SalesforceLoyalty\Helper\Config $configHelper,
         \Oander\Salesforce\Helper\SoapClient $soapClient,
-        \Oander\Salesforce\Model\Endpoint\Loyalty $loyaltyEndpoint
+        \Oander\Salesforce\Model\Endpoint\Loyalty $loyaltyEndpoint,
+        Data $helperData
     ) {
         parent::__construct($context);
         $this->soapClient = $soapClient;
@@ -59,15 +66,22 @@ class Salesforce extends AbstractHelper
         $this->configHelper = $configHelper;
         $this->registry = $registry;
         $this->loyaltyEndpoint = $loyaltyEndpoint;
+        $this->helperData = $helperData;
     }
 
     /**
-     * @param \Magento\Customer\Model\Customer|null $customer
-     * @return int
+     * @param $customer
+     * @return false|int
      * @throws LocalizedException
+     * @throws \Oander\Salesforce\Exception\RESTResponseException
      */
     public function getCustomerAffiliatePoints($customer = null)
     {
+        if($this->helperData->isItSection())
+        {
+            return false;
+        }
+
         $customer = $this->_getCustomer($customer);
         if(is_null($this->registry->registry(self::REGISTRY_AVAILABLE_POINTS)))
             $this->registry->register(self::REGISTRY_AVAILABLE_POINTS, (int)$this->loyaltyEndpoint->GetAffiliateMembershipPointsBalance($customer->getData('sforce_maconomy_id'),substr($customer->getStore()->getCode(), 0, 2)));
