@@ -59,7 +59,7 @@ class CustomerLogin implements ObserverInterface
             if ($this->salesForceHelper->getCustomerIsAffiliateMember()) {
                 $customer = $this->customerRepository->getById($customer->getId());
                 $customer->setCustomAttribute(CustomerAttribute::REGISTER_TO_LOYALTY, true);
-                $customer->setCustomAttribute(CustomerAttribute::REGISTRED_TO_LOYALTY, true);
+                $customer->setCustomAttribute(CustomerAttribute::REGISTERED_TO_LOYALTY, true);
                 $this->customerRepository->save($customer);
             }
         }

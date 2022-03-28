@@ -84,9 +84,9 @@ class Salesforce extends AbstractHelper
         $result = false;
         $customer = $this->_getCustomer($customer);
         $sfId = $customer->getData('sforce_maconomy_id');
-        $registredLoyalty = $customer->getData(CustomerAttribute::REGISTRED_TO_LOYALTY);
+        $registeredLoyalty = $customer->getData(CustomerAttribute::REGISTERED_TO_LOYALTY);
         $registerLoyalty = $customer->getData(CustomerAttribute::REGISTER_TO_LOYALTY);
-        if($sfId && !$registerLoyalty && !$registredLoyalty)
+        if($sfId && !$registerLoyalty && !$registeredLoyalty)
         {
             $response = $this->loyaltyEndpoint->getCustomerIsAffiliateMember($sfId,substr($customer->getStore()->getCode(), 0, 2));
             if(!$response['IsSuccess']){
@@ -191,7 +191,7 @@ class Salesforce extends AbstractHelper
             $customer = $this->customerSession->getCustomer();
         }
         if($customer->getId())
-            return (bool)$customer->getData(CustomerAttribute::REGISTRED_TO_LOYALTY);
+            return (bool)$customer->getData(CustomerAttribute::REGISTERED_TO_LOYALTY);
         throw new LocalizedException(__("Only logged in user can use loyalty"));
     }
 

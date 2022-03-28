@@ -123,6 +123,9 @@ class UpgradeData implements UpgradeDataInterface
         if (version_compare($context->getVersion(), "1.1.0", "<")) {
             $this->loyaltyPromoBlock();
         }
+        if (version_compare($context->getVersion(), "1.1.1", "<")) {
+            $this->changeRegisteredToLoyaltyAttribute($eavSetup);
+        }
     }
 
     private function loyaltyPromoBlock()
@@ -169,7 +172,7 @@ class UpgradeData implements UpgradeDataInterface
     private function addCustomerAttribute($eavSetup)
     {
         $attributes = [
-            CustomerAttribute::REGISTRED_TO_LOYALTY,
+            CustomerAttribute::REGISTERED_TO_LOYALTY,
             CustomerAttribute::REGISTER_TO_LOYALTY
         ];
         $customerEntity = $this->eavConfig->getEntityType(Customer::ENTITY);
@@ -270,5 +273,15 @@ class UpgradeData implements UpgradeDataInterface
                 'option' => ['values' => [""]]
             ]
         );
+    }
+
+    /**
+     * @param $eavSetup
+     * @throws LocalizedException
+     * @return void
+     */
+    private function changeRegisteredToLoyaltyAttribute($eavSetup)
+    {
+        $eavSetup->updateAttribute('customer', 'registred_to_loyalty', 'attribute_code', CustomerAttribute::REGISTERED_TO_LOYALTY);
     }
 }
