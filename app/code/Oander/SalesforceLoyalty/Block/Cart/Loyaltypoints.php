@@ -147,10 +147,6 @@ class Loyaltypoints extends \Magento\Framework\View\Element\Template
      */
     public function getAvailablePoints()
     {
-        if ($this->helperData->isItSection()) {
-            return false;
-        }
-
         try {
             return $this->salesforceHelper->getCustomerAffiliatePoints();
         } catch (LocalizedException $e) {
