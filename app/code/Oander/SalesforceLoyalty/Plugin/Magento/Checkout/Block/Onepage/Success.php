@@ -58,7 +58,7 @@ class Success extends extendedSuccess
     {
         $response = 0;
         if ($this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTER_TO_LOYALTY) &&
-            $this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTRED_TO_LOYALTY)) {
+            $this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTERED_TO_LOYALTY)) {
             $response = 2;
         } elseif ($this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTER_TO_LOYALTY)) {
             $response = 1;

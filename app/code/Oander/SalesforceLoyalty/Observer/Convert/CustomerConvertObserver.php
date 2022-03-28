@@ -43,7 +43,7 @@ class CustomerConvertObserver extends AbstractConvertObserver
     protected function convert($customer, array &$convertedData)
     {
         $registerToLoyalty = $customer->getCustomAttribute(CustomerAttribute::REGISTER_TO_LOYALTY);
-        $registeredToLoyalty = $customer->getCustomAttribute(CustomerAttribute::REGISTRED_TO_LOYALTY);
+        $registeredToLoyalty = $customer->getCustomAttribute(CustomerAttribute::REGISTERED_TO_LOYALTY);
 
         $convertedData['register_to_loyalty'] = $this->cast($registerToLoyalty, 'bool', false);
         $convertedData['registered_to_loyalty'] = $this->cast($registeredToLoyalty, 'bool', false);
