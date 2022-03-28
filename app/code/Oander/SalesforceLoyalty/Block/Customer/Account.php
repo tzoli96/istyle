@@ -74,7 +74,8 @@ class Account extends \Magento\Framework\View\Element\Template
     }
 
     /**
-     * @return int
+     * @return false|int
+     * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function getLoyaltyPoints()
     {
@@ -82,7 +83,7 @@ class Account extends \Magento\Framework\View\Element\Template
     }
 
     /**
-     * @return array
+     * @return array|false
      * @throws \Magento\Framework\Exception\LocalizedException
      */
     public function getLoyaltyPointsHistory()
