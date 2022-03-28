@@ -233,4 +233,12 @@ class Data extends AbstractHelper
         }
         return $response;
     }
+
+    /**
+     * @return bool
+     */
+    public function isItSection()
+    {
+        return (bool)$this->_getRequest()->getParam("sections");
+    }
 }
