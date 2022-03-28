@@ -35,6 +35,10 @@ class PageHelper
      */
     public function afterprepareResultPage(Page $subject, $result)
     {
+        $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/adina.log');
+        $logger = new \Zend\Log\Logger();
+        $logger->addWriter($writer);
+        $logger->info($result->getLayout());
         if(!$result->getLayout()){
             return $result;
         }
