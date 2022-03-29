@@ -45,6 +45,8 @@ define([
     userSelectBillingAddress: store.billingAddress.userSelectBillingAddress,
 
     isBillingAddressVisible: ko.observable(false),
+    billingSelectPostcode: ko.observable(false),
+    billingSelectCity: ko.observable(false),
 
     addressOptions: addressList().filter(function (address) {
       return address.getType() == 'customer-address';
@@ -304,8 +306,8 @@ define([
       if (store.steps.billingAddress() === true || currentLS.steps.billingAddress) {
         this.isBillingAddressVisible(true);
         if (store.steps.visible.indexOf('billingAddress') < 0) {
-					store.steps.visible.push('billingAddress');
-				}
+          store.steps.visible.push('billingAddress');
+        }
       }
 
       store.steps.billingAddress.subscribe(function (value) {
@@ -516,7 +518,7 @@ define([
       } else {
         return true;
       }
-      
+
     },
 
     /**
@@ -528,6 +530,14 @@ define([
       var currentLS = store.getLocalStorage();
       var self = this;
 
+      this.billingSelectPostcode.subscribe(function (value) {
+        domObserver.get('[name=\'billingAddressshared.city\'] .oander-ui-action-multiselect__menu-inner-item', function () {
+          if (!self.billingSelectCity()) {
+            self.triggerInput(formElements, currentLS, 'city', null, currentLS?.billingAddress?.selectedBillingAddress?.address?.city, 'city');
+          }
+        });
+      });
+
       if (currentLS.billingAddress) {
         if (store.billingAddress.hasSelectedAddress() || currentLS.billingAddress.hasSelectedAddress) {
           domObserver.get('.form-group[name="billingAddressshared.telephone"] input[name="telephone"]', function () {
@@ -535,14 +545,15 @@ define([
               var elem = formElements.form.querySelector('[name="' + item + '"]');
               var value = address[item];
 
-              self.triggerInput(formElements, currentLS, item, elem, value, 'postcode');
-              self.triggerInput(formElements, currentLS, item, elem, value, 'city');
+              if (!self.billingSelectPostcode()) {
+                self.triggerInput(formElements, currentLS, item, elem, value, 'postcode');
+              }
 
               if (item == 'street') {
                 if (Array.isArray(value)) {
                   if (value.length > 1) {
                     for (var streetItem in value) {
-                      elem = formElements.form.querySelector('[name="' + item + '['+ streetItem +']"]');
+                      elem = formElements.form.querySelector('[name="' + item + '[' + streetItem + ']"]');
                       elem.value = value[streetItem];
                       elem.dispatchEvent(new Event('change'));
                     }
@@ -577,14 +588,17 @@ define([
      */
     triggerInput: function (formElements, currentLS, item, elem, value, input) {
       if (item === input && value !== '') {
-        var options = $(formElements.form).find(".form-group[name='billingAddressshared." + input + "'] .oander-ui-action-multiselect__menu-inner-item");
+        var self = this;
+        var options = $("[name='billingAddressshared." + input + "'] .oander-ui-action-multiselect__menu-inner-item");
 
         if (options.length) {
-          $(formElements.form).find(".form-group[name='billingAddressshared." + input + "'] .oander-ui-action-multiselect__menu-inner-item").each(function() {
+          options.each(function () {
             var thisOption = $(this).find('label > span').text();
 
             if (thisOption === value) {
               $(this).find('.action-menu-item').trigger('click');
+              if (input === 'postcode') self.billingSelectPostcode(true);
+              if (input === 'city') self.billingSelectCity(true);
               return false;
             }
           });
@@ -703,15 +717,15 @@ define([
     },
 
     /**
-		 * Check if card edit should be visible
-		 * @return {Boolean}
-		 */
-		isCardEditVisible: function(param) {
-			return ko.computed(function() {
+     * Check if card edit should be visible
+     * @return {Boolean}
+     */
+    isCardEditVisible: function (param) {
+      return ko.computed(function () {
         var currentLS = store.getLocalStorage(),
-            activeStep,
-            visibleSteps,
-            visible = ko.observable(true);
+          activeStep,
+          visibleSteps,
+          visible = ko.observable(true);
 
         if (store.steps.active() !== '') {
           activeStep = store.steps.active()
@@ -729,31 +743,31 @@ define([
           visibleSteps = ['auth'];
         }
 
-				if (visibleSteps.indexOf(param) > -1) {
-					if (store.steps.order.indexOf(activeStep) < store.steps.order.indexOf(param)) {
-						visible(false);
-					}
-				}
+        if (visibleSteps.indexOf(param) > -1) {
+          if (store.steps.order.indexOf(activeStep) < store.steps.order.indexOf(param)) {
+            visible(false);
+          }
+        }
 
-				return visible();
-			});
-		},
+        return visible();
+      });
+    },
 
     /**
-		 * Retrieve the Express Message text.
-		 * @return {String}
-		 */
-		expressMessageWarning: ko.computed(function () {
-			return window.checkoutConfig.expressShippingConfig.fallback_msg;
-		}),
+     * Retrieve the Express Message text.
+     * @return {String}
+     */
+    expressMessageWarning: ko.computed(function () {
+      return window.checkoutConfig.expressShippingConfig.fallback_msg;
+    }),
 
-		/**
-		 * Check if Express Message should be visible
-		 * @return {Boolean}
-		 */
-    expressMessageHandler: function() {
-			return helpers.expressMessageValue();
-		},
+    /**
+     * Check if Express Message should be visible
+     * @return {Boolean}
+     */
+    expressMessageHandler: function () {
+      return helpers.expressMessageValue();
+    },
   };
 
   return function (target) {
