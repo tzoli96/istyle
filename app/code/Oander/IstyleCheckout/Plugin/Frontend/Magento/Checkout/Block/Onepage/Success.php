@@ -19,9 +19,8 @@ class Success
         $this->checkoutSession = $checkoutSession;
     }
 
-    public function around__call(
+    public function before__call(
         \Magento\Checkout\Block\Onepage\Success $subject,
-        \Closure $proceed,
         $method,
         $args
     ) {
@@ -32,9 +31,10 @@ class Success
                 $subject->setData('customer_firstname', $order->getBillingAddress()->getFirstname());
             }
         }
+        return [$method, $args];
     }
 
-    public function aroundGetCustomerFirstname(
+    public function beforeGetCustomerFirstname(
         \Magento\Checkout\Block\Onepage\Success $subject,
         \Closure $proceed
     ) {
