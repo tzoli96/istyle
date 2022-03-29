@@ -10,8 +10,8 @@ namespace Oander\SalesforceLoyalty\Controller\Customer;
 use Magento\Customer\Model\Session\Proxy;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
+use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\Controller\ResultInterface;
-use Magento\Framework\Exception\NotFoundException;
 use Magento\Framework\View\Result\PageFactory;
 
 class Account extends Action
@@ -31,27 +31,26 @@ class Account extends Action
      * @param Proxy $customerSession
      */
     public function __construct(
-        Context $context,
+        Context     $context,
         PageFactory $resultPageFactory,
-        Proxy $customerSession
-    ) {
+        Proxy       $customerSession
+    )
+    {
         $this->resultPageFactory = $resultPageFactory;
         $this->customerSession = $customerSession;
         parent::__construct($context);
     }
 
     /**
-     * Execute view action
-     *
-     * @return ResultInterface
+     * @return ResponseInterface|ResultInterface|\Magento\Framework\View\Result\Page|void
      */
     public function execute()
     {
-        if($this->customerSession->isLoggedIn())
-        {
+        if ($this->customerSession->isLoggedIn()) {
             return $this->resultPageFactory->create();
-        }else{
-            throw new NotFoundException(__('Parameter is incorrect.'));
+        } else {
+            $this->customerSession->setAfterAuthUrl($this->_url->getCurrentUrl());
+            $this->customerSession->authenticate();
         }
     }
 }
