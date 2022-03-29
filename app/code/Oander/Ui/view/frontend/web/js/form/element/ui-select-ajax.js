@@ -9,7 +9,8 @@ define([
     return uiSelect.extend({
         defaults: {
             koSelector: null,
-            apiUrl: null
+            apiUrl: null,
+            value: ''
         },
 
         /**
@@ -19,7 +20,10 @@ define([
          */
         initialize: function () {
             const self = this;
+            this.value = '';
             this._super();
+            this.initialValue = '';
+            this.disabled(true);
 
             registry.get(self.koSelector, function (element) {
                 element.value.subscribe(function (value) {
@@ -28,6 +32,45 @@ define([
             });
 
             return this;
+        },
+
+        /**
+         * Check selected elements
+         *
+         * @returns {Boolean}
+         */
+        hasData: function () {
+            if (!this.value()) {
+                this.value('');
+            }
+
+            return this.value() ? !!this.value().length : false;
+        },
+
+        /**
+         * Set caption
+         */
+        setCaption: function () {
+            var length;
+
+            if (!_.isArray(this.value()) && this.value()) {
+                length = 1;
+            } else if (this.value()) {
+                length = this.value().length;
+            } else {
+                this.value('');
+                length = 0;
+            }
+
+            if (length > 1) {
+                this.placeholder(length + ' ' + this.selectedPlaceholders.lotPlaceholders);
+            } else if (length && this.getSelected().length) {
+                this.placeholder(this.getSelected()[0].label);
+            } else {
+                this.placeholder(this.selectedPlaceholders.defaultPlaceholder);
+            }
+
+            return this.placeholder();
         },
 
         /**
@@ -46,6 +89,7 @@ define([
                 dataType: 'json'
             }).done(function (data) {
                 if (data) {
+                    self.disabled(false);
                     $.each(data, function (index, value) {
                         response.push({
                             label: value,
