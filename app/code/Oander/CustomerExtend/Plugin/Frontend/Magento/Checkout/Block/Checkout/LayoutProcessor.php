@@ -36,7 +36,7 @@ class LayoutProcessor
     ) {
         if($this->_scopeConfig->isSetFlag(ConfigEnum::PATH_CUSTOMER_REPLACE_POSTCODE_REGION, \Magento\Store\Model\ScopeInterface::SCOPE_STORE)) {
             $this->regions = $this->getCity->getAllRegion();
-            if(
+            /*if(
                 isset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                     ['payment']['children']['payments-list']['children']) &&
                 is_array($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
@@ -46,12 +46,19 @@ class LayoutProcessor
                     if (isset($payment['children']['form-fields']['children']["postcode"])) {
                         $this->_changeToRegion($payment['children']['form-fields']['children']["postcode"]);
                     }
+                    if (isset($payment['children']['form-fields']['children']["city"])) {
+                        $this->_changeCityBilling($payment['children']['form-fields']['children']["city"]);
+                    }
                 }
-            }
+            }*/
 
             //shipping
             if ($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]["postcode"]) {
                 $this->_changeToRegion($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]["postcode"]);
+            }
+            //shipping
+            if ($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]["city"]) {
+                $this->_changeCityShipping($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]["city"]);
             }
 
             //billing
@@ -59,6 +66,12 @@ class LayoutProcessor
                 ['children']['form-fields']['children']['postcode'])) {
                 $this->_changeToRegion($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
                 ['children']['form-fields']['children']['postcode']);
+            }
+            //billing
+            if (isset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
+                ['children']['form-fields']['children']['city'])) {
+                $this->_changeCityBilling($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
+                ['children']['form-fields']['children']['city']);
             }
         }
         return $jsLayout;
@@ -86,5 +99,40 @@ class LayoutProcessor
         } else {
             $postCodeElement["config"]["label"] = __("State/Province");
         }
+    }
+
+    private function _changeCityShipping(&$cityElement) {
+        if(count($this->regions)) {
+            $this->_changeCity($cityElement);
+            $cityElement["config"]['koSelector'] = "checkout.steps.shipping-step.shippingAddress.shipping-address-fieldset.postcode";
+        } else {
+            $cityElement["config"]["label"] = __("City");
+        }
+    }
+
+    private function _changeCityBilling(&$cityElement){
+        if(count($this->regions)) {
+            $this->_changeCity($cityElement);
+            $cityElement["config"]['koSelector'] = "checkout.steps.billing-step.payment.afterMethods.billing-address-form.form-fields.postcode";
+        } else {
+            $cityElement["config"]["label"] = __("City");
+        }
+    }
+
+    private function _changeCity(&$cityElement) {
+        $cityElement["component"] = "Oander_Ui/js/form/element/ui-select-ajax";
+        $cityElement["config"]["filterOptions"] = true;
+        $cityElement["config"]["template"] = 'ui/form/field';
+        $cityElement["config"]["elementTmpl"] = 'oanderui/grid/filters/elements/ui-select';
+        $cityElement["config"]["formElement"] = "select";
+        $cityElement["config"]['koSelector'] = "checkout.steps.shipping-step.shippingAddress.shipping-address-fieldset.postcode";
+        $cityElement["config"]['apiUrl'] = "/rest/V1/oander/addresslist/getCityByRegion/";
+        $cityElement["config"]["visible"] = 1;
+        $cityElement["config"]["required"] = 1;
+        $cityElement["config"]["multiple"] = false;
+        $cityElement["config"]["disableLabel"] = true;
+        $cityElement['validation']['required-entry'] = true;
+        $cityElement["config"]['selectedPlaceholders']['defaultPlaceholder'] = $cityElement["placeholder"] ?? __("City");
+        $cityElement["config"]["label"] = __("City");
     }
 }
