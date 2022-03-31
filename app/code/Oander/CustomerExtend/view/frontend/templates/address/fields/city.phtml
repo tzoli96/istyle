@@ -2,7 +2,7 @@
     <div class="form-group field ro-city select2 required">
         <div class="control">
             <label class="label" for="city"><span><?php /* @escapeNotVerified */ echo __('City') ?></span></label>
-            <select name="city" style="width: 100%" id="city" class="form-control ro-city-select required-entry <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('postcode') ?><?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('postcode') ?>">
+            <select name="city" style="width: 100%" id="city" class="form-control ro-city-select required-entry <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('city') ?>">
             </select>
         </div>
     </div>
