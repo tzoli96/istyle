@@ -26,7 +26,7 @@
                 <select name="postcode" style="width: 100%" id="postcode" class="ro-region-select form-control <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('postcode') ?>">
                     <option value="" disabled selected><?php /* @escapeNotVerified */ echo __('Please select region') ?></option>
                     <?php foreach ($block->getParentBlock()->getRegionCollection() as $regionItem) : ?>
-                        <option value="<?= $regionItem ?>"><?= $regionItem ?></option>
+                        <option value="<?= $regionItem ?>" <?php echo $block->escapeHtml($block->getParentBlock()->getAddress()->getPostcode()) === $regionItem ? 'selected' : ''?>><?= $regionItem ?></option>
                     <?php endforeach; ?>
                 </select>
             </div>
