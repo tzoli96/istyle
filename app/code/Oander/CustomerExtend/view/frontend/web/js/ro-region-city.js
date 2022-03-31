@@ -5,47 +5,60 @@ define([
 ], function ($, select2, $t) {
     'use strict';
 
-    // init selects
-    $('.ro-region-select').select2({
-        language: 'ro',
+    const region = $('.ro-region-select');
+    const city = $('.ro-city-select');
+    const cityAlreadyHasValue = city.attr('data-value');
+
+    if (cityAlreadyHasValue) {
+        getCities('onInit');
+    } else {
+        city.select2({}).prop('disabled', true);
+    }
+
+    region.on('change', function () {
+        city.trigger('regionChanged');
     });
 
-    $('.ro-city-select').select2({}).prop('disabled', true);
-
-    // i18n
-    $.fn.select2.defaults.set('language', {
-        errorLoading: function () {
-            return $t('Error loading results');
-        },
-        inputTooLong: function (args) {
-            return $t('Input too long');
-        },
-        inputTooShort: function (args) {
-            return $t('Input too short');
-        },
-        loadingMore: function () {
-            return $t('Loading...');
-        },
-        maximumSelected: function (args) {
-            return $t('Maximum selected');
-        },
-        noResults: function () {
-            return $t('No results');
-        },
-        searching: function () {
-            return $t('Searching');
-        }
+    city.on('regionChanged', function () {
+        getCities();
     });
 
-    // forcing to override i18n strings
-    $('select:not([ajax-url])').select2({});
+    function i18n() {
+        region.select2({
+            language: 'ro'
+        });
 
-    $('.ro-region-select').on('change', function () {
-        $('.ro-city-select').trigger('regionChanged');
-    });
+        $.fn.select2.defaults.set('language', {
+            errorLoading: function () {
+                return $t('Error loading results');
+            },
+            inputTooLong: function (args) {
+                return $t('Input too long');
+            },
+            inputTooShort: function (args) {
+                return $t('Input too short');
+            },
+            loadingMore: function () {
+                return $t('Loading...');
+            },
+            maximumSelected: function (args) {
+                return $t('Maximum selected');
+            },
+            noResults: function () {
+                return $t('No results');
+            },
+            searching: function () {
+                return $t('Searching');
+            }
+        });
 
-    $('.ro-city-select').on('regionChanged', function () {
-        const getRegionValue = $('.ro-region-select').val();
+        // forcing to override i18n strings
+        $('select:not([ajax-url])').select2({});
+    }
+    i18n();
+
+    function getCities(onInit) {
+        const getRegionValue = region.val();
         const getCountiesAjaxUrl = '/rest/V1/oander/addresslist/getCityByRegion/';
 
         $.ajax({
@@ -71,10 +84,14 @@ define([
                     });
                 });
 
-                $('.ro-city-select').empty().select2({
+                city.empty().select2({
                     data: formatResponse,
                 }).prop('disabled', false);
+
+                if (cityAlreadyHasValue && onInit) {
+                    city.val(cityAlreadyHasValue).trigger('change');
+                }
             }
         });
-    });
+    }
 });
