@@ -51,6 +51,7 @@ define([
       if (form) {
         var fields = form.find('.form-group');
 
+
         fields.each(function (index, field) {
           var fieldElement = $(field).find('.form-control');
 
@@ -94,7 +95,7 @@ define([
             var fieldElement = $(field).find('.form-control');
 
             if (fieldElement.hasClass('oander-ui-action-multiselect')) {
-              $('.action-menu-item').on('click', function () {
+              $(document).on('click', '.action-menu-item', function () {
                 self.requiredHandler(fieldElement, Number(index));
               });
             } else {
