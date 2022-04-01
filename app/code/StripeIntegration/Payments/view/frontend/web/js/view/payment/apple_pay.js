@@ -35,6 +35,8 @@ define(
                 isTotalsCalculated: false
             },
 
+            firstLoad: ko.observable(false),
+
             initObservable: function ()
             {
                 this._super()
@@ -59,33 +61,40 @@ define(
 
                 var currentTotals = quote.totals();
 
+                setTimeout(function () {
+                    self.firstLoad(false);
+                }, 2000);
+
                 quote.totals.subscribe(function (totals)
-                {
-                    if (JSON.stringify(totals.total_segments) == JSON.stringify(currentTotals.total_segments))
-                        return;
-
-                    currentTotals = totals;
-
-                    if (!self.isPRAPIrendered)
-                        return;
-
-                    // Wait for Magento to commit the changes before re-initializing the PRAPI
-                    setTimeout(function()
                     {
-                        self.isTotalsCalculated = true;
-                        self.initPRAPI();
-                    });
-                }
-                , this);
+                        if (JSON.stringify(totals.total_segments) == JSON.stringify(currentTotals.total_segments))
+                            return;
+
+                        currentTotals = totals;
+
+                        if (!self.isPRAPIrendered)
+                            return;
+
+                        // Wait for Magento to commit the changes before re-initializing the PRAPI
+                        setTimeout(function()
+                        {
+                            if (!self.firstLoad()) {
+                                self.initPRAPI();
+                                self.firstLoad(true);
+                                self.isTotalsCalculated = true;
+                            }
+                        });
+                    }
+                    , this);
 
                 quote.paymentMethod.subscribe(function(method)
-                {
-                    if (method != null)
                     {
-                        $(".stripe-payments.mobile").removeClass("_active");
+                        if (method != null)
+                        {
+                            $(".stripe-payments.mobile").removeClass("_active");
+                        }
                     }
-                }
-                , null, 'change');
+                    , null, 'change');
 
                 return this;
             },
