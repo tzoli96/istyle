@@ -25,7 +25,7 @@ define([
 
             if (fieldElement.hasClass('oander-ui-action-multiselect')) {
               $('.action-menu-item').on('click', function () {
-                self.requiredHandler(fieldElement, fieldElement.attr('name'));
+                self.requiredHandler(fieldElement, fieldElement.closest('.form-group').attr('name'));
               });
             } else {
               fieldElement.on('keyup change', function () {
