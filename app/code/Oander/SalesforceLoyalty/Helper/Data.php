@@ -12,6 +12,8 @@ use Magento\Framework\App\Helper\Context;
 use Magento\Framework\Registry;
 use Oander\SalesforceLoyalty\Enum\Attribute;
 use Magento\Store\Model\StoreManagerInterface;
+use Oander\SalesforceLoyalty\Enum\CustomerAttribute;
+use Magento\Customer\Model\Session as CustomerSession;
 
 class Data extends AbstractHelper
 {
@@ -36,6 +38,10 @@ class Data extends AbstractHelper
      * @var StoreManagerInterface
      */
     private $storeManager;
+    /**
+     * @var CustomerSession
+     */
+    private $customerSession;
 
     /**
      * @param Context $context
@@ -43,13 +49,15 @@ class Data extends AbstractHelper
      * @param Config $configHelper
      * @param Registry $registry
      * @param StoreManagerInterface $storeManager
+     * @param CustomerSession $customerSession
      */
     public function __construct(
         Context $context,
         \Magento\Checkout\Model\Session $checkoutSession,
         \Oander\SalesforceLoyalty\Helper\Config $configHelper,
         Registry $registry,
-        StoreManagerInterface $storeManager
+        StoreManagerInterface $storeManager,
+        CustomerSession $customerSession
     )
     {
         parent::__construct($context);
@@ -57,6 +65,7 @@ class Data extends AbstractHelper
         $this->checkoutSession = $checkoutSession;
         $this->registry = $registry;
         $this->storeManager = $storeManager;
+        $this->customerSession = $customerSession;
     }
 
     /**
@@ -208,5 +217,28 @@ class Data extends AbstractHelper
     public function formatPoint(int $amount) : string
     {
         return number_format($amount,0," "," ");
+    }
+
+    /**
+     * @return int
+     */
+    public function getCustomerLoyaltyStatus()
+    {
+        $response = CustomerAttribute::REGISTRATION_STATUS_START;
+        if ($this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTER_TO_LOYALTY) &&
+            $this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTERED_TO_LOYALTY)) {
+            $response = CustomerAttribute::REGISTRATION_STATUS_DONE;
+        } elseif ($this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTER_TO_LOYALTY)) {
+            $response = CustomerAttribute::REGISTRATION_STATUS_WAITING;
+        }
+        return $response;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isItSection()
+    {
+        return (bool)$this->_getRequest()->getParam("sections");
     }
 }

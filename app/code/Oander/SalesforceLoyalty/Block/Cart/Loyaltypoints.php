@@ -22,6 +22,8 @@
 namespace Oander\SalesforceLoyalty\Block\Cart;
 
 use Magento\Framework\Exception\LocalizedException;
+use Oander\SalesforceLoyalty\Helper\Data;
+use Oander\SalesforceLoyalty\Enum\CustomerAttribute;
 
 class Loyaltypoints extends \Magento\Framework\View\Element\Template
 {
@@ -45,6 +47,10 @@ class Loyaltypoints extends \Magento\Framework\View\Element\Template
      * @var \Magento\Framework\Pricing\PriceCurrencyInterface
      */
     private $priceCurrency;
+    /**
+     * @var Data
+     */
+    private $helperData;
 
     /**
      * Constructor
@@ -58,28 +64,39 @@ class Loyaltypoints extends \Magento\Framework\View\Element\Template
      * @param array $data
      */
     public function __construct(
-        \Magento\Framework\View\Element\Template\Context $context,
-        \Magento\Customer\Model\Session $customerSession,
-        \Magento\Checkout\Model\Session $checkoutSession,
+        \Magento\Framework\View\Element\Template\Context  $context,
+        \Magento\Customer\Model\Session                   $customerSession,
+        \Magento\Checkout\Model\Session                   $checkoutSession,
         \Magento\Framework\Pricing\PriceCurrencyInterface $priceCurrency,
-        \Oander\SalesforceLoyalty\Helper\Data $loyaltyHelper,
-        \Oander\SalesforceLoyalty\Helper\Salesforce $salesforceHelper,
-        array $data = []
-    ) {
+        \Oander\SalesforceLoyalty\Helper\Data             $loyaltyHelper,
+        \Oander\SalesforceLoyalty\Helper\Salesforce       $salesforceHelper,
+        Data                                              $helperData,
+        array                                             $data = []
+    )
+    {
         parent::__construct($context, $data);
         $this->priceCurrency = $priceCurrency;
         $this->customerSession = $customerSession;
         $this->checkoutSession = $checkoutSession;
         $this->loyaltyHelper = $loyaltyHelper;
         $this->salesforceHelper = $salesforceHelper;
+        $this->helperData = $helperData;
     }
 
     /**
      * @return bool
      */
-    public function isLoggedIn()
+    private function isLoggedIn()
     {
         return $this->customerSession->isLoggedIn();
+    }
+
+    /**
+     * @return bool
+     */
+    public function isItLoyaltyMember()
+    {
+        return ($this->isLoggedIn()) ? (bool)$this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTERED_TO_LOYALTY) : false;
     }
 
     /**
@@ -111,7 +128,7 @@ class Loyaltypoints extends \Magento\Framework\View\Element\Template
      */
     public function getLoyaltyDiscountFormated()
     {
-        if($this->getLoyaltyDiscount())
+        if ($this->getLoyaltyDiscount())
             return $this->priceCurrency->format($this->getLoyaltyDiscount() * -1, false);
         else
             return null;
@@ -126,7 +143,7 @@ class Loyaltypoints extends \Magento\Framework\View\Element\Template
     }
 
     /**
-     * @return int
+     * @return false|int
      */
     public function getAvailablePoints()
     {
@@ -153,7 +170,7 @@ class Loyaltypoints extends \Magento\Framework\View\Element\Template
      * @param int $point
      * @return string
      */
-    public function getFormatedPoint($point) : string
+    public function getFormatedPoint($point): string
     {
         return $this->loyaltyHelper->formatPoint($point);
     }

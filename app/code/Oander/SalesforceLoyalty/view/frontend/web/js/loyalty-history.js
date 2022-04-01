@@ -14,14 +14,62 @@ define([
         },
         size: 10,
         current: 0,
+        modifiedTransactionsArray: [],
 
         /**
          * Initialize widget
          */
         _create: function () {
+            var self = this;
+
+            this._calculatePoints();
             this._loadDataToTable(0);
-            this._createPagination();
-            this._loadDataByPaginationIndex();
+
+            if (self.options.history.AffiliatedTransactions.length > self.size) {
+                self._createPagination();
+                self._loadDataByPaginationIndex();
+            }
+        },
+
+        /**
+         * Calculate earned points
+         * @returns {Void}
+         */
+        _calculatePoints: function() {
+            var self = this,
+                transatcionsArray = self.options.history.AffiliatedTransactions;
+
+            if (transatcionsArray.length) {
+                transatcionsArray.reduce(function(previousItem, currentItem) {
+                    var currentMagentoOrderNumber = currentItem.MagentoOrderNumber,
+                        currentItemIdentifier = currentMagentoOrderNumber + '_' + currentItem.TransactionType.replace(/ /g, '').toLowerCase();
+                    
+                        if (!previousItem[currentItemIdentifier] && currentMagentoOrderNumber) {
+                        previousItem[currentItemIdentifier] = {
+                            'TransactionType': currentItem.TransactionType,
+                            'TransactionId': currentItem.TransactionId,
+                            'TransactionDate': currentItem.TransactionDate,
+                            'NoOfPoints': 0,
+                            'MMYOrderNumber': currentItem.MMYOrderNumber,
+                            'MagentoOrderNumber': currentMagentoOrderNumber,
+                            'InvoiceNumber': currentItem.InvoiceNumber,
+                            'OrderId': currentItem.OrderId,
+                        };
+    
+                        self.modifiedTransactionsArray.push(previousItem[currentItemIdentifier]);
+                    }
+
+                    if (!currentItem.hasOwnProperty('MagentoOrderNumber') || currentMagentoOrderNumber === null) {
+                        self.modifiedTransactionsArray.push(currentItem);
+                    }
+    
+                    if (typeof previousItem[currentItemIdentifier] !== 'undefined') {
+                        previousItem[currentItemIdentifier].NoOfPoints += currentItem.NoOfPoints;
+                    }
+                    
+                    return previousItem;
+                }, {});
+            }
         },
 
         /**
@@ -29,11 +77,11 @@ define([
          * @returns {Array}
          */
         _reduceHistory: function () {
-            var self = this;
-            var optionsByPage = [];
+            var self = this,
+                optionsByPage = [];
 
-            if (this.options.history.AffiliatedTransactions.length) {
-                optionsByPage = this.options.history.AffiliatedTransactions.reduce(function (prev, curr, i) {
+            if (self.modifiedTransactionsArray.length) {
+                optionsByPage = self.modifiedTransactionsArray.reduce(function (prev, curr, i) {
                     var pageSize = Math.floor(i / self.size);
                     var page = prev[pageSize] || (prev[pageSize] = []);
                     page.push(curr);

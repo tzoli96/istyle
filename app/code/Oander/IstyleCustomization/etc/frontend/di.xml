@@ -13,4 +13,10 @@
             </argument>
         </arguments>
     </type>
+    <!-- #57034 END -->
+    <type name="Magento\Catalog\Block\Product\View\Gallery">
+        <plugin disabled="false" name="Oander_IstyleCustomization_Plugin_Magento_Catalog_Product_Gallery" sortOrder="10" type="Oander\IstyleCustomization\Plugin\Magento\Catalog\Block\Product\View\Gallery"/>
+    </type>
+    <preference for="Magento\Swatches\Controller\Ajax\Media" type="Oander\IstyleCustomization\Rewrite\Magento\Swatches\Controller\Ajax\Media" />
+    <!-- #57034 END -->
 </config>

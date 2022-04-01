@@ -129,4 +129,8 @@
         <plugin name="IstyleCustomization::CacheTypeList" type="Oander\IstyleCustomization\Rewrite\Ewave\CacheManagement\Model\Store\CacheTypeList"/>
     </type>
     <!-- #55870 END -->
+    <!-- #56811 START -->
+    <preference for="Magento\Checkout\Model\GuestPaymentInformationManagement" type="Oander\IstyleCustomization\Plugin\Checkout\Model\Checkout\GuestPaymentInformationManagement" />
+    <preference for="Magento\Checkout\Model\PaymentInformationManagement" type="Oander\IstyleCustomization\Plugin\Checkout\Model\Checkout\PaymentInformationManagement" />
+    <!-- #56811 END -->
 </config>

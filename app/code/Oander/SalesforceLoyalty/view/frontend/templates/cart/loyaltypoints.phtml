@@ -3,7 +3,7 @@
  * @var $block \Oander\SalesforceLoyalty\Block\Cart\Loyaltypoints
  */
 ?>
-<?php if($block->isLoggedIn()): ?>
+<?php if($block->isItLoyaltyMember()): ?>
     <div class="block block--loyalty active d-flex align-items-center" id="block-loyalty" data-mage-init='{"collapsible":{"openedState": "active", "active": 1, "saveState": false}}'>
         <div class="block__content w-100" data-role="content">
             <form id="loyalty-form" action="<?= $block->getLoyaltyPostUrl()?>" method="post">

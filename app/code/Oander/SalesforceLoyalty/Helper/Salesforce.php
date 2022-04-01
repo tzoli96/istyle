@@ -10,6 +10,7 @@ namespace Oander\SalesforceLoyalty\Helper;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\Exception\LocalizedException;
 use Oander\Salesforce\Model\Endpoint\Loyalty;
+use Oander\SalesforceLoyalty\Enum\CustomerAttribute;
 
 class Salesforce extends AbstractHelper
 {
@@ -68,9 +69,35 @@ class Salesforce extends AbstractHelper
     public function getCustomerAffiliatePoints($customer = null)
     {
         $customer = $this->_getCustomer($customer);
-        if(is_null($this->registry->registry(self::REGISTRY_AVAILABLE_POINTS)))
+        if(is_null($this->registry->registry(self::REGISTRY_AVAILABLE_POINTS)) && $this->isLoyaltyMember())
             $this->registry->register(self::REGISTRY_AVAILABLE_POINTS, (int)$this->loyaltyEndpoint->GetAffiliateMembershipPointsBalance($customer->getData('sforce_maconomy_id'),substr($customer->getStore()->getCode(), 0, 2)));
         return $this->registry->registry(self::REGISTRY_AVAILABLE_POINTS);
+    }
+
+    /**
+     * @param $customer
+     * @return bool
+     * @throws LocalizedException
+     */
+    public function getCustomerIsAffiliateMember($customer = null)
+    {
+        $result = false;
+        $customer = $this->_getCustomer($customer);
+        $sfId = $customer->getData('sforce_maconomy_id');
+        $registeredLoyalty = $customer->getData(CustomerAttribute::REGISTERED_TO_LOYALTY);
+        $registerLoyalty = $customer->getData(CustomerAttribute::REGISTER_TO_LOYALTY);
+        if($sfId && !$registerLoyalty && !$registeredLoyalty)
+        {
+            $response = $this->loyaltyEndpoint->getCustomerIsAffiliateMember($sfId,substr($customer->getStore()->getCode(), 0, 2));
+            if(!$response['IsSuccess']){
+                if(strpos($response['Message'], 'Matched customer is not an active Affiliate Membe') !== false) {
+                    $result = false;
+                }
+            }else{
+                $result = true;
+            }
+        }
+        return $result;
     }
 
 
@@ -87,7 +114,7 @@ class Salesforce extends AbstractHelper
         $this->registry->unregister(self::REGISTRY_AVAILABLE_POINTS);
         //$istyle_id = $customer->getData('istyle_id');
         $customer_number = $customer->getData('sforce_maconomy_id');
-        if($customer_number) {
+        if($customer_number && $this->isLoyaltyMember()) {
             $response = $this->loyaltyEndpoint->BlockAffiliateMembershipPoints($customer_number, substr($customer->getStore()->getCode(), 0, 2), $blockPoints);
             if(isset($response["BlockedTransactionId"]))
                 $transactionId = $response["BlockedTransactionId"];
@@ -131,7 +158,7 @@ class Salesforce extends AbstractHelper
     public function getCustomerAffiliateTransactions($customer = null, $noOfRecords = 1000000, $pageNo = 1)
     {
         $customer = $this->_getCustomer($customer);
-        if(is_null($this->registry->registry(self::REGISTRY_HISTORY)))
+        if(is_null($this->registry->registry(self::REGISTRY_HISTORY)) && $this->isLoyaltyMember())
             $this->registry->register(self::REGISTRY_HISTORY,$this->loyaltyEndpoint->GetAffiliateTransactions($customer->getData('sforce_maconomy_id'),substr($customer->getStore()->getCode(), 0, 2)));
         return $this->registry->registry(self::REGISTRY_HISTORY);
     }
@@ -149,6 +176,22 @@ class Salesforce extends AbstractHelper
         }
         if($customer->getId())
             return $customer;
+        throw new LocalizedException(__("Only logged in user can use loyalty"));
+    }
+
+    /**
+     * @param $customer
+     * @return bool
+     * @throws LocalizedException
+     */
+    private function isLoyaltyMember($customer = null)
+    {
+        if(!($customer instanceof \Magento\Customer\Model\Customer))
+        {
+            $customer = $this->customerSession->getCustomer();
+        }
+        if($customer->getId())
+            return (bool)$customer->getData(CustomerAttribute::REGISTERED_TO_LOYALTY);
         throw new LocalizedException(__("Only logged in user can use loyalty"));
     }
 

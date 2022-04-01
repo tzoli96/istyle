@@ -7,32 +7,50 @@ declare(strict_types=1);
 
 namespace Oander\SalesforceLoyalty\Controller\Customer;
 
-class Account extends \Magento\Framework\App\Action\Action
-{
+use Magento\Customer\Model\Session\Proxy;
+use Magento\Framework\App\Action\Action;
+use Magento\Framework\App\Action\Context;
+use Magento\Framework\App\ResponseInterface;
+use Magento\Framework\Controller\ResultInterface;
+use Magento\Framework\View\Result\PageFactory;
 
+class Account extends Action
+{
+    /**
+     * @var PageFactory
+     */
     protected $resultPageFactory;
+    /**
+     * @var Proxy
+     */
+    private $customerSession;
 
     /**
-     * Constructor
-     *
-     * @param \Magento\Framework\App\Action\Context  $context
-     * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
+     * @param Context $context
+     * @param PageFactory $resultPageFactory
+     * @param Proxy $customerSession
      */
     public function __construct(
-        \Magento\Framework\App\Action\Context $context,
-        \Magento\Framework\View\Result\PageFactory $resultPageFactory
-    ) {
+        Context     $context,
+        PageFactory $resultPageFactory,
+        Proxy       $customerSession
+    )
+    {
         $this->resultPageFactory = $resultPageFactory;
+        $this->customerSession = $customerSession;
         parent::__construct($context);
     }
 
     /**
-     * Execute view action
-     *
-     * @return \Magento\Framework\Controller\ResultInterface
+     * @return ResponseInterface|ResultInterface|\Magento\Framework\View\Result\Page|void
      */
     public function execute()
     {
-        return $this->resultPageFactory->create();
+        if ($this->customerSession->isLoggedIn()) {
+            return $this->resultPageFactory->create();
+        } else {
+            $this->customerSession->setAfterAuthUrl($this->_url->getCurrentUrl());
+            $this->customerSession->authenticate();
+        }
     }
 }
