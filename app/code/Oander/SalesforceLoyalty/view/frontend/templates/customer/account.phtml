@@ -7,7 +7,7 @@
 ?>
 
 <?php if ($block->getCustomerLoyaltyStatus() == 1) : ?>
-<div class="reg-messages messages messages--loyalty" style="display:block; text-align: center;">
+<div class="reg-messages messages messages--loyalty text-center">
     <div class="message success"><?php echo $block->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId($block->getBlockId())->toHtml(); ?></div>
 </div>
 <?php elseif ($block->getCustomerLoyaltyStatus() == 2) : ?>
