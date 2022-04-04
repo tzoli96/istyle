@@ -6,11 +6,11 @@
  */
 ?>
 
-<?php
-    if ($block->getCustomerLoyaltyStatus() == 1) {
-        echo $block->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId($block->getBlockId())->toHtml();
-    } elseif ($block->getCustomerLoyaltyStatus() == 2) {
-?>
+<?php if ($block->getCustomerLoyaltyStatus() == 1) : ?>
+<div class="reg-messages messages messages--loyalty" style="display:block; text-align: center;">
+    <div class="message success"><?php echo $block->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId($block->getBlockId())->toHtml(); ?></div>
+</div>
+<?php elseif ($block->getCustomerLoyaltyStatus() == 2) : ?>
     <?php
     echo $this->getLayout()
     ->createBlock('Magento\Cms\Block\Block')
@@ -73,7 +73,7 @@
             }
         }
     </script>
-<?php } else { ?>
+<?php else : ?>
     <div class="row">
         <div class="col-12 col-lg-8">
             <?=   $block->getLayout()->createBlock(\Magento\Cms\Block\Block::class)->setBlockId($block->getPromoBlockId())->toHtml();?>
@@ -115,4 +115,4 @@
             </div>
         </div>
     </div>
-<?php } ?>
+<?php endif; ?>
