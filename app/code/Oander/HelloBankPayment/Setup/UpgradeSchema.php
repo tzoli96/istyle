@@ -18,6 +18,9 @@ class UpgradeSchema implements UpgradeSchemaInterface
         ModuleContextInterface $context
     ) {
         $setup->startSetup();
+        if (version_compare($context->getVersion(), '1.1.4') < 0) {
+            $this->changeBaremIdType($setup);
+        }
         if (version_compare($context->getVersion(), '1.1.3') < 0) {
            $this->addColumns($setup);
         }
@@ -37,5 +40,26 @@ class UpgradeSchema implements UpgradeSchemaInterface
                 'comment' => 'Equity'
             ]
         );
+    }
+
+    /**
+     * @param SchemaSetupInterface $setup
+     * @return void
+     */
+    private function changeBaremIdType(SchemaSetupInterface $setup)
+    {
+        $installer = $setup;
+        $installer->startSetup();
+        if ($installer->getConnection()->tableColumnExists(BaremInterface::TABLE_NAME, BaremInterface::BAREM_ID)){
+            $definition = [
+                'type'      => Table::TYPE_TEXT,
+                'length'    => 255
+            ];
+            $installer->getConnection()->modifyColumn(
+                $setup->getTable(BaremInterface::TABLE_NAME),
+                BaremInterface::BAREM_ID,
+                $definition
+            );
+        }
     }
 }
