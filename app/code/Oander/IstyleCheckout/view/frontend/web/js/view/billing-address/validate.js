@@ -24,16 +24,14 @@ define([
             var fieldElement = $(field).find('.form-control');
 
             if (fieldElement.hasClass('oander-ui-action-multiselect')) {
-              $('.action-menu-item').on('click', function () {
-                self.requiredHandler(fieldElement, fieldElement.closest('.form-group').attr('name'));
-              });
+              self.requiredHandler(fieldElement, fieldElement.closest('.form-group').attr('name'));
             } else {
               fieldElement.on('keyup change', function () {
                 self.requiredHandler($(this), fieldElement.attr('name'));
               });
-            }
 
-            self.requiredHandler(fieldElement, fieldElement.attr('name'));
+              self.requiredHandler(fieldElement, fieldElement.attr('name'));
+            }
           }
         });
       }
@@ -78,6 +76,8 @@ define([
         fieldsLength++;
         if (fields[field]) validatedFieldsCount++;
       }
+
+      console.log('check required fields', fieldsLength, validatedFieldsCount);
 
       if (fieldsLength === validatedFieldsCount) store.billingAddress.continueBtn(true);
       else store.billingAddress.continueBtn(false);
