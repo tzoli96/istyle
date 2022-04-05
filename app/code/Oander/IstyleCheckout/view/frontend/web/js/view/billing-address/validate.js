@@ -77,8 +77,6 @@ define([
         if (fields[field]) validatedFieldsCount++;
       }
 
-      console.log('check required fields', fieldsLength, validatedFieldsCount);
-
       if (fieldsLength === validatedFieldsCount) store.billingAddress.continueBtn(true);
       else store.billingAddress.continueBtn(false);
     },
