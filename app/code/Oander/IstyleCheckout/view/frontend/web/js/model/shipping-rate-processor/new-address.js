@@ -21,6 +21,13 @@
            */
           getRates: function (address) {
               shippingService.isLoading(true);
+
+              if (Array.isArray(address.postcode)) {
+                  if (!address.postcode.length) {
+                      address.postcode = null;
+                  }
+              }
+
               var cache = rateRegistry.get(address.getCacheKey()),
                   serviceUrl = resourceUrlManager.getUrlForEstimationShippingMethodsForNewAddress(quote),
                   payload = JSON.stringify({
