@@ -85,7 +85,7 @@
         "oander/module-cdninvalidator": "1.0.0",
         "oander/module-checkout": "1.1.0",
         "oander/module-configurable-product": "1.0.0",
-        "oander/module-configurable-product-attribute": "dev-master_50159_56096",
+        "oander/module-configurable-product-attribute": "dev-bugfix/57533-keep-url-query-params",
         "oander/module-cookie-law": "1.0.2",
         "oander/module-core-bug-fix": "dev-istyle",
         "oander/module-currency-manager": "1.2.2.3",
