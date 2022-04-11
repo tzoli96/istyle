@@ -7,6 +7,7 @@
 			<module name="Oander_Queue"/>
 			<module name="Oander_IstyleCheckout"/>
 			<module name="Magento_Sales"/>
+			<module name="Oander\EventBasedExporter" />
 		</sequence>
 	</module>
 </config>

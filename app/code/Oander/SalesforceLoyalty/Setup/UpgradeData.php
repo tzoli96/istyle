@@ -114,33 +114,34 @@ class UpgradeData implements UpgradeDataInterface
         if (version_compare($context->getVersion(), "1.0.2", "<")) {
             $this->addOrderLoyaltyAttribute($setup);
         }
-        if (version_compare($context->getVersion(), "1.0.6", "<")) {
+        //Removed based on 57566 ticket
+        /*if (version_compare($context->getVersion(), "1.0.6", "<")) {
             $this->addCustomerAttribute($eavSetup);
-        }
-        if (version_compare($context->getVersion(), "1.0.9", "<")) {
+        }*/
+        /*if (version_compare($context->getVersion(), "1.0.9", "<")) {
             $this->addTemporaryPeriodBlock();
         }
         if (version_compare($context->getVersion(), "1.1.0", "<")) {
             $this->loyaltyPromoBlock();
-        }
-        if (version_compare($context->getVersion(), "1.1.1", "<")) {
+        }*/
+        //Removed based on 57566 ticket
+        /*if (version_compare($context->getVersion(), "1.1.1", "<")) {
             $this->changeRegisteredToLoyaltyAttribute($eavSetup);
+        }*/
+        //Add based on 57566 ticket, remove attributes if already added
+        if (version_compare($context->getVersion(), "1.1.1", "<") && version_compare($context->getVersion(), "1.0.5", ">")) {
+            $this->removeCustomerAttribute($eavSetup, 'register_to_loyalty');
+            $this->removeCustomerAttribute($eavSetup, 'registered_to_loyalty');
         }
-    }
-
-    private function loyaltyPromoBlock()
-    {
-        $stores = $this->storeRepository->getList();
-        $storeIds = [];
-
-        foreach($stores as $store)
-        {
-            $this->blockFactory->create()->setData([
-                'title' => 'Loyalty Promo Block '.$store->getCode(),
-                'identifier' => 'loyalty_promo_block_'.$store->getCode(),
-                'stores' => $storeIds,
-                'is_active' => 1,
-            ])->save();
+        if(version_compare($context->getVersion(), "1.1.1", "<")) {
+            $this->addLoyaltyStatusAttribute($eavSetup);
+            try {
+                $this->addCMSBlock('loyalty_promo_block', 'Loyalty Promo Block');
+                $this->addCMSBlock('loyalty_registering_block', 'Loyalty Registering Block');
+                $this->addCMSBlock('loyalty_confirmation_block', 'Loyalty Email Confirmation Block');
+                $this->addCMSBlock('loyalty_profile_block', 'Loyalty Registered Profile Block');
+            }
+            catch (\Exception $e) {}
         }
     }
 
@@ -148,20 +149,25 @@ class UpgradeData implements UpgradeDataInterface
      * @throws \Exception
      * @return void
      */
-    private function addTemporaryPeriodBlock()
+    private function addCMSBlock($id, $title)
     {
         $stores = $this->storeRepository->getList();
-        $storeIds = [];
 
         foreach($stores as $store)
         {
-            $this->blockFactory->create()->setData([
-                'title' => 'Temporary Period Loyalty Registration Block '.$store->getCode(),
-                'identifier' => 'temporary_period_loyalty_registration_block_'.$store->getCode(),
-                'stores' => $storeIds,
-                'is_active' => 1,
-            ])->save();
+            if($store->getId()!==0) {
+                $this->blockFactory->create()->setData([
+                    'title' => $title,
+                    'identifier' => $id,
+                    'stores' => [$store->getId()],
+                    'is_active' => 1,
+                ])->save();
+            }
         }
+    }
+
+    private function removeCustomerAttribute($eavSetup, $id) {
+        $eavSetup->removeAttribute(Customer::ENTITY, $id);
     }
 
     /**
@@ -169,43 +175,36 @@ class UpgradeData implements UpgradeDataInterface
      * @throws LocalizedException
      * @return void
      */
-    private function addCustomerAttribute($eavSetup)
+    private function addLoyaltyStatusAttribute($eavSetup)
     {
-        $attributes = [
-            CustomerAttribute::REGISTERED_TO_LOYALTY,
-            CustomerAttribute::REGISTER_TO_LOYALTY
-        ];
         $customerEntity = $this->eavConfig->getEntityType(Customer::ENTITY);
         $attributeSetId = $customerEntity->getDefaultAttributeSetId();
         /** @var $attributeSet AttributeSet */
         $attributeSet = $this->attributeSetFactory->create();
         $attributeGroupId = $attributeSet->getDefaultGroupId($attributeSetId);
 
-        foreach ($attributes as $attribute) {
-            $eavSetup->addAttribute(
-                Customer::ENTITY,
-                $attribute,
-                [
-                    'type' => 'int',
-                    'label' => 'Register to loyalty',
-                    'input' => 'select',
-                    'required' => false,
-                    'visible' => true,
-                    'user_defined' => true,
-                    'system' => 0,
-                    'source' => 'Magento\Eav\Model\Entity\Attribute\Source\Boolean',
-                    'global' => ScopedAttributeInterface::SCOPE_GLOBAL,
-                ]
-            );
-            $attributes = $this->eavConfig->getAttribute(Customer::ENTITY, $attribute);
-            $attributes->addData([
-                'attribute_set_id' => $attributeSetId,
-                'attribute_group_id' => $attributeGroupId,
-                'used_in_forms', ['adminhtml_customer']
-            ]);
-            $attributes->save();
-        }
-
+        $eavSetup->addAttribute(
+            Customer::ENTITY,
+            CustomerAttribute::LOYALTY_STATUS,
+            [
+                'type' => 'int',
+                'label' => 'Loyalty Status',
+                'input' => 'select',
+                'required' => false,
+                'visible' => true,
+                'user_defined' => false,
+                'system' => 0,
+                'source' => \Oander\SalesforceLoyalty\Model\Entity\Attribute\Source\LoyaltyStatus::class,
+                'global' => ScopedAttributeInterface::SCOPE_GLOBAL,
+            ]
+        );
+        $attribute = $this->eavConfig->getAttribute(Customer::ENTITY, CustomerAttribute::LOYALTY_STATUS);
+        $attribute->addData([
+            'attribute_set_id' => $attributeSetId,
+            'attribute_group_id' => $attributeGroupId,
+            'used_in_forms' => ['adminhtml_customer']
+        ]);
+        $attribute->save();
     }
 
     /**
@@ -273,15 +272,5 @@ class UpgradeData implements UpgradeDataInterface
                 'option' => ['values' => [""]]
             ]
         );
-    }
-
-    /**
-     * @param $eavSetup
-     * @throws LocalizedException
-     * @return void
-     */
-    private function changeRegisteredToLoyaltyAttribute($eavSetup)
-    {
-        $eavSetup->updateAttribute('customer', 'registred_to_loyalty', 'attribute_code', CustomerAttribute::REGISTERED_TO_LOYALTY);
     }
 }

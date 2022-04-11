@@ -1,0 +1,23 @@
+<?php
+/**
+ * New Customer block template
+ *
+ * @var $block \Oander\SalesforceLoyalty\Block\Customer\Account\Points
+ */
+?>
+<div class="block__head">
+    <div class="row">
+        <div class="col-6">
+            <div class="block__col">
+                <p class="block__title"><?= __('Loyalty ID') ?></p>
+                <span><?php echo $block->getSalesforceId() ?></span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="block__col">
+                <p class="block__title"><?= __('Available points') ?></p>
+                <span><?php echo $block->getLoyaltyPoints() ?></span>
+            </div>
+        </div>
+    </div>
+</div>
