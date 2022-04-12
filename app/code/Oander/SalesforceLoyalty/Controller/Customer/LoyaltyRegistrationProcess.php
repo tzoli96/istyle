@@ -52,9 +52,11 @@ class LoyaltyRegistrationProcess extends Action
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         if ($this->helper->getLoyaltyServiceEnabled()) {
             $customer = $this->customerRepository->getById($this->customerSession->getId());
-            $customer->setCustomAttribute(CustomerAttribute::LOYALTY_STATUS, LoyaltyStatusEnum::VALUE_NEED_SF_REGISTRATION);
-            $this->customerRepository->save($customer);
-            $this->messageManager->addSuccessMessage(__("Your Loyalty registration request has been sent"));
+            if(((int)$customer->getCustomAttribute(CustomerAttribute::LOYALTY_STATUS)->getValue()) !== LoyaltyStatusEnum::VALUE_REGISTERED) {
+                $customer->setCustomAttribute(CustomerAttribute::LOYALTY_STATUS, LoyaltyStatusEnum::VALUE_NEED_SF_REGISTRATION);
+                $this->customerRepository->save($customer);
+                $this->messageManager->addSuccessMessage(__("Your Loyalty registration request has been sent"));
+            }
         }
         $resultRedirect->setUrl($this->_redirect->getRefererUrl());
         return $resultRedirect;
