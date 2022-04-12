@@ -28,6 +28,12 @@
                   }
               }
 
+              if (address.region) {
+                  if (address.region === '') {
+                      delete address.region;
+                  }
+              }
+
               var cache = rateRegistry.get(address.getCacheKey()),
                   serviceUrl = resourceUrlManager.getUrlForEstimationShippingMethodsForNewAddress(quote),
                   payload = JSON.stringify({
