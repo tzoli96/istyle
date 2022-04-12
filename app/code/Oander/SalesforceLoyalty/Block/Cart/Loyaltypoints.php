@@ -97,7 +97,7 @@ class Loyaltypoints extends \Magento\Framework\View\Element\Template
      */
     public function isItLoyaltyMember()
     {
-        return ($this->isLoggedIn()) ? (bool)$this->customerSession->getCustomer()->getData(CustomerAttribute::LOYALTY_STATUS) === LoyaltyStatusEnum::VALUE_REGISTERED : false;
+        return ($this->isLoggedIn()) ? ((int)$this->customerSession->getCustomer()->getData(CustomerAttribute::LOYALTY_STATUS)) === LoyaltyStatusEnum::VALUE_REGISTERED : false;
     }
 
     /**

@@ -70,7 +70,10 @@ class Account extends \Magento\Customer\Controller\AbstractAccount
     }
 
     protected function updateLoyaltyStatus() {
-        if((int)$this->customerSession->getCustomer()->getData(CustomerAttribute::LOYALTY_STATUS) === LoyaltyStatusEnum::VALUE_PENDING_REGISTRATION) {
+        if(
+            ((int)$this->customerSession->getCustomer()->getData(CustomerAttribute::LOYALTY_STATUS)) === LoyaltyStatusEnum::VALUE_NEED_SF_REGISTRATION ||
+            ((int)$this->customerSession->getCustomer()->getData(CustomerAttribute::LOYALTY_STATUS)) === LoyaltyStatusEnum::VALUE_PENDING_REGISTRATION
+        ) {
             if($this->salesforceHelper->getCustomerIsAffiliateMember()) {
                 $customer = $this->customerRepository->getById($this->customerSession->getId());
                 $this->customerSession->getCustomer()->setData(CustomerAttribute::LOYALTY_STATUS, LoyaltyStatusEnum::VALUE_REGISTERED);
