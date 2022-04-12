@@ -58,4 +58,12 @@ class Success extends extendedSuccess
     {
         return $this->helperData->getBlockId();
     }
+
+    /**
+     * @return int
+     */
+    public function getCustomerLoyaltyStatus()
+    {
+        return $this->customerSession->getCustomer()->getData(CustomerAttribute::LOYALTY_STATUS) ?? 0;
+    }
 }
