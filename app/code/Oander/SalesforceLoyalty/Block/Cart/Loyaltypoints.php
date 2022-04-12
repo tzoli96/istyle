@@ -22,10 +22,12 @@
 namespace Oander\SalesforceLoyalty\Block\Cart;
 
 use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\View\Element\Template;
 use Oander\SalesforceLoyalty\Helper\Data;
 use Oander\SalesforceLoyalty\Enum\CustomerAttribute;
+use Oander\SalesforceLoyalty\Helper\Config;
 
-class Loyaltypoints extends \Magento\Framework\View\Element\Template
+class Loyaltypoints extends Template
 {
     /**
      * @var \Magento\Checkout\Model\Session
@@ -53,14 +55,19 @@ class Loyaltypoints extends \Magento\Framework\View\Element\Template
     private $helperData;
 
     /**
-     * Constructor
-     *
-     * @param \Magento\Framework\View\Element\Template\Context $context
+     * @var Config
+     */
+    private $configHelper;
+
+    /**
+     * @param Template\Context $context
      * @param \Magento\Customer\Model\Session $customerSession
      * @param \Magento\Checkout\Model\Session $checkoutSession
      * @param \Magento\Framework\Pricing\PriceCurrencyInterface $priceCurrency
-     * @param \Oander\SalesforceLoyalty\Helper\Data $loyaltyHelper
+     * @param Data $loyaltyHelper
      * @param \Oander\SalesforceLoyalty\Helper\Salesforce $salesforceHelper
+     * @param Data $helperData
+     * @param Config $configHelper
      * @param array $data
      */
     public function __construct(
@@ -71,6 +78,7 @@ class Loyaltypoints extends \Magento\Framework\View\Element\Template
         \Oander\SalesforceLoyalty\Helper\Data             $loyaltyHelper,
         \Oander\SalesforceLoyalty\Helper\Salesforce       $salesforceHelper,
         Data                                              $helperData,
+        Config                                            $configHelper,
         array                                             $data = []
     )
     {
@@ -80,6 +88,7 @@ class Loyaltypoints extends \Magento\Framework\View\Element\Template
         $this->checkoutSession = $checkoutSession;
         $this->loyaltyHelper = $loyaltyHelper;
         $this->salesforceHelper = $salesforceHelper;
+        $this->configHelper = $configHelper;
         $this->helperData = $helperData;
     }
 
@@ -88,6 +97,10 @@ class Loyaltypoints extends \Magento\Framework\View\Element\Template
      */
     private function isLoggedIn()
     {
+        if(!$this->configHelper->getLoyaltyServiceEnabled())
+        {
+            return false;
+        }
         return $this->customerSession->isLoggedIn();
     }
 
