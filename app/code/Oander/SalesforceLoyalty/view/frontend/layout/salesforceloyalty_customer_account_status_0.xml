@@ -4,11 +4,15 @@
         <referenceContainer name="content">
             <container name="salesforceloyalty.customer.account.notregistered.row" htmlTag="div" htmlClass="row">
                 <container name="salesforceloyalty.customer.account.notregistered.col" htmlTag="div" htmlClass="col-12 col-lg-8">
-                    <block class="Magento\Cms\Block\Block" name="salesforceloyalty.customer.account.notregistered.col.cms">
-                        <arguments>
-                            <argument name="block_id" xsi:type="string">loyalty_promo_block</argument>
-                        </arguments>
-                    </block>
+                    <container name="salesforceloyalty.customer.account.confirmation.message" htmlTag="div" htmlClass="reg-messages messages messages--loyalty text-center">
+                        <container name="salesforceloyalty.customer.account.confirmation.message.info" htmlTag="div" htmlClass="message info">
+                            <block class="Magento\Cms\Block\Block" name="salesforceloyalty.customer.account.notregistered.col.cms">
+                                <arguments>
+                                    <argument name="block_id" xsi:type="string">loyalty_promo_block</argument>
+                                </arguments>
+                            </block>
+                        </container>
+                    </container>
                     <block class="\Magento\Framework\View\Element\Template" name="salesforceloyalty.customer.account.notregistered.col.form" template="Oander_SalesforceLoyalty::customer/account/notregistered/form.phtml">
                         <block class="Oander\SalesforceLoyalty\Block\SuccessPage\Agreements" name="salesforceloyalty.customer.account.notregistered.col.form.agreements" template="Magento_Customer::form/register-agreements.phtml" cacheable="false"/>
                     </block>
