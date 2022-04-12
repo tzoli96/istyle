@@ -135,18 +135,16 @@ class UpgradeData implements UpgradeDataInterface
         }
         if(version_compare($context->getVersion(), "1.1.1", "<")) {
             $this->addLoyaltyStatusAttribute($eavSetup);
-            try {
-                $this->addCMSBlock('loyalty_promo_block', 'Loyalty Promo Block');
-                $this->addCMSBlock('loyalty_registering_block', 'Loyalty Registering Block');
-                $this->addCMSBlock('loyalty_confirmation_block', 'Loyalty Email Confirmation Block');
-                $this->addCMSBlock('loyalty_profile_block', 'Loyalty Registered Profile Block');
-            }
-            catch (\Exception $e) {}
+            $this->addCMSBlock('loyalty_promo_block', 'Loyalty Promo Block');
+            $this->addCMSBlock('loyalty_registering_block', 'Loyalty Registering Block');
+            $this->addCMSBlock('loyalty_confirmation_block', 'Loyalty Email Confirmation Block');
+            $this->addCMSBlock('loyalty_profile_block', 'Loyalty Registered Profile Block');
         }
     }
 
     /**
-     * @throws \Exception
+     * @param $id
+     * @param $title
      * @return void
      */
     private function addCMSBlock($id, $title)
@@ -156,12 +154,15 @@ class UpgradeData implements UpgradeDataInterface
         foreach($stores as $store)
         {
             if($store->getId()!==0) {
-                $this->blockFactory->create()->setData([
-                    'title' => $title,
-                    'identifier' => $id,
-                    'stores' => [$store->getId()],
-                    'is_active' => 1,
-                ])->save();
+                //Maybe block already exist
+                try {
+                    $this->blockFactory->create()->setData([
+                        'title' => $title,
+                        'identifier' => $id,
+                        'stores' => [$store->getId()],
+                        'is_active' => 1,
+                    ])->save();
+                } catch (\Exception $e) {}
             }
         }
     }
