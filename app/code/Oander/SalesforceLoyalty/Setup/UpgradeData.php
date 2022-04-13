@@ -129,11 +129,11 @@ class UpgradeData implements UpgradeDataInterface
             $this->changeRegisteredToLoyaltyAttribute($eavSetup);
         }*/
         //Add based on 57566 ticket, remove attributes if already added
-        if (version_compare($context->getVersion(), "1.1.1", "<") && version_compare($context->getVersion(), "1.0.5", ">")) {
+        if (version_compare($context->getVersion(), "1.1.2", "<") && version_compare($context->getVersion(), "1.0.5", ">")) {
             $this->removeCustomerAttribute($eavSetup, 'register_to_loyalty');
             $this->removeCustomerAttribute($eavSetup, 'registered_to_loyalty');
         }
-        if(version_compare($context->getVersion(), "1.1.1", "<")) {
+        if(version_compare($context->getVersion(), "1.1.2", "<")) {
             $this->addLoyaltyStatusAttribute($eavSetup);
             $this->addCMSBlock('loyalty_promo_block', 'Loyalty Promo Block');
             $this->addCMSBlock('loyalty_registering_block', 'Loyalty Registering Block');
