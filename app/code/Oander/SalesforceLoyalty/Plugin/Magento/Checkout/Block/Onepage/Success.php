@@ -56,7 +56,7 @@ class Success extends extendedSuccess
      */
     public function getBlockId()
     {
-        return $this->helperData->getBlockId();
+        return 'loyalty_registering_block';
     }
 
     /**
