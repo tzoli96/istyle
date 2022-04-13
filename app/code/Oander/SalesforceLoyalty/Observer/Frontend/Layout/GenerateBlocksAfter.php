@@ -78,10 +78,9 @@ class GenerateBlocksAfter implements \Magento\Framework\Event\ObserverInterface
         {
             /** @var \Magento\Framework\View\LayoutInterface $layout */
             $layout = $observer->getData('layout');
-            if(!($this->checkoutSession->getQuote()->getData(Attribute::LOYALTY_DISCOUNT)>0)
-                && !$this->checkoutSession->getQuote()->getCouponCode()
-                && !$this->checkoutSession->getQuote()->getAppliedRuleIds()
-                && !$this->customerSession->isLoggedIn()
+            if( (!($this->checkoutSession->getQuote()->getData(Attribute::LOYALTY_DISCOUNT)>0)  && $this->customerSession->isLoggedIn())
+                || !$this->checkoutSession->getQuote()->getCouponCode()
+                || !$this->checkoutSession->getQuote()->getAppliedRuleIds()
             ) {
                     $earnablePoints = $this->loyaltyHelper->formatPoint($this->loyaltyHelper->getEarnableLoyaltyPoints());
                     if($earnablePoints>0 && $this->helperConfig->getLoyaltyServiceEnabled()) {
