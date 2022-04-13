@@ -42,7 +42,9 @@ class CustomerConvertObserver extends AbstractConvertObserver
      */
     protected function convert($customer, array &$convertedData)
     {
-        $loyaltyStatus = $customer->getCustomAttribute(CustomerAttribute::LOYALTY_STATUS);
-        $convertedData[CustomerAttribute::LOYALTY_STATUS] = $this->cast($loyaltyStatus, 'int', false);
+        if($customer->getCustomAttribute(CustomerAttribute::LOYALTY_STATUS)) {
+            $loyaltyStatus = $customer->getCustomAttribute(CustomerAttribute::LOYALTY_STATUS)->getValue();
+            $convertedData[CustomerAttribute::LOYALTY_STATUS] = $this->cast($loyaltyStatus, 'int', false);
+        }
     }
 }

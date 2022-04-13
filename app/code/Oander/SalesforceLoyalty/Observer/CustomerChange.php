@@ -83,7 +83,7 @@ class CustomerChange implements ObserverInterface
     private function saveLoyaltyAttribute($customerId)
     {
         $customer = $this->customerRepository->getById($customerId);
-        if (((int)$customer->getCustomAttribute(CustomerAttribute::LOYALTY_STATUS)) === LoyaltyStatusEnum::VALUE_NOT_REGISTERED) {
+        if (($customer->getCustomAttribute(CustomerAttribute::LOYALTY_STATUS) ? (int)$customer->getCustomAttribute(CustomerAttribute::LOYALTY_STATUS)->getValue() : LoyaltyStatusEnum::VALUE_NOT_REGISTERED) === LoyaltyStatusEnum::VALUE_NOT_REGISTERED) {
             $customer->setCustomAttribute(CustomerAttribute::LOYALTY_STATUS, LoyaltyStatusEnum::VALUE_NEED_SF_REGISTRATION);
             $this->customerRepository->save($customer);
         }

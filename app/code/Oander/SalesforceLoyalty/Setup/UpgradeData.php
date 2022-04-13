@@ -192,6 +192,7 @@ class UpgradeData implements UpgradeDataInterface
                 'label' => 'Loyalty Status',
                 'input' => 'select',
                 'required' => false,
+                'default' => \Oander\SalesforceLoyalty\Enum\LoyaltyStatus::VALUE_NOT_REGISTERED,
                 'visible' => true,
                 'user_defined' => false,
                 'system' => 0,
