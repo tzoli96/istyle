@@ -9438,7 +9438,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "b068287f285090d4c17542972777de1919f61f2f"
+                "reference": "bc80067425531f5be0b168ca15c424860ba36b5e"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9457,7 +9457,7 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2022-04-13T09:51:39+00:00"
+            "time": "2022-04-13T14:08:06+00:00"
         },
         {
             "name": "oander/module-salesforce-service",
