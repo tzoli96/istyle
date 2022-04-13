@@ -1,0 +1,43 @@
+<?php
+/**
+ * New Customer block template
+ *
+ * @var $block \Oander\SalesforceLoyalty\Block\Customer\Account\History
+ */
+?>
+<div class="block__content">
+    <div class="block block--loyaltyhistory d-none">
+        <div class="block__table">
+            <table id="loyaltyhistory" class="table table-striped table--loyalty">
+                <thead>
+                <tr>
+                    <td><b><?= __('Transaction date') ?></b></td>
+                    <td><b><?= __('Order ID') ?></b></td>
+                    <td></td>
+                    <td><b><?= __('Transaction type') ?></b></td>
+                    <td><b><?= __('Transaction points') ?></b></td>
+                </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="block__load">
+            <img src="<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/loader-1.gif'); ?>" alt="<?= __('Loading') ?>" title="<?= __('Loading') ?>">
+        </div>
+        <div class="block__pagination">
+            <div class="pages">
+                <ul class="items"></ul>
+            </div>
+        </div>
+    </div>
+    <div class="profile-no-item d-none">
+        <p><?php /* @escapeNotVerified */ echo __('Your loyalty history is empty.'); ?></p>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "#loyaltyhistory": {
+            "salesforceLoyaltyHistory": <?php /* @noEscape */ echo $block->getScriptOptions(); ?>
+        }
+    }
+</script>

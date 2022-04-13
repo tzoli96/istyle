@@ -1,0 +1,40 @@
+<?php
+/**
+ * New Customer block template
+ *
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+?>
+
+<form
+    id="registration"
+    action="<?= $block->getUrl('salesforceloyalty/customer/loyaltyregistrationprocess') ?>"
+    class="loyalty-registration profile"
+>
+    <div class="form-group">
+        <?= $block->getChildHtml('salesforceloyalty.customer.account.notregistered.col.form.agreements') ?>
+    </div>
+    <input
+        id="loyalty-registration"
+        type="submit"
+        class="action primary"
+        value="<?php /* @escapeNotVerified */ echo __('Loyalty subscription') ?>"
+        disabled
+    >
+    <script type="text/javascript">
+      require(['jquery'], function($) {
+        $(function() {
+          $('#registration.loyalty-registration .checkbox').on('change', function() {
+            if ($(this).is(':checked')) {
+              $('#loyalty-registration').removeAttr('disabled');
+            } else {
+              $('#loyalty-registration').attr('disabled', 'disabled');
+            }
+          });
+        });
+      });
+    </script>
+</form>
+<div class="reg-messages messages">
+    <div class="message"></div>
+</div>

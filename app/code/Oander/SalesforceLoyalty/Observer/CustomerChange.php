@@ -10,6 +10,7 @@ use Magento\Store\Model\StoreManagerInterface;
 use Magento\Customer\Api\CustomerRepositoryInterface;
 use Oander\SalesforceLoyalty\Enum\CustomerAttribute;
 use Oander\SalesforceLoyalty\Helper\Config;
+use Oander\SalesforceLoyalty\Enum\LoyaltyStatus as LoyaltyStatusEnum;
 
 class CustomerChange implements ObserverInterface
 {
@@ -82,8 +83,8 @@ class CustomerChange implements ObserverInterface
     private function saveLoyaltyAttribute($customerId)
     {
         $customer = $this->customerRepository->getById($customerId);
-        if (!$customer->getCustomAttribute(CustomerAttribute::REGISTER_TO_LOYALTY)) {
-            $customer->setCustomAttribute(CustomerAttribute::REGISTER_TO_LOYALTY, true);
+        if ($customer->getCustomAttribute(CustomerAttribute::LOYALTY_STATUS) === LoyaltyStatusEnum::VALUE_NOT_REGISTERED) {
+            $customer->setCustomAttribute(CustomerAttribute::LOYALTY_STATUS, LoyaltyStatusEnum::VALUE_NEED_SF_REGISTRATION);
             $this->customerRepository->save($customer);
         }
     }

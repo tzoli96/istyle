@@ -22,12 +22,11 @@
 namespace Oander\SalesforceLoyalty\Block\Cart;
 
 use Magento\Framework\Exception\LocalizedException;
-use Magento\Framework\View\Element\Template;
 use Oander\SalesforceLoyalty\Helper\Data;
 use Oander\SalesforceLoyalty\Enum\CustomerAttribute;
-use Oander\SalesforceLoyalty\Helper\Config;
+use \Oander\SalesforceLoyalty\Enum\LoyaltyStatus as LoyaltyStatusEnum;
 
-class Loyaltypoints extends Template
+class Loyaltypoints extends \Magento\Framework\View\Element\Template
 {
     /**
      * @var \Magento\Checkout\Model\Session
@@ -55,19 +54,14 @@ class Loyaltypoints extends Template
     private $helperData;
 
     /**
-     * @var Config
-     */
-    private $configHelper;
-
-    /**
-     * @param Template\Context $context
+     * Constructor
+     *
+     * @param \Magento\Framework\View\Element\Template\Context $context
      * @param \Magento\Customer\Model\Session $customerSession
      * @param \Magento\Checkout\Model\Session $checkoutSession
      * @param \Magento\Framework\Pricing\PriceCurrencyInterface $priceCurrency
-     * @param Data $loyaltyHelper
+     * @param \Oander\SalesforceLoyalty\Helper\Data $loyaltyHelper
      * @param \Oander\SalesforceLoyalty\Helper\Salesforce $salesforceHelper
-     * @param Data $helperData
-     * @param Config $configHelper
      * @param array $data
      */
     public function __construct(
@@ -78,7 +72,6 @@ class Loyaltypoints extends Template
         \Oander\SalesforceLoyalty\Helper\Data             $loyaltyHelper,
         \Oander\SalesforceLoyalty\Helper\Salesforce       $salesforceHelper,
         Data                                              $helperData,
-        Config                                            $configHelper,
         array                                             $data = []
     )
     {
@@ -88,7 +81,6 @@ class Loyaltypoints extends Template
         $this->checkoutSession = $checkoutSession;
         $this->loyaltyHelper = $loyaltyHelper;
         $this->salesforceHelper = $salesforceHelper;
-        $this->configHelper = $configHelper;
         $this->helperData = $helperData;
     }
 
@@ -97,10 +89,6 @@ class Loyaltypoints extends Template
      */
     private function isLoggedIn()
     {
-        if(!$this->configHelper->getLoyaltyServiceEnabled())
-        {
-            return false;
-        }
         return $this->customerSession->isLoggedIn();
     }
 
@@ -109,7 +97,7 @@ class Loyaltypoints extends Template
      */
     public function isItLoyaltyMember()
     {
-        return ($this->isLoggedIn()) ? (bool)$this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTERED_TO_LOYALTY) : false;
+        return ($this->isLoggedIn()) ? (bool)$this->customerSession->getCustomer()->getData(CustomerAttribute::LOYALTY_STATUS) === LoyaltyStatusEnum::VALUE_REGISTERED : false;
     }
 
     /**
