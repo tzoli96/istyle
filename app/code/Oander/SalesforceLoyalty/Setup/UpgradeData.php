@@ -140,6 +140,9 @@ class UpgradeData implements UpgradeDataInterface
             $this->addCMSBlock('loyalty_confirmation_block', 'Loyalty Email Confirmation Block');
             $this->addCMSBlock('loyalty_profile_block', 'Loyalty Registered Profile Block');
         }
+        if(version_compare($context->getVersion(), "1.1.3", "<")) {
+            $this->addCMSBlock('loyalty_nosfid', 'Loyalty Missing SalesForce ID Profile Block');
+        }
     }
 
     /**
