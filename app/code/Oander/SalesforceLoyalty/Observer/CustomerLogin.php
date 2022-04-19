@@ -4,11 +4,12 @@ namespace Oander\SalesforceLoyalty\Observer;
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
+use Magento\Customer\Api\CustomerRepositoryInterface;
 use Oander\SalesforceLoyalty\Enum\CustomerAttribute;
+use Oander\SalesforceLoyalty\Enum\LoyaltyStatus as LoyaltyStatusEnum;
 use Oander\SalesforceLoyalty\Helper\Data;
 use Oander\SalesforceLoyalty\Helper\Config;
 use Oander\SalesforceLoyalty\Helper\Salesforce;
-use Magento\Customer\Api\CustomerRepositoryInterface;
 
 class CustomerLogin implements ObserverInterface
 {
@@ -56,11 +57,18 @@ class CustomerLogin implements ObserverInterface
         $customer = $observer->getEvent()->getCustomer();
 
         if ($this->configHelper->getLoyaltyServiceEnabled()) {
-            if ($this->salesForceHelper->getCustomerIsAffiliateMember()) {
-                $customer = $this->customerRepository->getById($customer->getId());
-                $customer->setCustomAttribute(CustomerAttribute::REGISTER_TO_LOYALTY, true);
-                $customer->setCustomAttribute(CustomerAttribute::REGISTERED_TO_LOYALTY, true);
-                $this->customerRepository->save($customer);
+            if (
+                ((int)$customer->getData(CustomerAttribute::LOYALTY_STATUS)) === LoyaltyStatusEnum::VALUE_NEED_SF_REGISTRATION ||
+                ((int)$customer->getData(CustomerAttribute::LOYALTY_STATUS)) === LoyaltyStatusEnum::VALUE_PENDING_REGISTRATION
+            ) {
+                if ($this->salesForceHelper->getCustomerIsAffiliateMember()) {
+                    $customerObject = $this->customerRepository->getById($customer->getId());
+                    $customer->setData(CustomerAttribute::LOYALTY_STATUS, LoyaltyStatusEnum::VALUE_REGISTERED);
+                    $customerObject->setData(CustomerAttribute::LOYALTY_STATUS, LoyaltyStatusEnum::VALUE_REGISTERED);
+                    $customerObject->setCustomAttribute(CustomerAttribute::LOYALTY_STATUS, LoyaltyStatusEnum::VALUE_REGISTERED);
+                    $customer->setCustomAttribute(CustomerAttribute::LOYALTY_STATUS, LoyaltyStatusEnum::VALUE_REGISTERED);
+                    $this->customerRepository->save($customerObject);
+                }
             }
         }
     }

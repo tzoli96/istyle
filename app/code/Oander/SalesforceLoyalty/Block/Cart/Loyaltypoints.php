@@ -24,6 +24,7 @@ namespace Oander\SalesforceLoyalty\Block\Cart;
 use Magento\Framework\Exception\LocalizedException;
 use Oander\SalesforceLoyalty\Helper\Data;
 use Oander\SalesforceLoyalty\Enum\CustomerAttribute;
+use \Oander\SalesforceLoyalty\Enum\LoyaltyStatus as LoyaltyStatusEnum;
 
 class Loyaltypoints extends \Magento\Framework\View\Element\Template
 {
@@ -96,7 +97,7 @@ class Loyaltypoints extends \Magento\Framework\View\Element\Template
      */
     public function isItLoyaltyMember()
     {
-        return ($this->isLoggedIn()) ? (bool)$this->customerSession->getCustomer()->getData(CustomerAttribute::REGISTERED_TO_LOYALTY) : false;
+        return ($this->isLoggedIn()) ? ((int)$this->customerSession->getCustomer()->getData(CustomerAttribute::LOYALTY_STATUS)) === LoyaltyStatusEnum::VALUE_REGISTERED : false;
     }
 
     /**

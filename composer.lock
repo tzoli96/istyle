@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ecd2547cc13f59f3978229fa4366acca",
+    "content-hash": "2bcdc4e17e44538f4a3a66087b980a4c",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9448,11 +9448,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.3.0.7",
+            "version": "dev-feature/57566-add_log_and_exception",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "f813baef60a22b2a2a691cd98f7c08f655412de0"
+                "reference": "bc80067425531f5be0b168ca15c424860ba36b5e"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9471,7 +9471,7 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2022-03-20T17:51:29+00:00"
+            "time": "2022-04-13T14:08:06+00:00"
         },
         {
             "name": "oander/module-salesforce-service",
@@ -10150,7 +10150,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "3d9a52faec6a4cde0f42d5dec1b3df71d220e5b3"
+                "reference": "602b9e48e4dcc38b48478732ff0c4d29157987bf"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10166,7 +10166,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2022-04-13T14:57:29+00:00"
+            "time": "2022-04-14T16:08:52+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10885,16 +10885,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.122.0",
+            "version": "v7.124.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "c58179aa4cad16240a6e65dbf29c2bfd4ae0c033"
+                "reference": "548e8ef08a86c6c621446082393dc6a1af51076c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/c58179aa4cad16240a6e65dbf29c2bfd4ae0c033",
-                "reference": "c58179aa4cad16240a6e65dbf29c2bfd4ae0c033",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/548e8ef08a86c6c621446082393dc6a1af51076c",
+                "reference": "548e8ef08a86c6c621446082393dc6a1af51076c",
                 "shasum": ""
             },
             "require": {
@@ -10937,7 +10937,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2022-04-08T16:57:33+00:00"
+            "time": "2022-04-18T23:07:08+00:00"
         },
         {
             "name": "symfony/console",
@@ -14955,6 +14955,7 @@
         "oander/module-configurable-product-attribute": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
+        "oander/module-salesforce": 20,
         "oander/module-salesforce-service": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
