@@ -67,6 +67,14 @@ class DefaultRenderer extends \Magento\Sales\Block\Order\Item\Renderer\DefaultRe
         if (!$product->getTypeId() == Type::TYPE_CODE) {
             return false;
         }
-        return (bool)$this->bundleType->getParentIdsByChild($product->getId());
+        $response = false;
+        $bundleArray = $this->bundleType->getParentIdsByChild($product->getId());
+        foreach ($bundleArray as $bundleProductId) {
+            if ($this->getOrder()->getItemById($bundleProductId)) {
+                $response = true;
+                break;
+            }
+        }
+        return $response;
     }
 }
