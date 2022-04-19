@@ -32,10 +32,10 @@
 					<label>Loyalty Registration Type</label>
 				</field>
 			</group>
-			<group id="salesforce_loyalty_serivce" sortOrder="15" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+			<group id="salesforce_loyalty_service" sortOrder="15" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
 				<label>Loyalty Service</label>
 				<field id="enabled" type="select" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
-					<label>Enable Loyalty Service </label>
+					<label>Enable Loyalty Service</label>
 					<comment/>
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
 				</field>
