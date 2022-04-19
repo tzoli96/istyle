@@ -61,10 +61,14 @@ class Account extends \Magento\Customer\Controller\AbstractAccount
      */
     public function execute()
     {
-        $this->updateLoyaltyStatus();
-        $loyaltyStatus = $this->customerSession->getCustomer()->getData(CustomerAttribute::LOYALTY_STATUS) ?? 0;
         $page = $this->resultPageFactory->create();
-        $page->addHandle('salesforceloyalty_customer_account_status_' . $loyaltyStatus);
+        if($this->customerSession->getCustomer()->getData('sforce_maconomy_id')) {
+            $this->updateLoyaltyStatus();
+            $loyaltyStatus = $this->customerSession->getCustomer()->getData(CustomerAttribute::LOYALTY_STATUS) ?? 0;
+            $page->addHandle('salesforceloyalty_customer_account_status_' . $loyaltyStatus);
+        } else {
+            $page->addHandle('salesforceloyalty_customer_account_status_nosfid');
+        }
         $page->getConfig()->getTitle()->set(__('Loyalty profile info'));
         return $page;
     }
