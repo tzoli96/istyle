@@ -10439,11 +10439,11 @@
         },
         {
             "name": "plugincompany/customergroupswitching",
-            "version": "100.1.4",
+            "version": "100.1.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/plugincompany-customergroupswitching.git",
-                "reference": "f4d905a30639939b020bcf9ea017894818434ea4"
+                "reference": "575cacd6f8a61e083934332ee7f018d5ba7b09ae"
             },
             "require": {
                 "php": "~5.6.0|~7.0.2|~7.1",
@@ -10461,7 +10461,7 @@
             "license": [
                 "Proprietary"
             ],
-            "time": "2018-06-25T14:38:21+00:00"
+            "time": "2019-03-07T12:55:56+00:00"
         },
         {
             "name": "plugincompany/licensemanager",
