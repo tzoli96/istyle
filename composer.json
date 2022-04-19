@@ -10,7 +10,7 @@
     "require": {
         "magento/product-community-edition": "2.1.5",
         "composer/composer": "@alpha",
-        "algolia/algoliasearch-magento-2": "1.8.2",
+        "algolia/algoliasearch-magento-2": "dev-bugfix/57782-set-instantsearch-use-replace-state",
         "amasty/base": "1.9.7",
         "amasty/cron-schedule-list": "1.0.1",
         "amasty/meta": "1.1.11",
