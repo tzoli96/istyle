@@ -63,10 +63,8 @@ class CustomerLogin implements ObserverInterface
             ) {
                 if ($this->salesForceHelper->getCustomerIsAffiliateMember()) {
                     $customerObject = $this->customerRepository->getById($customer->getId());
-                    $customer->setData(CustomerAttribute::LOYALTY_STATUS, LoyaltyStatusEnum::VALUE_REGISTERED);
                     $customerObject->setData(CustomerAttribute::LOYALTY_STATUS, LoyaltyStatusEnum::VALUE_REGISTERED);
                     $customerObject->setCustomAttribute(CustomerAttribute::LOYALTY_STATUS, LoyaltyStatusEnum::VALUE_REGISTERED);
-                    $customer->setCustomAttribute(CustomerAttribute::LOYALTY_STATUS, LoyaltyStatusEnum::VALUE_REGISTERED);
                     $this->customerRepository->save($customerObject);
                 }
             }
