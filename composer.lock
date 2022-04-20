@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2bcdc4e17e44538f4a3a66087b980a4c",
+    "content-hash": "34057991e749b21277743f38e172bf2f",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -7564,11 +7564,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.18.11",
+            "version": "dev-bugfix/57782-set-instantsearch-use-replace-state",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "a1027805c6a2f433ec1bead1c0206336aabcb576"
+                "reference": "eeaae7f85e5946bf5981c76f49a714ea1d598a2c"
             },
             "require": {
                 "oander/module-warehouse-manager": ">=1.4.25.6"
@@ -7592,7 +7592,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2022-01-25T10:47:29+00:00"
+            "time": "2022-04-19T14:41:52+00:00"
         },
         {
             "name": "oander/module-amasty-xnotif-bundle-price-switcher-extender",
@@ -10150,7 +10150,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "602b9e48e4dcc38b48478732ff0c4d29157987bf"
+                "reference": "cd10077eb7ef84474d53587e4ff03e6fa1517368"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10166,7 +10166,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2022-04-14T16:08:52+00:00"
+            "time": "2022-04-20T10:50:25+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -14951,6 +14951,7 @@
     "stability-flags": {
         "composer/composer": 15,
         "innobyte/module-cetelem": 20,
+        "oander/module-algoliasearch": 20,
         "oander/module-api-index": 20,
         "oander/module-configurable-product-attribute": 20,
         "oander/module-core-bug-fix": 20,
