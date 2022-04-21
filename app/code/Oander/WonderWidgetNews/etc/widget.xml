@@ -1,0 +1,36 @@
+<?xml version="1.0"?><!--
+/**
+ * Oander_WonderWidgetNews
+ *
+ * @license Oander Media Kft. (http://www.oander.hu)
+ */
+-->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="oander_wonder_widget_news"
+            class="Oander\WonderWidgetNews\Block\News">
+        <label translate="true">Oander Wonder Widget News</label>
+        <description>Oander - Widget to build a news block. Title, link, image are read from latest news article.</description>
+        <parameters>
+
+            <parameter name="template" xsi:type="select" visible="true" required="true" sort_order="50">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="default" value="Oander_WonderWidgetNews::news.phtml" selected="true">
+                        <label translate="true">News Template</label>
+                    </option>
+                </options>
+            </parameter>
+
+            <parameter name="visible_from" xsi:type="text" required="false" visible="true" sort_order="60">
+                <label translate="true">Visible From</label>
+                <description translate="true">Format: YYYY-MM-DD hh:mm</description>
+            </parameter>
+
+            <parameter name="visible_to" xsi:type="text" required="false" visible="true" sort_order="70">
+                <label translate="true">Visible To</label>
+                <description translate="true">Format: YYYY-MM-DD hh:mm</description>
+            </parameter>
+        </parameters>
+    </widget>
+
+</widgets>
