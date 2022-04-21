@@ -14,6 +14,8 @@ use Magento\Framework\Controller\ResultInterface;
 use Magento\Framework\View\Result\PageFactory;
 use Oander\SalesforceLoyalty\Enum\CustomerAttribute;
 use Oander\SalesforceLoyalty\Enum\LoyaltyStatus as LoyaltyStatusEnum;
+use Oander\SalesforceLoyalty\Helper\Config as ConfigHelper;
+use Oander\SalesforceLoyalty\Helper\Salesforce as SalesforceHelper;
 
 class Account extends \Magento\Customer\Controller\AbstractAccount
 {
@@ -22,38 +24,45 @@ class Account extends \Magento\Customer\Controller\AbstractAccount
      */
     protected $resultPageFactory;
     /**
+     * @var CustomerRepositoryInterface
+     */
+    private $customerRepository;
+    /**
      * @var \Magento\Customer\Model\Session
      */
     private $customerSession;
     /**
-     * @var \Oander\SalesforceLoyalty\Helper\Salesforce
+     * @var SalesforceHelper
      */
     private $salesforceHelper;
     /**
-     * @var CustomerRepositoryInterface
+     * @var ConfigHelper
      */
-    private $customerRepository;
+    private $configHelper;
 
     /**
      * @param Context $context
      * @param PageFactory $resultPageFactory
      * @param \Magento\Customer\Model\Session $customerSession
      * @param CustomerRepositoryInterface $customerRepository
-     * @param \Oander\SalesforceLoyalty\Helper\Salesforce $salesforceHelper
+     * @param SalesforceHelper $salesforceHelper
+     * @param ConfigHelper $configHelper
      */
     public function __construct(
         Context     $context,
         PageFactory $resultPageFactory,
         \Magento\Customer\Model\Session $customerSession,
         CustomerRepositoryInterface $customerRepository,
-        \Oander\SalesforceLoyalty\Helper\Salesforce $salesforceHelper
+        SalesforceHelper $salesforceHelper,
+        ConfigHelper      $configHelper
     )
     {
-        $this->resultPageFactory = $resultPageFactory;
-        $this->customerSession = $customerSession;
         parent::__construct($context);
-        $this->salesforceHelper = $salesforceHelper;
+        $this->configHelper = $configHelper;
         $this->customerRepository = $customerRepository;
+        $this->customerSession = $customerSession;
+        $this->resultPageFactory = $resultPageFactory;
+        $this->salesforceHelper = $salesforceHelper;
     }
 
     /**
@@ -62,14 +71,18 @@ class Account extends \Magento\Customer\Controller\AbstractAccount
     public function execute()
     {
         $page = $this->resultPageFactory->create();
-        if($this->customerSession->getCustomer()->getData('sforce_maconomy_id')) {
-            $this->updateLoyaltyStatus();
-            $loyaltyStatus = $this->customerSession->getCustomer()->getData(CustomerAttribute::LOYALTY_STATUS) ?? 0;
-            $page->addHandle('salesforceloyalty_customer_account_status_' . $loyaltyStatus);
+        if ($this->configHelper->getLoyaltyServiceEnabled()) {
+            if($this->customerSession->getCustomer()->getData('sforce_maconomy_id')) {
+                $this->updateLoyaltyStatus();
+                $loyaltyStatus = $this->customerSession->getCustomer()->getData(CustomerAttribute::LOYALTY_STATUS) ?? 0;
+                $page->addHandle('salesforceloyalty_customer_account_status_' . $loyaltyStatus);
+            } else {
+                $page->addHandle('salesforceloyalty_customer_account_status_nosfid');
+            }
+            $page->getConfig()->getTitle()->set(__('Loyalty profile info'));
         } else {
-            $page->addHandle('salesforceloyalty_customer_account_status_nosfid');
+            throw new \Magento\Framework\Exception\NotFoundException(__('Parameter is incorrect.'));
         }
-        $page->getConfig()->getTitle()->set(__('Loyalty profile info'));
         return $page;
     }
 
