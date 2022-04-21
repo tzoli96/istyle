@@ -5,6 +5,7 @@
     src: url(../fonts/GTWalsheimRegular.otf),
     url(../fonts/GTWalsheimRegular.woff);
     font-weight: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -12,11 +13,13 @@
     src: url(../fonts/GTWalsheimBold.otf),
     url(../fonts/GTWalsheimBold.woff);
     font-weight: bold;
+    font-display: swap;
 }
 @font-face {
     font-family: GTWalsheim;
     src: url(../fonts/GT-Walsheim-Medium.otf);
     font-weight: 500;
+    font-display: swap;
 }
 
 @font-face {
@@ -24,6 +27,7 @@
     src: url(../fonts/wigrum-regular.otf),
     url(../fonts/wigrum-regular.woff);
     font-weight: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -31,12 +35,14 @@
     src: url(../fonts/ArialRegular.ttf),
     url(../fonts/ArialRegular.woff);
     font-weight: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: Arial;
     src: url("../fonts/Arial Bold.ttf");
     font-weight: bold;
+    font-display: swap;
 
 }
 
