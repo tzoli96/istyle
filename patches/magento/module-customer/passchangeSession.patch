@@ -1,0 +1,177 @@
+diff --git a/Model/Visitor.php b/Model/Visitor.php
+index d36314625..b70d82a27 100644
+--- a/Model/Visitor.php
++++ b/Model/Visitor.php
+@@ -151,6 +151,9 @@ class Visitor extends \Magento\Framework\Model\AbstractModel
+
+         if ($this->session->getVisitorData()) {
+             $this->setData($this->session->getVisitorData());
++            if ($this->getSessionId() != $this->session->getSessionId()) {
++                $this->setSessionId($this->session->getSessionId());
++            }
+         }
+
+         $this->setLastVisitAt((new \DateTime())->format(\Magento\Framework\Stdlib\DateTime::DATETIME_PHP_FORMAT));
+
+diff --git a/Model/AccountManagement.php b/Model/AccountManagement.php
+index c25a44d7d..628c9e1c0 100644
+--- a/Model/AccountManagement.php
++++ b/Model/AccountManagement.php
+@@ -36,6 +36,7 @@ use Magento\Framework\Exception\State\InputMismatchException;
+ use Magento\Framework\Exception\State\InvalidTransitionException;
+ use Magento\Framework\DataObjectFactory as ObjectFactory;
+ use Magento\Framework\Exception\State\UserLockedException;
++use Magento\Framework\Intl\DateTimeFactory;
+ use Magento\Framework\Registry;
+ use Magento\Store\Model\ScopeInterface;
+ use Psr\Log\LoggerInterface as PsrLogger;
+@@ -46,6 +47,9 @@ use Magento\Framework\Reflection\DataObjectProcessor;
+ use Magento\Framework\Stdlib\DateTime;
+ use Magento\Framework\Stdlib\StringUtils as StringHelper;
+ use Magento\Store\Model\StoreManagerInterface;
++use Magento\Framework\Session\SessionManagerInterface;
++use Magento\Framework\Session\SaveHandlerInterface;
++use Magento\Customer\Model\ResourceModel\Visitor\CollectionFactory;
+ 
+ /**
+  * Handle various customer account actions
+@@ -237,6 +241,21 @@ class AccountManagement implements AccountManagementInterface
+      */
+     private $transportBuilder;
+ 
++    /**
++     * @var SessionManagerInterface
++     */
++    private $sessionManager;
++
++    /**
++     * @var SaveHandlerInterface
++     */
++    private $saveHandler;
++
++    /**
++     * @var CollectionFactory
++     */
++    private $visitorCollectionFactory;
++
+     /**
+      * @var DataObjectProcessor
+      */
+@@ -287,6 +306,11 @@ class AccountManagement implements AccountManagementInterface
+      */
+     private $eavValidator;
+ 
++    /**
++     * @var DateTimeFactory
++     */
++    private $dateTimeFactory;
++
+     /**
+      * @param CustomerFactory $customerFactory
+      * @param ManagerInterface $eventManager
+@@ -311,6 +335,10 @@ class AccountManagement implements AccountManagementInterface
+      * @param CustomerModel $customerModel
+      * @param ObjectFactory $objectFactory
+      * @param ExtensibleDataObjectConverter $extensibleDataObjectConverter
++     * @param DateTimeFactory $dateTimeFactory
++     * @param SessionManagerInterface|null $sessionManager
++     * @param SaveHandlerInterface|null $saveHandler
++     * @param CollectionFactory|null $visitorCollectionFactory
+      * @SuppressWarnings(PHPMD.ExcessiveParameterList)
+      */
+     public function __construct(
+@@ -336,7 +364,11 @@ class AccountManagement implements AccountManagementInterface
+         DateTime $dateTime,
+         CustomerModel $customerModel,
+         ObjectFactory $objectFactory,
+-        ExtensibleDataObjectConverter $extensibleDataObjectConverter
++        ExtensibleDataObjectConverter $extensibleDataObjectConverter,
++        DateTimeFactory $dateTimeFactory = null,
++        SessionManagerInterface $sessionManager = null,
++        SaveHandlerInterface $saveHandler = null,
++        CollectionFactory $visitorCollectionFactory = null
+     ) {
+         $this->customerFactory = $customerFactory;
+         $this->eventManager = $eventManager;
+@@ -361,6 +393,13 @@ class AccountManagement implements AccountManagementInterface
+         $this->customerModel = $customerModel;
+         $this->objectFactory = $objectFactory;
+         $this->extensibleDataObjectConverter = $extensibleDataObjectConverter;
++        $this->dateTimeFactory = $dateTimeFactory ?: ObjectManager::getInstance()->get(DateTimeFactory::class);
++        $this->sessionManager = $sessionManager
++            ?: ObjectManager::getInstance()->get(SessionManagerInterface::class);
++        $this->saveHandler = $saveHandler
++            ?: ObjectManager::getInstance()->get(SaveHandlerInterface::class);
++        $this->visitorCollectionFactory = $visitorCollectionFactory
++            ?: ObjectManager::getInstance()->get(CollectionFactory::class);
+     }
+ 
+     /**
+@@ -543,6 +582,8 @@ class AccountManagement implements AccountManagementInterface
+         $customerSecure->setRpToken(null);
+         $customerSecure->setRpTokenCreatedAt(null);
+         $customerSecure->setPasswordHash($this->createPasswordHash($newPassword));
++        $this->sessionManager->destroy();
++        $this->destroyCustomerSessions($customer->getId());
+         $this->customerRepository->save($customer);
+         return true;
+     }
+@@ -717,12 +758,12 @@ class AccountManagement implements AccountManagementInterface
+         }
+         try {
+             foreach ($customerAddresses as $address) {
+-                 if ($address->getId()) {
++                if ($address->getId()) {
+                     $newAddress = clone $address;
+                     $newAddress->setId(null);
+                     $newAddress->setCustomerId($customer->getId());
+                     $this->addressRepository->save($newAddress);
+-                 } else {
++                } else {
+                     $address->setCustomerId($customer->getId());
+                     $this->addressRepository->save($address);
+                 }
+@@ -830,6 +871,7 @@ class AccountManagement implements AccountManagementInterface
+         $customerSecure->setRpTokenCreatedAt(null);
+         $this->checkPasswordStrength($newPassword);
+         $customerSecure->setPasswordHash($this->createPasswordHash($newPassword));
++        $this->destroyCustomerSessions($customer->getId());
+         $this->customerRepository->save($customer);
+         return true;
+     }
+@@ -1319,4 +1361,35 @@ class AccountManagement implements AccountManagementInterface
+             return $this->emailNotification;
+         }
+     }
++
++    /**
++     * Destroy all active customer sessions by customer id (current session will not be destroyed).
++     * Customer sessions which should be deleted are collecting  from the "customer_visitor" table considering
++     * configured session lifetime.
++     *
++     * @param string|int $customerId
++     * @return void
++     */
++    private function destroyCustomerSessions($customerId)
++    {
++        $sessionLifetime = $this->scopeConfig->getValue(
++            \Magento\Framework\Session\Config::XML_PATH_COOKIE_LIFETIME,
++            \Magento\Store\Model\ScopeInterface::SCOPE_STORE
++        );
++        $dateTime = $this->dateTimeFactory->create();
++        $activeSessionsTime = $dateTime->setTimestamp($dateTime->getTimestamp() - $sessionLifetime)
++            ->format(DateTime::DATETIME_PHP_FORMAT);
++        /** @var \Magento\Customer\Model\ResourceModel\Visitor\Collection $visitorCollection */
++        $visitorCollection = $this->visitorCollectionFactory->create();
++        $visitorCollection->addFieldToFilter('customer_id', $customerId);
++        $visitorCollection->addFieldToFilter('last_visit_at', ['from' => $activeSessionsTime]);
++        $visitorCollection->addFieldToFilter('session_id', ['neq' => $this->sessionManager->getSessionId()]);
++        /** @var \Magento\Customer\Model\Visitor $visitor */
++        foreach ($visitorCollection->getItems() as $visitor) {
++            $sessionId = $visitor->getSessionId();
++            $this->sessionManager->start();
++            $this->saveHandler->destroy($sessionId);
++            $this->sessionManager->writeClose();
++        }
++    }
+ }
