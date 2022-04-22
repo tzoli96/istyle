@@ -5,18 +5,5 @@
         <referenceBlock name="head.components">
             <block class="Magento\Framework\View\Element\Js\Components" name="customer_account_edit_head_components" template="Magento_Customer::js/components.phtml"/>
         </referenceBlock>
-        <referenceBlock name="page.main.title">
-            <action method="setPageTitle">
-                <argument translate="true" name="title" xsi:type="string">Loyalty profile info</argument>
-            </action>
-        </referenceBlock>
-        <referenceContainer name="content">
-            <block class="Magento\Cms\Block\Block" name="salesforceloyalty.customer.account.cms">
-                <arguments>
-                    <argument name="block_id" xsi:type="string">loyalty_points_info</argument>
-                </arguments>
-            </block>
-            <block name="salesforceloyalty.customer.account.points" class="Oander\SalesforceLoyalty\Block\Customer\Account" template="Oander_SalesforceLoyalty::customer/account.phtml" cacheable="false"/>
-        </referenceContainer>
     </body>
 </page>

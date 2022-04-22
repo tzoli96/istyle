@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <container name="salesforceloyalty.customer.account.confirmation.message" htmlTag="div" htmlClass="reg-messages messages messages--loyalty text-center">
+                <container name="salesforceloyalty.customer.account.confirmation.message.info" htmlTag="div" htmlClass="message info">
+                    <block class="Magento\Cms\Block\Block" name="salesforceloyalty.customer.account.confirmation.message.info.cms">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">loyalty_confirmation_block</argument>
+                        </arguments>
+                    </block>
+                </container>
+            </container>
+            <container name="salesforceloyalty.customer.account.confirmation.account" htmlTag="div" htmlClass="block block--loyalty-account">
+                <block class="\Oander\SalesforceLoyalty\Block\Customer\Account\History" name="salesforceloyalty.customer.account.confirmation.account.history" template="Oander_SalesforceLoyalty::customer/account/history.phtml" cacheable="false"/>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

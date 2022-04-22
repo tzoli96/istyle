@@ -3,141 +3,139 @@
  * @var $block \Oander\SalesforceLoyalty\Block\Cart\Loyaltypoints
  */
 ?>
-<?php if($block->isLoggedIn()): ?>
-    <div class="block block--loyalty active d-flex align-items-center" id="block-loyalty" data-mage-init='{"collapsible":{"openedState": "active", "active": 1, "saveState": false}}'>
-        <div class="block__content w-100" data-role="content">
-            <form id="loyalty-form" action="<?= $block->getLoyaltyPostUrl()?>" method="post">
-                <div class="fieldset loyalty">
-                    <div class="block block--new-loyalty">
-                        <?php if($block->getLoyaltyDiscount() > 0): ?>
-                            <div class="loyalty-used info-block d-flex align-items-center justify-content-between">
-                                <div class="info-block__text">
-                                    <span class="info-block__points"><?= __('Available points'); ?></span>
-                                    <?php if($block->getCartInfoText()): ?>
-                                        <span class="info-block__icon">
-                                            <span class="tooltip"><?= $block->getCartInfoText() ?></span>
-                                        </span>
-                                    <?php endif; ?>
-                                </div>
-                                <div class="loyalty-used__badge d-flex align-items-center">
-                                    <span class="loyalty-used__amount"><?= $block->getLoyaltyDiscountFormated() ?></span>
-                                    <div class="loyalty-used__delete">
-                                        <span></span>
-                                        <span></span>
-                                    </div>
+<div class="block block--loyalty active d-flex align-items-center" id="block-loyalty" data-mage-init='{"collapsible":{"openedState": "active", "active": 1, "saveState": false}}'>
+    <div class="block__content w-100" data-role="content">
+        <form id="loyalty-form" action="<?= $block->getLoyaltyPostUrl()?>" method="post">
+            <div class="fieldset loyalty">
+                <div class="block block--new-loyalty">
+                    <?php if($block->getLoyaltyDiscount() > 0): ?>
+                        <div class="loyalty-used info-block d-flex align-items-center justify-content-between">
+                            <div class="info-block__text">
+                                <span class="info-block__points"><?= __('Available points'); ?></span>
+                                <?php if($block->getCartInfoText()): ?>
+                                    <span class="info-block__icon">
+                                        <span class="tooltip"><?= $block->getCartInfoText() ?></span>
+                                    </span>
+                                <?php endif; ?>
+                            </div>
+                            <div class="loyalty-used__badge d-flex align-items-center">
+                                <span class="loyalty-used__amount"><?= $block->getLoyaltyDiscountFormated() ?></span>
+                                <div class="loyalty-used__delete">
+                                    <span></span>
+                                    <span></span>
                                 </div>
                             </div>
-                            <input type="hidden" name="remove" id="remove-loyalty" value="0">
-                        <?php else: ?>
-                            <div class="block__title d-flex align-items-center"><?= __('Redeem Loyalty Points'); ?></div>
-                            <div class="block__content d-flex align-items-center">
-                                <div class="block__content__holder">
-                                    <div class="info-block d-flex align-items-center justify-content-between">
-                                        <div class="info-block__text">
-                                            <span class="info-block__points"><?= __('Available points'); ?></span>
-                                            <?php if($block->getCartInfoText()): ?>
-                                                <span class="info-block__icon">
-                                                    <span class="tooltip"><?= $block->getCartInfoText() ?></span>
-                                                </span>
-                                            <?php endif; ?>
-                                        </div>
-                                        <div class="info-block__amount">
-                                            <span><?= __('%1 loyalty points', $block->getFormatedPoint(min($block->getMaxRedeemablePoints(), $block->getAvailablePoints())))?></span>
-                                        </div>
+                        </div>
+                        <input type="hidden" name="remove" id="remove-loyalty" value="0">
+                    <?php else: ?>
+                        <div class="block__title d-flex align-items-center"><?= __('Redeem Loyalty Points'); ?></div>
+                        <div class="block__content d-flex align-items-center">
+                            <div class="block__content__holder">
+                                <div class="info-block d-flex align-items-center justify-content-between">
+                                    <div class="info-block__text">
+                                        <span class="info-block__points"><?= __('Available points'); ?></span>
+                                        <?php if($block->getCartInfoText()): ?>
+                                            <span class="info-block__icon">
+                                                <span class="tooltip"><?= $block->getCartInfoText() ?></span>
+                                            </span>
+                                        <?php endif; ?>
                                     </div>
-                                    <div class="block__input-group">
-                                        <input
-                                            type="text"
-                                            class="block__input input-text form-control input-loyalty"
-                                            id="amount"
-                                            name="amount"
-                                            placeholder="<?= __('Maximum %1 loyalty points', $block->getFormatedPoint(min($block->getMaxRedeemablePoints(), $block->getAvailablePoints())))?>"
+                                    <div class="info-block__amount">
+                                        <span><?= __('%1 loyalty points', $block->getFormatedPoint(min($block->getMaxRedeemablePoints(), $block->getAvailablePoints())))?></span>
+                                    </div>
+                                </div>
+                                <div class="block__input-group">
+                                    <input
+                                        type="text"
+                                        class="block__input input-text form-control input-loyalty"
+                                        id="amount"
+                                        name="amount"
+                                        placeholder="<?= __('Maximum %1 loyalty points', $block->getFormatedPoint(min($block->getMaxRedeemablePoints(), $block->getAvailablePoints())))?>"
+                                    >
+                                    <span class="input-group-btn">
+                                        <button
+                                            class="block__action action apply primary button-loyalty"
+                                            type="submit"
+                                            value="<?php /* @escapeNotVerified */ echo __('Use') ?>"
                                         >
-                                        <span class="input-group-btn">
-                                            <button
-                                                class="block__action action apply primary button-loyalty"
-                                                type="submit"
-                                                value="<?php /* @escapeNotVerified */ echo __('Use') ?>"
-                                            >
-                                                <span><?php /* @escapeNotVerified */ echo __('Use') ?></span>
-                                            </button>
-                                        </span>
-                                    </div>
-                                    <div class="block__input-error"><?= __('Please enter a valid number'); ?></div>
+                                            <span><?php /* @escapeNotVerified */ echo __('Use') ?></span>
+                                        </button>
+                                    </span>
                                 </div>
+                                <div class="block__input-error"><?= __('Please enter a valid number'); ?></div>
                             </div>
-                        <?php endif; ?>
-                    </div>
+                        </div>
+                    <?php endif; ?>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
-    <script>
-        require([
-            'jquery',
-            ], function($) {
-                var userObject = {
-                        userPoints: <?= $block->getAvailablePoints() ?>,
-                        pointsAvailableForUse: <?php echo $block->getMaxRedeemablePoints() ?>,
-                        discountAmount: <?php echo $block->getLoyaltyDiscount() > 0 ? $block->getLoyaltyDiscount() : 0 ?>,
-                        formattedDiscountAmount: '<?= $block->getLoyaltyDiscountFormated() ?>'
-                    },
-                    referenceNumber = Math.min(userObject.userPoints, userObject.pointsAvailableForUse);
+</div>
+<script>
+    require([
+        'jquery',
+        ], function($) {
+            var userObject = {
+                    userPoints: <?= $block->getAvailablePoints() ?>,
+                    pointsAvailableForUse: <?php echo $block->getMaxRedeemablePoints() ?>,
+                    discountAmount: <?php echo $block->getLoyaltyDiscount() > 0 ? $block->getLoyaltyDiscount() : 0 ?>,
+                    formattedDiscountAmount: '<?= $block->getLoyaltyDiscountFormated() ?>'
+                },
+                referenceNumber = Math.min(userObject.userPoints, userObject.pointsAvailableForUse);
 
-                $('.block--new-loyalty .block__title').on('click', function() {
-                    $('.block--new-loyalty').addClass('is-active');
-                    setTimeout(function() {
-                        $('.block--new-loyalty .block__input').focus();
-                    }, 600);
-                });
-
-                $('.input-loyalty').on('input', function() {
-                    var inputGroup = $(this).closest('.block__input-group'),
-                        input = inputGroup.find('.input-loyalty'),
-                        inputError = $(this).closest('.block__content__holder').find('.block__input-error');
-                    
-                    if (input.val() > 0 && referenceNumber > 0 && input.val() <= referenceNumber) {
-                        inputGroup.removeClass('error');
-                        inputError.fadeOut();
-                    } else {
-                        inputGroup.addClass('error');
-                        inputError.fadeIn();
-                    }
-                });
-
-                $('.button-loyalty').on('click', function(e) {
-                    e.preventDefault();
-
-                    var inputGroup = $(this).closest('.block__input-group'),
-                        input = inputGroup.find('.input-loyalty'),
-                        inputError = $(this).closest('.block__content__holder').find('.block__input-error');
-                    
-                    if (input.val() > 0 && referenceNumber > 0 && input.val() <= referenceNumber) {
-                        inputGroup.removeClass('error');
-                        inputError.fadeOut();
-                        $('#loyalty-form').submit();
-                    } else {
-                        inputGroup.addClass('error');
-                        inputError.fadeIn();
-                    }
-                });
-
-                $('.loyalty-used__delete').on('click', function(e) {
-                    e.preventDefault();
-                    $('#loyalty-form').submit();
-                });
-
-                $('.info-block__icon').on('click', function () {
-                    var myTooltip = $(this).closest('.info-block').find('.tooltip');
-
-                    $('.tooltip.is-active').removeClass('is-active');
-                    myTooltip.addClass('is-active');
-                });
-
-                $(document).mouseup(function (e) {
-                    var tooltip = $('.tooltip');
-                    if (!tooltip.is(e.target) && tooltip.has(e.target).length === 0) tooltip.removeClass('is-active');
-                });
+            $('.block--new-loyalty .block__title').on('click', function() {
+                $('.block--new-loyalty').addClass('is-active');
+                setTimeout(function() {
+                    $('.block--new-loyalty .block__input').focus();
+                }, 600);
             });
-    </script>
-<?php endif; ?>
+
+            $('.input-loyalty').on('input', function() {
+                var inputGroup = $(this).closest('.block__input-group'),
+                    input = inputGroup.find('.input-loyalty'),
+                    inputError = $(this).closest('.block__content__holder').find('.block__input-error');
+
+                if (input.val() > 0 && referenceNumber > 0 && input.val() <= referenceNumber) {
+                    inputGroup.removeClass('error');
+                    inputError.fadeOut();
+                } else {
+                    inputGroup.addClass('error');
+                    inputError.fadeIn();
+                }
+            });
+
+            $('.button-loyalty').on('click', function(e) {
+                e.preventDefault();
+
+                var inputGroup = $(this).closest('.block__input-group'),
+                    input = inputGroup.find('.input-loyalty'),
+                    inputError = $(this).closest('.block__content__holder').find('.block__input-error');
+
+                if (input.val() > 0 && referenceNumber > 0 && input.val() <= referenceNumber) {
+                    inputGroup.removeClass('error');
+                    inputError.fadeOut();
+                    $('#loyalty-form').submit();
+                } else {
+                    inputGroup.addClass('error');
+                    inputError.fadeIn();
+                }
+            });
+
+            $('.loyalty-used__delete').on('click', function(e) {
+                e.preventDefault();
+                $('#loyalty-form').submit();
+            });
+
+            $('.info-block__icon').on('click', function () {
+                var myTooltip = $(this).closest('.info-block').find('.tooltip');
+
+                $('.tooltip.is-active').removeClass('is-active');
+                myTooltip.addClass('is-active');
+            });
+
+            $(document).mouseup(function (e) {
+                var tooltip = $('.tooltip');
+                if (!tooltip.is(e.target) && tooltip.has(e.target).length === 0) tooltip.removeClass('is-active');
+            });
+        });
+</script>

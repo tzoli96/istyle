@@ -12,13 +12,12 @@ use Magento\Framework\App\Helper\Context;
 use Magento\Framework\Registry;
 use Oander\SalesforceLoyalty\Enum\Attribute;
 use Magento\Store\Model\StoreManagerInterface;
+use Oander\SalesforceLoyalty\Enum\CustomerAttribute;
+use Magento\Customer\Model\Session as CustomerSession;
+use Oander\SalesforceLoyalty\Enum\LoyaltyStatus as LoyaltyStatusEnum;
 
 class Data extends AbstractHelper
 {
-    const MAREKINTG_STATIC_BLOCK = "temporary_period_loyalty_registration_block_";
-    const PROMO_STATIC_BLOCK = "loyalty_promo_block_";
-
-    CONST REGISTRY_MAX_REDEEMBLE_POINTS = "maxredeemablepoints";
     /**
      * @var Config
      */
@@ -27,36 +26,21 @@ class Data extends AbstractHelper
      * @var \Magento\Checkout\Model\Session
      */
     private $checkoutSession;
-    /**
-     * @var Registry
-     */
-    private $registry;
-
-    /**
-     * @var StoreManagerInterface
-     */
-    private $storeManager;
 
     /**
      * @param Context $context
      * @param \Magento\Checkout\Model\Session $checkoutSession
      * @param Config $configHelper
-     * @param Registry $registry
-     * @param StoreManagerInterface $storeManager
      */
     public function __construct(
         Context $context,
         \Magento\Checkout\Model\Session $checkoutSession,
-        \Oander\SalesforceLoyalty\Helper\Config $configHelper,
-        Registry $registry,
-        StoreManagerInterface $storeManager
+        \Oander\SalesforceLoyalty\Helper\Config $configHelper
     )
     {
         parent::__construct($context);
         $this->configHelper = $configHelper;
         $this->checkoutSession = $checkoutSession;
-        $this->registry = $registry;
-        $this->storeManager = $storeManager;
     }
 
     /**
@@ -183,22 +167,6 @@ class Data extends AbstractHelper
             $quote = $this->checkoutSession->getQuote();
         }
         return $quote;
-    }
-
-    /**
-     * @return string
-     */
-    public function getBlockId()
-    {
-        return self::MAREKINTG_STATIC_BLOCK.$this->storeManager->getStore()->getCode();
-    }
-
-    /**
-     * @return string
-     */
-    public function getPromoBlockId()
-    {
-        return self::PROMO_STATIC_BLOCK.$this->storeManager->getStore()->getCode();
     }
 
     /**

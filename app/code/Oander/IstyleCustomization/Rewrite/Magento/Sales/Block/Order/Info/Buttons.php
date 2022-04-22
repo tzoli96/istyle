@@ -142,4 +142,14 @@ class Buttons extends Template
         }
         return $this->jsonHelper->serialize($response);
     }
+
+    public function countFiles()
+    {
+        $collection = $this->getAttachments();
+        $response = [];
+        foreach ($collection as $attachment) {
+            $response[] = $this->getDownloadUrl($attachment->getData());
+        }
+        return count($response);
+    }
 }

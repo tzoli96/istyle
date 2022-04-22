@@ -9,7 +9,7 @@ var config = {
         'Oander_AddressFieldsProperties/js/lib-validation': true
       },
       'Magento_Ui/js/form/element/abstract': {
-        'Oander_AddressFieldsProperties/js/ui/form/element/abstract': true
+        'Oander_AddressFieldsProperties/js/ui/form/element/abstract-mixin': true
       },
     }
   }

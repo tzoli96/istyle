@@ -42,7 +42,9 @@ var config = {
       'Magento_Checkout/js/model/shipping-save-processor/default':
         'Oander_IstyleCheckout/js/model/shipping-save-processor/default',
       'Magento_Checkout/js/action/set-billing-address':
-        'Oander_IstyleCheckout/js/action/set-billing-address'
+        'Oander_IstyleCheckout/js/action/set-billing-address',
+      'Magento_Checkout/js/model/shipping-rate-processor/new-address':
+        'Oander_IstyleCheckout/js/model/shipping-rate-processor/new-address'
     }
   },
   config: {
@@ -55,6 +57,9 @@ var config = {
       },
       'Magento_Checkout/js/view/billing-address': {
         'Oander_IstyleCheckout/js/view/billing-address': true
+      },
+      'Oander_Ui/js/form/element/ui-select-ajax': {
+        'Oander_IstyleCheckout/js/form/element/ui-select-city': true
       }
     }
   }

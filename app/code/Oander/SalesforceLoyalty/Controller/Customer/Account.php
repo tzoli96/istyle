@@ -7,32 +7,96 @@ declare(strict_types=1);
 
 namespace Oander\SalesforceLoyalty\Controller\Customer;
 
-class Account extends \Magento\Framework\App\Action\Action
-{
+use Magento\Customer\Api\CustomerRepositoryInterface;
+use Magento\Framework\App\Action\Context;
+use Magento\Framework\App\ResponseInterface;
+use Magento\Framework\Controller\ResultInterface;
+use Magento\Framework\View\Result\PageFactory;
+use Oander\SalesforceLoyalty\Enum\CustomerAttribute;
+use Oander\SalesforceLoyalty\Enum\LoyaltyStatus as LoyaltyStatusEnum;
+use Oander\SalesforceLoyalty\Helper\Config as ConfigHelper;
+use Oander\SalesforceLoyalty\Helper\Salesforce as SalesforceHelper;
 
+class Account extends \Magento\Customer\Controller\AbstractAccount
+{
+    /**
+     * @var PageFactory
+     */
     protected $resultPageFactory;
+    /**
+     * @var CustomerRepositoryInterface
+     */
+    private $customerRepository;
+    /**
+     * @var \Magento\Customer\Model\Session
+     */
+    private $customerSession;
+    /**
+     * @var SalesforceHelper
+     */
+    private $salesforceHelper;
+    /**
+     * @var ConfigHelper
+     */
+    private $configHelper;
 
     /**
-     * Constructor
-     *
-     * @param \Magento\Framework\App\Action\Context  $context
-     * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
+     * @param Context $context
+     * @param PageFactory $resultPageFactory
+     * @param \Magento\Customer\Model\Session $customerSession
+     * @param CustomerRepositoryInterface $customerRepository
+     * @param SalesforceHelper $salesforceHelper
+     * @param ConfigHelper $configHelper
      */
     public function __construct(
-        \Magento\Framework\App\Action\Context $context,
-        \Magento\Framework\View\Result\PageFactory $resultPageFactory
-    ) {
-        $this->resultPageFactory = $resultPageFactory;
+        Context     $context,
+        PageFactory $resultPageFactory,
+        \Magento\Customer\Model\Session $customerSession,
+        CustomerRepositoryInterface $customerRepository,
+        SalesforceHelper $salesforceHelper,
+        ConfigHelper      $configHelper
+    )
+    {
         parent::__construct($context);
+        $this->configHelper = $configHelper;
+        $this->customerRepository = $customerRepository;
+        $this->customerSession = $customerSession;
+        $this->resultPageFactory = $resultPageFactory;
+        $this->salesforceHelper = $salesforceHelper;
     }
 
     /**
-     * Execute view action
-     *
-     * @return \Magento\Framework\Controller\ResultInterface
+     * @return ResponseInterface|ResultInterface|\Magento\Framework\View\Result\Page|void
      */
     public function execute()
     {
-        return $this->resultPageFactory->create();
+        $page = $this->resultPageFactory->create();
+        if ($this->configHelper->getLoyaltyServiceEnabled()) {
+            if($this->customerSession->getCustomer()->getData('sforce_maconomy_id')) {
+                $this->updateLoyaltyStatus();
+                $loyaltyStatus = $this->customerSession->getCustomer()->getData(CustomerAttribute::LOYALTY_STATUS) ?? 0;
+                $page->addHandle('salesforceloyalty_customer_account_status_' . $loyaltyStatus);
+            } else {
+                $page->addHandle('salesforceloyalty_customer_account_status_nosfid');
+            }
+            $page->getConfig()->getTitle()->set(__('Loyalty profile info'));
+        } else {
+            throw new \Magento\Framework\Exception\NotFoundException(__('Parameter is incorrect.'));
+        }
+        return $page;
+    }
+
+    protected function updateLoyaltyStatus() {
+        if(
+            ((int)$this->customerSession->getCustomer()->getData(CustomerAttribute::LOYALTY_STATUS)) === LoyaltyStatusEnum::VALUE_NEED_SF_REGISTRATION ||
+            ((int)$this->customerSession->getCustomer()->getData(CustomerAttribute::LOYALTY_STATUS)) === LoyaltyStatusEnum::VALUE_PENDING_REGISTRATION
+        ) {
+            if($this->salesforceHelper->getCustomerIsAffiliateMember()) {
+                $customer = $this->customerRepository->getById($this->customerSession->getId());
+                $this->customerSession->getCustomer()->setData(CustomerAttribute::LOYALTY_STATUS, LoyaltyStatusEnum::VALUE_REGISTERED);
+                $customer->setCustomAttribute(CustomerAttribute::LOYALTY_STATUS, LoyaltyStatusEnum::VALUE_REGISTERED);
+                $this->customerRepository->save($customer);
+            }
+        }
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "75171ed6731b91a4bd9d1341f401e44d",
+    "content-hash": "54157b1d4bd0cf0bee727e50ab986240",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1378,16 +1378,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.8.3",
+            "version": "1.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "1afdd860a2566ed3c2b0b4a3de6e23434a79ec85"
+                "reference": "337e3ad8e5716c15f9657bd214d16cc5e69df268"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/1afdd860a2566ed3c2b0b4a3de6e23434a79ec85",
-                "reference": "1afdd860a2566ed3c2b0b4a3de6e23434a79ec85",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/337e3ad8e5716c15f9657bd214d16cc5e69df268",
+                "reference": "337e3ad8e5716c15f9657bd214d16cc5e69df268",
                 "shasum": ""
             },
             "require": {
@@ -1412,12 +1412,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Psr7\\": "src/"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1466,7 +1466,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2021-10-05T13:56:00+00:00"
+            "time": "2022-03-20T21:51:18+00:00"
         },
         {
             "name": "heureka/overenozakazniky",
@@ -7550,11 +7550,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.18.11",
+            "version": "dev-bugfix/57782-set-instantsearch-use-replace-state",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "a1027805c6a2f433ec1bead1c0206336aabcb576"
+                "reference": "eeaae7f85e5946bf5981c76f49a714ea1d598a2c"
             },
             "require": {
                 "oander/module-warehouse-manager": ">=1.4.25.6"
@@ -7578,7 +7578,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2022-01-25T10:47:29+00:00"
+            "time": "2022-04-19T14:41:52+00:00"
         },
         {
             "name": "oander/module-amasty-xnotif-bundle-price-switcher-extender",
@@ -7951,7 +7951,7 @@
                 "proprietary"
             ],
             "description": "Api Gateway Order Attachment",
-            "time": "2020-09-08T10:52:36+00:00"
+            "time": "2018-06-19T14:33:44+00:00"
         },
         {
             "name": "oander/module-api-product",
@@ -8068,33 +8068,6 @@
             ],
             "description": "Apple Music Widget",
             "time": "2020-06-17T07:52:08+00:00"
-        },
-        {
-            "name": "oander/module-applepay",
-            "version": "1.0.2.19",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/oander-applepay.git",
-                "reference": "ce882ba219121b066ad3a03bd3ed86e9a8de3a79"
-            },
-            "require": {
-                "oander/module-checkout": ">=1.1.0",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "psr-4": {
-                    "Oander\\ApplePay\\": ""
-                },
-                "files": [
-                    "registration.php"
-                ]
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Apple Pay payment method",
-            "time": "2020-04-08T12:21:57+00:00"
         },
         {
             "name": "oander/module-autorelated-warehouse-manager-extender",
@@ -8428,11 +8401,11 @@
         },
         {
             "name": "oander/module-configurable-product-attribute",
-            "version": "dev-master_50159_56096",
+            "version": "dev-bugfix/57533-keep-url-query-params",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-configurable-product-attribute.git",
-                "reference": "462201f2dfea4ec875e1354a615fe29c43e0cc66"
+                "reference": "fe20dbd10036fb3d06e5d7edf5d8cbb76b08e698"
             },
             "require": {
                 "oander/module-base": "*",
@@ -8451,7 +8424,7 @@
                 "proprietary"
             ],
             "description": "Configurable Product Attribute",
-            "time": "2022-01-07T13:35:22+00:00"
+            "time": "2022-04-08T13:36:27+00:00"
         },
         {
             "name": "oander/module-cookie-law",
@@ -9461,11 +9434,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "dev-master_56118",
+            "version": "1.3.0.8",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "a7a12e369fdb0a26bfe35aa51db557b34875b073"
+                "reference": "3cb889145769077307bd8bd8acf5cd9e0d0bd66d"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9484,15 +9457,15 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2022-01-26T09:38:49+00:00"
+            "time": "2022-04-20T15:09:11+00:00"
         },
         {
             "name": "oander/module-salesforce-service",
-            "version": "0.0.3.52",
+            "version": "dev-56955_translate-fix",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce-service.git",
-                "reference": "c54fad83b09accbcedc94a4d626e55cfdc6bf5f7"
+                "reference": "ac87fcbffcf4072c1cb2b48e4812491fb829332a"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9512,7 +9485,7 @@
                 "proprietary"
             ],
             "description": "Salesforce Service appointment reservation",
-            "time": "2021-05-17T10:05:17+00:00"
+            "time": "2022-03-22T16:32:20+00:00"
         },
         {
             "name": "oander/module-salesforce-widget",
@@ -9997,11 +9970,11 @@
         },
         {
             "name": "oander/module-warehouse-manager-conditions",
-            "version": "1.0.1",
+            "version": "1.0.1.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/module-warehouse-manager-conditions.git",
-                "reference": "3ae3c7708aba61cf0ab82787e7846d3d33524469"
+                "reference": "246dd5b5acfbaa95260f1300b5b44a3bd29ce8bf"
             },
             "require": {
                 "oander/module-warehouse-manager": "*",
@@ -10019,7 +9992,7 @@
             "license": [
                 "proprietary"
             ],
-            "time": "2019-05-20T10:01:27+00:00"
+            "time": "2022-02-22T07:30:54+00:00"
         },
         {
             "name": "oander/module-wonder-widget",
@@ -10135,11 +10108,11 @@
         },
         {
             "name": "oander/theme-hodor",
-            "version": "dev-istyle",
+            "version": "dev-57034_video-embedding",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-hodor.git",
-                "reference": "e1603ee66331c87d83e231dcda7d709b47744fc4"
+                "reference": "2b907a86b756a4b19bb285aa49b906eabd7a80ba"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10155,7 +10128,7 @@
                 "proprietary"
             ],
             "description": "Hodor template",
-            "time": "2018-06-25T12:40:24+00:00"
+            "time": "2022-03-23T06:20:22+00:00"
         },
         {
             "name": "oander/theme-istyle",
@@ -10163,7 +10136,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "359249b6e480649353bf5a65ece9fed3297ab9b8"
+                "reference": "cd10077eb7ef84474d53587e4ff03e6fa1517368"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10179,7 +10152,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2022-02-02T11:54:58+00:00"
+            "time": "2022-04-20T10:50:25+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10347,16 +10320,16 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.36",
+            "version": "2.0.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "a97547126396548c224703a267a30af1592be146"
+                "reference": "c812fbb4d6b4d7f30235ab7298a12f09ba13b37c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/a97547126396548c224703a267a30af1592be146",
-                "reference": "a97547126396548c224703a267a30af1592be146",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/c812fbb4d6b4d7f30235ab7298a12f09ba13b37c",
+                "reference": "c812fbb4d6b4d7f30235ab7298a12f09ba13b37c",
                 "shasum": ""
             },
             "require": {
@@ -10434,15 +10407,15 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2022-01-30T08:48:36+00:00"
+            "time": "2022-04-04T04:57:45+00:00"
         },
         {
             "name": "plugincompany/customergroupswitching",
-            "version": "100.1.4",
+            "version": "100.1.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/plugincompany-customergroupswitching.git",
-                "reference": "f4d905a30639939b020bcf9ea017894818434ea4"
+                "reference": "575cacd6f8a61e083934332ee7f018d5ba7b09ae"
             },
             "require": {
                 "php": "~5.6.0|~7.0.2|~7.1",
@@ -10460,7 +10433,7 @@
             "license": [
                 "Proprietary"
             ],
-            "time": "2018-06-25T14:38:21+00:00"
+            "time": "2019-03-07T12:55:56+00:00"
         },
         {
             "name": "plugincompany/licensemanager",
@@ -10726,23 +10699,24 @@
         },
         {
             "name": "seld/jsonlint",
-            "version": "1.8.3",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/jsonlint.git",
-                "reference": "9ad6ce79c342fbd44df10ea95511a1b24dee5b57"
+                "reference": "4211420d25eba80712bff236a98960ef68b866b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/9ad6ce79c342fbd44df10ea95511a1b24dee5b57",
-                "reference": "9ad6ce79c342fbd44df10ea95511a1b24dee5b57",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/4211420d25eba80712bff236a98960ef68b866b7",
+                "reference": "4211420d25eba80712bff236a98960ef68b866b7",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3 || ^7.0 || ^8.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
+                "phpstan/phpstan": "^1.5",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0 || ^8.5.13"
             },
             "bin": [
                 "bin/jsonlint"
@@ -10771,7 +10745,7 @@
                 "parser",
                 "validator"
             ],
-            "time": "2020-11-11T09:19:24+00:00"
+            "time": "2022-04-01T13:37:23+00:00"
         },
         {
             "name": "seld/phar-utils",
@@ -10873,16 +10847,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.112.0",
+            "version": "v7.124.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "f5213ccb88795663f73841bc65f467a0e1e61180"
+                "reference": "548e8ef08a86c6c621446082393dc6a1af51076c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/f5213ccb88795663f73841bc65f467a0e1e61180",
-                "reference": "f5213ccb88795663f73841bc65f467a0e1e61180",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/548e8ef08a86c6c621446082393dc6a1af51076c",
+                "reference": "548e8ef08a86c6c621446082393dc6a1af51076c",
                 "shasum": ""
             },
             "require": {
@@ -10925,7 +10899,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2022-01-25T19:42:36+00:00"
+            "time": "2022-04-18T23:07:08+00:00"
         },
         {
             "name": "symfony/console",
@@ -14930,6 +14904,7 @@
             ],
             "description": "The classes contained within this repository extend the standard DOM to use exceptions at all occasions of errors instead of PHP warnings or notices. They also add various custom methods and shortcuts for convenience and to simplify the usage of DOM.",
             "homepage": "https://github.com/theseer/fDOMDocument",
+            "abandoned": true,
             "time": "2022-01-25T23:10:35+00:00"
         }
     ],
@@ -14938,11 +14913,12 @@
     "stability-flags": {
         "composer/composer": 15,
         "innobyte/module-cetelem": 20,
+        "oander/module-algoliasearch": 20,
         "oander/module-api-index": 20,
         "oander/module-configurable-product-attribute": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
-        "oander/module-salesforce": 20,
+        "oander/module-salesforce-service": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0

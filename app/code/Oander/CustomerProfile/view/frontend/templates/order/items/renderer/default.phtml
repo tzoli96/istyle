@@ -1,0 +1,89 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var  $block \Magento\Sales\Block\Order\Item\Renderer\DefaultRenderer */
+$_item = $block->getItem();
+?>
+<li id="order-item-row-<?php /* @escapeNotVerified */ echo $_item->getId() ?>">
+    <img src="<?= $block->getProductImageUrl($_item->getProduct())?>" alt="">
+    <p class="profile-order-card__details">
+        <a href="<?= $_item->getProduct()->getProductUrl()?>">
+            <span class="sr-only"><?php /* @escapeNotVerified */ echo __('Product Name') ?></span>
+            <span class="profile-order-card__product-name"><?php echo $block->escapeHtml($_item->getName()) ?></span>
+            <span>
+                <?php if ($_options = $block->getItemOptions()): ?>
+                    <span class="profile-order-card__product-options">
+                        <?php foreach ($_options as $_option) : ?>
+                            <span class="label sr-only"><?php echo $block->escapeHtml($_option['label']) ?></span>
+                            <?php if (!$block->getPrintStatus()): ?>
+                                <?php $_formatedOptionValue = $block->getFormatedOptionValue($_option) ?>
+                                <span class="options-value">
+                                    <?php if (isset($_formatedOptionValue['full_view'])): ?>
+                                        <?php /* @escapeNotVerified */ echo $_formatedOptionValue['full_view'] ?>
+                                    <?php else: ?>
+                                        <?php /* @escapeNotVerified */ echo $_formatedOptionValue['value'] ?>
+                                    <?php endif; ?>
+                                </span>
+                            <?php else: ?>
+                                <span class="options-value">
+                                    <?php echo nl2br($block->escapeHtml((isset($_option['print_value']) ? $_option['print_value'] : $_option['value']))) ?>
+                                </span>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </span>
+                <?php endif; ?>
+                <?php $addtInfoBlock = $block->getProductAdditionalInformationBlock(); ?>
+                <?php if ($addtInfoBlock) :?>
+                    <?php echo $addtInfoBlock->setItem($_item)->toHtml(); ?>
+                <?php endif; ?>
+                <?php echo $block->escapeHtml($_item->getDescription()) ?>
+            </span>
+        </a>
+        <span class="profile-order-card__sku">
+            <span class="sr-only"><?php echo $block->escapeHtml(__('SKU')); ?> </span><?php /* @escapeNotVerified */ echo $block->prepareSku($block->getSku()) ?>
+        </span>
+    </p>
+
+    <ul class="profile-order-card__qty" aria-label="<?php echo $block->escapeHtml(__('Qty')); ?>">
+        <?php if ($block->getItem()->getQtyOrdered() > 0): ?>
+            <li>
+                <span class="title"><?php /* @escapeNotVerified */ echo __('Ordered'); ?></span>
+                <span class="content">&nbsp;<?php /* @escapeNotVerified */ echo $block->getItem()->getQtyOrdered()*1 ?></span>
+            </li>
+        <?php endif; ?>
+        <?php if ($block->getItem()->getQtyShipped() > 0): ?>
+            <li>
+                <span class="title"><?php /* @escapeNotVerified */ echo __('Shipped'); ?></span>
+                <span class="content">&nbsp;<?php /* @escapeNotVerified */ echo $block->getItem()->getQtyShipped()*1 ?></span>
+            </li>
+        <?php endif; ?>
+        <?php if ($block->getItem()->getQtyCanceled() > 0): ?>
+            <li>
+                <span class="title"><?php /* @escapeNotVerified */ echo __('Canceled'); ?></span>
+                <span class="content">&nbsp;<?php /* @escapeNotVerified */ echo $block->getItem()->getQtyCanceled()*1 ?></span>
+            </li>
+        <?php endif; ?>
+        <?php if ($block->getItem()->getQtyRefunded() > 0): ?>
+            <li>
+                <span class="title"><?php /* @escapeNotVerified */ echo __('Refunded'); ?></span>
+                <span class="content">&nbsp;<?php /* @escapeNotVerified */ echo $block->getItem()->getQtyRefunded()*1 ?></span>
+            </li>
+        <?php endif; ?>
+    </ul>
+
+    <p class="profile-order-card__price">
+        <span class="sr-only"><?php echo $block->escapeHtml(__('Subtotal')); ?></span>
+        <span class="price">   <?php
+            if($_item->getData("qty_ordered") != 1)
+            {
+                echo (int)$_item->getData("qty_ordered")." x";
+            }
+            ?>
+            <?= $block->getOrder()->formatPrice($_item->getPriceInclTax()) ?></span>
+    </p>
+</li>

@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+
+    <widget class="Oander\AdinaPlayer\Block\Widget\Adinaplayer" id="adinaplayer_adinaplayer_adinaplayer">
+        <label>AdinaPlayer</label>
+        <description>Adina Player</description>
+
+        <parameters>
+            <parameter name="video_width" sort_order="10"
+                       visible="true" xsi:type="text">
+                <label>Video Desktop Width</label>
+                <description translate="true">On mobile view the width is always 100%.</description>
+            </parameter>
+            <parameter name="video_height" sort_order="20"
+                       visible="true" xsi:type="text">
+                <label>Video Desktop Height</label>
+            </parameter>
+            <parameter name="campaign_key" sort_order="30" visible="true" xsi:type="text">
+                <label>Campaign Key</label>
+            </parameter>
+            <parameter name="og_image_tag" sort_order="40" visible="true" source_model="Magento\Config\Model\Config\Source\Yesno"
+                       xsi:type="select">
+                <label>Overwrite Open Graph image meta tag</label>
+                <description translate="true">If enabled, the personalized thumbnail image will be used on social share cards as thumbnail.</description>
+            </parameter>
+        </parameters>
+
+    </widget>
+
+</widgets>
+

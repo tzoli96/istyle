@@ -69,33 +69,39 @@ class FlushSystem extends \Magento\Backend\Controller\Adminhtml\Cache\FlushSyste
     {
         if ($store = $this->getRequest()->getParam('store')) {
             $storeCode = $this->helper->getStoreCode($store);
+        } else {
+            $store = 0;
             if ($this->adminRestrictionHelper->hasAdminRightToStore($store)) {
-                /** @var $cacheFrontend \Magento\Framework\Cache\FrontendInterface */
-                foreach ($this->_cacheFrontendPool as $cacheFrontend) {
-                    $cacheFrontend->clean(\Zend_Cache::CLEANING_MODE_MATCHING_TAG, [$this->helper->getStoreTag($store)]);
-                }
-
-                foreach (array_keys($this->storeCacheTypeList->getTypes()) as $type) {
-                    $this->storeCacheTypeList->cleanType($type, $store);
-                }
-                $this->_eventManager->dispatch('adminhtml_cache_flush_system_store', ['store' => $storeCode]);
-                $this->messageManager->addSuccessMessage(__(
-                    'The Magento cache storage has been flushed for the "%1" store.',
-                    $storeCode
-                ));
-            } else {
-                $this->messageManager->addErrorMessage(
-                    __("You don't have permission for the '%1' store.",
-                        $storeCode
-                    )
-                );
+                return parent::execute();
             }
 
-            /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
-            $resultRedirect = $this->resultRedirectFactory->create();
-            return $resultRedirect->setPath('adminhtml/*', ['store' => $store]);
+            $storeCode = 'global';
         }
 
-        return parent::execute();
+        if ($this->adminRestrictionHelper->hasAdminRightToStore($store)) {
+            /** @var $cacheFrontend \Magento\Framework\Cache\FrontendInterface */
+            foreach ($this->_cacheFrontendPool as $cacheFrontend) {
+                $cacheFrontend->clean(\Zend_Cache::CLEANING_MODE_MATCHING_TAG, [$this->helper->getStoreTag($store)]);
+            }
+
+            foreach (array_keys($this->storeCacheTypeList->getTypes()) as $type) {
+                $this->storeCacheTypeList->cleanType($type, $store);
+            }
+            $this->_eventManager->dispatch('adminhtml_cache_flush_system_store', ['store' => $storeCode]);
+            $this->messageManager->addSuccessMessage(__(
+                'The Magento cache storage has been flushed for the "%1" store.',
+                $storeCode
+            ));
+        } else {
+            $this->messageManager->addErrorMessage(
+                __("You don't have permission for the '%1' store.",
+                    $storeCode
+                )
+            );
+        }
+
+        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
+        $resultRedirect = $this->resultRedirectFactory->create();
+        return $resultRedirect->setPath('adminhtml/*', ['store' => $store]);
     }
 }

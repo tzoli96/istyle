@@ -1,14 +1,14 @@
 # iStyle M2   
-
+ 
 
 **Utoljára frissítve:** 2017.05.14.
-
-**Tartalomjegyzék:** 
-
-## <a name="sass-lint"></a>Sass-lint
+ 
+**Tartalomjegyzék:**  
+ 
+## <a name="sass-lint"></a>Sass-lint  
 A projekthez be lett állítva **sass-lint**. Ezzel egységesen (konfigurációs .yml fájlból) lehet scss-t írni. A leírás **PhpStorm**-hoz készült.
 
- **Telepítés menete:**
+ **Telepítés menete:** 
  
  1. Terminálban a `{project-root}`-ban adjuk ki az `npm install` parancsot
  2. Telepítsük fel és kapcsoljuk be a plugint: https://plugins.jetbrains.com/plugin/8171-sass-lint
@@ -18,5 +18,3 @@ A projekthez be lett állítva **sass-lint**. Ezzel egységesen (konfigurációs
     3. Use specific config file (betallózni!): `{project-root}/.sass-lint.yml`
  
  Angol nyelvű dev dokumentáció: https://github.com/idok/sass-lint-plugin
-
-

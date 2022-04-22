@@ -1,0 +1,22 @@
+{
+    "name": "oander/module-wonder-widget-news",
+    "description": "Block Builder to build banners and different kind of Magento blocks by Magento 2 Widget Feature.",
+    "require": {
+        "php": "7.*",
+        "oander/module-base": "^1.2.5",
+        "oander/module-news": "^1.2.4"
+    },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Oander\\WonderWidgetNews\\": ""
+        }
+    }
+}

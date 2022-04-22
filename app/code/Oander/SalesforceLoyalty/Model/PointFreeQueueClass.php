@@ -32,7 +32,7 @@ class PointFreeQueueClass extends \Oander\Queue\Model\JobClass
     {
         $this->_validateData();
         try {
-            $return = $this->loyaltyEndpoint->UpdateAffiliateTransaction($this->getData(self::DATA_TRANSACTIONID), \Oander\Salesforce\Model\Endpoint\Loyalty::LOYALTY_UPDATETRANSACTION_TYPE_BLOCKEDCANCELLED, substr($this->getData(self::DATA_COUNTRYCODE), 0, 2));
+            $return = $this->loyaltyEndpoint->UpdateAffiliateTransaction($this->getData(self::DATA_TRANSACTIONID), \Oander\Salesforce\Model\Endpoint\Loyalty::LOYALTY_UPDATETRANSACTION_TYPE_BLOCKEDCANCELLED, substr($this->getData(self::DATA_COUNTRYCODE), 0, 2),$this->getData(self::DATA_ORDERINCREMENTID));
             $this->output = \Zend_Json::encode($return);
             $this->hasError = false;
             return true;

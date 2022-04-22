@@ -21,10 +21,17 @@
 
 namespace Oander\SalesforceLoyalty\Observer\Frontend\Layout;
 
+use Oander\SalesforceLoyalty\Enum\Attribute;
 use Oander\SalesforceLoyalty\Helper\Config;
+use Magento\Customer\Model\Session\Proxy;
 
 class GenerateBlocksAfter implements \Magento\Framework\Event\ObserverInterface
 {
+    /**
+     * @var Proxy
+     */
+    private $customerSession;
+
     /**
      * @var Config
      */
@@ -42,16 +49,19 @@ class GenerateBlocksAfter implements \Magento\Framework\Event\ObserverInterface
      * @param \Magento\Checkout\Model\Session $checkoutSession
      * @param \Oander\SalesforceLoyalty\Helper\Data $loyaltyHelper
      * @param Config $helperConfig
+     * @param Proxy $customerSession
      */
     public function __construct(
         \Magento\Checkout\Model\Session $checkoutSession,
         \Oander\SalesforceLoyalty\Helper\Data $loyaltyHelper,
-        Config $helperConfig
+        Config $helperConfig,
+        Proxy $customerSession
     )
     {
         $this->checkoutSession = $checkoutSession;
         $this->loyaltyHelper = $loyaltyHelper;
         $this->helperConfig = $helperConfig;
+        $this->customerSession = $customerSession;
     }
 
     /**
@@ -64,18 +74,21 @@ class GenerateBlocksAfter implements \Magento\Framework\Event\ObserverInterface
         \Magento\Framework\Event\Observer $observer
     ) {
         $action = $observer->getData('full_action_name');
-        if($action=="checkout_cart_index")
-        {
+        if($action=="checkout_cart_index") {
             /** @var \Magento\Framework\View\LayoutInterface $layout */
             $layout = $observer->getData('layout');
-            if(!($this->checkoutSession->getQuote()->getData(\Oander\SalesforceLoyalty\Enum\Attribute::LOYALTY_DISCOUNT)>0))
-            {
-                $earnablePoints = $this->loyaltyHelper->formatPoint($this->loyaltyHelper->getEarnableLoyaltyPoints());
-                if($earnablePoints>0 && $this->helperConfig->getLoyaltyServiceEnabled()) {
-                    $earnableBlock = $layout->addBlock(\Magento\Framework\View\Element\Template::class, "salesforceloyalty.cart.methods.earnable", "checkout.cart.methods");
-                    $earnableBlock->setTemplate("Oander_SalesforceLoyalty::cart/earnable.phtml");
-                    $earnableBlock->setFormatedEarnablePoints(__("+ %1 points", $earnablePoints));
-                    $layout->reorderChild("checkout.cart.methods", "salesforceloyalty.cart.methods.earnable", "checkout.cart.methods.onepage.bottom", false);
+            if ($this->customerSession->isLoggedIn()) {
+                if (!($this->checkoutSession->getQuote()->getData(Attribute::LOYALTY_DISCOUNT) > 0)
+                    && !$this->checkoutSession->getQuote()->getCouponCode()
+                    && !$this->checkoutSession->getQuote()->getAppliedRuleIds()
+                ) {
+                    $earnablePoints = $this->loyaltyHelper->formatPoint($this->loyaltyHelper->getEarnableLoyaltyPoints());
+                    if ($earnablePoints > 0 && $this->helperConfig->getLoyaltyServiceEnabled()) {
+                        $earnableBlock = $layout->addBlock(\Magento\Framework\View\Element\Template::class, "salesforceloyalty.cart.methods.earnable", "checkout.cart.methods");
+                        $earnableBlock->setTemplate("Oander_SalesforceLoyalty::cart/earnable.phtml");
+                        $earnableBlock->setFormatedEarnablePoints(__("+ %1 points", $earnablePoints));
+                        $layout->reorderChild("checkout.cart.methods", "salesforceloyalty.cart.methods.earnable", "checkout.cart.methods.onepage.bottom", false);
+                    }
                 }
             }
             $loyaltypoints = $layout->getBlock("salesforceloyalty.cart.loyaltypoints");

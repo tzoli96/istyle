@@ -9,7 +9,6 @@
                 <block class="Oander\SalesforceLoyalty\Block\SuccessPage\LoyaltyMarketing" template="Oander_SalesforceLoyalty::successpage/loyalty-marketing.phtml" name="loyalty_registration_marekting" />
                 <block class="Magento\CheckoutAgreements\Block\Agreements" template="Magento_Customer::form/register-agreements.phtml" name="register_agreements" />
             </referenceBlock>
-            <referenceBlock name="checkout.success" class="Oander\IstyleCheckout\Block\Checkout\Success" />
         </referenceContainer>
         <referenceContainer name="order.success.additional.info">
             <block class="Magento\Sales\Block\Order\Info" name="istyle_checkout.success.store.pickup" template="Oander_IstyleCheckout::checkout/success/store_pickup.phtml" before="checkout.order.info"/>

@@ -22,7 +22,7 @@ class Config extends AbstractHelper
 {
     const SETTINGS_PATH_SPENDING            = 'oander_salesforce/salesforce_loyalty_spending';
     const SETTINGS_PATH_REGISTRATION        = 'oander_salesforce/salesforce_loyalty_registration';
-    const SETTINGS_PATH_LOYALTY_SERVICE     = 'oander_salesforce/salesforce_loyalty_serivce';
+    const SETTINGS_PATH_LOYALTY_SERVICE     = 'oander_salesforce/salesforce_loyalty_service';
     const SETTINGS_SPENDING_ENABLED         = 'enabled';
     const SETTINGS_SERVICE_ENABLED          = 'enabled';
     const SETTINGS_SPENDING_CARTINFO        = 'cart_info';
