@@ -6,10 +6,15 @@
 
 /* @var $block \Oander\IstyleCheckout\Block\Checkout\Success\Registration */
 // @codingStandardsIgnoreFile
+$marketing = $block->getChildHtml('loyalty_registration_marekting');
 ?>
 <div class="row">
     <div class="col-12 col-lg-8 offset-lg-2">
-        <?= $block->getChildHtml('loyalty_registration_marekting'); ?>
+        <?php if($marketing): ?>
+            <?= $marketing ?>
+        <?php else: ?>
+            <div class="registration-alert"><?php /* @escapeNotVerified */ echo __('Please sign up so you can shop faster at next time.') ?></div>
+        <?php endif; ?>
         <form
             id="registration"
             class="checkout-success-registration"
