@@ -1,0 +1,87 @@
+diff --git a/Api/SearchCriteria/CollectionProcessor.php b/Api/SearchCriteria/CollectionProcessor.php
+new file mode 100644
+index 000000000000..acc6b802fb21
+--- /dev/null
++++ b/Api/SearchCriteria/CollectionProcessor.php
+@@ -0,0 +1,41 @@
++<?php
++/**
++ * Copyright © 2016 Magento. All rights reserved.
++ * See COPYING.txt for license details.
++ */
++namespace Magento\Framework\Api\SearchCriteria;
++
++use Magento\Framework\Api\SearchCriteriaInterface;
++use Magento\Framework\Data\Collection\AbstractDb;
++
++class CollectionProcessor implements CollectionProcessorInterface
++{
++    /**
++     * @var CollectionProcessorInterface[]
++     */
++    private $processors;
++
++    /**
++     * @param CollectionProcessorInterface[] $processors
++     */
++    public function __construct(
++        array $processors
++    ) {
++        $this->processors = $processors;
++    }
++
++    /**
++     * @inheritDoc
++     */
++    public function process(SearchCriteriaInterface $searchCriteria, AbstractDb $collection)
++    {
++        foreach ($this->processors as $processor) {
++            if (!($processor instanceof CollectionProcessorInterface)) {
++                throw new \InvalidArgumentException(
++                    sprintf('Processor must implement %s interface.', CollectionProcessorInterface::class)
++                );
++            }
++            $processor->process($searchCriteria, $collection);
++        }
++    }
++}
+diff --git a/Api/SearchCriteria/CollectionProcessorInterface.php b/Api/SearchCriteria/CollectionProcessorInterface.php
+new file mode 100644
+index 000000000000..8fdd244f9b45
+--- /dev/null
++++ b/Api/SearchCriteria/CollectionProcessorInterface.php
+@@ -0,0 +1,24 @@
++<?php
++/**
++ * Copyright © 2016 Magento. All rights reserved.
++ * See COPYING.txt for license details.
++ */
++namespace Magento\Framework\Api\SearchCriteria;
++
++use Magento\Framework\Api\SearchCriteriaInterface;
++use Magento\Framework\Data\Collection\AbstractDb;
++
++/**
++ * @api
++ */
++interface CollectionProcessorInterface
++{
++    /**
++     * Apply Search Criteria to Collection
++     *
++     * @param SearchCriteriaInterface $searchCriteria
++     * @param AbstractDb $collection
++     * @throws \InvalidArgumentException
++     */
++    public function process(SearchCriteriaInterface $searchCriteria, AbstractDb $collection);
++}
+diff --git a/app/etc/di.xml b/app/etc/di.xml
+index 5836e5314b47..c847699543f6 100755
+--- a/app/etc/di.xml
++++ b/app/etc/di.xml
+@@ -1207,4 +1207,14 @@
+             </argument>
+         </arguments>
+     </type>
++    <preference for="Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface" type="Magento\Framework\Api\SearchCriteria\CollectionProcessorComposite" />
+ </config>
