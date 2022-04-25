@@ -1,43 +1,16 @@
-<?php if ($block->getParentBlock()->isRequiredRegion()) : ?>
-    <div class="form-group field region required">
-        <label class="label" for="region"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
-        <div class="control">
-            <input type="hidden" id="region_id" name="region_id" />
-            <input type="text" id="region" name="region" value="<?php echo $block->escapeHtml($block->getParentBlock()->getRegion()) ?>" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control input-text required-entry" />
-        </div>
+<div class="form-group field region required" style="display: none;">
+    <label class="label" for="region"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
+    <div class="control">
+        <input type="text" id="region" name="region" value="<?php echo $block->escapeHtml($block->getParentBlock()->getRegion()) ?>" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control input-text required-entry" />
     </div>
-<?php elseif ($block->getParentBlock()->isValidateRegion()) : ?>
-    <div class="form-group field region required validate">
-        <label class="label" for="region"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
-        <div class="control">
-            <?php if ($block->escapeHtml($block->getParentBlock()->getRegion() == "")) : ?>
-                <span class="region-exist" data-exist="false"></span>
-            <?php endif; ?>
-            <input type="text" class="region hide" name="region" id="region" data-validate='{"required":true}' />
-            <input type="hidden" id="region_id" name="region_id" />
-            <select id="region-list" name="region-list" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control validate-select">
-                <?php $states = $block->getStates() ?>
-                <?php foreach ($states as $state) : ?>
-                    <option value="<?php echo $state['value'] ?>" <?= ($state['value'] == $block->escapeHtml($block->getParentBlock()->getRegion()) ? 'selected' : '') ?>><?php echo $state['label'] ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div>
-    </div>
-<?php else : ?>
-    <div class="form-group field region required" style="display: none;">
-        <label class="label" for="region"><span><?php /* @escapeNotVerified */ echo __('State/Province') ?></span></label>
-        <div class="control">
-            <input type="text" id="region" name="region" value="<?php echo $block->escapeHtml($block->getParentBlock()->getRegion()) ?>" title="<?php /* @escapeNotVerified */ echo __('State/Province') ?>" class="form-control input-text required-entry" />
-        </div>
-    </div>
-    <script>
-        require(["jquery"], function($) {
-            var removeDisabled = setInterval(function() {
-                if ($('input[name="region"][disabled="disabled"]').length) {
-                    $('input[name="region"]').removeAttr('disabled');
-                    clearInterval(removeDisabled);
-                }
-            }, 100);
-        });
-    </script>
-<?php endif; ?>
+</div>
+<script>
+  require(["jquery"], function($) {
+    var removeDisabled = setInterval(function() {
+      if ($('input[name="region"][disabled="disabled"]').length) {
+        $('input[name="region"]').removeAttr('disabled');
+        clearInterval(removeDisabled);
+      }
+    }, 100);
+  });
+</script>

@@ -12,7 +12,7 @@
 /**
  * Edit customer address template
  *
- * @var $block \Oander\IstyleCustomization\Block\Address\Edit
+ * @var $block \Magento\Customer\Block\Address\Edit
  */
 ?>
 <form class="form-address-edit profile-address-edit ui-card" action="<?php /* @escapeNotVerified */ echo $block->getSaveUrl() ?>" method="post" id="form-validate" enctype="multipart/form-data" data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>">
@@ -22,14 +22,14 @@
         <input type="hidden" name="success_url" value="<?php /* @escapeNotVerified */ echo $block->getSuccessUrl() ?>">
         <input type="hidden" name="error_url" value="<?php /* @escapeNotVerified */ echo $block->getErrorUrl() ?>">
 
-
+        <?php echo json_encode($block->getAddressAttributesPositions()) ?>
         <?php echo $block->getChildHtml('is_company') ?>
         <div class="profile-address-edit__form">
             <?php echo $block->getNameBlockHtml() ?>
-            <?php $addressAttributes =  $block->getAddressAttributesDefaultOrder() ?>
-            <?php foreach ($addressAttributes as $attribute): ?>
-                <?php if($attribute[\Oander\IstyleCustomization\Enum\AddressAttributeEnum::COLUMN_ATTRIBUTE]=='is_company') continue; ?>
-                <?php echo $block->getChildHtml($attribute[\Oander\IstyleCustomization\Enum\AddressAttributeEnum::COLUMN_ATTRIBUTE]) ?>
+            <?php foreach ($block->getChildNames() as $childName): ?>
+                <?php if($childName !== 'is_company'): ?>
+                    <?php echo $block->getChildHtml($childName); ?>
+                <?php endif; ?>
             <?php endforeach; ?>
         </div>
 
@@ -86,32 +86,10 @@
     });
 </script>
 
-<?php if (!$block->isRequiredRegion() && !$block->isValidateRegion()) : ?>
-    <script type="text/x-magento-init">
-        {
-        "#form-validate": {
-            "validation": {}
-        },
-        "#country": {
-            "regionUpdater": {
-                "optionalRegionAllowed": <?php /* @escapeNotVerified */ echo ($block->getConfig('general/region/display_all') ? 'true' : 'false'); ?>,
-                "regionListId": "#region_id",
-                "regionInputId": "#region",
-                "postcodeId": "#zip",
-                "form": "#form-validate",
-                "regionJson": <?php /* @escapeNotVerified */ echo $this->helper('Magento\Directory\Helper\Data')->getRegionJson() ?>,
-                "defaultRegion": "<?php /* @escapeNotVerified */ echo $block->getRegionId() ?>",
-                "countriesWithOptionalZip": <?php /* @escapeNotVerified */ echo $this->helper('Magento\Directory\Helper\Data')->getCountriesWithOptionalZip(true) ?>
-            }
-        }
-    }
-</script>
-<?php else : ?>
-    <script type="text/x-magento-init">
+<script type="text/x-magento-init">
         {
         "#form-validate": {
             "validation": {}
         }
     }
 </script>
-<?php endif; ?>

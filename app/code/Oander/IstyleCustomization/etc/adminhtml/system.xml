@@ -21,14 +21,6 @@
                     <source_model>Oander\IstyleCustomization\Model\Config\Source\AttributeSet</source_model>
                 </field>
             </group>
-            <group id="address_attributes_order" translate="label" type="text" sortOrder="95" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Address Attributes Order</label>
-                <field id="address_attributes_positions" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
-                    <label>Address Attributes Positions</label>
-                    <frontend_model>Oander\IstyleCustomization\Block\System\Form\Field\AddressAttributesOrder</frontend_model>
-                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
-                </field>
-            </group>
         </section>
         <section id="oander_categories" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Categories</label>

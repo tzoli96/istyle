@@ -5,5 +5,6 @@
         <module name="Magento_Checkout"/>
         <module name="Oander_AddressListAPI"/>
         <module name="Oander_Ui"/>
+        <module name="Oander_FanCourierValidator"/>
     </module>
 </config>

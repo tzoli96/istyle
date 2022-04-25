@@ -17,10 +17,11 @@
 
 namespace Oander\IstyleCustomization\Plugin\Checkout\Model\Checkout;
 
-use \Magento\Checkout\Model\Session as CheckoutSession;
+use Magento\Checkout\Model\Session as CheckoutSession;
+use Oander\CustomerExtend\Enum\AddressAttributeEnum;
 use Oander\FanCourierValidator\Helper\Data;
-use Oander\IstyleCustomization\Enum\AddressAttributeEnum;
 use Oander\IstyleCustomization\Helper\Config;
+use Oander\CustomerExtend\Helper\Config as CustomerConfigHelper;
 
 /**
  * Class LayoutProcessor
@@ -49,23 +50,32 @@ class LayoutProcessor
      * @var Data
      */
     private $fanCourierHelper;
+    /**
+     * @var CustomerConfigHelper
+     */
+    private $customerConfigHelper;
 
     /**
      * LayoutProcessor constructor.
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
      * @param CheckoutSession $checkoutSession
+     * @param Data $fanCourierHelper
      * @param Config $configHelper
+     * @param CustomerConfigHelper $customerConfigHelper
      */
     public function __construct(
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         CheckoutSession $checkoutSession,
         Data $fanCourierHelper,
-        Config $configHelper
+        Config $configHelper,
+        CustomerConfigHelper $customerConfigHelper
+
     ) {
         $this->scopeConfig = $scopeConfig;
         $this->checkoutSession = $checkoutSession;
         $this->configHelper = $configHelper;
         $this->fanCourierHelper = $fanCourierHelper;
+        $this->customerConfigHelper = $customerConfigHelper;
     }
     /**
      * @param \Magento\Checkout\Block\Checkout\LayoutProcessor $subject
@@ -469,7 +479,7 @@ class LayoutProcessor
      */
     protected function setAddressAttributesShortOrder(&$jsLayout)
     {
-        $addressAttributesPositions = $this->configHelper->getAddressAttributePosition();
+        $addressAttributesPositions = $this->customerConfigHelper->getAddressAttributePosition();
 
         if (isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]))
         {
