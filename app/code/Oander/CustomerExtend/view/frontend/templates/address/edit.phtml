@@ -22,7 +22,6 @@
         <input type="hidden" name="success_url" value="<?php /* @escapeNotVerified */ echo $block->getSuccessUrl() ?>">
         <input type="hidden" name="error_url" value="<?php /* @escapeNotVerified */ echo $block->getErrorUrl() ?>">
 
-        <?php echo json_encode($block->getAddressAttributesPositions()) ?>
         <?php echo $block->getChildHtml('is_company') ?>
         <div class="profile-address-edit__form">
             <?php echo $block->getNameBlockHtml() ?>
@@ -84,6 +83,9 @@
         'addressCompanyExtend'
     ], function($, $ko, $t, addressCompanyExtend) {
     });
+</script>
+<script>
+     var getAddressAttributesPositions = <?php echo json_encode($block->getAddressAttributesPositions()) ?>;
 </script>
 
 <script type="text/x-magento-init">

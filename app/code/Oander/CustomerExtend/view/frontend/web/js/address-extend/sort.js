@@ -4,91 +4,13 @@ define([
 
     return {
         /**
-         * Get address attributes positions
-         * @returns {[key: string]: any}
-         */
-        getAddressAttributesPositions: function () {
-            // TODO comes from BE somewhere
-            //return window.checkoutConfig.addressAttributesPositions;
-            var addressPositions =
-                {
-                    "lastname": {
-                        "individual_position": 10,
-                        "company_position": 70,
-                        "default_position": 10,
-                        "width": 50
-                    },
-                    "firstname": {
-                        "individual_position": 20,
-                        "company_position": 80,
-                        "default_position": 20,
-                        "width": 50
-                    },
-                    "postcode": {
-                        "individual_position": 30,
-                        "company_position": 30,
-                        "default_position": 100,
-                        "width": 50
-                    },
-                    "city": {
-                        "individual_position": 40,
-                        "company_position": 40,
-                        "default_position": 90,
-                        "width": 50
-                    },
-                    "street": {
-                        "individual_position": 50,
-                        "company_position": 50,
-                        "default_position": 60,
-                        "width": 50
-                    },
-                    "telephone": {
-                        "individual_position": 60,
-                        "company_position": 60,
-                        "default_position": 40,
-                        "width": 50
-                    },
-                    "company": {
-                        "individual_position": null,
-                        "company_position": 10,
-                        "default_position": 30,
-                        "width": 50
-                    },
-                    "vat_id": {
-                        "individual_position": null,
-                        "company_position": 20,
-                        "default_position": 70,
-                        "width": 50
-                    },
-                    "fax": {
-                        "individual_position": null,
-                        "company_position": null,
-                        "default_position": 50,
-                        "width": 50
-                    },
-                    "region": {
-                        "individual_position": null,
-                        "company_position": null,
-                        "default_position": 80,
-                        "width": 50
-                    },
-                    "country_id": {
-                        "individual_position": null,
-                        "company_position": null,
-                        "default_position": 110,
-                        "width": 50
-                    },
-                }
-                return addressPositions;
-        },
-        /**
          * Sort fields
          * @param {string} formId
          * @returns {void}
          */
         sortFields: function (formId) {
             var self = this;
-            var positions = this.getAddressAttributesPositions();
+            var positions = getAddressAttributesPositions;
 
             if (positions) {
                 for (var field in positions) {
@@ -126,12 +48,15 @@ define([
 
                 if (order !== null) {
                     elem.style.order = order;
-                    if (field) field.setAttribute('tabindex', order);
+                    if (field) {
+                        field.setAttribute('tabindex', order);
+                        field.closest('.form-group').style.display = 'block';
+                    }
+                } else {
+                    if (field) field.closest('.form-group').style.display = 'none';
                 }
 
                 if (width === 100) elem.classList.add('w-100');
-
-                formAddressBlock.classList.remove('is-loading');
             }
         },
 
