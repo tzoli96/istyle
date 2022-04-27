@@ -8043,33 +8043,6 @@
             "time": "2021-08-21T02:16:49+00:00"
         },
         {
-            "name": "oander/module-apple-music",
-            "version": "1.0.0.2",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/module-apple-music.git",
-                "reference": "6fc5e72bab5bee266138494e0e6736fd295d0b9d"
-            },
-            "require": {
-                "oander/module-base": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\AppleMusic\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Apple Music Widget",
-            "time": "2020-06-17T07:52:08+00:00"
-        },
-        {
             "name": "oander/module-autorelated-warehouse-manager-extender",
             "version": "1.0.1.3",
             "source": {

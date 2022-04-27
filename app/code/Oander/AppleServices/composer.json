@@ -1,0 +1,21 @@
+{
+    "name": "oander/module-apple-services",
+    "description": "Apple Services Widget",
+    "require": {
+        "php": "7.*",
+        "oander/module-base": "*"
+    },
+    "type": "magento2-module",
+    "version": "1.0.0.2",
+    "license": [
+        "proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Oander\\AppleServices\\": ""
+        }
+    }
+}

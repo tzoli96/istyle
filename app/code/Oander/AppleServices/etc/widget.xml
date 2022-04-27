@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="oander_apple_music" class="Oander\AppleServices\Block\AppleMusic">
+        <label translate="true">Apple Music Widget</label>
+        <description>Oander - Apple Music Widget</description>
+        <parameters>
+            <parameter name="request_button_label" xsi:type="text" required="true" visible="true" sort_order="10">
+                <label translate="true">Request button label</label>
+            </parameter>
+            <parameter name="redeem_button_label" xsi:type="text" required="true" visible="true" sort_order="20">
+                <label translate="true">Redeem button label</label>
+            </parameter>
+            <parameter name="code_description" xsi:type="text" required="false" visible="true" sort_order="30">
+                <label translate="true">Code description</label>
+            </parameter>
+            <parameter name="referral_token" xsi:type="text" required="false" visible="true" sort_order="30">
+                <label translate="true">Referral token</label>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="oander_apple_tv" class="Oander\AppleServices\Block\AppleTv">
+        <label translate="true">Apple TV Widget</label>
+        <description>Oander - Apple TV Widget</description>
+        <parameters>
+            <parameter name="request_button_label" xsi:type="text" required="true" visible="true" sort_order="10">
+                <label translate="true">Request button label</label>
+            </parameter>
+            <parameter name="redeem_button_label" xsi:type="text" required="true" visible="true" sort_order="20">
+                <label translate="true">Redeem button label</label>
+            </parameter>
+            <parameter name="code_description" xsi:type="text" required="false" visible="true" sort_order="30">
+                <label translate="true">Code description</label>
+            </parameter>
+            <parameter name="referral_token" xsi:type="text" required="false" visible="true" sort_order="30">
+                <label translate="true">Referral token</label>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="oander_apple_arcade" class="Oander\AppleServices\Block\AppleArcade">
+        <label translate="true">Apple Arcade Widget</label>
+        <description>Oander - Apple Arcade Widget</description>
+        <parameters>
+            <parameter name="request_button_label" xsi:type="text" required="true" visible="true" sort_order="10">
+                <label translate="true">Request button label</label>
+            </parameter>
+            <parameter name="redeem_button_label" xsi:type="text" required="true" visible="true" sort_order="20">
+                <label translate="true">Redeem button label</label>
+            </parameter>
+            <parameter name="code_description" xsi:type="text" required="false" visible="true" sort_order="30">
+                <label translate="true">Code description</label>
+            </parameter>
+            <parameter name="referral_token" xsi:type="text" required="false" visible="true" sort_order="30">
+                <label translate="true">Referral token</label>
+            </parameter>
+        </parameters>
+    </widget>
+    <widget id="oander_apple_music" class="Oander\AppleServices\Block\AppleIcloud">
+        <label translate="true">Apple Icloud Widget</label>
+        <description>Oander - Apple Icloud Widget</description>
+        <parameters>
+            <parameter name="request_button_label" xsi:type="text" required="true" visible="true" sort_order="10">
+                <label translate="true">Request button label</label>
+            </parameter>
+            <parameter name="redeem_button_label" xsi:type="text" required="true" visible="true" sort_order="20">
+                <label translate="true">Redeem button label</label>
+            </parameter>
+            <parameter name="code_description" xsi:type="text" required="false" visible="true" sort_order="30">
+                <label translate="true">Code description</label>
+            </parameter>
+            <parameter name="referral_token" xsi:type="text" required="false" visible="true" sort_order="30">
+                <label translate="true">Referral token</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
