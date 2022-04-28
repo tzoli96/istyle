@@ -37,6 +37,7 @@ use Magento\Eav\Model\Entity\Attribute\SetFactory as AttributeSetFactory;
 use Magento\Eav\Model\Entity\Attribute\Set as AttributeSet;
 use Oander\SalesforceLoyalty\Enum\CustomerAttribute;
 use Magento\Cms\Model\BlockFactory;
+use Magento\Cms\Model\ResourceModel\Block\CollectionFactory as BlockCollectionFactory;
 use Magento\Store\Api\StoreRepositoryInterface;
 
 class UpgradeData implements UpgradeDataInterface
@@ -69,6 +70,10 @@ class UpgradeData implements UpgradeDataInterface
      * @var AttributeSetFactory
      */
     private $attributeSetFactory;
+    /**
+     * @var BlockCollectionFactory
+     */
+    private $blockCollectionFactory;
 
     /**
      * @param EavSetupFactory $eavSetupFactory
@@ -77,6 +82,8 @@ class UpgradeData implements UpgradeDataInterface
      * @param Config $eavConfig
      * @param AttributeSetFactory $attributeSetFactory
      * @param BlockFactory $blockFactory
+     * @param BlockCollectionFactory $blockCollectionFactory
+     * @param StoreRepositoryInterface $storeRepository
      */
     public function __construct(
         EavSetupFactory     $eavSetupFactory,
@@ -85,6 +92,7 @@ class UpgradeData implements UpgradeDataInterface
         Config              $eavConfig,
         AttributeSetFactory $attributeSetFactory,
         BlockFactory        $blockFactory,
+        BlockCollectionFactory $blockCollectionFactory,
         StoreRepositoryInterface $storeRepository
     )
     {
@@ -94,6 +102,7 @@ class UpgradeData implements UpgradeDataInterface
         $this->salesSetupFactory = $salesSetupFactory;
         $this->attributeSetFactory = $attributeSetFactory;
         $this->blockFactory = $blockFactory;
+        $this->blockCollectionFactory = $blockCollectionFactory;
         $this->storeRepository = $storeRepository;
     }
 
@@ -135,13 +144,16 @@ class UpgradeData implements UpgradeDataInterface
         }
         if(version_compare($context->getVersion(), "1.1.2", "<")) {
             $this->addLoyaltyStatusAttribute($eavSetup);
-            $this->addCMSBlock('loyalty_promo_block', 'Loyalty Promo Block');
-            $this->addCMSBlock('loyalty_registering_block', 'Loyalty Registering Block');
-            $this->addCMSBlock('loyalty_confirmation_block', 'Loyalty Email Confirmation Block');
-            $this->addCMSBlock('loyalty_profile_block', 'Loyalty Registered Profile Block');
+            $this->addCMSBlock(\Oander\SalesforceLoyalty\Enum\CMSBlock::PROMO, 'Loyalty Promo Block');
+            $this->addCMSBlock(\Oander\SalesforceLoyalty\Enum\CMSBlock::REGISTERING, 'Loyalty Registering Block');
+            $this->addCMSBlock(\Oander\SalesforceLoyalty\Enum\CMSBlock::CONFIRMATION, 'Loyalty Email Confirmation Block');
+            $this->addCMSBlock(\Oander\SalesforceLoyalty\Enum\CMSBlock::PROFILE, 'Loyalty Registered Profile Block');
         }
         if(version_compare($context->getVersion(), "1.1.3", "<")) {
             $this->addCMSBlock('loyalty_nosfid', 'Loyalty Missing SalesForce ID Profile Block');
+        }
+        if (version_compare($context->getVersion(), "1.1.4", "<") && version_compare($context->getVersion(), "1.1.2", ">")) {
+            $this->removeCMSBlock('loyalty_nosfid');
         }
     }
 
@@ -168,6 +180,19 @@ class UpgradeData implements UpgradeDataInterface
                 } catch (\Exception $e) {}
             }
         }
+    }
+
+    /**
+     * @param $id
+     * @param $title
+     * @return void
+     */
+    private function removeCMSBlock($id)
+    {
+        /** @var \Magento\Cms\Model\ResourceModel\Block\Collection $blockCollection */
+        $blockCollection = $this->blockCollectionFactory->create();
+        $blockCollection->addFieldToFilter(\Magento\Cms\Api\Data\BlockInterface::IDENTIFIER, $id);
+        $blockCollection->walk('delete');
     }
 
     private function removeCustomerAttribute($eavSetup, $id) {
