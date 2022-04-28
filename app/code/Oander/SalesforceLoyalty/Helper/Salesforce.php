@@ -141,8 +141,13 @@ class Salesforce extends AbstractHelper
     public function getCustomerAffiliateTransactions($customer = null, $noOfRecords = 1000000, $pageNo = 1)
     {
         $customer = $this->_getCustomer($customer);
-        if(is_null($this->registry->registry(self::REGISTRY_HISTORY)))
-            $this->registry->register(self::REGISTRY_HISTORY,$this->loyaltyEndpoint->GetAffiliateTransactions($customer->getData('sforce_maconomy_id'),substr($customer->getStore()->getCode(), 0, 2)));
+        if(is_null($this->registry->registry(self::REGISTRY_HISTORY))) {
+            $history = [];
+            if($this->_validateCustomerData($customer)) {
+                $history = $this->loyaltyEndpoint->GetAffiliateTransactions($customer->getData('sforce_maconomy_id'), substr($customer->getStore()->getCode(), 0, 2));
+            }
+            $this->registry->register(self::REGISTRY_HISTORY, $history);
+        }
         return $this->registry->registry(self::REGISTRY_HISTORY);
     }
 
@@ -170,13 +175,21 @@ class Salesforce extends AbstractHelper
      */
     private function _getCustomerAffiliatePoints($customer = null) {
         $customer = $this->_getCustomer($customer);
+        $points = 0;
+        $isMember = false;
         try {
-            $result = $this->loyaltyEndpoint->GetAffiliateMembershipPointsBalance($customer->getData('sforce_maconomy_id'), substr($customer->getStore()->getCode(), 0, 2));
-            $this->registry->register(self::REGISTRY_AVAILABLE_POINTS, (int)$result['PointsBalance']);
-            $this->registry->register(self::REGISTRY_IS_MEMBER, true);
+            if($this->_validateCustomerData($customer)) {
+                $result = $this->loyaltyEndpoint->GetAffiliateMembershipPointsBalance($customer->getData('sforce_maconomy_id'), substr($customer->getStore()->getCode(), 0, 2));
+                $points = (int)$result['PointsBalance'];
+                $isMember = true;
+            }
         } catch (\Oander\Salesforce\Exception\RESTResponseException $e) {
-            $this->registry->register(self::REGISTRY_AVAILABLE_POINTS, 0);
-            $this->registry->register(self::REGISTRY_IS_MEMBER, false);
         }
+        $this->registry->register(self::REGISTRY_AVAILABLE_POINTS, $points);
+        $this->registry->register(self::REGISTRY_IS_MEMBER, $isMember);
+    }
+
+    private function _validateCustomerData($customer) {
+        return !empty($customer->getData('sforce_maconomy_id'));
     }
 }

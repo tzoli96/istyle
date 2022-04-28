@@ -3,4 +3,7 @@
     <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
         <plugin name="salesforce_loyalty_total_block_checkout_sidebar" type="Oander\SalesforceLoyalty\Plugin\Magento\Checkout\Block\Checkout\LoyaltyLayoutProcessor"/>
     </type>
+    <type name="Magento\Checkout\Block\Onepage\Success">
+        <plugin name="Oander_SalesforceLoyalty_Plugin_Frontend_Magento_Checkout_Block_Onepage_Success" type="Oander\SalesforceLoyalty\Plugin\Frontend\Magento\Checkout\Block\Onepage\Success" sortOrder="10" disabled="false"/>
+    </type>
 </config>
