@@ -36,45 +36,37 @@ class LayoutProcessor
     ) {
         if($this->_scopeConfig->isSetFlag(ConfigEnum::PATH_CUSTOMER_REPLACE_POSTCODE_REGION, \Magento\Store\Model\ScopeInterface::SCOPE_STORE)) {
             $this->regions = $this->getCity->getAllRegion();
-            /*if(
-                isset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
-                    ['payment']['children']['payments-list']['children']) &&
-                is_array($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
-                ['payment']['children']['payments-list']['children'])
-            ) {
-                foreach ($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['payments-list']['children'] as $key => &$payment) {
-                    if (isset($payment['children']['form-fields']['children']["postcode"])) {
-                        $this->_changeToRegion($payment['children']['form-fields']['children']["postcode"]);
-                    }
-                    if (isset($payment['children']['form-fields']['children']["city"])) {
-                        $this->_changeCityBilling($payment['children']['form-fields']['children']["city"]);
-                    }
-                }
-            }*/
 
             //shipping
-            if ($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]["postcode"]) {
-                $this->_changeToRegion($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]["postcode"]);
-            }
-            //shipping
-            if ($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]["city"]) {
-                $this->_changeCityShipping($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]["city"]);
-            }
-
-            //billing
-            if (isset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
-                ['children']['form-fields']['children']['postcode'])) {
-                $this->_changeToRegion($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
-                ['children']['form-fields']['children']['postcode']);
-            }
-            //billing
-            if (isset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
-                ['children']['form-fields']['children']['city'])) {
-                $this->_changeCityBilling($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
-                ['children']['form-fields']['children']['city']);
-            }
+            $this->callFunctionOnField($jsLayout, 'postcode', '_changeToRegion');
+            $this->callFunctionOnField($jsLayout, 'postcode', '_changeToRegion', false);
+            $this->callFunctionOnField($jsLayout, 'city', '_changeCityShipping');
+            $this->callFunctionOnField($jsLayout, 'city', '_changeCityBilling', false);
+            $this->callFunctionOnField($jsLayout, 'is_company', '_hideField');
+            $this->callFunctionOnField($jsLayout, 'is_company', '_hideField', false);
         }
         return $jsLayout;
+    }
+
+    private function callFunctionOnField(&$jsLayout, $id, $function, $isShipping = true) {
+        $field = null;
+        if($isShipping) {
+            if ($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"][$id]) {
+                $field = &$jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"][$id];
+            }
+        } else {
+            if (isset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
+                ['children']['form-fields']['children'][$id])) {
+                $field = &$jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']['payment']['children']['afterMethods']['children']['billing-address-form']
+                ['children']['form-fields']['children'][$id];
+            }
+        }
+        if($field)
+            $this->$function($field);
+    }
+
+    private function _hideField(&$field) {
+        $field["config"]["visible"] = 0;
     }
 
     private function _changeToRegion(&$postCodeElement) {
