@@ -35,6 +35,7 @@ use Oander\SalesforceLoyalty\Enum\Attribute;
 use Magento\Eav\Model\Config;
 use Magento\Eav\Model\Entity\Attribute\SetFactory as AttributeSetFactory;
 use Magento\Eav\Model\Entity\Attribute\Set as AttributeSet;
+use Oander\SalesforceLoyalty\Enum\CMSBlock as CMSBlockAlias;
 use Oander\SalesforceLoyalty\Enum\CustomerAttribute;
 use Magento\Cms\Model\BlockFactory;
 use Magento\Cms\Model\ResourceModel\Block\CollectionFactory as BlockCollectionFactory;
@@ -144,10 +145,10 @@ class UpgradeData implements UpgradeDataInterface
         }
         if(version_compare($context->getVersion(), "1.1.2", "<")) {
             $this->addLoyaltyStatusAttribute($eavSetup);
-            $this->addCMSBlock(\Oander\SalesforceLoyalty\Enum\CMSBlock::PROMO, 'Loyalty Promo Block');
-            $this->addCMSBlock(\Oander\SalesforceLoyalty\Enum\CMSBlock::REGISTERING, 'Loyalty Registering Block');
-            $this->addCMSBlock(\Oander\SalesforceLoyalty\Enum\CMSBlock::CONFIRMATION, 'Loyalty Email Confirmation Block');
-            $this->addCMSBlock(\Oander\SalesforceLoyalty\Enum\CMSBlock::PROFILE, 'Loyalty Registered Profile Block');
+            $this->addCMSBlock(CMSBlockAlias::PROMO, 'Loyalty Promo Block');
+            $this->addCMSBlock(CMSBlockAlias::REGISTERING, 'Loyalty Registering Block');
+            $this->addCMSBlock(CMSBlockAlias::CONFIRMATION, 'Loyalty Email Confirmation Block');
+            $this->addCMSBlock(CMSBlockAlias::PROFILE, 'Loyalty Registered Profile Block');
         }
         if(version_compare($context->getVersion(), "1.1.3", "<")) {
             $this->addCMSBlock('loyalty_nosfid', 'Loyalty Missing SalesForce ID Profile Block');
