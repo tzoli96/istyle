@@ -3,6 +3,14 @@
     <system>
         <section id="customer">
             <group id="address">
+                <group id="address_attributes_order" translate="label" type="text" sortOrder="95" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Address Attributes Order</label>
+                    <field id="address_attributes_positions" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+                        <label>Address Attributes Positions</label>
+                        <frontend_model>Oander\CustomerExtend\Block\System\Form\Field\AddressAttributesOrder</frontend_model>
+                        <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    </field>
+                </group>
                 <field id="replace_postcode_region" translate="label comment" type="select" sortOrder="470" showInDefault="0" showInWebsite="0" showInStore="1">
                     <label>Replace Postcode to Region</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>

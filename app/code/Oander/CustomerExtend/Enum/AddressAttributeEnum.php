@@ -6,7 +6,7 @@
  * @license Oander Media Kft. (http://www.oander.hu)
  */
 
-namespace Oander\IstyleCustomization\Enum;
+namespace Oander\CustomerExtend\Enum;
 
 class AddressAttributeEnum
 {

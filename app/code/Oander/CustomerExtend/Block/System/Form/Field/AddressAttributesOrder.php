@@ -1,14 +1,14 @@
 <?php
 /**
- * Oander_IstyleCustomization
+ * Oander_CustomerExtend
  *
  * @author  Tamas Vegvari <tamas.vegvari@oander.hu>
  * @license Oander Media Kft. (http://www.oander.hu)
  */
 
-namespace Oander\IstyleCustomization\Block\System\Form\Field;
+namespace Oander\CustomerExtend\Block\System\Form\Field;
 
-use Oander\IstyleCustomization\Enum\AddressAttributeEnum;
+use Oander\CustomerExtend\Enum\AddressAttributeEnum;
 
 /**
  * Class AddressAttributesOrder
@@ -22,7 +22,7 @@ class AddressAttributesOrder extends \Magento\Config\Block\System\Config\Form\Fi
     protected $addressAttributes = null;
 
     /**
-     * @var null | Oander\IstyleCustomization\Block\System\Form\Field\Width
+     * @var null | \Oander\CustomerExtend\Block\System\Form\Field\Width
      */
     protected $width = null;
 
@@ -44,7 +44,7 @@ class AddressAttributesOrder extends \Magento\Config\Block\System\Config\Form\Fi
     {
         if (!$this->addressAttributes) {
             $this->addressAttributes = $this->getLayout()->createBlock(
-                \Oander\IstyleCustomization\Block\System\Form\Field\AddressAttributes::class,
+                \Oander\CustomerExtend\Block\System\Form\Field\AddressAttributes::class,
                 '',
                 ['data' => ['is_render_to_js_template' => true]]
             );
@@ -54,14 +54,14 @@ class AddressAttributesOrder extends \Magento\Config\Block\System\Config\Form\Fi
     }
 
     /**
-     * @return \Magento\Framework\View\Element\BlockInterface|\Oander\IstyleCustomization\Block\System\Form\Field\Width
+     * @return \Magento\Framework\View\Element\BlockInterface|\Oander\CustomerExtend\Block\System\Form\Field\Width
      * @throws \Magento\Framework\Exception\LocalizedException
      */
     protected function getWidthRenderer()
     {
         if (!$this->width) {
             $this->width = $this->getLayout()->createBlock(
-                \Oander\IstyleCustomization\Block\System\Form\Field\Width::class,
+                \Oander\CustomerExtend\Block\System\Form\Field\Width::class,
                 '',
                 ['data' => ['is_render_to_js_template' => true]]
             );

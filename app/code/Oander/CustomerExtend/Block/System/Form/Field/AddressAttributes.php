@@ -1,18 +1,18 @@
 <?php
 /**
- * Oander_IstyleCustomization
+ * Oander_CustomerExtend
  *
  * @author  Tamas Vegvari <tamas.vegvari@oander.hu>
  * @license Oander Media Kft. (http://www.oander.hu)
  */
 
-namespace Oander\IstyleCustomization\Block\System\Form\Field;
+namespace Oander\CustomerExtend\Block\System\Form\Field;
 
 use Magento\Eav\Api\AttributeRepositoryInterface as AttributeRepository;
 use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Framework\EntityManager\MetadataPool;
 
-class Width extends \Magento\Framework\View\Element\Html\Select
+class AddressAttributes extends \Magento\Framework\View\Element\Html\Select
 {
     /**
      * @var SearchCriteriaBuilder
@@ -57,9 +57,9 @@ class Width extends \Magento\Framework\View\Element\Html\Select
     public function _toHtml()
     {
         if (!$this->getOptions()) {
-            $widthValues = $this->getWidthValues();
-            foreach ($widthValues as $widthValue => $widthLabel) {
-                $this->addOption($widthValue, $widthLabel);
+            $attributes = $this->getAttributes();
+            foreach ($attributes as $attribute) {
+                $this->addOption($attribute->getAttributeCode(), $attribute->getDefaultFrontendLabel());
             }
         }
         return parent::_toHtml();
@@ -77,13 +77,16 @@ class Width extends \Magento\Framework\View\Element\Html\Select
     }
 
     /**
-     * @return array[]
+     * @return \Magento\Eav\Api\Data\AttributeInterface[]
+     * @throws \Exception
      */
-    protected function getWidthValues()
+    protected function getAttributes()
     {
-        return [
-            50 => (string)__('50%'),
-            100 => (string)__('100%')
-        ];
+       $searchResult = $this->attributeRepository->getList(
+            \Magento\Customer\Api\AddressMetadataInterface::ENTITY_TYPE_ADDRESS,
+            $this->searchCriteriaBuilder->create()
+        );
+
+        return $searchResult->getItems();
     }
 }

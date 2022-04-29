@@ -10,7 +10,7 @@ namespace Oander\IstyleCustomization\Model;
 
 use Magento\Checkout\Model\ConfigProviderInterface;
 use Magento\Customer\Api\Data\AddressInterface;
-use Oander\IstyleCustomization\Helper\Config;
+use Oander\CustomerExtend\Helper\Config as CustomerConfigHelper;
 use Oander\NameSwitcher\Helper\Switching;
 
 /**
@@ -19,21 +19,21 @@ use Oander\NameSwitcher\Helper\Switching;
  */
 class ConfigProvider implements ConfigProviderInterface
 {
-    /** @var Config  */
-    protected $config;
+    /** @var CustomerConfigHelper  */
+    protected $customerConfigHelper;
 
     /** @var Switching  */
     protected $switching;
 
     /**
-     * @param Config $config
+     * @param CustomerConfigHelper $config
      * @param Switching $switching
      */
     public function __construct(
-        Config $config,
+        CustomerConfigHelper $config,
         Switching $switching
     ) {
-        $this->config = $config;
+        $this->customerConfigHelper = $config;
         $this->switching = $switching;
     }
 
@@ -42,7 +42,7 @@ class ConfigProvider implements ConfigProviderInterface
      */
     public function getConfig()
     {
-        $addressAttributesPositions = $this->config->getAddressAttributePosition();
+        $addressAttributesPositions = $this->customerConfigHelper->getAddressAttributePosition();
         if ($this->switching->isInverted()) {
             $this->replaceKeys(
                 $addressAttributesPositions,
