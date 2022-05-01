@@ -254,6 +254,17 @@ class Config extends AbstractHelper
         return (string)$value = $this->icloud[ConfigEnum::GENERAL_SECRET_KEY] ?? '';
     }
 
+    /**
+     * @return string
+     */
+    public function getGooglRecaptchaSecretKey(): string
+    {
+        return (string)$this->scopeConfig->getValue(
+                'googlerecaptcha/general/invisible/api_secret',
+                ScopeInterface::SCOPE_STORE
+            ) ?? '';
+    }
+
 
     /**
      * @param string $path

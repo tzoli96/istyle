@@ -11,24 +11,32 @@
                     <label>Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="google_invisible_key" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Google Invisible Captcha Key</label>
-                    <comment><![CDATA[Please be sure the provided key is paired with secret in applemusic.php]]></comment>
-                </field>
                 <field id="cookie_lifetime" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
                     <validate>validate-entry validate-digits</validate>
                     <label>Cookie LifeTime</label>
                     <comment><![CDATA[ Cookie Lifetime in minutes]]>
                     </comment>
+                    <depends>
+                        <field id="oander_apple_services/music/enabled">1</field>
+                    </depends>
                 </field>
                 <field id="endpoint" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>API Endpoint</label>
+                    <depends>
+                        <field id="oander_apple_services/music/enabled">1</field>
+                    </depends>
                 </field>
                 <field id="unique" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Unique ID</label>
+                    <depends>
+                        <field id="oander_apple_services/music/enabled">1</field>
+                    </depends>
                 </field>
                 <field id="secret_key" translate="label" type="password" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Secret Key</label>
+                    <depends>
+                        <field id="oander_apple_services/music/enabled">1</field>
+                    </depends>
                 </field>
             </group>
             <group id="arcade" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -37,24 +45,32 @@
                     <label>Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="google_invisible_key" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Google Invisible Captcha Key</label>
-                    <comment><![CDATA[Please be sure the provided key is paired with secret in applemusic.php]]></comment>
-                </field>
                 <field id="cookie_lifetime" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
                     <validate>validate-entry validate-digits</validate>
                     <label>Cookie LifeTime</label>
                     <comment><![CDATA[ Cookie Lifetime in minutes]]>
                     </comment>
+                    <depends>
+                        <field id="oander_apple_services/arcade/enabled">1</field>
+                    </depends>
                 </field>
                 <field id="endpoint" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>API Endpoint</label>
+                    <depends>
+                        <field id="oander_apple_services/arcade/enabled">1</field>
+                    </depends>
                 </field>
                 <field id="unique" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Unique ID</label>
+                    <depends>
+                        <field id="oander_apple_services/arcade/enabled">1</field>
+                    </depends>
                 </field>
                 <field id="secret_key" translate="label" type="password" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Secret Key</label>
+                    <depends>
+                        <field id="oander_apple_services/arcade/enabled">1</field>
+                    </depends>
                 </field>
             </group>
             <group id="tv" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -63,24 +79,32 @@
                     <label>Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="google_invisible_key" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Google Invisible Captcha Key</label>
-                    <comment><![CDATA[Please be sure the provided key is paired with secret in applemusic.php]]></comment>
-                </field>
                 <field id="cookie_lifetime" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
                     <validate>validate-entry validate-digits</validate>
                     <label>Cookie LifeTime</label>
                     <comment><![CDATA[ Cookie Lifetime in minutes]]>
                     </comment>
+                    <depends>
+                        <field id="oander_apple_services/tv/enabled">1</field>
+                    </depends>
                 </field>
                 <field id="endpoint" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>API Endpoint</label>
+                    <depends>
+                        <field id="oander_apple_services/tv/enabled">1</field>
+                    </depends>
                 </field>
                 <field id="unique" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Unique ID</label>
+                    <depends>
+                        <field id="oander_apple_services/tv/enabled">1</field>
+                    </depends>
                 </field>
                 <field id="secret_key" translate="label" type="password" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Secret Key</label>
+                    <depends>
+                        <field id="oander_apple_services/tv/enabled">1</field>
+                    </depends>
                 </field>
             </group>
             <group id="icloud" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -89,24 +113,32 @@
                     <label>Enabled</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="google_invisible_key" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Google Invisible Captcha Key</label>
-                    <comment><![CDATA[Please be sure the provided key is paired with secret in applemusic.php]]></comment>
-                </field>
                 <field id="cookie_lifetime" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
                     <validate>validate-entry validate-digits</validate>
                     <label>Cookie LifeTime</label>
                     <comment><![CDATA[ Cookie Lifetime in minutes]]>
                     </comment>
+                    <depends>
+                        <field id="oander_apple_services/icloud/enabled">1</field>
+                    </depends>
                 </field>
                 <field id="endpoint" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>API Endpoint</label>
+                    <depends>
+                        <field id="oander_apple_services/icloud/enabled">1</field>
+                    </depends>
                 </field>
                 <field id="unique" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Unique ID</label>
+                    <depends>
+                        <field id="oander_apple_services/icloud/enabled">1</field>
+                    </depends>
                 </field>
                 <field id="secret_key" translate="label" type="password" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Secret Key</label>
+                    <depends>
+                        <field id="oander_apple_services/icloud/enabled">1</field>
+                    </depends>
                 </field>
             </group>
         </section>

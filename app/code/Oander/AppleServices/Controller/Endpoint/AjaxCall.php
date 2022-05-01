@@ -24,9 +24,6 @@ class AjaxCall extends Action
 
     protected $requestReferralToken = null;
 
-    const PRIVATE_KEY = "6Qdyq3fKKgdYD0yjP6cmd3tJH3sV0Kq9KbIaYn1IrPheYPwEGiYgit9EuFkNtxvFu2l5lt3eIL0JCRpFBN9FcQ==";
-
-
     /**
      * @param Context $context
      * @param Config $helper
@@ -101,7 +98,7 @@ class AjaxCall extends Action
         }
 
         //GRecaptcha Validation
-        $captchaResponse = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$this->requestSecretKey}&response={$this->requestCaptcha}"));
+        $captchaResponse = json_decode(file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$this->helper->getGooglRecaptchaSecretKey()}&response={$this->requestCaptcha}"));
         if (!$captchaResponse->success == false) {
             throw new Exception(__("Google validation is failed"));
         }
@@ -121,7 +118,7 @@ class AjaxCall extends Action
         $request_uri = preg_replace("/https?:\/\/[^,?\/]*/", "", $this->requestApiEndpoint);
         $response['timestamp'] = gmdate("D, d M Y H:i:s ") . "GMT";
         $canonical_string = implode(",", [$response['method'], $response['content_type'], $content_md5, $request_uri, $response['timestamp']]);
-        $signature = base64_encode(hash_hmac("sha256", $canonical_string, self::PRIVATE_KEY, true));
+        $signature = base64_encode(hash_hmac("sha256", $canonical_string, $this->requestSecretKey, true));
         $response['auth_header'] = 'APIAuth-HMAC-SHA256 ' . $this->requestUniqueID . ':' . $signature;
         return $response;
     }

@@ -3,6 +3,7 @@
     <module name="Oander_AppleServices" setup_version="1.0.0">
         <sequence>
             <module name="Oander_Base" />
+            <module name="Mageplaza_GoogleRecaptcha" />
         </sequence>
     </module>
 </config>

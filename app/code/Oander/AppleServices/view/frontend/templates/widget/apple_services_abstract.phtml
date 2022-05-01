@@ -1,4 +1,4 @@
-<?php /** @var $block \Oander\AppleServices\Block\AppleArcade */ ?>
+<?php /** @var $block \Oander\AppleServices\Block\AbstractAppleServices */ ?>
 
 <form method="post"
       class="apple-music-widget"
@@ -33,7 +33,7 @@
 <?php $referalToken = $block->getReferralToken(); ?>
 
 <?php
-//Ezeket neveket használd! : unique_id,api_endpoint,secret_key,captcha
+//Ezeket neveket használd! : unique_id,api_endpoint,secret_key,captcha,referral_token
 ?>
 <script src="https://www.google.com/recaptcha/api.js?onload=ReCaptchaCallbackV3&render=<?php echo $siteKey ?>"></script>
 <script>
