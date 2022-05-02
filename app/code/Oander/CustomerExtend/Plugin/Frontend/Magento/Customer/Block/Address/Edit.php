@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace Oander\CustomerExtend\Plugin\Frontend\Magento\Customer\Block\Address;
 
 use Oander\CustomerExtend\Enum\Config as ConfigEnum;
-use Oander\CustomerExtend\Helper\Config;
+use Oander\CustomerExtend\Model\ConfigProvider;
 
 class Edit
 {
@@ -27,27 +27,27 @@ class Edit
 
     private $regions = null;
     /**
-     * @var Config
+     * @var ConfigProvider
      */
-    private $config;
+    private $configProvider;
 
     /**
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
      * @param \Magento\Framework\UrlInterface $url
-     * @param Config $config
+     * @param Config $configProvider
      * @param \Oander\AddressListAPI\Api\GetCityInterface $getCity
      */
     public function __construct(
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Magento\Framework\UrlInterface $url,
-        \Oander\CustomerExtend\Helper\Config $config,
+        ConfigProvider $configProvider,
         \Oander\AddressListAPI\Api\GetCityInterface $getCity
     )
     {
         $this->_url = $url;
         $this->_scopeConfig = $scopeConfig;
         $this->getCity = $getCity;
-        $this->config = $config;
+        $this->configProvider = $configProvider;
     }
 
     public function around__call(
@@ -102,7 +102,7 @@ class Edit
     public function beforeToHtml(
         \Magento\Customer\Block\Address\Edit $subject
     ) {
-        $subject->setData('address_attributes_positions', $this->config->getAddressAttributePosition());
+        $subject->setData('address_attributes_positions', $this->configProvider->getConfig()['addressAttributesPositions']);
         return [];
     }
 }
