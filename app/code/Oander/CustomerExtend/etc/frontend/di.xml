@@ -21,4 +21,11 @@
         <plugin name="Oander_CustomerExtend_Plugin_Frontend_Magento_Customer_Block_Address_Edit" type="Oander\CustomerExtend\Plugin\Frontend\Magento\Customer\Block\Address\Edit" sortOrder="10" disabled="false"/>
     </type>
     <!-- ER56784 END -->
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="address_attributes_config_provider" xsi:type="object">Oander\CustomerExtend\Model\ConfigProvider</item>
+            </argument>
+        </arguments>
+    </type>
 </config>
