@@ -18,16 +18,6 @@ define([
                     var parent = document.querySelector('.profile-address-edit__form');
                     var elem = parent.querySelector('.form-group [name*="' + field + '"]').closest('.form-group');
 
-                    // console.log('fields', field)
-                    // console.log('elem', elem)
-
-
-                    // if (field == 'street') {
-                    //     elem = parent.querySelector('.form-group.street_2');
-                    //     console.log('ez street és a parentje', elem)
-                    //     //this.streetFieldHandler(elem);
-                    // }
-
                     switch (formId) {
                         case 'billing-person':
                             this.setOrder(elem, orders.individual_position, orders.width);
@@ -81,19 +71,6 @@ define([
 
                 document.querySelector('.profile-address-edit').classList.remove('is-loading');
             }
-        },
-
-        // /**
-        //  * Street field handler
-        //  * @param {HTMLDivElement} elem
-        //  * @returns {void}
-        //  */
-        // streetFieldHandler: function (elem) {
-        //     var fields = elem.querySelectorAll('.field.form-group');
-        //     if (fields.length > 1) {
-        //         elem.classList.add('has-multiple-fields');
-        //     }
-        //
-        // },
+        }
     };
 });
