@@ -68,20 +68,35 @@ define([
 
                         if (formId === 'billing-company') {
                             $(isCompanyValue).val(1);
+                            self.formTransform('billing-company');
                         }
                         else {
                             $(isCompanyValue).val(0);
+                            self.formTransform('billing-person');
                         }
                     });
                 }
             });
 
+            this.formTransform(isActiveTab);
             sort.sortFields(isActiveTab);
-
-            formElements.submitFormButton.addEventListener('click', function () {
-                addressExtend.checkValidatedFields($('.profile-address-edit__form'));
-            });
         },
+        /**
+         * Form transform
+         * @param {String} formId
+         * @return {Void}
+         */
+        formTransform: function (formId) {
+            switch (formId) {
+                case 'billing-person':
+                    this.formPerson();
+                    break;
+                case 'billing-company':
+                    this.formCompany();
+                    break;
+            }
+        },
+
         /**
          * Form person
          * @return {Void}
@@ -89,8 +104,8 @@ define([
         formPerson: function () {
             var formElements = this.formElements();
 
-            $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text($t('First Name'));
-            $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text($t('Last Name'));
+            $(formElements.form).find('.label[for="firstname"]').text($t('First Name'));
+            $(formElements.form).find('.label[for="lastname"]').text($t('Last Name'));
         },
 
         /**
@@ -100,31 +115,8 @@ define([
         formCompany: function () {
             var formElements = this.formElements();
 
-            $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text($t('Contact person firstname'));
-            $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text($t('Contact person lastname'));
-        },
-
-        /**
-         * Check validated fields
-         * @param {HTMLElement} form
-         * @returns {Void}
-         */
-        checkValidatedFields: function (form) {
-            var self = this;
-
-            setTimeout(function () {
-                if (form) {
-                    var fields = form.find('.form-group.required, .form-group._required, .form-group.true, .oandervalidate-length, .oandervalidate-regex');
-
-                    fields.each(function (field) {
-                        if (self.isVisibleInDom($(field))) {
-                            if (!($(this).find('select[disabled], input[disabled], .mage-error').length)) {
-                                $(this).addClass('filled');
-                            }
-                        }
-                    });
-                }
-            }, 100)
+            $(formElements.form).find('.label[for="firstname"]').text($t('Contact person firstname'));
+            $(formElements.form).find('.label[for="lastname"]').text($t('Contact person lastname'));
         },
 
         /**
