@@ -50,8 +50,7 @@
                     var code = $('#apple-musice-code');
                     var desc = $('#apple-music-description');
                     var storage = JSON.parse(localStorage.getItem('apple-music'));
-                    var url = window.location.origin + '/applemusic.php';
-                    // var url = 'https://dev.istyle.hu/applemusic.php';
+                    var url = <?= $ajaxUrl?>>;
                     var expire_time = new Date(new Date().getTime() + '<?php echo $block->getCookieLifetime(); ?>' * 60000).valueOf();
 
                     if (storage != null && storage.isRetrieved && storage.expire_time > new Date().valueOf()) {
@@ -69,7 +68,11 @@
                                 type: 'POST',
                                 cache: false,
                                 data: {
-                                    captcha: token//grecaptcha.getResponse()
+                                    captcha: token,
+                                    unique_id: <?= $uniqueID?>,
+                                    api_endpoint: <?= $apiEndpoint?>,
+                                    secret_key: <?= $secretKey?>,
+                                    referral_token: <?= $referalToken?>,
                                 }
                             }).done(function (getData) {
                                 var data = JSON.parse(getData);
