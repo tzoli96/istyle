@@ -1466,6 +1466,20 @@
                 "uri",
                 "url"
             ],
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/psr7",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2022-03-20T21:51:18+00:00"
         },
         {
@@ -10136,7 +10150,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "e11965f600576b67f2623ffb2cf10fda336c2fee"
+                "reference": "7067f31a63a0246de9173f6558ac32a86b015fcd"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10152,7 +10166,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2022-04-29T09:31:30+00:00"
+            "time": "2022-05-03T08:01:11+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10406,6 +10420,20 @@
                 "twofish",
                 "x.509",
                 "x509"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/terrafrost",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpseclib",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
+                    "type": "tidelift"
+                }
             ],
             "time": "2022-04-04T04:57:45+00:00"
         },
@@ -10744,6 +10772,16 @@
                 "linter",
                 "parser",
                 "validator"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/Seldaek",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/seld/jsonlint",
+                    "type": "tidelift"
+                }
             ],
             "time": "2022-04-01T13:37:23+00:00"
         },
@@ -14926,5 +14964,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
