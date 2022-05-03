@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="oander_apple_services" translate="label" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Apple Services</label>
+            <tab>oander</tab>
+            <resource>Oander_Services::config</resource>
+            <group id="music" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Apple Music</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cookie_lifetime" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <validate>validate-entry validate-digits</validate>
+                    <label>Cookie LifeTime</label>
+                    <comment><![CDATA[ Cookie Lifetime in minutes]]>
+                    </comment>
+                    <depends>
+                        <field id="oander_apple_services/music/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="endpoint" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>API Endpoint</label>
+                    <depends>
+                        <field id="oander_apple_services/music/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="unique" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Unique ID</label>
+                    <depends>
+                        <field id="oander_apple_services/music/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="secret_key" translate="label" type="password" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Secret Key</label>
+                    <depends>
+                        <field id="oander_apple_services/music/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="arcade" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Apple Arcade</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cookie_lifetime" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <validate>validate-entry validate-digits</validate>
+                    <label>Cookie LifeTime</label>
+                    <comment><![CDATA[ Cookie Lifetime in minutes]]>
+                    </comment>
+                    <depends>
+                        <field id="oander_apple_services/arcade/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="endpoint" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>API Endpoint</label>
+                    <depends>
+                        <field id="oander_apple_services/arcade/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="unique" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Unique ID</label>
+                    <depends>
+                        <field id="oander_apple_services/arcade/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="secret_key" translate="label" type="password" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Secret Key</label>
+                    <depends>
+                        <field id="oander_apple_services/arcade/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="tv" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Apple TV+</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cookie_lifetime" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <validate>validate-entry validate-digits</validate>
+                    <label>Cookie LifeTime</label>
+                    <comment><![CDATA[ Cookie Lifetime in minutes]]>
+                    </comment>
+                    <depends>
+                        <field id="oander_apple_services/tv/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="endpoint" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>API Endpoint</label>
+                    <depends>
+                        <field id="oander_apple_services/tv/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="unique" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Unique ID</label>
+                    <depends>
+                        <field id="oander_apple_services/tv/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="secret_key" translate="label" type="password" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Secret Key</label>
+                    <depends>
+                        <field id="oander_apple_services/tv/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="icloud" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Apple iCloud</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cookie_lifetime" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <validate>validate-entry validate-digits</validate>
+                    <label>Cookie LifeTime</label>
+                    <comment><![CDATA[ Cookie Lifetime in minutes]]>
+                    </comment>
+                    <depends>
+                        <field id="oander_apple_services/icloud/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="endpoint" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>API Endpoint</label>
+                    <depends>
+                        <field id="oander_apple_services/icloud/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="unique" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Unique ID</label>
+                    <depends>
+                        <field id="oander_apple_services/icloud/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="secret_key" translate="label" type="password" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Secret Key</label>
+                    <depends>
+                        <field id="oander_apple_services/icloud/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
