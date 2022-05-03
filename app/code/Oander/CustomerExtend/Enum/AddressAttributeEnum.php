@@ -1,6 +1,6 @@
 <?php
 /**
- * Oander_IstyleCustomization
+ * Oander_CustomerExtend
  *
  * @author  Tamas Vegvari <tamas.vegvari@oander.hu>
  * @license Oander Media Kft. (http://www.oander.hu)

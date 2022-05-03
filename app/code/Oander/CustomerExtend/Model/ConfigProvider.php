@@ -1,12 +1,12 @@
 <?php
 /**
- * Oander_IstyleCustomization
+ * Oander_CustomerExtend
  *
  * @author  Tamas Vegvari <tamas.vegvari@oander.hu>
  * @license Oander Media Kft. (http://www.oander.hu)
  */
 
-namespace Oander\IstyleCustomization\Model;
+namespace Oander\CustomerExtend\Model;
 
 use Magento\Checkout\Model\ConfigProviderInterface;
 use Magento\Customer\Api\Data\AddressInterface;

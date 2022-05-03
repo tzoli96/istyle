@@ -18,11 +18,6 @@ define([
                     var parent = document.querySelector('.profile-address-edit__form');
                     var elem = parent.querySelector('.form-group [name*="' + field + '"]').closest('.form-group');
 
-                    if (field == 'street') {
-                        elem = parent.querySelector('.form-group.street');
-                        this.streetFieldHandler(elem);
-                    }
-
                     switch (formId) {
                         case 'billing-person':
                             this.setOrder(elem, orders.individual_position, orders.width);
@@ -38,6 +33,7 @@ define([
          * Add order
          * @param {HTMLDivElement} elem
          * @param {number} order
+         * @param width
          * @returns {void}
          */
         setOrder: function (elem, order, width) {
@@ -45,29 +41,36 @@ define([
 
             if (elem) {
                 var field = elem.querySelector('.form-control');
+                var additionalStreetElem = formAddressBlock.querySelector('.form-group.street_2');
+                var additionalStreetField = formAddressBlock.querySelector('.form-group.street_2 .form-control');
 
                 if (order !== null) {
                     elem.style.order = order;
+
                     if (field) {
                         field.setAttribute('tabindex', order);
                         field.closest('.form-group').style.display = 'block';
+
+                        if (elem.classList.contains('street') && !!additionalStreetElem) {
+                            additionalStreetElem.style.order = order + 1;
+                            additionalStreetElem.style.display = 'block';
+                            additionalStreetField.setAttribute('tabindex',  order + 1);
+                        }
                     }
                 } else {
-                    if (field) field.closest('.form-group').style.display = 'none';
+                    if (field) {
+                        field.closest('.form-group').style.display = 'none';
+
+                        if (field.classList.contains('street') && additionalStreetElem) {
+                            additionalStreetElem.style.display = 'none';
+                        }
+                    }
                 }
 
                 if (width === 100) elem.classList.add('w-100');
-            }
-        },
 
-        /**
-         * Street field handler
-         * @param {HTMLDivElement} elem
-         * @returns {void}
-         */
-        streetFieldHandler: function (elem) {
-            var fields = elem.querySelectorAll('.field.form-group');
-            if (fields.length > 1) elem.classList.add('has-multiple-fields');
-        },
+                document.querySelector('.profile-address-edit').classList.remove('is-loading');
+            }
+        }
     };
 });
