@@ -267,7 +267,7 @@ class Config extends AbstractHelper
      */
     public function getIsTestMode(): bool
     {
-        return (bool)$this->general[ConfigEnum::GENERAL_TEST_MODE];
+        return (bool)$value = $this->general[ConfigEnum::GENERAL_TEST_MODE] ?? false;
     }
 
     /**
