@@ -24,17 +24,12 @@
 </form>
 
 <?php $siteKey = $block->getCaptchaKey(); ?>
-<?php  //FE ezt az url hívjuk meg?>
 <?php $ajaxUrl = $block->getUrl("appleservices/endpoint/ajaxcall"); ?>
-<?php  //FE küldi át ezeket is?>
 <?php $apiEndpoint = $block->getApiEndpoint(); ?>
 <?php $uniqueID = $block->getUniqueId(); ?>
 <?php $secretKey = $block->getSecretKey(); ?>
 <?php $referalToken = $block->getReferralToken(); ?>
 
-<?php
-//Ezeket neveket használd! : unique_id,api_endpoint,secret_key,captcha,referral_token
-?>
 <script src="https://www.google.com/recaptcha/api.js?onload=ReCaptchaCallbackV3&render=<?php echo $siteKey ?>"></script>
 <script>
     var ReCaptchaCallbackV3 = function() {
@@ -50,7 +45,7 @@
                     var code = $('#apple-musice-code');
                     var desc = $('#apple-music-description');
                     var storage = JSON.parse(localStorage.getItem('apple-music'));
-                    var url = <?= $ajaxUrl?>>;
+                    var url = '<?= $ajaxUrl?>';
                     var expire_time = new Date(new Date().getTime() + '<?php echo $block->getCookieLifetime(); ?>' * 60000).valueOf();
 
                     if (storage != null && storage.isRetrieved && storage.expire_time > new Date().valueOf()) {
@@ -69,10 +64,10 @@
                                 cache: false,
                                 data: {
                                     captcha: token,
-                                    unique_id: <?= $uniqueID?>,
-                                    api_endpoint: <?= $apiEndpoint?>,
-                                    secret_key: <?= $secretKey?>,
-                                    referral_token: <?= $referalToken?>,
+                                    unique_id: '<?= $uniqueID?>',
+                                    api_endpoint: '<?= $apiEndpoint?>',
+                                    secret_key: '<?= $secretKey?>',
+                                    referral_token: '<?= $referalToken?>',
                                 }
                             }).done(function (getData) {
                                 var data = JSON.parse(getData);

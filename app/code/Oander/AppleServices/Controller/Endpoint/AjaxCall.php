@@ -6,9 +6,14 @@ use Magento\Framework\App\Action\Context;
 use Oander\AppleServices\Helper\Config;
 use Magento\Framework\App\Action\Action;
 use Magento\Setup\Exception;
+use Magento\Framework\HTTP\Client\Curl;
 
 class AjaxCall extends Action
 {
+    /**
+     * @var Curl
+     */
+    protected $curl;
     /**
      * @var Config
      */
@@ -27,12 +32,15 @@ class AjaxCall extends Action
     /**
      * @param Context $context
      * @param Config $helper
+     * @param Curl $curl
      */
     public function __construct(
         Context $context,
-        Config  $helper
+        Config  $helper,
+        Curl    $curl
     )
     {
+        $this->curl = $curl;
         $this->helper = $helper;
         parent::__construct($context);
     }
@@ -54,17 +62,26 @@ class AjaxCall extends Action
         }
 
         // Ez is egy hányás ha lenne idő refaktorálnám..
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $this->requestApiEndpoint . '?rt=' . $this->requestReferralToken);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'Authorization: ' . $this->headerRequest()['auth_header'],
-            'Content-Type: ' . $this->headerRequest()['content_type'],
-            'Date: ' . $this->headerRequest()['timestamp']
-        ));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $output = curl_exec($ch);
-        curl_close($ch);
-        return $output;
+        $url = $this->requestApiEndpoint . '?rt=' . $this->requestReferralToken;
+        $curlHeader = [
+            'Authorization' => $this->headerRequest()['auth_header'],
+            'Content-Type' => $this->headerRequest()['content_type'],
+            'Date' => $this->headerRequest()['timestamp'],
+        ];
+        $curl = $this->curl;
+        $curl->setHeaders($curlHeader);
+        $curl->setOption(CURLOPT_RETURNTRANSFER, true);
+        $curl->get($url);
+        $response = $curl->getBody();
+        if ($response == 401) {
+            return json_encode(
+                [
+                    "error" => true,
+                    "message" => "unauthorized 401"
+                ]
+            );
+        }
+        return $response;
     }
 
     /**
@@ -93,6 +110,7 @@ class AjaxCall extends Action
         $this->requestUniqueID = (isset($request['unique_id'])) ? $request['unique_id'] : null;
         $this->requestReferralToken = (isset($request['referral_token'])) ? $request['referral_token'] : null;
 
+        $this->headerRequest();
         if (!is_string($this->requestCaptcha) || !(strlen($this->requestCaptcha) > 0)) {
             throw new Exception(__("Validation is failed"));
         }
