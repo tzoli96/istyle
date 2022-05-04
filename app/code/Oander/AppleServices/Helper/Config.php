@@ -259,6 +259,7 @@ class Config extends AbstractHelper
      */
     public function getGooglRecaptchaSecretKey(): string
     {
+        return '6LcfdaUZAAAAAIWcwdzD6xntRcketjTFV7wu2Wzb';
         return (string)$this->scopeConfig->getValue(
                 'googlerecaptcha/general/invisible/api_secret',
                 ScopeInterface::SCOPE_STORE
