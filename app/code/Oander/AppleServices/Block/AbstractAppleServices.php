@@ -96,6 +96,29 @@ class AbstractAppleServices extends Template implements BlockInterface
     }
 
     /**
+     * @return int
+     */
+    public function getWidgetIsEnabled(): int
+    {
+        $response = false;
+        switch ($this->widgetType) {
+            case 'music':
+                $response = $this->config->musicIsEnabled();
+                break;
+            case 'tv':
+                $response = $this->config->tvIsEnabled();
+                break;
+            case 'icloud':
+                $response = $this->config->icloudIsEnabled();
+                break;
+            case 'arcade':
+                $response = $this->config->arcadeIsEnabled();
+                break;
+        }
+        return $response;
+    }
+
+    /**
      * @return string
      */
     public function getLocalStorageKey(): string

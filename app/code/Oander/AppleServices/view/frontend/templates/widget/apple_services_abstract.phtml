@@ -1,5 +1,7 @@
 <?php /** @var $block \Oander\AppleServices\Block\AbstractAppleServices */ ?>
-
+<?php
+if($block->getWidgetIsEnabled()):
+?>
 <form method="post"
       class="apple-<?= $block->getLocalStorageKey()?>-widget"
       style="min-height: 250px; margin-top: 150px; text-align: center;">
@@ -101,3 +103,5 @@
         })
     };
 </script>
+
+<?php endif; ?>
