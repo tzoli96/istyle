@@ -16,14 +16,19 @@ define([
                 for (var field in positions) {
                     var orders = positions[field];
                     var parent = document.querySelector('.profile-address-edit__form');
-                    var elem = parent.querySelector('.form-group [name*="' + field + '"]').closest('.form-group');
+                    var fieldInput = parent.querySelector('.form-group [name*="' + field + '"]');
+
+
+                    if (fieldInput && fieldInput.closest('.form-group') !== null) {
+                        var elem = fieldInput.closest('.form-group');
+                    }
 
                     switch (formId) {
                         case 'billing-person':
-                            this.setOrder(elem, orders.individual_position, orders.width);
+                            if (elem) this.setOrder(elem, orders.individual_position, orders.width);
                             break;
                         case 'billing-company':
-                            this.setOrder(elem, orders.company_position, orders.width);
+                            if (elem) this.setOrder(elem, orders.company_position, orders.width);
                             break;
                     }
                 }

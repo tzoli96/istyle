@@ -44,6 +44,7 @@ define([
             var self = this;
             var formElements = this.formElements();
             var addressId = $(formElements.tabs).attr('data-address-id');
+            var isCompany = $(formElements.tabs).find('[name="is_company"]');
             var isCompanyValue = $(formElements.tabs).find('[name="is_company"]').val();
             var isActiveTab = formElements.titles[isCompanyValue].getAttribute('data-tab');
 
@@ -67,11 +68,11 @@ define([
                         sort.sortFields(formId);
 
                         if (formId === 'billing-company') {
-                            $(isCompanyValue).val(1);
+                            $(isCompany).val(1);
                             self.formTransform('billing-company');
                         }
                         else {
-                            $(isCompanyValue).val(0);
+                            $(isCompany).val(0);
                             self.formTransform('billing-person');
                         }
                     });
