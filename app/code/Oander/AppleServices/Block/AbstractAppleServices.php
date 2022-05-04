@@ -98,6 +98,15 @@ class AbstractAppleServices extends Template implements BlockInterface
     /**
      * @return string
      */
+    public function getLocalStorageKey(): string
+    {
+        return $this->widgetType;
+    }
+
+
+    /**
+     * @return string
+     */
     public function getCaptchaKey(): string
     {
         return $this->config->getGooglRecaptchaSecretKey();
