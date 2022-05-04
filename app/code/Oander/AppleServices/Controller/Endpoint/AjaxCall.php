@@ -3,6 +3,7 @@
 namespace Oander\AppleServices\Controller\Endpoint;
 
 use Magento\Framework\App\Action\Context;
+use Magento\Framework\Controller\Result\Json;
 use Oander\AppleServices\Helper\Config;
 use Magento\Framework\App\Action\Action;
 use Magento\Setup\Exception;
@@ -42,9 +43,9 @@ class AjaxCall extends Action
      * @param JsonFactory $jsonResultFactory
      */
     public function __construct(
-        Context $context,
-        Config  $helper,
-        Curl    $curl,
+        Context     $context,
+        Config      $helper,
+        Curl        $curl,
         JsonFactory $jsonResultFactory
     )
     {
@@ -67,6 +68,9 @@ class AjaxCall extends Action
             $this->validation($post);
         } catch (\Exception $e) {
             return $this->errorSend();
+        }
+        if ($this->helper->getIsTestMode()) {
+            return $this->getMockData();
         }
 
         //Applemusic config
@@ -101,7 +105,7 @@ class AjaxCall extends Action
     }
 
     /**
-     * @return \Magento\Framework\Controller\Result\Json
+     * @return Json
      */
     protected function errorSend()
     {
@@ -154,5 +158,27 @@ class AjaxCall extends Action
         $signature = base64_encode(hash_hmac("sha256", $canonical_string, $this->requestSecretKey, true));
         $response['auth_header'] = 'APIAuth-HMAC-SHA256 ' . $this->requestUniqueID . ':' . $signature;
         return $response;
+    }
+
+    /**
+     * @return Json
+     */
+    private function getMockData()
+    {
+        $result = $this->jsonResultFactory->create();
+        $mockData = [
+            'code' => $this->generateRandomString(),
+            'url' => $this->generateRandomString(),
+            'redemption_url' => $this->generateRandomString(),
+            'remaining' => $this->generateRandomString(),
+            'end_date' => $this->generateRandomString(),
+        ];
+        $result->setData($mockData);
+        return $result;
+    }
+
+    private function generateRandomString($length = 10)
+    {
+        return substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length / strlen($x)))), 1, $length);
     }
 }

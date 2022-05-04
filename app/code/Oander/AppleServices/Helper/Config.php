@@ -32,6 +32,10 @@ class Config extends AbstractHelper
      * @var array
      */
     protected $icloud;
+    /**
+     * @var array
+     */
+    protected $general;
 
     /**
      * Config constructor.
@@ -58,6 +62,10 @@ class Config extends AbstractHelper
         );
         $this->arcade = (array)$this->scopeConfig->getValue(
             ConfigEnum::ARCADE_PATH,
+            ScopeInterface::SCOPE_STORE
+        );
+        $this->general = (array)$this->scopeConfig->getValue(
+            ConfigEnum::GENERAL_PATH,
             ScopeInterface::SCOPE_STORE
         );
     }
@@ -252,6 +260,14 @@ class Config extends AbstractHelper
     public function getIcloudSecretKey(): string
     {
         return (string)$value = $this->icloud[ConfigEnum::GENERAL_SECRET_KEY] ?? '';
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsTestMode(): bool
+    {
+        return (bool)$this->general[ConfigEnum::GENERAL_TEST_MODE];
     }
 
     /**
