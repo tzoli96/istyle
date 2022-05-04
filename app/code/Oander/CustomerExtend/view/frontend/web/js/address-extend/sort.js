@@ -1,5 +1,6 @@
 define([
-], function () {
+    'domReady'
+], function (domReady) {
     'use strict';
 
     return {
@@ -74,7 +75,9 @@ define([
 
                 if (width === 100) elem.classList.add('w-100');
 
-                document.querySelector('.profile-address-edit').classList.remove('is-loading');
+                domReady(function () {
+                    document.querySelector('.profile-address-edit').classList.remove('is-loading');
+                });
             }
         }
     };
