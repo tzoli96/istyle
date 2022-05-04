@@ -44,7 +44,7 @@
                     var btnRedeem = $('#apple-music-redeem');
                     var code = $('#apple-musice-code');
                     var desc = $('#apple-music-description');
-                    var storage = JSON.parse(localStorage.getItem('apple-music'));
+                    var storage = JSON.parse(localStorage.getItem('<?= $block->getLocalStorageKey()?>'));
                     var url = '<?= $ajaxUrl?>';
                     var expire_time = new Date(new Date().getTime() + '<?php echo $block->getCookieLifetime(); ?>' * 60000).valueOf();
 
@@ -74,11 +74,11 @@
                                     alert(getData.error);
                                 else {
                                     if (storage != null) {
-                                        localStorage.removeItem('apple-music');
+                                        localStorage.removeItem('<?= $block->getLocalStorageKey()?>');
                                     }
 
                                     localStorage.setItem(
-                                        'apple-music',
+                                        '<?= $block->getLocalStorageKey()?>',
                                         JSON.stringify({
                                             isRetrieved: true,
                                             url: getData.redemption_url,
