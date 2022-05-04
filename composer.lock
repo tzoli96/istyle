@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8c47cdf5c1318a7b8f8860fc532626be",
+    "content-hash": "1a2d564be61a6da899522d89a3f84942",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -10123,7 +10123,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "7067f31a63a0246de9173f6558ac32a86b015fcd"
+                "reference": "c28940b4a61a9dda88f5f360692950701855d8fd"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10139,7 +10139,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2022-05-03T08:01:11+00:00"
+            "time": "2022-05-04T06:16:19+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10858,16 +10858,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.125.0",
+            "version": "v7.126.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "822c00aa380c10c2a3c55d105c5da72ad577b7c4"
+                "reference": "c36de62a89475e81d9c75ec08de19376466f67b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/822c00aa380c10c2a3c55d105c5da72ad577b7c4",
-                "reference": "822c00aa380c10c2a3c55d105c5da72ad577b7c4",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/c36de62a89475e81d9c75ec08de19376466f67b7",
+                "reference": "c36de62a89475e81d9c75ec08de19376466f67b7",
                 "shasum": ""
             },
             "require": {
@@ -10910,7 +10910,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2022-04-21T22:31:37+00:00"
+            "time": "2022-05-03T15:37:27+00:00"
         },
         {
             "name": "symfony/console",
