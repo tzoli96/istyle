@@ -70,9 +70,8 @@
                                     referral_token: '<?= $referalToken?>',
                                 }
                             }).done(function (getData) {
-                                var data = JSON.parse(getData);
-                                if(data["error"] != null)
-                                    alert(data["message"]);
+                                if(getData.error != null)
+                                    alert(getData.error);
                                 else {
                                     if (storage != null) {
                                         localStorage.removeItem('apple-music');
@@ -82,16 +81,16 @@
                                         'apple-music',
                                         JSON.stringify({
                                             isRetrieved: true,
-                                            url: data.redemption_url,
-                                            code: data.code,
+                                            url: getData.redemption_url,
+                                            code: getData.code,
                                             expire_time: expire_time
                                         })
                                     )
 
                                     btnRequest.hide();
-                                    btnRedeem.show().attr('href', data.redemption_url);
+                                    btnRedeem.show().attr('href', getData.redemption_url);
                                     desc.show();
-                                    code.show().text(data.code);
+                                    code.show().text(getData.code);
                                 }
                             });
                         });
