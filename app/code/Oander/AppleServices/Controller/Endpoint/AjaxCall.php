@@ -7,9 +7,15 @@ use Oander\AppleServices\Helper\Config;
 use Magento\Framework\App\Action\Action;
 use Magento\Setup\Exception;
 use Magento\Framework\HTTP\Client\Curl;
+use Magento\Framework\Controller\Result\JsonFactory;
 
 class AjaxCall extends Action
 {
+    /**
+     * @var JsonFactory
+     */
+    private $jsonResultFactory;
+
     /**
      * @var Curl
      */
@@ -33,24 +39,26 @@ class AjaxCall extends Action
      * @param Context $context
      * @param Config $helper
      * @param Curl $curl
+     * @param JsonFactory $jsonResultFactory
      */
     public function __construct(
         Context $context,
         Config  $helper,
-        Curl    $curl
+        Curl    $curl,
+        JsonFactory $jsonResultFactory
     )
     {
         $this->curl = $curl;
         $this->helper = $helper;
+        $this->jsonResultFactory = $jsonResultFactory;
         parent::__construct($context);
     }
 
-    /**
-     * @return bool|\Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface|string|void
-     */
+
     public function execute()
     {
         $post = $this->getRequest()->getPostValue();
+        $result = $this->jsonResultFactory->create();
 
         if (!$post) {
             return $this->errorSend();
@@ -86,21 +94,22 @@ class AjaxCall extends Action
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $output = curl_exec($ch);
         curl_close($ch);
+        $response = json_decode($output, true);
 
-        return $output;
+        $result->setData($response);
+        return $result;
     }
 
     /**
-     * @return false|string
+     * @return \Magento\Framework\Controller\Result\Json
      */
     protected function errorSend()
     {
-        return json_encode(
-            [
-                "error" => true,
-                "message" => "Captcha is not valid"
-            ]
-        );
+        $result = $this->jsonResultFactory->create();
+        $result->setData([
+            "error" => 'Captcha is not valid'
+        ]);
+        return $result;
     }
 
     /**
