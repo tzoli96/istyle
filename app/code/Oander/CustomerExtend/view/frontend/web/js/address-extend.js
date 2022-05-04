@@ -3,12 +3,14 @@ define([
     "mage/mage",
     'mage/translate',
     'Oander_CustomerExtend/js/address-extend/sort',
+    'domReady'
 ], function (
     $,
     ko,
     $t,
-    sort
-    ){
+    sort,
+    domReady
+){
     'use strict';
 
     var addressExtend = {
@@ -105,8 +107,10 @@ define([
         formPerson: function () {
             var formElements = this.formElements();
 
-            $(formElements.form).find('.label[for="firstname"]').text($t('First Name'));
-            $(formElements.form).find('.label[for="lastname"]').text($t('Last Name'));
+            domReady(function () {
+                $(formElements.form).find('.label[for="firstname"]').text($t('First Name'));
+                $(formElements.form).find('.label[for="lastname"]').text($t('Last Name'));
+            });
         },
 
         /**
@@ -116,8 +120,10 @@ define([
         formCompany: function () {
             var formElements = this.formElements();
 
-            $(formElements.form).find('.label[for="firstname"]').text($t('Contact person firstname'));
-            $(formElements.form).find('.label[for="lastname"]').text($t('Contact person lastname'));
+            domReady(function () {
+                $(formElements.form).find('.label[for="firstname"]').text($t('Contact person firstname'));
+                $(formElements.form).find('.label[for="lastname"]').text($t('Contact person lastname'));
+            });
         },
 
         /**
