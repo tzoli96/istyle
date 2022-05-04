@@ -25,10 +25,10 @@ define([
 
                     switch (formId) {
                         case 'billing-person':
-                            this.setOrder(elem, orders.individual_position, orders.width);
+                            if (elem) this.setOrder(elem, orders.individual_position, orders.width);
                             break;
                         case 'billing-company':
-                            this.setOrder(elem, orders.company_position, orders.width);
+                            if (elem) this.setOrder(elem, orders.company_position, orders.width);
                             break;
                     }
                 }
