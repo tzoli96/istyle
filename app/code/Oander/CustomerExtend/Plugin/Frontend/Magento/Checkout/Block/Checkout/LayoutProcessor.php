@@ -40,6 +40,8 @@ class LayoutProcessor
             //shipping
             $this->callFunctionOnField($jsLayout, 'postcode', '_changeToRegion');
             $this->callFunctionOnField($jsLayout, 'postcode', '_changeToRegion', false);
+            $this->callFunctionOnField($jsLayout, 'is_company', 'changeIsCompanyShipping');
+            $this->callFunctionOnField($jsLayout, 'is_company', 'changeIsCompanyBilling', false);
             $this->callFunctionOnField($jsLayout, 'city', '_changeCityShipping');
             $this->callFunctionOnField($jsLayout, 'city', '_changeCityBilling', false);
         }
@@ -109,6 +111,16 @@ class LayoutProcessor
         } else {
             $cityElement["config"]["label"] = __("City");
         }
+    }
+
+    private function changeIsCompanyShipping(&$isCompanyElement){
+        $isCompanyElement["config"]['customScope'] = 'shippingAddress.custom_attributes';
+        $isCompanyElement['dataScope'] = 'shippingAddress.custom_attributes.is_company';
+    }
+
+    private function changeIsCompanyBilling(&$isCompanyElement){
+        $isCompanyElement["config"]['customScope'] = 'billingAddressshared.custom_attributes';
+        $isCompanyElement['dataScope'] = 'billingAddressshared.custom_attributes.is_company';
     }
 
     private function _changeCity(&$cityElement) {

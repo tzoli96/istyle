@@ -79,15 +79,34 @@ class UpgradeData implements UpgradeDataInterface
             ]);
 
         $attribute->setData('used_in_forms', [
-            'adminhtml_customer',
-            'adminhtml_checkout',
             'adminhtml_customer_address',
-            'customer_account_edit',
             'customer_address_edit',
             'customer_register_address',
         ]);
 
         $attribute->save();
+
+        $installer = $setup;
+
+        $installer->getConnection()->addColumn(
+            $installer->getTable('quote_address'),
+            'is_company',
+            [
+                'type' => \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                'length' => 1,
+                'comment' => 'Customer is Company or Not'
+            ]
+        );
+
+        $installer->getConnection()->addColumn(
+            $installer->getTable('sales_order_address'),
+            'is_company',
+            [
+                'type' => \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                'length' => 1,
+                'comment' => 'Customer is Company or Not'
+            ]
+        );
 
     }
 }
