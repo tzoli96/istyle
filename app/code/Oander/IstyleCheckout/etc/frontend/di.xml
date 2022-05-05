@@ -9,9 +9,6 @@
             </argument>
         </arguments>
     </type>
-    <type name="Magento\Customer\Controller\Address\FormPost">
-        <plugin name="Oander_IstyleCheckout_Plugin_Frontend_Magento_Customer_Controller_Address_FormPost" type="Oander\IstyleCheckout\Plugin\Frontend\Magento\Customer\Controller\Address\FormPost" sortOrder="10" disabled="false"/>
-    </type>
     <type name="Magento\Checkout\Block\Onepage\Success">
         <plugin name="Oander_IstyleCheckout_Plugin_Frontend_Magento_Checkout_Block_Onepage_Success" type="Oander\IstyleCheckout\Plugin\Frontend\Magento\Checkout\Block\Onepage\Success" sortOrder="10" disabled="false"/>
     </type>
