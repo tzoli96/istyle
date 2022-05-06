@@ -379,10 +379,10 @@ define([
           self.formTransform(formId);
 
           if (formId === 'billing-company') {
-            $(formElements.tabs).find('.select[name="is_company"]').val(1);
+            $(formElements.tabs).find('.select[name*="is_company"]').val(1);
           }
           else {
-            $(formElements.tabs).find('.select[name="is_company"]').val(0);
+            $(formElements.tabs).find('.select[name*="is_company"]').val(0);
           }
 
           billingAddressValidate.checkValidatedFields($('.form--billing-address'));
