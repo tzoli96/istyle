@@ -59,6 +59,8 @@ define([
      */
     setOrder: function (elem, order, width) {
       var billingAddressBlock = document.querySelector('.block.block--billing-address');
+      var additionalStreetElem = billingAddressBlock.querySelector('.form-group[name="billingAddressshared.street.1"]');
+      var additionalStreetField = billingAddressBlock.querySelector('.form-group[name="billingAddressshared.street.1"] .form-control');
 
       if (elem) {
         var field = elem.querySelector('.form-control');
@@ -69,7 +71,15 @@ define([
 
         if (order !== null) {
           elem.style.order = order;
-          if (field) field.setAttribute('tabindex', order);
+          if (field) {
+            field.setAttribute('tabindex', order);
+
+            if (elem.classList.contains('street') && !!additionalStreetElem) {
+              additionalStreetElem.style.order = order + 1;
+              additionalStreetElem.style.display = 'block';
+              additionalStreetField.setAttribute('tabindex',  order + 1);
+            }
+          }
         }
 
         if (width === 100) elem.classList.add('w-100');
