@@ -40,11 +40,11 @@ class LayoutProcessor
             //shipping
             $this->callFunctionOnField($jsLayout, 'postcode', '_changeToRegion');
             $this->callFunctionOnField($jsLayout, 'postcode', '_changeToRegion', false);
-            $this->callFunctionOnField($jsLayout, 'is_company', 'changeIsCompanyShipping');
-            $this->callFunctionOnField($jsLayout, 'is_company', 'changeIsCompanyBilling', false);
             $this->callFunctionOnField($jsLayout, 'city', '_changeCityShipping');
             $this->callFunctionOnField($jsLayout, 'city', '_changeCityBilling', false);
         }
+        $this->callFunctionOnField($jsLayout, 'is_company', 'changeIsCompanyShipping');
+        $this->callFunctionOnField($jsLayout, 'is_company', 'changeIsCompanyBilling', false);
         $this->callFunctionOnField($jsLayout, 'is_company', '_hideField');
         $this->callFunctionOnField($jsLayout, 'is_company', '_hideField', false);
         return $jsLayout;
