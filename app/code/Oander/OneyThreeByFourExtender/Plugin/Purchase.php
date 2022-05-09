@@ -2,21 +2,27 @@
 
 namespace Oander\OneyThreeByFourExtender\Plugin;
 
-use Magento\Sales\Api\Data\OrderInterface;
 use Oney\ThreeByFour\Model\Api\Payment\Purchase as Subject;
 
 class Purchase
 {
     /**
      * @param Subject $subject
+     * @param callable $proceed
      * @param $order
-     * @return array
+     * @return mixed
      */
-    public function beforePurchase(Subject $subject, $order)
+    public function aroundPurchase(Subject $subject, callable $proceed, $order)
     {
-        // Ha nem mentjük el az orderben nem fog változni csak a változóba :3
+        $originalShippingPostCode = $order->getShippingAddress()->getPostCode();
+        $originalBillingPostCode = $order->getBillingAddress()->getPostCode();
         $order->getBillingAddress()->setPostcode(999999);
         $order->getShippingAddress()->setPostcode(999999);
-        return [$order];
+        $result = $proceed();
+        $order->getBillingAddress()->setPostcode($originalBillingPostCode);
+        $order->getShippingAddress()->setPostcode($originalShippingPostCode);
+
+        return $result;
+
     }
 }
