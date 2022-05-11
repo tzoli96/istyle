@@ -4,4 +4,12 @@
         <attribute code="pfpj_reg_no" type="string" />
         <attribute code="dob" type="string" />
     </extension_attributes>
+    <extension_attributes for="Magento\Customer\Api\Data\AddressInterface">
+        <attribute code="pfpj_reg_no" type="string"/>
+        <attribute code="dob" type="string" />
+    </extension_attributes>
+    <extension_attributes for="Magento\Sales\Api\Data\OrderAddressInterface">
+        <attribute code="pfpj_reg_no" type="string"/>
+        <attribute code="dob" type="string" />
+    </extension_attributes>
 </config>

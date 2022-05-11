@@ -1,8 +1,13 @@
-<!--TODO BE: if-elni az egészet CZ, RS és SK store-okra-->
+<?php
+/**
+ * Edit customer address template
+ *
+ * @var $block \Magento\Customer\Block\Address\Edit
+ */
+?>
 <div class="form-group field pfpj_reg_no registration-number required">
     <label class="label" for="pfpj_reg_no"><span><?php /* @escapeNotVerified */ echo __('Registration Number') ?></span></label>
     <div class="control">
-<!--        TODO BE: value: --><?php //echo $block->escapeHtml($block->getParentBlock()->getAddress()->getRegNo()) ?>
-        <input type="text" name="pfpj_reg_no" id="pfpj_reg_no" title="<?php /* @escapeNotVerified */ echo __('Registration Number') ?>" value="" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('pfpj_reg_no') ?>">
+        <input type="text" name="pfpj_reg_no" id="pfpj_reg_no" title="<?php /* @escapeNotVerified */ echo __('Registration Number') ?>" value="<?php echo $block->getParentBlock()->getAddress()->getCustomAttribute('pfpj_reg_no') ? $block->escapeHtml($block->getParentBlock()->getAddress()->getCustomAttribute('pfpj_reg_no')->getValue()) : "" ?>" class="form-control input-text <?php /* @escapeNotVerified */ echo $this->helper('Magento\Customer\Helper\Address')->getAttributeValidationClass('pfpj_reg_no') ?>">
     </div>
 </div>
