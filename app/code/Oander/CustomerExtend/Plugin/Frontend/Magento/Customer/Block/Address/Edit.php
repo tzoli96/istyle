@@ -105,4 +105,11 @@ class Edit
         $subject->setData('address_attributes_positions', $this->configProvider->getConfig()['addressAttributesPositions']);
         return [];
     }
+
+    public function beforeFetchView(
+        \Magento\Customer\Block\Address\Edit $subject
+    ) {
+        if(empty($subject->getConfig('customer/address/show_pfpj_reg_no', \Magento\Store\Model\ScopeInterface::SCOPE_STORE)))
+            $subject->unsetChild('pfpj_reg_no');
+    }
 }

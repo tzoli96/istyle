@@ -15,6 +15,7 @@
             <block class="\Magento\Framework\View\Element\Template" name="telephone" template="Oander_CustomerExtend::address/fields/telephone.phtml" cacheable="false"/>
             <block class="\Magento\Framework\View\Element\Template" name="vat_id" template="Oander_CustomerExtend::address/fields/vat_id.phtml" cacheable="false"/>
             <block class="\Magento\Framework\View\Element\Template" name="is_company" template="Oander_CustomerExtend::address/fields/iscompany.phtml" cacheable="false"/>
+            <block class="\Magento\Framework\View\Element\Template" name="pfpj_reg_no" template="Oander_CustomerExtend::address/fields/reg-number.phtml" cacheable="false"/>
         </referenceBlock>
     </body>
 </page>

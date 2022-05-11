@@ -9421,11 +9421,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.3.0.8",
+            "version": "1.3.0.9",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "3cb889145769077307bd8bd8acf5cd9e0d0bd66d"
+                "reference": "daa3c0d754ae35ca4b67d72b0b13ccc9e9fff3ce"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9444,7 +9444,7 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2022-04-20T15:09:11+00:00"
+            "time": "2022-05-02T19:47:28+00:00"
         },
         {
             "name": "oander/module-salesforce-service",
