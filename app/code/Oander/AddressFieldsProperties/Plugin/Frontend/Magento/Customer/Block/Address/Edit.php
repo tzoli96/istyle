@@ -61,8 +61,10 @@ class Edit
             if(!empty($newProperties))
             {
                 $pos = strpos($result, AddressHelper::ADDRESSATTRIBUTE_CLASS . "-" . $attributeCode);
-                $classPos = strrpos(substr($result, 0, $pos), "class=");
-                $result = substr_replace($result, implode(" ", $newProperties), $classPos, 0);
+                if($pos) {
+                    $classPos = strrpos(substr($result, 0, $pos), "class=");
+                    $result = substr_replace($result, implode(" ", $newProperties), $classPos, 0);
+                }
             }
             $result = str_replace(AddressHelper::ADDRESSATTRIBUTE_CLASS . "-" . $attributeCode, "", $result);
         }
@@ -70,8 +72,8 @@ class Edit
 
     private function _tryReplaceProperty(&$node, &$result, $property, $value)
     {
-        if ($oldPlaceholder = $node->getAttribute($property)) {
-            $result = str_replace($oldPlaceholder, $value, $result);
+        if ($oldValue = $node->getAttribute($property)) {
+            $result = str_replace($oldValue, $value, $result);
             return true;
         }
         return false;
