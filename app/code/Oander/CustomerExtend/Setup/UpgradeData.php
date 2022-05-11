@@ -43,6 +43,12 @@ class UpgradeData implements UpgradeDataInterface
         ) {
             $this->upgrade_1_0_1($setup);
         }
+
+        if ($context->getVersion()
+            && version_compare($context->getVersion(), '1.0.2') < 0
+        ) {
+            $this->upgrade_1_0_2($setup);
+        }
     }
 
     /**
@@ -108,5 +114,15 @@ class UpgradeData implements UpgradeDataInterface
             ]
         );
 
+    }
+
+    /**
+     * @param ModuleDataSetupInterface $setup
+     */
+    public function upgrade_1_0_2(ModuleDataSetupInterface $setup)
+    {
+        /** @var \Magento\Customer\Setup\CustomerSetup $customerSetup */
+        $customerSetup = $this->customerSetupFactory->create(['setup' => $setup]);
+        $customerSetup->updateAttribute('customer_address', 'pfpj_reg_no', 'is_visible', true);
     }
 }
