@@ -10,6 +10,9 @@ define([
 
       if (typeof messageContainer.custom_attributes !== 'undefined') {
         $.each(messageContainer.custom_attributes , function( key, value ) {
+          if($.isPlainObject(value)){
+            value = value['value'];
+          }
           messageContainer['custom_attributes'][key] = {'attribute_code':key, 'value':value};
         });
       }
