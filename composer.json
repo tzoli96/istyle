@@ -124,7 +124,7 @@
         "oander/module-salesforce": "1.3.0.9",
         "oander/module-salesforce-service": "dev-56955_translate-fix",
         "oander/module-salesforce-widget": "1.0.7",
-        "oander/module-salesforcereservation": "1.1.19",
+        "oander/module-salesforcereservation": "dev-feature/55893-profile-page-reservation-facelift",
         "oander/module-shipping": "1.0.3",
         "oander/module-structured-data": "1.2.0.4",
         "oander/module-stuck-process-remover": "1.0.0.1",

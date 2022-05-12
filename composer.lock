@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a2d564be61a6da899522d89a3f84942",
+    "content-hash": "b3285dfcaad88bcb4e83a4775c20cb44",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -9504,11 +9504,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.19",
+            "version": "dev-feature/55893-profile-page-reservation-facelift",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "6375472c33d59fc4c73998cad130cb7ff3637004"
+                "reference": "eceac9e5273ccbb6957c6357e83cc0631d0af99d"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9537,7 +9537,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2021-12-22T16:54:47+00:00"
+            "time": "2022-05-11T15:40:53+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -10123,7 +10123,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "42b60e7765376dbe58d98a3a3a09a8915197f5be"
+                "reference": "51cc241e7de8673e7937ab3d0fa161e704994d36"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10139,7 +10139,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2022-05-05T11:50:59+00:00"
+            "time": "2022-05-12T05:17:21+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -14930,6 +14930,7 @@
         "oander/module-core-bug-fix": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
         "oander/module-salesforce-service": 20,
+        "oander/module-salesforcereservation": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0
