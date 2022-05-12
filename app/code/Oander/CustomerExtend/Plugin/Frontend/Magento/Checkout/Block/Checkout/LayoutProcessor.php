@@ -53,7 +53,7 @@ class LayoutProcessor
     private function callFunctionOnField(&$jsLayout, $id, $function, $isShipping = true) {
         $field = null;
         if($isShipping) {
-            if ($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"][$id]) {
+            if (isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"][$id])) {
                 $field = &$jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"][$id];
             }
         } else {
