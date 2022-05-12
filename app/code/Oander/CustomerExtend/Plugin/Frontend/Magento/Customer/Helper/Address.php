@@ -35,14 +35,26 @@ class Address
         $attributeCode
     ) {
         $result = $proceed($attributeCode);
+        if($attributeCode==='company') {
+            $this->addClass($result, "required-entry");
+        }
+        if($attributeCode==='vat_id') {
+            if($this->scopeConfig->isSetFlag('customer/address/taxvat_profile_checkout_required', \Magento\Store\Model\ScopeInterface::SCOPE_STORE)) {
+                $this->addClass($result, "required-entry");
+            }
+        }
         if($attributeCode==='pfpj_reg_no') {
-            if($this->scopeConfig->getValue('customer/address/show_pfpj_reg_no', \Magento\Store\Model\ScopeInterface::SCOPE_STORE) == 'req') {
-                if ($result == "")
-                    $result = "required-entry";
-                else
-                    $result .= " required-entry";
+            if ($this->scopeConfig->getValue('customer/address/show_pfpj_reg_no', \Magento\Store\Model\ScopeInterface::SCOPE_STORE) == 'req') {
+                $this->addClass($result, "required-entry");
             }
         }
         return $result;
+    }
+
+    private function addClass(&$classes, $newClass) {
+        if ($classes == "")
+            $classes = $newClass;
+        else
+            $classes .= " " . $newClass;
     }
 }
