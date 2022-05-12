@@ -32,9 +32,9 @@ if($block->getWidgetIsEnabled()):
 <?php $secretKey = $block->getSecretKey(); ?>
 <?php $referalToken = $block->getReferralToken(); ?>
 
-<script src="https://www.google.com/recaptcha/api.js?onload=ReCaptchaCallbackV3&render=<?php echo $siteKey ?>"></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=ReCaptchaCallback<?= $block->getLocalStorageKey()?>&render=<?php echo $siteKey ?>"></script>
 <script>
-    var ReCaptchaCallbackV3 = function() {
+    var ReCaptchaCallback<?= $block->getLocalStorageKey()?> = function() {
         require([
             'jquery'
         ], function ($) {
