@@ -1,5 +1,3 @@
-/*jshint browser:true jquery:true*/
-/*global alert*/
 define([
   'jquery',
   'mage/utils/wrapper',

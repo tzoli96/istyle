@@ -10,7 +10,7 @@ define([
 
       var billingAddress = quote.billingAddress();
 
-      if(typeof billingAddress !== 'undefined') {
+      if(typeof billingAddress !== 'undefined' && billingAddress) {
 
         if (typeof billingAddress['extension_attributes'] === 'undefined') {
           billingAddress['extension_attributes'] = {};
