@@ -76,7 +76,7 @@ class AjaxCall extends Action
         //Applemusic config
         $client_access_id = $this->requestUniqueID; //uinique ID
         $private_key = $this->requestSecretKey; //signature
-        $request_url = $this->requestApiEndpoint; //API end point
+        $request_url = ($this->requestReferralToken) ? $this->requestApiEndpoint.'?rt='.$this->requestReferralToken : $this->requestApiEndpoint; //API end point
         $method = "GET";
         $content_type = 'application/json';
         $content_md5 = '';
