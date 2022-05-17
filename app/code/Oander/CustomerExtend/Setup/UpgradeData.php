@@ -112,6 +112,7 @@ class UpgradeData implements UpgradeDataInterface
             [
                 'type' => \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                 'length' => 1,
+                'default' => \Oander\CustomerExtend\Model\Entity\Attribute\Source\IsCompany::VALUE_INDIVIDUAL,
                 'comment' => 'Customer is Company or Not'
             ]
         );
@@ -122,6 +123,7 @@ class UpgradeData implements UpgradeDataInterface
             [
                 'type' => \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                 'length' => 1,
+                'default' => \Oander\CustomerExtend\Model\Entity\Attribute\Source\IsCompany::VALUE_INDIVIDUAL,
                 'comment' => 'Customer is Company or Not'
             ]
         );
