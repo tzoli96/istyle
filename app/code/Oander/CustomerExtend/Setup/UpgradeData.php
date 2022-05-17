@@ -64,8 +64,20 @@ class UpgradeData implements UpgradeDataInterface
         $attributeSet = $this->attributeSetFactory->create();
         $attributeGroupId = $attributeSet->getDefaultGroupId($attributeSetId);
 
+        $setup->getConnection()->addColumn(
+            $setup->getTable('customer_address_entity'),
+            'is_company',
+            [
+                'type' => \Magento\Framework\DB\Ddl\Table::TYPE_SMALLINT,
+                'nullable' => false,
+                'comment' => 'Customer is Company or Not',
+                'after' => 'is_active',
+                'default' => \Oander\CustomerExtend\Model\Entity\Attribute\Source\IsCompany::VALUE_INDIVIDUAL
+            ]
+        );
+
         $customerSetup->addAttribute('customer_address', 'is_company', [
-            'type'          => 'int',
+            'type'          => 'static',
             'label'         => 'IsCompany',
             'input'         => 'select',
             'source'        => 'Oander\CustomerExtend\Model\Entity\Attribute\Source\IsCompany',
