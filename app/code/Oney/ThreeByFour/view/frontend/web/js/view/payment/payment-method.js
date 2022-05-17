@@ -25,15 +25,14 @@ define(
                 if (address == null) {
                     return false;
                 }
-                const postal_validated = config.getPostalRegex().test(address.postcode)
-                if (!postal_validated) {
-                    this.error(config.getError('postal'));
-                }
+
                 const phone_validated = config.getPhoneRegex().test(address.telephone)
+
                 if (!phone_validated) {
                     this.error(config.getError('phone'));
                 }
-                return postal_validated && phone_validated;
+
+                return phone_validated;
             },
             verified: function () {
                 return this.verifiedBilling() && this.verifiedShipping();
