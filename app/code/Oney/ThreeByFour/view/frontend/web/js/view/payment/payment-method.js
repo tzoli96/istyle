@@ -16,7 +16,6 @@ define(
                 validate_url: 'facilypay/validate/phone',
                 error: ko.observable(null),
                 verifiedBilling: ko.observable(false),
-                verifiedShipping: ko.observable(false),
             },
             getBillingAddressFormName: function () {
                 return "billing-address-form-oney_facilypay";
@@ -35,13 +34,12 @@ define(
                 return phone_validated;
             },
             verified: function () {
-                return this.verifiedBilling() && this.verifiedShipping();
+                return this.verifiedBilling();
             },
             initialize: function () {
                 var self = this;
                 this._super();
                 this.verifiedBilling(this.verifyAddress(quote.billingAddress()));
-                this.verifiedShipping(this.verifyAddress(quote.shippingAddress()));
 
                 this.renderSimulationText(quote.getTotals()());
 
@@ -49,9 +47,6 @@ define(
                     self.renderSimulationText(value);
                 });
 
-                quote.shippingAddress.subscribe(function (address) {
-                    self.verifiedShipping(self.verifyAddress(address));
-                })
                 quote.billingAddress.subscribe(function (address) {
                     self.verifiedBilling(self.verifyAddress(address));
                 })
