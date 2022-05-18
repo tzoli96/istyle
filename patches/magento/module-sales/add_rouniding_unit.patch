@@ -1,0 +1,29 @@
+Index: Block/Order/Totals.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Block/Order/Totals.php b/Block/Order/Totals.php
+--- a/Block/Order/Totals.php
++++ b/Block/Order/Totals.php	(date 1652883223776)
+@@ -161,6 +161,20 @@
+             );
+         }
+ 
++        /**
++         * Add rounding_unit
++         */
++        if ((double)$this->getSource()->getData("rounding_unit") != 0) {
++            $this->_totals['rounding_unit'] = new \Magento\Framework\DataObject(
++                [
++                    'code' => 'rounding_unit',
++                    'field' => 'rounding_unit',
++                    'value' => $source->getData("rounding_unit"),
++                    'label' => __('External Rounding'),
++                ]
++            );
++        }
++
+         $this->_totals['grand_total'] = new \Magento\Framework\DataObject(
+             [
+                 'code' => 'grand_total',

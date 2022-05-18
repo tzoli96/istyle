@@ -45,7 +45,7 @@ class GrandRounding
     {
 
         $result = $proceed($quote, $shippingAssignment, $total);
-        if ($this->helperConfig->IsEnabled() && $grandTotal =! 0) {
+        if ($this->helperConfig->IsEnabled()) {
             $grandTotal = array_sum($total->getAllTotalAmounts());
             if($grandTotal){
                 $roundTotalAmmount = $this->helperConfig->getRounding($grandTotal);
