@@ -43,6 +43,12 @@ class UpgradeData implements UpgradeDataInterface
         ) {
             $this->upgrade_1_0_1($setup);
         }
+
+        if ($context->getVersion()
+            && version_compare($context->getVersion(), '1.0.2') < 0
+        ) {
+            $this->upgrade_1_0_2($setup);
+        }
     }
 
     /**
@@ -58,8 +64,20 @@ class UpgradeData implements UpgradeDataInterface
         $attributeSet = $this->attributeSetFactory->create();
         $attributeGroupId = $attributeSet->getDefaultGroupId($attributeSetId);
 
+        $setup->getConnection()->addColumn(
+            $setup->getTable('customer_address_entity'),
+            'is_company',
+            [
+                'type' => \Magento\Framework\DB\Ddl\Table::TYPE_SMALLINT,
+                'nullable' => false,
+                'comment' => 'Customer is Company or Not',
+                'after' => 'is_active',
+                'default' => \Oander\CustomerExtend\Model\Entity\Attribute\Source\IsCompany::VALUE_INDIVIDUAL
+            ]
+        );
+
         $customerSetup->addAttribute('customer_address', 'is_company', [
-            'type'          => 'int',
+            'type'          => 'static',
             'label'         => 'IsCompany',
             'input'         => 'select',
             'source'        => 'Oander\CustomerExtend\Model\Entity\Attribute\Source\IsCompany',
@@ -108,5 +126,15 @@ class UpgradeData implements UpgradeDataInterface
             ]
         );
 
+    }
+
+    /**
+     * @param ModuleDataSetupInterface $setup
+     */
+    public function upgrade_1_0_2(ModuleDataSetupInterface $setup)
+    {
+        /** @var \Magento\Customer\Setup\CustomerSetup $customerSetup */
+        $customerSetup = $this->customerSetupFactory->create(['setup' => $setup]);
+        $customerSetup->updateAttribute('customer_address', 'pfpj_reg_no', 'is_visible', true);
     }
 }

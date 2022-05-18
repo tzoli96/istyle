@@ -40,11 +40,11 @@ class LayoutProcessor
             //shipping
             $this->callFunctionOnField($jsLayout, 'postcode', '_changeToRegion');
             $this->callFunctionOnField($jsLayout, 'postcode', '_changeToRegion', false);
-            $this->callFunctionOnField($jsLayout, 'is_company', 'changeIsCompanyShipping');
-            $this->callFunctionOnField($jsLayout, 'is_company', 'changeIsCompanyBilling', false);
             $this->callFunctionOnField($jsLayout, 'city', '_changeCityShipping');
             $this->callFunctionOnField($jsLayout, 'city', '_changeCityBilling', false);
         }
+        $this->callFunctionOnField($jsLayout, 'is_company', 'changeIsCompanyShipping');
+        $this->callFunctionOnField($jsLayout, 'is_company', 'changeIsCompanyBilling', false);
         $this->callFunctionOnField($jsLayout, 'is_company', '_hideField');
         $this->callFunctionOnField($jsLayout, 'is_company', '_hideField', false);
         return $jsLayout;
@@ -53,7 +53,7 @@ class LayoutProcessor
     private function callFunctionOnField(&$jsLayout, $id, $function, $isShipping = true) {
         $field = null;
         if($isShipping) {
-            if ($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"][$id]) {
+            if (isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"][$id])) {
                 $field = &$jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"][$id];
             }
         } else {

@@ -21,8 +21,8 @@ if($block->getWidgetIsEnabled()):
         </p>
     <?php endif; ?>
     <p id="apple-<?= $block->getLocalStorageKey()?>-code" style="display: none"></p>
-    <input type="hidden" id="g_recaptcha_response" name="g_recaptcha_response">
-    <input type="hidden" name="action" value="validate_captcha">
+    <input type="hidden" id="g_recaptcha_response_<?= $block->getLocalStorageKey()?>" name="g_recaptcha_response">
+    <input type="hidden" name="action" value="validate_captcha_<?= $block->getLocalStorageKey()?>">
 </form>
 
 <?php $siteKey = $block->getCaptchaKey(); ?>
@@ -32,15 +32,15 @@ if($block->getWidgetIsEnabled()):
 <?php $secretKey = $block->getSecretKey(); ?>
 <?php $referalToken = $block->getReferralToken(); ?>
 
-<script src="https://www.google.com/recaptcha/api.js?onload=ReCaptchaCallbackV3&render=<?php echo $siteKey ?>"></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=ReCaptchaCallback<?= $block->getLocalStorageKey()?>&render=<?php echo $siteKey ?>"></script>
 <script>
-    var ReCaptchaCallbackV3 = function() {
+    var ReCaptchaCallback<?= $block->getLocalStorageKey()?> = function() {
         require([
             'jquery'
         ], function ($) {
             grecaptcha.ready(function () {
-                grecaptcha.execute('<?php echo $siteKey ?>', { action: 'validate_captcha' }).then(function (token) {
-                    document.getElementById('g_recaptcha_response').value = token;
+                grecaptcha.execute('<?php echo $siteKey ?>', { action: 'validate_captcha_<?= $block->getLocalStorageKey()?>' }).then(function (token) {
+                    document.getElementById('g_recaptcha_response_<?= $block->getLocalStorageKey()?>').value = token;
 
                     var btnRequest = $('#apple-<?= $block->getLocalStorageKey()?>-request');
                     var btnRedeem = $('#apple-<?= $block->getLocalStorageKey()?>-redeem');
