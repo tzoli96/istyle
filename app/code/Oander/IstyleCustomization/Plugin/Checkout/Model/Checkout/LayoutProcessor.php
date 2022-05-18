@@ -328,6 +328,9 @@ class LayoutProcessor
                         ['pfpj_reg_no']);
                 }
             }
+            $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+            ['payment']['children']['afterMethods']['children']['billing-address-form']['children']['form-fields']['children']
+            ['pfpj_reg_no']['dataScope'] = 'billingAddressshared.custom_attributes.pfpj_reg_no';
         }
 
         //Change Shipping Address
