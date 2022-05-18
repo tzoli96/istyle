@@ -221,7 +221,8 @@
             },
             "magento/module-sales": {
                 "Totals changes": "patches/magento/module-sales/totals.patch",
-                "Totals changefffs": "patches/magento/module-sales/add_rounding_unit.patch"
+                "Totals Add Rounding ": "patches/magento/module-sales/add_rounding_unit.patch",
+                "Totals Add Rounding in admin": "patches/magento/module-sales/add_rounding_unit_to_admin_order.patch"
             },
             "magento/module-quote": {
                 "requested option doesnt exits": "patches/magento/module-quote/requested_option.patch",
