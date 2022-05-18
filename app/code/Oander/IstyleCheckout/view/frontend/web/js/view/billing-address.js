@@ -15,6 +15,7 @@ define([
   'Oander_IstyleCheckout/js/view/billing-address/base',
   'Oander_IstyleCheckout/js/view/billing-address/sort',
   'Magento_Ui/js/lib/view/utils/dom-observer',
+  'uiRegistry'
 ], function (
   $,
   ko,
@@ -31,7 +32,8 @@ define([
   billingAddressValidate,
   billingAddressBase,
   billingAddressSort,
-  domObserver) {
+  domObserver,
+  registry) {
   'use strict';
 
   var mixin = {
@@ -368,6 +370,7 @@ define([
       Array.prototype.forEach.call(formElements.titles, function (title) {
         var formId = title.getAttribute('data-tab');
         var isActive = title.parentNode.classList.contains('active');
+        var isCompany = registry.get('checkout.steps.billing-step.payment.afterMethods.billing-address-form.form-fields.is_company');
 
         title.addEventListener('click', function () {
           Array.prototype.forEach.call(formElements.titles, function (tabTitle) {
@@ -378,11 +381,11 @@ define([
           formElements.form.setAttribute('data-tab', formId);
           self.formTransform(formId);
 
-          if (formId === 'billing-company') {
-            $(formElements.tabs).find('.select[name*="is_company"]').val(1);
+          if (formId === 'billing-company' && isCompany) {
+            isCompany.value(1);
           }
           else {
-            $(formElements.tabs).find('.select[name*="is_company"]').val(0);
+            isCompany.value(0);
           }
 
           billingAddressValidate.checkValidatedFields($('.form--billing-address'));
