@@ -12,7 +12,7 @@
                                     <item name="sortOrder" xsi:type="string">100</item>
                                     <item name="config" xsi:type="array">
                                         <item name="template" xsi:type="string">Oander_ExternalRoundingUnit/checkout/cart/totals/external_rounding</item>
-                                        <item name="title" xsi:type="string">External Rounding</item>
+                                        <item name="title" xsi:type="string" translate="true">External Rounding</item>
                                     </item>
                                 </item>
                             </item>

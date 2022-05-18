@@ -6,6 +6,7 @@ use Magento\Quote\Api\Data\ShippingAssignmentInterface;
 use Magento\Quote\Model\Quote;
 use Magento\Quote\Model\Quote\Address\Total;
 use Magento\Quote\Model\Quote\Address\Total\Grand as Subject;
+use Oander\ExternalRoundingUnit\Enum\Attribute;
 use Oander\ExternalRoundingUnit\Helper\Config;
 
 class GrandRounding
@@ -46,18 +47,21 @@ class GrandRounding
         $result = $proceed($quote, $shippingAssignment, $total);
         if ($this->helperConfig->IsEnabled()) {
             $grandTotal = array_sum($total->getAllTotalAmounts());
-            $roundTotalAmmount = $this->helperConfig->getRounding($grandTotal);
-            if ($grandTotal > $roundTotalAmmount) {
-                $externalRoundingAmmount = $grandTotal - $roundTotalAmmount;
-                $operator = "-";
-            } else {
-                $externalRoundingAmmount = $roundTotalAmmount - $grandTotal;
-                $operator = "";
-            }
+            if($grandTotal){
+                $roundTotalAmmount = $this->helperConfig->getRounding($grandTotal);
+                if ($grandTotal > $roundTotalAmmount) {
+                    $externalRoundingAmmount = $grandTotal - $roundTotalAmmount;
+                    $operator = "-";
+                } else {
+                    $externalRoundingAmmount = $roundTotalAmmount - $grandTotal;
+                    $operator = "";
+                }
 
-            $total->setData(self::EXTERNAL_ROUNDING_CODE, $operator . $this->helperConfig->getFormatNumber($externalRoundingAmmount));
-            $total->setGrandTotal($roundTotalAmmount);
-            $total->setBaseGrandTotal($roundTotalAmmount);
+                $total->setData(self::EXTERNAL_ROUNDING_CODE, $operator . $this->helperConfig->getFormatNumber($externalRoundingAmmount));
+                $total->setGrandTotal($roundTotalAmmount);
+                $total->setBaseGrandTotal($roundTotalAmmount);
+                $quote->setData(Attribute::EXTERNAL_ROUNDING_UNITE_QUOTE_ATTRIBUTE,$operator.$externalRoundingAmmount);
+            }
 
         }
 

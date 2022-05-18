@@ -220,7 +220,8 @@
                 "Image role fix #48758": "patches/magento/image_role_allstore_fix.patch"
             },
             "magento/module-sales": {
-                "Totals changes": "patches/magento/module-sales/totals.patch"
+                "Totals changes": "patches/magento/module-sales/totals.patch",
+                "Totals changefffs": "patches/magento/module-sales/add_rounding_unit.patch"
             },
             "magento/module-quote": {
                 "requested option doesnt exits": "patches/magento/module-quote/requested_option.patch",
