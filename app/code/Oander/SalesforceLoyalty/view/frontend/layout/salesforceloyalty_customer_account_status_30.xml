@@ -2,7 +2,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <container name="salesforceloyalty.customer.account.confirmation.message" htmlTag="div" htmlClass="reg-messages messages messages--loyalty text-center">
+            <container name="salesforceloyalty.customer.account.confirmation.message" htmlTag="div" htmlClass="loyalty-statuses">
                 <container name="salesforceloyalty.customer.account.confirmation.message.info" htmlTag="div" htmlClass="message info">
                     <block class="Magento\Cms\Block\Block" name="salesforceloyalty.customer.account.confirmation.message.info.cms">
                         <arguments>
