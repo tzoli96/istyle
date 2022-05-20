@@ -443,11 +443,6 @@ define([
       $(formElements.vatIdField).hide();
       if ($(formElements.vatIdField).hasClass('vat-required')) $(formElements.vatIdField).removeClass('_required');
 
-      if ($(formElements.pfpjField).length) {
-        $(formElements.pfpjField).hide();
-        $(formElements.pfpjField).removeClass('_required');
-      }
-
       $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text($t('First Name'));
       $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text($t('Last Name'));
     },
@@ -463,11 +458,6 @@ define([
       $(formElements.companyField).addClass('_required');
       $(formElements.vatIdField).show();
       if ($(formElements.vatIdField).hasClass('vat-required')) $(formElements.vatIdField).addClass('_required');
-
-      if ($(formElements.pfpjField).length) {
-        $(formElements.pfpjField).show();
-        $(formElements.pfpjField).addClass('_required');
-      }
 
       $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text($t('Contact person firstname'));
       $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text($t('Contact person lastname'));

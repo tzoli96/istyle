@@ -71,6 +71,8 @@ define([
 
         if (order !== null) {
           elem.style.order = order;
+          field.closest('.form-group').style.display = 'block';
+
           if (field) {
             field.setAttribute('tabindex', order);
 
@@ -78,6 +80,14 @@ define([
               additionalStreetElem.style.order = order + 1;
               additionalStreetElem.style.display = 'block';
               additionalStreetField.setAttribute('tabindex',  order + 1);
+            }
+          }
+        } else {
+          if (field) {
+            field.closest('.form-group').style.display = 'none';
+
+            if (field.classList.contains('street') && additionalStreetElem) {
+              additionalStreetElem.style.display = 'none';
             }
           }
         }
