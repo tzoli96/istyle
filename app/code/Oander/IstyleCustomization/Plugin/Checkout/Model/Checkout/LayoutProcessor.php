@@ -309,28 +309,25 @@ class LayoutProcessor
                     ["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]['pfpj_reg_no']);
             }
 
-            $showPfpjRegNo = $this->scopeConfig->getValue('customer/address/show_pfpj_reg_no', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
-            if ($showPfpjRegNo) {
-                if($showPfpjRegNo == 'req') {
+            if (isset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['afterMethods']['children']['billing-address-form']['children']['form-fields']['children']
+                ['pfpj_reg_no'])) {
+                $showPfpjRegNo = $this->scopeConfig->getValue('customer/address/show_pfpj_reg_no', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+                if ($showPfpjRegNo) {
                     $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                     ['payment']['children']['afterMethods']['children']['billing-address-form']['children']['form-fields']['children']
-                    ['pfpj_reg_no']['validation']['required-entry'] = true;
-                    $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
-                    ['payment']['children']['afterMethods']['children']['billing-address-form']['children']['form-fields']['children']
-                    ['pfpj_reg_no']['validation']['dataScope'] = 'billingAddressshared.custom_attributes.pfpj_reg_no';
-                }
-            } else {
-                if (isset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
-                    ['payment']['children']['afterMethods']['children']['billing-address-form']['children']['form-fields']['children']
-                    ['pfpj_reg_no'])) {
+                    ['pfpj_reg_no']['dataScope'] = 'billingAddressshared.custom_attributes.pfpj_reg_no';
+                    if($showPfpjRegNo == 'req') {
+                        $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                        ['payment']['children']['afterMethods']['children']['billing-address-form']['children']['form-fields']['children']
+                        ['pfpj_reg_no']['validation']['required-entry'] = true;
+                    }
+                } else {
                     unset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                         ['payment']['children']['afterMethods']['children']['billing-address-form']['children']['form-fields']['children']
                         ['pfpj_reg_no']);
                 }
             }
-            $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
-            ['payment']['children']['afterMethods']['children']['billing-address-form']['children']['form-fields']['children']
-            ['pfpj_reg_no']['dataScope'] = 'billingAddressshared.custom_attributes.pfpj_reg_no';
         }
 
         //Change Shipping Address
