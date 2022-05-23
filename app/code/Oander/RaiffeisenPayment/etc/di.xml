@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="RaiffeisenFacade" type="Oander\RaiffeisenPayment\Model\RaiffeisenAdapter">
+        <arguments>
+            <argument name="code" xsi:type="const">\Oander\RaiffeisenPayment\Model\Ui\ConfigProvider::CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Magento\Payment\Block\Info</argument>
+            <argument name="valueHandlerPool" xsi:type="object">RaiffeisenValueHandlerPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="RaiffeisenCommandPool" type="Magento\Payment\Gateway\Command\CommandPool">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="initialize" xsi:type="string">RaiffeisenInitializeCommand</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="RaiffeisenInitializeCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">RaiffeisenGatewayInitalizationRequest</argument>
+            <argument name="handler" xsi:type="object">RaiffeisenInitalizationResponseHandlerComposite</argument>
+            <argument name="transferFactory" xsi:type="object">Oander\RaiffeisenPayment\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">Oander\RaiffeisenPayment\Gateway\Http\Client\Client</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="RaiffeisenInitalizationResponseHandlerComposite" type="Magento\Payment\Gateway\Response\HandlerChain">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="payment_details" xsi:type="string">Oander\RaiffeisenPayment\Gateway\Response\InitHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Initalization Request -->
+    <virtualType name="RaiffeisenGatewayInitalizationRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="init_data" xsi:type="string">Oander\RaiffeisenPayment\Gateway\Request\InitDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Oander\RaiffeisenPayment\Gateway\Request\InitDataBuilder">
+        <arguments>
+            <argument name="config" xsi:type="object">RaiffeisenGatewayConfig</argument>
+        </arguments>
+    </type>
+
+    <!-- Configuration reader -->
+    <virtualType name="RaiffeisenGatewayConfig" type="Magento\Payment\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">\Oander\RaiffeisenPayment\Model\Ui\ConfigProvider::CODE</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="RaiffeisenValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">RaiffeisenConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="RaiffeisenConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">Oander\RaiffeisenPayment\Gateway\Config\ConfigValueHandler</argument>
+        </arguments>
+    </virtualType>
+
+
+    <type name="Oander\RaiffeisenPayment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">\Oander\RaiffeisenPayment\Model\Ui\ConfigProvider::CODE</argument>
+        </arguments>
+    </type>
+
+</config>
+
