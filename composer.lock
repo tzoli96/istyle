@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9e3239feeba8b20b97bbf7d303702f33",
+    "content-hash": "d8b9b0d1fe1a5cd5b7b128b494c4d565",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1022,16 +1022,16 @@
         },
         {
             "name": "composer/spdx-licenses",
-            "version": "1.5.6",
+            "version": "1.5.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/spdx-licenses.git",
-                "reference": "a30d487169d799745ca7280bc90fdfa693536901"
+                "reference": "c848241796da2abf65837d51dce1fae55a960149"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/a30d487169d799745ca7280bc90fdfa693536901",
-                "reference": "a30d487169d799745ca7280bc90fdfa693536901",
+                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/c848241796da2abf65837d51dce1fae55a960149",
+                "reference": "c848241796da2abf65837d51dce1fae55a960149",
                 "shasum": ""
             },
             "require": {
@@ -1079,7 +1079,7 @@
                 "spdx",
                 "validator"
             ],
-            "time": "2021-11-18T10:14:14+00:00"
+            "time": "2022-05-23T07:37:50+00:00"
         },
         {
             "name": "extensa/module-dsk",
@@ -1465,20 +1465,6 @@
                 "stream",
                 "uri",
                 "url"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/GrahamCampbell",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/Nyholm",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/psr7",
-                    "type": "tidelift"
-                }
             ],
             "time": "2022-03-20T21:51:18+00:00"
         },
@@ -9421,11 +9407,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.3.0.9",
+            "version": "dev-bugfix/58125-salesforce_blockproint_magentoidmissing",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "daa3c0d754ae35ca4b67d72b0b13ccc9e9fff3ce"
+                "reference": "68f221193653fcb7407c66eb3581a7cd1bd115d2"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9444,7 +9430,7 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2022-05-02T19:47:28+00:00"
+            "time": "2022-05-23T07:45:51+00:00"
         },
         {
             "name": "oander/module-salesforce-service",
@@ -10394,20 +10380,6 @@
                 "x.509",
                 "x509"
             ],
-            "funding": [
-                {
-                    "url": "https://github.com/terrafrost",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/phpseclib",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2022-04-04T04:57:45+00:00"
         },
         {
@@ -10745,16 +10717,6 @@
                 "linter",
                 "parser",
                 "validator"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/Seldaek",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/seld/jsonlint",
-                    "type": "tidelift"
-                }
             ],
             "time": "2022-04-01T13:37:23+00:00"
         },
@@ -14929,6 +14891,7 @@
         "oander/module-configurable-product-attribute": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
+        "oander/module-salesforce": 20,
         "oander/module-salesforce-service": 20,
         "oander/module-salesforcereservation": 20,
         "oander/theme-hodor": 20,
@@ -14938,6 +14901,5 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }
