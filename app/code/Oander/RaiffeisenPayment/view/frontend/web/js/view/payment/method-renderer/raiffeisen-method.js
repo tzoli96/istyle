@@ -61,10 +61,6 @@ define(
                 }
             },
 
-            getPrice: function () {
-                return totals.getSegment('grand_total').value;
-            },
-
             /**
              * @override
              */
@@ -73,7 +69,7 @@ define(
                     event.preventDefault();
                 }
                 var self = this,
-                    placeOrder = placeOrderAction(this.getData(), false, this.messageContainer);
+                    placeOrder = placeOrderAction(this.getData(), false);
 
                     $.when(placeOrder).fail(function () {
                     }).done(this.afterPlaceOrder.bind(this));

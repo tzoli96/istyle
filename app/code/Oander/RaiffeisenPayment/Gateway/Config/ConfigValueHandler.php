@@ -13,9 +13,6 @@ class ConfigValueHandler extends DefaultConfig
     const KEY_ACTIVE                  = 'active';
     const KEY_TITLE                   = 'title';
     const KEY_INSTRUCTIONS            = 'instructions';
-    const KEY_SELLER_ID               = 'seller_id';
-    const KEY_APPROVAL_MESSAGE        = 'approval_message';
-    const KEY_FURTHER_REVIEW_MESSAGE  = 'further_review_message';
 
     /**
      * @var Json
@@ -99,7 +96,7 @@ class ConfigValueHandler extends DefaultConfig
      */
     public function getLogoSrc(): string
     {
-        return $this->assetRepository->getUrl('Oander_RaiffeisenPayment::images/hello-bank.png');
+        return $this->assetRepository->getUrl('Oander_RaiffeisenPayment::images/raiffeisen.png');
     }
 
 }

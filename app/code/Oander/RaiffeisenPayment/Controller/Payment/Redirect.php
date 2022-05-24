@@ -1,4 +1,5 @@
 <?php
+
 namespace Oander\RaiffeisenPayment\Controller\Payment;
 
 use Oander\RaiffeisenPayment\Gateway\Config\ConfigValueHandler;
@@ -10,12 +11,10 @@ use Magento\Sales\Model\Order;
 use Magento\Sales\Model\Order\Payment;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\Controller\ResultFactory;
 
 class Redirect extends Action
 {
-
-    const LOAN_URL = "https://www.cetelem.cz/cetelem2_webshop.php/zadost-o-pujcku/on-line-zadost-o-pujcku";
-
     /**
      * @var RequestBuild
      */
@@ -41,7 +40,6 @@ class Redirect extends Action
     protected $_resultJsonFactory;
 
 
-
     /**
      * Redirect constructor.
      *
@@ -50,12 +48,13 @@ class Redirect extends Action
      * @param ConfigValueHandler $config
      */
     public function __construct(
-        JsonFactory $_resultJsonFactory,
-        PageFactory $_resultPageFactory,
-        Context $context,
-        CheckoutSession $checkoutSession,
+        JsonFactory        $_resultJsonFactory,
+        PageFactory        $_resultPageFactory,
+        Context            $context,
+        CheckoutSession    $checkoutSession,
         ConfigValueHandler $config
-    ) {
+    )
+    {
         $this->_resultJsonFactory = $_resultJsonFactory;
         $this->_resultPageFactory = $_resultPageFactory;
         parent::__construct($context);
@@ -68,13 +67,17 @@ class Redirect extends Action
      */
     public function execute()
     {
+        /** @var RedirectResult $resultRedirect */
+        $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
+        $resultRedirect->setPath('checkout/cart/index');
+
         /** @var Order $order */
         $order = $this->checkoutSession->getLastRealOrder();
         if ($order instanceof Order) {
             /** @var Payment $payment */
             $payment = $order->getPayment();
-            return $this->requestBuild->execute($payment->getAdditionalInformation(),$order->getIncrementId());
+            $resultRedirect->setPath('checkout/onepage/success');
         }
-
+        return $resultRedirect;
     }
 }

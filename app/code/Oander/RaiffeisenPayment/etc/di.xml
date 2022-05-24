@@ -6,6 +6,7 @@
             <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
             <argument name="infoBlockType" xsi:type="string">Magento\Payment\Block\Info</argument>
             <argument name="valueHandlerPool" xsi:type="object">RaiffeisenValueHandlerPool</argument>
+            <argument name="commandPool" xsi:type="object">RaiffeisenCommandPool</argument>
         </arguments>
     </virtualType>
 
@@ -73,6 +74,20 @@
     <type name="Oander\RaiffeisenPayment\Gateway\Config\ConfigValueHandler">
         <arguments>
             <argument name="methodCode" xsi:type="const">\Oander\RaiffeisenPayment\Model\Ui\ConfigProvider::CODE</argument>
+        </arguments>
+    </type>
+
+    <type name="Oander\RaiffeisenPayment\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Oander\RaiffeisenPayment\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">Raiffeisen</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="system" xsi:type="object">Oander\RaiffeisenPayment\Logger\Handler</item>
+            </argument>
         </arguments>
     </type>
 

@@ -61,7 +61,7 @@ class Processing extends Action
     private function failedPayment($order)
     {
         if ($order->getId() && $order->getState() != Order::STATE_CANCELED) {
-            $comment = __('Failed HelloBank transaction');
+            $comment = __('Failed Raiffeisen transaction');
             $order->cancel();
             $this->checkoutSession->restoreQuote();
             $this->messageManager->addErrorMessage($comment);

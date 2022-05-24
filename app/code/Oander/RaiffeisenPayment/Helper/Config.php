@@ -10,6 +10,7 @@ class Config extends AbstractHelper
 {
     const PAYMENT_METHOD_PATH = 'payment/raiffeisen/';
     const ENABLED = 'active';
+    const LOGGER_ENABLED = 'logger_active';
     const TITLE = 'title';
     const API_URL = 'api_url';
     const API_SUFFIX = 'api_suffix';
@@ -46,6 +47,18 @@ class Config extends AbstractHelper
             self::PAYMENT_METHOD_PATH.self::ENABLED,
             ScopeInterface::SCOPE_STORE
         ) ?? false;
+    }
+
+    /**
+     * @param $storeid
+     * @return bool
+     */
+    public function getLoggerIsActive($storeid = null)
+    {
+        return (bool)$value = $this->scopeConfig->getValue(
+                self::PAYMENT_METHOD_PATH.self::LOGGER_ENABLED,
+                ScopeInterface::SCOPE_STORE
+            ) ?? false;
     }
 
     /**
@@ -158,14 +171,14 @@ class Config extends AbstractHelper
 
     /**
      * @param $storeid
-     * @return string
+     * @return int
      */
     public function getMinAmount($storeid = null)
     {
-        return (string)$value = $this->scopeConfig->getValue(
+        return (int)$value = $this->scopeConfig->getValue(
                 self::PAYMENT_METHOD_PATH.self::MIN_AMOUNT,
                 ScopeInterface::SCOPE_STORE
-            ) ?? '';
+            ) ?? 0;
     }
 
     /**

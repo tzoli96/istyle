@@ -5,6 +5,7 @@ use Magento\Checkout\Model\ConfigProviderInterface;
 use Magento\Store\Api\Data\StoreInterface;
 use Magento\Checkout\Model\Session;
 use Oander\RaiffeisenPayment\Helper\Config;
+use Oander\RaiffeisenPayment\Gateway\Config\ConfigValueHandler;
 
 class ConfigProvider implements ConfigProviderInterface
 {
@@ -24,18 +25,26 @@ class ConfigProvider implements ConfigProviderInterface
     private $store;
 
     /**
+     * @var ConfigValueHandler
+     */
+    private $configValueHandler;
+
+    /**
      * @param StoreInterface $store
      * @param Session $checkoutSession
      * @param Config $configData
+     * @param ConfigValueHandler $configValueHandler
      */
     public function __construct(
         StoreInterface $store,
         Session $checkoutSession,
-        Config $configData
+        Config $configData,
+        ConfigValueHandler $configValueHandler
     ) {
         $this->configData = $configData;
         $this->store = $store;
         $this->checkoutSession = $checkoutSession;
+        $this->configValueHandler = $configValueHandler;
     }
 
     /**
@@ -47,7 +56,8 @@ class ConfigProvider implements ConfigProviderInterface
             'payment' => [
                 self::CODE => [
                     'isAcitve'  => $this->getAcitve(),
-                    'eligibilityquestions' => $this->configData->getEligibilityQuestions()
+                    'eligibilityquestions' => $this->configData->getEligibilityQuestions(),
+                    'logoSrc'   => $this->configValueHandler->getLogoSrc(),
                 ],
             ]
         ];
