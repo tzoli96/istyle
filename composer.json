@@ -212,6 +212,24 @@
     ],
     "extra": {
         "magento-force": "override",
+        "patcher": {
+            "appliers": {
+                "GIT": {
+                    "ping": "!cd .. && [[bin]] rev-parse --is-inside-work-tree",
+                    "bin": "which git",
+                    "check": "[[bin]] apply -p{{level}} --check {{file}}",
+                    "patch": "[[bin]] apply -p{{level}} {{file}}"
+                },
+                "PATCH": {
+                    "bin": [
+                        "which custom-patcher",
+                        "which patch"
+                    ],
+                    "check": "[[bin]] -p{{level}} --no-backup-if-mismatch --dry-run < {{file}}",
+                    "patch": "[[bin]] -p{{level}} --no-backup-if-mismatch < {{file}}"
+                }
+            }
+        },
         "patches": {
             "magento/module-customer":{
                 "Region ID fix #54932": "patches/magento/module-customer/regionId.patch",
