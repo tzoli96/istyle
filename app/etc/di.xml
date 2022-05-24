@@ -1208,4 +1208,5 @@
             </argument>
         </arguments>
     </type>
+    <preference for="Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface" type="Magento\Framework\Api\SearchCriteria\CollectionProcessorComposite" />
 </config>
