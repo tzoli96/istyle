@@ -6,7 +6,7 @@
             <raiffeisen>
                 <model>RaiffeisenFacade</model>
                 <title>Raiffeisen Payment</title>
-                <active>1</active>
+                <active>0</active>
                 <order_status>pending_payment</order_status>
                 <instructions>Instructions</instructions>
                 <approval_message>Approval Message</approval_message>
