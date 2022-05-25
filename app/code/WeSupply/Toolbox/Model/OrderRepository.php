@@ -6,7 +6,7 @@ use WeSupply\Toolbox\Api\OrderRepositoryInterface;
 use WeSupply\Toolbox\Api\Data;
 use WeSupply\Toolbox\Model\ResourceModel\Order as ResourceOrder;
 use WeSupply\Toolbox\Model\ResourceModel\Order\CollectionFactory as OrderCollectionFactory;
-use Oander\IstyleBase\Api\SearchCriteria\CollectionProcessorInterface;
+use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 use Magento\Framework\Exception\CouldNotDeleteException;
 use Magento\Framework\Exception\CouldNotSaveException;
 use Magento\Framework\Exception\NoSuchEntityException;
