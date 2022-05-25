@@ -25,7 +25,7 @@ index 000000000000..acc6b802fb21
 +     * @param CollectionProcessorInterface[] $processors
 +     */
 +    public function __construct(
-+        array $processors
++        $processors
 +    ) {
 +        $this->processors = $processors;
 +    }
