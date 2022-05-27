@@ -40,8 +40,6 @@ define(
             getData: function () {
                 var data = {
                     'method': this.item.method,
-                    wantsSpam: ko.observable(true),
-                    spamFlavor: ko.observable("almond")
                 };
                 return data;
             },
