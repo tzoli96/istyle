@@ -5,15 +5,13 @@
         <payment>
             <raiffeisen>
                 <model>RaiffeisenFacade</model>
-                <title>Raiffeisen Payment</title>
+                <title>Raiffeisen Online Credit</title>
                 <active>0</active>
                 <order_status>pending_payment</order_status>
-                <instructions>Instructions</instructions>
                 <approval_message>Approval Message</approval_message>
                 <further_review_message>Further Review Message</further_review_message>
                 <can_use_checkout>1</can_use_checkout>
                 <is_gateway>1</is_gateway>
-                <sort_order>1</sort_order>
             </raiffeisen>
         </payment>
     </default>
