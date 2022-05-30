@@ -26,7 +26,7 @@ define([
       this._super();
       var value = this.value();
 
-      if (typeof value !== 'undefined') self.filled(value.toString().length > 0);
+      if (typeof value !== 'undefined' && value !== null) self.filled(value.toString().length > 0);
 
       return this;
     },
@@ -43,7 +43,7 @@ define([
           returnValue = this._super(),
           value = this.value();
 
-      if (typeof value !== 'undefined') self.filled(returnValue.valid && value.toString().length > 0);
+      if (typeof value !== 'undefined' && value !== null) self.filled(returnValue.valid && value.toString().length > 0);
       return returnValue;
     },
 
