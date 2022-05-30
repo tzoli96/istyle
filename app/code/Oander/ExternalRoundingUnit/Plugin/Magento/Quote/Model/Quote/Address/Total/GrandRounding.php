@@ -8,10 +8,10 @@ use Magento\Quote\Model\Quote\Address\Total;
 use Magento\Quote\Model\Quote\Address\Total\Grand as Subject;
 use Oander\ExternalRoundingUnit\Enum\Attribute;
 use Oander\ExternalRoundingUnit\Helper\Config;
+use Oander\ExternalRoundingUnit\Enum\Config as EnumConfig;
 
 class GrandRounding
 {
-    const EXTERNAL_ROUNDING_CODE = "external_rounding";
     /**
      * @var Config
      */
@@ -47,7 +47,7 @@ class GrandRounding
         $result = $proceed($quote, $shippingAssignment, $total);
         if ($this->helperConfig->IsEnabled()) {
             $grandTotal = array_sum($total->getAllTotalAmounts());
-            if($grandTotal){
+            if ($grandTotal) {
                 $roundTotalAmmount = $this->helperConfig->getRounding($grandTotal);
                 if ($grandTotal > $roundTotalAmmount) {
                     $externalRoundingAmmount = $grandTotal - $roundTotalAmmount;
@@ -57,10 +57,10 @@ class GrandRounding
                     $operator = "";
                 }
 
-                $total->setData(self::EXTERNAL_ROUNDING_CODE, $operator . $this->helperConfig->getFormatNumber($externalRoundingAmmount));
+                $total->setData(EnumConfig::SALES_CODE, $operator . $this->helperConfig->getFormatNumber($externalRoundingAmmount));
                 $total->setGrandTotal($roundTotalAmmount);
                 $total->setBaseGrandTotal($roundTotalAmmount);
-                $quote->setData(Attribute::EXTERNAL_ROUNDING_UNITE_QUOTE_ATTRIBUTE,$operator.$externalRoundingAmmount);
+                $quote->setData(Attribute::EXTERNAL_ROUNDING_UNITE_QUOTE_ATTRIBUTE, $operator . $externalRoundingAmmount);
             }
 
         }

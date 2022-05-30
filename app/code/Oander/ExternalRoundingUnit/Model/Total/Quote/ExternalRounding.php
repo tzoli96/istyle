@@ -3,59 +3,43 @@
 namespace Oander\ExternalRoundingUnit\Model\Total\Quote;
 
 use Magento\Framework\Pricing\PriceCurrencyInterface;
-use Magento\Framework\Registry;
 use Magento\Quote\Api\Data\ShippingAssignmentInterface;
 use Magento\Quote\Model\Quote;
 use Magento\Quote\Model\Quote\Address\Total;
 use Magento\Quote\Model\Quote\Address\Total\AbstractTotal;
 use Oander\ExternalRoundingUnit\Helper\Config;
-use Magento\Quote\Api\Data\TotalsInterface;
+use Oander\ExternalRoundingUnit\Enum\Config as EnumConfig;
 
 class ExternalRounding extends AbstractTotal
 {
-    const SALES_CODE = "external_rounding";
-
     /**
      * @var PriceCurrencyInterface
      */
-    protected $_priceCurrency;
-    /**
-     * @var TotalsInterface
-     */
-    protected $quoteTotal;
+    protected $priceCurrency;
 
     /**
      * @var Config
      */
     private $configHelper;
-    /**
-     * @var Registry
-     */
-    private $registry;
 
     /**
      * @param PriceCurrencyInterface $priceCurrency
      * @param Config $configHelper
-     * @param Registry $registry
      */
     public function __construct(
         PriceCurrencyInterface $priceCurrency,
-        Config                 $configHelper,
-        Registry               $registry,
-        TotalsInterface        $quoteTotal
+        Config                 $configHelper
     )
     {
-        $this->_priceCurrency = $priceCurrency;
+        $this->priceCurrency = $priceCurrency;
         $this->configHelper = $configHelper;
-        $this->registry = $registry;
-        $this->quoteTotal = $quoteTotal;
     }
 
     /**
      * @param Quote $quote
      * @param ShippingAssignmentInterface $shippingAssignment
      * @param Total $total
-     * @return $this|bool
+     * @return $this|ExternalRounding
      */
     public function collect(
         Quote                       $quote,
@@ -64,16 +48,18 @@ class ExternalRounding extends AbstractTotal
     )
     {
         parent::collect($quote, $shippingAssignment, $total);
-        if (!$this->configHelper->IsEnabled()) {
-            return $this;
-        }
         return $this;
     }
 
+    /**
+     * @param Quote $quote
+     * @param Total $total
+     * @return array|null
+     */
     public function fetch(Quote $quote, Total $total)
     {
         $result = null;
-        $amount = $total->getData(self::SALES_CODE);
+        $amount = $total->getData(EnumConfig::SALES_CODE);
 
         if ($amount) {
             $result = [
@@ -85,6 +71,9 @@ class ExternalRounding extends AbstractTotal
         return $result;
     }
 
+    /**
+     * @return \Magento\Framework\Phrase|string
+     */
     public function getLabel()
     {
         return __('External Rounding');
