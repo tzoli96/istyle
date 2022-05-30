@@ -4,9 +4,10 @@
     <default>
         <payment>
             <raiffeisen>
+                <active>0</active>
+                <logger_active>0</logger_active>
                 <model>RaiffeisenFacade</model>
                 <title>Raiffeisen Online Credit</title>
-                <active>0</active>
                 <order_status>pending_payment</order_status>
                 <approval_message>Approval Message</approval_message>
                 <further_review_message>Further Review Message</further_review_message>
