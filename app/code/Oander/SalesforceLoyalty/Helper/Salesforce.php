@@ -91,14 +91,14 @@ class Salesforce extends AbstractHelper
      * @return false|string TransactionID
      * @throws LocalizedException
      */
-    public function blockCustomerAffiliatePoints(int $blockPoints, string $customer = null)
+    public function blockCustomerAffiliatePoints(int $blockPoints, string $orderId, string $customer = null)
     {
         $customer = $this->_getCustomer($customer);
         $transactionId = false;
         $this->registry->unregister(self::REGISTRY_AVAILABLE_POINTS);
         $customer_number = $customer->getData('sforce_maconomy_id');
         if($customer_number) {
-            $response = $this->loyaltyEndpoint->BlockAffiliateMembershipPoints($customer_number, substr($customer->getStore()->getCode(), 0, 2), $blockPoints);
+            $response = $this->loyaltyEndpoint->BlockAffiliateMembershipPoints($customer_number, substr($customer->getStore()->getCode(), 0, 2), $orderId, $blockPoints);
             if(isset($response["BlockedTransactionId"]))
                 $transactionId = $response["BlockedTransactionId"];
         }
