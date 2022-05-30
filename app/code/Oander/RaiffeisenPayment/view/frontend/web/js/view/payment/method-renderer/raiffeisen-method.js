@@ -29,6 +29,7 @@ define(
             },
 
             initObservable: function () {
+                this._super();
                 return this;
             },
 
@@ -38,7 +39,7 @@ define(
 
             getData: function () {
                 var data = {
-                    'method': this.item.method
+                    'method': this.item.method,
                 };
                 return data;
             },
@@ -46,8 +47,18 @@ define(
             getPaymentLogoSrc: function () {
                 return window.checkoutConfig.payment.raiffeisen.logoSrc;
             },
+
             getInstructions: function () {
                 return window.checkoutConfig.payment.raiffeisen.instructions;
+            },
+
+            getEligibilityQuestions: function () {
+                var questions = JSON.parse(window.checkoutConfig.payment.raiffeisen.eligibilityquestions);
+                var self = this;
+
+                self.data = ko.observableArray([
+                    questions
+                ]);
             },
 
             validate: function () {

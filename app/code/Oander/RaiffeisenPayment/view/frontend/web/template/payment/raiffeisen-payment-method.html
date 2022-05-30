@@ -6,7 +6,7 @@
  * See COPYING.txt for license details.
  */
 -->
-<div class="payment-method" data-bind="css: {'_active': (getCode() == isChecked())}">
+<div class="payment-method raiffeisen-payment" data-bind="css: {'_active': (getCode() == isChecked())}">
     <div class="payment-method-title field choice">
         <input type="radio"
                name="payment[method]"
@@ -24,8 +24,49 @@
             <!-- ko foreach: $parent.getRegion(getBillingAddressFormName()) -->
             <!-- ko template: getTemplate() --><!-- /ko -->
             <!--/ko-->
+
+            <p data-bind="html: getInstructions()"></p>
+
+            <div class="raiffeisen-payment__questions">
+                <p data-bind="html: getEligibilityQuestions()"></p>
+                <div data-bind="foreach: { data: data, as: '_data' }">
+                    <div data-bind="foreach: { data: Object.keys(_data), as: 'key' }">
+                        <div class="raiffeisen-payment__question">
+                            <p class="raiffeisen-payment__title" data-bind="text: _data[key].question"></p>
+                            <div class="raiffeisen-payment__answer">
+                                <input
+                                        data-bind="
+                                            attr: {
+                                             id: 'rafi-radios-v_' + key,
+                                             name: 'rafi-radios-name_' + key
+                                            },"
+                                        type="radio"
+                                        class="radio"
+                                />
+                                <label data-bind="attr: { for: 'rafi-radios-v_' + key }" class="label">
+                                    <span data-bind="text: _data[key].valid_answer"></span>
+                                </label>
+                            </div>
+                            <div class="raiffeisen-payment__answer">
+                                <input
+                                        data-bind="
+                                            attr: {
+                                             id: 'rafi-radios-iv_' + key,
+                                             name: 'rafi-radios-name_' + key
+                                            },"
+                                        type="radio"
+                                        class="radio"
+                                />
+                                <label data-bind="attr: { for: 'rafi-radios-iv_' + key }" class="label">
+                                    <span data-bind="text: _data[key].invalid_answer"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <p data-bind="html: getInstructions()"></p>
         <div class="checkout-agreements-block">
             <!-- ko foreach: $parent.getRegion('before-place-order') -->
             <!-- ko template: getTemplate() --><!-- /ko -->
