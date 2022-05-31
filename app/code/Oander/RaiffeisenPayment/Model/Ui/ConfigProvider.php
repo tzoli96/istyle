@@ -58,6 +58,7 @@ class ConfigProvider implements ConfigProviderInterface
                     'isAcitve'  => $this->getAcitve(),
                     'eligibilityquestions' => $this->configData->getEligibilityQuestions(),
                     'logoSrc'   => $this->configValueHandler->getLogoSrc(),
+                    'instructions'   => $this->configValueHandler->getInstructions(),
                 ],
             ]
         ];
