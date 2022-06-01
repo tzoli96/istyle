@@ -1,7 +1,7 @@
 {
   "name": "oander/raiffeisen",
   "type": "magento2-module",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Raiffeisen module integration for Magento 2",
   "autoload": {
     "files": [
