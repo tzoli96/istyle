@@ -43,11 +43,6 @@ define(
                 };
                 return data;
             },
-
-            getPaymentLogoSrc: function () {
-                return window.checkoutConfig.payment.raiffeisen.logoSrc;
-            },
-
             getInstructions: function () {
                 return window.checkoutConfig.payment.raiffeisen.instructions;
             },

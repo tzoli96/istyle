@@ -3,7 +3,7 @@
     <system>
         <section id="payment">
             <group id="raiffeisen" translate="label,comment" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label><![CDATA[<div class="raiffeisen-payment-logo"></div><div class="raiffeisen-payment-byline"></div>]]></label>
+                <label>Raiffeisen Payment</label>
                 <fieldset_css>raiffeisenk-payment-section</fieldset_css>
                 <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Enable</label>
