@@ -43,17 +43,12 @@ define(
                 };
                 return data;
             },
-
-            getPaymentLogoSrc: function () {
-                return window.checkoutConfig.payment.raiffeisen.logoSrc;
-            },
-
             getInstructions: function () {
                 return window.checkoutConfig.payment.raiffeisen.instructions;
             },
 
             getEligibilityQuestions: function () {
-                var questions = JSON.parse(window.checkoutConfig.payment.raiffeisen.eligibilityquestions);
+                var questions = (window.checkoutConfig.payment.raiffeisen.eligibilityquestions) ? JSON.parse(window.checkoutConfig.payment.raiffeisen.eligibilityquestions) : "";
                 var self = this;
 
                 self.data = ko.observableArray([

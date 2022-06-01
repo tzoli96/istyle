@@ -1,18 +1,18 @@
 <?php
+
 namespace Oander\RaiffeisenPayment\Gateway\Config;
 
 use Oander\RaiffeisenPayment\Model\Ui\ConfigProvider;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Serialize\Serializer\Json;
 use Magento\Framework\Stdlib\DateTime\TimezoneInterface;
-use Magento\Framework\View\Asset\Repository as AssetRepository;
 use Magento\Payment\Gateway\Config\Config as DefaultConfig;
 
 class ConfigValueHandler extends DefaultConfig
 {
-    const KEY_ACTIVE                  = 'active';
-    const KEY_TITLE                   = 'title';
-    const KEY_INSTRUCTIONS            = 'instructions';
+    const KEY_ACTIVE = 'active';
+    const KEY_TITLE = 'title';
+    const KEY_INSTRUCTIONS = 'instructions';
 
     /**
      * @var Json
@@ -24,29 +24,24 @@ class ConfigValueHandler extends DefaultConfig
      */
     private $timezone;
 
-    /**
-     * @var AssetRepository
-     */
-    private $assetRepository;
 
     /**
      * Config constructor.
      *
-     * @param Json                 $serializer
+     * @param Json $serializer
      * @param ScopeConfigInterface $scopeConfig
-     * @param TimezoneInterface    $timezone
-     * @param AssetRepository      $assetRepository
-     * @param null                 $methodCode
-     * @param string               $pathPattern
+     * @param TimezoneInterface $timezone
+     * @param null $methodCode
+     * @param string $pathPattern
      */
     public function __construct(
-        Json $serializer,
+        Json                 $serializer,
         ScopeConfigInterface $scopeConfig,
-        TimezoneInterface $timezone,
-        AssetRepository $assetRepository,
-        $methodCode = null,
-        $pathPattern = DefaultConfig::DEFAULT_PATH_PATTERN
-    ) {
+        TimezoneInterface    $timezone,
+                             $methodCode = null,
+                             $pathPattern = DefaultConfig::DEFAULT_PATH_PATTERN
+    )
+    {
         DefaultConfig::__construct(
             $scopeConfig,
             $methodCode,
@@ -57,7 +52,6 @@ class ConfigValueHandler extends DefaultConfig
 
         $this->serializer = $serializer;
         $this->timezone = $timezone;
-        $this->assetRepository = $assetRepository;
     }
 
     /**
@@ -87,16 +81,6 @@ class ConfigValueHandler extends DefaultConfig
     public function getInstructions($storeId = null)
     {
         return (string)$this->getValue(self::KEY_INSTRUCTIONS, $storeId);
-    }
-
-
-    /**
-     *
-     * @return string
-     */
-    public function getLogoSrc(): string
-    {
-        return $this->assetRepository->getUrl('Oander_RaiffeisenPayment::images/raiffeisen.png');
     }
 
 }

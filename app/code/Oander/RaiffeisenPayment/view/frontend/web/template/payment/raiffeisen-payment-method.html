@@ -13,7 +13,7 @@
                class="radio"
                data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()"/>
         <label data-bind="attr: {'for': getCode()}" class="label">
-            <span data-bind="text: getTitle()"></span> <img data-bind="attr: {src: getPaymentLogoSrc(), alt: getTitle()}" class="payment-icon"/>
+            <span data-bind="text: getTitle()"></span>
         </label>
     </div>
     <div class="payment-method-content">
@@ -25,8 +25,11 @@
             <!-- ko template: getTemplate() --><!-- /ko -->
             <!--/ko-->
 
+            <!-- ko if: getInstructions() -->
             <p data-bind="html: getInstructions()"></p>
+            <!--/ko-->
 
+            <!-- ko if: getEligibilityQuestions() -->
             <div class="raiffeisen-payment__questions">
                 <p data-bind="html: getEligibilityQuestions()"></p>
                 <div data-bind="foreach: { data: data, as: '_data' }">
@@ -65,7 +68,7 @@
                     </div>
                 </div>
             </div>
-
+            <!-- /ko -->
         </div>
         <div class="checkout-agreements-block">
             <!-- ko foreach: $parent.getRegion('before-place-order') -->

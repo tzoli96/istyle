@@ -7,5 +7,5 @@ use Monolog\Logger;
 class Handler extends Base
 {
     protected $loggerType = Logger::INFO;
-    protected $fileName = '/var/log/raiffeisen.log';
+    protected $fileName = '/var/log/oander_raiffeisen_error.log';
 }
