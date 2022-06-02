@@ -1,4 +1,4 @@
-# SimplePay Integration
+# Raiffeisen Payment Integration
 
 This extension adds a new payment method to Magento 2 for the RaiffeisenPayment.
 
