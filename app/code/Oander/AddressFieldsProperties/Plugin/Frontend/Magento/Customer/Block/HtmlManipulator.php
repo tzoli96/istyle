@@ -1,10 +1,10 @@
 <?php
 
-namespace Oander\AddressFieldsProperties\Plugin\Frontend\Magento\Customer\Block\Address;
+namespace Oander\AddressFieldsProperties\Plugin\Frontend\Magento\Customer\Block;
 
 use Oander\AddressFieldsProperties\Plugin\Frontend\Magento\Customer\Helper\Address as AddressHelper;
 
-class Edit
+class HtmlManipulator
 {
     /**
      * @var \Oander\AddressFieldsProperties\Helper\Config
@@ -23,7 +23,7 @@ class Edit
     }
 
     public function afterToHtml(
-        \Magento\Customer\Block\Address\Edit $subject,
+        $subject,
         $result
     ) {
         $dom = new \DomDocument();
