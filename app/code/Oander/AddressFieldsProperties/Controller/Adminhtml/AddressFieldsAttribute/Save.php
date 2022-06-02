@@ -2,8 +2,17 @@
 
 namespace Oander\AddressFieldsProperties\Controller\Adminhtml\AddressFieldsAttribute;
 
+use Magento\Backend\App\Action\Context as Context;
+use Magento\Backend\Model\View\Result\Redirect as Redirect;
+use Magento\Customer\Api\AddressMetadataInterface as AddressMetadataInterface;
+use Magento\Eav\Api\Data\AttributeInterface as AttributeInterface;
+use Magento\Eav\Model\Config as Config;
+use Magento\Eav\Model\ResourceModel\Entity\Attribute\Collection as Collection;
+use Magento\Framework\App\Request\DataPersistorInterface as DataPersistorInterface;
+use Magento\Framework\Controller\ResultInterface as ResultInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Store\Model\ScopeInterface;
+use Oander\AddressFieldsProperties\Helper\ConfigWriter as ConfigWriter;
 
 class Save extends \Magento\Backend\App\Action
 {
@@ -11,31 +20,31 @@ class Save extends \Magento\Backend\App\Action
 
     protected $dataPersistor;
     /**
-     * @var \Magento\Eav\Model\ResourceModel\Entity\Attribute\Collection
+     * @var Collection
      */
     private $eavCollection;
     /**
-     * @var \Oander\AddressFieldsProperties\Helper\ConfigWriter
+     * @var ConfigWriter
      */
     private $configWriter;
     /**
-     * @var \Magento\Eav\Model\Config
+     * @var Config
      */
     private $_eavConfig;
 
     /**
-     * @param \Magento\Backend\App\Action\Context $context
-     * @param \Magento\Framework\App\Request\DataPersistorInterface $dataPersistor
-     * @param \Magento\Eav\Model\ResourceModel\Entity\Attribute\Collection $eavCollection
-     * @param \Magento\Eav\Model\Config $eavConfig
-     * @param \Oander\AddressFieldsProperties\Helper\ConfigWriter $configWriter
+     * @param Context $context
+     * @param DataPersistorInterface $dataPersistor
+     * @param Collection $eavCollection
+     * @param Config $eavConfig
+     * @param ConfigWriter $configWriter
      */
     public function __construct(
-        \Magento\Backend\App\Action\Context $context,
-        \Magento\Framework\App\Request\DataPersistorInterface $dataPersistor,
-        \Magento\Eav\Model\ResourceModel\Entity\Attribute\Collection $eavCollection,
-        \Magento\Eav\Model\Config $eavConfig,
-        \Oander\AddressFieldsProperties\Helper\ConfigWriter $configWriter
+        Context                                             $context,
+        DataPersistorInterface                              $dataPersistor,
+        Collection                                          $eavCollection,
+        Config                                              $eavConfig,
+        ConfigWriter $configWriter
     ) {
         parent::__construct($context);
         $this->dataPersistor = $dataPersistor;
@@ -47,11 +56,11 @@ class Save extends \Magento\Backend\App\Action
     /**
      * Save action
      *
-     * @return \Magento\Framework\Controller\ResultInterface
+     * @return ResultInterface
      */
     public function execute()
     {
-        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
+        /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultRedirectFactory->create();
         $data = $this->getRequest()->getPostValue();
 
@@ -64,12 +73,12 @@ class Save extends \Magento\Backend\App\Action
             elseif($this->getRequest()->getParam('website_id'))
                 $requestParams["website"] = $this->getRequest()->getParam('website_id');
 
-            $entityTypeId = $this->_eavConfig->getEntityType(\Magento\Customer\Api\AddressMetadataInterface::ENTITY_TYPE_ADDRESS)->getId();
+            $entityTypeId = $this->_eavConfig->getEntityType(AddressMetadataInterface::ENTITY_TYPE_ADDRESS)->getId();
             $this->eavCollection
-                ->addFieldToSelect(\Magento\Eav\Api\Data\AttributeInterface::ATTRIBUTE_ID)
-                ->addFieldToSelect(\Magento\Eav\Api\Data\AttributeInterface::FRONTEND_LABEL)
-                ->addFieldToFilter(\Magento\Eav\Api\Data\AttributeInterface::ATTRIBUTE_ID, $id)
-                ->addFieldToFilter(\Magento\Eav\Api\Data\AttributeInterface::ENTITY_TYPE_ID, $entityTypeId);
+                ->addFieldToSelect(AttributeInterface::ATTRIBUTE_ID)
+                ->addFieldToSelect(AttributeInterface::FRONTEND_LABEL)
+                ->addFieldToFilter(AttributeInterface::ATTRIBUTE_ID, $id)
+                ->addFieldToFilter(AttributeInterface::ENTITY_TYPE_ID, $entityTypeId);
             if ($this->eavCollection->getSize()!==1) {
                 $this->messageManager->addErrorMessage(__('This Addressfieldsattribute no longer exists.'));
                 return $resultRedirect->setPath('*/*/');
