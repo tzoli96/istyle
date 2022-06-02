@@ -25,11 +25,8 @@
             <!-- ko template: getTemplate() --><!-- /ko -->
             <!--/ko-->
 
-            <!-- ko if: getInstructions() -->
             <p data-bind="html: getInstructions()"></p>
-            <!--/ko-->
 
-            <!-- ko if: getEligibilityQuestions() -->
             <div class="raiffeisen-payment__questions">
                 <p data-bind="html: getEligibilityQuestions()"></p>
                 <div data-bind="foreach: { data: data, as: '_data' }">
@@ -68,7 +65,6 @@
                     </div>
                 </div>
             </div>
-            <!-- /ko -->
         </div>
         <div class="checkout-agreements-block">
             <!-- ko foreach: $parent.getRegion('before-place-order') -->
