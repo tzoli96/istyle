@@ -7,6 +7,12 @@
         <plugin name="Oander_AddressFieldsProperties_Plugin_Frontend_Magento_Checkout_Block_Checkout_LayoutProcessor" type="Oander\AddressFieldsProperties\Plugin\Frontend\Magento\Checkout\Block\Checkout\LayoutProcessor" sortOrder="100" disabled="false"/>
     </type>
     <type name="Magento\Customer\Block\Address\Edit">
-        <plugin name="Oander_AddressFieldsProperties_Plugin_Frontend_Magento_Customer_Block_Address_Edit" type="Oander\AddressFieldsProperties\Plugin\Frontend\Magento\Customer\Block\Address\Edit" sortOrder="10" disabled="false"/>
+        <plugin name="Oander_AddressFieldsProperties_Plugin_Frontend_Magento_Customer_Block_Address_Edit" type="Oander\AddressFieldsProperties\Plugin\Frontend\Magento\Customer\Block\HtmlManipulator" sortOrder="10" disabled="false"/>
+    </type>
+    <type name="Magento\Customer\Block\Form\Register">
+        <plugin name="Oander_AddressFieldsProperties_Plugin_Frontend_Magento_Customer_Block_Form_Register" type="Oander\AddressFieldsProperties\Plugin\Frontend\Magento\Customer\Block\HtmlManipulator" sortOrder="10" disabled="false"/>
+    </type>
+    <type name="Magento\Customer\Block\Form\Edit">
+        <plugin name="Oander_AddressFieldsProperties_Plugin_Frontend_Magento_Customer_Block_Form_Edit" type="Oander\AddressFieldsProperties\Plugin\Frontend\Magento\Customer\Block\HtmlManipulator" sortOrder="10" disabled="false"/>
     </type>
 </config>

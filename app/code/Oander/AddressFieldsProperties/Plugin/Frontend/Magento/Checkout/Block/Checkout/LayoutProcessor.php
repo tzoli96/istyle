@@ -4,27 +4,39 @@ declare(strict_types=1);
 
 namespace Oander\AddressFieldsProperties\Plugin\Frontend\Magento\Checkout\Block\Checkout;
 
+use Magento\Checkout\Block\Checkout\LayoutProcessor as OrigLayoutProcessor;
+use Oander\AddressFieldsProperties\Helper\Config as ConfigHelper;
+
+/**
+ * Manipulating checkout fields with validation and formatting
+ */
 class LayoutProcessor
 {
     /**
-     * @var \Oander\AddressFieldsProperties\Helper\Config
+     * @var ConfigHelper
      */
     private $configHelper;
 
     /**
      * LayoutProcessor constructor.
-     * @param \Oander\AddressFieldsProperties\Helper\Config $configHelper
+     * @param ConfigHelper $configHelper
      */
     public function __construct(
-        \Oander\AddressFieldsProperties\Helper\Config $configHelper
+        ConfigHelper $configHelper
     )
     {
         $this->configHelper = $configHelper;
     }
 
+    /**
+     * Manipulate LayoutProcessor with fields formating, placeholder and validations
+     * @param OrigLayoutProcessor $subject
+     * @param $result
+     * @return mixed
+     */
     public function afterProcess(
-        \Magento\Checkout\Block\Checkout\LayoutProcessor $subject,
-        $result
+        OrigLayoutProcessor $subject,
+        array $result
     ) {
         if(
             isset($result['components']['checkout']['children']['steps']['children']['billing-step']['children']
@@ -70,6 +82,12 @@ class LayoutProcessor
         return $result;
     }
 
+    /**
+     * Add Formating and Validations and Placeholder to field
+     * @param string $attributeCode
+     * @param array $field
+     * @return void
+     */
     private function addProperties($attributeCode, &$field)
     {
         if(isset($field["children"]) && is_array($field["children"]))
@@ -90,6 +108,12 @@ class LayoutProcessor
         }
     }
 
+    /**
+     * Add Formating to field
+     * @param string $attributeCode
+     * @param string $origClasses
+     * @return string
+     */
     private function addFormattingClasses($attributeCode, $origClasses = "")
     {
         $classes = $this->configHelper->getFormattingClasses($attributeCode, true);
@@ -97,6 +121,12 @@ class LayoutProcessor
         return implode(" ", $classes);
     }
 
+    /**
+     * Add Validations to field
+     * @param string $attributeCode
+     * @param string $origValidations
+     * @return array
+     */
     private function addValidations($attributeCode, $origValidations = [])
     {
         $classes = $this->configHelper->getValidations($attributeCode);
@@ -104,6 +134,12 @@ class LayoutProcessor
         return $classes;
     }
 
+    /**
+     * Add Placeholder to field
+     * @param string $attributeCode
+     * @param string $origPlaceholder
+     * @return string
+     */
     private function addPlaceHolder($attributeCode, $origPlaceholder = "")
     {
         $placeholder = $this->configHelper->getPlaceholder($attributeCode);

@@ -4,6 +4,7 @@ namespace Oander\AddressFieldsProperties\Helper;
 
 /**
  * Class Config
+ * Helper to simplify adding properties to layout ot html DOM
  */
 class Config
 {

@@ -2,39 +2,41 @@
 
 namespace Oander\AddressFieldsProperties\Plugin\Frontend\Magento\Customer\Helper;
 
+use Magento\Customer\Helper\Address as OrigAddress;
+use Oander\AddressFieldsProperties\Helper\Config as ConfigHelper;
+
 /**
  * Class Address. Plugin to add classes for address fields in profile address edit.
- * @package Oander\SimpleVATNumberValidation\Plugin\Frontend\Magento\Customer\Helper
  */
 class Address
 {
     const ADDRESSATTRIBUTE_CLASS = "oanderaddressattribute";
     /**
-     * @var \Oander\AddressFieldsProperties\Helper\Config
+     * @var ConfigHelper
      */
     private $configHelper;
 
     /**
      * Address constructor.
-     * @param \Oander\AddressFieldsProperties\Helper\Config $configHelper
+     * @param ConfigHelper $configHelper
      */
     public function __construct(
-        \Oander\AddressFieldsProperties\Helper\Config $configHelper
+        ConfigHelper $configHelper
     )
     {
         $this->configHelper = $configHelper;
     }
 
     /**
-     * @param \Magento\Customer\Helper\Address $subject
+     * @param OrigAddress $subject
      * @param \Closure $proceed
      * @param string $attributeCode
      * @return mixed|string
      */
     public function aroundGetAttributeValidationClass(
-        \Magento\Customer\Helper\Address $subject,
-        \Closure $proceed,
-        $attributeCode
+        OrigAddress $subject,
+        \Closure      $proceed,
+                      $attributeCode
     ) {
         $result = $proceed($attributeCode);
         $formatsAndValidations = $this->configHelper->getFormattingClasses($attributeCode, true);
