@@ -25,6 +25,7 @@ define([
       template: 'Magento_Checkout/shipping-address/address-renderer/default'
     },
     hasSelectedAddress: formState.hasSelectedAddress,
+    enableScrollToForm: true,
 
     initObservable: function () {
       this._super();
@@ -54,7 +55,10 @@ define([
               $('.form-shipping-address input[name=postcode]').val(shippingMethod.expressShippingPostalCode);
           }
 
-          setTimeout(self.scrollToForm, 500);
+          if (self.enableScrollToForm) {
+            setTimeout(self.scrollToForm, 500);
+            self.enableScrollToForm = false;
+          }
         }
       }, this);
       return this;
@@ -70,6 +74,7 @@ define([
       formState.isVisible(false);
 
       formState.hasSelectedAddress(true);
+      this.enableScrollToForm = true;
     },
 
     editAddress: function () {
