@@ -15,19 +15,21 @@ class Config extends AbstractHelper
      * @var StoreManagerInterface
      */
     protected $storeManager;
+
     /**
      * @var array
      */
     protected $general;
+
     /**
      * @var PriceFactory
      */
     private $price;
 
     /**
-     * Config constructor.
-     *
      * @param Context $context
+     * @param PriceFactory $priceFactory
+     * @param StoreManagerInterface $storeManager
      */
     public function __construct(
         Context               $context,
@@ -43,7 +45,6 @@ class Config extends AbstractHelper
             ScopeInterface::SCOPE_STORE
         );
         $this->price->setCurrency($this->storeManager->getStore()->getCurrentCurrency()->getCode());
-
     }
 
     /**

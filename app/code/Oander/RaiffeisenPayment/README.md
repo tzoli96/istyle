@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # SimplePay Integration
+=======
+# Raiffeisen Payment Integration
+>>>>>>> origin/aws-deploy-dev
 
 This extension adds a new payment method to Magento 2 for the RaiffeisenPayment.
 

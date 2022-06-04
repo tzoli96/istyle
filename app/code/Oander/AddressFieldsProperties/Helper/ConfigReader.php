@@ -4,6 +4,9 @@ namespace Oander\AddressFieldsProperties\Helper;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 
+/**
+ * Specific system config Reader
+ */
 class ConfigReader extends ConfigAbstract {
 
     /**

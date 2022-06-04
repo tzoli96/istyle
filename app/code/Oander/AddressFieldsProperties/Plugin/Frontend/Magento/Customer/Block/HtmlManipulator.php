@@ -1,30 +1,41 @@
 <?php
 
-namespace Oander\AddressFieldsProperties\Plugin\Frontend\Magento\Customer\Block\Address;
+namespace Oander\AddressFieldsProperties\Plugin\Frontend\Magento\Customer\Block;
 
+use Magento\Framework\View\Element\AbstractBlock as AbstractBlock;
+use Oander\AddressFieldsProperties\Helper\Config as ConfigHelper;
 use Oander\AddressFieldsProperties\Plugin\Frontend\Magento\Customer\Helper\Address as AddressHelper;
 
-class Edit
+/**
+ * Manipulate Block HTML output with placeholder and error message
+ */
+class HtmlManipulator
 {
     /**
-     * @var \Oander\AddressFieldsProperties\Helper\Config
+     * @var ConfigHelper
      */
     private $configHelper;
 
     /**
      * Edit constructor.
-     * @param \Oander\AddressFieldsProperties\Helper\Config $configHelper
+     * @param ConfigHelper $configHelper
      */
     public function __construct(
-        \Oander\AddressFieldsProperties\Helper\Config $configHelper
+        ConfigHelper $configHelper
     )
     {
         $this->configHelper = $configHelper;
     }
 
+    /**
+     * Manipulate Block HTML output with placeholder and error message
+     * @param $subject
+     * @param string $result
+     * @return string
+     */
     public function afterToHtml(
-        \Magento\Customer\Block\Address\Edit $subject,
-        $result
+        AbstractBlock $subject,
+        string        $result
     ) {
         $dom = new \DomDocument();
         $dom->loadHTML($result);
@@ -39,6 +50,12 @@ class Edit
         return $result;
     }
 
+    /**
+     * Manipulate placeholder and error message to DOMNode
+     * @param \DOMNode $node
+     * @param string $result
+     * @return void
+     */
     private function addProperties(&$node, &$result)
     {
         $attributeCode = $this->_getAttributeCode($node);
@@ -70,6 +87,14 @@ class Edit
         }
     }
 
+    /**
+     * Try to replace existing DOMNode property if exist and return true, in other case just return false
+     * @param \DOMNode $node
+     * @param string $result
+     * @param string $property
+     * @param string $value
+     * @return bool
+     */
     private function _tryReplaceProperty(&$node, &$result, $property, $value)
     {
         if ($oldValue = $node->getAttribute($property)) {
@@ -79,9 +104,13 @@ class Edit
         return false;
     }
 
+    /**
+     * Get attribute code placed in classes in previous steps
+     * @param \DOMNode $node
+     * @return string|null
+     */
     private function _getAttributeCode(&$node)
     {
-        $attributeCode = null;
         $classes = $node->getAttribute("class");
         if(!empty($classes))
         {

@@ -2,6 +2,10 @@
 
 namespace Oander\AddressFieldsProperties\Controller\Adminhtml\AddressFieldsAttribute;
 
+use Magento\Backend\App\Action\Context as Context;
+use Magento\Framework\Controller\ResultInterface as ResultInterface;
+use Magento\Framework\View\Result\PageFactory as PageFactory;
+
 class Index extends \Magento\Backend\App\Action
 {
 
@@ -12,12 +16,12 @@ class Index extends \Magento\Backend\App\Action
     /**
      * Constructor
      *
-     * @param \Magento\Backend\App\Action\Context $context
-     * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
+     * @param Context $context
+     * @param PageFactory $resultPageFactory
      */
     public function __construct(
-        \Magento\Backend\App\Action\Context $context,
-        \Magento\Framework\View\Result\PageFactory $resultPageFactory
+        Context     $context,
+        PageFactory $resultPageFactory
     ) {
         $this->resultPageFactory = $resultPageFactory;
         parent::__construct($context);
@@ -26,7 +30,7 @@ class Index extends \Magento\Backend\App\Action
     /**
      * Index action
      *
-     * @return \Magento\Framework\Controller\ResultInterface
+     * @return ResultInterface
      */
     public function execute()
     {

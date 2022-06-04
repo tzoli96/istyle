@@ -4,6 +4,9 @@ namespace Oander\AddressFieldsProperties\Helper;
 
 use Magento\Framework\App\Config\ScopeConfigInterface;
 
+/**
+ * Specific system config Writer
+ */
 class ConfigWriter extends ConfigAbstract {
     /**
      * @var \Magento\Framework\App\Config\Storage\WriterInterface
