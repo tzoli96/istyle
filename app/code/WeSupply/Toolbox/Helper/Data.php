@@ -158,8 +158,8 @@ class Data extends AbstractHelper
         CatalogSession $catalogSession,
         CustomerSession $customerSession,
         CountryFactory $countryFactory,
-        UrlInterface $urlInterface,
-        RemoteAddress $remoteAddress,
+        //UrlInterface $urlInterface,//REMOVED BY ER58124
+        //RemoteAddress $remoteAddress,//REMOVED BY ER58124
         Http $request,
         ThemeProviderInterface $themeProvider,
         AllowedCountries $allowedCountries,
@@ -176,8 +176,8 @@ class Data extends AbstractHelper
         $this->customerSession = $customerSession;
         $this->allowedCountries = $allowedCountries;
         $this->countryFactory = $countryFactory;
-        $this->_urlInterface = $urlInterface;
-        $this->remoteAddress = $remoteAddress;
+        $this->_urlInterface = $context->getUrlBuilder();
+        $this->remoteAddress = $context->getRemoteAddress();
         $this->request = $request;
         $this->themeProvider = $themeProvider;
         $this->logger = $logger;
