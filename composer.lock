@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dcba0eee26cbada01ad04b2b29dcd05b",
+    "content-hash": "9c3074cedfa8e9fccea356996144b251",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -882,6 +882,20 @@
                 "ssl",
                 "tls"
             ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2022-05-24T11:56:16+00:00"
         },
         {
@@ -1078,6 +1092,20 @@
                 "license",
                 "spdx",
                 "validator"
+            ],
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
             ],
             "time": "2022-05-23T07:37:50+00:00"
         },
@@ -1338,6 +1366,20 @@
                 "rest",
                 "web service"
             ],
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/guzzle",
+                    "type": "tidelift"
+                }
+            ],
             "time": "2022-05-25T13:19:12+00:00"
         },
         {
@@ -1495,6 +1537,20 @@
                 "stream",
                 "uri",
                 "url"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/psr7",
+                    "type": "tidelift"
+                }
             ],
             "time": "2022-03-20T21:51:18+00:00"
         },
@@ -9521,11 +9577,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "dev-feature/55893-profile-page-reservation-facelift",
+            "version": "dev-bugfix/56244-summary-item-price-doesnt-include-tax",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "c2d1444eb6a9fc33e180b2cae1329dc32744b8f7"
+                "reference": "d5d369337b7506d412475e95a4817c5685ed4d2f"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9554,7 +9610,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2022-05-18T19:32:29+00:00"
+            "time": "2022-06-07T10:15:13+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -10140,7 +10196,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "7dd2ea223b7c50450cee91c76241bebb8e11802b"
+                "reference": "2b13ff6a28ca3cf20ead94cf06b5c1835b1eee97"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10156,7 +10212,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2022-06-03T07:32:36+00:00"
+            "time": "2022-06-07T08:50:24+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10410,6 +10466,20 @@
                 "twofish",
                 "x.509",
                 "x509"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/terrafrost",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpseclib",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
+                    "type": "tidelift"
+                }
             ],
             "time": "2022-04-04T04:57:45+00:00"
         },
@@ -10748,6 +10818,16 @@
                 "linter",
                 "parser",
                 "validator"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/Seldaek",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/seld/jsonlint",
+                    "type": "tidelift"
+                }
             ],
             "time": "2022-04-01T13:37:23+00:00"
         },
@@ -14931,5 +15011,6 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
