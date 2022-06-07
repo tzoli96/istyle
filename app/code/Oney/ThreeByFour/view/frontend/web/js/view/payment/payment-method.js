@@ -54,7 +54,6 @@ define(
             },
             afterPlaceOrder: function () {
                 window.location.replace(window.checkoutConfig.payment.oney_facilypay.redirect_url);
-                sleep(5);
             },
             getTitle: function () {
                 return config.getTitle(this.getCode());
