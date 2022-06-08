@@ -52,8 +52,8 @@ define(
                 })
                 return true;
             },
-            sleep: function(s) {
-                var start = new Date().getTime(), expire = start + s;
+            sleep: function(ms) {
+                var start = new Date().getTime(), expire = start + ms;
                 while (new Date().getTime() < expire) {}
             },
             afterPlaceOrder: function () {
