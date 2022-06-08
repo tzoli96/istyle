@@ -52,7 +52,7 @@ define(
                 })
                 return true;
             },
-            sleep: function(ms) {
+            sleep: function(s) {
                 var start = new Date().getTime(), expire = start + s;
                 while (new Date().getTime() < expire) {}
             },
