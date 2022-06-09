@@ -251,6 +251,9 @@
             },
             "magento/framework": {
                 "57601_interface" : "patches/magento/framework/collectionProcessorCreate.patch"
+            },
+            "magento/magento2-base": {
+                "57601_interface" : "patches/magento/magento2-base/collectionProcessorDiXMLCreate.patch"
             }
         }
     },
