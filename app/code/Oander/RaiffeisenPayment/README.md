@@ -14,6 +14,8 @@ This extension adds a new payment method to Magento 2 for the RaiffeisenPayment.
 
 The extension can be installed using Composer (_recommended_) or directly from the Git repository (available on Github).
 
+**Create a directory /pub/media/raiffeisen_pdf before install the extension.**
+
 ### From Git
 
 Clone the extension files in your Magento installation's `app/code` directory:
