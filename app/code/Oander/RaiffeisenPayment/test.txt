@@ -1,7 +1,0 @@
-Added a test endpoint which can handle pdf generator without place order.
-This endpoint will use 1 order_entity_number
-GET /raiffeisen/payment/index
-
-After completing the development, delete the following files:
-- Oander\RaiffeisenPayment\Controller\Payment\Index
-- Oander\RaiffeisenPayment\test.txt
