@@ -258,6 +258,9 @@
             },
             "magento/magento2-base": {
                 "57601_interface" : "patches/magento/magento2-base/collectionProcessorDiXMLCreate.patch"
+            },
+            "magento/module-checkout": {
+                "57601_successpage" : "patches/magento/module-checkout/checkout_onepage_controller_success_action-EventadditionalData.patch"
             }
         }
     },
