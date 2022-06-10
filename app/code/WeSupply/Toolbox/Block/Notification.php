@@ -43,7 +43,7 @@ class Notification extends Template
         \Magento\Checkout\Model\Session $checkoutSession,
         \WeSupply\Toolbox\Helper\Data $helper,
         \WeSupply\Toolbox\Helper\PhoneCodes $phoneCodes,
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
+        //\Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,//REMOVED BY ER58124
         \Magento\Sales\Api\OrderRepositoryInterface $orderRepository,
         array $data = []
     ) {
@@ -52,7 +52,7 @@ class Notification extends Template
         $this->orderRepository = $orderRepository;
         $this->helper = $helper;
         $this->phoneCodes = $phoneCodes;
-        $this->scopeConfig = $scopeConfig;
+        $this->scopeConfig = $context->getScopeConfig();
       }
 
     /**

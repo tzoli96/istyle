@@ -32,12 +32,12 @@ class CreateShipment extends Action
     public function __construct(
         Context $context,
         JsonFactory $jsonFactory,
-        ObjectManagerInterface $objectManager,
+        //ObjectManagerInterface $objectManager,//REMOVED BY ER58124
         OrderItemInterface $orderItemRepository
     )
     {
         $this->resultJsonFactory = $jsonFactory;
-        $this->_objectManager = $objectManager;
+        $this->_objectManager = $context->getObjectManager();
         $this->orderItemRepository = $orderItemRepository;
 
         parent::__construct($context);

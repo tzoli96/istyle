@@ -226,7 +226,7 @@ class Returns extends Action
         StoreManagerInterface $storeManager,
         DateTimeFactory $dateTimeFactory,
         GiftcardInterface $giftCardInterface,
-        ManagerInterface $messageManager,
+        //ManagerInterface $messageManager,//REMOVED BY ER58124
         WeSupplyApiInterface $weSupplyApiInterface,
         PriceHelper $priceHelper,
         Helper $helper,
@@ -246,7 +246,7 @@ class Returns extends Action
         $this->storeManager = $storeManager;
         $this->dateTimeFactory = $dateTimeFactory;
         $this->giftCardInterface = $giftCardInterface;
-        $this->messageManager = $messageManager;
+        $this->messageManager = $context->getMessageManager();
         $this->weSupplyApiInterface = $weSupplyApiInterface;
         $this->priceHelper = $priceHelper;
         $this->logger = $logger;

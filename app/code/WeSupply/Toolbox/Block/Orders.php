@@ -51,7 +51,7 @@ class Orders extends Template
     public function __construct(
         Context $context,
         Helper $helper,
-        SessionManagerInterface $session,
+        //SessionManagerInterface $session,//REMOVED BY ER58124
         CustomerSession $customerSession,
         WeSupplyApiInterface $weSupplyApi
     )
@@ -59,7 +59,7 @@ class Orders extends Template
         $this->_isScopePrivate = true;
 
         $this->_helper = $helper;
-        $this->_session = $session;
+        $this->_session = $context->getSession();
         $this->customerSession = $customerSession;
         $this->weSupplyApi = $weSupplyApi;
 

@@ -32,13 +32,13 @@ class StoreIdsList extends Field
      * @param array $data
      */
     public function __construct(
-        \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Magento\Framework\Escaper $escaper,
+        //\Magento\Store\Model\StoreManagerInterface $storeManager,//REMOVED BY ER58124
+        //\Magento\Framework\Escaper $escaper,//REMOVED BY ER58124
         Context $context,
         array $data = []
     ) {
-        $this->_escaper = $escaper;
-        $this->storeManager = $storeManager;
+        $this->_escaper = $context->getEscaper();
+        $this->storeManager = $context->getStoreManager();
         parent::__construct($context, $data);
     }
 

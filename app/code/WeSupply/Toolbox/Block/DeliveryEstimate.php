@@ -82,7 +82,7 @@ class DeliveryEstimate extends Template
     public function __construct(
         Context $context,
         SerializerInterface $serializer,
-        ScopeConfigInterface $scopeConfig,
+        //ScopeConfigInterface $scopeConfig,//REMOVED BY ER58124
         CheckoutSession $session,
         CustomerSession $customerSession,
         CatalogSession $catalogSession,
@@ -95,7 +95,7 @@ class DeliveryEstimate extends Template
         $this->checkoutSession = $session;
         $this->customerSession = $customerSession;
         $this->catalogSession = $catalogSession;
-        $this->scopeConfig = $scopeConfig;
+        $this->scopeConfig = $context->getScopeConfig();
         $this->catalogHelper = $catalogHelper;
         
         $this->setCurrentProduct();

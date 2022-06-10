@@ -38,12 +38,12 @@ class SpecificEstimationRanges extends Field
      */
     public function __construct(
         Context $context,
-        Escaper $escaper,
+        //Escaper $escaper,//REMOVED BY ER58124
 
         array $data = []
     )
     {
-        $this->_escaper = $escaper;
+        $this->_escaper = $context->getEscaper();
         parent::__construct($context, $data);
     }
 

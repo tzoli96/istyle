@@ -149,7 +149,7 @@ class Estimates extends AbstractHelper
         GroupRepositoryInterface $groupRepository,
         CategoryRepositoryInterface $categoryRepository,
         StoreManagerInterface $storeManager,
-        ScopeConfigInterface $scopeConfig,
+        //ScopeConfigInterface $scopeConfig,//REMOVED BY ER58124
         Json $json,
         ShippingConfig $shipConfig,
         Logger $logger
@@ -164,7 +164,7 @@ class Estimates extends AbstractHelper
         $this->groupRepository = $groupRepository;
         $this->categoryRepository = $categoryRepository;
         $this->storeManager = $storeManager;
-        $this->scopeConfig = $scopeConfig;
+        $this->scopeConfig = $context->getScopeConfig();
         $this->json = $json;
         $this->shipConfig = $shipConfig;
         $this->logger = $logger;
