@@ -77,12 +77,16 @@ class Data extends AbstractHelper
      */
     public function getMaxRedeemablePoints($quote = null)
     {
-        $maxPoints = 0.0;
         $quote = $this->_getQuote($quote);
         $grandTotal = ($quote->getData(Attribute::LOYALTY_DISCOUNT)) ? $quote->getGrandTotal() + $quote->getData(Attribute::LOYALTY_DISCOUNT)
             : $quote->getGrandTotal();
+        return $this->getMaxRedeemablePointsBySum($grandTotal);
+    }
+
+    public function getMaxRedeemablePointsBySum($calcTotal) {
+        $maxPoints = 0.0;
         if($this->configHelper->getMaxPercent() && $this->configHelper->getPointValue()>0) {
-            $maxSum = floatval($grandTotal) * (floatval($this->configHelper->getMaxPercent()) / 100);
+            $maxSum = floatval($calcTotal) * (floatval($this->configHelper->getMaxPercent()) / 100);
             $maxPoints = $this->convertAmountToPoint($maxSum);
         }
         return round($maxPoints);

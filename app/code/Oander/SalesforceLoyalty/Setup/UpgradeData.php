@@ -156,6 +156,9 @@ class UpgradeData implements UpgradeDataInterface
         if (version_compare($context->getVersion(), "1.1.4", "<") && version_compare($context->getVersion(), "1.1.2", ">")) {
             $this->removeCMSBlock('loyalty_nosfid');
         }
+        if (version_compare($context->getVersion(), "1.1.5", "<")) {
+            $this->addQuoteAddressLoyaltyAttribute($setup);
+        }
     }
 
     /**
@@ -301,6 +304,20 @@ class UpgradeData implements UpgradeDataInterface
                 'system' => 1,
                 'group' => 'General',
                 'option' => ['values' => [""]]
+            ]
+        );
+    }
+
+    private function addQuoteAddressLoyaltyAttribute(ModuleDataSetupInterface $setup)
+    {
+        $setup->getConnection()->addColumn($setup->getTable('quote_address'),
+            'loyalty_discount_amount',
+            [
+                'type' => \Magento\Framework\DB\Ddl\Table::TYPE_DECIMAL,
+                'length' => '12,4',
+                'nullable' => false,
+                'default' => '0.0000',
+                'comment' => 'Loyalty Amount'
             ]
         );
     }

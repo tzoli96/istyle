@@ -16,7 +16,7 @@
 >
     <div class="card card--checkout-step-header">
         <span class="card__title" data-bind="i18n: 'Shipping method'"></span>
-        <span class="card__action" data-bind="i18n: 'Edit', visible: isCardEditVisible('shippingMethod')"></span>
+        <span class="card__action" data-bind="i18n: 'Edit', visible: isCardEditVisible('shippingMethod'), click: triggerShippingMethodsAction"></span>
         <div class="card__content"><span data-bind="i18n: getShippingMethod()"></span></div>
     </div>
     <div class="block__content">

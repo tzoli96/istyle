@@ -1,10 +1,10 @@
 <?php
-
 /**
  * Used in creating options for Validation config value selection
- *
  */
 namespace Oander\AddressFieldsProperties\Model\Config\Source;
+
+use Oander\AddressFieldsProperties\Enum\ValidationType as ValidationTypeEnum;
 
 class ValidationType implements \Magento\Framework\Option\ArrayInterface
 {
@@ -31,9 +31,9 @@ class ValidationType implements \Magento\Framework\Option\ArrayInterface
     public function toArray()
     {
         return [
-            \Oander\AddressFieldsProperties\Enum\ValidationType::VALIDATIONTYPE_OFF => __('No'),
-            \Oander\AddressFieldsProperties\Enum\ValidationType::VALIDATIONTYPE_STRINGLENGTH => __('String Length'),
-            \Oander\AddressFieldsProperties\Enum\ValidationType::VALIDATIONTYPE_FULLREGEX => __('Full Regex')
+            ValidationTypeEnum::VALIDATIONTYPE_OFF => __('No'),
+            ValidationTypeEnum::VALIDATIONTYPE_STRINGLENGTH => __('String Length'),
+            ValidationTypeEnum::VALIDATIONTYPE_FULLREGEX => __('Full Regex')
         ];
     }
 }

@@ -10,4 +10,5 @@ final class Config extends BaseEnum
 
     const GENERAL_ENABLED           = 'enabled';
     const ROUNDING_RULE             = 'rounding_rule';
+    const SALES_CODE                = 'external_rounding';
 }

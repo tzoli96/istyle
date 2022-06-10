@@ -9643,11 +9643,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "dev-feature/55893-profile-page-reservation-facelift",
+            "version": "dev-bugfix/56244-summary-item-price-doesnt-include-tax",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "c2d1444eb6a9fc33e180b2cae1329dc32744b8f7"
+                "reference": "1dcefd27ea7cbef7961c62fd33405880054aa7d7"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9676,7 +9676,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2022-05-18T19:32:29+00:00"
+            "time": "2022-06-09T11:21:32+00:00"
         },
         {
             "name": "oander/module-shipping",

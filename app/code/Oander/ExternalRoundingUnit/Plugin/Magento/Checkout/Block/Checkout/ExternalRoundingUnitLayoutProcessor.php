@@ -3,8 +3,6 @@
 namespace Oander\ExternalRoundingUnit\Plugin\Magento\Checkout\Block\Checkout;
 
 use Magento\Checkout\Block\Checkout\LayoutProcessor;
-use Magento\Customer\Model\Session\Proxy;
-use Magento\Checkout\Model\Session as CheckoutSession;
 use Oander\ExternalRoundingUnit\Helper\Config;
 
 class ExternalRoundingUnitLayoutProcessor
@@ -13,28 +11,14 @@ class ExternalRoundingUnitLayoutProcessor
      * @var Config
      */
     private $helperConfig;
-    /**
-     * @var CheckoutSession
-     */
-    private $checkoutSession;
-    /**
-     * @var Proxy
-     */
-    private $customerSession;
 
     /**
-     * @param Proxy $customerSession
-     * @param CheckoutSession $checkoutSession
      * @param Config $helperConfig
      */
     public function __construct(
-        Proxy           $customerSession,
-        CheckoutSession $checkoutSession,
-        Config          $helperConfig
+        Config $helperConfig
     )
     {
-        $this->customerSession = $customerSession;
-        $this->checkoutSession = $checkoutSession;
         $this->helperConfig = $helperConfig;
     }
 

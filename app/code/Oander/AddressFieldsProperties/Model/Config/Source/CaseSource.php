@@ -1,8 +1,6 @@
 <?php
-
 /**
  * Used in creating options for Case config value selection
- *
  */
 namespace Oander\AddressFieldsProperties\Model\Config\Source;
 
