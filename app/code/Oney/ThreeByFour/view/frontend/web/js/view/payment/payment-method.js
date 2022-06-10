@@ -52,9 +52,17 @@ define(
                 })
                 return true;
             },
+            sleep: function(ms) {
+                var start = new Date().getTime(),
+                    expire = start + ms;
+
+                while (new Date().getTime() < expire) {}
+            },
             afterPlaceOrder: function () {
+                var self = this;
+
                 window.location.replace(window.checkoutConfig.payment.oney_facilypay.redirect_url);
-                sleep(5);
+                this.sleep(5);
             },
             getTitle: function () {
                 return config.getTitle(this.getCode());

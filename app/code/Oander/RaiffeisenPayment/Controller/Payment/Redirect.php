@@ -12,9 +12,15 @@ use Magento\Sales\Model\Order\Payment;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\Controller\ResultFactory;
+use Oander\RaiffeisenPayment\Helper\PdfGenerator;
 
 class Redirect extends Action
 {
+    /**
+     * @var PdfGenerator
+     */
+    private $pdfGenerator;
+
     /**
      * @var RequestBuild
      */
@@ -41,18 +47,20 @@ class Redirect extends Action
 
 
     /**
-     * Redirect constructor.
-     *
+     * @param JsonFactory $_resultJsonFactory
+     * @param PageFactory $_resultPageFactory
      * @param Context $context
      * @param CheckoutSession $checkoutSession
      * @param ConfigValueHandler $config
+     * @param PdfGenerator $pdfGenerator
      */
     public function __construct(
         JsonFactory        $_resultJsonFactory,
         PageFactory        $_resultPageFactory,
         Context            $context,
         CheckoutSession    $checkoutSession,
-        ConfigValueHandler $config
+        ConfigValueHandler $config,
+        PdfGenerator       $pdfGenerator
     )
     {
         $this->_resultJsonFactory = $_resultJsonFactory;
@@ -60,10 +68,12 @@ class Redirect extends Action
         parent::__construct($context);
         $this->checkoutSession = $checkoutSession;
         $this->config = $config;
+        $this->pdfGenerator = $pdfGenerator;
     }
 
     /**
      * @return RedirectResult
+     * @throws \Exception
      */
     public function execute()
     {
@@ -76,6 +86,7 @@ class Redirect extends Action
         if ($order instanceof Order) {
             /** @var Payment $payment */
             $payment = $order->getPayment();
+            $this->pdfGenerator->execute($order);
             $resultRedirect->setPath('checkout/onepage/success');
         }
         return $resultRedirect;
