@@ -25,7 +25,6 @@ define([
       template: 'Magento_Checkout/shipping-address/address-renderer/default'
     },
     hasSelectedAddress: formState.hasSelectedAddress,
-    enableScrollToForm: true,
 
     initObservable: function () {
       this._super();
@@ -54,11 +53,6 @@ define([
             $('.form-shipping-address input[name=postcode]').val() === '') {
               $('.form-shipping-address input[name=postcode]').val(shippingMethod.expressShippingPostalCode);
           }
-
-          if (self.enableScrollToForm) {
-            setTimeout(self.scrollToForm, 500);
-            self.enableScrollToForm = false;
-          }
         }
       }, this);
       return this;
@@ -74,11 +68,17 @@ define([
       formState.isVisible(false);
 
       formState.hasSelectedAddress(true);
-      this.enableScrollToForm = true;
     },
 
     editAddress: function () {
       formState.isVisible(true);
+        if ($('#new-shipping-address').length) {
+            $('html, body').animate({
+                scrollTop: $('#new-shipping-address').offset().top - 100
+            }, 500);
+
+            $('#shipping-new-address-form').find('.form-group').first().find('.form-control').focus();
+        }
     },
 
     validateShippingFields: function () {
@@ -87,16 +87,6 @@ define([
 
     sortCardAddress: function (address) {
       return sort.sortCardAddress(address, 'individual');
-    },
-
-    scrollToForm: function () {
-      if ($('#new-shipping-address').length) {
-        $('html, body').animate({
-          scrollTop: $('#new-shipping-address').offset().top - 100
-        }, 500);
-
-        $('#shipping-new-address-form').find('.form-group').first().find('.form-control').focus();
-      }
-    },
+    }
   });
 });
