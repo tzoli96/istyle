@@ -67,25 +67,37 @@ class Loyalty extends AbstractTotal
          *
          */
         parent::collect($quote, $shippingAssignment, $total);
-        $address = $shippingAssignment->getShipping()->getAddress();
-        $items = $this->_getAddressItems($address);
-
-        if (!count($items) || !$this->configHelper->isSpendingEnabled() || !$this->configHelper->getLoyaltyServiceEnabled() &&
-            !$this->loyaltyHelper->getMaxRedeemablePoints($quote) >= $quote->getData(Attribute::LOYALTY_POINT)) {
+        $total->addTotalAmount('loyalty_discount', 0);
+        $total->addBaseTotalAmount('loyalty_discount', 0);
+        $items = $shippingAssignment->getItems();
+        if (!count($items)) {
             return $this;
         }
-        $baseDiscount = $quote->getData(Attribute::LOYALTY_DISCOUNT);
+
+        if (!$this->configHelper->isSpendingEnabled() || !$this->configHelper->getLoyaltyServiceEnabled()) {
+            return $this;
+        }
+
+        $calcTotal = $total->getShippingInclTax() + $total->getSubtotalInclTax() + $total->getDiscountAmount();
+        if(!$calcTotal>0)
+            return $this;
+
+        if(!($this->loyaltyHelper->getMaxRedeemablePointsBySum($calcTotal) >= $quote->getData(Attribute::LOYALTY_POINT))) {
+            return $this;
+        }
+
+        $usedLoyaltyPoints = $quote->getData(Attribute::LOYALTY_POINT);
+        $baseDiscount = $this->loyaltyHelper->convertPointToAmount($usedLoyaltyPoints);
         $discount = $this->_priceCurrency->convert($baseDiscount);
-        $total->setTotalAmount('loyalty_discount', -$discount);
-        $total->setBaseTotalAmount('loyalty_discount', -$baseDiscount);
-        $total->setLoyaltyDiscount($baseDiscount);
+        $total->addTotalAmount('loyalty_discount', -$discount);
+        $total->addBaseTotalAmount('loyalty_discount', -$baseDiscount);
         return $this;
     }
 
     public function fetch(Quote $quote, Total $total)
     {
         $result = null;
-        $amount = $total->getLoyaltyDiscount();
+        $amount = $total->getLoyaltyDiscountAmount();
 
         if ($amount)
         {

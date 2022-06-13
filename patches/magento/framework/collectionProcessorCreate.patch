@@ -75,3 +75,757 @@ index 000000000000..8fdd244f9b45
 +     */
 +    public function process(SearchCriteriaInterface $searchCriteria, AbstractDb $collection);
 +}
+diff --git a/Api/SearchCriteria/CollectionProcessor/ConditionProcessor/CustomConditionInterface.php b/Api/SearchCriteria/CollectionProcessor/ConditionProcessor/CustomConditionInterface.php
+new file mode 100644
+index 000000000..8e03d0128
+--- /dev/null
++++ b/Api/SearchCriteria/CollectionProcessor/ConditionProcessor/CustomConditionInterface.php
+@@ -0,0 +1,34 @@
++<?php
++/**
++ * Copyright © Magento, Inc. All rights reserved.
++ * See COPYING.txt for license details.
++ */
++declare(strict_types=1);
++
++namespace Magento\Framework\Api\SearchCriteria\CollectionProcessor\ConditionProcessor;
++
++use Magento\Framework\Api\Filter;
++
++/**
++ * Implement it to build SQL conditions from Magento\Framework\Api\Filter
++ *
++ * Multiple conditions can be combined into groups with AND or OR combination
++ * and applied to select queries as WHERE parts to filter entity collections
++ *
++ * For example:
++ *      Select *
++ *      FROM `catalog_product_entity`
++ *      WHERE
++ *          CustomCondition_1
++ *          AND
++ *          (CustomCondition_2 OR CustomCondition_3)
++ *
++ */
++interface CustomConditionInterface
++{
++    /**
++     * @param Filter $filter
++     * @return string
++     */
++    public function build(Filter $filter): string;
++}
+diff --git a/Api/SearchCriteria/CollectionProcessor/ConditionProcessor/CustomConditionProvider.php b/Api/SearchCriteria/CollectionProcessor/ConditionProcessor/CustomConditionProvider.php
+new file mode 100644
+index 000000000..446cc6229
+--- /dev/null
++++ b/Api/SearchCriteria/CollectionProcessor/ConditionProcessor/CustomConditionProvider.php
+@@ -0,0 +1,69 @@
++<?php
++/**
++ * Copyright © Magento, Inc. All rights reserved.
++ * See COPYING.txt for license details.
++ */
++declare(strict_types=1);
++
++namespace Magento\Framework\Api\SearchCriteria\CollectionProcessor\ConditionProcessor;
++
++use Magento\Framework\Exception\InputException;
++use Magento\Framework\Api\SearchCriteria\CollectionProcessor\ConditionProcessor\CustomConditionInterface;
++use Magento\Framework\Phrase;
++
++/**
++ * Collection of all custom condition processors
++ */
++class CustomConditionProvider implements CustomConditionProviderInterface
++{
++    /**
++     * @var CustomConditionInterface[]
++     */
++    private $customConditionProcessors;
++
++    /**
++     * @param array $customConditionProcessors
++     * @throws InputException
++     */
++    public function __construct(array $customConditionProcessors = [])
++    {
++        foreach ($customConditionProcessors as $processor) {
++            if (!$processor instanceof CustomConditionInterface) {
++                throw new InputException(
++                    new Phrase('Custom processor must implement "%1".', [CustomConditionInterface::class])
++                );
++            }
++        }
++
++        $this->customConditionProcessors = $customConditionProcessors;
++    }
++
++    /**
++     * Get custom processor by field name
++     *
++     * @param string $fieldName
++     * @return CustomConditionInterface
++     * @throws InputException
++     */
++    public function getProcessorByField(string $fieldName): CustomConditionInterface
++    {
++        if (!$this->hasProcessorForField($fieldName)) {
++            throw new InputException(
++                new Phrase('Custom processor for field "%1" is absent.', [$fieldName])
++            );
++        }
++
++        return $this->customConditionProcessors[$fieldName];
++    }
++
++    /**
++     * Check if collection has custom processor for given field name
++     *
++     * @param string $fieldName
++     * @return bool
++     */
++    public function hasProcessorForField(string $fieldName): bool
++    {
++        return array_key_exists($fieldName, $this->customConditionProcessors);
++    }
++}
+diff --git a/Api/SearchCriteria/CollectionProcessor/ConditionProcessor/CustomConditionProviderInterface.php b/Api/SearchCriteria/CollectionProcessor/ConditionProcessor/CustomConditionProviderInterface.php
+new file mode 100644
+index 000000000..504db29c2
+--- /dev/null
++++ b/Api/SearchCriteria/CollectionProcessor/ConditionProcessor/CustomConditionProviderInterface.php
+@@ -0,0 +1,37 @@
++<?php
++/**
++ * Copyright © Magento, Inc. All rights reserved.
++ * See COPYING.txt for license details.
++ */
++declare(strict_types=1);
++
++namespace Magento\Framework\Api\SearchCriteria\CollectionProcessor\ConditionProcessor;
++
++use Magento\Framework\Exception\InputException;
++use Magento\Framework\Api\SearchCriteria\CollectionProcessor\ConditionProcessor\CustomConditionInterface;
++
++/**
++ * Provides collections of custom condition processors (CustomConditionInterface)
++ *
++ * Used to store processors as mapping attributeName => CustomConditionInterface
++ * You can use di.xml to configure with any custom conditions you need
++ */
++interface CustomConditionProviderInterface
++{
++    /**
++     * Get custom processor by field name
++     *
++     * @param string $fieldName
++     * @return CustomConditionInterface
++     * @throws InputException
++     */
++    public function getProcessorByField(string $fieldName): CustomConditionInterface;
++
++    /**
++     * Check if collection has custom processor for given field name
++     *
++     * @param string $fieldName
++     * @return bool
++     */
++    public function hasProcessorForField(string $fieldName): bool;
++}
+diff --git a/Api/SearchCriteria/CollectionProcessor/FilterProcessor/CustomFilterInterface.php b/Api/SearchCriteria/CollectionProcessor/FilterProcessor/CustomFilterInterface.php
+new file mode 100644
+index 000000000..c068970c9
+--- /dev/null
++++ b/Api/SearchCriteria/CollectionProcessor/FilterProcessor/CustomFilterInterface.php
+@@ -0,0 +1,26 @@
++<?php
++/**
++ * Copyright © Magento, Inc. All rights reserved.
++ * See COPYING.txt for license details.
++ */
++namespace Magento\Framework\Api\SearchCriteria\CollectionProcessor\FilterProcessor;
++
++use Magento\Framework\Api\Filter;
++use Magento\Framework\Data\Collection\AbstractDb;
++
++/**
++ * @api
++ * @since 100.2.0
++ */
++interface CustomFilterInterface
++{
++    /**
++     * Apply Custom Filter to Collection
++     *
++     * @param Filter $filter
++     * @param AbstractDb $collection
++     * @return bool Whether the filter was applied
++     * @since 100.2.0
++     */
++    public function apply(Filter $filter, AbstractDb $collection);
++}
+diff --git a/Api/SearchCriteria/CollectionProcessor/JoinProcessor/CustomJoinInterface.php b/Api/SearchCriteria/CollectionProcessor/JoinProcessor/CustomJoinInterface.php
+new file mode 100644
+index 000000000..4ca55b6a1
+--- /dev/null
++++ b/Api/SearchCriteria/CollectionProcessor/JoinProcessor/CustomJoinInterface.php
+@@ -0,0 +1,24 @@
++<?php
++/**
++ * Copyright © Magento, Inc. All rights reserved.
++ * See COPYING.txt for license details.
++ */
++namespace Magento\Framework\Api\SearchCriteria\CollectionProcessor\JoinProcessor;
++
++use Magento\Framework\Data\Collection\AbstractDb;
++
++/**
++ * @api
++ * @since 100.2.0
++ */
++interface CustomJoinInterface
++{
++    /**
++     * Make custom joins to collection
++     *
++     * @param AbstractDb $collection
++     * @return bool
++     * @since 100.2.0
++     */
++    public function apply(AbstractDb $collection);
++}
+diff --git a/Api/SearchCriteria/CollectionProcessor/AdvancedFilterProcessor.php b/Api/SearchCriteria/CollectionProcessor/AdvancedFilterProcessor.php
+new file mode 100644
+index 000000000..6f9440720
+--- /dev/null
++++ b/Api/SearchCriteria/CollectionProcessor/AdvancedFilterProcessor.php
+@@ -0,0 +1,131 @@
++<?php
++/**
++ * Copyright © Magento, Inc. All rights reserved.
++ * See COPYING.txt for license details.
++ */
++declare(strict_types=1);
++
++namespace Magento\Framework\Api\SearchCriteria\CollectionProcessor;
++
++use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
++use Magento\Framework\Api\SearchCriteriaInterface;
++use Magento\Framework\Data\Collection\AbstractDb;
++use Magento\Framework\Api\CombinedFilterGroup;
++use Magento\Framework\Api\Filter;
++use Magento\Framework\Api\SearchCriteria\CollectionProcessor\ConditionProcessor\CustomConditionInterface;
++use Magento\Framework\Exception\InputException;
++use Magento\Framework\Search\Adapter\Mysql\ConditionManager;
++use Magento\Framework\Api\SearchCriteria\CollectionProcessor\ConditionProcessor\CustomConditionProviderInterface;
++use Magento\Framework\Phrase;
++
++/**
++ * Collection processor that adds filters to collection based on passed search criteria
++ *
++ * Difference between FilterProcessor is that AdvancedFilterProcessor gives ability
++ * to add filters using different combination strategies
++ *
++ * For example you can add such filters:
++ *
++ * Select * FROM some_table
++ * WHERE
++ *  field_1 = 10
++ *  AND (
++ *      field_2 in (1,2,3)
++ *      OR
++ *      field_3 like '%banana%'
++ *  )
++ */
++class AdvancedFilterProcessor implements CollectionProcessorInterface
++{
++    /**
++     * @var CustomConditionProviderInterface
++     */
++    private $customConditionProvider;
++
++    /**
++     * @var CustomConditionInterface
++     */
++    private $defaultConditionProcessor;
++
++    /**
++     * @var ConditionManager
++     */
++    private $conditionManager;
++
++    /**
++     * @param CustomConditionInterface $defaultConditionProcessor
++     * @param ConditionManager $conditionManager
++     * @param CustomConditionProviderInterface $customConditionProvider
++     */
++    public function __construct(
++        CustomConditionInterface $defaultConditionProcessor,
++        ConditionManager $conditionManager,
++        CustomConditionProviderInterface $customConditionProvider
++    ) {
++        $this->defaultConditionProcessor = $defaultConditionProcessor;
++        $this->conditionManager = $conditionManager;
++        $this->customConditionProvider = $customConditionProvider;
++    }
++
++    /**
++     * Apply Search Criteria Filters to collection
++     *
++     * @param SearchCriteriaInterface $searchCriteria
++     * @param AbstractDb $collection
++     * @return void
++     */
++    public function process(SearchCriteriaInterface $searchCriteria, AbstractDb $collection)
++    {
++        foreach ($searchCriteria->getFilterGroups() as $group) {
++            $conditions = $this->getConditionsFromFilterGroup($group);
++            $collection->getSelect()->where($conditions);
++        }
++    }
++
++    /**
++     * Add FilterGroup to the collection
++     *
++     * @param CombinedFilterGroup $filterGroup
++     * @return string
++     * @throws InputException
++     */
++    private function getConditionsFromFilterGroup(CombinedFilterGroup $filterGroup): string
++    {
++        $conditions = [];
++
++        foreach ($filterGroup->getFilters() as $filter) {
++            if ($filter instanceof CombinedFilterGroup) {
++                $conditions[] = $this->getConditionsFromFilterGroup($filter);
++                continue;
++            }
++
++            if ($filter instanceof Filter) {
++                $conditions[] = $this->getConditionsFromFilter($filter);
++                continue;
++            }
++
++            throw new InputException(
++                new Phrase('Undefined filter group "%1" passed in.', [get_class($filter)])
++            );
++        }
++
++        return $this->conditionManager->wrapBrackets(
++            $this->conditionManager->combineQueries($conditions, $filterGroup->getCombinationMode())
++        );
++    }
++
++    /**
++     * @param Filter $filter
++     * @return string
++     * @throws InputException
++     */
++    private function getConditionsFromFilter(Filter $filter): string
++    {
++        if ($this->customConditionProvider->hasProcessorForField($filter->getField())) {
++            $customProcessor = $this->customConditionProvider->getProcessorByField($filter->getField());
++            return $customProcessor->build($filter);
++        }
++
++        return $this->defaultConditionProcessor->build($filter);
++    }
++}
+diff --git a/Api/SearchCriteria/CollectionProcessor/FilterProcessor.php b/Api/SearchCriteria/CollectionProcessor/FilterProcessor.php
+new file mode 100644
+index 000000000..e127dfd4b
+--- /dev/null
++++ b/Api/SearchCriteria/CollectionProcessor/FilterProcessor.php
+@@ -0,0 +1,119 @@
++<?php
++/**
++ * Copyright © Magento, Inc. All rights reserved.
++ * See COPYING.txt for license details.
++ */
++namespace Magento\Framework\Api\SearchCriteria\CollectionProcessor;
++
++use Magento\Framework\Api\Search\FilterGroup;
++use Magento\Framework\Api\SearchCriteria\CollectionProcessor\FilterProcessor\CustomFilterInterface;
++use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
++use Magento\Framework\Api\SearchCriteriaInterface;
++use Magento\Framework\Data\Collection\AbstractDb;
++
++class FilterProcessor implements CollectionProcessorInterface
++{
++    /**
++     * @var CustomFilterInterface[]
++     */
++    private $customFilters;
++
++    /**
++     * @var array
++     */
++    private $fieldMapping;
++
++    /**
++     * @param CustomFilterInterface[] $customFilters
++     * @param array $fieldMapping
++     */
++    public function __construct(
++        array $customFilters = [],
++        array $fieldMapping = []
++    ) {
++        $this->customFilters = $customFilters;
++        $this->fieldMapping = $fieldMapping;
++    }
++
++    /**
++     * Apply Search Criteria Filters to collection
++     *
++     * @param SearchCriteriaInterface $searchCriteria
++     * @param AbstractDb $collection
++     * @return void
++     */
++    public function process(SearchCriteriaInterface $searchCriteria, AbstractDb $collection)
++    {
++        foreach ($searchCriteria->getFilterGroups() as $group) {
++            $this->addFilterGroupToCollection($group, $collection);
++        }
++    }
++
++    /**
++     * Add FilterGroup to the collection
++     *
++     * @param FilterGroup $filterGroup
++     * @param AbstractDb $collection
++     * @return void
++     */
++    private function addFilterGroupToCollection(
++        FilterGroup $filterGroup,
++        AbstractDb $collection
++    ) {
++        $fields = [];
++        $conditions = [];
++        foreach ($filterGroup->getFilters() as $filter) {
++            $isApplied = false;
++            $customFilter = $this->getCustomFilterForField($filter->getField());
++            if ($customFilter) {
++                $isApplied = $customFilter->apply($filter, $collection);
++            }
++
++            if (!$isApplied) {
++                $condition = $filter->getConditionType() ? $filter->getConditionType() : 'eq';
++                $fields[] = $this->getFieldMapping($filter->getField());
++                $conditions[] = [$condition => $filter->getValue()];
++            }
++        }
++
++        if ($fields) {
++            $collection->addFieldToFilter($fields, $conditions);
++        }
++    }
++
++    /**
++     * Return custom filters for field if exists
++     *
++     * @param string $field
++     * @return CustomFilterInterface|null
++     * @throws \InvalidArgumentException
++     */
++    private function getCustomFilterForField($field)
++    {
++        $filter = null;
++        if (isset($this->customFilters[$field])) {
++            $filter = $this->customFilters[$field];
++            if (!($this->customFilters[$field] instanceof CustomFilterInterface)) {
++                throw new \InvalidArgumentException(
++                    sprintf(
++                        'Filter for %s must implement %s interface.',
++                        $field,
++                        CustomFilterInterface::class
++                    )
++                );
++            }
++        }
++        return $filter;
++    }
++
++    /**
++     * Return mapped field name
++     *
++     * @param string $field
++     * @return string
++     */
++    private function getFieldMapping($field)
++    {
++        return $this->fieldMapping[$field] ?? $field;
++    }
++}
+diff --git a/Api/SearchCriteria/CollectionProcessor/JoinProcessor.php b/Api/SearchCriteria/CollectionProcessor/JoinProcessor.php
+new file mode 100644
+index 000000000..207325042
+--- /dev/null
++++ b/Api/SearchCriteria/CollectionProcessor/JoinProcessor.php
+@@ -0,0 +1,126 @@
++<?php
++/**
++ * Copyright © Magento, Inc. All rights reserved.
++ * See COPYING.txt for license details.
++ */
++namespace Magento\Framework\Api\SearchCriteria\CollectionProcessor;
++
++use Magento\Framework\Api\SearchCriteria\CollectionProcessor\JoinProcessor\CustomJoinInterface;
++use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
++use Magento\Framework\Api\SearchCriteriaInterface;
++use Magento\Framework\Data\Collection\AbstractDb;
++
++class JoinProcessor implements CollectionProcessorInterface
++{
++    /**
++     * @var CustomJoinInterface[]
++     */
++    private $joins;
++
++    /**
++     * @var array
++     */
++    private $fieldMapping;
++
++    /**
++     * @var array
++     */
++    private $appliedFields = [];
++
++    /**
++     * @param CustomJoinInterface[] $customFilters
++     * @param array $fieldMapping
++     */
++    public function __construct(
++        array $customJoins = [],
++        array $fieldMapping = []
++    ) {
++        $this->joins = $customJoins;
++        $this->fieldMapping = $fieldMapping;
++    }
++
++    /**
++     * Apply Search Criteria Filters to collection only if we need this
++     *
++     * @param SearchCriteriaInterface $searchCriteria
++     * @param AbstractDb $collection
++     * @return void
++     */
++    public function process(SearchCriteriaInterface $searchCriteria, AbstractDb $collection)
++    {
++        if ($searchCriteria->getFilterGroups()) {
++            //Process filters
++            foreach ($searchCriteria->getFilterGroups() as $group) {
++                foreach ($group->getFilters() as $filter) {
++                    if (!isset($this->appliedFields[$filter->getField()])) {
++                        $this->applyCustomJoin($filter->getField(), $collection);
++                        $this->appliedFields[$filter->getField()] = true;
++                    }
++                }
++            }
++        }
++
++        if ($searchCriteria->getSortOrders()) {
++            // Process Sortings
++            foreach ($searchCriteria->getSortOrders() as $order) {
++                if (!isset($this->appliedFields[$order->getField()])) {
++                    $this->applyCustomJoin($order->getField(), $collection);
++                    $this->appliedFields[$order->getField()] = true;
++                }
++            }
++        }
++    }
++
++    /**
++     * Apply join to collection
++     *
++     * @param string $field
++     * @param AbstractDb $collection
++     * @return void
++     */
++    private function applyCustomJoin($field, AbstractDb $collection)
++    {
++        $field = $this->getFieldMapping($field);
++        $customJoin = $this->getCustomJoin($field);
++
++        if ($customJoin) {
++            $customJoin->apply($collection);
++        }
++    }
++
++    /**
++     * Return custom filters for field if exists
++     *
++     * @param string $field
++     * @return CustomJoinInterface|null
++     * @throws \InvalidArgumentException
++     */
++    private function getCustomJoin($field)
++    {
++        $filter = null;
++        if (isset($this->joins[$field])) {
++            $filter = $this->joins[$field];
++            if (!($this->joins[$field] instanceof CustomJoinInterface)) {
++                throw new \InvalidArgumentException(
++                    sprintf(
++                        'Custom join for %s must implement %s interface.',
++                        $field,
++                        CustomJoinInterface::class
++                    )
++                );
++            }
++        }
++        return $filter;
++    }
++
++    /**
++     * Return mapped field name
++     *
++     * @param string $field
++     * @return string
++     */
++    private function getFieldMapping($field)
++    {
++        return $this->fieldMapping[$field] ?? $field;
++    }
++}
+diff --git a/Api/SearchCriteria/CollectionProcessor/PaginationProcessor.php b/Api/SearchCriteria/CollectionProcessor/PaginationProcessor.php
+new file mode 100644
+index 000000000..bf752e0a5
+--- /dev/null
++++ b/CollectionProcessor/PaginationProcessor.php
+@@ -0,0 +1,26 @@
++<?php
++/**
++ * Copyright © Magento, Inc. All rights reserved.
++ * See COPYING.txt for license details.
++ */
++namespace Magento\Framework\Api\SearchCriteria\CollectionProcessor;
++
++use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
++use Magento\Framework\Api\SearchCriteriaInterface;
++use Magento\Framework\Data\Collection\AbstractDb;
++
++class PaginationProcessor implements CollectionProcessorInterface
++{
++    /**
++     * Apply Search Criteria Pagination to collection
++     *
++     * @param SearchCriteriaInterface $searchCriteria
++     * @param AbstractDb $collection
++     * @return void
++     */
++    public function process(SearchCriteriaInterface $searchCriteria, AbstractDb $collection)
++    {
++        $collection->setCurPage($searchCriteria->getCurrentPage());
++        $collection->setPageSize($searchCriteria->getPageSize());
++    }
++}
+diff --git a/Api/SearchCriteria/CollectionProcessor/SortingProcessor.php b/Api/SearchCriteria/CollectionProcessor/SortingProcessor.php
+new file mode 100644
+index 000000000..9c18b8c1a
+--- /dev/null
++++ b/CollectionProcessor/SortingProcessor.php
+@@ -0,0 +1,102 @@
++<?php
++/**
++ * Copyright © Magento, Inc. All rights reserved.
++ * See COPYING.txt for license details.
++ */
++namespace Magento\Framework\Api\SearchCriteria\CollectionProcessor;
++
++use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
++use Magento\Framework\Api\SearchCriteriaInterface;
++use Magento\Framework\Api\SortOrder;
++use Magento\Framework\Data\Collection;
++use Magento\Framework\Data\Collection\AbstractDb;
++
++class SortingProcessor implements CollectionProcessorInterface
++{
++    /**
++     * @var array
++     */
++    private $fieldMapping;
++
++    /**
++     * @var array
++     */
++    private $defaultOrders;
++
++    /**
++     * @param array $fieldMapping
++     * @param array $defaultOrders
++     */
++    public function __construct(
++        array $fieldMapping = [],
++        array $defaultOrders = []
++    ) {
++        $this->fieldMapping = $fieldMapping;
++        $this->defaultOrders = $defaultOrders;
++    }
++
++    /**
++     * Apply Search Criteria Sorting Orders to collection
++     *
++     * @param SearchCriteriaInterface $searchCriteria
++     * @param AbstractDb $collection
++     * @return void
++     */
++    public function process(SearchCriteriaInterface $searchCriteria, AbstractDb $collection)
++    {
++        if ($searchCriteria->getSortOrders()) {
++            $this->applyOrders($searchCriteria->getSortOrders(), $collection);
++        } elseif ($this->defaultOrders) {
++            $this->applyDefaultOrders($collection);
++        }
++    }
++
++    /**
++     * Return mapped field name
++     *
++     * @param string $field
++     * @return string
++     */
++    private function getFieldMapping($field)
++    {
++        return $this->fieldMapping[$field] ?? $field;
++    }
++
++    /**
++     * Apply sort orders to collection
++     *
++     * @param SortOrder[] $sortOrders
++     * @param AbstractDb $collection
++     * @return void
++     */
++    private function applyOrders(array $sortOrders, AbstractDb $collection)
++    {
++        /** @var SortOrder $sortOrder */
++        foreach ($sortOrders as $sortOrder) {
++            $field = $this->getFieldMapping($sortOrder->getField());
++            if (null !== $field) {
++                $order = $sortOrder->getDirection() == SortOrder::SORT_ASC
++                    ? Collection::SORT_ORDER_ASC
++                    : Collection::SORT_ORDER_DESC;
++                $collection->addOrder($field, $order);
++            }
++        }
++    }
++
++    /**
++     * Apply default orders to collection
++     *
++     * @param AbstractDb $collection
++     * @return void
++     */
++    private function applyDefaultOrders(AbstractDb $collection)
++    {
++        foreach ($this->defaultOrders as $field => $direction) {
++            $field = $this->getFieldMapping($field);
++            $order = $direction == SortOrder::SORT_ASC
++                ? Collection::SORT_ORDER_ASC
++                : Collection::SORT_ORDER_DESC;
++            $collection->addOrder($field, $order);
++        }
++    }
++}

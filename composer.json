@@ -124,7 +124,7 @@
         "oander/module-salesforce": "1.3.0.10",
         "oander/module-salesforce-service": "dev-56955_translate-fix",
         "oander/module-salesforce-widget": "1.0.7",
-        "oander/module-salesforcereservation": "dev-feature/55893-profile-page-reservation-facelift",
+        "oander/module-salesforcereservation": "dev-bugfix/56244-summary-item-price-doesnt-include-tax",
         "oander/module-shipping": "1.0.3",
         "oander/module-structured-data": "1.2.0.4",
         "oander/module-stuck-process-remover": "1.0.0.1",
@@ -155,7 +155,10 @@
         "vaimo/composer-patches": "4.6.*",
         "xtento/module-orderexport": "2.3.9",
         "xtento/module-xtcore": "2.1.0",
-        "stripe/stripe-php": "^7"
+        "stripe/stripe-php": "^7",
+        "dompdf/dompdf": "^0.8.3",
+        "phenx/php-font-lib": "^0.5.4",
+        "phenx/php-svg-lib": "^0.3.3"
     },
     "require-dev": {
         "phpunit/phpunit": "4.1.0",
@@ -252,6 +255,12 @@
             },
             "magento/framework": {
                 "57601_interface" : "patches/magento/framework/collectionProcessorCreate.patch"
+            },
+            "magento/magento2-base": {
+                "57601_interface" : "patches/magento/magento2-base/collectionProcessorDiXMLCreate.patch"
+            },
+            "magento/module-checkout": {
+                "57601_successpage" : "patches/magento/module-checkout/checkout_onepage_controller_success_action-EventadditionalData.patch"
             }
         }
     },

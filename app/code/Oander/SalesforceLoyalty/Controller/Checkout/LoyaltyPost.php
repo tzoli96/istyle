@@ -71,10 +71,10 @@ class LoyaltyPost extends \Magento\Checkout\Controller\Cart
     public function execute()
     {
         $cartQuote = $this->cart->getQuote();
+        $redeemablePoints = (int)trim($this->getRequest()->getParam('amount'));
 
         try {
             $hasError = false;
-            $redeemablePoints = (int)trim($this->getRequest()->getParam('amount'));
             $maxRedeemablePoints = (int)$this->loyaltyHelper->getMaxRedeemablePoints();
             $availablePoints = $this->salesforceHelper->getCustomerAffiliatePoints($this->cart->getCustomerSession()->getCustomer());
             $availablePointsCash = $this->salesforceHelper->getCustomerAffiliatePointsCashConverted($this->cart->getCustomerSession()->getCustomer());
@@ -101,11 +101,13 @@ class LoyaltyPost extends \Magento\Checkout\Controller\Cart
                 $hasError = true;
             }
             if(!$hasError) {
-                $cartQuote->getShippingAddress()->setCollectShippingRates(true);
-                $cartQuote->setLoyaltyDiscount($this->loyaltyHelper->convertPointToAmount($redeemablePoints));
-                $cartQuote->setLoyaltyPoint($redeemablePoints);
-                $this->quoteRepository->save($cartQuote);
-                $this->cart->save();
+                $itemsCount = $cartQuote->getItemsCount();
+                if ($itemsCount) {
+                    $cartQuote->getShippingAddress()->setCollectShippingRates(true);
+                    $cartQuote->setLoyaltyPoint($redeemablePoints)->collectTotals();
+                    $this->quoteRepository->save($cartQuote);
+                }
+                $this->_checkoutSession->getQuote()->setLoyaltyPoint($redeemablePoints)->save();
             }
         } catch (\Magento\Framework\Exception\LocalizedException $e) {
             $this->messageManager->addError($e->getMessage());

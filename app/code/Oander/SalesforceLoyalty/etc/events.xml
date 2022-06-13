@@ -6,14 +6,8 @@
     <event name="sales_order_place_before">
         <observer name="oander_salesforceloyalty_point_block" instance="Oander\SalesforceLoyalty\Observer\PointBlock"/>
     </event>
-    <event name="sales_quote_item_save_after">
-        <observer name="oander_salesforceloyalty_quote_item_save" instance="Oander\SalesforceLoyalty\Observer\QuiteItemSave"/>
-    </event>
-    <event name="sales_quote_add_item">
-        <observer name="oander_salesforceloyalty_quote_item_add" instance="Oander\SalesforceLoyalty\Observer\QuiteItemSave"/>
-    </event>
-    <event name="sales_quote_remove_item">
-        <observer name="oander_salesforceloyalty_quote_item_remove" instance="Oander\SalesforceLoyalty\Observer\QuiteItemSave"/>
+    <event name="sales_quote_collect_totals_after">
+        <observer name="oander_salesforceloyalty_observer_sales_quotecollecttotalsafter_sales_quote_collect_totals_after" instance="Oander\SalesforceLoyalty\Observer\Sales\QuoteCollectTotalsAfter"/>
     </event>
     <event name="customer_save_commit_after">
         <observer name="oander_salesforceloyalty_customer_change" instance="Oander\SalesforceLoyalty\Observer\CustomerChange"/>
