@@ -72,8 +72,6 @@ define([
 
     editAddress: function () {
       formState.isVisible(true);
-      console.log('editaddress defaultjs')
-
         if ($('#new-shipping-address').length) {
             $('html, body').animate({
                 scrollTop: $('#new-shipping-address').offset().top - 100
