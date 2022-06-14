@@ -88,7 +88,7 @@ class PdfGenerator extends AbstractHelper
     {
         $orderExpiration = new DateTime($this->date->date($order->getCreatedAt())->format('Y-m-d'));
         $orderExpiration->modify("+" . $this->configHelper->getOrderExpiration() . " day");
-        $productpdf = $this->layout->createBlock(Index::class, "", ['data' => ['orderExpiration' => date('Y-m-d',$orderExpiration->getTimestamp()), 'order' => $order, 'address1' => $this->configHelper->getMerchantAddress1(), 'address2' => $this->configHelper->getMerchantAddress2()]])
+        $productpdf = $this->layout->createBlock(Index::class, "", ['data' => ['orderExpiration' => date('Y-m-d', $orderExpiration->getTimestamp()), 'order_items' => $this->getOrderItems($order), 'order' => $order, 'address1' => $this->configHelper->getMerchantAddress1(), 'address2' => $this->configHelper->getMerchantAddress2()]])
             ->setData('area', 'frontend')
             ->setTemplate('Oander_RaiffeisenPayment::pdf.phtml')->toHtml();
         $pdf = $this->renderPdf($this->proccesor->getBlockFilter()->filter($productpdf));
@@ -98,6 +98,23 @@ class PdfGenerator extends AbstractHelper
         $response = chunk_split(base64_encode(file_get_contents($route)));
         $this->logger->addInfo("PDF BASE64:" . $response);
         return base64_encode($pdf);
+    }
+
+    protected function getOrderItems($order)
+    {
+        $orderItems = [];
+
+        foreach ($order->getAllItems() as $item) {
+            if ($item->getProduct()->getTypeId() != "configurable") {
+                if ($item->getParentItem()) {
+                    $item->setPriceInclTax($item->getParentItem()->getPriceInclTax());
+                    $orderItems[] = $item->getData();
+                } else {
+                    $orderItems[] = $item->getData();
+                }
+            }
+        }
+        return $orderItems;
     }
 
     /**

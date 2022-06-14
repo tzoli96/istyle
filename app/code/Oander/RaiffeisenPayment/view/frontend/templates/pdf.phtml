@@ -74,7 +74,7 @@
                 <td>Šifra delatnosti: 4778</td>
             </tr>
             <tr>
-                <td><strong>Žiro rac&#x30C;un: 160-381990-64</strong></td>
+                <td><strong>Žiro rac&#x30C;un: 265-1110310005655-09 </strong></td>
             </tr>
             <tr>
                 <td>PIB: 102825661</td>
@@ -95,27 +95,14 @@
                 <td><strong>Iznos sa PDV</strong></td>
             </tr>
             <?php
-            foreach ($order->getAllItems() as $item)
+            foreach ($this->getData("order_items") as $item)
             {
                 ?>
                 <tr>
-                    <td><?= $item->getSku()?></td>
-                    <td><?= $item->getName()?></td>
-                    <td><?= $item->getQtyOrdered()?></td>
-                    <td><?= $item->getPriceInclTax()?></td>
-                </tr>
-                <?php
-            }
-            ?>
-            <?php
-            foreach ($order->getAllItems() as $item)
-            {
-                ?>
-                <tr>
-                    <td><?= $item->getSku()?></td>
-                    <td><?= $item->getName()?></td>
-                    <td><?= $item->getQtyOrdered()?></td>
-                    <td><?= $item->getPriceInclTax()?></td>
+                    <td><?= $item['sku']?></td>
+                    <td><?= $item['name']?></td>
+                    <td><?= $item['qty_ordered']?></td>
+                    <td><?= $item['price_incl_tax']?></td>
                 </tr>
                 <?php
             }
