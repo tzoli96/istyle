@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe766ba6983c86497721f14edf071a50",
+    "content-hash": "30045a3437bf3b6e5b7fc479569392c5",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -3581,6 +3581,7 @@
                 "magento/module-cookie": "100.1.*"
             },
             "type": "magento2-module",
+            "extra": [],
             "autoload": {
                 "files": [
                     "registration.php"
@@ -7703,11 +7704,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "dev-bugfix/57782-set-instantsearch-use-replace-state",
+            "version": "dev-bugfix/58037-first-in-stock-checkbox-onload-checked",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "eeaae7f85e5946bf5981c76f49a714ea1d598a2c"
+                "reference": "7a51019f90fb815fe34809df7e6da0f3ad5e45f6"
             },
             "require": {
                 "oander/module-warehouse-manager": ">=1.4.25.6"
@@ -7731,7 +7732,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2022-04-19T14:41:52+00:00"
+            "time": "2022-06-14T09:51:09+00:00"
         },
         {
             "name": "oander/module-amasty-xnotif-bundle-price-switcher-extender",
