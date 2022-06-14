@@ -7708,7 +7708,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "7a51019f90fb815fe34809df7e6da0f3ad5e45f6"
+                "reference": "c20d9cc3dbc32514222fcc9ba66b0ec23a3c304e"
             },
             "require": {
                 "oander/module-warehouse-manager": ">=1.4.25.6"
@@ -7732,7 +7732,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2022-06-14T09:51:09+00:00"
+            "time": "2022-06-14T12:48:08+00:00"
         },
         {
             "name": "oander/module-amasty-xnotif-bundle-price-switcher-extender",
