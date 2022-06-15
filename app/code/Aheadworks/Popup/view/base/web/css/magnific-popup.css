@@ -17,6 +17,7 @@
     height: 100%;
     z-index: 1043;
     position: fixed;
+    overflow-y: auto;
     outline: none !important;
     -webkit-backface-visibility: hidden; }
 
@@ -53,6 +54,7 @@
     display: inline-block;
     position: relative;
     padding: 20px 30px;
+    margin-top: 50px;
 }
 
 /* POSITIONS START */
