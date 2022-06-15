@@ -2,7 +2,7 @@ diff --git a/Api/SearchCriteria/CollectionProcessor.php b/Api/SearchCriteria/Col
 new file mode 100644
 index 000000000000..acc6b802fb21
 --- /dev/null
-+++ b/Api/SearchCriteria/CollectionProcessor.php
++++ /Api/SearchCriteria/CollectionProcessor.php
 @@ -0,0 +1,41 @@
 +<?php
 +/**
@@ -49,7 +49,7 @@ diff --git a/Api/SearchCriteria/CollectionProcessorInterface.php b/Api/SearchCri
 new file mode 100644
 index 000000000000..8fdd244f9b45
 --- /dev/null
-+++ b/Api/SearchCriteria/CollectionProcessorInterface.php
++++ /Api/SearchCriteria/CollectionProcessorInterface.php
 @@ -0,0 +1,24 @@
 +<?php
 +/**
@@ -79,7 +79,7 @@ diff --git a/Api/SearchCriteria/CollectionProcessor/ConditionProcessor/CustomCon
 new file mode 100644
 index 000000000..8e03d0128
 --- /dev/null
-+++ b/Api/SearchCriteria/CollectionProcessor/ConditionProcessor/CustomConditionInterface.php
++++ /Api/SearchCriteria/CollectionProcessor/ConditionProcessor/CustomConditionInterface.php
 @@ -0,0 +1,34 @@
 +<?php
 +/**
@@ -119,7 +119,7 @@ diff --git a/Api/SearchCriteria/CollectionProcessor/ConditionProcessor/CustomCon
 new file mode 100644
 index 000000000..446cc6229
 --- /dev/null
-+++ b/Api/SearchCriteria/CollectionProcessor/ConditionProcessor/CustomConditionProvider.php
++++ /Api/SearchCriteria/CollectionProcessor/ConditionProcessor/CustomConditionProvider.php
 @@ -0,0 +1,69 @@
 +<?php
 +/**
@@ -194,7 +194,7 @@ diff --git a/Api/SearchCriteria/CollectionProcessor/ConditionProcessor/CustomCon
 new file mode 100644
 index 000000000..504db29c2
 --- /dev/null
-+++ b/Api/SearchCriteria/CollectionProcessor/ConditionProcessor/CustomConditionProviderInterface.php
++++ /Api/SearchCriteria/CollectionProcessor/ConditionProcessor/CustomConditionProviderInterface.php
 @@ -0,0 +1,37 @@
 +<?php
 +/**
@@ -237,7 +237,7 @@ diff --git a/Api/SearchCriteria/CollectionProcessor/FilterProcessor/CustomFilter
 new file mode 100644
 index 000000000..c068970c9
 --- /dev/null
-+++ b/Api/SearchCriteria/CollectionProcessor/FilterProcessor/CustomFilterInterface.php
++++ /Api/SearchCriteria/CollectionProcessor/FilterProcessor/CustomFilterInterface.php
 @@ -0,0 +1,26 @@
 +<?php
 +/**
@@ -269,7 +269,7 @@ diff --git a/Api/SearchCriteria/CollectionProcessor/JoinProcessor/CustomJoinInte
 new file mode 100644
 index 000000000..4ca55b6a1
 --- /dev/null
-+++ b/Api/SearchCriteria/CollectionProcessor/JoinProcessor/CustomJoinInterface.php
++++ /Api/SearchCriteria/CollectionProcessor/JoinProcessor/CustomJoinInterface.php
 @@ -0,0 +1,24 @@
 +<?php
 +/**
@@ -299,7 +299,7 @@ diff --git a/Api/SearchCriteria/CollectionProcessor/AdvancedFilterProcessor.php 
 new file mode 100644
 index 000000000..6f9440720
 --- /dev/null
-+++ b/Api/SearchCriteria/CollectionProcessor/AdvancedFilterProcessor.php
++++ /Api/SearchCriteria/CollectionProcessor/AdvancedFilterProcessor.php
 @@ -0,0 +1,131 @@
 +<?php
 +/**
@@ -436,7 +436,7 @@ diff --git a/Api/SearchCriteria/CollectionProcessor/FilterProcessor.php b/Api/Se
 new file mode 100644
 index 000000000..e127dfd4b
 --- /dev/null
-+++ b/Api/SearchCriteria/CollectionProcessor/FilterProcessor.php
++++ /Api/SearchCriteria/CollectionProcessor/FilterProcessor.php
 @@ -0,0 +1,119 @@
 +<?php
 +/**
@@ -561,7 +561,7 @@ diff --git a/Api/SearchCriteria/CollectionProcessor/JoinProcessor.php b/Api/Sear
 new file mode 100644
 index 000000000..207325042
 --- /dev/null
-+++ b/Api/SearchCriteria/CollectionProcessor/JoinProcessor.php
++++ /Api/SearchCriteria/CollectionProcessor/JoinProcessor.php
 @@ -0,0 +1,126 @@
 +<?php
 +/**
@@ -693,7 +693,7 @@ diff --git a/Api/SearchCriteria/CollectionProcessor/PaginationProcessor.php b/Ap
 new file mode 100644
 index 000000000..bf752e0a5
 --- /dev/null
-+++ b/Api/SearchCriteria/CollectionProcessor/PaginationProcessor.php
++++ /Api/SearchCriteria/CollectionProcessor/PaginationProcessor.php
 @@ -0,0 +1,26 @@
 +<?php
 +/**
@@ -725,7 +725,7 @@ diff --git a/Api/SearchCriteria/CollectionProcessor/SortingProcessor.php b/Api/S
 new file mode 100644
 index 000000000..9c18b8c1a
 --- /dev/null
-+++ b/Api/SearchCriteria/CollectionProcessor/SortingProcessor.php
++++ /Api/SearchCriteria/CollectionProcessor/SortingProcessor.php
 @@ -0,0 +1,102 @@
 +<?php
 +/**
