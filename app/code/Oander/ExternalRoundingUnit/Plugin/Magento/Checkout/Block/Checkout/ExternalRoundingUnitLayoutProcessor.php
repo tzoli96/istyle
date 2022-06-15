@@ -37,7 +37,7 @@ class ExternalRoundingUnitLayoutProcessor
                 'sortOrder' => "100",
                 'config' => [
                     'template' => "Oander_ExternalRoundingUnit/checkout/cart/totals/external_rounding",
-                    'title' => 'External Rounding'
+                    'title' => __('External Rounding')
                 ]
             ];
         }

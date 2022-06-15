@@ -62,7 +62,7 @@ define(
                 var self = this;
 
                 window.location.replace(window.checkoutConfig.payment.oney_facilypay.redirect_url);
-                this.sleep(5);
+                this.sleep(5000);
             },
             getTitle: function () {
                 return config.getTitle(this.getCode());

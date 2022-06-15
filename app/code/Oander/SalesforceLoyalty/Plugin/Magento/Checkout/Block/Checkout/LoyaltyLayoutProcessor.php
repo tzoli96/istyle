@@ -40,7 +40,7 @@ class LoyaltyLayoutProcessor
                     'component' => "Oander_SalesforceLoyalty/js/view/checkout/cart/totals/loyaltydiscount",
                     'config' => [
                         'template' => "Oander_SalesforceLoyalty/checkout/cart/totals/loyaltydiscount",
-                        'title' => 'Loyalty Discount'
+                        'title' => __('Loyalty Discount')
                     ]
                 ];
             }
