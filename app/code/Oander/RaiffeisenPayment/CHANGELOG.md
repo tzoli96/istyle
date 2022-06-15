@@ -1,3 +1,9 @@
+##### 1.1.7
+
+Released: 2022-06-15
+
+* bundle and configuration product view on pdf
+
 ##### 1.1.6
 
 Released: 2022-06-09
