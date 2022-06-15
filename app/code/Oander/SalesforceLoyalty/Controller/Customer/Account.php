@@ -72,13 +72,9 @@ class Account extends \Magento\Customer\Controller\AbstractAccount
     {
         $page = $this->resultPageFactory->create();
         if ($this->configHelper->getLoyaltyServiceEnabled()) {
-            if($this->customerSession->getCustomer()->getData('sforce_maconomy_id')) {
-                $this->updateLoyaltyStatus();
-                $loyaltyStatus = $this->customerSession->getCustomer()->getData(CustomerAttribute::LOYALTY_STATUS) ?? 0;
-                $page->addHandle('salesforceloyalty_customer_account_status_' . $loyaltyStatus);
-            } else {
-                $page->addHandle('salesforceloyalty_customer_account_status_0');
-            }
+            $this->updateLoyaltyStatus();
+            $loyaltyStatus = $this->customerSession->getCustomer()->getData(CustomerAttribute::LOYALTY_STATUS) ?? 0;
+            $page->addHandle('salesforceloyalty_customer_account_status_' . $loyaltyStatus);
             $page->getConfig()->getTitle()->set(__('Loyalty profile info'));
         } else {
             throw new \Magento\Framework\Exception\NotFoundException(__('Parameter is incorrect.'));
