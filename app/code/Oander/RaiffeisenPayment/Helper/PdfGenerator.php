@@ -100,6 +100,10 @@ class PdfGenerator extends AbstractHelper
         return base64_encode($pdf);
     }
 
+    /**
+     * @param $order
+     * @return array
+     */
     protected function getOrderItems($order)
     {
         $orderItems = [];
