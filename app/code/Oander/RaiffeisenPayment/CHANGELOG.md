@@ -1,3 +1,9 @@
+##### 1.1.8
+
+Released: 2022-06-16
+
+* virtual product view on pdf
+
 ##### 1.1.7
 
 Released: 2022-06-15
