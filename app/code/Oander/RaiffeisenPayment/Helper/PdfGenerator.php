@@ -109,8 +109,8 @@ class PdfGenerator extends AbstractHelper
         $orderItems = [];
 
         foreach ($order->getAllItems() as $item) {
-            if ($item->getProduct()->getTypeId() == "simple" || $item->getProduct()->getTypeId() == "virtual") {
-                if ($item->getParentItem() && $item->getParentItem()->getProductType() != "bundle") {
+            if ($item->getProductType() == "simple") {
+                if ($item->getParentItem() && $item->getParentItem()->getProductType() != "bundle" ) {
                     $item->setPriceInclTax($item->getParentItem()->getPriceInclTax());
                     $orderItems[] = $item->getData();
                 } else {
