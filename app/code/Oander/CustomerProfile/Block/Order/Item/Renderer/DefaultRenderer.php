@@ -7,6 +7,7 @@ use Magento\Framework\Stdlib\StringUtils;
 use Magento\Framework\View\Element\Template\Context;
 use Magento\Catalog\Block\Product\ImageBuilder;
 use Magento\Catalog\Model\Product;
+use Magento\Bundle\Model\Product\Type;
 
 class DefaultRenderer extends \Magento\Sales\Block\Order\Item\Renderer\DefaultRenderer
 {
@@ -57,11 +58,11 @@ class DefaultRenderer extends \Magento\Sales\Block\Order\Item\Renderer\DefaultRe
     public function hasBundleParent($item)
     {
         $response = false;
-        if (!$item->getProduct()->getTypeId() == Type::TYPE_CODE) {
+        if (!$item->getTypeId() == Type::TYPE_CODE) {
             return false;
         }
         $parentItem = $item->getParentItem();
-        if ($parentItem && $parentItem->getProduct()->getTypeId == Type::TYPE_CODE) {
+        if ($parentItem && $parentItem->getTypeId() == Type::TYPE_CODE) {
             $response = true;
         }
         return $response;
