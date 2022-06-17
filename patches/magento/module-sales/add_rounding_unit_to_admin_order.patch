@@ -1,0 +1,28 @@
+Index: Block/Adminhtml/Order/Totals.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Block/Adminhtml/Order/Totals.php b/Block/Adminhtml/Order/Totals.php
+--- a/Block/Adminhtml/Order/Totals.php
++++ b/Block/Adminhtml/Order/Totals.php	(date 1487242742000)
+@@ -20,6 +20,19 @@
+     protected function _initTotals()
+     {
+         parent::_initTotals();
++        /**
++         * Add rounding_unit
++         */
++        $this->_totals['rounding_unit'] = new \Magento\Framework\DataObject(
++            [
++                'code' => 'rounding_unit',
++                'strong' => true,
++                'value' => $this->getSource()->getData("rounding_unit"),
++                'base_value' => $this->getSource()->getData("rounding_unit"),
++                'label' => __('External Rounding'),
++                'area' => 'footer',
++            ]
++        );
+         $this->_totals['paid'] = new \Magento\Framework\DataObject(
+             [
+                 'code' => 'paid',

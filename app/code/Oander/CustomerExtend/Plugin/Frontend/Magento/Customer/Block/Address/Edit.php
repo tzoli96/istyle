@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace Oander\CustomerExtend\Plugin\Frontend\Magento\Customer\Block\Address;
 
 use Oander\CustomerExtend\Enum\Config as ConfigEnum;
+use Oander\CustomerExtend\Model\ConfigProvider;
 
 class Edit
 {
@@ -25,21 +26,28 @@ class Edit
     private $getCity;
 
     private $regions = null;
+    /**
+     * @var ConfigProvider
+     */
+    private $configProvider;
 
     /**
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
      * @param \Magento\Framework\UrlInterface $url
+     * @param Config $configProvider
      * @param \Oander\AddressListAPI\Api\GetCityInterface $getCity
      */
     public function __construct(
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         \Magento\Framework\UrlInterface $url,
+        ConfigProvider $configProvider,
         \Oander\AddressListAPI\Api\GetCityInterface $getCity
     )
     {
         $this->_url = $url;
         $this->_scopeConfig = $scopeConfig;
         $this->getCity = $getCity;
+        $this->configProvider = $configProvider;
     }
 
     public function around__call(
@@ -89,5 +97,19 @@ class Edit
         if( $this->regions === null )
             $this->regions = $this->getCity->getAllRegion();
         return $this->regions;
+    }
+
+    public function beforeToHtml(
+        \Magento\Customer\Block\Address\Edit $subject
+    ) {
+        $subject->setData('address_attributes_positions', $this->configProvider->getConfig()['addressAttributesPositions']);
+        return [];
+    }
+
+    public function beforeFetchView(
+        \Magento\Customer\Block\Address\Edit $subject
+    ) {
+        if(empty($subject->getConfig('customer/address/show_pfpj_reg_no', \Magento\Store\Model\ScopeInterface::SCOPE_STORE)))
+            $subject->unsetChild('pfpj_reg_no');
     }
 }

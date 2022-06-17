@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="raiffeisen" translate="label,comment" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Raiffeisen Payment</label>
+                <fieldset_css>raiffeisenk-payment-section</fieldset_css>
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="logger_active" translate="label" type="select" sortOrder="12" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Logger Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Will slow down the system, please use only on Development or Staging environment</comment>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="api_url" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>API URL</label>
+                    <comment>Requests are sent to this URL. The URL can control whether the extension is running in test or live mode.</comment>
+                </field>
+                <field id="api_suffix" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>API Suffix</label>
+                    <comment>Included in the status callback from the bank, determined by us.</comment>
+                </field>
+                <field id="merchant_name" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Merchant name</label>
+                    <comment>The value of merchant_name in the data sent to the bank.</comment>
+                </field>
+                <field id="merchant_address_1" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Merchant Address 1</label>
+                    <comment>The value of merchant_address1 in the data sent to the bank.</comment>
+                </field>
+                <field id="merchant_address_2" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Merchant Address 2</label>
+                    <comment>The value of merchant_address2 in the data sent to the bank.</comment>
+                </field>
+                <field id="pos_code" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>POS Code</label>
+                    <comment>The Point of Sale Code provided by the bank to the merchant.</comment>
+                </field>
+                <field id="merchant_registration_number" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Merchant Registration Number</label>
+                    <comment>The Point of Sale Code provided by the bank to the merchant.</comment>
+                </field>
+                <field id="order_expiration" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Order Expiration (days)</label>
+                    <comment>The date communicated to the bank until which the goods are reserved for the user; after the expiration of the that date, the user will not be able to realize the loan. The merchant can cancel the order after this date.</comment>
+                </field>
+                <field id="min_amount" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Minimum Loan Amount</label>
+                    <comment>The minimum purchase value without delivery charge above which the payment method is displayed in the checkout.</comment>
+                </field>
+                <field id="instructions" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Instructions</label>
+                    <comment>This help message is displayed to users after they have selected the payment method.</comment>
+                </field>
+                <field id="eligibility_questions" translate="label" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Eligibility Questions</label>
+                    <comment>These questions are displayed after the user selected the payment method. The user can only place his order if they select the value of "Valid answer" for all questions.</comment>
+                    <backend_model>Oander\RaiffeisenPayment\Model\Config\Backend\EligibilityQuestions</backend_model>
+                    <frontend_model>Oander\RaiffeisenPayment\Block\Adminhtml\Form\Field\EligibilityQuestions</frontend_model>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sort Order</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

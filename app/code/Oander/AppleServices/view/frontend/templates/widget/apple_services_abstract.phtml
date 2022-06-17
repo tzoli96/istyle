@@ -1,0 +1,107 @@
+<?php /** @var $block \Oander\AppleServices\Block\AbstractAppleServices */ ?>
+<?php
+if($block->getWidgetIsEnabled()):
+?>
+<form method="post"
+      class="apple-<?= $block->getLocalStorageKey()?>-widget"
+      style="min-height: 250px; margin-top: 150px; text-align: center;">
+    <button type="submit"
+            id="apple-<?= $block->getLocalStorageKey()?>-request"
+            class="action outline-dark"
+            style="margin-bottom: 16px"><?php echo $block->getRequestButtonLabel(); ?></button>
+    <a href="#" id="apple-<?= $block->getLocalStorageKey()?>-redeem"
+       style="display: none; margin-bottom: 16px"
+       class="action dark"
+       target="_blank"><?php echo $block->getRedeemButtonLabel(); ?></a>
+    <?php if ($block->getCodeDescription()): ?>
+        <p id="apple-<?= $block->getLocalStorageKey()?>-description"
+           class="code-description"
+           style="display: none;">
+            <?php echo $block->getCodeDescription(); ?>
+        </p>
+    <?php endif; ?>
+    <p id="apple-<?= $block->getLocalStorageKey()?>-code" style="display: none"></p>
+    <input type="hidden" id="g_recaptcha_response_<?= $block->getLocalStorageKey()?>" name="g_recaptcha_response">
+    <input type="hidden" name="action" value="validate_captcha_<?= $block->getLocalStorageKey()?>">
+</form>
+
+<?php $siteKey = $block->getCaptchaKey(); ?>
+<?php $ajaxUrl = $block->getUrl("appleservices/endpoint/ajaxcall"); ?>
+<?php $apiEndpoint = $block->getApiEndpoint(); ?>
+<?php $uniqueID = $block->getUniqueId(); ?>
+<?php $secretKey = $block->getSecretKey(); ?>
+<?php $referalToken = $block->getReferralToken(); ?>
+
+<script src="https://www.google.com/recaptcha/api.js?onload=ReCaptchaCallback<?= $block->getLocalStorageKey()?>&render=<?php echo $siteKey ?>"></script>
+<script>
+    var ReCaptchaCallback<?= $block->getLocalStorageKey()?> = function() {
+        require([
+            'jquery'
+        ], function ($) {
+            grecaptcha.ready(function () {
+                grecaptcha.execute('<?php echo $siteKey ?>', { action: 'validate_captcha_<?= $block->getLocalStorageKey()?>' }).then(function (token) {
+                    document.getElementById('g_recaptcha_response_<?= $block->getLocalStorageKey()?>').value = token;
+
+                    var btnRequest = $('#apple-<?= $block->getLocalStorageKey()?>-request');
+                    var btnRedeem = $('#apple-<?= $block->getLocalStorageKey()?>-redeem');
+                    var code = $('#apple-<?= $block->getLocalStorageKey()?>-code');
+                    var desc = $('#apple-<?= $block->getLocalStorageKey()?>-description');
+                    var storage = JSON.parse(localStorage.getItem('<?= $block->getLocalStorageKey()?>'));
+                    var url = '<?= $ajaxUrl?>';
+                    var expire_time = new Date(new Date().getTime() + '<?php echo $block->getCookieLifetime(); ?>' * 60000).valueOf();
+
+                    if (storage != null && storage.isRetrieved && storage.expire_time > new Date().valueOf()) {
+                        btnRequest.hide();
+                        btnRedeem.show().attr('href', storage.url);
+                        desc.show();
+                        code.show().text(storage.code);
+                    } else {
+                        $(btnRequest).on('click', function (e) {
+                            e.preventDefault();
+
+                            $.ajax({
+                                showLoader: true,
+                                url: url,
+                                type: 'POST',
+                                cache: false,
+                                data: {
+                                    captcha: token,
+                                    unique_id: '<?= $uniqueID?>',
+                                    api_endpoint: '<?= $apiEndpoint?>',
+                                    secret_key: '<?= $secretKey?>',
+                                    referral_token: '<?= $referalToken?>',
+                                }
+                            }).done(function (getData) {
+                                if(getData.error != null)
+                                    alert(getData.error);
+                                else {
+                                    if (storage != null) {
+                                        localStorage.removeItem('<?= $block->getLocalStorageKey()?>');
+                                    }
+
+                                    localStorage.setItem(
+                                        '<?= $block->getLocalStorageKey()?>',
+                                        JSON.stringify({
+                                            isRetrieved: true,
+                                            url: getData.redemption_url,
+                                            code: getData.code,
+                                            expire_time: expire_time
+                                        })
+                                    )
+
+                                    btnRequest.hide();
+                                    btnRedeem.show().attr('href', getData.redemption_url);
+                                    desc.show();
+                                    code.show().text(getData.code);
+                                }
+                            });
+                        });
+                    }
+
+                });
+            });
+        })
+    };
+</script>
+
+<?php endif; ?>

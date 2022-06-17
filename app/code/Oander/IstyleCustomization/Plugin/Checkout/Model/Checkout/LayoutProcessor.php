@@ -17,10 +17,11 @@
 
 namespace Oander\IstyleCustomization\Plugin\Checkout\Model\Checkout;
 
-use \Magento\Checkout\Model\Session as CheckoutSession;
+use Magento\Checkout\Model\Session as CheckoutSession;
+use Oander\CustomerExtend\Enum\AddressAttributeEnum;
 use Oander\FanCourierValidator\Helper\Data;
-use Oander\IstyleCustomization\Enum\AddressAttributeEnum;
 use Oander\IstyleCustomization\Helper\Config;
+use Oander\CustomerExtend\Helper\Config as CustomerConfigHelper;
 
 /**
  * Class LayoutProcessor
@@ -49,23 +50,32 @@ class LayoutProcessor
      * @var Data
      */
     private $fanCourierHelper;
+    /**
+     * @var CustomerConfigHelper
+     */
+    private $customerConfigHelper;
 
     /**
      * LayoutProcessor constructor.
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
      * @param CheckoutSession $checkoutSession
+     * @param Data $fanCourierHelper
      * @param Config $configHelper
+     * @param CustomerConfigHelper $customerConfigHelper
      */
     public function __construct(
         \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
         CheckoutSession $checkoutSession,
         Data $fanCourierHelper,
-        Config $configHelper
+        Config $configHelper,
+        CustomerConfigHelper $customerConfigHelper
+
     ) {
         $this->scopeConfig = $scopeConfig;
         $this->checkoutSession = $checkoutSession;
         $this->configHelper = $configHelper;
         $this->fanCourierHelper = $fanCourierHelper;
+        $this->customerConfigHelper = $customerConfigHelper;
     }
     /**
      * @param \Magento\Checkout\Block\Checkout\LayoutProcessor $subject
@@ -211,9 +221,9 @@ class LayoutProcessor
                 ['street']['sortOrder'] = 15;
 
                 //START STREETS
-                foreach($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
-                        ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
-                        ['street']["children"] as $i => &$streetComponent) {
+                foreach ($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                         ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
+                         ['street']["children"] as $i => &$streetComponent) {
                     $streetComponent['placeholder'] = __('street_' . $i . '_placeholder');
                 }
                 //END STREETS
@@ -276,7 +286,7 @@ class LayoutProcessor
                 ['region'];
                 $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                 ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
-                ['region']['dataScope'] = $dataScopePrefix.'.'.'region';
+                ['region']['dataScope'] = $dataScopePrefix . '.' . 'region';
                 $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                 ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
                 ['region']['config']['customScope'] = $dataScopePrefix;
@@ -287,40 +297,37 @@ class LayoutProcessor
                 ['city'];
                 $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                 ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
-                ['city']['dataScope'] = $dataScopePrefix.'.'.'city';
+                ['city']['dataScope'] = $dataScopePrefix . '.' . 'city';
                 $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
                 ['payment']['children']['payments-list']['children'][$key]['children']['form-fields']['children']
                 ['city']['config']['customScope'] = $dataScopePrefix;
             }
 
-            $showPfpjRegNo = $this->scopeConfig->getValue('customer/address/show_pfpj_reg_no', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
-            if($showPfpjRegNo) {
-
-                $showPfpjRegValidation = ($showPfpjRegNo == 'req') ? ['required-entry' => true] : [];
-
-                $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
-                ['payment']['children']['afterMethods']['children']['billing-address-form']['children']['form-fields']['children']
-                ['pfpj_reg_no'] = [
-                    'component' => 'Magento_Ui/js/form/element/abstract',
-                    'config' => [
-                        'customScope' => 'billingAddressshared',
-                        'customEntry' => null,
-                        'template' => 'ui/form/field',
-                        'elementTmpl' => 'ui/form/element/input',
-                    ],
-                    'dataScope' => 'billingAddressshared.custom_attributes.pfpj_reg_no',
-                    'label' => __('Registration Number'),
-                    'provider' => 'checkoutProvider',
-                    'visible' => true,
-                    'validation' => $showPfpjRegValidation,
-                    'sortOrder' => 66,
-                    'id' => 'pfpj_reg_no',
-                    'options' => [],
-                    'filterBy' => null,
-                    'customEntry' => null
-                ];
+            if(isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]
+                ["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]['pfpj_reg_no'])) {
+                unset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]
+                    ["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]['pfpj_reg_no']);
             }
 
+            if (isset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                ['payment']['children']['afterMethods']['children']['billing-address-form']['children']['form-fields']['children']
+                ['pfpj_reg_no'])) {
+                $showPfpjRegNo = $this->scopeConfig->getValue('customer/address/show_pfpj_reg_no', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+                if ($showPfpjRegNo) {
+                    $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                    ['payment']['children']['afterMethods']['children']['billing-address-form']['children']['form-fields']['children']
+                    ['pfpj_reg_no']['dataScope'] = 'billingAddressshared.custom_attributes.pfpj_reg_no';
+                    if($showPfpjRegNo == 'req') {
+                        $jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                        ['payment']['children']['afterMethods']['children']['billing-address-form']['children']['form-fields']['children']
+                        ['pfpj_reg_no']['validation']['required-entry'] = true;
+                    }
+                } else {
+                    unset($jsLayout['components']['checkout']['children']['steps']['children']['billing-step']['children']
+                        ['payment']['children']['afterMethods']['children']['billing-address-form']['children']['form-fields']['children']
+                        ['pfpj_reg_no']);
+                }
+            }
         }
 
         //Change Shipping Address
@@ -469,7 +476,7 @@ class LayoutProcessor
      */
     protected function setAddressAttributesShortOrder(&$jsLayout)
     {
-        $addressAttributesPositions = $this->configHelper->getAddressAttributePosition();
+        $addressAttributesPositions = $this->customerConfigHelper->getAddressAttributePosition();
 
         if (isset($jsLayout["components"]["checkout"]["children"]["steps"]["children"]["shipping-step"]["children"]["shippingAddress"]["children"]["shipping-address-fieldset"]["children"]))
         {

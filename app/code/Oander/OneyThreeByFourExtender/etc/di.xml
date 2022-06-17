@@ -1,4 +1,10 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Oney\ThreeByFour\Block\Catalog\Product" type="Oander\OneyThreeByFourExtender\Block\Catalog\Product"/>
+    <type name="Oney\ThreeByFour\Gateway\Http\TransferFactory">
+        <plugin name="oander_oney_transfer_factory_zipcode_replace" type="Oander\OneyThreeByFourExtender\Plugin\TransferFactoryReplaceZipCode" sortOrder="1" disabled="false"/>
+    </type>
+    <type name="Oney\ThreeByFour\Model\Api\Payment\Purchase">
+        <plugin name="oander_oney_purchase_zipcode_replace" type="Oander\OneyThreeByFourExtender\Plugin\Purchase" sortOrder="1" disabled="false"/>
+    </type>
 </config>

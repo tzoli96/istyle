@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="oander_apple_services" class="Oander\AppleServices\Block\AbstractAppleServices">
+        <label translate="true">Apple Services Widget</label>
+        <description>Oander - Apple Services Widget</description>
+        <parameters>
+            <parameter name="widget_type" xsi:type="select" visible="true" source_model="Oander\AppleServices\Model\Config\Source\WidgetTypeOptions" sort_order="1" >
+                <label>Widget Type</label>
+                <description>Select options</description>
+            </parameter>
+            <parameter name="request_button_label" xsi:type="text" required="true" visible="true" sort_order="10">
+                <label translate="true">Request button label</label>
+            </parameter>
+            <parameter name="redeem_button_label" xsi:type="text" required="true" visible="true" sort_order="20">
+                <label translate="true">Redeem button label</label>
+            </parameter>
+            <parameter name="code_description" xsi:type="text" required="false" visible="true" sort_order="30">
+                <label translate="true">Code description</label>
+            </parameter>
+            <parameter name="referral_token" xsi:type="text" required="false" visible="true" sort_order="30">
+                <label translate="true">Referral token</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

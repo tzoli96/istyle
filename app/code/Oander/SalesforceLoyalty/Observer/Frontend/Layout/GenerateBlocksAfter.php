@@ -74,22 +74,22 @@ class GenerateBlocksAfter implements \Magento\Framework\Event\ObserverInterface
         \Magento\Framework\Event\Observer $observer
     ) {
         $action = $observer->getData('full_action_name');
-        if($action=="checkout_cart_index")
-        {
+        if($action=="checkout_cart_index") {
             /** @var \Magento\Framework\View\LayoutInterface $layout */
             $layout = $observer->getData('layout');
-            if(!($this->checkoutSession->getQuote()->getData(Attribute::LOYALTY_DISCOUNT)>0)
-                && !$this->checkoutSession->getQuote()->getCouponCode()
-                && !$this->checkoutSession->getQuote()->getAppliedRuleIds()
-                && !$this->customerSession->isLoggedIn()
-            ) {
+            if ($this->customerSession->isLoggedIn()) {
+                if (!($this->checkoutSession->getQuote()->getData(Attribute::LOYALTY_DISCOUNT) > 0)
+                    && !$this->checkoutSession->getQuote()->getCouponCode()
+                    && !$this->checkoutSession->getQuote()->getAppliedRuleIds()
+                ) {
                     $earnablePoints = $this->loyaltyHelper->formatPoint($this->loyaltyHelper->getEarnableLoyaltyPoints());
-                    if($earnablePoints>0 && $this->helperConfig->getLoyaltyServiceEnabled()) {
+                    if ($earnablePoints > 0 && $this->helperConfig->getLoyaltyServiceEnabled()) {
                         $earnableBlock = $layout->addBlock(\Magento\Framework\View\Element\Template::class, "salesforceloyalty.cart.methods.earnable", "checkout.cart.methods");
                         $earnableBlock->setTemplate("Oander_SalesforceLoyalty::cart/earnable.phtml");
                         $earnableBlock->setFormatedEarnablePoints(__("+ %1 points", $earnablePoints));
                         $layout->reorderChild("checkout.cart.methods", "salesforceloyalty.cart.methods.earnable", "checkout.cart.methods.onepage.bottom", false);
                     }
+                }
             }
             $loyaltypoints = $layout->getBlock("salesforceloyalty.cart.loyaltypoints");
             if($loyaltypoints) {

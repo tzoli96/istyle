@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <referenceBlock name="checkout.registration">
+                <block class="Oander\SalesforceLoyalty\Block\SuccessPage\LoyaltyMarketing"
+                       template="Oander_SalesforceLoyalty::successpage/loyalty-marketing.phtml"
+                       name="loyalty_registration_marekting"
+                       ifconfig="oander_salesforce/salesforce_loyalty_service/enabled"
+                />
+            </referenceBlock>
+        </referenceContainer>
+    </body>
+</page>

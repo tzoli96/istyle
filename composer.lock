@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2bcdc4e17e44538f4a3a66087b980a4c",
+    "content-hash": "30045a3437bf3b6e5b7fc479569392c5",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -563,16 +563,16 @@
         },
         {
             "name": "bigfish/paymentgateway",
-            "version": "3.10.0",
+            "version": "3.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bigfish-hu/payment-gateway-php-sdk.git",
-                "reference": "f4ee5420b65332a66e58572ec6a4e95458bebd9a"
+                "reference": "47ce34c11a5bc63e9a87b8a1a4b62932912d1892"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/f4ee5420b65332a66e58572ec6a4e95458bebd9a",
-                "reference": "f4ee5420b65332a66e58572ec6a4e95458bebd9a",
+                "url": "https://api.github.com/repos/bigfish-hu/payment-gateway-php-sdk/zipball/47ce34c11a5bc63e9a87b8a1a4b62932912d1892",
+                "reference": "47ce34c11a5bc63e9a87b8a1a4b62932912d1892",
                 "shasum": ""
             },
             "require": {
@@ -601,7 +601,7 @@
                 "payment",
                 "webshop"
             ],
-            "time": "2021-12-03T10:55:03+00:00"
+            "time": "2022-05-30T06:07:55+00:00"
         },
         {
             "name": "bigfishpaymentgateway/pmgw",
@@ -829,16 +829,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.3.1",
+            "version": "1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "4c679186f2aca4ab6a0f1b0b9cf9252decb44d0b"
+                "reference": "fd5dd441932a7e10ca6e5b490e272d34c8430640"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/4c679186f2aca4ab6a0f1b0b9cf9252decb44d0b",
-                "reference": "4c679186f2aca4ab6a0f1b0b9cf9252decb44d0b",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/fd5dd441932a7e10ca6e5b490e272d34c8430640",
+                "reference": "fd5dd441932a7e10ca6e5b490e272d34c8430640",
                 "shasum": ""
             },
             "require": {
@@ -882,7 +882,21 @@
                 "ssl",
                 "tls"
             ],
-            "time": "2021-10-28T20:44:15+00:00"
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-05-24T11:56:16+00:00"
         },
         {
             "name": "composer/composer",
@@ -1022,16 +1036,16 @@
         },
         {
             "name": "composer/spdx-licenses",
-            "version": "1.5.6",
+            "version": "1.5.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/spdx-licenses.git",
-                "reference": "a30d487169d799745ca7280bc90fdfa693536901"
+                "reference": "c848241796da2abf65837d51dce1fae55a960149"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/a30d487169d799745ca7280bc90fdfa693536901",
-                "reference": "a30d487169d799745ca7280bc90fdfa693536901",
+                "url": "https://api.github.com/repos/composer/spdx-licenses/zipball/c848241796da2abf65837d51dce1fae55a960149",
+                "reference": "c848241796da2abf65837d51dce1fae55a960149",
                 "shasum": ""
             },
             "require": {
@@ -1079,7 +1093,87 @@
                 "spdx",
                 "validator"
             ],
-            "time": "2021-11-18T10:14:14+00:00"
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-05-23T07:37:50+00:00"
+        },
+        {
+            "name": "dompdf/dompdf",
+            "version": "v0.8.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dompdf/dompdf.git",
+                "reference": "75f13c700009be21a1965dc2c5b68a8708c22ba2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dompdf/dompdf/zipball/75f13c700009be21a1965dc2c5b68a8708c22ba2",
+                "reference": "75f13c700009be21a1965dc2c5b68a8708c22ba2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-mbstring": "*",
+                "phenx/php-font-lib": "0.5.*",
+                "phenx/php-svg-lib": "0.3.*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8|^5.5|^6.5",
+                "squizlabs/php_codesniffer": "2.*"
+            },
+            "suggest": {
+                "ext-gd": "Needed to process images",
+                "ext-gmagick": "Improves image processing performance",
+                "ext-imagick": "Improves image processing performance"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "0.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dompdf\\": "src/"
+                },
+                "classmap": [
+                    "lib/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Ménager",
+                    "email": "fabien.menager@gmail.com"
+                },
+                {
+                    "name": "Brian Sweeney",
+                    "email": "eclecticgeek@gmail.com"
+                },
+                {
+                    "name": "Gabriel Bull",
+                    "email": "me@gabrielbull.com"
+                }
+            ],
+            "description": "DOMPDF is a CSS 2.1 compliant HTML to PDF converter",
+            "homepage": "https://github.com/dompdf/dompdf",
+            "time": "2018-12-14T02:40:31+00:00"
         },
         {
             "name": "extensa/module-dsk",
@@ -1245,16 +1339,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.5.5",
+            "version": "6.5.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "9d4290de1cfd701f38099ef7e183b64b4b7b0c5e"
+                "reference": "724562fa861e21a4071c652c8a159934e4f05592"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/9d4290de1cfd701f38099ef7e183b64b4b7b0c5e",
-                "reference": "9d4290de1cfd701f38099ef7e183b64b4b7b0c5e",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/724562fa861e21a4071c652c8a159934e4f05592",
+                "reference": "724562fa861e21a4071c652c8a159934e4f05592",
                 "shasum": ""
             },
             "require": {
@@ -1279,12 +1373,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\": "src/"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1292,9 +1386,39 @@
             ],
             "authors": [
                 {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                },
+                {
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Jeremy Lindblom",
+                    "email": "jeremeamia@gmail.com",
+                    "homepage": "https://github.com/jeremeamia"
+                },
+                {
+                    "name": "George Mponos",
+                    "email": "gmponos@gmail.com",
+                    "homepage": "https://github.com/gmponos"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "https://github.com/Nyholm"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com",
+                    "homepage": "https://github.com/sagikazarmark"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "email": "webmaster@tubo-world.de",
+                    "homepage": "https://github.com/Tobion"
                 }
             ],
             "description": "Guzzle is a PHP HTTP client library",
@@ -1308,7 +1432,21 @@
                 "rest",
                 "web service"
             ],
-            "time": "2020-06-16T21:01:06+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/Nyholm",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/guzzle",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2022-06-09T21:36:50+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1918,6 +2056,7 @@
                 "ext-imagick": "Use Image Magick >=3.0.0 as an optional alternative image processing library"
             },
             "type": "magento2-library",
+            "extra": [],
             "autoload": {
                 "psr-4": {
                     "Magento\\Framework\\": ""
@@ -3442,6 +3581,7 @@
                 "magento/module-cookie": "100.1.*"
             },
             "type": "magento2-module",
+            "extra": [],
             "autoload": {
                 "files": [
                     "registration.php"
@@ -6622,16 +6762,16 @@
         },
         {
             "name": "mageplaza/module-core",
-            "version": "1.4.11",
+            "version": "1.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mageplaza/module-core.git",
-                "reference": "45cf1e6a79ca82acc1fe82372bbb4e83ea308b6b"
+                "reference": "85d1074fdee1259d438618c977ba6e21b76c4f39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/45cf1e6a79ca82acc1fe82372bbb4e83ea308b6b",
-                "reference": "45cf1e6a79ca82acc1fe82372bbb4e83ea308b6b",
+                "url": "https://api.github.com/repos/mageplaza/module-core/zipball/85d1074fdee1259d438618c977ba6e21b76c4f39",
+                "reference": "85d1074fdee1259d438618c977ba6e21b76c4f39",
                 "shasum": ""
             },
             "type": "magento2-module",
@@ -6656,7 +6796,7 @@
                 }
             ],
             "description": "Mageplaza Core for Magento 2",
-            "time": "2021-07-21T06:58:49+00:00"
+            "time": "2022-05-30T03:41:05+00:00"
         },
         {
             "name": "mageplaza/module-gdpr",
@@ -7564,11 +7704,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "1.0.18.11",
+            "version": "dev-bugfix/58037-first-in-stock-checkbox-onload-checked",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "a1027805c6a2f433ec1bead1c0206336aabcb576"
+                "reference": "c20d9cc3dbc32514222fcc9ba66b0ec23a3c304e"
             },
             "require": {
                 "oander/module-warehouse-manager": ">=1.4.25.6"
@@ -7592,7 +7732,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2022-01-25T10:47:29+00:00"
+            "time": "2022-06-14T12:48:08+00:00"
         },
         {
             "name": "oander/module-amasty-xnotif-bundle-price-switcher-extender",
@@ -8055,33 +8195,6 @@
             ],
             "description": "Oander_ApiWarehouseManager",
             "time": "2021-08-21T02:16:49+00:00"
-        },
-        {
-            "name": "oander/module-apple-music",
-            "version": "1.0.0.2",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:oandermedia/module-apple-music.git",
-                "reference": "6fc5e72bab5bee266138494e0e6736fd295d0b9d"
-            },
-            "require": {
-                "oander/module-base": "*",
-                "php": "7.*"
-            },
-            "type": "magento2-module",
-            "autoload": {
-                "files": [
-                    "registration.php"
-                ],
-                "psr-4": {
-                    "Oander\\AppleMusic\\": ""
-                }
-            },
-            "license": [
-                "proprietary"
-            ],
-            "description": "Apple Music Widget",
-            "time": "2020-06-17T07:52:08+00:00"
         },
         {
             "name": "oander/module-autorelated-warehouse-manager-extender",
@@ -9448,11 +9561,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "dev-feature/57566-add_log_and_exception",
+            "version": "1.3.0.10",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "bc80067425531f5be0b168ca15c424860ba36b5e"
+                "reference": "13f8a3e2c678a91e578a2a66c1342a5717f19b4f"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9471,7 +9584,7 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2022-04-13T14:08:06+00:00"
+            "time": "2022-05-25T08:15:01+00:00"
         },
         {
             "name": "oander/module-salesforce-service",
@@ -9531,11 +9644,11 @@
         },
         {
             "name": "oander/module-salesforcereservation",
-            "version": "1.1.19",
+            "version": "dev-bugfix/56244-summary-item-price-doesnt-include-tax",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforcereservation.git",
-                "reference": "6375472c33d59fc4c73998cad130cb7ff3637004"
+                "reference": "1dcefd27ea7cbef7961c62fd33405880054aa7d7"
             },
             "require": {
                 "oander/module-api-checkout": ">=1.0.12",
@@ -9564,7 +9677,7 @@
                 }
             ],
             "description": "Salesforce Product Reservation",
-            "time": "2021-12-22T16:54:47+00:00"
+            "time": "2022-06-09T11:21:32+00:00"
         },
         {
             "name": "oander/module-shipping",
@@ -10150,7 +10263,7 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/theme-istyle.git",
-                "reference": "602b9e48e4dcc38b48478732ff0c4d29157987bf"
+                "reference": "d09067c8a49913850239f487a7009eb26865c03f"
             },
             "require": {
                 "oander/module-base": "*",
@@ -10166,7 +10279,7 @@
                 "proprietary"
             ],
             "description": "iStyle M2 Theme",
-            "time": "2022-04-14T16:08:52+00:00"
+            "time": "2022-06-13T10:47:41+00:00"
         },
         {
             "name": "oyejorge/less.php",
@@ -10333,6 +10446,86 @@
             "time": "2015-05-15T11:37:51+00:00"
         },
         {
+            "name": "phenx/php-font-lib",
+            "version": "0.5.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dompdf/php-font-lib.git",
+                "reference": "dd448ad1ce34c63d09baccd05415e361300c35b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dompdf/php-font-lib/zipball/dd448ad1ce34c63d09baccd05415e361300c35b4",
+                "reference": "dd448ad1ce34c63d09baccd05415e361300c35b4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^3 || ^4 || ^5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "FontLib\\": "src/FontLib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Ménager",
+                    "email": "fabien.menager@gmail.com"
+                }
+            ],
+            "description": "A library to read, parse, export and make subsets of different types of font files.",
+            "homepage": "https://github.com/PhenX/php-font-lib",
+            "time": "2021-12-17T19:44:54+00:00"
+        },
+        {
+            "name": "phenx/php-svg-lib",
+            "version": "v0.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PhenX/php-svg-lib.git",
+                "reference": "5fa61b65e612ce1ae15f69b3d223cb14ecc60e32"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PhenX/php-svg-lib/zipball/5fa61b65e612ce1ae15f69b3d223cb14ecc60e32",
+                "reference": "5fa61b65e612ce1ae15f69b3d223cb14ecc60e32",
+                "shasum": ""
+            },
+            "require": {
+                "sabberworm/php-css-parser": "^8.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.5|^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Svg\\": "src/Svg"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Ménager",
+                    "email": "fabien.menager@gmail.com"
+                }
+            ],
+            "description": "A library to read, parse and export to PDF SVG files.",
+            "homepage": "https://github.com/PhenX/php-svg-lib",
+            "time": "2019-09-11T20:02:13+00:00"
+        },
+        {
             "name": "phpseclib/phpseclib",
             "version": "2.0.37",
             "source": {
@@ -10439,11 +10632,11 @@
         },
         {
             "name": "plugincompany/customergroupswitching",
-            "version": "100.1.4",
+            "version": "100.1.5",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/plugincompany-customergroupswitching.git",
-                "reference": "f4d905a30639939b020bcf9ea017894818434ea4"
+                "reference": "575cacd6f8a61e083934332ee7f018d5ba7b09ae"
             },
             "require": {
                 "php": "~5.6.0|~7.0.2|~7.1",
@@ -10461,7 +10654,7 @@
             "license": [
                 "Proprietary"
             ],
-            "time": "2018-06-25T14:38:21+00:00"
+            "time": "2019-03-07T12:55:56+00:00"
         },
         {
             "name": "plugincompany/licensemanager",
@@ -10675,6 +10868,55 @@
             "time": "2018-09-14T09:29:59+00:00"
         },
         {
+            "name": "sabberworm/php-css-parser",
+            "version": "8.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sabberworm/PHP-CSS-Parser.git",
+                "reference": "e41d2140031d533348b2192a83f02d8dd8a71d30"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sabberworm/PHP-CSS-Parser/zipball/e41d2140031d533348b2192a83f02d8dd8a71d30",
+                "reference": "e41d2140031d533348b2192a83f02d8dd8a71d30",
+                "shasum": ""
+            },
+            "require": {
+                "ext-iconv": "*",
+                "php": ">=5.6.20"
+            },
+            "require-dev": {
+                "codacy/coverage": "^1.4",
+                "phpunit/phpunit": "^4.8.36"
+            },
+            "suggest": {
+                "ext-mbstring": "for parsing UTF-8 CSS"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Sabberworm\\CSS\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Raphael Schweikert"
+                }
+            ],
+            "description": "Parser for CSS Files written in PHP",
+            "homepage": "https://www.sabberworm.com/blog/2010/6/10/php-css-parser",
+            "keywords": [
+                "css",
+                "parser",
+                "stylesheet"
+            ],
+            "time": "2021-12-11T13:40:54+00:00"
+        },
+        {
             "name": "seld/cli-prompt",
             "version": "1.0.4",
             "source": {
@@ -10885,16 +11127,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v7.124.0",
+            "version": "v7.128.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "548e8ef08a86c6c621446082393dc6a1af51076c"
+                "reference": "c704949c49b72985c76cc61063aa26fefbd2724e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/548e8ef08a86c6c621446082393dc6a1af51076c",
-                "reference": "548e8ef08a86c6c621446082393dc6a1af51076c",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/c704949c49b72985c76cc61063aa26fefbd2724e",
+                "reference": "c704949c49b72985c76cc61063aa26fefbd2724e",
                 "shasum": ""
             },
             "require": {
@@ -10937,7 +11179,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "time": "2022-04-18T23:07:08+00:00"
+            "time": "2022-05-05T17:18:02+00:00"
         },
         {
             "name": "symfony/console",
@@ -14951,12 +15193,13 @@
     "stability-flags": {
         "composer/composer": 15,
         "innobyte/module-cetelem": 20,
+        "oander/module-algoliasearch": 20,
         "oander/module-api-index": 20,
         "oander/module-configurable-product-attribute": 20,
         "oander/module-core-bug-fix": 20,
         "oander/module-product-widget-warehouse-manager-extender": 20,
-        "oander/module-salesforce": 20,
         "oander/module-salesforce-service": 20,
+        "oander/module-salesforcereservation": 20,
         "oander/theme-hodor": 20,
         "oander/theme-istyle": 20,
         "phpmd/phpmd": 0

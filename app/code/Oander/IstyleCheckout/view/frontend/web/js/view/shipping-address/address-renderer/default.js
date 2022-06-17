@@ -53,8 +53,6 @@ define([
             $('.form-shipping-address input[name=postcode]').val() === '') {
               $('.form-shipping-address input[name=postcode]').val(shippingMethod.expressShippingPostalCode);
           }
-
-          setTimeout(self.scrollToForm, 500);
         }
       }, this);
       return this;
@@ -74,6 +72,13 @@ define([
 
     editAddress: function () {
       formState.isVisible(true);
+        if ($('#new-shipping-address').length) {
+            $('html, body').animate({
+                scrollTop: $('#new-shipping-address').offset().top - 100
+            }, 500);
+
+            $('#shipping-new-address-form').find('.form-group').first().find('.form-control').focus();
+        }
     },
 
     validateShippingFields: function () {
@@ -82,16 +87,6 @@ define([
 
     sortCardAddress: function (address) {
       return sort.sortCardAddress(address, 'individual');
-    },
-
-    scrollToForm: function () {
-      if ($('#new-shipping-address').length) {
-        $('html, body').animate({
-          scrollTop: $('#new-shipping-address').offset().top - 100
-        }, 500);
-
-        $('#shipping-new-address-form').find('.form-group').first().find('.form-control').focus();
-      }
-    },
+    }
   });
 });

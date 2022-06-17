@@ -1,0 +1,150 @@
+<?php $order = $this->getData("order"); ?>
+
+<!DOCTYPE html>
+<html lang="sr">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Raiffeisen PDF</title>
+        <style>
+            @body {
+                size: 21cm 29.7cm;
+                margin: 20mm 20mm 1mm 20mm;
+            }
+            body {
+                background: white;
+                display: block;
+                padding: 0;
+                font-family: DejaVu Sans, sans-serif;
+                text-align: left;
+                position: relative;
+            }
+            body[size="A4"] {
+                width: 21cm;
+                height: 29.7cm;
+            }
+            table th {
+                width: 50%;
+            }
+            table td {
+                font-size: 11pt;
+            }
+            table.with_borders {
+                border-collapse: collapse;
+            }
+            table.with_borders tr td {
+                border: 1px solid #282828;
+                padding: 1.5mm 2mm;
+            }
+            table b {
+                font-weight: 600;
+            }
+        </style>
+    </head>
+    <body size="A4">
+        <table style="margin: 0 -20mm 20mm; width: 100%">
+            <tr>
+                <th>
+                    <img style="height: 15mm; margin-left: 6mm" src="data:image/svg+xml;base64,PHN2ZyBpZD0iYSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgODAyLjMgMjE1LjQiIHN0eWxlPSJoZWlnaHQ6IDE1bW0iPiA8cGF0aCBkPSJNMTcsMTc4LjZWMTA4LjNjLTUuNjI4OC0uOTM1NS0xMS4zMDM2LTEuNTY5Ny0xNy0xLjl2LTIzLjFjMTcuNDY4NC0xLjg0NzYsMzUuMDQ2Mi0yLjQ0OTEsNTIuNi0xLjh2OTcuM2wtMzUuNi0uMlptMTcuOC0xMDQuM2MtMTEuNywwLTIxLjMtOS4yLTIxLjMtMjAuNXM5LjYtMjAuNSwyMS4zLTIwLjUsMjEuMyw5LjEsMjEuMywyMC41LTkuNiwyMC41LTIxLjMsMjAuNVptNTkuNywxMDdjLTkuMTM1OSwuMDQ4MS0xOC4yNTE5LS44NTY4LTI3LjItMi43bDItMzMuMmM5LjA3MDMsMi45OTgxLDE4LjU0NzgsNC41ODMzLDI4LjEsNC43LDguOCwwLDE0LjUtMy43LDE0LjUtOS44LDAtMTkuMi00OS4zLTcuOC00OS4zLTUyLjksMC0yNi4xLDIwLjEtNDMsNTQuOS00Myw4LjA0NSwuMTA5LDE2LjA2OTMsLjg0NDYsMjQsMi4ybC0yLDMxLjRjLTcuNjI4MS0yLjI3MzQtMTUuNTQwNS0zLjQ1MTgtMjMuNS0zLjUtMTAuMSwwLTE0LjQsNC4xLTE0LjQsOS4yLDAsMTYuNiw0OS4yLDEwLjEsNDkuMiw1MS40LDAsMjYuMi0yMS4xLDQ2LjItNTYuMyw0Ni4yaDBabTEyMC0yLjdoLTM2LjNWNzguMWgtMjguN3YtMzEuM2g5My41djMxLjNoLTI4LjV2MTAwLjVaIiBzdHlsZT0iZmlsbDogIzIzMWYyMCI+PC9wYXRoPiA8cGF0aCBkPSJNMzA2LjgsMTgzLjFjLTExLjcsMC0yMS4zLTkuMi0yMS4zLTIwLjVzOS42LTIwLjUsMjEuMy0yMC41LDIxLjMsOS4yLDIxLjMsMjAuNS05LjYsMjAuNS0yMS4zLDIwLjVaIiBzdHlsZT0iZmlsbDogI2UzMTgzNyI+PC9wYXRoPiA8cGF0aCBkPSJNMzI0LjUsMTMzLjRoLTM2LjFsLTQxLjItODYuNWgzOS40bDEyLjMsMjguNWMzLjMsNy42LDUuOCwxNC4yLDcuOCwyMC4xaC40YzIuNC03LDUuOS0xNC45LDkuNi0yM2wxMS4zLTI1LjZoMzguNWwtNDIsODYuNVptNDQuMyw0NS4yVjQ2LjhsMzYuMi0uMXY5OS41aDM2LjV2MzIuNGgtNzIuN1ptNzguNywwbC0uMS0xMzEuOWg3Ny4xdjMwLjloLTQwLjdsLS4xLDE4LjYsMzguNy0uMXYyOS43bC0zOC42LC4xdjIxLjJoNDAuN3YzMS41aC03Ni45OTk5WiIgc3R5bGU9ImZpbGw6ICMyMzFmMjAiPjwvcGF0aD4gPHBhdGggZD0iTTU4NCwxaDNWMjE1LjRoLTNWMVptNzYsMTM1LjhjLjA5NTktMS41MjY4LS41MzQyLTMuMDA5NC0xLjctNC0xLjMxOTktLjk5NTItMi45NDk1LTEuNDkxMS00LjYtMS40LTEuMDQxNi0uMDI0Ni0yLjA4MjQsLjA3NjEtMy4xLC4zdjEwLjZjLjg4MjMsLjIyMTYsMS43OTA2LC4zMjI1LDIuNywuMywxLjc2MDMsLjEwMzEsMy40OTkxLS40MjkyLDQuOS0xLjUsMS4wNzg2LTEuMTgyNSwxLjcxNDUtMi43MDE4LDEuOC00LjNtNC41LS4zYy4xMTc5LDIuNDAzLS43NDg4LDQuNzUwMi0yLjQsNi41LTIsMi4xLTUsMy4yLTksMy4yLS45MDM4LC4wMDI5LTEuODA2NS0uMDY0LTIuNy0uMnYxMS40aC00LjJ2LTI5YzIuMzU5OS0uNTQyMSw0Ljc3OTktLjc3NzQsNy4yLS43LDMuNywwLDYuNTAwMSwuOCw4LjQsMi40LDEuOSwxLjUsMi43LDMuNywyLjcsNi40bTE0LjQsMy44Yy0uMzk0OS0uMDc5LS43OTc1LS4xMTI1LTEuMi0uMS0xLjU2MjItLjA1MTItMy4wNTI3LC42NTY3LTQsMS45LS44Mzc4LDEuMjM2Mi0xLjI1ODIsMi43MDc4LTEuMiw0LjJ2MTEuMWgtNC43di0xNC42YzAtMi40LS4xLTQuNi0uMi02LjZoNC4xbC4yLDRoLjJjLjgyMzEtMi41OTI2LDMuMTgyMS00LjM5MTgsNS45LTQuNSwuMzAzMy0uMDExMiwuNjA2NiwuMDIyNSwuOSwuMXY0LjVabTYuNCw0LjJjLjA4MzYtMS4zNDYxLC41NzE2LTIuNjM1NywxLjQtMy43LC44NTUtMS4yNTczLDIuMjc5NS0yLjAwNywzLjgtMiwxLjUzMTgtLjA1NDcsMi45Nzc4LC43MDY0LDMuOCwyLC42NzI5LDEuMDc0OCwuOTg4LDIuMzM1MSwuOSwzLjZsLTkuOSwuMWgwWm0xMi41LTUuNWMtMS42MDY2LTIuMjQ2MS00LjI0MTMtMy41MjU4LTctMy40LTIuODYyMi0uMDg0Mi01LjU5OTUsMS4xNzM0LTcuNCwzLjQtMS44MTUsMi4yNTk0LTIuNzM5OSw1LjEwNTItMi42LDgsMCwzLjMsLjksNS45LDIuOCw3LjhzNC41LDIuOSw3LjgsMi45YzIuNDMxNywuMDcwNCw0Ljg1MS0uMzcyNiw3LjEtMS4zbC0uNy0zLjNjLTEuODUwOCwuNzA0MS0zLjgyMDMsMS4wNDM2LTUuOCwxLTEuNjY2NiwuMDkwNC0zLjMwNy0uNDQ0NS00LjYtMS41LTEuMzU3MS0xLjIyNC0yLjEyMjEtMi45NzI2LTIuMS00LjhoMTQuMmMuMTI1OC0uNjkzMSwuMTkyNy0xLjM5NTYsLjItMi4xLC4wOTA2LTIuMzc4LS41NzQ2LTQuNzIzNi0xLjktNi43bTM1LjMsMTguM2gtNC42di0xMS45YzAtNC0xLjMtNS45LTMuOC01LjktMS4xMTUsLjA0MDUtMi4xNDg2LC41OTQyLTIuOCwxLjUtLjczMjEsLjk4MDctMS4xMTksMi4xNzYzLTEuMSwzLjR2MTNoLTQuNnYtMTIuNWMuMDMwMy0xLjMzNTQtLjMxNjMtMi42NTI0LTEtMy44LS42NTc5LS45Mzg3LTEuNzU1OC0xLjQ2ODctMi45LTEuNC0xLjI0NTgtLjA2MjYtMi40MjkzLC41NDgzLTMuMSwxLjYtLjgzODMsMS4wMTI2LTEuMjk3OSwyLjI4NTQtMS4zLDMuNnYxMi43aC00LjZ2LTE1LjFjMC0xLjktLjEtMy45LS4xLTYuMWg0bC4zLDMuMWguMWMxLjI5OS0yLjI5NTYsMy43NjM0LTMuNjgxOSw2LjM5OTgtMy42LDIuNjU1Ni0uMTkzNSw1LjA5NjcsMS40NjE0LDUuOSw0aC4xYy42NDQzLTEuMDU4MiwxLjQ5NDQtMS45NzYzLDIuNS0yLjcsMS4wNjY5LS44MDk4LDIuMzYxLTEuMjY0NSwzLjctMS4zLDEuNzgxNS0uMDQwOSwzLjQ5NDMsLjY4NzksNC43LDIsMS41LDEuNSwyLjMsMy45LDIuMyw3LjFsLS4xLDEyLjNoMFptMTAuNSwwaC00Ljd2LTIxLjJoNC43djIxLjJabS42LTI3LjdjLjAxMTgsLjc0NjktLjI3NjQsMS40NjczLS44LDItLjYxMDUsLjUyNzQtMS4zOTM0LC44MTIxLTIuMiwuOC0uNzQyNy0uMDA5OS0xLjQ1NTQtLjI5NDktMi0uOC0uNTIzNi0uNTMyNy0uODExOC0xLjI1MzEtLjgtMiwuMDA5OS0uNzQyNywuMjk0OS0xLjQ1NTQsLjgtMiwuNTY5OS0uNTI4NywxLjMyMjgtLjgxNTUsMi4xLS44LC43NzMyLC4wMDY3LDEuNTE4MywuMjkwNiwyLjEsLjgsLjQ3NTgsLjU2MjcsLjc1NjQsMS4yNjQ0LC44LDJtMjMuMSwyNy43aC00LjJsLS4zLTMuMmgtLjFjLTEuMzg5MywyLjQxNTEtNC4wMTc1LDMuODQ1Mi02LjgsMy43LTEuOTM5OCwuMTA5Mi0zLjgzMzMtLjYxOTEtNS4yLTItMS41LTEuNi0yLjItNC0yLjItNy4ydi0xMi41aDQuOXYxMS43YzAsNC4xLDEuNCw2LjEsNC4yLDYuMSwxLjk2NDUsLjA2ODMsMy43NDYtMS4xNDYzLDQuNC0zLC4yMTMyLS41NzU1LC4zMTUtMS4xODY0LC4zLTEuOHYtMTNoNC43djE1LjFjLjEsMi4xLC4yLDQuMSwuMyw2LjFtMzUsMGgtNC42di0xMS45YzAtNC0xLjMtNS45LTQtNS45LTEuMjE1NC0uMDMyMS0yLjM3MDksLjUyNy0zLjEsMS41LS44MDksLjk0NDYtMS4yMzY4LDIuMTU2OS0xLjIsMy40djEzaC00LjZ2LTEyLjVjLjAzMDMtMS4zMzU0LS4zMTYzLTIuNjUyNC0xLTMuOC0uNjU3OS0uOTM4Ny0xLjc1NTgtMS40Njg3LTIuOS0xLjQtMS4yNDA0LS4wMzgzLTIuNDEyNywuNTY2Ny0zLjEsMS42LS43NzcyLDEuMDM0MS0xLjE2NjQsMi4zMDgyLTEuMSwzLjZ2MTIuN2gtNC41di0xNS4xYzAtMS45LDAtMy45LS4xLTYuMWg0bC4yLDMuMWguMWMxLjExMy0yLjMyNzksMy41MjQtMy43NTA4LDYuMS0zLjYsMi42NTU2LS4xOTM1LDUuMDk2NywxLjQ2MTQsNS45LDRoLjFjLjY0NDMtMS4wNTgyLDEuNDk0NC0xLjk3NjMsMi41LTIuNywxLjI3OTctLjgzNTEsMi43NzE5LTEuMjg2Myw0LjMtMS4zLDEuNzUxOC0uMDM3LDMuNDMyMywuNjkzNiw0LjYsMiwxLjUsMS41LDIuMywzLjksMi4zLDcuMWwuMSwxMi4zWm0tMTMxLjUsMjQuOGMwLTMuNC0yLTUtNi01LjEtMS4xNDEyLS4wMzMyLTIuMjgyMywuMDY3NS0zLjQsLjN2MTBoMy4zYzEuNjA2LC4wOTE3LDMuMTg0NC0uNDQ2NCw0LjQtMS41LDEuMDg3Ni0uOTIsMS43MTA0LTIuMjc1NSwxLjctMy43bTUuOCwyMS4xaC01Yy0uODMwMy0yLjI3NTQtMS40NjU5LTQuNjE3MS0xLjktNy0uMTc2MS0xLjU2NDktLjg0MDktMy4wMzQ2LTEuOS00LjItLjk3NTMtLjkwMTUtMi4yNzM3LTEuMzcwMy0zLjYtMS4zaC0yLjl2MTIuNGgtNC44di0yOS4xYzIuNTQzNS0uNDMwNiw1LjEyMDUtLjYzMTQsNy43LS42LDQsMCw3LC43LDguOCwyLjMsMS43Njk3LDEuMzg2NiwyLjc0MjIsMy41NTYzLDIuNiw1LjgsLjAxMiwxLjc2NzItLjYyOSwzLjQ3NjUtMS44LDQuOC0uOTc5NiwxLjIyNTYtMi4zMDI3LDIuMTMxLTMuNzk5OSwyLjZ2LjFjMiwuNywzLjQsMi43LDQuMyw1LjksLjcsMi41LDEsNC4yLDEuMyw1LC4yNjgyLDEuMTE4NywuNjAyMSwyLjIyMDYsMSwzLjNtMTUuOS0xMi45Yy4wNTIxLTEuMjc1MS0uMjk3Ny0yLjUzNDQtMS0zLjYtLjgxODgtMS4yODYyLTIuMjc5Ny0yLjAxNjctMy44LTEuOS0xLjQ2NzYtLjAwMDQtMi44NDUzLC43MDctMy43LDEuOS0uODQ0NSwxLjA1NTItMS4zMzQ1LDIuMzUtMS40LDMuN2w5LjktLjFoMFptNC42LDEuM2MtLjAwNzMsLjcwNDQtLjA3NDIsMS40MDY5LS4yLDIuMWgtMTQuMmMtLjEzNiwxLjg0ODcsLjY1LDMuNjQ1MiwyLjEsNC44LDEuMzAxMSwxLjA0MDUsMi45MzU2LDEuNTczNCw0LjYsMS41LDEuOTc5NywuMDQzNiwzLjk0OTItLjI5NTksNS44LTFsLjcsMy4zYy0yLjI0NjMsLjkzNjYtNC42Njc1LDEuMzc5OS03LjEsMS4zLTUuNDIyNSwuNDM2LTEwLjE3MTgtMy42MDYzLTEwLjYwNzgtOS4wMjg4LS4wNDQ3LS41NTYzLS4wNDIxLTEuMTE1NCwuMDA3OS0xLjY3MTItLjEzOTktMi44OTQ4LC43ODUtNS43NDA2LDIuNi04LDEuNzcyLTIuMjYyOSw0LjUyODctMy41Mjk1LDcuNC0zLjQsMi43NjgtLjE3MjIsNS40MjQxLDEuMTE3OSw3LDMuNCwxLjMyMTcsMS45NzgyLDEuOTg2NSw0LjMyMjUsMS45LDYuN20xNy4xLDUuNWMuMDU4OCwxLjgyOC0uNzU4NiwzLjU3NDItMi4yLDQuNy0xLjczMjgsMS4yNzM1LTMuODUyNCwxLjkwOTQtNiwxLjgtMi4xNDk4LC4wNDUzLTQuMjc4Mi0uNDM1My02LjItMS40bDEtMy41YzEuNTk3MywuOTYxOCwzLjQzNiwxLjQ0NzYsNS4zLDEuNCwyLjQsMCwzLjYtLjksMy42LTIuNiwuMDExOC0uNzQ2OS0uMjc2NC0xLjQ2NzMtLjgtMi0uODMzNy0uNjY3LTEuNzgyOC0xLjE3NTQtMi44LTEuNS0zLjgtMS40LTUuNy0zLjQtNS43LTYuMS0uMDExOS0xLjc2NzgsLjc1NjUtMy40NTA5LDIuMS00LjYsMS41ODc0LTEuMjU3OCwzLjU3Ny0xLjg5NzMsNS42LTEuOCwxLjg4NTEtLjA2OTgsMy43NTMyLC4zNzk5LDUuNCwxLjNsLTEsMy4zYy0xLjMwMDQtLjc3NjktMi43ODUyLTEuMTkxMi00LjMtMS4yLS44Mjg5LS4wNzc3LTEuNjU1LC4xNzM3LTIuMywuNy0uNTAxOCwuNDY1Mi0uNzkwOSwxLjExNTgtLjgsMS44LC4wMDMxLC43MDc1LC4zMzU5LDEuMzczLC45LDEuOCwuOTA3LC42MDc3LDEuODc5OSwxLjExMDksMi45LDEuNSwzLjUsMS40LDUuMywzLjUsNS4zLDYuNG0xNy02LjhjLjA1MjEtMS4yNzUxLS4yOTc3LTIuNTM0NC0xLTMuNi0uNzk3OS0xLjMwOTMtMi4yNzM5LTIuMDQ3My0zLjgtMS45LTEuNSwwLTIuMiwuNy0zLjIsMS45LS44MDM1LDEuMDc4Mi0xLjI4ODUsMi4zNi0xLjQsMy43bDkuNC0uMWgwWm00LjYsMS4zYy0uMDA3MywuNzA0NC0uMDc0MiwxLjQwNjktLjIsMi4xaC0xMy43Yy0uMDg5NCwxLjg0MDQsLjY4NzcsMy42MTY1LDIuMSw0LjgsLjgsMSwyLjIsMS41LDQuMSwxLjUsMS45Nzk3LC4wNDM2LDMuOTQ5Mi0uMjk1OSw1LjgtMWwuNywzLjNjLTIuMjQ5LC45Mjc0LTQuNjY4MywxLjM3MDQtNy4xLDEuMy0yLjY5NjgsLjA2NTUtNS4zMDE1LS45ODM2LTcuMi0yLjktMS45NDYyLTIuMTE2NS0yLjk1NTctNC45Mjg5LTIuOC03LjgtLjA5MTktMi44ODgyLC44Mjc2LTUuNzE3NywyLjYtOCwxLjY2NTMtMi4xMjEyLDQuMjAzNC0zLjM3MTksNi45LTMuNCwyLjc2NDUtLjE1NDQsNS40MTIyLDEuMTMxNyw3LDMuNCwxLjI0MjIsMi4wMDkzLDEuODY4LDQuMzM4NywxLjgsNi43bTkuMS0xOS40djMxaC00Ljh2LTMxaDQuOFptOS45LDB2MzFoLTV2LTMxaDVabTE5LDE4LjFjLjAzNTktMS4yNTk4LS4yNzU1LTIuNTA1My0uOS0zLjYtLjgxODgtMS4yODYyLTIuMjc5Ny0yLjAxNjctMy44LTEuOS0xLjQ5MDQsLjAxOTgtMi44OSwuNzE5Ni0zLjgsMS45LS44NDQ1LDEuMDU1Mi0xLjMzNDUsMi4zNS0xLjQsMy43bDkuOS0uMWgwWm00LjIsMS4zYy4wMjE3LC43MDE1LS4wMTE4LDEuNDAzNy0uMSwyLjFoLTE0Yy0uMDMxNSwxLjgwODgsLjY5MzUsMy41NDg3LDIsNC44LDEuMzM5NSwxLjA0MSwzLjAwNTEsMS41NzI2LDQuNywxLjUsMS45NDc5LC4wNTMxLDMuODg2NS0uMjg3LDUuNy0xbC42LDMuM2MtMi4xNzI4LC45NDc0LTQuNTMxNSwxLjM5MTctNi45LDEuMy01LjQyMjUsLjQzNi0xMC4xNzE4LTMuNjA2My0xMC42MDc4LTkuMDI4OC0uMDQ0Ny0uNTU2My0uMDQyMS0xLjExNTQsLjAwNzktMS42NzEyLS4xMzk5LTIuODk0OCwuNzg1LTUuNzQwNiwyLjYtOCwxLjc3Mi0yLjI2MjksNC41Mjg3LTMuNTI5NSw3LjQtMy40LDIuNzY4LS4xNzIyLDUuNDI0MSwxLjExNzksNywzLjQsMS4wNzk4LDIuMDY2NCwxLjYyOTYsNC4zNjg2LDEuNiw2LjdtMTUuNi01LjVjLS40NjE4LS4wODMtLjkzMTEtLjExNjUtMS40LS4xLTEuNTEwOS0uMDcwNC0yLjk0OTgsLjY0OTEtMy44LDEuOS0uODM3OCwxLjIzNjItMS4yNTgyLDIuNzA3OC0xLjIsNC4ydjExLjJoLTQuOHYtMTQuNmMwLTIuNCwwLTQuNi0uMS02LjdoNC4xbC4yLDRoLjFjLjQ0MjEtMS4zMjA0LDEuMjgwMi0yLjQ3MjUsMi40LTMuMywxLjAwMTktLjY5MDMsMi4xODM3LTEuMDcyNiwzLjQtMS4xLC40MDI4LS4wMjU2LC44MDcxLC4wMDgxLDEuMiwuMWwtLjEsNC40aDBabS01NS4yLTE2OS44Qzc0Mi4yMzM2LDExLjc3MDcsNzQ0LjEzNjcsNS45MTc4LDc0My43LDBjLTUuMiwuMi0xMS40LDMuNC0xNC45LDcuOC0zLjc0NTgsNC4yODQ0LTUuNTIzMyw5Ljk0MzMtNC45LDE1LjYsNS4yLC41LDEwLjktMi43LDE0LjUtNy4xbTI2LjQsNTcuNWMtMS42MDA5LDUuMTE4NS0zLjg4ODQsOS45OTYyLTYuOCwxNC41LTQuMyw2LjMtOC45LDEyLjMtMTUuNiwxMi41LTYuOSwuMS05LjEtMy45LTE2LjktMy45LTcuMiwwLTkuNywzLjctMTYuMSw0LTYuNiwuMy0xMS43LTYuNS0xNi0xMi44LTguNy0xMi43LTE1LjMtMzUuNC02LjQtNTAuNCw0LjMwNC03LjY1NTcsMTIuMzIwMS0xMi40ODA2LDIxLjEtMTIuNyw2LjYtLjIsMTIuNyw0LjMsMTYuNiw0LjMsMy43LDAsMTEuMS01LjUsMTkuMS00LjcsMy4xLC4xLDEyLjcsMS40LDE4LjUsMTAuMS0uNCwuMy0xMS4yLDYuNS0xMSwxOC43LDAsMTUuNSwxMy41LDIwLjIsMTMuNSwyMC40IiBzdHlsZT0iZmlsbDogIzIzMWYyMCI+PC9wYXRoPiA8L3N2Zz4="/>
+                </th>
+            </tr>
+        </table>
+        <table style="margin-top: 5mm; width: 100%">
+            <tr>
+                <th>iSTYLE Stores d.o.o. Beograd</th>
+                <th>Za: <?= $order->getBillingAddress()->getName()?></th>
+            </tr>
+            <tr>
+                <td><?= $this->getData("address1")?></td>
+                <td>Tel: <?= $order->getBillingAddress()->getTelephone()?></td>
+            </tr>
+            <tr>
+                <td><?= $this->getData("address2")?></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>011 285 44 13</td>
+                <td></td>
+            </tr>
+        </table>
+        <table style="margin-top: 10mm; width: 100%">
+            <tr>
+                <td>Matic&#x30C;ni broj: 17481720</td>
+            </tr>
+            <tr>
+                <td>Šifra delatnosti: 4778</td>
+            </tr>
+            <tr>
+                <td><strong>Žiro rac&#x30C;un: 265-1110310005655-09 </strong></td>
+            </tr>
+            <tr>
+                <td>PIB: 102825661</td>
+            </tr>
+        </table>
+        <table style="margin-top: 15mm; width: 91%;">
+            <tr>
+                <td style="width: 40%"><strong>Datum: <?= $order->getCreatedAt()?></strong></td>
+                <td style="width: 31%;"><strong>Predrac&#x30C;un br: <?= $order->getIncrementId() ?></strong></td>
+                <td style="width: 29%; text-align: right;"><strong>Rok važenja: <?= $this->getData("orderExpiration")?></strong></td>
+            </tr>
+        </table>
+        <table class="with_borders" style="margin-top: 2mm; width: 91%">
+            <tr>
+                <td><strong>Šifra</strong></td>
+                <td><strong>Proizvod</strong></td>
+                <td><strong>Kol</strong></td>
+                <td><strong>Iznos sa PDV</strong></td>
+            </tr>
+            <?php
+            foreach ($this->getData("order_items") as $item)
+            {
+                ?>
+                <tr>
+                    <td><?= $item['sku']?></td>
+                    <td><?= $item['name']?></td>
+                    <td><?= $item['qty_ordered']?></td>
+                    <td><?= $item['price_incl_tax']?></td>
+                </tr>
+                <?php
+            }
+            ?>
+        </table>
+        <table style="margin-top: 15mm;margin-right: 20mm;width: 55%; float: right;">
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>Ukupno</td>
+                <td style="text-align: right"><?= $order->getSubtotalInclTax()?></td>
+            </tr>
+            <tr>
+                <td>Isporuka</td>
+                <td style="text-align: right"><?= $order->getShippingDescription() ?></td>
+            </tr>
+            <tr>
+                <td>Ukupno bez PDV-a</td>
+                <td style="text-align: right"><?= $order->getSubtotal()?></td>
+            </tr>
+            <tr>
+                <td>PDV</td>
+                <td style="text-align: right"><?= $order->getTaxAmount() ?></td>
+            </tr>
+            <?php if($order->getData("rounding_unit")) : ?>
+                <tr>
+                    <td>Zaokruživanje</td>
+                    <td style="text-align: right"><?= $order->getData("rounding_unit") ?></td>
+                </tr>
+            <?php endif; ?>
+            <tr>
+                <td><strong>Ukupno sa PDV-om</strong></td>
+                <td style="text-align: right"><strong><?= $order->getGrandTotal()?></strong></td>
+            </tr>
+        </table>
+        <table style="width: 91%; position: absolute; bottom: 7mm;">
+            <tr>
+                <td style="text-align: center">Profaktura je punovažna i bez pec&#x30C;ata</td>
+            </tr>
+        </table>
+    </body>
+</html>
+

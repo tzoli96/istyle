@@ -15,6 +15,7 @@ define([
   'Oander_IstyleCheckout/js/view/billing-address/base',
   'Oander_IstyleCheckout/js/view/billing-address/sort',
   'Magento_Ui/js/lib/view/utils/dom-observer',
+  'uiRegistry'
 ], function (
   $,
   ko,
@@ -31,7 +32,8 @@ define([
   billingAddressValidate,
   billingAddressBase,
   billingAddressSort,
-  domObserver) {
+  domObserver,
+  registry) {
   'use strict';
 
   var mixin = {
@@ -368,6 +370,7 @@ define([
       Array.prototype.forEach.call(formElements.titles, function (title) {
         var formId = title.getAttribute('data-tab');
         var isActive = title.parentNode.classList.contains('active');
+        var isCompany = registry.get('checkout.steps.billing-step.payment.afterMethods.billing-address-form.form-fields.is_company');
 
         title.addEventListener('click', function () {
           Array.prototype.forEach.call(formElements.titles, function (tabTitle) {
@@ -377,6 +380,13 @@ define([
           title.parentNode.classList.add('active');
           formElements.form.setAttribute('data-tab', formId);
           self.formTransform(formId);
+
+          if (formId === 'billing-company' && isCompany) {
+            isCompany.value(1);
+          }
+          else {
+            isCompany.value(0);
+          }
 
           billingAddressValidate.checkValidatedFields($('.form--billing-address'));
         });
@@ -436,11 +446,6 @@ define([
       $(formElements.vatIdField).hide();
       if ($(formElements.vatIdField).hasClass('vat-required')) $(formElements.vatIdField).removeClass('_required');
 
-      if ($(formElements.pfpjField).length) {
-        $(formElements.pfpjField).hide();
-        $(formElements.pfpjField).removeClass('_required');
-      }
-
       $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text($t('First Name'));
       $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text($t('Last Name'));
     },
@@ -456,11 +461,6 @@ define([
       $(formElements.companyField).addClass('_required');
       $(formElements.vatIdField).show();
       if ($(formElements.vatIdField).hasClass('vat-required')) $(formElements.vatIdField).addClass('_required');
-
-      if ($(formElements.pfpjField).length) {
-        $(formElements.pfpjField).show();
-        $(formElements.pfpjField).addClass('_required');
-      }
 
       $(formElements.form).find('[name="billingAddressshared.firstname"] > .label').text($t('Contact person firstname'));
       $(formElements.form).find('[name="billingAddressshared.lastname"] > .label').text($t('Contact person lastname'));

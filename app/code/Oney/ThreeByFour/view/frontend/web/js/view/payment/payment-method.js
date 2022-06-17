@@ -16,7 +16,6 @@ define(
                 validate_url: 'facilypay/validate/phone',
                 error: ko.observable(null),
                 verifiedBilling: ko.observable(false),
-                verifiedShipping: ko.observable(false),
             },
             getBillingAddressFormName: function () {
                 return "billing-address-form-oney_facilypay";
@@ -25,24 +24,22 @@ define(
                 if (address == null) {
                     return false;
                 }
-                const postal_validated = config.getPostalRegex().test(address.postcode)
-                if (!postal_validated) {
-                    this.error(config.getError('postal'));
-                }
+
                 const phone_validated = config.getPhoneRegex().test(address.telephone)
+
                 if (!phone_validated) {
                     this.error(config.getError('phone'));
                 }
-                return postal_validated && phone_validated;
+
+                return phone_validated;
             },
             verified: function () {
-                return this.verifiedBilling() && this.verifiedShipping();
+                return this.verifiedBilling();
             },
             initialize: function () {
                 var self = this;
                 this._super();
                 this.verifiedBilling(this.verifyAddress(quote.billingAddress()));
-                this.verifiedShipping(this.verifyAddress(quote.shippingAddress()));
 
                 this.renderSimulationText(quote.getTotals()());
 
@@ -50,17 +47,22 @@ define(
                     self.renderSimulationText(value);
                 });
 
-                quote.shippingAddress.subscribe(function (address) {
-                    self.verifiedShipping(self.verifyAddress(address));
-                })
                 quote.billingAddress.subscribe(function (address) {
                     self.verifiedBilling(self.verifyAddress(address));
                 })
                 return true;
             },
+            sleep: function(ms) {
+                var start = new Date().getTime(),
+                    expire = start + ms;
+
+                while (new Date().getTime() < expire) {}
+            },
             afterPlaceOrder: function () {
+                var self = this;
+
                 window.location.replace(window.checkoutConfig.payment.oney_facilypay.redirect_url);
-                sleep(5);
+                this.sleep(5000);
             },
             getTitle: function () {
                 return config.getTitle(this.getCode());

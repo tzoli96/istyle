@@ -39,7 +39,7 @@ class PointBlock implements ObserverInterface
         $order = $observer->getEvent()->getOrder();
         if ($order->getData(Attribute::LOYALTY_DISCOUNT)) {
             try {
-                $transactionId = $this->salesforceHelper->blockCustomerAffiliatePoints(intval($order->getData(Attribute::LOYALTY_POINT)));
+                $transactionId = $this->salesforceHelper->blockCustomerAffiliatePoints(intval($order->getData(Attribute::LOYALTY_POINT)), $order->getIncrementId());
                 if($transactionId)
                     $order->setData(Attribute::LOYALTY_BLOCK_TRANSACTION_ID,$transactionId);
                 else

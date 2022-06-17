@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceBlock class="\Oander\CustomerExtend\Block\Address\Edit"  name="customer_address_edit" template="Oander_CustomerExtend::address/edit.phtml">
+        <referenceBlock name="customer_address_edit">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Oander_CustomerExtend::address/edit.phtml</argument>
+            </action>
             <block class="\Magento\Framework\View\Element\Template" name="city" template="Oander_CustomerExtend::address/fields/city.phtml" cacheable="false"/>
             <block class="\Magento\Framework\View\Element\Template" name="company" template="Oander_CustomerExtend::address/fields/company.phtml" cacheable="false"/>
             <block class="\Magento\Framework\View\Element\Template" name="country_id" template="Oander_CustomerExtend::address/fields/country.phtml" cacheable="false"/>
@@ -11,7 +14,8 @@
             <block class="\Magento\Framework\View\Element\Template" name="street" template="Oander_CustomerExtend::address/fields/street.phtml" cacheable="false"/>
             <block class="\Magento\Framework\View\Element\Template" name="telephone" template="Oander_CustomerExtend::address/fields/telephone.phtml" cacheable="false"/>
             <block class="\Magento\Framework\View\Element\Template" name="vat_id" template="Oander_CustomerExtend::address/fields/vat_id.phtml" cacheable="false"/>
-            <!--<block class="\Magento\Framework\View\Element\Template" name="is_company" template="Oander_CustomerExtend::address/fields/iscompany.phtml" cacheable="false"/> ISCOMPANY-->
+            <block class="\Magento\Framework\View\Element\Template" name="is_company" template="Oander_CustomerExtend::address/fields/iscompany.phtml" cacheable="false"/>
+            <block class="\Magento\Framework\View\Element\Template" name="pfpj_reg_no" template="Oander_CustomerExtend::address/fields/reg-number.phtml" cacheable="false"/>
         </referenceBlock>
     </body>
 </page>

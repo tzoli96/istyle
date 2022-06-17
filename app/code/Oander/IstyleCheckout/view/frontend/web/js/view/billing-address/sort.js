@@ -41,10 +41,10 @@ define([
 
           switch (formId) {
             case 'billing-person':
-              self.setOrder(elem, orders.individual_position, orders.width);
+              if (elem) self.setOrder(elem, orders.individual_position, orders.width);
               break;
             case 'billing-company':
-              self.setOrder(elem, orders.company_position, orders.width);
+              if (elem) self.setOrder(elem, orders.company_position, orders.width);
               break;
           }
         }
@@ -59,6 +59,8 @@ define([
      */
     setOrder: function (elem, order, width) {
       var billingAddressBlock = document.querySelector('.block.block--billing-address');
+      var additionalStreetElem = billingAddressBlock.querySelector('.form-group[name="billingAddressshared.street.1"]');
+      var additionalStreetField = billingAddressBlock.querySelector('.form-group[name="billingAddressshared.street.1"] .form-control');
 
       if (elem) {
         var field = elem.querySelector('.form-control');
@@ -69,7 +71,25 @@ define([
 
         if (order !== null) {
           elem.style.order = order;
-          if (field) field.setAttribute('tabindex', order);
+          field.closest('.form-group').style.display = 'block';
+
+          if (field) {
+            field.setAttribute('tabindex', order);
+
+            if (elem.classList.contains('street') && !!additionalStreetElem) {
+              additionalStreetElem.style.order = order + 1;
+              additionalStreetElem.style.display = 'block';
+              additionalStreetField.setAttribute('tabindex',  order + 1);
+            }
+          }
+        } else {
+          if (field) {
+            field.closest('.form-group').style.display = 'none';
+
+            if (field.classList.contains('street') && additionalStreetElem) {
+              additionalStreetElem.style.display = 'none';
+            }
+          }
         }
 
         if (width === 100) elem.classList.add('w-100');

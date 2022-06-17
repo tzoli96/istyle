@@ -12,8 +12,9 @@ define([
 	'mage/translate',
 	'Oander_IstyleCheckout/js/view/billing-address/sort',
 	'Magento_Ui/js/lib/view/utils/dom-observer',
+	'Oander_IstyleCheckout/js/action/trigger-shipping-methods',
 	'domReady!'
-], function ($, ko, customer, quote, checkoutData, helpers, L, getPaymentInformationAction, store, saveShipping, $t, sort, domObserver) {
+], function ($, ko, customer, quote, checkoutData, helpers, L, getPaymentInformationAction, store, saveShipping, $t, sort, domObserver, triggerShippingMethods) {
 	'use strict';
 
 	// Shipping methods tabs
@@ -209,9 +210,11 @@ define([
 					}
 				}
 
-				store.shippingMethod.selectedTitle(value.method_title);
-				store.shippingMethod.selectedCode(value.method_code);
-				store.shippingMethod.selectedCarrierCode(value.carrier_code);
+				if (value) {
+					store.shippingMethod.selectedTitle(value.method_title);
+					store.shippingMethod.selectedCode(value.method_code);
+					store.shippingMethod.selectedCarrierCode(value.carrier_code);
+				}
 
 				this.shippingAddressVisibleCondition();
 			}, this);
@@ -532,6 +535,13 @@ define([
 
 				return visible();
 			});
+		},
+		/**
+		 * Triggers and reload available shipping methods
+		 * @returns {Void}
+		 */
+		triggerShippingMethodsAction: function (){
+			triggerShippingMethods.action();
 		},
 
 		/**

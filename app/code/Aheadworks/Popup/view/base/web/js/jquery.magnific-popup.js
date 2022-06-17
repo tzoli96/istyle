@@ -265,28 +265,13 @@ MagnificPopup.prototype = {
 			_wrapClasses += ' mfp-align-top';
 		}
 
-	
-
 		if(mfp.fixedContentPos) {
 			mfp.wrap.css({
 				overflow: mfp.st.overflowY,
 				overflowX: 'hidden',
 				overflowY: mfp.st.overflowY
 			});
-		} else {
-			mfp.wrap.css({ 
-				top: _window.scrollTop(),
-				position: 'absolute'
-			});
 		}
-		if( mfp.st.fixedBgPos === false || (mfp.st.fixedBgPos === 'auto' && !mfp.fixedContentPos) ) {
-			mfp.bgOverlay.css({
-				height: _document.height(),
-				position: 'absolute'
-			});
-		}
-
-		
 
 		if(mfp.st.enableEscapeKey) {
 			// Close on ESC key

@@ -2,6 +2,10 @@
 
 namespace Oander\AddressFieldsProperties\Ui\Component\Listing\Column;
 
+use Magento\Framework\UrlInterface as UrlInterface;
+use Magento\Framework\View\Element\UiComponent\ContextInterface as ContextInterface;
+use Magento\Framework\View\Element\UiComponentFactory as UiComponentFactory;
+
 class AddressFieldsAttributeActions extends \Magento\Ui\Component\Listing\Columns\Column
 {
 
@@ -11,18 +15,18 @@ class AddressFieldsAttributeActions extends \Magento\Ui\Component\Listing\Column
     protected $urlBuilder;
 
     /**
-     * @param \Magento\Framework\View\Element\UiComponent\ContextInterface $context
-     * @param \Magento\Framework\View\Element\UiComponentFactory $uiComponentFactory
-     * @param \Magento\Framework\UrlInterface $urlBuilder
+     * @param ContextInterface $context
+     * @param UiComponentFactory $uiComponentFactory
+     * @param UrlInterface $urlBuilder
      * @param array $components
      * @param array $data
      */
     public function __construct(
-        \Magento\Framework\View\Element\UiComponent\ContextInterface $context,
-        \Magento\Framework\View\Element\UiComponentFactory $uiComponentFactory,
-        \Magento\Framework\UrlInterface $urlBuilder,
-        array $components = [],
-        array $data = []
+        ContextInterface   $context,
+        UiComponentFactory $uiComponentFactory,
+        UrlInterface       $urlBuilder,
+        array              $components = [],
+        array              $data = []
     ) {
         $this->urlBuilder = $urlBuilder;
         parent::__construct($context, $uiComponentFactory, $components, $data);
