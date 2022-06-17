@@ -6,7 +6,6 @@ use Magento\Catalog\Model\Product\OptionFactory;
 use Magento\Framework\Stdlib\StringUtils;
 use Magento\Framework\View\Element\Template\Context;
 use Magento\Catalog\Block\Product\ImageBuilder;
-use Magento\Bundle\Model\Product\Type;
 use Magento\Catalog\Model\Product;
 
 class DefaultRenderer extends \Magento\Sales\Block\Order\Item\Renderer\DefaultRenderer
@@ -16,17 +15,12 @@ class DefaultRenderer extends \Magento\Sales\Block\Order\Item\Renderer\DefaultRe
      */
     protected $imageBuilder;
 
-    /**
-     * @var Type
-     */
-    protected $bundleType;
 
     /**
      * @param Context $context
      * @param StringUtils $string
      * @param OptionFactory $productOptionFactory
      * @param ImageBuilder $imageBuilder
-     * @param Type $bundleType
      * @param array $data
      */
     public function __construct(
@@ -34,11 +28,9 @@ class DefaultRenderer extends \Magento\Sales\Block\Order\Item\Renderer\DefaultRe
         StringUtils   $string,
         OptionFactory $productOptionFactory,
         ImageBuilder  $imageBuilder,
-        Type          $bundleType,
         array         $data = []
     )
     {
-        $this->bundleType = $bundleType;
         $this->imageBuilder = $imageBuilder;
         parent::__construct($context, $string, $productOptionFactory, $data);
     }
@@ -59,21 +51,18 @@ class DefaultRenderer extends \Magento\Sales\Block\Order\Item\Renderer\DefaultRe
     }
 
     /**
-     * @param Product $product
+     * @param $item
      * @return bool
      */
-    public function hasBundleParent(Product $product)
+    public function hasBundleParent($item)
     {
-        if (!$product->getTypeId() == Type::TYPE_CODE) {
+        $response = false;
+        if (!$item->getProduct()->getTypeId() == Type::TYPE_CODE) {
             return false;
         }
-        $response = false;
-        $bundleArray = $this->bundleType->getParentIdsByChild($product->getId());
-        foreach ($bundleArray as $bundleProductId) {
-            if ($this->getOrder()->getItemById($bundleProductId)) {
-                $response = true;
-                break;
-            }
+        $parentItem = $item->getParentItem();
+        if ($parentItem && $parentItem->getProduct()->getTypeId == Type::TYPE_CODE) {
+            $response = true;
         }
         return $response;
     }
