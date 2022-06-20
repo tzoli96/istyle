@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "30045a3437bf3b6e5b7fc479569392c5",
+    "content-hash": "d3474cb8929b8daf0355fc03361d4345",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -882,20 +882,6 @@
                 "ssl",
                 "tls"
             ],
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2022-05-24T11:56:16+00:00"
         },
         {
@@ -1092,20 +1078,6 @@
                 "license",
                 "spdx",
                 "validator"
-            ],
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
-                    "type": "tidelift"
-                }
             ],
             "time": "2022-05-23T07:37:50+00:00"
         },
@@ -1432,20 +1404,6 @@
                 "rest",
                 "web service"
             ],
-            "funding": [
-                {
-                    "url": "https://github.com/GrahamCampbell",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/Nyholm",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/guzzle",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2022-06-09T21:36:50+00:00"
         },
         {
@@ -1603,20 +1561,6 @@
                 "stream",
                 "uri",
                 "url"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/GrahamCampbell",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/Nyholm",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/guzzlehttp/psr7",
-                    "type": "tidelift"
-                }
             ],
             "time": "2022-03-20T21:51:18+00:00"
         },
@@ -7704,11 +7648,11 @@
         },
         {
             "name": "oander/module-algoliasearch",
-            "version": "dev-bugfix/58037-first-in-stock-checkbox-onload-checked",
+            "version": "dev-bugfix/57782-set-instantsearch-use-replace-state",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-algoliasearch.git",
-                "reference": "c20d9cc3dbc32514222fcc9ba66b0ec23a3c304e"
+                "reference": "eeaae7f85e5946bf5981c76f49a714ea1d598a2c"
             },
             "require": {
                 "oander/module-warehouse-manager": ">=1.4.25.6"
@@ -7732,7 +7676,7 @@
                 }
             ],
             "description": "Algolia Search integration extend",
-            "time": "2022-06-14T12:48:08+00:00"
+            "time": "2022-04-19T14:41:52+00:00"
         },
         {
             "name": "oander/module-amasty-xnotif-bundle-price-switcher-extender",
@@ -9561,11 +9505,11 @@
         },
         {
             "name": "oander/module-salesforce",
-            "version": "1.3.0.10",
+            "version": "1.3.0.11",
             "source": {
                 "type": "git",
                 "url": "git@github.com:oandermedia/oander-salesforce.git",
-                "reference": "13f8a3e2c678a91e578a2a66c1342a5717f19b4f"
+                "reference": "413a23ef86191cf72c42cbd2a6222fe9068777d1"
             },
             "require": {
                 "oander/module-base": "*",
@@ -9584,7 +9528,7 @@
                 "proprietary"
             ],
             "description": "salesforce",
-            "time": "2022-05-25T08:15:01+00:00"
+            "time": "2022-06-20T09:12:27+00:00"
         },
         {
             "name": "oander/module-salesforce-service",
@@ -10614,20 +10558,6 @@
                 "x.509",
                 "x509"
             ],
-            "funding": [
-                {
-                    "url": "https://github.com/terrafrost",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/phpseclib",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
-                    "type": "tidelift"
-                }
-            ],
             "time": "2022-04-04T04:57:45+00:00"
         },
         {
@@ -11014,16 +10944,6 @@
                 "linter",
                 "parser",
                 "validator"
-            ],
-            "funding": [
-                {
-                    "url": "https://github.com/Seldaek",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/seld/jsonlint",
-                    "type": "tidelift"
-                }
             ],
             "time": "2022-04-01T13:37:23+00:00"
         },
@@ -15207,6 +15127,5 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "platform-dev": []
 }
