@@ -78,9 +78,8 @@ class Data extends AbstractHelper
     public function getMaxRedeemablePoints($quote = null)
     {
         $quote = $this->_getQuote($quote);
-        $grandTotal = ($quote->getData(Attribute::LOYALTY_DISCOUNT)) ? $quote->getGrandTotal() + $quote->getData(Attribute::LOYALTY_DISCOUNT)
-            : $quote->getGrandTotal();
-        return $this->getMaxRedeemablePointsBySum($grandTotal);
+        $calcTotal = floatval($quote->getShippingAddress()->getShippingInclTax()) + floatval($quote->getShippingAddress()->getSubtotalInclTax()) + floatval($quote->getShippingAddress()->getDiscountAmount());
+        return $this->getMaxRedeemablePointsBySum($calcTotal);
     }
 
     public function getMaxRedeemablePointsBySum($calcTotal) {
