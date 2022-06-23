@@ -10,7 +10,8 @@ define([
 
     $.widget('mage.salesforceLoyaltyHistory', {
         options: {
-            history: [],
+            AffiliatedTransactions: [],
+            countryMMYID: ""
         },
         size: 10,
         current: 0,
@@ -25,7 +26,7 @@ define([
             this._calculatePoints();
             this._loadDataToTable(0);
 
-            if (self.options.history.AffiliatedTransactions.length > self.size) {
+            if (self.options.AffiliatedTransactions.length > self.size) {
                 self._createPagination();
                 self._loadDataByPaginationIndex();
             }
@@ -37,13 +38,13 @@ define([
          */
         _calculatePoints: function() {
             var self = this,
-                transatcionsArray = self.options.history.AffiliatedTransactions;
+                transatcionsArray = self.options.AffiliatedTransactions;
 
             if (transatcionsArray.length) {
                 transatcionsArray.reduce(function(previousItem, currentItem) {
                     var currentMagentoOrderNumber = currentItem.MagentoOrderNumber,
                         currentItemIdentifier = currentMagentoOrderNumber + '_' + currentItem.TransactionType.replace(/ /g, '').toLowerCase();
-                    
+
                         if (!previousItem[currentItemIdentifier] && currentMagentoOrderNumber) {
                         previousItem[currentItemIdentifier] = {
                             'TransactionType': currentItem.TransactionType,
@@ -55,18 +56,18 @@ define([
                             'InvoiceNumber': currentItem.InvoiceNumber,
                             'OrderId': currentItem.OrderId,
                         };
-    
+
                         self.modifiedTransactionsArray.push(previousItem[currentItemIdentifier]);
                     }
 
                     if (!currentItem.hasOwnProperty('MagentoOrderNumber') || currentMagentoOrderNumber === null) {
                         self.modifiedTransactionsArray.push(currentItem);
                     }
-    
+
                     if (typeof previousItem[currentItemIdentifier] !== 'undefined') {
                         previousItem[currentItemIdentifier].NoOfPoints += currentItem.NoOfPoints;
                     }
-                    
+
                     return previousItem;
                 }, {});
             }
@@ -117,7 +118,7 @@ define([
                 if (values == index) {
                     for (var value in history[values]) {
                         var elem = history[values][value];
-                        historyTable.append(self._createRow(elem.TransactionDate, elem.MagentoOrderNumber, elem.OrderId, elem.MMYOrderNumber, elem.TransactionType, elem.NoOfPoints));
+                        historyTable.append(self._createRow(elem.TransactionDate, elem.MagentoOrderNumber, elem.OrderId, elem.MMYOrderNumber, elem.TransactionType, elem.NoOfPoints, self.options.countryMMYID));
                     }
                 }
             }
@@ -131,9 +132,10 @@ define([
          * @param {String} mmyOrderNumber
          * @param {String} type
          * @param {Number} points
+         * @param {String} countryMMYID
          * @returns {HTMLElement}
-        */
-        _createRow: function (date, mOrderNumber, mOrderId, mmyOrderNumber, type, points) {
+         */
+        _createRow: function (date, mOrderNumber, mOrderId, mmyOrderNumber, type, points, countryMMYID) {
             var row = $('<tr></tr>'),
                 newDate = new Date(date),
                 year = newDate.getFullYear(),
@@ -157,8 +159,13 @@ define([
                 }
                 row.append($('<td><span class="tooltip globe"><span class="tooltip__content">' + $t('Online purchase') + '</span></span></td>'));
             } else {
-                row.append($('<td class="mmyorder">' + mmyOrderNumber + '</td>'));
-                row.append($('<td><span class="tooltip store"><span class="tooltip__content">' + $t('In-store purchase') + '</span></span></td>'));
+                if (mmyOrderNumber && (mmyOrderNumber.toString().startsWith(countryMMYID.substring(0,2)))) {
+                    row.append($('<td class="mmyorder">' + mmyOrderNumber + '</td>'));
+                    row.append($('<td><span class="tooltip globe"><span class="tooltip__content">' + $t('Online purchase') + '</span></span></td>'));
+                } else {
+                    row.append($('<td class="mmyorder">' + mmyOrderNumber + '</td>'));
+                    row.append($('<td><span class="tooltip store"><span class="tooltip__content">' + $t('In-store purchase') + '</span></span></td>'));
+                }
             }
 
             row.append($('<td>' + type + '</td>'));

@@ -23,12 +23,14 @@ class Config extends AbstractHelper
     const SETTINGS_PATH_SPENDING            = 'oander_salesforce/salesforce_loyalty_spending';
     const SETTINGS_PATH_REGISTRATION        = 'oander_salesforce/salesforce_loyalty_registration';
     const SETTINGS_PATH_LOYALTY_SERVICE     = 'oander_salesforce/salesforce_loyalty_service';
+    const SETTINGS_PATH_MMYID               = 'oander_salesforce/salesforce_mmyid';
     const SETTINGS_SPENDING_ENABLED         = 'enabled';
     const SETTINGS_SERVICE_ENABLED          = 'enabled';
     const SETTINGS_SPENDING_CARTINFO        = 'cart_info';
     const SETTINGS_SPENDING_MAXPERCENT      = 'max_percent';
     const SETTINGS_SPENDING_POINTVALUE      = 'point_value';
     const SETTINGS_REGISTRATION_TYPE        = 'type';
+    const SETTINGS_SERVICE_MMYID            = 'mmyid';
 
     /**
      * @var array
@@ -42,6 +44,10 @@ class Config extends AbstractHelper
      * @var array
      */
     private $loyaltyService;
+    /**
+     * @var array
+     */
+    private $mmyid;
     /**
      * Config constructor.
      *
@@ -61,6 +67,10 @@ class Config extends AbstractHelper
         );
         $this->loyaltyService = (array)$this->scopeConfig->getValue(
             self::SETTINGS_PATH_LOYALTY_SERVICE,
+            ScopeInterface::SCOPE_STORE
+        );
+        $this->mmyid = (array)$this->scopeConfig->getValue(
+            self::SETTINGS_PATH_MMYID,
             ScopeInterface::SCOPE_STORE
         );
     }
@@ -111,5 +121,13 @@ class Config extends AbstractHelper
     public function getLoyaltyServiceEnabled() : bool
     {
         return (bool)$value = $this->loyaltyService[self::SETTINGS_SERVICE_ENABLED] ?? false;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCountryMMYID() : int
+    {
+        return (int)$value = $this->mmyid[self::SETTINGS_SERVICE_MMYID] ?? 0;
     }
 }

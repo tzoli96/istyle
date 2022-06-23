@@ -40,6 +40,13 @@
 					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
 				</field>
 			</group>
+			<group id="salesforce_mmyid" sortOrder="20" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+				<label>MMY IDs config for purchase type</label>
+				<field id="mmyid" type="text" sortOrder="10" showInWebsite="1" showInStore="0" showInDefault="0" translate="label">
+					<label>Country MMY ID</label>
+					<comment/>
+				</field>
+			</group>
 		</section>
 		<section id="sales">
 			<group id="totals_sort">
