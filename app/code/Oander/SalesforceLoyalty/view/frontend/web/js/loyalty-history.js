@@ -159,7 +159,7 @@ define([
                 }
                 row.append($('<td><span class="tooltip globe"><span class="tooltip__content">' + $t('Online purchase') + '</span></span></td>'));
             } else {
-                if (mmyOrderNumber && (mmyOrderNumber.toString().startsWith(countryMMYID.substring(0,2)))) {
+                if (mmyOrderNumber && (mmyOrderNumber.toString().startsWith(countryMMYID.toString().substring(0,2)))) {
                     row.append($('<td class="mmyorder">' + mmyOrderNumber + '</td>'));
                     row.append($('<td><span class="tooltip globe"><span class="tooltip__content">' + $t('Online purchase') + '</span></span></td>'));
                 } else {
