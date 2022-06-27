@@ -18,12 +18,17 @@ class History extends \Magento\Framework\View\Element\Template
      * @var \Magento\Sales\Model\OrderFactory
      */
     private $orderFactory;
+    /**
+     * @var \Oander\SalesforceLoyalty\Helper\Config
+     */
+    private $configHelper;
 
     /**
      * @param \Magento\Framework\View\Element\Template\Context $context
      * @param Proxy $customerSession
      * @param \Oander\SalesforceLoyalty\Helper\Salesforce $salesforceHelper
      * @param \Magento\Sales\Model\OrderFactory $orderFactory
+     * @param \Oander\SalesforceLoyalty\Helper\Config $configHelper
      * @param array $data
      */
     public function __construct(
@@ -31,6 +36,7 @@ class History extends \Magento\Framework\View\Element\Template
         Proxy                                            $customerSession,
         \Oander\SalesforceLoyalty\Helper\Salesforce      $salesforceHelper,
         \Magento\Sales\Model\OrderFactory                $orderFactory,
+        \Oander\SalesforceLoyalty\Helper\Config $configHelper,
         array $data = []
     )
     {
@@ -38,6 +44,7 @@ class History extends \Magento\Framework\View\Element\Template
         $this->salesforceHelper = $salesforceHelper;
         $this->customerSession = $customerSession;
         $this->orderFactory = $orderFactory;
+        $this->configHelper = $configHelper;
     }
 
     /**
@@ -56,7 +63,8 @@ class History extends \Magento\Framework\View\Element\Template
             }
             $result['AffiliatedTransactions'][$index]['OrderId'] = $orderId;
         }
-        return $result;
+
+        return $result['AffiliatedTransactions'];
     }
 
     /**
@@ -67,7 +75,8 @@ class History extends \Magento\Framework\View\Element\Template
     public function getScriptOptions()
     {
         $params = [
-            'history' => $this->getLoyaltyPointsHistory(),
+            'countryMMYID' => $this->configHelper->getCountryMMYID(),
+            'AffiliatedTransactions' => $this->getLoyaltyPointsHistory(),
         ];
 
         return json_encode($params);
