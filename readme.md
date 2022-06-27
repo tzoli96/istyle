@@ -18,3 +18,5 @@ A projekthez be lett állítva **sass-lint**. Ezzel egységesen (konfigurációs
     3. Use specific config file (betallózni!): `{project-root}/.sass-lint.yml`
  
  Angol nyelvű dev dokumentáció: https://github.com/idok/sass-lint-plugin
+
+  
