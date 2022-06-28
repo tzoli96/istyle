@@ -9,7 +9,7 @@
 /** @var  $block \Magento\Sales\Block\Order\Item\Renderer\DefaultRenderer */
 $_item = $block->getItem();
 ?>
-<li id="order-item-row-<?= $_item->getId() ?>  <?= ($block->hasBundleParent($_item)) ?? "profile-order-card__products-simple" ;?>">
+<li id="order-item-row-<?= $_item->getId()?>" class="<?= ($block->hasBundleParent($_item)) ?? "profile-order-card__products-simple" ;?>">
     <img src="<?= $block->getProductImageUrl($_item->getProduct())?>" alt="">
     <p class="profile-order-card__details">
         <a href="<?= $_item->getProduct()->getProductUrl()?>">
