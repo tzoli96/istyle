@@ -58,11 +58,14 @@ class DefaultRenderer extends \Magento\Sales\Block\Order\Item\Renderer\DefaultRe
     public function hasBundleParent($item)
     {
         $response = false;
-        if (!$item->getTypeId() == Type::TYPE_CODE) {
+        if (!$item->getProductType() == Type::TYPE_CODE) {
             return false;
         }
         $parentItem = $item->getParentItem();
         if ($parentItem && $parentItem->getTypeId() == Type::TYPE_CODE) {
+            $response = true;
+        }
+        if($item->getProductType() == "virtual") {
             $response = true;
         }
         return $response;
